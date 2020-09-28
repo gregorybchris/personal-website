@@ -3,6 +3,7 @@ import PostRecord from "../models/PostRecord";
 import React from "react";
 import "./Post.css";
 import linkImage from "../images/link.svg";
+import detailsImage from "../images/details.svg";
 import { formatDate } from "../controllers/DateTimeUtilities";
 import { makeURL, getSearchParams } from "../controllers/RequestUtilities";
 
@@ -15,12 +16,14 @@ export interface PostProps {
 export interface PostState {
   contentLink: string;
   thumbnailUrl: string;
+  showSummary: boolean;
 }
 
 class Post extends React.Component<PostProps, PostState> {
   state = {
     contentLink: "",
     thumbnailUrl: "",
+    showSummary: false,
   };
 
   componentDidMount() {
@@ -52,11 +55,7 @@ class Post extends React.Component<PostProps, PostState> {
   getThumbnailElement() {
     if (this.state.thumbnailUrl)
       return (
-        <a
-          className="Post-thumbnail-link"
-          href={this.state.contentLink}
-          title={this.getSummary()}
-        >
+        <a className="Post-thumbnail-link" href={this.state.contentLink}>
           <img
             className="Post-thumbnail"
             src={this.state.thumbnailUrl}
@@ -104,21 +103,21 @@ class Post extends React.Component<PostProps, PostState> {
     return elements;
   };
 
-  getSummary = () => {
+  getSummaryElement = () => {
     const summary = this.props.post.summary;
-    if (summary) return summary;
-    else return "";
+    if (summary && this.state.showSummary)
+      return <div className="Post-summary">{summary}</div>;
+  };
+
+  toggleSummary = () => {
+    this.setState({ showSummary: !this.state.showSummary });
   };
 
   render() {
     return (
       <div className="Post" id={this.props.post.post_id}>
         <div className="Post-text">
-          <a
-            className="Post-title-link"
-            href={this.state.contentLink}
-            title={this.getSummary()}
-          >
+          <a className="Post-title-link" href={this.state.contentLink}>
             {this.getTitleInfo()}
           </a>
           {this.getSeriesInfo()}
@@ -137,6 +136,11 @@ class Post extends React.Component<PostProps, PostState> {
         >
           <img className="Post-page-link-image" src={linkImage} alt=""></img>
         </a>
+        <a className="Post-page-link" onClick={this.toggleSummary}>
+          <img className="Post-page-link-image" src={detailsImage} alt=""></img>
+        </a>
+
+        {this.getSummaryElement()}
       </div>
     );
   }

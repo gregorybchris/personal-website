@@ -3,6 +3,7 @@
   border-left: 4px solid rgb(78, 82, 92);
   margin-bottom: 40px;
   padding: 8px 0px 8px 30px;
+  max-width: 90%;
 }
 
 .Post-title {
@@ -55,4 +56,16 @@
 .Post-page-link-image {
   width: 18px;
   filter: invert(0.5);
+  margin-right: 10px;
+}
+
+.Post-page-link-image:hover {
+  cursor: pointer;
+}
+
+.Post-summary {
+  margin-top: 15px;
+  color: rgb(208, 213, 223);
+  font-size: 14px;
+  text-align: justify;
 }
