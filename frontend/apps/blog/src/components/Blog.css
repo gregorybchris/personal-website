@@ -1,0 +1,25 @@
+.Blog {
+  font-family: "Montserrat";
+}
+
+.Blog-header {
+  padding: 26px 40px 20px;
+}
+
+.Blog-title {
+  color: rgb(208, 213, 223);
+  font-size: calc(30px);
+  font-weight: bold;
+}
+
+.Blog-title-link {
+  text-decoration: none;
+}
+
+.Blog-search {
+  margin-left: 40px;
+}
+
+.Blog-posts {
+  padding: 40px 40px 40px;
+}
