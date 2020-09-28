@@ -3,37 +3,36 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-  - main
+- main
 
-  resources:
-  - repo: self
+resources:
+- repo: self
 
-  variables:
-    dockerRegistryServiceConnection: 'e558d8c0-ffc1-40a0-8730-98efef5f770c'
-    imageRepository: 'blog'
-    containerRegistry: 'personalsite.azurecr.io'
-    dockerfilePath: 'frontend/apps/blog/Dockerfile'
-    tag: '$(Build.BuildId)'
-    
-    vmImageName: 
+variables:
+  dockerRegistryServiceConnection: 'e558d8c0-ffc1-40a0-8730-98efef5f770c'
+  imageRepository: 'blog'
+  containerRegistry: 'personalsite.azurecr.io'
+  dockerfilePath: 'frontend/apps/blog/Dockerfile'
+  tag: '$(Build.BuildId)'
   
-  stages:
-  - stage: Build
-    displayName: Build and push stage
-    jobs:  
-    - job: Build
-      displayName: Build
-      pool:
-        vmImage: $(vmImageName)
-      steps:
-      - task: Docker@2
-        displayName: Build and push an image to container registry
-        inputs:
-          command: buildAndPush
-          repository: $(imageRepository)
-          dockerfile: $(dockerfilePath)
-          containerRegistry: $(dockerRegistryServiceConnection)
-          tags: |
-            $(tag)
-            latest
-  
+  vmImageName: 
+
+stages:
+- stage: Build
+  displayName: Build and push stage
+  jobs:  
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        command: buildAndPush
+        repository: $(imageRepository)
+        dockerfile: $(dockerfilePath)
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(tag)
+          latest
