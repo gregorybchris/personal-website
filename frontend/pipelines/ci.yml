@@ -15,7 +15,7 @@ variables:
   dockerfilePath: 'frontend/apps/blog/Dockerfile'
   tag: '$(Build.BuildId)'
   
-  vmImageName: 
+  vmImageName: 'ubuntu-latest'
 
 stages:
 - stage: Build
