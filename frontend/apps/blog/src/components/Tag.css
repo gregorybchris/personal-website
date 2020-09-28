@@ -1,6 +1,7 @@
 .Tag {
   display: inline-block;
   margin-right: 10px;
+  margin-bottom: 7px;
   padding: 6px 10px;
   background-color: rgb(51, 55, 65);
   color: rgb(123, 131, 146);
