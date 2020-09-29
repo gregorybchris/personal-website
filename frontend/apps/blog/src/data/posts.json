@@ -2965,8 +2965,35 @@
       "culture",
       "art"
     ],
-    "summary": "Pop music has been using one melodic device extensively over the past few years. Sitting on the supertonic is a sound/style that is really easy to work with. The note above the tonic, D in the key of C for example, will be consonant with any diatonic chord. It's also just one note away from two other notes that are very easy to resolve to. Many pop songs will repeat the supertonic and easily resolve at any moment to either the tonic or the mediant. The Weeknd may do this more often than any other popular modern artist, but recent music by Post Malone, Katy Perry, Haim, Rhihanna, Justin Timberlake, Zedd, Daft Punk, Taylor Swift, DNCE, The 1975, Glass Animals, Dua Lipa, and Jacob Collier also use the same technique.",
+    "summary": "Pop music has been using one melodic device extensively over the past few years. Sitting on the supertonic is a sound/style that is really easy to work with. The note above the tonic, D in the key of C for example, will be consonant with any diatonic chord. It's also just one note away from two other notes that are very easy to resolve to. Many pop songs will repeat the supertonic and easily resolve at any moment to either the tonic or the mediant. The Weeknd may do this more often than any other popular modern artist, but recent music by Post Malone, Katy Perry, Haim, Rhihanna, Justin Timberlake, Zedd, Daft Punk, Taylor Swift, DNCE, The 1975, Glass Animals, Dua Lipa, and Jacob Collier also uses the same technique.",
     "paid": false,
     "deleted": false
+  },
+  {
+    "post_id": "b9691750-511e-4dc0-8de1-9001473e0f38",
+    "title": "The Pattern That Never Repeats",
+    "content_type": "video",
+    "source": "YouTube",
+    "areas": ["complexity", "mathematics"],
+    "series": "Veritasium",
+    "speaker": null,
+    "episode_number": null,
+    "length": "00:20:54",
+    "date_created": "2019-09-26",
+    "date_posted": "2020-09-28",
+    "link": "https://www.youtube.com/watch?v=NdXOhMiWkGQ",
+    "tags": [
+      "pattern",
+      "periodic",
+      "crystal",
+      "penrose",
+      "symmetry",
+      "infinity",
+      "pentagon",
+      "geometry"
+    ],
+    "summary": "Is there an aperiodic tiling of the plane? Sir Roger Penrose found an aperiodic tiling with just two shapes. Overlaying two Penrose tilings shows Moire patterns of interference that gives some intuitive evidence for aperiodicity. Another two-tile aperiodic tiling uses kites and darts rather than pentagons, rhombuses, and crowns. While there is one set of rules for a Penrose tiling, there exists an uncountably large number of possible tilings. Because each tiling is infinite you can't prove whether one section of a tiling is taken from a different section of another. The ratio of kites to darts approaches the golden ratio, which is closely related to the five-fold symmetry in the Penrose pattern. While crystals can form locally, Penrose tilings require long-range coordination, so people thought that natural crystals couldn't form this way. However these structures have been created experimentally and are now called quasi-crystals.",
+    "paid": false,
+    "deleted": true
   }
 ]

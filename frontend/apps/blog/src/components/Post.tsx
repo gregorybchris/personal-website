@@ -117,9 +117,11 @@ class Post extends React.Component<PostProps, PostState> {
     return (
       <div className="Post" id={this.props.post.post_id}>
         <div className="Post-text">
-          <a className="Post-title-link" href={this.state.contentLink}>
-            {this.getTitleInfo()}
-          </a>
+          <div className="Post-title-wrap">
+            <a className="Post-title-link" href={this.state.contentLink}>
+              {this.getTitleInfo()}
+            </a>
+          </div>
           {this.getSeriesInfo()}
           <div className="Post-date">
             {formatDate(this.props.post.date_posted)}

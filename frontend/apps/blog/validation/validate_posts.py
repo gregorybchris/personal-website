@@ -161,11 +161,13 @@ def validate(posts):
 
         for tag in post.tags:
             tag_length = len(tag)
+            if tag != tag.lower():
+                results.add(f"Tag \"{tag}\" must be lowercase for \"{post.title}\"")
             if len(tag) < FieldConstraints.MIN_TAG_LENGTH:
-                results.add(f"Length of tag {tag} ({tag_length}) for \"{post.title}\" "
+                results.add(f"Length of tag \"{tag}\" ({tag_length}) for \"{post.title}\" "
                             f"is less than {FieldConstraints.MIN_TAG_LENGTH}")
             if len(tag) > FieldConstraints.MAX_TAG_LENGTH:
-                results.add(f"Length of tag {tag} ({tag_length}) for \"{post.title}\" "
+                results.add(f"Length of tag \"{tag}\" ({tag_length}) for \"{post.title}\" "
                             f"is more than {FieldConstraints.MAX_TAG_LENGTH}")
 
     # Validate unused

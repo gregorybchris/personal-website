@@ -10,6 +10,7 @@
   color: rgb(208, 213, 223);
   font-size: calc(30px);
   font-weight: bold;
+  display: inline;
 }
 
 .Blog-title-link {

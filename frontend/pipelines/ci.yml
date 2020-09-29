@@ -12,7 +12,7 @@ variables:
 
 stages:
 - stage: Build
-  displayName: Build and push stage
+  displayName: Build and Push
   jobs:  
   - job: Build
     displayName: Build
@@ -20,7 +20,7 @@ stages:
       vmImage: 'ubuntu-latest'
     steps:
     - task: Docker@2
-      displayName: Build and push an image to container registry
+      displayName: Build and Push
       inputs:
         command: buildAndPush
         repository: $(imageRepository)

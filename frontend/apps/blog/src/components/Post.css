@@ -6,17 +6,19 @@
   max-width: 90%;
 }
 
+.Post-title-wrap {
+  margin-bottom: 4px;
+}
+
 .Post-title {
   color: rgb(208, 213, 223);
   font-weight: bold;
   font-size: 22px;
-  margin-bottom: 4px;
-  display: inline-block;
+  display: inline;
 }
 
 .Post-title-link {
   text-decoration: none;
-  display: block;
 }
 
 .Post-series-info {
