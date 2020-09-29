@@ -1,5 +1,5 @@
 const API_ROOT = "http://localhost:5000";
-const FRONTEND_ROOT = "http://localhost:3000";
+const FRONTEND_ROOT = window.location.origin;
 
 const GET = async (url: string) => {
   const response = await fetch(url);
@@ -24,7 +24,8 @@ const makeQuery = (endpoint: string, params = {}) => {
 };
 
 const makeURL = (params = {}, page = "") => {
-  const noParamURL = page ? `${FRONTEND_ROOT}/${page}` : FRONTEND_ROOT;
+  console.log();
+  const noParamURL = page ? `${FRONTEND_ROOT}$/{page}` : FRONTEND_ROOT;
   return appendParams(noParamURL, params);
 };
 
