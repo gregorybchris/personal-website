@@ -4,6 +4,7 @@ import os
 
 FLASK_RUN_PORT = os.getenv('FLASK_RUN_PORT', 8000)
 FLASK_DEBUG = os.getenv('FLASK_DEBUG', 1)
+FLASK_HOST = os.getenv('FLASK_HOST', None)
 
 # Logging Settings
 

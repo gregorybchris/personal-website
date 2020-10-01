@@ -45,4 +45,5 @@ class App:
     def run(self):
         port = settings.FLASK_RUN_PORT
         debug = 1 if bool(settings.FLASK_DEBUG) else 0
-        self._app.run(port=port, debug=debug)
+        host = settings.FLASK_HOST
+        self._app.run(port=port, debug=debug, host=host)
