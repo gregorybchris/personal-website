@@ -6,10 +6,6 @@ resources:
 
 variables:
   dockerRegistryServiceConnection: 'e558d8c0-ffc1-40a0-8730-98efef5f770c'
-  imageRepository: 'frontend'
-  containerRegistry: 'personalsite.azurecr.io'
-  dockerfilePath: 'frontend/docker/frontend.Dockerfile'
-  dockerContextPath: 'frontend/app'
 
 stages:
 - stage: Build
@@ -24,10 +20,10 @@ stages:
       displayName: Build and Push
       inputs:
         command: buildAndPush
-        repository: $(imageRepository)
-        dockerfile: $(dockerfilePath)
-        buildContext: $(dockerContextPath)
-        containerRegistry: $(dockerRegistryServiceConnection)
+        repository: 'frontend'
+        dockerfile: 'frontend/docker/frontend.Dockerfile'
+        buildContext: 'frontend/app'
+        containerRegistry: 'personalsite.azurecr.io'
         tags: |
           $(Build.BuildId)
           latest
