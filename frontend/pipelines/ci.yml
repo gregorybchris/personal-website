@@ -8,7 +8,7 @@ variables:
   dockerRegistryServiceConnection: 'e558d8c0-ffc1-40a0-8730-98efef5f770c'
   imageRepository: 'blog'
   containerRegistry: 'personalsite.azurecr.io'
-  dockerfilePath: 'frontend/app/Dockerfile'
+  dockerfilePath: 'frontend/docker/frontend.Dockerfile'
 
 stages:
 - stage: Build
