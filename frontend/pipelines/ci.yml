@@ -9,6 +9,7 @@ variables:
   imageRepository: 'frontend'
   containerRegistry: 'personalsite.azurecr.io'
   dockerfilePath: 'frontend/docker/frontend.Dockerfile'
+  dockerContextPath: 'frontend/app'
 
 stages:
 - stage: Build
@@ -25,6 +26,7 @@ stages:
         command: buildAndPush
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
+        buildContext: $(dockerContextPath)
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(Build.BuildId)
