@@ -27,6 +27,7 @@ class Blog extends React.Component<BlogProps, BlogState> {
   };
 
   componentDidMount() {
+    this.setState({ posts: this.state.posts.reverse() });
     const params = getCurrentSearchParams();
     const queryPostId = params.get("postid");
     if (queryPostId) this.setState({ currentPostId: queryPostId });
@@ -107,7 +108,7 @@ class Blog extends React.Component<BlogProps, BlogState> {
           />
         </div>
         <div className="Blog-posts">
-          {this.state.posts.reverse().map((post) => this.createPost(post))}
+          {this.state.posts.map((post) => this.createPost(post))}
         </div>
       </div>
     );
