@@ -6,6 +6,10 @@ resources:
 
 variables:
   dockerRegistryServiceConnection: 'e558d8c0-ffc1-40a0-8730-98efef5f770c'
+  imageRepository: 'backend'
+  containerRegistry: 'personalsite.azurecr.io'
+  dockerfilePath: 'backend/docker/backend.Dockerfile'
+  dockerContextPath: 'backend/src/backend_package'
 
 stages:
 - stage: Build
@@ -20,10 +24,10 @@ stages:
       displayName: Build and Push
       inputs:
         command: buildAndPush
-        repository: 'backend'
-        dockerfile: 'backend/docker/backend.Dockerfile'
-        buildContext: 'backend/src/backend_package'
-        containerRegistry: 'personalsite.azurecr.io'
+        repository: $(imageRepository)
+        dockerfile: $(dockerfilePath)
+        buildContext: $(dockerContextPath)
+        containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(Build.BuildId)
           latest
