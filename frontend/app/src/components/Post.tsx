@@ -134,7 +134,7 @@ class Post extends React.Component<PostProps, PostState> {
 
         <a
           className="Post-page-link"
-          href={makeURL({ postid: this.props.post.post_id })}
+          href={makeURL({ postid: this.props.post.post_id }, "blog")}
         >
           <img className="Post-page-link-image" src={linkImage} alt=""></img>
         </a>

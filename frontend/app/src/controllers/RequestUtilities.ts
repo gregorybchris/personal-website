@@ -24,8 +24,7 @@ const makeQuery = (endpoint: string, params = {}) => {
 };
 
 const makeURL = (params = {}, page = "") => {
-  console.log();
-  const noParamURL = page ? `${FRONTEND_ROOT}$/{page}` : FRONTEND_ROOT;
+  const noParamURL = page ? `${FRONTEND_ROOT}/${page}` : FRONTEND_ROOT;
   return appendParams(noParamURL, params);
 };
 

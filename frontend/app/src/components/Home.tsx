@@ -8,9 +8,7 @@ export interface HomeState {}
 class Home extends React.Component<HomeProps, HomeState> {
   state = {};
 
-  componentDidMount() {
-    console.log("Home mounted");
-  }
+  componentDidMount() {}
 
   render() {
     return (
