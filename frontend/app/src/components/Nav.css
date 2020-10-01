@@ -1,0 +1,16 @@
+.Nav {
+  background-color: rgb(28, 31, 37);
+  padding: 12px 20px;
+  font-family: "Montserrat";
+}
+
+.Nav-page-item {
+  margin: 0px 10px;
+  display: inline-block;
+}
+
+.Nav-page-link {
+  text-decoration: none;
+  color: rgb(230, 230, 230);
+  font-weight: bold;
+}
