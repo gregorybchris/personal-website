@@ -2981,7 +2981,7 @@
     "length": "00:20:54",
     "date_created": "2019-09-26",
     "date_posted": "2020-09-28",
-    "link": "https://www.youtube.com/watch?v=NdXOhMiWkGQ",
+    "link": "https://www.youtube.com/watch?v=48sCx-wBs34",
     "tags": [
       "pattern",
       "periodic",
@@ -2994,6 +2994,6 @@
     ],
     "summary": "Is there an aperiodic tiling of the plane? Sir Roger Penrose found an aperiodic tiling with just two shapes. Overlaying two Penrose tilings shows Moire patterns of interference that gives some intuitive evidence for aperiodicity. Another two-tile aperiodic tiling uses kites and darts rather than pentagons, rhombuses, and crowns. While there is one set of rules for a Penrose tiling, there exists an uncountably large number of possible tilings. Because each tiling is infinite you can't prove whether one section of a tiling is taken from a different section of another. The ratio of kites to darts approaches the golden ratio, which is closely related to the five-fold symmetry in the Penrose pattern. While crystals can form locally, Penrose tilings require long-range coordination, so people thought that natural crystals couldn't form this way. However these structures have been created experimentally and are now called quasi-crystals.",
     "paid": false,
-    "deleted": true
+    "deleted": false
   }
 ]
