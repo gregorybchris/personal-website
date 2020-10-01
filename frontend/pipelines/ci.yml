@@ -6,7 +6,7 @@ resources:
 
 variables:
   dockerRegistryServiceConnection: 'e558d8c0-ffc1-40a0-8730-98efef5f770c'
-  imageRepository: 'blog'
+  imageRepository: 'frontend'
   containerRegistry: 'personalsite.azurecr.io'
   dockerfilePath: 'frontend/docker/frontend.Dockerfile'
 
