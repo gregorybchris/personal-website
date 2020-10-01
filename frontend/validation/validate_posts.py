@@ -9,7 +9,7 @@ from post import Post
 from post_properties import PostProperties
 
 
-DEFAULT_POSTS_FILEPATH = '../src/data/posts.json'
+DEFAULT_POSTS_FILEPATH = '../app/src/data/posts.json'
 
 class FieldConstraints:
     MIN_POST_TAGS = 5
