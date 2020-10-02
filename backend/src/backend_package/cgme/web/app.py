@@ -1,7 +1,10 @@
 import flask
 import json
 import os
+import pathlib
 import pkg_resources
+
+from flask_cors import CORS
 
 from cgme.web import settings
 from cgme.web import logging_utilities
@@ -9,19 +12,23 @@ from cgme.web.codes import HTTPCodes
 
 
 class App:
+    POSTS_FILEPATH = pathlib.Path(__file__).parent.absolute() / '..' / 'data/posts.json'
+
     def __init__(self, logger=None):
         self._logger = logger if logger is not None else logging_utilities.get_logger()
 
         self._app = flask.Flask(__name__)
         self._register_api_endpoints()
+        CORS(self._app)
+        # self._app.config['CORS_HEADERS'] = 'Content-Type'
 
     def _register_api_endpoints(self):
         self._app.route('/api/info', methods=['GET'])(self.api_get_info)
-        self._app.route('/api/data', methods=['GET'])(self.api_get_data)
+        self._app.route('/api/posts', methods=['GET'])(self.api_get_posts)
 
     @logging_utilities.log_context('get_info', context_tag='api')
     def api_get_info(self):
-        info = {
+        response = {
             'author': 'Chris Gregory',
             'index': 'https://pypi.org/project/cgme/',
             'license': 'Apache Software License',
@@ -29,14 +36,16 @@ class App:
             'source': 'https://github.com/gregorybchris/cgme',
             'version': pkg_resources.get_distribution("cgme").version
         }
-        return flask.jsonify(info)
+        return flask.jsonify(response)
 
-    @logging_utilities.log_context('get_data', context_tag='api')
-    def api_get_data(self):
-        data = {
-            'my_data': ':)'
+    @logging_utilities.log_context('get_posts', context_tag='api')
+    def api_get_posts(self):
+        with open(App.POSTS_FILEPATH, 'r') as f:
+            posts = json.load(f)
+        response = {
+            'posts': posts
         }
-        return flask.jsonify(data)
+        return flask.jsonify(response)
 
     @staticmethod
     def error(message, code):
