@@ -1,6 +1,4 @@
 """Setup module for setuptools."""
-import json
-
 from pathlib import Path
 from setuptools import setup, find_packages
 

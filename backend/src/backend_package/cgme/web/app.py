@@ -1,6 +1,5 @@
 import flask
 import json
-import os
 import pathlib
 import pkg_resources
 
@@ -8,7 +7,6 @@ from flask_cors import CORS
 
 from cgme.web import settings
 from cgme.web import logging_utilities
-from cgme.web.codes import HTTPCodes
 
 
 class App:
