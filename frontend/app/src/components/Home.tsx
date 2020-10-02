@@ -11,9 +11,7 @@ class Home extends React.Component<HomeProps, HomeState> {
   componentDidMount() {}
 
   render() {
-    return (
-      <div className="Home">Page is currently empty. Please go to blog.</div>
-    );
+    return <div className="Home">Page is currently empty.</div>;
   }
 }
 

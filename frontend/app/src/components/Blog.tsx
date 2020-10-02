@@ -96,7 +96,7 @@ class Blog extends React.Component<BlogProps, BlogState> {
     return (
       <div className="Blog">
         <div className="Blog-header">
-          <a className="Blog-title-link" href="/">
+          <a className="Blog-title-link" href="/blog">
             <div className="Blog-title">Link Blog</div>
           </a>
         </div>

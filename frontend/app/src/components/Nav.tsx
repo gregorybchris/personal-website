@@ -11,6 +11,11 @@ function Nav() {
         </Link>
       </div>
       <div className="Nav-page-item">
+        <Link className="Nav-page-link" to="/graphics">
+          Graphics
+        </Link>
+      </div>
+      <div className="Nav-page-item">
         <Link className="Nav-page-link" to="/blog">
           Blog
         </Link>
