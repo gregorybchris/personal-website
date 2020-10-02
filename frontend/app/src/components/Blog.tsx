@@ -3,9 +3,11 @@ import PostRecord from "../models/PostRecord";
 import React from "react";
 import SearchBar from "./SearchBar";
 import "./Blog.css";
-import { getCurrentSearchParams } from "../controllers/RequestUtilities";
-
-import posts from "../data/posts.json";
+import {
+  getCurrentSearchParams,
+  makeQuery,
+  GET,
+} from "../controllers/RequestUtilities";
 
 export interface BlogProps {}
 
@@ -17,7 +19,7 @@ export interface BlogState {
 
 class Blog extends React.Component<BlogProps, BlogState> {
   state = {
-    posts: posts,
+    posts: [],
     searchText: "",
     currentPostId: null,
   };
@@ -26,8 +28,10 @@ class Blog extends React.Component<BlogProps, BlogState> {
     this.setState({ searchText: "" });
   };
 
-  componentDidMount() {
-    this.setState({ posts: this.state.posts.reverse() });
+  async componentDidMount() {
+    const postsQuery = makeQuery("posts");
+    const queryResult = await GET(postsQuery);
+    this.setState({ posts: queryResult["posts"].reverse() });
     const params = getCurrentSearchParams();
     const queryPostId = params.get("postid");
     if (queryPostId) this.setState({ currentPostId: queryPostId });

@@ -1,8 +1,11 @@
-const API_ROOT = "http://localhost:5000";
+// const API_ROOT = "http://localhost:8000/api/";
+const API_ROOT = "http://chrisgregoryapi.azurewebsites.net/api/";
 const FRONTEND_ROOT = window.location.origin;
 
-const GET = async (url: string) => {
-  const response = await fetch(url);
+const GET = async (url: string, enable_cors: boolean = true) => {
+  // const options = {};
+  // if (enable_cors) options.mode = "cors";
+  const response = await fetch(url, { mode: "cors" });
   const data = await response.json();
   return data;
 };
@@ -20,7 +23,7 @@ const POST = async (url: string, body: Object) => {
 };
 
 const makeQuery = (endpoint: string, params = {}) => {
-  return appendParams(API_ROOT + endpoint, params);
+  return appendParams(`${API_ROOT}${endpoint}`, params);
 };
 
 const makeURL = (params = {}, page = "") => {
