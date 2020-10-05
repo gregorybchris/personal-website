@@ -1,10 +1,11 @@
+import React from "react";
+
 import Post from "./Post";
 import PostRecord from "../models/PostRecord";
-import React from "react";
 import SearchBar from "./SearchBar";
 import "./Blog.css";
 import {
-  getCurrentSearchParams,
+  getSearchParams,
   makeQuery,
   GET,
 } from "../controllers/RequestUtilities";
@@ -32,13 +33,13 @@ class Blog extends React.Component<BlogProps, BlogState> {
     const postsQuery = makeQuery("posts");
     const queryResult = await GET(postsQuery);
     this.setState({ posts: queryResult["posts"].reverse() });
-    const params = getCurrentSearchParams();
+    const params = getSearchParams();
     const queryPostId = params.get("postid");
     if (queryPostId) this.setState({ currentPostId: queryPostId });
   }
 
   getVideoTime = () => {
-    const params = getCurrentSearchParams();
+    const params = getSearchParams();
     const paramTime = params.get("t");
     return paramTime === null ? "" : paramTime;
   };

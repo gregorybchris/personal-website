@@ -1,11 +1,19 @@
-// const API_ROOT = "http://localhost:8000/api/";
-const API_ROOT = "http://chrisgregoryapi.azurewebsites.net/api/";
+import { isDevEnvironment } from "./EnvironmentUtilities";
+
+const DEV_BACKEND_ROOT = "http://localhost:8000/api/";
+const PROD_BACKEND_ROOT = "https://chrisgregoryapi.azurewebsites.net/api/";
 const FRONTEND_ROOT = window.location.origin;
 
+const getBackendRoot = () => {
+  return isDevEnvironment() ? DEV_BACKEND_ROOT : PROD_BACKEND_ROOT;
+};
+
 const GET = async (url: string, enable_cors: boolean = true) => {
-  // const options = {};
-  // if (enable_cors) options.mode = "cors";
-  const response = await fetch(url, { mode: "cors" });
+  const fetchOptions: RequestInit = {};
+  if (enable_cors) {
+    fetchOptions.mode = "cors";
+  }
+  const response = await fetch(url, fetchOptions);
   const data = await response.json();
   return data;
 };
@@ -23,7 +31,7 @@ const POST = async (url: string, body: Object) => {
 };
 
 const makeQuery = (endpoint: string, params = {}) => {
-  return appendParams(`${API_ROOT}${endpoint}`, params);
+  return appendParams(`${getBackendRoot()}${endpoint}`, params);
 };
 
 const makeURL = (params = {}, page = "") => {
@@ -37,20 +45,9 @@ const appendParams = (url: string, params: Record<string, string>) => {
   return fullUrl.href;
 };
 
-const getSearchParams = (url: string): URLSearchParams => {
-  const fullUrl = new URL(url);
+const getSearchParams = (url: string = ""): URLSearchParams => {
+  const fullUrl = url ? new URL(url) : window.location;
   return new URLSearchParams(fullUrl.search);
 };
 
-const getCurrentSearchParams = (): URLSearchParams => {
-  return new URLSearchParams(window.location.search);
-};
-
-export {
-  makeQuery,
-  makeURL,
-  GET,
-  POST,
-  getSearchParams,
-  getCurrentSearchParams,
-};
+export { makeQuery, makeURL, GET, POST, getSearchParams };

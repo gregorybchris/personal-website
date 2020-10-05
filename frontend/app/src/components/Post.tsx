@@ -1,11 +1,14 @@
+import React from "react";
+
 import Tag from "./Tag";
 import PostRecord from "../models/PostRecord";
-import React from "react";
 import "./Post.css";
-import linkImage from "../images/link.svg";
-import detailsImage from "../images/details.svg";
+
 import { formatDate } from "../controllers/DateTimeUtilities";
 import { makeURL, getSearchParams } from "../controllers/RequestUtilities";
+
+import linkImage from "../images/link.svg";
+import detailsImage from "../images/details.svg";
 
 export interface PostProps {
   post: PostRecord;

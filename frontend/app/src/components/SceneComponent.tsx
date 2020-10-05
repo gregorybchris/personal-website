@@ -1,5 +1,6 @@
-import { Engine, Scene } from "@babylonjs/core";
 import React, { useEffect, useRef } from "react";
+
+import { Engine, Scene } from "@babylonjs/core";
 
 export default (props: any) => {
   const reactCanvas = useRef(null);

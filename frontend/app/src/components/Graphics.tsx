@@ -1,4 +1,8 @@
 import React from "react";
+
+import SceneComponent from "./SceneComponent";
+import "./Graphics.css";
+
 import {
   Color3,
   FreeCamera,
@@ -6,8 +10,6 @@ import {
   MeshBuilder,
   Vector3,
 } from "@babylonjs/core";
-import SceneComponent from "./SceneComponent";
-import "./Graphics.css";
 
 let box: any;
 
