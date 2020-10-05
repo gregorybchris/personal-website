@@ -23,7 +23,7 @@ setup(
     install_requires=requirements,
     extras_require={'testing': test_requirements},
     packages=find_packages(exclude=['tests']),
-    entry_points={"console_scripts": ["cgme=cgme.cli.main:run"]},
+    entry_points={"console_scripts": ["cgme=cgme.cli.main:run_cli"]},
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',

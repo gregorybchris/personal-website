@@ -1,15 +1,17 @@
 import argparse
 import json
+import pathlib
 import re
 
 from sty import fg
 from tabulate import tabulate
 
-from post import Post
-from post_properties import PostProperties
+from cgme.validation.post import Post
+from cgme.validation.post_properties import PostProperties
 
 
-DEFAULT_POSTS_FILEPATH = '../src/backend_package/cgme/data/posts.json'
+DATA_DIR_PATH = pathlib.Path(__file__).parent.absolute() / '..' / 'data'
+DEFAULT_POSTS_FILEPATH = DATA_DIR_PATH / 'posts.json'
 
 
 class FieldConstraints:
@@ -220,9 +222,12 @@ def parse_args():
     return args
 
 
+def run_validation(filepath=DEFAULT_POSTS_FILEPATH):
+    posts = get_posts_from_file(filepath)
+    results = validate(posts)
+    results.print()
+
+
 if __name__ == '__main__':
     args = parse_args()
-    posts = get_posts_from_file(args.filepath)
-    results = validate(posts)
-
-    results.print()
+    run_validation(args.filepath)

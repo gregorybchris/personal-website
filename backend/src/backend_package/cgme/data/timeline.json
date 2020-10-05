@@ -1,0 +1,17 @@
+[
+  {
+    "event_id": "1",
+    "event_date": "2015-01-01",
+    "deleted": false
+  },
+  {
+    "event_id": "2",
+    "event_date": "2016-02-02",
+    "deleted": false
+  },
+  {
+    "event_id": "3",
+    "event_date": "2017-03-03",
+    "deleted": false
+  }
+]
