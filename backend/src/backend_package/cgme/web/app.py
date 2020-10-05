@@ -12,7 +12,7 @@ from cgme.web import logging_utilities
 class App:
     DATA_DIR_PATH = pathlib.Path(__file__).parent.absolute() / '..' / 'data'
     POSTS_FILEPATH = DATA_DIR_PATH / 'posts.json'
-    TIMELINE_FILEPATH = DATA_DIR_PATH / 'timeline.json'
+    EVENTS_FILEPATH = DATA_DIR_PATH / 'events.json'
 
     def __init__(self, logger=None):
         self._logger = logger if logger is not None else logging_utilities.get_logger()
@@ -25,7 +25,7 @@ class App:
     def _register_api_endpoints(self):
         self._app.route('/api/info', methods=['GET'])(self.api_get_info)
         self._app.route('/api/posts', methods=['GET'])(self.api_get_posts)
-        self._app.route('/api/timeline', methods=['GET'])(self.api_get_timeline)
+        self._app.route('/api/events', methods=['GET'])(self.api_get_events)
 
     @logging_utilities.log_context('get_info', context_tag='api')
     def api_get_info(self):
@@ -48,12 +48,12 @@ class App:
         }
         return flask.jsonify(response)
 
-    @logging_utilities.log_context('get_timeline', context_tag='api')
-    def api_get_timeline(self):
-        with open(App.TIMELINE_FILEPATH, 'r') as f:
-            timeline = json.load(f)
+    @logging_utilities.log_context('get_events', context_tag='api')
+    def api_get_events(self):
+        with open(App.EVENTS_FILEPATH, 'r') as f:
+            events = json.load(f)
         response = {
-            'timeline': timeline
+            'events': events
         }
         return flask.jsonify(response)
 

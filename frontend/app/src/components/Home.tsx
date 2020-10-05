@@ -12,7 +12,12 @@ class Home extends React.Component<HomeProps, HomeState> {
   componentDidMount() {}
 
   render() {
-    return <div className="Home">Page is currently empty.</div>;
+    return (
+      <div className="Home">
+        "Computers aren't the thing, they're the thing that gets us to the
+        thing" - Joe MacMillan
+      </div>
+    );
   }
 }
 

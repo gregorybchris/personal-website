@@ -6,11 +6,11 @@ import re
 from sty import fg
 from tabulate import tabulate
 
-from cgme.validation.post import Post
-from cgme.validation.post_properties import PostProperties
+from cgme.validation.blog.post import Post
+from cgme.validation.blog.post_properties import PostProperties
 
 
-DATA_DIR_PATH = pathlib.Path(__file__).parent.absolute() / '..' / 'data'
+DATA_DIR_PATH = pathlib.Path(__file__).parent.absolute() / '..' / '..' / 'data'
 DEFAULT_POSTS_FILEPATH = DATA_DIR_PATH / 'posts.json'
 
 

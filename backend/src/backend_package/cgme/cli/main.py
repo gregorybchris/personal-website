@@ -1,7 +1,7 @@
 import argparse
 
 from cgme.web.app import App
-from cgme.validation.validate_posts import run_validation
+from cgme.validation.blog.validate_posts import run_validation
 
 
 SUBPARSER_NAME_APP = 'app'

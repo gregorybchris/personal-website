@@ -1,0 +1,42 @@
+[
+  {
+    "event_id": "693289ed-d46e-4b91-a693-0bc79a74f0cb",
+    "name": "Vector",
+    "date": "2012-05-01",
+    "event_type": "project",
+    "content_type": "game",
+    "short_description": "Multiplayer marbles game.",
+    "long_description": "Vector was an online multiplayer game made with Java sockets. Players would connect to a server through LAN and login with secure credentials. Users could customize their account and talk with friends in a chat room. From there users could challenge friends to a game where they would try to knock each other's marbles off of a table. Records of wins and losses were kept for each user to be accessed whenever they logged in.",
+    "deleted": false
+  },
+  {
+    "event_id": "4d3ef1f2-f70d-4bb0-9acc-aa0e1548fdf7",
+    "name": "Park Tudor Chemical Database",
+    "date": "2013-05-01",
+    "event_type": "project",
+    "content_type": "website",
+    "short_description": "Inventory tracking for chemical storage.",
+    "long_description": "The science department at my high school requested an online inventory of chemicals in storage. I worked with two other students in my Dynamic Web Development class to build this project over the course of a semester. The project is now used in my high school to clear expired chemicals off shelves, alert the science department when chemicals are about to expire so more can be purchased, and automatically send teachers safety information by email when they use hazardous chemicals from storage. QR codes on bottles are scanned by mobile phone and a desktop web portal can be accessed by the science department chair to view all of the database information.",
+    "deleted": false
+  },
+  {
+    "event_id": "4cb0925b-5508-4e34-9b7e-755110522a7a",
+    "name": "Scheduler HD",
+    "date": "2013-08-01",
+    "event_type": "project",
+    "content_type": "website",
+    "short_description": "Academic schedule sharing website.",
+    "long_description": "I worked with a friend after our junior year of high school to create a web application that let students share their schedules and compare teachers and free periods. Students could make accounts, add friends, and easily find common free periods. We started and finished the site in just a few weeks so that we could go live before classes started.",
+    "deleted": false
+  },
+  {
+    "event_id": "49b26570-8f62-459f-a575-8ed118b68032",
+    "name": "Unsupervised Genre Discovery",
+    "date": "2016-07-01",
+    "event_type": "project",
+    "content_type": "program",
+    "short_description": "Semi-supervised genre clustering for personalized music recommendation.",
+    "long_description": "This was a short project that I worked on consulting for Fyrno, a music discovery app that helps you find new music from up-and-coming artists. I used public music APIs to do semi-supervised genre clustering.",
+    "deleted": false
+  }
+]
