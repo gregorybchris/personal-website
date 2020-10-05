@@ -9,7 +9,6 @@ import {
   makeQuery,
   GET,
 } from "../controllers/RequestUtilities";
-import { findAllByDisplayValue } from "@testing-library/react";
 
 export interface BlogProps {}
 
@@ -64,7 +63,7 @@ class Blog extends React.Component<BlogProps, BlogState> {
       (this.state.currentPostId != null &&
         post.post_id !== this.state.currentPostId)
     ) {
-      return true;
+      return false;
     }
 
     if (
@@ -73,7 +72,7 @@ class Blog extends React.Component<BlogProps, BlogState> {
       post.series?.toLowerCase()?.includes(lowerSearchText) ||
       post.speaker?.toLowerCase()?.includes(lowerSearchText)
     ) {
-      return false;
+      return true;
     }
 
     for (const tag of post.tags) {
