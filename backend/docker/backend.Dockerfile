@@ -10,4 +10,4 @@ RUN pip install -e .
 ENV FLASK_HOST="0.0.0.0"
 EXPOSE 8000
 
-CMD [ "cgme" ]
+ENTRYPOINT [ "cgme", "app" ]
