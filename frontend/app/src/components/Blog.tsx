@@ -9,6 +9,7 @@ import {
   makeQuery,
   GET,
 } from "../controllers/RequestUtilities";
+import { findAllByDisplayValue } from "@testing-library/react";
 
 export interface BlogProps {}
 
@@ -35,7 +36,9 @@ class Blog extends React.Component<BlogProps, BlogState> {
     this.setState({ posts: queryResult["posts"].reverse() });
     const params = getSearchParams();
     const queryPostId = params.get("postid");
-    if (queryPostId) this.setState({ currentPostId: queryPostId });
+    if (queryPostId) {
+      this.setState({ currentPostId: queryPostId });
+    }
   }
 
   getVideoTime = () => {
@@ -54,32 +57,37 @@ class Blog extends React.Component<BlogProps, BlogState> {
 
   isPostEnabled = (post: PostRecord) => {
     const searchText = this.state.searchText;
-
-    if (post.deleted) return false;
-
-    if (this.state.currentPostId)
-      return post.post_id === this.state.currentPostId;
-
-    if (searchText.length === 0) return true;
-
-    if (post.title.toLowerCase().includes(searchText.toLowerCase()))
-      return true;
+    const lowerSearchText = searchText.toLowerCase();
 
     if (
-      post.series &&
-      post.series.toLowerCase().includes(searchText.toLowerCase())
-    )
+      post.deleted ||
+      (this.state.currentPostId != null &&
+        post.post_id !== this.state.currentPostId)
+    ) {
       return true;
+    }
 
-    if (post.speaker?.toLowerCase().includes(searchText.toLowerCase()))
-      return true;
+    if (
+      searchText.length === 0 ||
+      post.title.toLowerCase().includes(lowerSearchText) ||
+      post.series?.toLowerCase()?.includes(lowerSearchText) ||
+      post.speaker?.toLowerCase()?.includes(lowerSearchText)
+    ) {
+      return false;
+    }
 
     for (const tag of post.tags) {
-      if (searchText.startsWith("#") && searchText.substring(1) === tag)
+      if (searchText.startsWith("#") && searchText.substring(1) === tag) {
         return true;
-
-      if (tag.includes(searchText)) return true;
+      }
     }
+
+    for (const tag of post.tags) {
+      if (tag.includes(searchText)) {
+        return true;
+      }
+    }
+
     return false;
   };
 

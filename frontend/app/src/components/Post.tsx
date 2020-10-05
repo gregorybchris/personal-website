@@ -22,6 +22,8 @@ export interface PostState {
   showSummary: boolean;
 }
 
+const YOUTUBE_SOURCE = "YouTube";
+
 class Post extends React.Component<PostProps, PostState> {
   state = {
     contentLink: "",
@@ -34,7 +36,7 @@ class Post extends React.Component<PostProps, PostState> {
     const postLinkParams = getSearchParams(postLink);
 
     if (!this.state.thumbnailUrl) {
-      if (this.props.post.source === "YouTube") {
+      if (this.props.post.source === YOUTUBE_SOURCE) {
         const idParam = postLinkParams.get("v");
         this.setState({
           thumbnailUrl: `https://img.youtube.com/vi/${idParam}/maxresdefault.jpg`,
@@ -56,7 +58,7 @@ class Post extends React.Component<PostProps, PostState> {
   };
 
   getThumbnailElement() {
-    if (this.state.thumbnailUrl)
+    if (this.state.thumbnailUrl) {
       return (
         <a className="Post-thumbnail-link" href={this.state.contentLink}>
           <img
@@ -67,6 +69,7 @@ class Post extends React.Component<PostProps, PostState> {
           ></img>
         </a>
       );
+    }
   }
 
   createTag = (tag: string) => {
@@ -75,29 +78,32 @@ class Post extends React.Component<PostProps, PostState> {
 
   getSeriesInfo = () => {
     let elements = [];
-    if (this.props.post.series !== null)
+    if (this.props.post.series !== null) {
       elements.push(
         <div className="Post-series-info" key="series">
           {this.props.post.series}
         </div>
       );
-    if (this.props.post.episode_number)
+    }
+    if (this.props.post.episode_number) {
       elements.push(
         <div className="Post-series-info" key="episode">
           &nbsp;{`(#${this.props.post.episode_number})`}
         </div>
       );
+    }
     return elements;
   };
 
   getTitleInfo = () => {
     let elements = [];
-    if (this.props.post.speaker !== null)
+    if (this.props.post.speaker !== null) {
       elements.push(
         <div className="Post-title" key="speaker">
           {`${this.props.post.speaker}: `}&nbsp;
         </div>
       );
+    }
     elements.push(
       <div className="Post-title" key="title">
         {this.props.post.title}
@@ -108,8 +114,9 @@ class Post extends React.Component<PostProps, PostState> {
 
   getSummaryElement = () => {
     const summary = this.props.post.summary;
-    if (summary && this.state.showSummary)
+    if (summary && this.state.showSummary) {
       return <div className="Post-summary">{summary}</div>;
+    }
   };
 
   toggleSummary = () => {
