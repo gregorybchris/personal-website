@@ -4,9 +4,10 @@ interface EventRecord {
   date: string;
   event_type: string;
   content_type: string;
-  short_description: string;
-  long_description: string;
-  deleted: boolean;
+  description: string;
+  has_code: boolean;
+  has_download: boolean;
+  archived: boolean;
 }
 
 export default EventRecord;

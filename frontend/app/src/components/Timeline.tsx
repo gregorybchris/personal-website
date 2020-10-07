@@ -20,10 +20,13 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
   }
 
   populateCanvas = (events: EventRecord[]) => {
-    // console.log("Events (Timeline): ", this.props.events);
+    console.log("Events: ", events);
     const canvas = d3.select(this.canvasRef.current);
 
     const svg = canvas.append("svg").attr("width", 500).attr("height", 500);
+    // .attr("preserveAspectRatio", "xMinYMin meet")
+    // .attr("viewBox", "0 0 300 300");
+    console.log(svg, svg.node());
 
     const getEventTimestamp = (event: EventRecord): number =>
       new Date(event.date).getTime();
@@ -45,11 +48,22 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
         let scaledX = xScale(getEventTimestamp(d));
         return scaledX ? scaledX : 0;
       })
-      .attr("cy", 40)
+      .attr("cy", () => 40 + 20 * (Math.random() * 2 - 1))
       .attr("r", 5)
-      .on("mouseover", (d) => {
-        console.log(d);
+      .attr("fill", (d) => {
+        if (d.event_type == "project") {
+          return "rgb(224, 152, 111)";
+        } else if (d.event_type == "employment") {
+          return "rgb(113, 173, 208)";
+        } else {
+          return "rgb(255, 255, 255)";
+        }
       });
+    // .attr("title", (d) => d.name);
+    circles.append("title").text((d) => d.name);
+    // .on("mouseover", (d) => {
+    //   console.log(d);
+    // });
     // canvas
     //   .selectAll("p")
     //   .data(events)
@@ -60,8 +74,10 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
 
   componentDidUpdate(prevProps: TimelineProps, prevState: TimelineState) {
     if (this.props.events != null) {
-      console.log("Events (Timeline): ", this.props.events);
-      this.populateCanvas(this.props.events);
+      const unarchivedEvents = this.props.events.filter(
+        (event) => !event.archived
+      );
+      this.populateCanvas(unarchivedEvents);
     }
   }
 

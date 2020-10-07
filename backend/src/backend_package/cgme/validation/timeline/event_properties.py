@@ -4,18 +4,20 @@ class EventProperties:
     FIELDS = [
         'event_id',
         'name',
-        'event_date',
+        'date',
         'event_type',
         'content_type',
-        'short_description',
-        'long_description',
-        'deleted',
+        'description',
+        'has_code',
+        'has_download',
+        'archived',
     ]
 
     # Field values
 
     EVENT_TYPES = [
         'project',
+        'employment',
     ]
 
     CONTENT_TYPES = [
@@ -24,4 +26,6 @@ class EventProperties:
         'program',
         'simulation',
         'website',
+        'internship',
+        'job',
     ]
