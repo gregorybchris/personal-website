@@ -2995,5 +2995,32 @@
     "summary": "Is there an aperiodic tiling of the plane? Sir Roger Penrose found an aperiodic tiling with just two shapes. Overlaying two Penrose tilings shows Moire patterns of interference that gives some intuitive evidence for aperiodicity. Another two-tile aperiodic tiling uses kites and darts rather than pentagons, rhombuses, and crowns. While there is one set of rules for a Penrose tiling, there exists an uncountably large number of possible tilings. Because each tiling is infinite you can't prove whether one section of a tiling is taken from a different section of another. The ratio of kites to darts approaches the golden ratio, which is closely related to the five-fold symmetry in the Penrose pattern. While crystals can form locally, Penrose tilings require long-range coordination, so people thought that natural crystals couldn't form this way. However these structures have been created experimentally and are now called quasi-crystals.",
     "paid": false,
     "deleted": false
+  },
+  {
+    "post_id": "27b2b652-9e7f-496d-aa19-6490a3648dc8",
+    "title": "Levitating Silicone Oil",
+    "content_type": "video",
+    "source": "YouTube",
+    "areas": ["physics"],
+    "series": "Steve Mould",
+    "speaker": null,
+    "episode_number": null,
+    "length": "00:12:32",
+    "date_created": "2019-10-08",
+    "date_posted": "2020-10-08",
+    "link": "https://www.youtube.com/watch?v=gMAKamGIiMc",
+    "tags": [
+      "buoyancy",
+      "pendulum",
+      "surface tension",
+      "gravity",
+      "force",
+      "pressure",
+      "torque",
+      "equilibrium"
+    ],
+    "summary": "Liquid will fall to the bottom of a jar when the jar is turned upside-down. It is an unstable equilibrium where some perturbation on the surface of the liquid allows gravity to pull the liquid down starting from that initial site. However, if you vibrate the jar at the right frequency, the liquid will stay in place. This can be understood by analogy to an upside-down pendulum. A downward acceleration on an upside-down pendulum will apply a torque toward the equilibrium position. The opposite upward acceleration applies a torque away from the equilibrium position, but that torque is smaller as the pendulum is more upright after the first torque was applied. In the liquid experiment, the downward acceleration of the liquid causes the surface to flatten and the upload acceleration exaggerates perturbations, but less than the flattening. This results in a ratcheting effect and turns the unstable equilibrium into a stable equilibrium.",
+    "paid": false,
+    "deleted": false
   }
 ]
