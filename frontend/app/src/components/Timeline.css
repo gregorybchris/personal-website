@@ -1,5 +1,14 @@
-.Timeline svg {
-  /* width: 100%; */
-  width: 500px;
-  height: 500px;
+.Timeline-svg:hover {
+  cursor: default;
+}
+
+.Timeline-circle:hover {
+  cursor: pointer;
+}
+
+.Timeline-event-item {
+  color: rgb(230, 230, 230);
+  font-family: "Montserrat";
+  margin-left: 20px;
+  margin-bottom: 10px;
 }

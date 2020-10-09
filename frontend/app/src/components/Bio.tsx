@@ -8,12 +8,12 @@ import "./Bio.css";
 export interface BioProps {}
 
 export interface BioState {
-  events: EventRecord[] | null;
+  events: EventRecord[];
 }
 
 class Bio extends React.Component<BioProps, BioState> {
   state = {
-    events: null,
+    events: [],
   };
 
   async componentDidMount() {

@@ -3,6 +3,8 @@ import json
 import pathlib
 import pkg_resources
 
+import pandas as pd
+
 from flask_cors import CORS
 
 from cgme.web import settings
@@ -11,8 +13,11 @@ from cgme.web import logging_utilities
 
 class App:
     DATA_DIR_PATH = pathlib.Path(__file__).parent.absolute() / '..' / 'data'
-    POSTS_FILEPATH = DATA_DIR_PATH / 'posts.json'
-    EVENTS_FILEPATH = DATA_DIR_PATH / 'events.json'
+    POSTS_DATA_FILEPATH = DATA_DIR_PATH / 'posts.json'
+    EVENTS_DATA_FILEPATH = DATA_DIR_PATH / 'events.json'
+    ENTERTAINMENT_MEDIA_DATA_FILEPATH = DATA_DIR_PATH / 'entertainment-media.csv'
+    INFORMATIONAL_MEDIA_DATA_FILEPATH = DATA_DIR_PATH / 'informational-media.csv'
+    HIKES_DATA_FILEPATH = DATA_DIR_PATH / 'hikes.json'
 
     def __init__(self, logger=None):
         self._logger = logger if logger is not None else logging_utilities.get_logger()
@@ -26,6 +31,8 @@ class App:
         self._app.route('/api/info', methods=['GET'])(self.api_get_info)
         self._app.route('/api/posts', methods=['GET'])(self.api_get_posts)
         self._app.route('/api/events', methods=['GET'])(self.api_get_events)
+        self._app.route('/api/media', methods=['GET'])(self.api_get_media)
+        self._app.route('/api/hikes', methods=['GET'])(self.api_get_hikes)
 
     @logging_utilities.log_context('get_info', context_tag='api')
     def api_get_info(self):
@@ -41,7 +48,7 @@ class App:
 
     @logging_utilities.log_context('get_posts', context_tag='api')
     def api_get_posts(self):
-        with open(App.POSTS_FILEPATH, 'r') as f:
+        with open(App.POSTS_DATA_FILEPATH, 'r') as f:
             posts = json.load(f)
         response = {
             'posts': posts
@@ -50,10 +57,30 @@ class App:
 
     @logging_utilities.log_context('get_events', context_tag='api')
     def api_get_events(self):
-        with open(App.EVENTS_FILEPATH, 'r') as f:
+        with open(App.EVENTS_DATA_FILEPATH, 'r') as f:
             events = json.load(f)
         response = {
             'events': events
+        }
+        return flask.jsonify(response)
+
+    @logging_utilities.log_context('get_media', context_tag='api')
+    def api_get_media(self):
+        entertainment_df = pd.read_csv(App.ENTERTAINMENT_MEDIA_DATA_FILEPATH)
+        informational_df = pd.read_csv(App.INFORMATIONAL_MEDIA_DATA_FILEPATH)
+        response = {
+            'entertainment': list(entertainment_df.T.to_dict().values()),
+            'informational': list(informational_df.T.to_dict().values()),
+        }
+        return flask.jsonify(response)
+
+
+    @logging_utilities.log_context('get_hikes', context_tag='api')
+    def api_get_hikes(self):
+        with open(App.HIKES_DATA_FILEPATH, 'r') as f:
+            hikes = json.load(f)
+        response = {
+            'hikes': hikes
         }
         return flask.jsonify(response)
 
