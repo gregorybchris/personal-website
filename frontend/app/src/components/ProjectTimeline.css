@@ -6,9 +6,22 @@
   cursor: pointer;
 }
 
+.Timeline-project-info {
+  padding: 0px 30px;
+}
+
+.Timeline-project-info-text {
+  padding-bottom: 20px;
+}
+
 .Timeline-project-item {
   color: rgb(230, 230, 230);
   font-family: "Montserrat";
   margin-left: 20px;
   margin-bottom: 10px;
+}
+
+.Timeline-project-image {
+  max-height: 300px;
+  margin: 10px 10px;
 }

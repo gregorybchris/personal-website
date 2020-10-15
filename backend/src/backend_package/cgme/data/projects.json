@@ -7,7 +7,10 @@
     "description": null,
     "code_link": null,
     "download_link": "chrisgregory.me",
-    "image_links": [],
+    "image_links": [
+      "https://chrisgregory.blob.core.windows.net/images/projects/clords--home-screen.jpg",
+      "https://chrisgregory.blob.core.windows.net/images/projects/clords--level-1.jpg"
+    ],
     "archived": false
   },
   {
@@ -73,7 +76,11 @@
     "description": null,
     "code_link": null,
     "download_link": "chrisgregory.me",
-    "image_links": [],
+    "image_links": [
+      "https://chrisgregory.blob.core.windows.net/images/projects/can-you-count--home.jpg",
+      "https://chrisgregory.blob.core.windows.net/images/projects/can-you-count--ready.jpg",
+      "https://chrisgregory.blob.core.windows.net/images/projects/can-you-count--score.jpg"
+    ],
     "archived": false
   },
   {

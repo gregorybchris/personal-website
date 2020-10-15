@@ -6,7 +6,7 @@ interface ProjectRecord {
   description: string;
   code_link: boolean;
   download_link: boolean;
-  image_links: boolean[];
+  image_links: string[];
   archived: boolean;
 }
 

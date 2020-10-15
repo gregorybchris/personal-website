@@ -88,16 +88,26 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
     }
   }
 
+  createImageElement = (link: string) => {
+    return <img className="Timeline-project-image" src={link} key={link}></img>;
+  };
+
   getProjectInfo = () => {
     const currentProject = this.state.currentProject as ProjectRecord | null;
     if (currentProject == null) {
       return;
     }
     const formattedDate = formatDate(currentProject.date);
+    const imageElements = currentProject.image_links.map(
+      this.createImageElement
+    );
     return (
       <div className="Timeline-project-info">
-        <div className="Timeline-project-item">{currentProject.name}</div>
-        <div className="Timeline-project-item">{formattedDate}</div>
+        <div className="Timeline-project-info-text">
+          <div className="Timeline-project-item">{currentProject.name}</div>
+          <div className="Timeline-project-item">{formattedDate}</div>
+        </div>
+        {imageElements}
       </div>
     );
   };
