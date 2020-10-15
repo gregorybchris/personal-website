@@ -1,5 +1,6 @@
 Flask
 flask-cors
+jsonschema
 pandas
 sty
 tabulate

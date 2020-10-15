@@ -1,31 +1,31 @@
 import React from "react";
 
-import Timeline from "./Timeline";
-import EventRecord from "../models/EventRecord";
+import ProjectTimeline from "./ProjectTimeline";
+import ProjectRecord from "../models/ProjectRecord";
 import { makeQuery, GET } from "../controllers/RequestUtilities";
 import "./Bio.css";
 
 export interface BioProps {}
 
 export interface BioState {
-  events: EventRecord[];
+  projects: ProjectRecord[];
 }
 
 class Bio extends React.Component<BioProps, BioState> {
   state = {
-    events: [],
+    projects: [],
   };
 
   async componentDidMount() {
-    const postsQuery = makeQuery("events");
+    const postsQuery = makeQuery("projects");
     const queryResult = await GET(postsQuery);
-    this.setState({ events: queryResult["events"].reverse() });
+    this.setState({ projects: queryResult["projects"].reverse() });
   }
 
   render() {
     return (
       <div className="Bio">
-        <Timeline events={this.state.events}></Timeline>
+        <ProjectTimeline projects={this.state.projects}></ProjectTimeline>
       </div>
     );
   }

@@ -13,11 +13,11 @@ from cgme.web import logging_utilities
 
 class App:
     DATA_DIR_PATH = pathlib.Path(__file__).parent.absolute() / '..' / 'data'
-    POSTS_DATA_FILEPATH = DATA_DIR_PATH / 'posts.json'
-    EVENTS_DATA_FILEPATH = DATA_DIR_PATH / 'events.json'
+    POST_DATA_FILEPATH = DATA_DIR_PATH / 'posts.json'
+    PROJECT_DATA_FILEPATH = DATA_DIR_PATH / 'projects.json'
     ENTERTAINMENT_MEDIA_DATA_FILEPATH = DATA_DIR_PATH / 'entertainment-media.csv'
     INFORMATIONAL_MEDIA_DATA_FILEPATH = DATA_DIR_PATH / 'informational-media.csv'
-    HIKES_DATA_FILEPATH = DATA_DIR_PATH / 'hikes.json'
+    HIKE_DATA_FILEPATH = DATA_DIR_PATH / 'hikes.json'
 
     def __init__(self, logger=None):
         self._logger = logger if logger is not None else logging_utilities.get_logger()
@@ -30,7 +30,7 @@ class App:
     def _register_api_endpoints(self):
         self._app.route('/api/info', methods=['GET'])(self.api_get_info)
         self._app.route('/api/posts', methods=['GET'])(self.api_get_posts)
-        self._app.route('/api/events', methods=['GET'])(self.api_get_events)
+        self._app.route('/api/projects', methods=['GET'])(self.api_get_projects)
         self._app.route('/api/media', methods=['GET'])(self.api_get_media)
         self._app.route('/api/hikes', methods=['GET'])(self.api_get_hikes)
 
@@ -48,19 +48,19 @@ class App:
 
     @logging_utilities.log_context('get_posts', context_tag='api')
     def api_get_posts(self):
-        with open(App.POSTS_DATA_FILEPATH, 'r') as f:
+        with open(App.POST_DATA_FILEPATH, 'r') as f:
             posts = json.load(f)
         response = {
             'posts': posts
         }
         return flask.jsonify(response)
 
-    @logging_utilities.log_context('get_events', context_tag='api')
-    def api_get_events(self):
-        with open(App.EVENTS_DATA_FILEPATH, 'r') as f:
-            events = json.load(f)
+    @logging_utilities.log_context('get_projects', context_tag='api')
+    def api_get_projects(self):
+        with open(App.PROJECT_DATA_FILEPATH, 'r') as f:
+            projects = json.load(f)
         response = {
-            'events': events
+            'projects': projects
         }
         return flask.jsonify(response)
 
@@ -74,10 +74,9 @@ class App:
         }
         return flask.jsonify(response)
 
-
     @logging_utilities.log_context('get_hikes', context_tag='api')
     def api_get_hikes(self):
-        with open(App.HIKES_DATA_FILEPATH, 'r') as f:
+        with open(App.HIKE_DATA_FILEPATH, 'r') as f:
             hikes = json.load(f)
         response = {
             'hikes': hikes

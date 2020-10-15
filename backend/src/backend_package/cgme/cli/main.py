@@ -1,7 +1,8 @@
 import argparse
 
 from cgme.web.app import App
-from cgme.validation.blog.validate_posts import run_validation
+from cgme.validation.projects.project_validator import validate as validate_projects
+from cgme.validation.posts.post_validator import validate as validate_posts
 
 
 SUBPARSER_NAME_APP = 'app'
@@ -31,6 +32,7 @@ def run_cli():
     if args.command == SUBPARSER_NAME_APP:
         start_app()
     elif args.command == SUBPARSER_NAME_VALIDATE:
-        run_validation()
+        validate_posts()
+        validate_projects()
     else:
         raise ValueError("Invalid command")
