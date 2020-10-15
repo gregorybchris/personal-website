@@ -3022,5 +3022,32 @@
     "summary": "Liquid will fall to the bottom of a jar when the jar is turned upside-down. It is an unstable equilibrium where some perturbation on the surface of the liquid allows gravity to pull the liquid down starting from that initial site. However, if you vibrate the jar at the right frequency, the liquid will stay in place. This can be understood by analogy to an upside-down pendulum. A downward acceleration on an upside-down pendulum will apply a torque toward the equilibrium position. The opposite upward acceleration applies a torque away from the equilibrium position, but that torque is smaller as the pendulum is more upright after the first torque was applied. In the liquid experiment, the downward acceleration of the liquid causes the surface to flatten and the upload acceleration exaggerates perturbations, but less than the flattening. This results in a ratcheting effect and turns the unstable equilibrium into a stable equilibrium.",
     "paid": false,
     "deleted": false
+  },
+  {
+    "post_id": "a17ec7e8-a05d-4bc9-b7fc-d0f621e1bed6",
+    "title": "Why Isn't Functional Programming the Norm?",
+    "content_type": "video",
+    "source": "YouTube",
+    "areas": ["computers"],
+    "series": null,
+    "speaker": "Richard Feldman",
+    "episode_number": null,
+    "length": "00:46:09",
+    "date_created": "2019-09-30",
+    "date_posted": "2020-10-14",
+    "link": "https://www.youtube.com/watch?v=QyJZzq0v7Z4",
+    "tags": [
+      "programming",
+      "languages",
+      "object oriented",
+      "computers",
+      "history",
+      "success",
+      "design",
+      "popularity"
+    ],
+    "summary": "Why are the top ten most popular languages object oriented rather than functional? There are three main reasons languages blow up: killer app (PHP/dynamic HTML, Java applets/web, Ruby/rails, C/OS, JavaScript/web), exclusivity on large platforms (Objective-C/Apple, Swift/Apple, C#/Windows), great advertising (Java). Python is an exception that has just gained popularity slowly over time by being well-designed. How easy it is to migrate to a new language is also important, but not the thing that really catapults a language into the top ten. What makes an OO language OO? Inheritance? Methods? Modules? It's not clear exactly what makes an OO language OO. But inheritance is not considered a best practice (composition over inheritance). Methods are really just syntactic sugar around structs and functions. Many languages have module systems with information hiding. Before Stroustrup made C++ he made \"C with classes\" which didn't do well. When he added a ton more features, then C++ did well. The success of OO languages seems to be an accident of history.",
+    "paid": false,
+    "deleted": false
   }
 ]
