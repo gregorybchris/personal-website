@@ -63,11 +63,11 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
       .attr("r", 7)
       .attr("fill", (d) => {
         if (d.project_type == projectTypeWeb) {
-          return "rgb(224, 152, 111)";
+          return "rgb(230, 85, 63)";
         } else if (d.project_type == projectTypeJar) {
           return "rgb(113, 173, 208)";
         } else if (d.project_type == projectTypeProgram) {
-          return "rgb(113, 173, 208)";
+          return "rgb(58, 177, 22)";
         } else {
           return "rgb(255, 255, 255)";
         }
