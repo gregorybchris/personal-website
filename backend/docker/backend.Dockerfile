@@ -1,7 +1,7 @@
 FROM continuumio/miniconda3
 
-ARG SECRET_KEY
-ENV TEST_SECRET $SECRET_KEY
+ARG TELEMETRY_KEY
+ENV APP_INSIGHTS_KEY $TELEMETRY_KEY
 
 COPY requirements.txt /app/requirements.txt
 COPY . /app

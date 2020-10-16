@@ -1,7 +1,10 @@
 import functools
 import logging
 import logging.handlers
+import os
 import time
+
+from opencensus.ext.azure.log_exporter import AzureLogHandler
 
 from cgme.web import settings
 
@@ -9,42 +12,36 @@ from cgme.web import settings
 DEFAULT_LOG_SIZE = 5000000
 DEFAULT_N_BACKUPS = 5
 
-logger_created = False
+
+logger = logging.getLogger(__name__)
 
 
-def get_null_logger():
-    logger = logging.getLogger('cgme')
-    logger.addHandler(logging.NullHandler())
-    return logger
+def initialize_logger():
+    logger.setLevel(logging.DEBUG)
+
+    file_handler = logging.handlers.RotatingFileHandler(
+        settings.LOG_FILE_NAME, maxBytes=DEFAULT_LOG_SIZE, backupCount=DEFAULT_N_BACKUPS)
+    file_formatter = logging.Formatter(
+        '%(asctime)s.%(msecs)03d (%(levelname)s) %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+    file_handler.setFormatter(file_formatter)
+    logger.addHandler(file_handler)
+
+    app_insights_key = os.getenv('APP_INSIGHTS_KEY')
+    azure_handler = AzureLogHandler(connection_string=f'InstrumentationKey={app_insights_key}')
+    azure_formatter = logging.Formatter('%(message)s')
+    azure_handler.setFormatter(azure_formatter)
+    logger.addHandler(azure_handler)
 
 
-def get_logger():
-    global logger_created
-    logger = logging.getLogger('cgme')
-    if not logger_created:
-        logger.setLevel(logging.DEBUG)
-        handler = logging.handlers.RotatingFileHandler(settings.LOG_FILE_NAME,
-                                                       maxBytes=DEFAULT_LOG_SIZE,
-                                                       backupCount=DEFAULT_N_BACKUPS)
-        formatter = logging.Formatter('%(asctime)s.%(msecs)03d (%(levelname)s) %(message)s',
-                                      datefmt='%Y-%m-%d %H:%M:%S')
-        handler.setFormatter(formatter)
-        logger.addHandler(handler)
-        logger_created = True
-    return logger
-
-
-def log_context(name, context_tag='='):
-    logger = get_logger()
-
+def log_context(name, tag='='):
     def decorator(function):
         @functools.wraps(function)
         def func_wrapper(*args, **kwargs):
             start_time = time.time()
-            logger.info(f"[{context_tag}] Start:{name}")
+            logger.info(f"[{tag}] Start:{name}")
             result = function(*args, **kwargs)
             total_time = round(time.time() - start_time, 5)
-            logger.info(f"[{context_tag}] End:{name}, Time:{total_time}")
+            logger.info(f"[{tag}] End:{name}, Time:{total_time}")
             return result
         return func_wrapper
     return decorator

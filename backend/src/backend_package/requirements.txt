@@ -1,6 +1,7 @@
 Flask
 flask-cors
 jsonschema
+opencensus-ext-azure
 pandas
 sty
 tabulate

@@ -1,6 +1,6 @@
 import flask
 import json
-import os
+import logging
 import pathlib
 import pkg_resources
 
@@ -10,6 +10,10 @@ from flask_cors import CORS
 
 from cgme.web import settings
 from cgme.web import logging_utilities
+
+
+logging_utilities.initialize_logger()
+logger = logging.getLogger(__name__)
 
 
 class App:
@@ -22,9 +26,7 @@ class App:
 
     SECRET_ENV_VAR = 'TEST_SECRET'
 
-    def __init__(self, logger=None):
-        self._logger = logger if logger is not None else logging_utilities.get_logger()
-
+    def __init__(self):
         self._app = flask.Flask(__name__)
         self._register_api_endpoints()
         CORS(self._app)
@@ -46,16 +48,15 @@ class App:
             links.append(formatted_url)
         return links
 
-    @logging_utilities.log_context('get_info', context_tag='api')
+    @logging_utilities.log_context('get_info', tag='api')
     def api_get_info_v1(self):
         return flask.jsonify({
             'source': 'https://github.com/gregorybchris/personal-website',
             'routes': self._list_endpoints(),
             'version': pkg_resources.get_distribution('cgme').version,
-            'secret': os.getenv(App.SECRET_ENV_VAR),
         })
 
-    @logging_utilities.log_context('get_posts', context_tag='api')
+    @logging_utilities.log_context('get_posts', tag='api')
     def api_get_posts_v1(self):
         with open(App.POST_DATA_FILEPATH, 'r') as f:
             posts = json.load(f)
@@ -63,7 +64,7 @@ class App:
             'posts': posts
         })
 
-    @logging_utilities.log_context('get_projects', context_tag='api')
+    @logging_utilities.log_context('get_projects', tag='api')
     def api_get_projects_v1(self):
         with open(App.PROJECT_DATA_FILEPATH, 'r') as f:
             projects = json.load(f)
@@ -71,7 +72,7 @@ class App:
             'projects': projects
         })
 
-    @logging_utilities.log_context('get_media', context_tag='api')
+    @logging_utilities.log_context('get_media', tag='api')
     def api_get_media_v1(self):
         entertainment_df = pd.read_csv(App.ENTERTAINMENT_MEDIA_DATA_FILEPATH)
         informational_df = pd.read_csv(App.INFORMATIONAL_MEDIA_DATA_FILEPATH)
@@ -80,7 +81,7 @@ class App:
             'informational': list(informational_df.T.to_dict().values()),
         })
 
-    @logging_utilities.log_context('get_hikes', context_tag='api')
+    @logging_utilities.log_context('get_hikes', tag='api')
     def api_get_hikes_v1(self):
         with open(App.HIKE_DATA_FILEPATH, 'r') as f:
             hikes = json.load(f)

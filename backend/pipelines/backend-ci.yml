@@ -33,7 +33,7 @@ stages:
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
         buildContext: $(dockerContextPath)
-        arguments: --build-arg SECRET_KEY=$(SECRET_VAR)
+        arguments: --build-arg TELEMETRY_KEY=$(APP_INSIGHTS_KEY)
         tags: |
           $(Build.BuildId)
           latest
