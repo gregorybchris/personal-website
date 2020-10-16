@@ -24,4 +24,5 @@
 .Timeline-project-image {
   max-height: 300px;
   margin: 10px 10px;
+  max-width: 90%;
 }
