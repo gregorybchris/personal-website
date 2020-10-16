@@ -26,8 +26,8 @@ def initialize_logger():
     file_handler.setFormatter(file_formatter)
     logger.addHandler(file_handler)
 
-    app_insights_key = os.getenv('APP_INSIGHTS_KEY')
-    azure_handler = AzureLogHandler(connection_string=f'InstrumentationKey={app_insights_key}')
+    connection_string = f'InstrumentationKey={settings.INSTRUMENTATION_KEY}'
+    azure_handler = AzureLogHandler(connection_string=connection_string)
     azure_formatter = logging.Formatter('%(message)s')
     azure_handler.setFormatter(azure_formatter)
     logger.addHandler(azure_handler)

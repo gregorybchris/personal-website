@@ -9,3 +9,7 @@ FLASK_HOST = os.getenv('FLASK_HOST', None)
 # Logging Settings
 
 LOG_FILE_NAME = os.getenv('CGME_LOG_FILE', 'cgme.log')
+
+# Telemetry Settings
+
+INSTRUMENTATION_KEY = os.getenv('INSTRUMENTATION_KEY')
