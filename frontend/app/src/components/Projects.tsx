@@ -3,15 +3,15 @@ import React from "react";
 import ProjectTimeline from "./ProjectTimeline";
 import ProjectRecord from "../models/ProjectRecord";
 import { makeQuery, GET } from "../controllers/RequestUtilities";
-import "./Bio.css";
+import "./Projects.css";
 
-export interface BioProps {}
+export interface ProjectsProps {}
 
-export interface BioState {
+export interface ProjectsState {
   projects: ProjectRecord[];
 }
 
-class Bio extends React.Component<BioProps, BioState> {
+class Projects extends React.Component<ProjectsProps, ProjectsState> {
   state = {
     projects: [],
   };
@@ -24,11 +24,11 @@ class Bio extends React.Component<BioProps, BioState> {
 
   render() {
     return (
-      <div className="Bio">
+      <div className="Projects">
         <ProjectTimeline projects={this.state.projects}></ProjectTimeline>
       </div>
     );
   }
 }
 
-export default Bio;
+export default Projects;

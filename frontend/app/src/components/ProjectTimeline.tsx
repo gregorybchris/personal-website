@@ -106,6 +106,9 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
         <div className="Timeline-project-info-text">
           <div className="Timeline-project-item">{currentProject.name}</div>
           <div className="Timeline-project-item">{formattedDate}</div>
+          <div className="Timeline-project-item">
+            Type: {currentProject.project_type}
+          </div>
         </div>
         {imageElements}
       </div>

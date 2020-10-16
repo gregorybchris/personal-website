@@ -28,26 +28,38 @@ class App:
         # self._app.config['CORS_HEADERS'] = 'Content-Type'
 
     def _register_api_endpoints(self):
-        self._app.route('/api/info', methods=['GET'])(self.api_get_info)
-        self._app.route('/api/posts', methods=['GET'])(self.api_get_posts)
-        self._app.route('/api/projects', methods=['GET'])(self.api_get_projects)
-        self._app.route('/api/media', methods=['GET'])(self.api_get_media)
-        self._app.route('/api/hikes', methods=['GET'])(self.api_get_hikes)
+        self._app.route('/api/v1/info', methods=['GET'])(self.api_get_info_v1)
+        self._app.route('/api/v1/posts', methods=['GET'])(self.api_get_posts_v1)
+        self._app.route('/api/v1/projects', methods=['GET'])(self.api_get_projects_v1)
+        self._app.route('/api/v1/media', methods=['GET'])(self.api_get_media_v1)
+        self._app.route('/api/v1/hikes', methods=['GET'])(self.api_get_hikes_v1)
+
+    # def _construct_endpoint_url()
+
+    def _list_endpoints(self):
+        links = []
+        for rule in self._app.url_map.iter_rules():
+            arguments = {argument: f"ARGL{argument}ARGR" for argument in rule.arguments}
+            raw_url = flask.url_for(rule.endpoint, **arguments)
+            formatted_url = raw_url.replace('ARGL', '<').replace('ARGR', '>')
+            links.append(formatted_url)
+        return links
 
     @logging_utilities.log_context('get_info', context_tag='api')
-    def api_get_info(self):
+    def api_get_info_v1(self):
         response = {
             'author': 'Chris Gregory',
             'index': 'https://pypi.org/project/cgme/',
             'license': 'Apache Software License',
             'package': 'cgme',
             'source': 'https://github.com/gregorybchris/cgme',
-            'version': pkg_resources.get_distribution("cgme").version
+            'version': pkg_resources.get_distribution("cgme").version,
+            'routes': self._list_endpoints(),
         }
         return flask.jsonify(response)
 
     @logging_utilities.log_context('get_posts', context_tag='api')
-    def api_get_posts(self):
+    def api_get_posts_v1(self):
         with open(App.POST_DATA_FILEPATH, 'r') as f:
             posts = json.load(f)
         response = {
@@ -56,7 +68,7 @@ class App:
         return flask.jsonify(response)
 
     @logging_utilities.log_context('get_projects', context_tag='api')
-    def api_get_projects(self):
+    def api_get_projects_v1(self):
         with open(App.PROJECT_DATA_FILEPATH, 'r') as f:
             projects = json.load(f)
         response = {
@@ -65,7 +77,7 @@ class App:
         return flask.jsonify(response)
 
     @logging_utilities.log_context('get_media', context_tag='api')
-    def api_get_media(self):
+    def api_get_media_v1(self):
         entertainment_df = pd.read_csv(App.ENTERTAINMENT_MEDIA_DATA_FILEPATH)
         informational_df = pd.read_csv(App.INFORMATIONAL_MEDIA_DATA_FILEPATH)
         response = {
@@ -75,7 +87,7 @@ class App:
         return flask.jsonify(response)
 
     @logging_utilities.log_context('get_hikes', context_tag='api')
-    def api_get_hikes(self):
+    def api_get_hikes_v1(self):
         with open(App.HIKE_DATA_FILEPATH, 'r') as f:
             hikes = json.load(f)
         response = {
