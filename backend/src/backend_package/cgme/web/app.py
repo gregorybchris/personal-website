@@ -1,5 +1,6 @@
 import flask
 import json
+import os
 import pathlib
 import pkg_resources
 
@@ -18,6 +19,8 @@ class App:
     ENTERTAINMENT_MEDIA_DATA_FILEPATH = DATA_DIR_PATH / 'entertainment-media.csv'
     INFORMATIONAL_MEDIA_DATA_FILEPATH = DATA_DIR_PATH / 'informational-media.csv'
     HIKE_DATA_FILEPATH = DATA_DIR_PATH / 'hikes.json'
+
+    SECRET_ENV_VAR = 'TEST_SECRET'
 
     def __init__(self, logger=None):
         self._logger = logger if logger is not None else logging_utilities.get_logger()
@@ -49,6 +52,7 @@ class App:
             'source': 'https://github.com/gregorybchris/personal-website',
             'routes': self._list_endpoints(),
             'version': pkg_resources.get_distribution('cgme').version,
+            'secret': os.getenv(App.SECRET_ENV_VAR),
         })
 
     @logging_utilities.log_context('get_posts', context_tag='api')

@@ -26,13 +26,23 @@ stages:
       vmImage: 'ubuntu-latest'
     steps:
     - task: Docker@2
-      displayName: Build and Push
+      displayName: Build
       inputs:
-        command: buildAndPush
+        command: build
+        containerRegistry: $(dockerRegistryServiceConnection)
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
         buildContext: $(dockerContextPath)
+        arguments: --build-arg SECRET_KEY=$(SECRET_VAR)
+        tags: |
+          $(Build.BuildId)
+          latest
+    - task: Docker@2
+      displayName: Push
+      inputs:
+        command: push
         containerRegistry: $(dockerRegistryServiceConnection)
+        repository: $(imageRepository)
         tags: |
           $(Build.BuildId)
           latest
