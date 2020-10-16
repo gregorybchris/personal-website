@@ -49,12 +49,12 @@ class App:
     def api_get_info_v1(self):
         response = {
             'author': 'Chris Gregory',
-            'index': 'https://pypi.org/project/cgme/',
+            # 'index': 'https://pypi.org/project/cgme/',
             'license': 'Apache Software License',
             'package': 'cgme',
-            'source': 'https://github.com/gregorybchris/cgme',
+            'source': 'https://github.com/gregorybchris/personal-website',
             'version': pkg_resources.get_distribution("cgme").version,
-            'routes': self._list_endpoints(),
+            'endpoints': self._list_endpoints(),
         }
         return flask.jsonify(response)
 

@@ -92,23 +92,31 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
     return <img className="Timeline-project-image" src={link} key={link}></img>;
   };
 
-  getProjectInfo = () => {
-    const currentProject = this.state.currentProject as ProjectRecord | null;
-    if (currentProject == null) {
+  getProjectInfo = (project: ProjectRecord | null) => {
+    if (project == null) {
       return;
     }
-    const formattedDate = formatDate(currentProject.date);
-    const imageElements = currentProject.image_links.map(
-      this.createImageElement
-    );
+    const formattedDate = formatDate(project.date);
+    const imageElements =
+      project.image_links.length == 0 ? (
+        <div className="Timeline-project-item">[no images available]</div>
+      ) : (
+        project.image_links.map(this.createImageElement)
+      );
+    const hasDownloadLink = project.download_link != null;
+    const downloadLink =
+      project.download_link == null ? "" : project.download_link;
+    const downloadElement = hasDownloadLink ? (
+      <a className="Timeline-project-item" href={downloadLink}>
+        Download
+      </a>
+    ) : undefined;
     return (
       <div className="Timeline-project-info">
         <div className="Timeline-project-info-text">
-          <div className="Timeline-project-item">{currentProject.name}</div>
+          <div className="Timeline-project-item">{project.name}</div>
           <div className="Timeline-project-item">{formattedDate}</div>
-          <div className="Timeline-project-item">
-            Type: {currentProject.project_type}
-          </div>
+          {downloadElement}
         </div>
         {imageElements}
       </div>
@@ -119,7 +127,7 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
     return (
       <div className="Timeline">
         <div className="Timeline-canvas" ref={this.canvasRef}></div>
-        {this.getProjectInfo()}
+        {this.getProjectInfo(this.state.currentProject)}
       </div>
     );
   }
