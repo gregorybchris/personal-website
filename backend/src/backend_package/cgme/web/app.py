@@ -34,8 +34,6 @@ class App:
         self._app.route('/api/v1/media', methods=['GET'])(self.api_get_media_v1)
         self._app.route('/api/v1/hikes', methods=['GET'])(self.api_get_hikes_v1)
 
-    # def _construct_endpoint_url()
-
     def _list_endpoints(self):
         links = []
         for rule in self._app.url_map.iter_rules():
@@ -47,53 +45,44 @@ class App:
 
     @logging_utilities.log_context('get_info', context_tag='api')
     def api_get_info_v1(self):
-        response = {
-            'author': 'Chris Gregory',
-            # 'index': 'https://pypi.org/project/cgme/',
-            'license': 'Apache Software License',
-            'package': 'cgme',
+        return flask.jsonify({
             'source': 'https://github.com/gregorybchris/personal-website',
-            'version': pkg_resources.get_distribution("cgme").version,
-            'endpoints': self._list_endpoints(),
-        }
-        return flask.jsonify(response)
+            'routes': self._list_endpoints(),
+            'version': pkg_resources.get_distribution('cgme').version,
+        })
 
     @logging_utilities.log_context('get_posts', context_tag='api')
     def api_get_posts_v1(self):
         with open(App.POST_DATA_FILEPATH, 'r') as f:
             posts = json.load(f)
-        response = {
+        return flask.jsonify({
             'posts': posts
-        }
-        return flask.jsonify(response)
+        })
 
     @logging_utilities.log_context('get_projects', context_tag='api')
     def api_get_projects_v1(self):
         with open(App.PROJECT_DATA_FILEPATH, 'r') as f:
             projects = json.load(f)
-        response = {
+        return flask.jsonify({
             'projects': projects
-        }
-        return flask.jsonify(response)
+        })
 
     @logging_utilities.log_context('get_media', context_tag='api')
     def api_get_media_v1(self):
         entertainment_df = pd.read_csv(App.ENTERTAINMENT_MEDIA_DATA_FILEPATH)
         informational_df = pd.read_csv(App.INFORMATIONAL_MEDIA_DATA_FILEPATH)
-        response = {
+        return flask.jsonify({
             'entertainment': list(entertainment_df.T.to_dict().values()),
             'informational': list(informational_df.T.to_dict().values()),
-        }
-        return flask.jsonify(response)
+        })
 
     @logging_utilities.log_context('get_hikes', context_tag='api')
     def api_get_hikes_v1(self):
         with open(App.HIKE_DATA_FILEPATH, 'r') as f:
             hikes = json.load(f)
-        response = {
+        return flask.jsonify({
             'hikes': hikes
-        }
-        return flask.jsonify(response)
+        })
 
     @staticmethod
     def error(message, code):

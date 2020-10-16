@@ -7,6 +7,7 @@ interface ProjectRecord {
   code_link: string | null;
   download_link: string | null;
   image_links: string[];
+  primary_language: string;
   archived: boolean;
 }
 

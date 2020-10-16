@@ -10,6 +10,7 @@ class ProjectProperties:
         'code_link',
         'download_link',
         'image_links',
+        'primary_language',
         'archived',
     ]
 

@@ -11,6 +11,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/clords--home-screen.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/clords--level-1.jpg"
     ],
+    "primary_language": "Java",
     "archived": false
   },
   {
@@ -26,6 +27,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/evolution--02.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/evolution--03.jpg"
     ],
+    "primary_language": "Java",
     "archived": false
   },
   {
@@ -41,6 +43,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/armada--02.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/armada--ship.jpg"
     ],
+    "primary_language": "Java",
     "archived": false
   },
   {
@@ -55,6 +58,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/tower-of-hanoi--01.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/tower-of-hanoi--02.jpg"
     ],
+    "primary_language": "Java",
     "archived": false
   },
   {
@@ -70,6 +74,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/tiles--02.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/tiles--03.jpg"
     ],
+    "primary_language": "Java",
     "archived": false
   },
   {
@@ -84,6 +89,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/sweyp--01.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/sweyp--02.jpg"
     ],
+    "primary_language": "Java",
     "archived": false
   },
   {
@@ -99,6 +105,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/can-you-count--ready.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/can-you-count--score.jpg"
     ],
+    "primary_language": "Java",
     "archived": false
   },
   {
@@ -116,6 +123,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/vector--04-players.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/vector--05-game.jpg"
     ],
+    "primary_language": "Java",
     "archived": false
   },
   {
@@ -127,6 +135,7 @@
     "code_link": "github.com/gregorybchris",
     "download_link": null,
     "image_links": [],
+    "primary_language": "C",
     "archived": false
   },
   {
@@ -138,6 +147,7 @@
     "code_link": "github.com/gregorybchris",
     "download_link": null,
     "image_links": [],
+    "primary_language": "Haskell",
     "archived": false
   },
   {
@@ -149,6 +159,7 @@
     "code_link": "github.com/gregorybchris",
     "download_link": null,
     "image_links": [],
+    "primary_language": "Haskell",
     "archived": false
   },
   {
@@ -166,6 +177,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/semigenre--04.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/semigenre--05.jpg"
     ],
+    "primary_language": "Python",
     "archived": false
   },
   {
@@ -177,6 +189,7 @@
     "code_link": "github.com/gregorybchris",
     "download_link": null,
     "image_links": [],
+    "primary_language": "Python",
     "archived": false
   },
   {
@@ -192,6 +205,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/pci-original.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/pci-paper.jpg"
     ],
+    "primary_language": "JavaScript",
     "archived": false
   },
   {
@@ -204,8 +218,12 @@
     "download_link": "https://chrisgregory.blob.core.windows.net/projects/jars/directed.jar",
     "image_links": [
       "https://chrisgregory.blob.core.windows.net/projects/images/directed--01.jpg",
-      "https://chrisgregory.blob.core.windows.net/projects/images/directed--02.jpg"
+      "https://chrisgregory.blob.core.windows.net/projects/images/directed--02.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/directed--03.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/directed--04.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/directed--05.jpg"
     ],
+    "primary_language": "Java",
     "archived": false
   },
   {
@@ -219,6 +237,7 @@
     "image_links": [
       "https://chrisgregory.blob.core.windows.net/projects/images/world--01.jpg"
     ],
+    "primary_language": "Java",
     "archived": true
   },
   {
@@ -234,6 +253,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/unscrambler--02.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/unscrambler--03.jpg"
     ],
+    "primary_language": "Java",
     "archived": true
   },
   {
@@ -248,6 +268,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/unhinged--01.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/unhinged--02.jpg"
     ],
+    "primary_language": "Java",
     "archived": false
   },
   {
@@ -263,6 +284,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/sketcher--02.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/sketcher--instructions.jpg"
     ],
+    "primary_language": "Java",
     "archived": false
   },
   {
@@ -274,6 +296,7 @@
     "code_link": null,
     "download_link": "https://chrisgregory.blob.core.windows.net/projects/jars/seek.jar",
     "image_links": [],
+    "primary_language": "Java",
     "archived": false
   },
   {
@@ -295,6 +318,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/dragon-curve--08.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/dragon-curve--09.jpg"
     ],
+    "primary_language": "Java",
     "archived": true
   },
   {
@@ -311,6 +335,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/dot-drawings--03.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/dot-drawings--04.jpg"
     ],
+    "primary_language": "Java",
     "archived": false
   },
   {
@@ -327,6 +352,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/color-match--03.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/color-match--04.jpg"
     ],
+    "primary_language": "Java",
     "archived": false
   },
   {
@@ -342,6 +368,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/blocks--02.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/blocks--03.jpg"
     ],
+    "primary_language": "Java",
     "archived": false
   },
   {
@@ -357,6 +384,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/2048--02.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/2048--03.jpg"
     ],
+    "primary_language": "Java",
     "archived": false
   },
   {
@@ -368,6 +396,7 @@
     "code_link": "github.com/gregorybchris",
     "download_link": null,
     "image_links": [],
+    "primary_language": "JavaScript",
     "archived": false
   },
   {
@@ -379,6 +408,7 @@
     "code_link": "github.com/gregorybchris",
     "download_link": null,
     "image_links": [],
+    "primary_language": "JavaScript",
     "archived": false
   },
   {
@@ -390,6 +420,7 @@
     "code_link": null,
     "download_link": null,
     "image_links": [],
+    "primary_language": "JavaScript",
     "archived": false
   },
   {
@@ -401,6 +432,7 @@
     "code_link": null,
     "download_link": null,
     "image_links": [],
+    "primary_language": "JavaScript",
     "archived": false
   },
   {
@@ -418,6 +450,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/schedulerhd--07-classes.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/schedulerhd--08-teachers.jpg"
     ],
+    "primary_language": "C#",
     "archived": false
   },
   {
@@ -436,6 +469,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/ptcd--05-confirm.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/ptcd--06-email.jpg"
     ],
+    "primary_language": "C#",
     "archived": false
   },
   {
@@ -447,6 +481,7 @@
     "code_link": null,
     "download_link": null,
     "image_links": [],
+    "primary_language": "JavaScript",
     "archived": false
   },
   {
@@ -461,6 +496,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/check-my-code--log-in.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/check-my-code--sign-up.jpg"
     ],
+    "primary_language": "PHP",
     "archived": false
   },
   {
@@ -474,6 +510,7 @@
     "image_links": [
       "https://chrisgregory.blob.core.windows.net/projects/images/oracle--01.jpg"
     ],
+    "primary_language": "Java",
     "archived": false
   },
   {
@@ -485,18 +522,8 @@
     "code_link": null,
     "download_link": null,
     "image_links": [],
+    "primary_language": "JavaScript",
     "archived": false
-  },
-  {
-    "project_id": "692222b3-7635-4f2f-ba15-fda09cf2c4fb",
-    "name": "Jumbo Swaps",
-    "date": "2016-01-25",
-    "project_type": "web",
-    "description": null,
-    "code_link": null,
-    "download_link": null,
-    "image_links": [],
-    "archived": true
   },
   {
     "project_id": "b7361d6e-af28-4c79-a1f4-4cc0a48452a2",
@@ -510,6 +537,7 @@
       "https://chrisgregory.blob.core.windows.net/projects/images/dependy--dependy-graph.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/dependy--semigenre-graph.jpg"
     ],
+    "primary_language": "Python",
     "archived": true
   },
   {
@@ -523,6 +551,7 @@
     "image_links": [
       "https://chrisgregory.blob.core.windows.net/projects/images/three-farmer--01.jpg"
     ],
+    "primary_language": "Java",
     "archived": false
   },
   {
@@ -533,7 +562,11 @@
     "description": null,
     "code_link": null,
     "download_link": "https://chrisgregory.blob.core.windows.net/projects/jars/flock.jar",
-    "image_links": [],
+    "image_links": [
+      "https://chrisgregory.blob.core.windows.net/projects/images/flock--01.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/flock--02.jpg"
+    ],
+    "primary_language": "Java",
     "archived": false
   },
   {
@@ -545,6 +578,55 @@
     "code_link": null,
     "download_link": "https://chrisgregory.blob.core.windows.net/projects/jars/viewer.jar",
     "image_links": [],
+    "primary_language": "Java",
+    "archived": false
+  },
+  {
+    "project_id": "c8cd9b7e-2002-4096-aea1-788f80d3a1d2",
+    "name": "On Move",
+    "date": "2020-05-18",
+    "project_type": "web",
+    "description": null,
+    "code_link": null,
+    "download_link": null,
+    "image_links": [],
+    "primary_language": "JavaScript",
+    "archived": false
+  },
+  {
+    "project_id": "114ed850-4619-42f4-8035-9a64f0878420",
+    "name": "TUTF Trends",
+    "date": "2018-09-06",
+    "project_type": "web",
+    "description": null,
+    "code_link": null,
+    "download_link": null,
+    "image_links": [],
+    "primary_language": "JavaScript",
+    "archived": false
+  },
+  {
+    "project_id": "9d19447c-f53c-4811-b6f5-e97124b39769",
+    "name": "CompRank",
+    "date": "2018-04-19",
+    "project_type": "web",
+    "description": null,
+    "code_link": null,
+    "download_link": null,
+    "image_links": [],
+    "primary_language": "JavaScript",
+    "archived": false
+  },
+  {
+    "project_id": "f40e4251-8d25-4dd5-be9c-1761a49de4c8",
+    "name": "Generals API",
+    "date": "2020-04-3",
+    "project_type": "program",
+    "description": null,
+    "code_link": null,
+    "download_link": null,
+    "image_links": [],
+    "primary_language": "Python",
     "archived": false
   }
 ]
