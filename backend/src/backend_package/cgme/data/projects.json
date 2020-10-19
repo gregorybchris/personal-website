@@ -447,7 +447,14 @@
     "remarks": null,
     "code_link": "https://github.com/gregorybchris/half-plane",
     "download_link": null,
-    "image_links": [],
+    "image_links": [
+      "https://chrisgregory.blob.core.windows.net/projects/images/half-plane--page-1.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/half-plane--page-2.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/half-plane--page-3.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/half-plane--page-4.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/half-plane--page-5.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/half-plane--page-6.jpg"
+    ],
     "primary_language": "JavaScript",
     "archived": false
   },
@@ -461,7 +468,14 @@
     "remarks": null,
     "code_link": "https://github.com/gregorybchris/chans",
     "download_link": null,
-    "image_links": [],
+    "image_links": [
+      "https://chrisgregory.blob.core.windows.net/projects/images/chans--page-1.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/chans--page-2.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/chans--page-3.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/chans--page-4.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/chans--page-5.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/chans--page-6.jpg"
+    ],
     "primary_language": "JavaScript",
     "archived": false
   },
@@ -475,7 +489,10 @@
     "remarks": null,
     "code_link": null,
     "download_link": null,
-    "image_links": [],
+    "image_links": [
+      "https://chrisgregory.blob.core.windows.net/projects/images/jumbo-meal-me--sliders-01",
+      "https://chrisgregory.blob.core.windows.net/projects/images/jumbo-meal-me--sliders-02"
+    ],
     "primary_language": "JavaScript",
     "archived": false
   },
@@ -489,7 +506,11 @@
     "remarks": null,
     "code_link": null,
     "download_link": null,
-    "image_links": [],
+    "image_links": [
+      "https://chrisgregory.blob.core.windows.net/projects/images/base--blank.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/base--binary.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/base--hello.jpg"
+    ],
     "primary_language": "JavaScript",
     "archived": false
   },
@@ -544,7 +565,11 @@
     "remarks": null,
     "code_link": null,
     "download_link": null,
-    "image_links": [],
+    "image_links": [
+      "https://chrisgregory.blob.core.windows.net/projects/images/tsa--look-for-yourself.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/tsa--the-big-picture.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/tsa--header.jpg"
+    ],
     "primary_language": "JavaScript",
     "archived": false
   },
@@ -686,7 +711,10 @@
     "remarks": null,
     "code_link": null,
     "download_link": null,
-    "image_links": [],
+    "image_links": [
+      "https://chrisgregory.blob.core.windows.net/projects/images/tutf-trends--chris-400m.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/tutf-trends--chris-600m.jpg"
+    ],
     "primary_language": "JavaScript",
     "archived": false
   },
