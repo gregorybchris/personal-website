@@ -626,7 +626,7 @@
   {
     "project_id": "b7361d6e-af28-4c79-a1f4-4cc0a48452a2",
     "name": "Dependy",
-    "date": "2018-10-08",
+    "date": "2019-10-08",
     "project_type": "program",
     "controls": null,
     "description": "Dependy is a utility for visualizing the modules of a python library. The tool helps developers reason about the dependencies in their programs in order to design more modular and robust systems.",
@@ -731,7 +731,11 @@
     "remarks": null,
     "code_link": null,
     "download_link": null,
-    "image_links": [],
+    "image_links": [
+      "https://chrisgregory.blob.core.windows.net/projects/images/comprank--home.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/comprank--compare.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/comprank--rankings.jpg"
+    ],
     "primary_language": "JavaScript",
     "archived": false
   },
