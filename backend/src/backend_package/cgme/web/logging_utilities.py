@@ -16,9 +16,7 @@ DEFAULT_N_BACKUPS = 5
 logger = logging.getLogger(__name__)
 
 
-def initialize_logger():
-    logger.setLevel(logging.DEBUG)
-
+def _register_file_handler():
     file_handler = logging.handlers.RotatingFileHandler(
         settings.LOG_FILE_NAME, maxBytes=DEFAULT_LOG_SIZE, backupCount=DEFAULT_N_BACKUPS)
     file_formatter = logging.Formatter(
@@ -26,11 +24,22 @@ def initialize_logger():
     file_handler.setFormatter(file_formatter)
     logger.addHandler(file_handler)
 
-    connection_string = f'InstrumentationKey={settings.INSTRUMENTATION_KEY}'
-    azure_handler = AzureLogHandler(connection_string=connection_string)
-    azure_formatter = logging.Formatter('%(message)s')
-    azure_handler.setFormatter(azure_formatter)
-    logger.addHandler(azure_handler)
+
+def _register_azure_handler():
+    if settings.INSTRUMENTATION_KEY is not None:
+        connection_string = f'InstrumentationKey={settings.INSTRUMENTATION_KEY}'
+        azure_handler = AzureLogHandler(connection_string=connection_string)
+        azure_formatter = logging.Formatter('%(message)s')
+        azure_handler.setFormatter(azure_formatter)
+        logger.addHandler(azure_handler)
+    else:
+        logger.info("INSTRUMENTATION_KEY not set, logging locally")
+
+
+def initialize_logger():
+    logger.setLevel(logging.DEBUG)
+    _register_file_handler()
+    _register_azure_handler()
 
 
 def log_context(name, tag='='):
