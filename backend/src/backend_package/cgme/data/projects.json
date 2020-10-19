@@ -683,7 +683,10 @@
     "remarks": "Viewer was the first 3D program I created from scratch. At this point I still had very little experience working with any code other than my own and so if I wanted 3D graphics I would have to create it myself. I didn't know that much vector math, let alone the quaternions needed to do 3D rotation correctly. Nevertheless, the project turned out alright.",
     "code_link": null,
     "download_link": "https://chrisgregory.blob.core.windows.net/projects/jars/viewer.jar",
-    "image_links": [],
+    "image_links": [
+      "https://chrisgregory.blob.core.windows.net/projects/images/viewer--01.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/viewer--02.jpg"
+    ],
     "primary_language": "Java",
     "archived": false
   },
