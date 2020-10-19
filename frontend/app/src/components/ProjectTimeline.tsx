@@ -107,9 +107,11 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
     const downloadLink =
       project.download_link == null ? "" : project.download_link;
     const downloadElement = hasDownloadLink ? (
-      <a className="Timeline-project-item" href={downloadLink}>
-        Download
-      </a>
+      <div className="Timeline-project-item">
+        <a className="Timeline-project-item-link" href={downloadLink}>
+          Download
+        </a>
+      </div>
     ) : undefined;
     return (
       <div className="Timeline-project-info">
@@ -120,6 +122,9 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
             Language: {project.primary_language}
           </div>
           {downloadElement}
+          <div className="Timeline-project-item">
+            {project.description}
+          </div>
         </div>
         {imageElements}
       </div>

@@ -21,6 +21,18 @@
   margin-bottom: 10px;
 }
 
+.Timeline-project-item-link {
+  color: rgb(230, 230, 230);
+}
+
+.Timeline-project-item-link:active {
+  color: rgb(230, 230, 230);
+}
+
+.Timeline-project-item-link:visited {
+  color: rgb(230, 230, 230);
+}
+
 .Timeline-project-image {
   max-height: 300px;
   margin: 10px 10px;
