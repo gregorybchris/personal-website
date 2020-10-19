@@ -8,7 +8,7 @@ from cgme.validation.validator import Validator
 class ProjectValidator(Validator):
     DATA_FILENAME = 'projects.json'
 
-    MIN_DESCRIPTION_LENGTH = 100
+    MIN_DESCRIPTION_LENGTH = 50
     MAX_DESCRIPTION_LENGTH = 1200
     MIN_LINK_LENGTH = 5
 

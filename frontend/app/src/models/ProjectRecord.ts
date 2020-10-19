@@ -3,7 +3,9 @@ interface ProjectRecord {
   name: string;
   date: string;
   project_type: string;
+  controls: string | null;
   description: string | null;
+  remarks: string | null;
   code_link: string | null;
   download_link: string | null;
   image_links: string[];
