@@ -752,5 +752,19 @@
     "image_links": [],
     "primary_language": "Python",
     "archived": false
+  },
+  {
+    "project_id": "114e1f6e-b1b6-4640-8f9e-a9cb84dcc5af",
+    "name": "Mammogram Classification",
+    "date": "2016-03-03",
+    "project_type": "program",
+    "controls": null,
+    "description": "Mammogram Classification was my Intro to Machine Learning course final project working with Henry Zhou and Yuki Zaninovich. The project was an paper on training a deep learning model to detect tumors.",
+    "remarks": null,
+    "code_link": null,
+    "download_link": "https://chrisgregory.blob.core.windows.net/projects/papers/cnn-mammogram.pdf",
+    "image_links": [],
+    "primary_language": "Python",
+    "archived": false
   }
 ]
