@@ -61,6 +61,7 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
       })
       .attr("cy", () => timelinePaddingY + 40 * (Math.random() * 2 - 1))
       .attr("r", 7)
+      .attr("stroke-width", 1.5)
       .attr("fill", (d) => {
         if (d.project_type == projectTypeWeb) {
           return "rgb(230, 85, 63)";
@@ -72,8 +73,10 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
           return "rgb(255, 255, 255)";
         }
       })
-      .attr("project", (d) => d.project_id)
-      .on("click", (mouseEvent, project: any) => {
+      .attr("id", (d) => `project_${d.project_id}`)
+      .on("click", (mouseEvent: any, project: any) => {
+        d3.selectAll("circle").attr("stroke", "transparent");
+        d3.select(`#project_${project.project_id}`).attr("stroke", "white");
         this.setState({ currentProject: project });
       });
     circles.append("title").text((d) => d.name);
@@ -122,9 +125,7 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
             Language: {project.primary_language}
           </div>
           {downloadElement}
-          <div className="Timeline-project-item">
-            {project.description}
-          </div>
+          <div className="Timeline-project-item">{project.description}</div>
         </div>
         {imageElements}
       </div>

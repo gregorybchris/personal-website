@@ -126,7 +126,7 @@
     "project_id": "50723c4a-84f1-4be3-a3d3-93f35692e8dd",
     "name": "Vector",
     "date": "2012-05-01",
-    "project_type": "program",
+    "project_type": "jar",
     "controls": "Mouse to select marble trajectories, keyboard to type.",
     "description": "Vector is a glorified game of marbles. It's a multiplayer game with the ability to chat with other online players and change the color of your character. You can challenge another player to a game and the goal is to knock the other player's marbles off the stage. The game was inspired by the multiplayer Android game Cestos.",
     "remarks": "Vector was the final project of my data structures clas in high school. It was a collaboration with my friend Jason Zhao and we built the game over a few weeks using Java Sockets.",
