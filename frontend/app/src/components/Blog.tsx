@@ -90,7 +90,7 @@ class Blog extends React.Component<BlogProps, BlogState> {
     return false;
   };
 
-  createPost = (post: PostRecord) => {
+  createPostElement = (post: PostRecord) => {
     if (this.isPostEnabled(post)) {
       const time = this.getVideoTime();
       return (
@@ -101,6 +101,15 @@ class Blog extends React.Component<BlogProps, BlogState> {
           videoTime={time}
         />
       );
+    }
+  };
+
+  createPostElements = () => {
+    const posts = this.state.posts;
+    if (posts.length == 0) {
+      return <span className="Blog-posts-loading">Loading posts...</span>;
+    } else {
+      return this.state.posts.map((post) => this.createPostElement(post));
     }
   };
 
@@ -119,9 +128,7 @@ class Blog extends React.Component<BlogProps, BlogState> {
             searchText={this.state.searchText}
           />
         </div>
-        <div className="Blog-posts">
-          {this.state.posts.map((post) => this.createPost(post))}
-        </div>
+        <div className="Blog-posts">{this.createPostElements()}</div>
       </div>
     );
   }

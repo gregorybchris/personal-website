@@ -3,3 +3,39 @@
   color: rgb(230, 230, 230);
   font-family: "Montserrat";
 }
+
+.Home-page-link {
+  text-decoration: none;
+  color: rgb(98, 131, 192);
+  transition: 0.2s;
+}
+
+.Home-page-link:hover {
+  color: rgb(112, 135, 177);
+}
+
+.Home-bio-wrap {
+  width: 800px;
+  max-width: 90%;
+  margin: 30px auto 0px;
+}
+
+.Home-bio-header {
+  font-size: 26px;
+}
+
+.Home-bio-section {
+  padding: 20px 0px 0px;
+}
+
+.Home-bio-interest-section {
+  margin-top: 14px;
+}
+
+.Home-bio-interest-header {
+  display: block;
+  font-size: 18px;
+}
+
+.Home-bio-interest-text {
+}

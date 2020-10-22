@@ -1,0 +1,65 @@
+.Contact {
+  padding: 30px;
+  color: rgb(230, 230, 230);
+  font-family: "Montserrat";
+}
+
+.Contact-form-wrap {
+  width: 500px;
+  margin: 100px auto 0px;
+}
+
+.Contact-text-input {
+  font-family: "Montserrat";
+  font-weight: bold;
+  background-color: rgb(66, 72, 83);
+  color: rgb(230, 230, 230);
+  border-radius: 0px;
+  outline: none;
+  padding: 8px 12px;
+  border: none;
+  margin: 10px auto;
+  display: block;
+  transition: 0.2s;
+}
+
+.Contact-text-input:hover {
+  background-color: rgb(56, 62, 73);
+}
+
+.Contact-text-input:focus {
+  background-color: rgb(56, 62, 73);
+}
+
+.Contact-text-input::placeholder {
+  color: rgb(187, 187, 187);
+  opacity: 1;
+}
+
+.Contact-text-field {
+  width: 400px;
+}
+
+.Contact-text-area {
+  width: 400px;
+  height: 150px;
+  resize: none;
+}
+
+.Contact-send-button {
+  font-family: "Montserrat";
+  font-weight: bold;
+  background-color: rgb(66, 72, 83);
+  color: rgb(187, 187, 187);
+  padding: 7px 26px;
+  margin: 10px auto;
+  border: none;
+  display: block;
+  transition: 0.2s;
+}
+
+.Contact-send-button:hover {
+  background-color: rgb(56, 62, 73);
+  color: rgb(201, 201, 201);
+  cursor: pointer;
+}

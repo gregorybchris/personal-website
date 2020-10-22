@@ -22,8 +22,8 @@ function Nav() {
         </Link>
       </div>
       <div className="Nav-page-item">
-        <Link className="Nav-page-link" to="/graphics">
-          Graphics
+        <Link className="Nav-page-link" to="/contact">
+          Contact
         </Link>
       </div>
     </div>

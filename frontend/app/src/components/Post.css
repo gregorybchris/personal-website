@@ -48,7 +48,8 @@
 .Post-thumbnail {
   border-radius: 4px;
   width: 250px;
-  box-shadow: 2px 2px 5px 1px rgb(25, 26, 31);
+  box-shadow: 0px 0px 7px 2px rgb(25, 26, 31);
+  /* box-shadow: 2px 2px 5px 1px rgb(25, 26, 31); */
 }
 
 .Post-thumbnail-link:active .Post-thumbnail {

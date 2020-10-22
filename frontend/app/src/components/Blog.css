@@ -24,3 +24,7 @@
 .Blog-posts {
   padding: 40px 40px 40px;
 }
+
+.Blog-posts-loading {
+  color: rgb(208, 213, 223);
+}
