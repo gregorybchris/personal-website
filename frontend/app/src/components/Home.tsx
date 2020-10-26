@@ -26,23 +26,23 @@ class Home extends React.Component<HomeProps, HomeState> {
               like.
             </div>
             <br />
+            <hr />
+            <br />
             <div className="Home-bio-interest-text">More content:</div>
-            <div className="Home-bio-interest-text">
-              - A test of{" "}
-              <Link className="Home-page-link" to="/graphics">
-                web graphics
-              </Link>
-            </div>
             <div className="Home-bio-interest-text">
               - Videos and articles on my{" "}
               <Link className="Home-page-link" to="/blog">
                 link blog
               </Link>
             </div>
+            <div className="Home-bio-interest-text">
+              - New features{" "}
+              <Link className="Home-page-link" to="/sandbox">
+                sandbox
+              </Link>
+            </div>
           </div>
-          <br />
-          <hr />
-          <div className="Home-bio-section">
+          {/* <div className="Home-bio-section">
             <div className="Home-bio-interest-section">
               <span className="Home-bio-interest-header">Software:</span>
               <span className="Home-bio-interest-text">
@@ -70,7 +70,7 @@ class Home extends React.Component<HomeProps, HomeState> {
                 Violin starting when I was 7, piano at 10, and guitar at 13.
               </span>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     );

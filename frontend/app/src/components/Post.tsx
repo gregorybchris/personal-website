@@ -148,9 +148,9 @@ class Post extends React.Component<PostProps, PostState> {
         >
           <img className="Post-page-link-image" src={linkImage} alt=""></img>
         </a>
-        <a className="Post-page-link" onClick={this.toggleSummary}>
+        <div className="Post-page-link" onClick={this.toggleSummary}>
           <img className="Post-page-link-image" src={detailsImage} alt=""></img>
-        </a>
+        </div>
 
         {this.getSummaryElement()}
       </div>

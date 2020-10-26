@@ -63,11 +63,11 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
       .attr("r", 7)
       .attr("stroke-width", 1.5)
       .attr("fill", (d) => {
-        if (d.project_type == projectTypeWeb) {
+        if (d.project_type === projectTypeWeb) {
           return "rgb(230, 85, 63)";
-        } else if (d.project_type == projectTypeJar) {
+        } else if (d.project_type === projectTypeJar) {
           return "rgb(113, 173, 208)";
-        } else if (d.project_type == projectTypeProgram) {
+        } else if (d.project_type === projectTypeProgram) {
           return "rgb(58, 177, 22)";
         } else {
           return "rgb(255, 255, 255)";
@@ -86,29 +86,36 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
     const unarchivedProjects = this.props.projects.filter(
       (project) => !project.archived
     );
-    if (prevProps.projects.length == 0) {
+    if (prevProps.projects.length === 0) {
       this.populateCanvas(unarchivedProjects);
     }
   }
 
   createImageElement = (link: string) => {
-    return <img className="Timeline-project-image" src={link} key={link}></img>;
+    return (
+      <img
+        className="Timeline-project-image"
+        src={link}
+        key={link}
+        alt="Project screenshot"
+      ></img>
+    );
   };
 
   getProjectInfo = (project: ProjectRecord | null) => {
-    if (project == null) {
+    if (project === null) {
       return;
     }
     const formattedDate = formatDate(project.date);
     const imageElements =
-      project.image_links.length == 0 ? (
+      project.image_links.length === 0 ? (
         <div className="Timeline-project-item">[no images available]</div>
       ) : (
         project.image_links.map(this.createImageElement)
       );
     const hasDownloadLink = project.download_link != null;
     const downloadLink =
-      project.download_link == null ? "" : project.download_link;
+      project.download_link === null ? "" : project.download_link;
     const downloadElement = hasDownloadLink ? (
       <div className="Timeline-project-item">
         <a className="Timeline-project-item-link" href={downloadLink}>

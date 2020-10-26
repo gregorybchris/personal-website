@@ -106,7 +106,7 @@ class Blog extends React.Component<BlogProps, BlogState> {
 
   createPostElements = () => {
     const posts = this.state.posts;
-    if (posts.length == 0) {
+    if (posts.length === 0) {
       return <span className="Blog-posts-loading">Loading posts...</span>;
     } else {
       return this.state.posts.map((post) => this.createPostElement(post));
