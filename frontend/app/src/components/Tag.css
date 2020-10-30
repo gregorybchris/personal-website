@@ -3,9 +3,9 @@
   margin-right: 10px;
   margin-bottom: 7px;
   padding: 6px 10px;
-  background-color: rgb(51, 55, 65);
+  /* background-color: rgb(51, 55, 65); */
   color: rgb(123, 131, 146);
-  border-radius: 5px;
+  /* border-radius: 5px; */
   font-size: 14px;
   font-weight: bold;
   transition: 0.2s;
@@ -13,7 +13,7 @@
 
 .Tag:hover {
   cursor: pointer;
-  background-color: rgb(71, 75, 87);
+  background-color: rgb(56, 59, 70);
 }
 
 .Tag:active {

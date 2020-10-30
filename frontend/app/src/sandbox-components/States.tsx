@@ -18,7 +18,6 @@ class States extends React.Component<StatesProps, StatesState> {
   }
 
   populateCanvas = () => {
-    console.log("Populating");
     const canvas = d3.select(this.canvasRef.current);
     canvas.selectAll("svg").remove();
     const [width, height] = [1000, 200];
@@ -38,10 +37,7 @@ class States extends React.Component<StatesProps, StatesState> {
       .data(stateImageLinks)
       .enter()
       .append("svg:image")
-      .attr("href", (d) => {
-        console.log(d);
-        return d;
-      })
+      .attr("href", (d) => d)
       // .attr("filter", "invert(0.5)")
       .classed("States-state-image", true)
       .attr("x", (d, i) => i * 300)
