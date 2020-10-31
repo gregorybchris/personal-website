@@ -3049,5 +3049,32 @@
     "summary": "Why are the top ten most popular languages object oriented rather than functional? There are three main reasons languages blow up: killer app (PHP/dynamic HTML, Java applets/web, Ruby/rails, C/OS, JavaScript/web), exclusivity on large platforms (Objective-C/Apple, Swift/Apple, C#/Windows), great advertising (Java). Python is an exception that has just gained popularity slowly over time by being well-designed. How easy it is to migrate to a new language is also important, but not the thing that really catapults a language into the top ten. What makes an OO language OO? Inheritance? Methods? Modules? It's not clear exactly what makes an OO language OO. But inheritance is not considered a best practice (composition over inheritance). Methods are really just syntactic sugar around structs and functions. Many languages have module systems with information hiding. Before Stroustrup made C++ he made \"C with classes\" which didn't do well. When he added a ton more features, then C++ did well. The success of OO languages seems to be an accident of history.",
     "paid": false,
     "deleted": false
+  },
+  {
+    "post_id": "8b37da38-07fe-4ad7-8db2-6daa2101810a",
+    "title": "Why No One Has Measured the Speed of Light",
+    "content_type": "video",
+    "source": "YouTube",
+    "areas": ["physics"],
+    "series": "Veritasium",
+    "speaker": null,
+    "episode_number": null,
+    "length": "00:19:04",
+    "date_created": "2020-10-31",
+    "date_posted": "2020-10-31",
+    "link": "https://www.youtube.com/watch?v=pTn6Ewhb27k",
+    "tags": [
+      "light",
+      "physics",
+      "relativity",
+      "convention",
+      "mirrors",
+      "experiment",
+      "plants",
+      "astronomy"
+    ],
+    "summary": "Measuring the two way speed of light is easy theoretically with a clock, a mirror, and a light sensor. We currently define the speed of light to be 299,792,458 m/s. And meters are also defined now in terms of the speed of light. But we've never been able to measure the one way speed of light because you would need two clocks perfectly synchronized in two places which we can't do because of general relativity. As far as physics knows, it's possible that light travels in different speeds going different directions. The speed of light (c) in all directions is actually a convention.",
+    "paid": false,
+    "deleted": false
   }
 ]
