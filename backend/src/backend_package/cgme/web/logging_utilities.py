@@ -1,7 +1,6 @@
 import functools
 import logging
 import logging.handlers
-import os
 import time
 
 from opencensus.ext.azure.log_exporter import AzureLogHandler

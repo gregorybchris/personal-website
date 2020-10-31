@@ -8,6 +8,7 @@ import "./ProjectTimeline.css";
 
 export interface TimelineProps {
   projects: ProjectRecord[];
+  onProjectDownload: (project: ProjectRecord, link: string) => void;
 }
 
 export interface TimelineState {
@@ -118,15 +119,20 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
       project.download_link === null ? "" : project.download_link;
     const downloadElement = hasDownloadLink ? (
       <div className="Timeline-project-item">
-        <a className="Timeline-project-item-link" href={downloadLink}>
+        <span
+          className="Timeline-project-item-link"
+          onClick={() => this.props.onProjectDownload(project, downloadLink)}
+        >
           Download
-        </a>
+        </span>
       </div>
     ) : undefined;
     return (
       <div className="Timeline-project-info">
         <div className="Timeline-project-info-text">
-          <div className="Timeline-project-item">{project.name}</div>
+          <div className="Timeline-project-item Timeline-project-name">
+            {project.name}
+          </div>
           <div className="Timeline-project-item">{formattedDate}</div>
           <div className="Timeline-project-item">
             Language: {project.primary_language}

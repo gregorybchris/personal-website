@@ -18,7 +18,7 @@ const GET = async (url: string, enable_cors: boolean = true) => {
   return data;
 };
 
-const POST = async (url: string, body: Object) => {
+const POST = async (url: string, body: Object = {}) => {
   const response = await fetch(url, {
     method: "POST",
     body: JSON.stringify(body),

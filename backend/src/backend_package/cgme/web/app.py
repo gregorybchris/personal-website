@@ -1,6 +1,5 @@
 import flask
 import json
-import logging
 import pathlib
 import pkg_resources
 
@@ -13,7 +12,7 @@ from cgme.web import logging_utilities
 
 
 logging_utilities.initialize_logger()
-logger = logging.getLogger(__name__)
+logger = logging_utilities.logger
 
 
 class App:
@@ -30,11 +29,11 @@ class App:
         self._app = flask.Flask(__name__)
         self._register_api_endpoints()
         CORS(self._app)
-        # self._app.config['CORS_HEADERS'] = 'Content-Type'
 
     def _register_api_endpoints(self):
         self._app.route('/api/v1/info', methods=['GET'])(self.api_get_info_v1)
         self._app.route('/api/v1/posts', methods=['GET'])(self.api_get_posts_v1)
+        self._app.route('/api/v1/project_download/<project_id>', methods=['POST'])(self.api_post_project_download_v1)
         self._app.route('/api/v1/projects', methods=['GET'])(self.api_get_projects_v1)
         self._app.route('/api/v1/media', methods=['GET'])(self.api_get_media_v1)
         self._app.route('/api/v1/hikes', methods=['GET'])(self.api_get_hikes_v1)
@@ -62,6 +61,24 @@ class App:
             posts = json.load(f)
         return flask.jsonify({
             'posts': posts
+        })
+
+    @logging_utilities.log_context('post_project_download', tag='api')
+    def api_post_project_download_v1(self, project_id):
+        with open(App.PROJECT_DATA_FILEPATH, 'r') as f:
+            projects = json.load(f)
+        for project in projects:
+            if project['project_id'] == project_id:
+                project_name = project['name']
+                logger.info(f"Project \"{project_name}\" ({project_id}) downloaded")
+
+                return flask.jsonify({
+                    'success': True,
+                    'message': f"Successfully downloaded project {project_name}"
+                })
+        return flask.jsonify({
+            'success': False,
+            'message': f"Project with ID {project_id} not found"
         })
 
     @logging_utilities.log_context('get_projects', tag='api')

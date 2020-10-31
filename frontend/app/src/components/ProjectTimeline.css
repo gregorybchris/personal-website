@@ -21,8 +21,17 @@
   margin-bottom: 10px;
 }
 
+.Timeline-project-name {
+  font-size: 22px;
+}
+
 .Timeline-project-item-link {
   color: rgb(230, 230, 230);
+}
+
+.Timeline-project-item-link:hover {
+  color: rgb(190, 190, 190);
+  cursor: pointer;
 }
 
 .Timeline-project-item-link:active {
