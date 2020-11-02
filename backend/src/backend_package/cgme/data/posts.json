@@ -1898,7 +1898,7 @@
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
-    "series": "Artificial Intelligence Podcast",
+    "series": "Lex Fridman Podcast",
     "speaker": "Eric Weinstein",
     "episode_number": 16,
     "length": "01:21:55",
@@ -2011,7 +2011,7 @@
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
-    "series": "Artificial Intelligence Podcast",
+    "series": "Lex Fridman Podcast",
     "speaker": "Ian Goodfellow",
     "episode_number": 19,
     "length": "01:08:36",
@@ -3074,6 +3074,33 @@
       "astronomy"
     ],
     "summary": "Measuring the two way speed of light is easy theoretically with a clock, a mirror, and a light sensor. We currently define the speed of light to be 299,792,458 m/s. And meters are also defined now in terms of the speed of light. But we've never been able to measure the one way speed of light because you would need two clocks perfectly synchronized in two places which we can't do because of general relativity. As far as physics knows, it's possible that light travels in different speeds going different directions. The speed of light (c) in all directions is actually a convention.",
+    "paid": false,
+    "deleted": false
+  },
+  {
+    "post_id": "4184b777-5594-4261-8981-9ea9004270b7",
+    "title": "Computing, Interactive AI, and Race in America",
+    "content_type": "video",
+    "source": "YouTube",
+    "areas": ["philosophy", "computers", "justice"],
+    "series": "Lex Fridman Podcast",
+    "speaker": "Charles Isbell",
+    "episode_number": 135,
+    "length": "02:23:50",
+    "date_created": "2020-11-01",
+    "date_posted": "2020-11-01",
+    "link": "https://www.youtube.com/watch?v=LAyZ8IYfGxQ",
+    "tags": [
+      "light",
+      "physics",
+      "relativity",
+      "convention",
+      "mirrors",
+      "experiment",
+      "plants",
+      "astronomy"
+    ],
+    "summary": "People are generally extremely predictable. And those that are outliers are often surprisingly similar to each other. While information silos can cause ideogological differences, what they create more of are differences in how we use language, leading to groups talking past each other. Machine learning is just one piece of AI and one important thing ML misses is being intelligent around other intelligent beings, social learning. Being intelligent alone is meaningless. Both research and industry have short term incentives; In order to get at real intelligence we'll need to take some risks and put an agent out in the chaotic world for an extended period of time. Google didn't come out of no where to solve the question answering problem. They actually changed the problem to minimize false positives given many potential answers. Google doesn't have to give THE answer, just a few high probability answers ranked above lower ones. And then humans had to train to query effectively. The same problem exists in hiring professors: adding noise to your search is too expensive, so you have to just widen your pool of applicants to have a higher chance to find someone good. Tenure isn't a test it's a training process. Ranking colleges on anything other than prestige/narrative is impossible. Academic disciplines give you mindsets, ways of seeing/interacting with the world. Computing as a mindset teaches that models/machines/languages/abstractions/analogies are all connected. Computing will eventually seep into all other disciplines and in turn those disciplines will inform computing. People don't need to code, just learn the precision of communication that coding teaches. Computing is a way to surface assumptions. Assumptions are neural net parameters and programming language if/thens. Race relations have changed recently because of increased transparency and more people are willing to believe how bad things are. Violence is the voice of the unheard and the unfortunate truth is that violence effectively creates change.",
     "paid": false,
     "deleted": false
   }

@@ -13,7 +13,7 @@ class PostValidator(Validator):
     MIN_TAG_LENGTH = 2
     MAX_TAG_LENGTH = 25
     MIN_SUMMARY_LENGTH = 100
-    MAX_SUMMARY_LENGTH = 1200
+    MAX_SUMMARY_LENGTH = 2100
     MIN_LINK_LENGTH = 5
 
     def validate(cls):
