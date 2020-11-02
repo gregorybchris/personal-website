@@ -1,6 +1,9 @@
 class HTTPCodes:
+    # Success
     SUCCESS_GENERAL = 200
     SUCCESS_CREATED = 201
+
+    # Error
     ERROR_GENERAL = 400
     ERROR_INVALID_PARAM = 403
     ERROR_NOT_FOUND = 404

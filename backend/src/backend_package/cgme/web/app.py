@@ -1,5 +1,4 @@
 import flask
-import json
 import pathlib
 import pkg_resources
 
@@ -7,8 +6,10 @@ import pandas as pd
 
 from flask_cors import CORS
 
-from cgme.web import settings
 from cgme.web import logging_utilities
+from cgme.web import settings
+from cgme.web.app_utilities import create_response, read_json
+from cgme.web.http_codes import HTTPCodes
 
 
 logging_utilities.initialize_logger()
@@ -63,6 +64,8 @@ class App:
         self._app.route('/api/v1/projects', methods=['GET'])(self.api_get_projects_v1)
         self._app.route('/api/v1/projects/download/<project_id>', methods=['POST'])(self.api_post_projects_download_v1)
 
+    # region info
+
     def _list_endpoints(self):
         links = set()
         for rule in self._app.url_map.iter_rules():
@@ -80,34 +83,8 @@ class App:
             'version': pkg_resources.get_distribution('cgme').version,
         })
 
-    @logging_utilities.log_context('get_posts', tag='api')
-    def api_get_posts_v1(self):
-        return flask.jsonify({
-            'posts': App.read_json(App.POSTS_DATA)
-        })
-
-    @logging_utilities.log_context('get_projects', tag='api')
-    def api_get_projects_v1(self):
-        return flask.jsonify({
-            'projects': App.read_json(App.PROJECTS_DATA)
-        })
-
-    @logging_utilities.log_context('post_projects_download', tag='api')
-    def api_post_projects_download_v1(self, project_id):
-        projects = App.read_json(App.PROJECTS_DATA)
-        for project in projects:
-            if project['project_id'] == project_id:
-                project_name = project['name']
-                logger.info(f"Project \"{project_name}\" ({project_id}) downloaded")
-
-                return flask.jsonify({
-                    'success': True,
-                    'message': f"Successfully downloaded project {project_name}"
-                })
-        return flask.jsonify({
-            'success': False,
-            'message': f"Project with ID {project_id} not found"
-        })
+    # endregion info
+    # region media
 
     @logging_utilities.log_context('get_media', tag='api')
     def api_get_media_v1(self):
@@ -142,38 +119,64 @@ class App:
         youtube_df = pd.read_csv(App.YOUTUBE_CHANNELS_DATA)
         return flask.jsonify(list(youtube_df.T.to_dict().values()))
 
+    # endregion media
+    # region outdoor
+
     @logging_utilities.log_context('get_outdoor', tag='api')
     def api_get_outdoor_v1(self):
         return flask.jsonify({
-            'cycling': App.read_json(App.CYCLING_ROUTES_DATA),
-            'hiking': App.read_json(App.HIKING_ROUTES_DATA),
-            'running': App.read_json(App.RUNNING_ROUTES_DATA),
+            'cycling': read_json(App.CYCLING_ROUTES_DATA),
+            'hiking': read_json(App.HIKING_ROUTES_DATA),
+            'running': read_json(App.RUNNING_ROUTES_DATA),
         })
 
     @logging_utilities.log_context('get_outdoor_cycling', tag='api')
     def api_get_outdoor_cycling_v1(self):
-        return flask.jsonify(App.read_json(App.CYCLING_ROUTES_DATA))
+        return flask.jsonify(read_json(App.CYCLING_ROUTES_DATA))
 
     @logging_utilities.log_context('get_outdoor_hiking', tag='api')
     def api_get_outdoor_hiking_v1(self):
-        return flask.jsonify(App.read_json(App.HIKING_ROUTES_DATA))
+        return flask.jsonify(read_json(App.HIKING_ROUTES_DATA))
 
     @logging_utilities.log_context('get_outdoor_running', tag='api')
     def api_get_outdoor_running_v1(self):
-        return flask.jsonify(App.read_json(App.RUNNING_ROUTES_DATA))
+        return flask.jsonify(read_json(App.RUNNING_ROUTES_DATA))
 
-    @staticmethod
-    def read_json(filepath):
-        with open(filepath, 'r') as f:
-            data = json.load(f)
-        return data
+    # endregion outdoor
+    # region posts
 
-    @staticmethod
-    def error(message, code):
-        return (flask.jsonify(message=str(message)), code)
+    @logging_utilities.log_context('get_posts', tag='api')
+    def api_get_posts_v1(self):
+        return flask.jsonify({
+            'posts': read_json(App.POSTS_DATA)
+        })
+
+    # endregion posts
+    # region projects
+
+    @logging_utilities.log_context('get_projects', tag='api')
+    def api_get_projects_v1(self):
+        return flask.jsonify({
+            'projects': read_json(App.PROJECTS_DATA)
+        })
+
+    @logging_utilities.log_context('post_projects_download', tag='api')
+    def api_post_projects_download_v1(self, project_id):
+        projects = read_json(App.PROJECTS_DATA)
+        for project in projects:
+            if project['project_id'] == project_id:
+                project_name = project['name']
+                logger.info(f"Project \"{project_name}\" ({project_id}) downloaded")
+
+                success_message = f"Successfully downloaded project {project_name}"
+                return create_response(success_message, HTTPCodes.SUCCESS_GENERAL)
+        error_message = f"Project with ID {project_id} not found"
+        return create_response(error_message, HTTPCodes.ERROR_NOT_FOUND)
+
+    # endregion projects
 
     def run(self):
-        port = settings.FLASK_RUN_PORT
-        debug = 1 if bool(settings.FLASK_DEBUG) else 0
-        host = settings.FLASK_HOST
-        self._app.run(port=port, debug=debug, host=host)
+        debug_mode = 1 if bool(settings.FLASK_DEBUG) else 0
+        self._app.run(host=settings.FLASK_HOST,
+                      port=settings.FLASK_RUN_PORT,
+                      debug=debug_mode)
