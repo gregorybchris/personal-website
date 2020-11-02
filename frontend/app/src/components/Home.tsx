@@ -41,6 +41,16 @@ class Home extends React.Component<HomeProps, HomeState> {
                 sandbox
               </Link>
             </div>
+            <div className="Home-bio-interest-text">
+              - Personal website{" "}
+              <a
+                target="_blank"
+                className="Home-page-link"
+                href="https://documenter.getpostman.com/view/4051098/TVYM4Fzz"
+              >
+                API documentation
+              </a>
+            </div>
           </div>
           {/* <div className="Home-bio-section">
             <div className="Home-bio-interest-section">
