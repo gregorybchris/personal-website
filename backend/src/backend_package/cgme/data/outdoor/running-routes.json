@@ -1,0 +1,289 @@
+[
+  {
+    "distance": 6.0,
+    "name": "'09 Red Line",
+    "route_type": "running",
+    "mapometer_id": 4613919,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 4.52,
+    "name": "Interlaken",
+    "route_type": "running",
+    "mapometer_id": 4851982,
+    "tags": ["Seattle", "Highmark"]
+  },
+  {
+    "distance": 2.41,
+    "name": "Main Street",
+    "route_type": "running",
+    "mapometer_id": 4287237,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 1.98,
+    "name": "Mystic Stoplight Cooldown",
+    "route_type": "running",
+    "mapometer_id": 4287239,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 4.25,
+    "name": "Lakes",
+    "route_type": "running",
+    "mapometer_id": 4306522,
+    "tags": ["Tufts", "Ossipee"]
+  },
+  {
+    "distance": 8.16,
+    "name": "Fresh Pond",
+    "route_type": "running",
+    "mapometer_id": 4373697,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 4.97,
+    "name": "Levee",
+    "route_type": "running",
+    "mapometer_id": 4325400,
+    "tags": ["Indy", "Warwick"]
+  },
+  {
+    "distance": 4.59,
+    "name": "86th Street",
+    "route_type": "running",
+    "mapometer_id": 4325405,
+    "tags": ["Indy", "Warwick"]
+  },
+  {
+    "distance": 7.02,
+    "name": "Butler Canal",
+    "route_type": "running",
+    "mapometer_id": 4327746,
+    "tags": ["Indy"]
+  },
+  {
+    "distance": 5.06,
+    "name": "South Monon",
+    "route_type": "running",
+    "mapometer_id": 4330557,
+    "tags": ["Indy", "Warwick"]
+  },
+  {
+    "distance": 3.53,
+    "name": "Short Glam",
+    "route_type": "running",
+    "mapometer_id": 4335590,
+    "tags": ["Tufts", "Ossipee"]
+  },
+  {
+    "distance": 7.49,
+    "name": "Two Bridges",
+    "route_type": "running",
+    "mapometer_id": 4340406,
+    "tags": ["Tufts", "Ossipee"]
+  },
+  {
+    "distance": 6.31,
+    "name": "Fresh Pond",
+    "route_type": "running",
+    "mapometer_id": 4346456,
+    "tags": ["Tufts", "Ossipee"]
+  },
+  {
+    "distance": 4.23,
+    "name": "Long Glam (Glamopee)",
+    "route_type": "running",
+    "mapometer_id": 4357555,
+    "tags": ["Tufts", "Ossipee"]
+  },
+  {
+    "distance": 5.0,
+    "name": "Chips",
+    "route_type": "running",
+    "mapometer_id": 4373686,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 7.63,
+    "name": "Chips-Glam",
+    "route_type": "running",
+    "mapometer_id": 4373688,
+    "tags": ["Tufts", "Ossipee"]
+  },
+  {
+    "distance": 3.39,
+    "name": "Full Glam",
+    "route_type": "running",
+    "mapometer_id": 4373700,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 7.04,
+    "name": "Cemetery (Ossitery)",
+    "route_type": "running",
+    "mapometer_id": 4380541,
+    "tags": ["Tufts", "Ossipee"]
+  },
+  {
+    "distance": 5.15,
+    "name": "Cemetery",
+    "route_type": "running",
+    "mapometer_id": 4373699,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 2.44,
+    "name": "Short Glam",
+    "route_type": "running",
+    "mapometer_id": 4373702,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 10.21,
+    "name": "Fresh Pond 2 Laps",
+    "route_type": "running",
+    "mapometer_id": 4373705,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 5.05,
+    "name": "'09 Spy Line",
+    "route_type": "running",
+    "mapometer_id": 4380489,
+    "tags": ["Tufts", "Ossipee"]
+  },
+  {
+    "distance": 7.13,
+    "name": "Mid-Res",
+    "route_type": "running",
+    "mapometer_id": 4383411,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 7.41,
+    "name": "Swimming Hole",
+    "route_type": "running",
+    "mapometer_id": 4383414,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 3.8,
+    "name": "West Med",
+    "route_type": "running",
+    "mapometer_id": 4386432,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 2.43,
+    "name": "Medford Square",
+    "route_type": "running",
+    "mapometer_id": 4386434,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 7.91,
+    "name": "Spy Pond",
+    "route_type": "running",
+    "mapometer_id": 4390321,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 3.24,
+    "name": "C Loop",
+    "route_type": "running",
+    "mapometer_id": 4390322,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 9.11,
+    "name": "Goldman Sachs",
+    "route_type": "running",
+    "mapometer_id": 4489061,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 5.33,
+    "name": "HB",
+    "route_type": "running",
+    "mapometer_id": 4530495,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 5.7,
+    "name": "Short-Res",
+    "route_type": "running",
+    "mapometer_id": 4530503,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 4.97,
+    "name": "Oxbow-Monon",
+    "route_type": "running",
+    "mapometer_id": 4543949,
+    "tags": ["Indy", "Warwick"]
+  },
+  {
+    "distance": 6.6,
+    "name": "Green Aurora",
+    "route_type": "running",
+    "mapometer_id": 4573136,
+    "tags": ["Seattle", "Mercer Court"]
+  },
+  {
+    "distance": 4.6,
+    "name": "Interlaken Mercer Court",
+    "route_type": "running",
+    "mapometer_id": 4573345,
+    "tags": ["Seattle", "Mercer Court"]
+  },
+  {
+    "distance": 4.49,
+    "name": "Near Tower",
+    "route_type": "running",
+    "mapometer_id": 4642039,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 9.49,
+    "name": "Belmont",
+    "route_type": "running",
+    "mapometer_id": 4715557,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 8.78,
+    "name": "Belmont Lakes",
+    "route_type": "running",
+    "mapometer_id": 4715558,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 10.48,
+    "name": "Fake 10 (BU)",
+    "route_type": "running",
+    "mapometer_id": 4715560,
+    "tags": ["Tufts", "Gantcher"]
+  },
+  {
+    "distance": 2.87,
+    "name": "Volunteer Park",
+    "route_type": "running",
+    "mapometer_id": 4809070,
+    "tags": ["Seattle", "Highmark"]
+  },
+  {
+    "distance": 6.48,
+    "name": "Portage",
+    "route_type": "running",
+    "mapometer_id": 4821471,
+    "tags": ["Seattle", "Highmark"]
+  },
+  {
+    "distance": 5.34,
+    "name": "Short Portage",
+    "route_type": "running",
+    "mapometer_id": 4821473,
+    "tags": ["Seattle", "Highmark"]
+  }
+]

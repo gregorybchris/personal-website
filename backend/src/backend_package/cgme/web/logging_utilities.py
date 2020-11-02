@@ -26,6 +26,7 @@ def _register_file_handler():
 
 def _register_azure_handler():
     if settings.INSTRUMENTATION_KEY is not None:
+        logger.info("INSTRUMENTATION_KEY set, starting to log remotely")
         connection_string = f'InstrumentationKey={settings.INSTRUMENTATION_KEY}'
         azure_handler = AzureLogHandler(connection_string=connection_string)
         azure_formatter = logging.Formatter('%(message)s')

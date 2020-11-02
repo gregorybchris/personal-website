@@ -37,7 +37,7 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
       }
     });
 
-    await POST(makeQuery(`project_download/${project.project_id}`));
+    await POST(makeQuery(`projects/download/${project.project_id}`));
   };
 
   render() {
