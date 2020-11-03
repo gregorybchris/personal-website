@@ -59,6 +59,7 @@ class PostProperties:
         'CGP Grey',
         'Charles Cornell',
         'CollegeHumor',
+        'Domain of Science',
         'Future Thinkers',
         'Jack Conte',
         'Joe Rogan Experience',

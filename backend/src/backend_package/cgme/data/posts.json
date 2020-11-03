@@ -3091,16 +3091,43 @@
     "date_posted": "2020-11-01",
     "link": "https://www.youtube.com/watch?v=LAyZ8IYfGxQ",
     "tags": [
-      "light",
-      "physics",
-      "relativity",
-      "convention",
-      "mirrors",
-      "experiment",
-      "plants",
-      "astronomy"
+      "outliers",
+      "ai",
+      "google",
+      "academia",
+      "models",
+      "disciplines",
+      "race",
+      "machine learning"
     ],
     "summary": "People are generally extremely predictable. And those that are outliers are often surprisingly similar to each other. While information silos can cause ideogological differences, what they create more of are differences in how we use language, leading to groups talking past each other. Machine learning is just one piece of AI and one important thing ML misses is being intelligent around other intelligent beings, social learning. Being intelligent alone is meaningless. Both research and industry have short term incentives; In order to get at real intelligence we'll need to take some risks and put an agent out in the chaotic world for an extended period of time. Google didn't come out of no where to solve the question answering problem. They actually changed the problem to minimize false positives given many potential answers. Google doesn't have to give THE answer, just a few high probability answers ranked above lower ones. And then humans had to train to query effectively. The same problem exists in hiring professors: adding noise to your search is too expensive, so you have to just widen your pool of applicants to have a higher chance to find someone good. Tenure isn't a test it's a training process. Ranking colleges on anything other than prestige/narrative is impossible. Academic disciplines give you mindsets, ways of seeing/interacting with the world. Computing as a mindset teaches that models/machines/languages/abstractions/analogies are all connected. Computing will eventually seep into all other disciplines and in turn those disciplines will inform computing. People don't need to code, just learn the precision of communication that coding teaches. Computing is a way to surface assumptions. Assumptions are neural net parameters and programming language if/thens. Race relations have changed recently because of increased transparency and more people are willing to believe how bad things are. Violence is the voice of the unheard and the unfortunate truth is that violence effectively creates change.",
+    "paid": false,
+    "deleted": false
+  },
+  {
+    "post_id": "161d6e55-1bd3-4042-93b1-d1109758c6be",
+    "title": "The Speed of Light is NOT Fundamental",
+    "content_type": "video",
+    "source": "YouTube",
+    "areas": ["physics"],
+    "series": "Domain of Science",
+    "speaker": null,
+    "episode_number": null,
+    "length": "00:16:34",
+    "date_created": "2020-10-30",
+    "date_posted": "2020-11-02",
+    "link": "https://www.youtube.com/watch?v=aYIbC25GNKs",
+    "tags": [
+      "physics",
+      "constants",
+      "fundamental",
+      "convention",
+      "fine structure",
+      "standard model",
+      "dimensions",
+      "energy"
+    ],
+    "summary": "The physical constants we often think of as fundamental (Planck, gravity, speed of light, Boltzmann, etc) are not actually fundamental. You can actually change your units such that all of these constants come out to 1. Each of these constants (e.g. E=mc^2) is relating the scale of two distinct dimensions/units. We can relate all of these units in one formula to determine a more fundamental constant: the fine structure constant. This constant is dimensionless and is just about 1/137. There are actually a total of 26 fundamental constants along with the fine structure constant that are dimensionless. 25 of these come from the standard model. The 26th comes from general relativity. The \"cosmological constant\", the energy density of empty space, vacuum energy, is related to the expansion of space and dark energy. It's possible that these 26 could be reduced, but that would take a revolution in how we understand physics, a revolution in the standard model.",
     "paid": false,
     "deleted": false
   }

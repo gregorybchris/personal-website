@@ -19,17 +19,6 @@ logger = logging_utilities.logger
 class App:
     DATA_PATH = pathlib.Path(__file__).parent.absolute() / '..' / 'data'
 
-    # Postings
-    POSTS_DATA = DATA_PATH / 'posts.json'
-    PROJECTS_DATA = DATA_PATH / 'projects.json'
-    PODCAST_EPISODES_DATA = DATA_PATH / 'podcast-episodes.json'
-
-    # Outdoor
-    OUTDOOR_DIR = DATA_PATH / 'outdoor'
-    CYCLING_ROUTES_DATA = OUTDOOR_DIR / 'cycling-routes.json'
-    HIKING_ROUTES_DATA = OUTDOOR_DIR / 'hiking-routes.json'
-    RUNNING_ROUTES_DATA = OUTDOOR_DIR / 'running-routes.json'
-
     # Media
     MEDIA_DIR = DATA_PATH / 'media'
     MOVIES_DATA = MEDIA_DIR / 'movies.csv'
@@ -37,8 +26,22 @@ class App:
     TV_SHOWS_DATA = MEDIA_DIR / 'tv-shows.csv'
     YOUTUBE_CHANNELS_DATA = MEDIA_DIR / 'youtube-channels.csv'
 
+    # Outdoor
+    OUTDOOR_DIR = DATA_PATH / 'outdoor'
+    CYCLING_ROUTES_DATA = OUTDOOR_DIR / 'cycling-routes.json'
+    HIKING_ROUTES_DATA = OUTDOOR_DIR / 'hiking-routes.json'
+    RUNNING_ROUTES_DATA = OUTDOOR_DIR / 'running-routes.json'
+
     # Professional
     PROFESSIONAL_DIR = DATA_PATH / 'professional'
+    COURSES_DATA = PROFESSIONAL_DIR / 'courses.json'
+    JOBS_DATA = PROFESSIONAL_DIR / 'jobs.json'
+
+    # Other
+    POSTS_DATA = DATA_PATH / 'posts.json'
+    PROJECTS_DATA = DATA_PATH / 'projects.json'
+    PODCAST_EPISODES_DATA = DATA_PATH / 'podcast-episodes.json'
+    RECIPES_DATA = DATA_PATH / 'recipes.json'
 
     def __init__(self):
         self._app = flask.Flask(__name__)
@@ -63,6 +66,12 @@ class App:
 
         self._app.route('/v1/projects', methods=['GET'])(self.get_projects_v1)
         self._app.route('/v1/projects/download/<project_id>', methods=['POST'])(self.post_projects_download_v1)
+
+        self._app.route('/v1/professional', methods=['GET'])(self.get_professional_v1)
+        self._app.route('/v1/professional/courses', methods=['GET'])(self.get_professional_courses_v1)
+        self._app.route('/v1/professional/jobs', methods=['GET'])(self.get_professional_jobs_v1)
+
+        self._app.route('/v1/recipes', methods=['GET'])(self.get_recipes_v1)
 
     # region info
 
@@ -173,6 +182,31 @@ class App:
         return create_response(error_message, HTTPCodes.ERROR_NOT_FOUND)
 
     # endregion projects
+    # region professional
+
+    @logging_utilities.log_context('get_professional', tag='api')
+    def get_professional_v1(self):
+        return flask.jsonify({
+            'courses': read_json(App.COURSES_DATA),
+            'jobs': read_json(App.JOBS_DATA),
+        })
+
+    @logging_utilities.log_context('get_professional_courses', tag='api')
+    def get_professional_courses_v1(self):
+        return flask.jsonify(read_json(App.COURSES_DATA))
+
+    @logging_utilities.log_context('get_professional_jobs', tag='api')
+    def get_professional_jobs_v1(self):
+        return flask.jsonify(read_json(App.JOBS_DATA))
+
+    # endregion professional
+    # region recipes
+
+    @logging_utilities.log_context('get_recipes', tag='api')
+    def get_recipes_v1(self):
+        return flask.jsonify(read_json(App.RECIPES_DATA))
+
+    # endregion recipes
 
     def run(self):
         debug_mode = 1 if bool(settings.FLASK_DEBUG) else 0

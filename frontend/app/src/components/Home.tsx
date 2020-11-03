@@ -42,7 +42,7 @@ class Home extends React.Component<HomeProps, HomeState> {
               </Link>
             </div>
             <div className="Home-bio-interest-text">
-              - Personal website{" "}
+              - Developer{" "}
               <a
                 target="_blank"
                 className="Home-page-link"
