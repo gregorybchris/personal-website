@@ -1,6 +1,6 @@
 [
   {
-    "hike_id": "609bfbe8-e14e-447a-8744-37f6547dd685",
+    "route_id": "609bfbe8-e14e-447a-8744-37f6547dd685",
     "name": "Summerland Trail",
     "done": true,
     "date": "2017-06-03",
@@ -17,7 +17,7 @@
     }
   },
   {
-    "hike_id": "e8bc254d-3bd9-47a9-8f98-a4908d2e38ac",
+    "route_id": "e8bc254d-3bd9-47a9-8f98-a4908d2e38ac",
     "name": "Lake Serene",
     "done": true,
     "date": "2017-06-18",
@@ -34,7 +34,7 @@
     }
   },
   {
-    "hike_id": "664c8def-ccb0-4c54-90ca-7ffa2a92a711",
+    "route_id": "664c8def-ccb0-4c54-90ca-7ffa2a92a711",
     "name": "Ape Caves",
     "done": true,
     "date": "2017-07-16",
@@ -51,7 +51,7 @@
     }
   },
   {
-    "hike_id": "9973b356-c2a1-4674-b4ca-02ea8d5e6360",
+    "route_id": "9973b356-c2a1-4674-b4ca-02ea8d5e6360",
     "name": "Oneonta Gorge",
     "done": true,
     "date": "2017-07-30",
@@ -68,7 +68,7 @@
     }
   },
   {
-    "hike_id": "b77e1aa3-4e8b-4323-a39b-70f37bbe0d17",
+    "route_id": "b77e1aa3-4e8b-4323-a39b-70f37bbe0d17",
     "name": "Poo Poo Point",
     "done": true,
     "date": "2017-08-05",
@@ -85,7 +85,7 @@
     }
   },
   {
-    "hike_id": "871b5e50-1750-49e4-b2ee-fb1a0b46d942",
+    "route_id": "871b5e50-1750-49e4-b2ee-fb1a0b46d942",
     "name": "Elk Lake to Olallie Lake (PCT",
     "done": true,
     "date": "2018-06-13",
@@ -102,7 +102,7 @@
     }
   },
   {
-    "hike_id": "9b267022-ba01-4335-8fea-d41b3b91b498",
+    "route_id": "9b267022-ba01-4335-8fea-d41b3b91b498",
     "name": "Klahhane Ridge",
     "done": true,
     "date": "2018-07-17",
@@ -119,7 +119,7 @@
     }
   },
   {
-    "hike_id": "44c9b858-6309-470f-aa8e-efccca1df918",
+    "route_id": "44c9b858-6309-470f-aa8e-efccca1df918",
     "name": "Hoh River Trail",
     "done": true,
     "date": "2018-07-18",
@@ -136,7 +136,7 @@
     }
   },
   {
-    "hike_id": "ae7b54ac-cd0e-4a50-ba09-88cf5b29a439",
+    "route_id": "ae7b54ac-cd0e-4a50-ba09-88cf5b29a439",
     "name": "Hole-in-the-Wall / Rialto Beach",
     "done": true,
     "date": "2018-07-19",
@@ -153,7 +153,7 @@
     }
   },
   {
-    "hike_id": "0a06bc75-8fdd-4829-80c1-0db8d5435d21",
+    "route_id": "0a06bc75-8fdd-4829-80c1-0db8d5435d21",
     "name": "Chain Lakes Loop",
     "done": true,
     "date": "2018-08-04",
@@ -170,7 +170,7 @@
     }
   },
   {
-    "hike_id": "61fe54aa-cdb9-4cd5-9f56-a00ff81fed7a",
+    "route_id": "61fe54aa-cdb9-4cd5-9f56-a00ff81fed7a",
     "name": "Mount Si",
     "done": true,
     "date": "2018-09-23",
@@ -187,7 +187,7 @@
     }
   },
   {
-    "hike_id": "0335979a-60d8-4f2f-b7d6-133fd7de5c8a",
+    "route_id": "0335979a-60d8-4f2f-b7d6-133fd7de5c8a",
     "name": "Camp Muir",
     "done": true,
     "date": "2019-05-12",
@@ -204,7 +204,7 @@
     }
   },
   {
-    "hike_id": "b40a254e-3748-4533-90d6-3a544469955f",
+    "route_id": "b40a254e-3748-4533-90d6-3a544469955f",
     "name": "Mailbox Peak",
     "done": true,
     "date": "2019-07-06",
@@ -221,7 +221,7 @@
     }
   },
   {
-    "hike_id": "d41847f4-906f-4c76-a411-016ecd1bb49a",
+    "route_id": "d41847f4-906f-4c76-a411-016ecd1bb49a",
     "name": "Surprise Lake",
     "done": true,
     "date": "2019-08-03",
@@ -238,7 +238,7 @@
     }
   },
   {
-    "hike_id": "148fdabb-cfc1-4a56-959b-7362a0e760df",
+    "route_id": "148fdabb-cfc1-4a56-959b-7362a0e760df",
     "name": "Lake Malachite / Copper Lake",
     "done": true,
     "date": "2019-08-04",
@@ -255,7 +255,7 @@
     }
   },
   {
-    "hike_id": "cd41ed39-9359-4f58-80da-e3c6bd0642be",
+    "route_id": "cd41ed39-9359-4f58-80da-e3c6bd0642be",
     "name": "Tonga Ridge & Fisher Lake",
     "done": true,
     "date": "2019-08-25",
@@ -272,7 +272,7 @@
     }
   },
   {
-    "hike_id": "263be3fa-db24-4dc3-b2bc-4586bfdb37e9",
+    "route_id": "263be3fa-db24-4dc3-b2bc-4586bfdb37e9",
     "name": "Mount Pilchuck",
     "done": true,
     "date": "2019-08-31",
@@ -289,7 +289,7 @@
     }
   },
   {
-    "hike_id": "9c09133d-0a52-4c10-ac28-2ecd6bdf2a46",
+    "route_id": "9c09133d-0a52-4c10-ac28-2ecd6bdf2a46",
     "name": "Rattlesnake Ledge",
     "done": true,
     "date": "2019-09-07",
@@ -306,7 +306,7 @@
     }
   },
   {
-    "hike_id": "8af0f919-26d8-4d20-ac6c-b96e1e0d2ddb",
+    "route_id": "8af0f919-26d8-4d20-ac6c-b96e1e0d2ddb",
     "name": "Heather Lake",
     "done": true,
     "date": "2019-10-05",
@@ -323,7 +323,7 @@
     }
   },
   {
-    "hike_id": "d9039140-3d8a-46ce-b0a4-9dae4cf3318e",
+    "route_id": "d9039140-3d8a-46ce-b0a4-9dae4cf3318e",
     "name": "Longs Pass",
     "done": true,
     "date": "2020-07-04",
@@ -340,7 +340,7 @@
     }
   },
   {
-    "hike_id": "b45c0a8c-097a-4cc9-8945-268dfabb58d3",
+    "route_id": "b45c0a8c-097a-4cc9-8945-268dfabb58d3",
     "name": "Goat Mountain",
     "done": true,
     "date": "2020-08-01",
@@ -357,7 +357,7 @@
     }
   },
   {
-    "hike_id": "4de8fb8f-5aa9-42b2-901b-2f34a68773b9",
+    "route_id": "4de8fb8f-5aa9-42b2-901b-2f34a68773b9",
     "name": "Crater Lake",
     "done": true,
     "date": "2020-08-08",
@@ -374,7 +374,7 @@
     }
   },
   {
-    "hike_id": "da724c45-7003-411e-b7df-c3523c235390",
+    "route_id": "da724c45-7003-411e-b7df-c3523c235390",
     "name": "Snow Lake",
     "done": true,
     "date": "2020-09-05",
@@ -391,7 +391,7 @@
     }
   },
   {
-    "hike_id": "36312608-71b7-4f19-bb65-be59fbf55fe5",
+    "route_id": "36312608-71b7-4f19-bb65-be59fbf55fe5",
     "name": "Mason Lake",
     "done": true,
     "date": "2020-10-03",
@@ -408,7 +408,7 @@
     }
   },
   {
-    "hike_id": "d6d63fa8-d903-4015-b379-e30f3cbd9e48",
+    "route_id": "d6d63fa8-d903-4015-b379-e30f3cbd9e48",
     "name": "Gorham Mountain Loop to Sand Beach",
     "done": true,
     "date": "2018-05-24",
@@ -425,7 +425,7 @@
     }
   },
   {
-    "hike_id": "d089cbb6-3aab-4ca9-8241-ce75c744f8f8",
+    "route_id": "d089cbb6-3aab-4ca9-8241-ce75c744f8f8",
     "name": "Mount Monadnock",
     "done": true,
     "date": "2018-05-28",
@@ -442,7 +442,7 @@
     }
   },
   {
-    "hike_id": "0ac79a1f-18fb-4968-8e61-5554fad40f55",
+    "route_id": "0ac79a1f-18fb-4968-8e61-5554fad40f55",
     "name": "Mostnika Gorge",
     "done": true,
     "date": "2019-06-11",
@@ -459,7 +459,7 @@
     }
   },
   {
-    "hike_id": "fbb5b998-505c-45a0-9805-657630b57631",
+    "route_id": "fbb5b998-505c-45a0-9805-657630b57631",
     "name": "Lake 22",
     "done": false,
     "date": null,
@@ -472,7 +472,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "909bcab6-838c-43b3-bb3c-8ce7cdb2c2e9",
+    "route_id": "909bcab6-838c-43b3-bb3c-8ce7cdb2c2e9",
     "name": "Lake Ingalls",
     "done": false,
     "date": null,
@@ -485,7 +485,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "ad361616-a16c-43ce-ad39-aad64e1a26f5",
+    "route_id": "ad361616-a16c-43ce-ad39-aad64e1a26f5",
     "name": "Horseshoe Basin",
     "done": false,
     "date": null,
@@ -498,7 +498,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "2419e8d9-67fb-4077-a7d5-27860c7435a8",
+    "route_id": "2419e8d9-67fb-4077-a7d5-27860c7435a8",
     "name": "Bird Mountain Loop",
     "done": false,
     "date": null,
@@ -511,7 +511,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "6ee11f21-f4b3-4541-a2a6-677afe856049",
+    "route_id": "6ee11f21-f4b3-4541-a2a6-677afe856049",
     "name": "Bear Creek Mountain",
     "done": false,
     "date": null,
@@ -524,7 +524,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "09362756-a8f8-46e8-b73e-509e8450f282",
+    "route_id": "09362756-a8f8-46e8-b73e-509e8450f282",
     "name": "Harry's Ridge",
     "done": false,
     "date": null,
@@ -537,7 +537,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "0a072f97-c8eb-467c-bf9a-509773f86750",
+    "route_id": "0a072f97-c8eb-467c-bf9a-509773f86750",
     "name": "Tolmie Peak Lookout / Eunice Lake",
     "done": false,
     "date": null,
@@ -550,7 +550,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "e5935a10-ea56-4077-b455-e43e769f4200",
+    "route_id": "e5935a10-ea56-4077-b455-e43e769f4200",
     "name": "South Coldwater Trail",
     "done": false,
     "date": null,
@@ -563,7 +563,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "fe7b3ec7-bb94-4d86-bffc-e3bb57889b9c",
+    "route_id": "fe7b3ec7-bb94-4d86-bffc-e3bb57889b9c",
     "name": "Larch Lake",
     "done": false,
     "date": null,
@@ -576,7 +576,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "a892e6cb-5b6b-48fb-a35c-05fa99f89acc",
+    "route_id": "a892e6cb-5b6b-48fb-a35c-05fa99f89acc",
     "name": "Spider Meadow / Phelps Basin",
     "done": false,
     "date": null,
@@ -589,7 +589,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "864c7a15-b906-4859-be79-0bfb6a725d04",
+    "route_id": "864c7a15-b906-4859-be79-0bfb6a725d04",
     "name": "Park Butte",
     "done": false,
     "date": null,
@@ -602,7 +602,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "21791700-a777-4fdb-81ff-1ba85df73572",
+    "route_id": "21791700-a777-4fdb-81ff-1ba85df73572",
     "name": "Cascade Pass / Sahale Arm",
     "done": false,
     "date": null,
@@ -615,7 +615,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "d176f7d3-4e35-4271-a652-dbc848938846",
+    "route_id": "d176f7d3-4e35-4271-a652-dbc848938846",
     "name": "Diablo Lake",
     "done": false,
     "date": null,
@@ -628,7 +628,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "7e291369-cd8a-4136-8776-3657ae781938",
+    "route_id": "7e291369-cd8a-4136-8776-3657ae781938",
     "name": "Colchuck Lake",
     "done": false,
     "date": null,
@@ -641,7 +641,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "d97419bc-254f-4f7c-8768-207bbb99527f",
+    "route_id": "d97419bc-254f-4f7c-8768-207bbb99527f",
     "name": "Skyline Trail Loop",
     "done": false,
     "date": null,
@@ -654,7 +654,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "c9dde852-245a-4e62-a620-1076af4d8586",
+    "route_id": "c9dde852-245a-4e62-a620-1076af4d8586",
     "name": "Lime Kiln Trail",
     "done": false,
     "date": null,
@@ -667,7 +667,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "9fd59743-9c6a-4817-af3c-dd4c074eee71",
+    "route_id": "9fd59743-9c6a-4817-af3c-dd4c074eee71",
     "name": "Hannegan Pass/Peak",
     "done": false,
     "date": null,
@@ -680,7 +680,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "daa2f435-c7b5-40fa-8967-8cdfa2c51d92",
+    "route_id": "daa2f435-c7b5-40fa-8967-8cdfa2c51d92",
     "name": "Bandera Mountain",
     "done": false,
     "date": null,
@@ -693,7 +693,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "a8e5f87c-fbf1-401c-8664-582f6fec5ea9",
+    "route_id": "a8e5f87c-fbf1-401c-8664-582f6fec5ea9",
     "name": "Mount Storm King",
     "done": false,
     "date": null,
@@ -706,7 +706,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "d5795fc9-968c-4edc-98ac-cb8fcc8817e5",
+    "route_id": "d5795fc9-968c-4edc-98ac-cb8fcc8817e5",
     "name": "Mount Ellinor",
     "done": false,
     "date": null,
@@ -719,7 +719,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "a2d1bf45-5a0f-4e1a-8653-16f06a99b5b8",
+    "route_id": "a2d1bf45-5a0f-4e1a-8653-16f06a99b5b8",
     "name": "Lake Valhalla",
     "done": false,
     "date": null,
@@ -732,7 +732,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "b6f9ff2c-50ce-4cd8-b2fd-6ad14f55d022",
+    "route_id": "b6f9ff2c-50ce-4cd8-b2fd-6ad14f55d022",
     "name": "Blanca Lake",
     "done": false,
     "date": null,
@@ -745,7 +745,7 @@
     "coordinates": null
   },
   {
-    "hike_id": "1617f8e8-aedb-4742-8153-7553c6734dba",
+    "route_id": "1617f8e8-aedb-4742-8153-7553c6734dba",
     "name": "Navaho Peak",
     "done": false,
     "date": null,
