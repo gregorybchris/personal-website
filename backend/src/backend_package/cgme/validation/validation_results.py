@@ -22,9 +22,12 @@ class ValidationResults:
         n_errors = len(self._errors)
         if n_errors == 0:
             print_rgb(f"Successfully validated {self._n_items} items", rgb=Color.GREEN)
+            completed_counts = self._completed.values()
+            completed_percents = [v / self._n_items for v in completed_counts]
             completed_table = {
                 'Field': self._completed.keys(),
-                'Number Completed': self._completed.values(),
+                'Percent Completed': completed_percents,
+                'Number Completed': completed_counts,
             }
             print()
             print(tabulate(completed_table, headers='keys', tablefmt='github'))
