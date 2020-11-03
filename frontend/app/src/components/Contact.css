@@ -5,7 +5,8 @@
 }
 
 .Contact-form-wrap {
-  width: 500px;
+  width: 90%;
+  max-width: 500px;
   margin: 100px auto 0px;
 }
 
@@ -37,11 +38,11 @@
 }
 
 .Contact-text-field {
-  width: 400px;
+  width: 95%;
 }
 
 .Contact-text-area {
-  width: 400px;
+  width: 95%;
   height: 150px;
   resize: none;
 }
