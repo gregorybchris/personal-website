@@ -3130,5 +3130,33 @@
     "summary": "The physical constants we often think of as fundamental (Planck, gravity, speed of light, Boltzmann, etc) are not actually fundamental. You can actually change your units such that all of these constants come out to 1. Each of these constants (e.g. E=mc^2) is relating the scale of two distinct dimensions/units. We can relate all of these units in one formula to determine a more fundamental constant: the fine structure constant. This constant is dimensionless and is just about 1/137. There are actually a total of 26 fundamental constants along with the fine structure constant that are dimensionless. 25 of these come from the standard model. The 26th comes from general relativity. The \"cosmological constant\", the energy density of empty space, vacuum energy, is related to the expansion of space and dark energy. It's possible that these 26 could be reduced, but that would take a revolution in how we understand physics, a revolution in the standard model.",
     "paid": false,
     "deleted": false
+  },
+  {
+    "post_id": "8ca81414-585e-4b88-9b99-082c51fb5ac0",
+    "title": "The Story of Aaron Swartz",
+    "content_type": "video",
+    "source": "YouTube",
+    "areas": ["law", "politics", "justice", "technology"],
+    "series": null,
+    "speaker": null,
+    "episode_number": null,
+    "length": "01:43:07",
+    "date_created": "2014-09-06",
+    "date_posted": "2020-11-04",
+    "link": "https://www.youtube.com/watch?v=gpvcc9C8SbM",
+    "tags": [
+      "information",
+      "rights",
+      "academia",
+      "journals",
+      "hacking",
+      "internet",
+      "freedom",
+      "research",
+      "copyright"
+    ],
+    "summary": "Documentary about Aaron Swartz from his early days working on foundational internet protocols to his career fighting for freedom of information. Swartz was an internet expert from an early age and became known for his effort putting a stop to the US SOPA bill that would give US law enforcement the rights and means to shut down any website that might be distributing copyrighted content. He also fought against paid research publication databases like Elsevier and JSTOR and contributed to the creative commons license. After being prosecuted by the US government for fraud between 2011 and 2013 Aaron was found dead in his apartment. What's the most important thing you could be working on for the world? If you're not working on that why aren't you?",
+    "paid": false,
+    "deleted": false
   }
 ]
