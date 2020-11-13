@@ -27,7 +27,7 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
   async componentDidMount() {
     const projectsQuery = makeQuery("projects");
     const queryResult = await GET(projectsQuery);
-    this.setState({ projects: queryResult["projects"].reverse() });
+    this.setState({ projects: queryResult.reverse() });
   }
 
   onProjectDownload = async (project: ProjectRecord, link: string) => {

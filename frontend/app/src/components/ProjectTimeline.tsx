@@ -26,6 +26,11 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
 
   populateCanvas = (projects: ProjectRecord[]) => {
     const canvas = d3.select(this.canvasRef.current);
+
+    canvas.on("mousemove", (mouseEvent: any) => {
+      console.log(mouseEvent);
+    });
+
     canvas.selectAll("svg").remove();
     const [width, height] = [1000, 200];
     const svg = canvas
@@ -77,7 +82,10 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
       .attr("id", (d) => `project_${d.project_id}`)
       .on("click", (mouseEvent: any, project: any) => {
         d3.selectAll("circle").attr("stroke", "transparent");
-        d3.select(`#project_${project.project_id}`).attr("stroke", "white");
+        d3.select(`#project_${project.project_id}`).attr(
+          "stroke",
+          "rgb(80, 80, 80)"
+        );
         this.setState({ currentProject: project });
       });
     circles.append("title").text((d) => d.name);

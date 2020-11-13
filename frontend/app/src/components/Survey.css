@@ -1,0 +1,36 @@
+.Survey-content {
+  font-family: "Montserrat";
+  width: 50%;
+  margin: 40px auto;
+}
+
+.Survey-name {
+  font-size: 20px;
+  color: rgb(60, 60, 60);
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.Survey-question {
+  padding: 10px 0px 20px;
+}
+
+.Survey-question-text {
+  color: rgb(60, 60, 60);
+  padding-bottom: 10px;
+}
+
+.Survey-question-options {
+}
+
+.Survey-question-option {
+  color: rgb(95, 95, 95);
+  padding: 5px 12px;
+  transition: background-color 200ms, color 200ms;
+}
+
+.Survey-question-option:hover {
+  color: rgb(54, 54, 54);
+  background-color: rgb(197, 197, 197);
+  cursor: pointer;
+}

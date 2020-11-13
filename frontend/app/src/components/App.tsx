@@ -8,6 +8,7 @@ import Home from "./Home";
 import Projects from "./Projects";
 import Sandbox from "../sandbox-components/Sandbox";
 import Nav from "./Nav";
+import Survey from "./Survey";
 import "./App.css";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/graphics" exact component={() => <Graphics />} />
           <Route path="/projects" exact component={() => <Projects />} />
           <Route path="/sandbox" exact component={() => <Sandbox />} />
+          <Route path="/survey" exact component={() => <Survey />} />
         </Switch>
       </Router>
     </div>

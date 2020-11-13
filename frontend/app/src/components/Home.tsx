@@ -19,29 +19,29 @@ class Home extends React.Component<HomeProps, HomeState> {
           <div className="Home-bio-header">Hey there!</div>
 
           <div className="Home-bio-section">
-            <div className="Home-bio-interest-text">
+            <div className="Home-bio-text">
               Thanks for checking out my website. I mostly use this space to try
               out new web technologies and play with whatever data I can pull
               together. Take a look around and I hope you'll find something you
               like.
             </div>
-            <br />
-            <hr />
-            <br />
-            <div className="Home-bio-interest-text">More content:</div>
-            <div className="Home-bio-interest-text">
+          </div>
+          <hr className="Home-bio-section-divider" />
+          <div className="Home-bio-section">
+            <div className="Home-bio-text">More content:</div>
+            <div className="Home-bio-text">
               - Videos and articles on my{" "}
               <Link className="Home-page-link" to="/blog">
                 link blog
               </Link>
             </div>
-            <div className="Home-bio-interest-text">
+            <div className="Home-bio-text">
               - New features{" "}
               <Link className="Home-page-link" to="/sandbox">
                 sandbox
               </Link>
             </div>
-            <div className="Home-bio-interest-text">
+            <div className="Home-bio-text">
               - Developer{" "}
               <a
                 target="_blank"
@@ -51,36 +51,19 @@ class Home extends React.Component<HomeProps, HomeState> {
                 API documentation
               </a>
             </div>
+            <div className="Home-bio-text">
+              - Fill out the{" "}
+              <Link className="Home-page-link" to="/survey">
+                survey of the day
+              </Link>
+            </div>
           </div>
-          {/* <div className="Home-bio-section">
-            <div className="Home-bio-interest-section">
-              <span className="Home-bio-interest-header">Software:</span>
-              <span className="Home-bio-interest-text">
-                I wrote my first computer program in 2010 as a freshman in high
-                school and I was hooked.
-              </span>
-            </div>
-            <div className="Home-bio-interest-section">
-              <span className="Home-bio-interest-header">Neuroscience:</span>
-              <span className="Home-bio-interest-text"></span>
-            </div>
-            <div className="Home-bio-interest-section">
-              <span className="Home-bio-interest-header">Philosophy:</span>
-              <span className="Home-bio-interest-text"></span>
-            </div>
-            <div className="Home-bio-interest-section">
-              <span className="Home-bio-interest-header">Running:</span>
-              <span className="Home-bio-interest-text">
-                I ran track and cross country in high school and college.
-              </span>
-            </div>
-            <div className="Home-bio-interest-section">
-              <span className="Home-bio-interest-header">Music:</span>
-              <span className="Home-bio-interest-text">
-                Violin starting when I was 7, piano at 10, and guitar at 13.
-              </span>
-            </div>
-          </div> */}
+          <div className="Home-bio-section">
+            <img
+              className="Home-bio-profile-image"
+              src="https://chrisgregory.blob.core.windows.net/bio/profiles/mountains-profile-2.jpg"
+            ></img>
+          </div>
         </div>
       </div>
     );

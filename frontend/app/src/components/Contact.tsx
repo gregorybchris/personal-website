@@ -14,8 +14,10 @@ class Contact extends React.Component<ContactProps, ContactState> {
   render() {
     return (
       <div className="Contact">
-        To send me a message just fill out this form and make sure to include
-        your email so I can respond!
+        <div className="Contact-instructions">
+          To send me a message just fill out this form and make sure to include
+          your email so I can respond!
+        </div>
         <div className="Contact-form-wrap">
           <form action="https://formspree.io/f/xdopgdnk" method="POST">
             <input

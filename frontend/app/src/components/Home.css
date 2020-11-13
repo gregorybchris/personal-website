@@ -1,7 +1,34 @@
 .Home {
   padding: 30px;
-  color: rgb(230, 230, 230);
-  font-family: "Montserrat";
+}
+
+.Home-bio-wrap {
+  width: 90%;
+  margin: 30px auto 0px;
+}
+
+.Home-bio-header {
+  font-family: "Questrial";
+  font-weight: bold;
+  font-size: 26px;
+  color: rgb(32, 32, 32);
+}
+
+.Home-bio-section {
+  padding: 20px 0px;
+}
+
+.Home-bio-section-divider {
+  border: none;
+  border-top: 1px solid rgb(200, 200, 200);
+}
+
+.Home-bio-text {
+  font-family: "Questrial";
+  letter-spacing: 0.2px;
+  font-size: 18px;
+  color: rgb(32, 32, 32);
+  line-height: 26px;
 }
 
 .Home-page-link {
@@ -11,31 +38,13 @@
 }
 
 .Home-page-link:hover {
-  color: rgb(112, 135, 177);
+  /* color: rgb(32, 63, 121); */
+  color: rgb(60, 90, 185);
 }
 
-.Home-bio-wrap {
-  width: 800px;
-  max-width: 90%;
-  margin: 30px auto 0px;
-}
-
-.Home-bio-header {
-  font-size: 26px;
-}
-
-.Home-bio-section {
-  padding: 20px 0px 0px;
-}
-
-.Home-bio-interest-section {
-  margin-top: 14px;
-}
-
-.Home-bio-interest-header {
+.Home-bio-profile-image {
+  width: 70%;
   display: block;
-  font-size: 18px;
-}
-
-.Home-bio-interest-text {
+  margin: 0px auto;
+  box-shadow: 0px 0px 6px 2px rgb(180, 180, 180);
 }

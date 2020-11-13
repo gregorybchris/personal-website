@@ -1,7 +1,7 @@
 .Contact {
   padding: 30px;
   color: rgb(230, 230, 230);
-  font-family: "Montserrat";
+  font-family: "Questrial";
 }
 
 .Contact-form-wrap {
@@ -10,11 +10,15 @@
   margin: 100px auto 0px;
 }
 
+.Contact-instructions {
+  color: rgb(40, 40, 40);
+}
+
 .Contact-text-input {
   font-family: "Montserrat";
   font-weight: bold;
-  background-color: rgb(66, 72, 83);
-  color: rgb(230, 230, 230);
+  background-color: rgb(60, 90, 185);
+  color: rgb(240, 240, 240);
   border-radius: 0px;
   outline: none;
   padding: 8px 12px;
@@ -25,15 +29,15 @@
 }
 
 .Contact-text-input:hover {
-  background-color: rgb(56, 62, 73);
+  background-color: rgb(85, 114, 209);
 }
 
 .Contact-text-input:focus {
-  background-color: rgb(56, 62, 73);
+  background-color: rgb(85, 114, 209);
 }
 
 .Contact-text-input::placeholder {
-  color: rgb(187, 187, 187);
+  color: rgb(240, 240, 240);
   opacity: 1;
 }
 
@@ -50,7 +54,7 @@
 .Contact-send-button {
   font-family: "Montserrat";
   font-weight: bold;
-  background-color: rgb(66, 72, 83);
+  background-color: rgb(60, 90, 185);
   color: rgb(187, 187, 187);
   padding: 7px 26px;
   margin: 10px auto;
