@@ -42,6 +42,7 @@ class App:
     PROJECTS_DATA = DATA_PATH / 'projects.json'
     PODCAST_EPISODES_DATA = DATA_PATH / 'podcast-episodes.json'
     RECIPES_DATA = DATA_PATH / 'recipes.json'
+    SURVEYS_DATA = DATA_PATH / 'surveys.json'
 
     def __init__(self):
         self._app = flask.Flask(__name__)
@@ -72,6 +73,8 @@ class App:
         self._app.route('/v1/professional/jobs', methods=['GET'])(self.get_professional_jobs_v1)
 
         self._app.route('/v1/recipes', methods=['GET'])(self.get_recipes_v1)
+        self._app.route('/v1/surveys', methods=['GET'])(self.get_surveys_v1)
+        self._app.route('/v1/surveys/<survey_id>', methods=['POST'])(self.post_survey_results)
 
     # region info
 
@@ -164,9 +167,7 @@ class App:
 
     @logging_utilities.log_context('get_projects', tag='api')
     def get_projects_v1(self):
-        return flask.jsonify({
-            'projects': read_json(App.PROJECTS_DATA)
-        })
+        return flask.jsonify(read_json(App.PROJECTS_DATA))
 
     @logging_utilities.log_context('post_projects_download', tag='api')
     def post_projects_download_v1(self, project_id):
@@ -207,6 +208,26 @@ class App:
         return flask.jsonify(read_json(App.RECIPES_DATA))
 
     # endregion recipes
+    # region surveys
+
+    @logging_utilities.log_context('get_surveys', tag='api')
+    def get_surveys_v1(self):
+        return flask.jsonify(read_json(App.SURVEYS_DATA))
+
+    @logging_utilities.log_context('post_survey_results', tag='api')
+    def post_survey_results(self, survey_id):
+        surveys = read_json(App.SURVEYS_DATA)
+        for survey in surveys:
+            if survey['survey_id'] == survey_id:
+                survey_name = survey['name']
+                logger.info(f"Survey \"{survey_name}\" ({survey_id}) submitted")
+
+                success_message = f"Successfully submitted survey \"{survey_name}\""
+                return create_response(success_message, HTTPCodes.SUCCESS_GENERAL)
+        error_message = f"Survey with ID {survey_id} not found"
+        return create_response(error_message, HTTPCodes.ERROR_NOT_FOUND)
+
+    # endregion surveys
 
     def run(self):
         debug_mode = 1 if bool(settings.FLASK_DEBUG) else 0

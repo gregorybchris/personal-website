@@ -2,9 +2,9 @@ name,media_type,genre,plot_score,characters_score,production_score,dialog_score,
 Into the Wild,movie,biography,7,8,5,7,1
 Jobs,movie,drama,7,7,6,7,2
 The Social Network,movie,drama,6,7,8,8,3
-21,movie,drama,7,6,6,7,4
-The Imitation Game,movie,drama,7,6,8,7,5
-The Theory of Everything,movie,drama,8,9,7,8,6
+The Theory of Everything,movie,drama,8,9,7,8,4
+21,movie,drama,7,6,6,7,5
+The Imitation Game,movie,drama,7,6,8,7,6
 October Sky,movie,biography,6,7,4,6,7
 Good Will Hunting,movie,drama,6,10,6,10,8
 Gladiator,movie,action,8,10,9,7,9
