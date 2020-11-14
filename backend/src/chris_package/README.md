@@ -1,7 +1,21 @@
-# Chris Python Tools
+# Personal Website Backend
 
-Python tools supported:
+## About
 
-- Terminal color
-- Exception handling
-- Logging utilities
+The `chris` Python package is the backend for the website [chrisgregory.me](http://www.chrisgregory.me)
+
+## How to Use
+
+```bash
+# Install the chris package from PyPI
+pip install chris
+
+# Start the local Flask server
+cgme app
+```
+
+Then open localhost:8000 to start using the API
+
+## API Documentation
+
+The [documentation for the website REST API](https://documenter.getpostman.com/view/4051098/TVYM4Fzz) is hosted by Postman.

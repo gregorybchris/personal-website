@@ -1,1 +1,6 @@
-colorama
+Flask
+flask-cors
+opencensus-ext-azure
+pandas
+sty
+tabulate

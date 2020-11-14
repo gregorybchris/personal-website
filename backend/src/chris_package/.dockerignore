@@ -1,0 +1,3 @@
+.dockerignore
+chris.egg-info
+tests

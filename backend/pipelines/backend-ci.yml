@@ -14,7 +14,7 @@ variables:
   imageRepository: 'backend'
   containerRegistry: 'personalsite.azurecr.io'
   dockerfilePath: 'backend/docker/backend.Dockerfile'
-  dockerContextPath: 'backend/src/backend_package'
+  dockerContextPath: 'backend/src/chris_package'
 
 stages:
 - stage: Build

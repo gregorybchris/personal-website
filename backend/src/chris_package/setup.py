@@ -11,10 +11,10 @@ version = Path(package_dir, 'version.txt').read_text().strip()
 
 setup(
     name='chris',
-    description='Python tools.',
+    description='Personal website SDK.',
     author='Chris Gregory',
     author_email='christopher.b.gregory@gmail.com',
-    url='https://github.com/gregorybchris/python-tools',
+    url='https://github.com/gregorybchris/personal-website',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     keywords=['python', 'tools'],
@@ -23,7 +23,7 @@ setup(
     install_requires=requirements,
     extras_require={'testing': test_requirements},
     packages=find_packages(exclude=['tests']),
-    entry_points={"console_scripts": ["chris=chris.cli.main:run"]},
+    entry_points={"console_scripts": ["cgme=chris.cli.main:run_cli"]},
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',

@@ -5,7 +5,7 @@ ENV INSTRUMENTATION_KEY $TELEMETRY_KEY
 
 # gcc is required for psutil via opencensus
 RUN apt-get update && \
-    apt-get -y install gcc
+  apt-get -y install gcc
 
 COPY requirements.txt /app/requirements.txt
 COPY . /app
