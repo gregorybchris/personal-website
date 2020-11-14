@@ -6,6 +6,7 @@ from setuptools import setup, find_packages
 package_dir = Path(__file__).parent.absolute()
 requirements = Path(package_dir, 'requirements.txt').read_text().split('\n')
 test_requirements = Path(package_dir, 'test-requirements.txt').read_text().split('\n')
+release_requirements = Path(package_dir, 'release-requirements.txt').read_text().split('\n')
 version = Path(package_dir, 'version.txt').read_text().strip()
 
 
@@ -21,8 +22,12 @@ setup(
     version=version,
     license='Apache Software License',
     install_requires=requirements,
-    extras_require={'testing': test_requirements},
+    extras_require={
+        'releasing': release_requirements,
+        'testing': test_requirements,
+    },
     packages=find_packages(exclude=['tests']),
+    include_package_data=True,
     entry_points={"console_scripts": ["cgme=chris.cli.main:run_cli"]},
     classifiers=[
         'Development Status :: 5 - Production/Stable',

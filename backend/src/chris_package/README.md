@@ -14,8 +14,8 @@ pip install chris
 cgme app
 ```
 
-Then open localhost:8000 to start using the API
+Then open `localhost:8000` to check that you can access the API
 
 ## API Documentation
 
-The [documentation for the website REST API](https://documenter.getpostman.com/view/4051098/TVYM4Fzz) is hosted by Postman.
+The [documentation for the website REST API](https://documenter.getpostman.com/view/4051098/TVYM4Fzz) is hosted by Postman
