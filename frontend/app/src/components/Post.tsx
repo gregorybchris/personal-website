@@ -7,8 +7,8 @@ import "./Post.css";
 import { formatDate } from "../controllers/DateTimeUtilities";
 import { makeURL, getSearchParams } from "../controllers/RequestUtilities";
 
-import linkImage from "../images/link.svg";
-import detailsImage from "../images/details.svg";
+// import linkImage from "../images/link.svg";
+// import detailsImage from "../images/details.svg";
 
 export interface PostProps {
   post: PostRecord;
