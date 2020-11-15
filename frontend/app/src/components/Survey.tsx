@@ -108,10 +108,10 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
         <div className="Survey-about-wrap">
           <div className="Survey-about-title">What do you think?</div>
           <div className="Survey-about-text">
-            Recruiting reluctant participants for psychology studies in college
-            was a demoralizing experience to say the least. But that won't stop
-            me from trying to collect experimental data. My sincere thanks for
-            taking the time to fill out this survey.
+            Do you ever get so curious about something you wish you could poll
+            the whole world? While guaranteed to fail, I thought I'd try that
+            here. Please check back periodically for new topics. My sincere
+            thanks for taking the time to give your opinion.
           </div>
         </div>
         {this.getSurveyElement(this.state.currentSurvey)}

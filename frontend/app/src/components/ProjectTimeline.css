@@ -16,12 +16,14 @@
 
 .Timeline-project-item {
   color: rgb(41, 41, 41);
-  font-family: "Questrial";
+  font-family: "Raleway";
   margin-left: 20px;
   margin-bottom: 10px;
 }
 
 .Timeline-project-name {
+  font-family: "Noto Serif TC";
+  font-weight: bold;
   font-size: 22px;
 }
 
@@ -48,4 +50,8 @@
   margin: 10px 10px;
   max-width: 90%;
   box-shadow: 0px 0px 6px 2px rgb(180, 180, 180);
+}
+
+.Timeline-project-description {
+  text-indent: 10px;
 }

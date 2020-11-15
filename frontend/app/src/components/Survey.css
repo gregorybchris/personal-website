@@ -47,6 +47,7 @@
 
 .Survey-question {
   padding: 10px 0px 20px;
+  text-indent: -14px;
 }
 
 .Survey-question-text {

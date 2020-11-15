@@ -20,7 +20,7 @@ function App() {
           <Route path="/" exact component={() => <Home />} />
           <Route path="/code" exact component={() => <Projects />} />
           <Route path="/contact" exact component={() => <Contact />} />
-          <Route path="/data" exact component={() => <Survey />} />
+          <Route path="/opinion" exact component={() => <Survey />} />
           <Route path="/links" exact component={() => <Blog />} />
           <Route path="/sandbox" exact component={() => <Sandbox />} />
         </Switch>

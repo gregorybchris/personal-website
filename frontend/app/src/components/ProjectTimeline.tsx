@@ -146,7 +146,9 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
             Language: {project.primary_language}
           </div>
           {downloadElement}
-          <div className="Timeline-project-item">{project.description}</div>
+          <div className="Timeline-project-item Timeline-project-description">
+            {project.description}
+          </div>
         </div>
         {imageElements}
       </div>
