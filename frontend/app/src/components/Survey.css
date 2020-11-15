@@ -2,6 +2,29 @@
   background-color: rgb(245, 245, 240);
 }
 
+.Survey-about-wrap {
+  width: 80%;
+  margin: 0px auto;
+  text-align: center;
+}
+
+.Survey-about-title {
+  font-family: "Noto Serif TC";
+  color: rgb(60, 60, 60);
+  font-size: 30px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.Survey-about-text {
+  font-family: "Raleway";
+  color: rgb(40, 40, 40);
+  display: block;
+  width: 80%;
+  margin: 0px auto;
+}
+
 .Survey-content {
   width: 50%;
   padding: 40px 0px;
@@ -13,7 +36,13 @@
   font-size: 25px;
   color: rgb(60, 60, 60);
   font-weight: bold;
-  padding-bottom: 10px;
+  padding-bottom: 2px;
+  display: inline;
+  border-bottom: 1px solid rgb(98, 131, 192);
+}
+
+.Survey-questions {
+  padding-top: 10px;
 }
 
 .Survey-question {
@@ -28,13 +57,13 @@
 
 .Survey-question-option {
   font-family: "Raleway";
-  color: rgb(95, 95, 95);
+  color: rgb(98, 131, 192);
   padding: 5px 12px;
   transition: 200ms;
 }
 
 .Survey-question-option:hover {
-  color: rgb(54, 54, 54);
-  background-color: rgb(197, 197, 197);
+  color: rgb(31, 67, 182);
+  background-color: rgb(219, 216, 216);
   cursor: pointer;
 }

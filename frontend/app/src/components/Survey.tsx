@@ -32,13 +32,15 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
       return (
         <div className="Survey-content">
           <div className="Survey-name">{survey.name}</div>
-          {survey.questions.map((question, questionNumber) =>
-            this.getSurveyQuestionElement(
-              survey.survey_id,
-              question,
-              questionNumber
-            )
-          )}
+          <div className="Survey-questions">
+            {survey.questions.map((question, questionNumber) =>
+              this.getSurveyQuestionElement(
+                survey.survey_id,
+                question,
+                questionNumber
+              )
+            )}
+          </div>
         </div>
       );
     }
@@ -103,6 +105,15 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
   render() {
     return (
       <div className="Survey">
+        <div className="Survey-about-wrap">
+          <div className="Survey-about-title">What do you think?</div>
+          <div className="Survey-about-text">
+            Recruiting reluctant participants for psychology studies in college
+            was a demoralizing experience to say the least. But that won't stop
+            me from trying to collect experimental data. My sincere thanks for
+            taking the time to fill out this survey.
+          </div>
+        </div>
         {this.getSurveyElement(this.state.currentSurvey)}
       </div>
     );
