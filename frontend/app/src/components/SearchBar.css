@@ -1,57 +1,57 @@
 .SearchBar {
   min-width: 340px;
+  font-family: "Raleway";
 }
 
 .SearchBar-input {
-  color: rgb(230, 230, 230);
-  border: none;
-  background-color: rgb(60, 90, 185);
+  font-family: "Raleway";
+  color: rgb(100, 100, 100);
+  background-color: transparent;
+  border: 2px solid rgb(98, 131, 192);
   font-size: 14px;
   width: 270px;
   padding: 8px 10px;
   box-sizing: border-box;
-  transition: background-color 0.5s;
+  transition: 500ms;
   outline: none;
   display: inline-block;
   vertical-align: top;
-  border-right: none;
   font-weight: bold;
 }
 
 .SearchBar-input::placeholder {
-  color: rgb(230, 230, 230);
-  transition: color 0.5s;
+  color: rgb(100, 100, 100);
+  transition: 0.5s;
 }
 
 .SearchBar-input:focus {
-  background-color: rgb(40, 65, 146);
   caret-color: rgb(117, 125, 139);
+  background-color: rgb(230, 230, 224);
 }
 
 .SearchBar-input:focus::placeholder {
-  color: rgb(190, 190, 190);
+  color: rgb(100, 100, 100);
 }
 
 .SearchBar-clear-button {
-  color: rgb(230, 230, 230);
-  background-color: rgb(60, 90, 185);
-  border: none;
+  color: rgb(100, 100, 100);
+  background-color: transparent;
+  border: 2px solid rgb(98, 131, 192);
   margin-left: 3px;
   font-size: 14px;
-  padding: 8px 15px 6px 15px;
+  padding: 8px 15px 8px 15px;
   display: inline-block;
   vertical-align: top;
-  border-left: none;
   box-sizing: border-box;
   transition: 0.2s;
   font-weight: bold;
 }
 
 .SearchBar-clear-button:hover {
-  background-color: rgb(40, 65, 146);
+  background-color: rgb(230, 230, 224);
   cursor: pointer;
 }
 
 .SearchBar-clear-button:active {
-  background-color: rgb(104, 111, 126);
+  background-color: rgb(214, 214, 209);
 }

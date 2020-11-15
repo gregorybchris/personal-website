@@ -142,6 +142,7 @@ class Post extends React.Component<PostProps, PostState> {
           {this.props.post.tags.map((tag) => this.createTag(tag))}
         </div>
 
+        {/* 
         <a
           className="Post-page-link"
           href={makeURL({ postid: this.props.post.post_id }, "blog")}
@@ -151,6 +152,7 @@ class Post extends React.Component<PostProps, PostState> {
         <div className="Post-page-link" onClick={this.toggleSummary}>
           <img className="Post-page-link-image" src={detailsImage} alt=""></img>
         </div>
+        */}
 
         {this.getSummaryElement()}
       </div>

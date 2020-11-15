@@ -1,6 +1,5 @@
 .Post {
-  /* background-color: rgb(51, 54, 61); */
-  border-left: 3px solid rgb(230, 230, 230);
+  border-left: 2px solid rgb(98, 131, 192);
   margin-bottom: 40px;
   padding: 8px 0px 8px 30px;
   max-width: 90%;
@@ -11,6 +10,7 @@
 }
 
 .Post-title {
+  font-family: "Noto Serif TC";
   color: rgb(90, 90, 90);
   font-weight: bold;
   font-size: 22px;
@@ -22,7 +22,8 @@
 }
 
 .Post-series-info {
-  color: rgb(150, 156, 168);
+  font-family: "Raleway";
+  color: rgb(100, 100, 100);
   font-weight: bold;
   margin-bottom: 4px;
   font-size: 18px;
@@ -30,7 +31,8 @@
 }
 
 .Post-date {
-  color: rgb(120, 125, 136);
+  font-family: "Raleway";
+  color: rgb(100, 100, 100);
   font-weight: bold;
   margin-bottom: 10px;
   font-size: 16px;

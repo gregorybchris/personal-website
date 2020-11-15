@@ -1,5 +1,5 @@
 .Blog {
-  font-family: "Montserrat";
+    background-color: rgb(245, 245, 240);
 }
 
 .Blog-header {
@@ -7,7 +7,8 @@
 }
 
 .Blog-title {
-  color: rgb(83, 83, 83);
+  font-family: "Noto Serif TC";
+  color: rgb(60, 60, 60);
   font-size: calc(30px);
   font-weight: bold;
   display: inline;

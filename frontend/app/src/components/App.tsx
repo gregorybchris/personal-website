@@ -18,12 +18,11 @@ function App() {
         <Nav />
         <Switch>
           <Route path="/" exact component={() => <Home />} />
-          <Route path="/blog" exact component={() => <Blog />} />
+          <Route path="/code" exact component={() => <Projects />} />
           <Route path="/contact" exact component={() => <Contact />} />
-          <Route path="/graphics" exact component={() => <Graphics />} />
-          <Route path="/projects" exact component={() => <Projects />} />
+          <Route path="/data" exact component={() => <Survey />} />
+          <Route path="/links" exact component={() => <Blog />} />
           <Route path="/sandbox" exact component={() => <Sandbox />} />
-          <Route path="/survey" exact component={() => <Survey />} />
         </Switch>
       </Router>
     </div>

@@ -1,20 +1,30 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 
 import "./Nav.css";
 
 function Nav() {
   return (
     <div className="Nav">
-      <Link className="Nav-page-link" to="/">
+      <NavLink className="Nav-page-link" to="/" exact activeClassName="current">
         <span className="Nav-page-link-text">Home</span>
-      </Link>
-      <Link className="Nav-page-link" to="/projects">
-        <span className="Nav-page-link-text">Projects</span>
-      </Link>
-      <Link className="Nav-page-link" to="/contact">
+      </NavLink>
+
+      <NavLink className="Nav-page-link" to="/code" exact activeClassName="current">
+        <span className="Nav-page-link-text">Code</span>
+      </NavLink>
+
+      <NavLink className="Nav-page-link" to="/data" exact activeClassName="current">
+        <span className="Nav-page-link-text">Data</span>
+      </NavLink>
+
+      <NavLink className="Nav-page-link" to="/links" activeClassName="current">
+        <span className="Nav-page-link-text">Links</span>
+      </NavLink>
+
+      <NavLink className="Nav-page-link" to="/contact" activeClassName="current">
         <span className="Nav-page-link-text">Contact</span>
-      </Link>
+      </NavLink>
     </div>
   );
 }

@@ -27,7 +27,7 @@
 
 .Timeline-project-item-link {
   color: rgb(85, 85, 85);
-  transition: color 200ms;
+  transition: 200ms;
 }
 
 .Timeline-project-item-link:hover {

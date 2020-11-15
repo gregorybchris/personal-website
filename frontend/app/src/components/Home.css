@@ -1,17 +1,18 @@
 .Home {
   padding: 30px;
+  background-color: rgb(245, 245, 240);
 }
 
 .Home-bio-wrap {
-  width: 90%;
+  width: 70%;
   margin: 30px auto 0px;
 }
 
 .Home-bio-header {
-  font-family: "Questrial";
+  font-family: "Noto Serif TC";
   font-weight: bold;
-  font-size: 26px;
-  color: rgb(32, 32, 32);
+  font-size: 40px;
+  color: rgb(50, 50, 50);
 }
 
 .Home-bio-section {
@@ -20,14 +21,14 @@
 
 .Home-bio-section-divider {
   border: none;
-  border-top: 1px solid rgb(200, 200, 200);
+  border-top: 1px solid rgb(98, 131, 192);
 }
 
 .Home-bio-text {
-  font-family: "Questrial";
+  font-family: "Raleway";
   letter-spacing: 0.2px;
   font-size: 18px;
-  color: rgb(32, 32, 32);
+  color: rgb(60, 60, 60);
   line-height: 26px;
 }
 
@@ -38,13 +39,5 @@
 }
 
 .Home-page-link:hover {
-  /* color: rgb(32, 63, 121); */
-  color: rgb(60, 90, 185);
-}
-
-.Home-bio-profile-image {
-  width: 70%;
-  display: block;
-  margin: 0px auto;
-  box-shadow: 0px 0px 6px 2px rgb(180, 180, 180);
+  color: rgb(31, 67, 182);
 }

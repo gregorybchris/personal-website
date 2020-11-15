@@ -1,19 +1,18 @@
 .Tag {
+  font-family: "Raleway";
   display: inline-block;
   margin-right: 10px;
   margin-bottom: 7px;
-  padding: 6px 10px;
-  /* background-color: rgb(51, 55, 65); */
-  color: rgb(123, 131, 146);
-  /* border-radius: 5px; */
+  padding: 6px 6px;
+  color: rgb(98, 131, 192);
   font-size: 14px;
-  font-weight: bold;
-  transition: 0.2s;
+  transition: 200ms;
 }
 
 .Tag:hover {
   cursor: pointer;
   background-color: rgb(211, 211, 211);
+  color: rgb(31, 67, 182);
 }
 
 .Tag:active {
