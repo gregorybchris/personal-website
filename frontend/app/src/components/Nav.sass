@@ -4,6 +4,7 @@
 
 .Nav-page-link
   font-family: "Raleway"
+  font-size: 16px
   padding: 6px 8px 3px
   margin: 0px 3px 5px
   display: inline-block
@@ -11,6 +12,10 @@
   color: rgb(60, 60, 60)
   transition: 200ms
   border-bottom: 1px solid rgb(245, 245, 240)
+
+@media screen and (min-width: 200px) and (max-width: 400px)
+  .Nav-page-link
+    font-size: 12px
 
 .Nav-page-link.current
   border-bottom: 1px solid rgb(98, 131, 192)
