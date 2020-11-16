@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Tag.css";
+import "./Tag.sass";
 
 export interface TagProps {
   text: string;

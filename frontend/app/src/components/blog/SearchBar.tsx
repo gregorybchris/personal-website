@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./SearchBar.css";
+import "./SearchBar.sass";
 
 export interface SearchBarProps {
   searchText: string;

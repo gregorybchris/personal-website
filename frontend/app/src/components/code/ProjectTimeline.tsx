@@ -6,7 +6,7 @@ import seedrandom from "seedrandom";
 
 import { formatDate } from "../../controllers/DateTimeUtilities";
 import ProjectRecord from "../../models/ProjectRecord";
-import "./ProjectTimeline.css";
+import "./ProjectTimeline.sass";
 
 export interface TimelineProps {
   projects: ProjectRecord[];

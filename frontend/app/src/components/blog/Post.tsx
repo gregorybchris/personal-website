@@ -2,7 +2,7 @@ import React from "react";
 
 import Tag from "./Tag";
 import PostRecord from "../../models/PostRecord";
-import "./Post.css";
+import "./Post.sass";
 
 import { formatDate } from "../../controllers/DateTimeUtilities";
 import { makeURL, getSearchParams } from "../../controllers/RequestUtilities";

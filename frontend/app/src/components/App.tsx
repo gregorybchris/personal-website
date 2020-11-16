@@ -9,7 +9,7 @@ import Sandbox from "../sandbox-components/Sandbox";
 import RunningRoutes from "./routes/RunningRoutes";
 import Nav from "./Nav";
 import Survey from "./survey/Survey";
-import "./App.css";
+import "./App.sass";
 
 function App() {
   return (

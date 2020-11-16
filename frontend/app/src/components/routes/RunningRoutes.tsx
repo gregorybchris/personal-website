@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./RunningRoutes.css";
+import "./RunningRoutes.sass";
 
 export interface RunningRoutesProps {}
 
