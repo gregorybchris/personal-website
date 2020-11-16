@@ -1,5 +1,6 @@
 import React from "react";
 
+import ProjectInfo from "./ProjectInfo";
 import ProjectTimeline from "./ProjectTimeline";
 import ProjectRecord from "../../models/ProjectRecord";
 import { makeQuery, GET, POST } from "../../controllers/RequestUtilities";
@@ -9,6 +10,7 @@ export interface ProjectsProps {}
 
 export interface ProjectsState {
   projects: ProjectRecord[];
+  currentProject: ProjectRecord | null;
   currentDownloadLink: string;
 }
 
@@ -16,6 +18,7 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
   private hiddenDownloadAnchor: React.RefObject<HTMLAnchorElement>;
   state = {
     projects: [],
+    currentProject: null,
     currentDownloadLink: "",
   };
 
@@ -40,13 +43,21 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
     await POST(makeQuery(`projects/download/${project.project_id}`));
   };
 
+  onSelectProject = (project: ProjectRecord) => {
+    this.setState({ currentProject: project });
+  };
+
   render() {
     return (
       <div className="Projects">
         <ProjectTimeline
           projects={this.state.projects}
-          onProjectDownload={this.onProjectDownload}
+          onSelectProject={this.onSelectProject}
         ></ProjectTimeline>
+        <ProjectInfo
+          currentProject={this.state.currentProject}
+          onProjectDownload={this.onProjectDownload}
+        ></ProjectInfo>
         <a
           className="Projects-hidden-download-link"
           ref={this.hiddenDownloadAnchor}
