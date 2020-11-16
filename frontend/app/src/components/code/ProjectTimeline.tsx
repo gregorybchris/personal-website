@@ -77,11 +77,11 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
       .attr("stroke-width", 1.5)
       .attr("fill", (d) => {
         if (d.project_type === projectTypeWeb) {
-          return "rgb(230, 85, 63)";
+          return "rgb(200, 88, 70)";
         } else if (d.project_type === projectTypeJar) {
-          return "rgb(113, 173, 208)";
+          return "rgb(84, 147, 184)";
         } else if (d.project_type === projectTypeProgram) {
-          return "rgb(58, 177, 22)";
+          return "rgb(63, 150, 36)";
         } else {
           return "rgb(255, 255, 255)";
         }
