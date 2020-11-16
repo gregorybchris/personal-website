@@ -1,6 +1,8 @@
+@import "../common/Common"
+
 .Home
   padding: 30px 0px 30px
-  background-color: rgb(245, 245, 240)
+  background-color: $background-color
 
 .Home-section-welcome
   width: 70%
@@ -8,7 +10,7 @@
   padding: 15px 0px
 
 .Home-welcome-title
-  font-family: "Noto Serif TC"
+  font-family: $primary-font
   font-weight: bold
   font-size: 40px
   color: rgb(50, 50, 50)
@@ -16,7 +18,7 @@
   padding-bottom: 15px
 
 .Home-welcome-text
-  font-family: "Raleway"
+  font-family: $secondary-font
   letter-spacing: 0.2px
   font-size: 18px
   color: rgb(60, 60, 60)
@@ -24,15 +26,15 @@
 
 .Home-section-divider
   border: none
-  border-top: 1px solid rgb(98, 131, 192)
+  border-top: 1px solid $accent-color
 
 .Home-page-link
   text-decoration: none
-  color: rgb(98, 131, 192)
+  color: $accent-color
   transition: 0.2s
 
 .Home-page-link:hover
-  color: rgb(31, 67, 182)
+  color: $accent-focus-color
 
 .Home-section-content-info
   text-align: center
@@ -48,7 +50,7 @@
 .Home-content-info-box
   width: 240px
   height: 200px
-  border: 2px solid rgb(98, 131, 192)
+  border: 2px solid $accent-color
   padding: 20px 25px
 
 .Home-content-info-title-wrap
@@ -56,7 +58,7 @@
   text-align: left
 
 .Home-content-info-title
-  font-family: "Noto Serif TC"
+  font-family: $primary-font
   font-weight: bold
   text-align: left
   font-size: 18px
@@ -64,10 +66,10 @@
   text-decoration: none
   display: inline
   padding-bottom: 2px
-  border-bottom: 1px solid rgb(98, 131, 192)
+  border-bottom: 1px solid $accent-color
 
 .Home-content-info-text
-  font-family: "Raleway"
+  font-family: $secondary-font
   color: rgb(80, 80, 80)
   display: block
   margin: 20px 0px 10px

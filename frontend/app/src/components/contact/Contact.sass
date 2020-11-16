@@ -1,5 +1,7 @@
+@import "../common/Common"
+
 .Contact
-  background-color: rgb(245, 245, 240)
+  background-color: $background-color
   padding: 30px
   color: rgb(230, 230, 230)
 
@@ -9,7 +11,7 @@
   text-align: center
 
 .Contact-title
-  font-family: "Noto Serif TC"
+  font-family: $primary-font
   color: rgb(60, 60, 60)
   font-size: 30px
   font-weight: bold
@@ -17,7 +19,7 @@
   margin-bottom: 20px
 
 .Contact-instructions
-  font-family: "Raleway"
+  font-family: $secondary-font
   color: rgb(40, 40, 40)
   display: block
   width: 80%
@@ -29,13 +31,13 @@
   margin: 50px auto 0px
 
 .Contact-text-input
-  font-family: "Raleway"
+  font-family: $secondary-font
   font-weight: bold
   background-color: transparent
   color: rgb(100, 100, 100)
   outline: none
   padding: 8px 12px
-  border: 2px solid rgb(98, 131, 192)
+  border: 2px solid $accent-color
   border-radius: 0px
   margin: 10px auto
   display: block
@@ -61,14 +63,14 @@
   resize: none
 
 .Contact-send-button
-  font-family: "Raleway"
+  font-family: $secondary-font
   font-weight: bold
   background-color: transparent
   outline: none
   color: rgb(100, 100, 100)
   padding: 7px 26px
   margin: 10px auto
-  border: 2px solid rgb(98, 131, 192)
+  border: 2px solid $accent-color
   display: block
   transition: 200ms
 

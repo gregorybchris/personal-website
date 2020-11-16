@@ -1,3 +1,4 @@
+@import "../common/Common"
 
 .ProjectInfo
   padding: 0px 30px
@@ -6,29 +7,29 @@
   padding-bottom: 20px
 
 .ProjectInfo-item
+  font-family: $secondary-font
   color: rgb(41, 41, 41)
-  font-family: "Raleway"
   margin-left: 20px
   margin-bottom: 10px
 
 .ProjectInfo-name
-  font-family: "Noto Serif TC"
+  font-family: $primary-font
   font-weight: bold
   font-size: 22px
 
 .ProjectInfo-item-link
-  color: rgb(98, 131, 192)
+  color: $accent-color
   transition: 200ms
 
 .ProjectInfo-item-link:hover
-  color: rgb(31, 67, 182)
+  color: $accent-focus-color
   cursor: pointer
 
 .ProjectInfo-item-link:active
-  color: rgb(31, 67, 182)
+  color: $accent-focus-color
 
 .ProjectInfo-item-link:visited
-  color: rgb(31, 67, 182)
+  color: $accent-focus-color
 
 .ProjectInfo-image
   max-height: 300px

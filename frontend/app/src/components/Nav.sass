@@ -1,9 +1,11 @@
+@import "common/Common"
+
 .Nav
-  background-color: rgb(245, 245, 240)
+  background-color: $background-color
   padding: 12px 25px
 
 .Nav-page-link
-  font-family: "Raleway"
+  font-family: $secondary-font
   font-size: 16px
   padding: 6px 8px 3px
   margin: 0px 3px 5px
@@ -11,14 +13,14 @@
   text-decoration: none
   color: rgb(60, 60, 60)
   transition: 200ms
-  border-bottom: 1px solid rgb(245, 245, 240)
+  border-bottom: 1px solid $background-color
 
 @media screen and (min-width: 200px) and (max-width: 400px)
   .Nav-page-link
     font-size: 12px
 
 .Nav-page-link.current
-  border-bottom: 1px solid rgb(98, 131, 192)
+  border-bottom: 1px solid $accent-color
 
 .Nav-page-link:hover
   color: rgb(10, 10, 10)
