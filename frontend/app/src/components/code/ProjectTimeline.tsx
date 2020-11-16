@@ -122,12 +122,13 @@ class ProjectTimeline extends React.Component<
         // let fy = Math.sin(theta) * f;
         // containerA.force.y += fy;
 
+        let signMult = yA > yB ? 1 : -1;
         if (Math.abs(d) < 10) {
-          containerA.force.y += 1.6 * dt * SimConstants.MULT;
+          containerA.force.y += 1.6 * dt * SimConstants.MULT * signMult;
         } else if (Math.abs(d) < 20) {
-          containerA.force.y += 0.8 * dt * SimConstants.MULT;
-        } else if (Math.abs(d) < 35) {
-          containerA.force.y += 0.4 * dt * SimConstants.MULT;
+          containerA.force.y += 0.8 * dt * SimConstants.MULT * signMult;
+        } else if (Math.abs(d) < 40) {
+          containerA.force.y += 0.4 * dt * SimConstants.MULT * signMult;
         }
       });
     });
@@ -194,7 +195,10 @@ class ProjectTimeline extends React.Component<
         let rand = uniform();
         return GraphicsConstants.PADDING_Y + 40 * (rand * 2 - 1);
       })
-      .attr("r", (project) => (project.rating / 10) * 9 + 5)
+      .attr("r", (project) => {
+        let r = project.rating;
+        return (r * r * 6) / 30 + 9;
+      })
       .attr("stroke-width", 1.5)
       .attr("fill", (project) => {
         switch (project.project_type) {
