@@ -39,10 +39,9 @@ class ProjectInfo extends React.Component<ProjectInfoProps, ProjectInfoState> {
       ) : (
         project.image_links.map(this.createImageElement)
       );
-    const hasDownloadLink = project.download_link != null;
     const downloadLink =
       project.download_link === null ? "" : project.download_link;
-    const downloadElement = hasDownloadLink ? (
+    const downloadLinkElement = downloadLink ? (
       <div className="ProjectInfo-item">
         <span
           className="ProjectInfo-item-link"
@@ -52,6 +51,19 @@ class ProjectInfo extends React.Component<ProjectInfoProps, ProjectInfoState> {
         </span>
       </div>
     ) : undefined;
+
+    const codeLink = project.code_link === null ? "" : project.code_link;
+    const codeLinkElement = codeLink ? (
+      <div className="ProjectInfo-item">
+        <span
+          className="ProjectInfo-item-link"
+          onClick={() => this.props.onProjectDownload(project, codeLink)}
+        >
+          Source Code
+        </span>
+      </div>
+    ) : undefined;
+
     return (
       <div className="ProjectInfo-content">
         <div className="ProjectInfo-text">
@@ -62,7 +74,8 @@ class ProjectInfo extends React.Component<ProjectInfoProps, ProjectInfoState> {
           <div className="ProjectInfo-item">
             Language: {project.primary_language}
           </div>
-          {downloadElement}
+          {downloadLinkElement}
+          {codeLinkElement}
           <div className="ProjectInfo-item ProjectInfo-description">
             {project.description}
           </div>
