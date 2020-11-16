@@ -1,6 +1,8 @@
 import React from "react";
 
 import * as d3 from "d3";
+import random from "random";
+import seedrandom from "seedrandom";
 
 import { formatDate } from "../../controllers/DateTimeUtilities";
 import ProjectRecord from "../../models/ProjectRecord";
@@ -35,7 +37,7 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
     const [width, height] = [1000, 200];
     const svg = canvas
       .append("svg")
-      .classed("Timeline-svg", true)
+      .classed("ProjectTimeline-svg", true)
       .attr("preserveAspectRatio", "xMinYMin meet")
       .attr("viewBox", `0 0 ${width} ${height}`);
 
@@ -56,17 +58,22 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
     const projectTypeJar = "jar";
     const projectTypeProgram = "program";
 
+    const uniform = random.uniform(0, 1);
+    random.use(seedrandom("foobar"));
     const circles = svg
       .selectAll("circle")
       .data(projects)
       .enter()
       .append("circle")
-      .classed("Timeline-circle", true)
+      .classed("ProjectTimeline-circle", true)
       .attr("cx", (d: ProjectRecord) => {
         return xScale(getProjectTimestamp(d)) || 0;
       })
-      .attr("cy", () => timelinePaddingY + 40 * (Math.random() * 2 - 1))
-      .attr("r", 7)
+      .attr("cy", () => {
+        let rand = uniform();
+        return timelinePaddingY + 40 * (rand * 2 - 1);
+      })
+      .attr("r", (d) => (d.rating / 10) * 9 + 5)
       .attr("stroke-width", 1.5)
       .attr("fill", (d) => {
         if (d.project_type === projectTypeWeb) {
@@ -103,7 +110,7 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
   createImageElement = (link: string) => {
     return (
       <img
-        className="Timeline-project-image"
+        className="ProjectTimeline-project-image"
         src={link}
         key={link}
         alt="Project screenshot"

@@ -2,6 +2,7 @@ interface ProjectRecord {
   project_id: string;
   name: string;
   date: string;
+  rating: number;
   project_type: string;
   controls: string | null;
   description: string | null;
