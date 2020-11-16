@@ -118,7 +118,9 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
     const formattedDate = formatDate(project.date);
     const imageElements =
       project.image_links.length === 0 ? (
-        <div className="Timeline-project-item">[no images available]</div>
+        <div className="ProjectTimeline-project-item">
+          [no images available]
+        </div>
       ) : (
         project.image_links.map(this.createImageElement)
       );
@@ -126,9 +128,9 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
     const downloadLink =
       project.download_link === null ? "" : project.download_link;
     const downloadElement = hasDownloadLink ? (
-      <div className="Timeline-project-item">
+      <div className="ProjectTimeline-project-item">
         <span
-          className="Timeline-project-item-link"
+          className="ProjectTimeline-project-item-link"
           onClick={() => this.props.onProjectDownload(project, downloadLink)}
         >
           Download
@@ -136,17 +138,17 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
       </div>
     ) : undefined;
     return (
-      <div className="Timeline-project-info">
-        <div className="Timeline-project-info-text">
-          <div className="Timeline-project-item Timeline-project-name">
+      <div className="ProjectTimeline-project-info">
+        <div className="ProjectTimeline-project-info-text">
+          <div className="ProjectTimeline-project-item ProjectTimeline-project-name">
             {project.name}
           </div>
-          <div className="Timeline-project-item">{formattedDate}</div>
-          <div className="Timeline-project-item">
+          <div className="ProjectTimeline-project-item">{formattedDate}</div>
+          <div className="ProjectTimeline-project-item">
             Language: {project.primary_language}
           </div>
           {downloadElement}
-          <div className="Timeline-project-item Timeline-project-description">
+          <div className="ProjectTimeline-project-item ProjectTimeline-project-description">
             {project.description}
           </div>
         </div>
@@ -157,8 +159,8 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
 
   render() {
     return (
-      <div className="Timeline">
-        <div className="Timeline-canvas" ref={this.canvasRef}></div>
+      <div className="ProjectTimeline">
+        <div className="ProjectTimeline-canvas" ref={this.canvasRef}></div>
         {this.getProjectInfo(this.state.currentProject)}
       </div>
     );

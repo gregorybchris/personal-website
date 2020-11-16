@@ -1,57 +1,61 @@
-.Timeline-svg:hover {
+.ProjectTimeline {
+  background-color: rgb(245, 245, 240);
+}
+
+.ProjectTimeline-svg:hover {
   cursor: default;
 }
 
-.Timeline-circle:hover {
+.ProjectTimeline-circle:hover {
   cursor: pointer;
 }
 
-.Timeline-project-info {
+.ProjectTimeline-project-info {
   padding: 0px 30px;
 }
 
-.Timeline-project-info-text {
+.ProjectTimeline-project-info-text {
   padding-bottom: 20px;
 }
 
-.Timeline-project-item {
+.ProjectTimeline-project-item {
   color: rgb(41, 41, 41);
   font-family: "Raleway";
   margin-left: 20px;
   margin-bottom: 10px;
 }
 
-.Timeline-project-name {
+.ProjectTimeline-project-name {
   font-family: "Noto Serif TC";
   font-weight: bold;
   font-size: 22px;
 }
 
-.Timeline-project-item-link {
-  color: rgb(85, 85, 85);
+.ProjectTimeline-project-item-link {
+  color: rgb(98, 131, 192);
   transition: 200ms;
 }
 
-.Timeline-project-item-link:hover {
-  color: rgb(190, 190, 190);
+.ProjectTimeline-project-item-link:hover {
+  color: rgb(31, 67, 182);
   cursor: pointer;
 }
 
-.Timeline-project-item-link:active {
-  color: rgb(230, 230, 230);
+.ProjectTimeline-project-item-link:active {
+  color: rgb(31, 67, 182);
 }
 
-.Timeline-project-item-link:visited {
-  color: rgb(230, 230, 230);
+.ProjectTimeline-project-item-link:visited {
+  color: rgb(31, 67, 182);
 }
 
-.Timeline-project-image {
+.ProjectTimeline-project-image {
   max-height: 300px;
   margin: 10px 10px;
   max-width: 90%;
   box-shadow: 0px 0px 6px 2px rgb(180, 180, 180);
 }
 
-.Timeline-project-description {
+.ProjectTimeline-project-description {
   text-indent: 10px;
 }
