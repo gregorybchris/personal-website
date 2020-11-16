@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 import "./Home.css";
 
-import shoeIcon from "../images/icons/shoe.svg";
-import linkIcon from "../images/icons/link.svg";
+import shoeIcon from "../../images/icons/shoe.svg";
+import linkIcon from "../../images/icons/link.svg";
 
 export interface HomeProps {}
 

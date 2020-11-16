@@ -1,11 +1,11 @@
 import React from "react";
 
 import Tag from "./Tag";
-import PostRecord from "../models/PostRecord";
+import PostRecord from "../../models/PostRecord";
 import "./Post.css";
 
-import { formatDate } from "../controllers/DateTimeUtilities";
-import { makeURL, getSearchParams } from "../controllers/RequestUtilities";
+import { formatDate } from "../../controllers/DateTimeUtilities";
+import { makeURL, getSearchParams } from "../../controllers/RequestUtilities";
 
 // import linkImage from "../images/link.svg";
 // import detailsImage from "../images/details.svg";

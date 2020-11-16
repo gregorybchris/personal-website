@@ -1,14 +1,14 @@
 import React from "react";
 
 import Post from "./Post";
-import PostRecord from "../models/PostRecord";
+import PostRecord from "../../models/PostRecord";
 import SearchBar from "./SearchBar";
 import "./Blog.css";
 import {
   getSearchParams,
   makeQuery,
   GET,
-} from "../controllers/RequestUtilities";
+} from "../../controllers/RequestUtilities";
 
 export interface BlogProps {}
 

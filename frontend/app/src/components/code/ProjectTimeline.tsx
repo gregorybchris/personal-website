@@ -2,8 +2,8 @@ import React from "react";
 
 import * as d3 from "d3";
 
-import { formatDate } from "../controllers/DateTimeUtilities";
-import ProjectRecord from "../models/ProjectRecord";
+import { formatDate } from "../../controllers/DateTimeUtilities";
+import ProjectRecord from "../../models/ProjectRecord";
 import "./ProjectTimeline.css";
 
 export interface TimelineProps {

@@ -1,8 +1,8 @@
 import React from "react";
 
 import ProjectTimeline from "./ProjectTimeline";
-import ProjectRecord from "../models/ProjectRecord";
-import { makeQuery, GET, POST } from "../controllers/RequestUtilities";
+import ProjectRecord from "../../models/ProjectRecord";
+import { makeQuery, GET, POST } from "../../controllers/RequestUtilities";
 import "./Projects.css";
 
 export interface ProjectsProps {}

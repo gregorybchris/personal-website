@@ -1,9 +1,9 @@
 import React from "react";
 
 import "./Survey.css";
-import { makeQuery, GET, POST } from "../controllers/RequestUtilities";
-import SurveyRecord from "../models/SurveyRecord";
-import SurveyQuestionRecord from "../models/SurveyQuestionRecord";
+import { makeQuery, GET, POST } from "../../controllers/RequestUtilities";
+import SurveyRecord from "../../models/SurveyRecord";
+import SurveyQuestionRecord from "../../models/SurveyQuestionRecord";
 
 export interface SurveyProps {}
 
