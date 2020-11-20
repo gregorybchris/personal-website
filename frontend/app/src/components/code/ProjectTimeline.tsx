@@ -110,6 +110,7 @@ class ProjectTimeline extends React.Component<
 
         let [xA, yA] = [+circleA.attr("cx"), +circleA.attr("cy")];
         let [xB, yB] = [+circleB.attr("cx"), +circleB.attr("cy")];
+        let [rA, rB] = [+circleA.attr("r"), +circleB.attr("r")];
 
         if (yA - yB < 0) {
           return;
@@ -118,16 +119,15 @@ class ProjectTimeline extends React.Component<
         let [dx, dy] = [xB - xA, yB - yA];
         let d = Math.sqrt(dx * dx + dy * dy);
         // let theta = Math.atan2(dy, dx);
-        // let f = -d / 20 + 1.5;
-        // let fy = Math.sin(theta) * f;
-        // containerA.force.y += fy;
+        // let fy = Math.sin(theta);
 
+        let rFactor = (rA + rB) / 1.6;
         let signMult = yA > yB ? 1 : -1;
-        if (Math.abs(d) < 10) {
+        if (Math.abs(d) < 2 + rFactor) {
           containerA.force.y += 1.6 * dt * SimConstants.MULT * signMult;
-        } else if (Math.abs(d) < 20) {
+        } else if (Math.abs(d) < 10 + rFactor) {
           containerA.force.y += 0.8 * dt * SimConstants.MULT * signMult;
-        } else if (Math.abs(d) < 40) {
+        } else if (Math.abs(d) < 25 + rFactor) {
           containerA.force.y += 0.4 * dt * SimConstants.MULT * signMult;
         }
       });
