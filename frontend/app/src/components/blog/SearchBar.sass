@@ -1,51 +1,15 @@
 @import "../common/Common"
 
 .SearchBar
-  font-family: $secondary-font
   min-width: 340px
 
 .SearchBar-input
-  font-family: $secondary-font
-  color: rgb(100, 100, 100)
-  background-color: transparent
-  border: 2px solid $accent-color
-  font-size: 14px
   width: 270px
-  padding: 8px 10px
-  box-sizing: border-box
-  transition: 500ms
-  outline: none
   display: inline-block
   vertical-align: top
-  font-weight: bold
-
-.SearchBar-input::placeholder
-  color: rgb(100, 100, 100)
-  transition: 0.5s
-
-.SearchBar-input:focus
-  caret-color: rgb(117, 125, 139)
-  background-color: rgb(230, 230, 224)
-
-.SearchBar-input:focus::placeholder
-  color: rgb(100, 100, 100)
+  width: 270px
 
 .SearchBar-clear-button
-  color: rgb(100, 100, 100)
-  background-color: transparent
-  border: 2px solid $accent-color
   margin-left: 3px
-  font-size: 14px
-  padding: 8px 15px 8px 15px
   display: inline-block
   vertical-align: top
-  box-sizing: border-box
-  transition: 0.2s
-  font-weight: bold
-
-.SearchBar-clear-button:hover
-  background-color: rgb(230, 230, 224)
-  cursor: pointer
-
-.SearchBar-clear-button:active
-  background-color: rgb(214, 214, 209)

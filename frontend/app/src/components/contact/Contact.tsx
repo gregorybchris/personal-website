@@ -26,7 +26,7 @@ class Contact extends React.Component<ContactProps, ContactState> {
         <div className="Contact-form-wrap">
           <form action="https://formspree.io/f/xdopgdnk" method="POST">
             <input
-              className="Contact-text-input Contact-text-field"
+              className="Contact-text-input Common-text-field"
               type="text"
               name="name"
               placeholder="Name"
@@ -34,7 +34,7 @@ class Contact extends React.Component<ContactProps, ContactState> {
               required
             />
             <input
-              className="Contact-text-input Contact-text-field"
+              className="Contact-text-input Common-text-field"
               type="email"
               name="_replyto"
               placeholder="Email"
@@ -42,12 +42,16 @@ class Contact extends React.Component<ContactProps, ContactState> {
               required
             />
             <textarea
-              className="Contact-text-input Contact-text-area"
+              className="Contact-text-area Common-text-field"
               name="message"
               placeholder="Message"
               required
             />
-            <input className="Contact-send-button" type="submit" value="Send" />
+            <input
+              className="Contact-send-button Common-button"
+              type="submit"
+              value="Send"
+            />
           </form>
         </div>
       </div>

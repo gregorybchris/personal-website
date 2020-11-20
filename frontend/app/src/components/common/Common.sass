@@ -4,3 +4,46 @@ $accent-focus-color: rgb(31, 67, 182)
 
 $primary-font: "Noto Serif TC"
 $secondary-font: "Raleway"
+
+.Common-button
+  font-family: $secondary-font
+  color: rgb(100, 100, 100)
+  background-color: transparent
+  border: 2px solid $accent-color
+  font-size: 14px
+  padding: 8px 15px 8px 15px
+  vertical-align: top
+  box-sizing: border-box
+  transition: 0.2s
+  font-weight: bold
+
+.Common-button:hover
+  background-color: rgb(230, 230, 224)
+  cursor: pointer
+
+.Common-button:active
+  background-color: rgb(214, 214, 209)
+
+.Common-text-field
+  font-family: $secondary-font
+  color: rgb(100, 100, 100)
+  background-color: transparent
+  border: 2px solid $accent-color
+  font-size: 14px
+  padding: 8px 10px
+  box-sizing: border-box
+  transition: 500ms
+  outline: none
+  vertical-align: top
+  font-weight: bold
+
+.Common-text-field::placeholder
+  color: rgb(100, 100, 100)
+  transition: 0.5s
+
+.Common-text-field:focus
+  caret-color: rgb(117, 125, 139)
+  background-color: rgb(230, 230, 224)
+
+.Common-text-field:focus::placeholder
+  color: rgb(100, 100, 100)
