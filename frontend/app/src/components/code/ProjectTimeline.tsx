@@ -29,8 +29,8 @@ class SimConstants {
 
 class GraphicsConstants {
   static WIDTH = 1000;
-  static HEIGHT = 350;
-  static PADDING_X = 30;
+  static HEIGHT = 280;
+  static PADDING_X = 50;
   static PADDING_Y = 80;
 }
 
@@ -113,23 +113,19 @@ class ProjectTimeline extends React.Component<
         let [xB, yB] = [+circleB.attr("cx"), +circleB.attr("cy")];
         let [rA, rB] = [+circleA.attr("r"), +circleB.attr("r")];
 
-        if (yA - yB < 0) {
-          return;
-        }
-
         let [dx, dy] = [xB - xA, yB - yA];
         let d = Math.sqrt(dx * dx + dy * dy);
         // let theta = Math.atan2(dy, dx);
         // let fy = Math.sin(theta);
 
         let rFactor = (rA + rB) / 1.6;
-        let signMult = yA > yB ? 1 : -1;
+        let sign = yA > yB ? 1 : -1;
         if (Math.abs(d) < 2 + rFactor) {
-          containerA.force.y += 1.6 * dt * SimConstants.MULT * signMult;
+          containerA.force.y += 1.6 * dt * SimConstants.MULT * sign;
         } else if (Math.abs(d) < 10 + rFactor) {
-          containerA.force.y += 0.8 * dt * SimConstants.MULT * signMult;
+          containerA.force.y += 0.8 * dt * SimConstants.MULT * sign;
         } else if (Math.abs(d) < 25 + rFactor) {
-          containerA.force.y += 0.4 * dt * SimConstants.MULT * signMult;
+          containerA.force.y += 0.4 * dt * SimConstants.MULT * sign;
         }
       });
     });
@@ -217,7 +213,7 @@ class ProjectTimeline extends React.Component<
       })
       .attr("cy", () => {
         let rand = uniform();
-        return GraphicsConstants.PADDING_Y + 40 * (rand * 2 - 1);
+        return height / 2 + 40 * (rand * 2 - 1);
       })
       .attr("r", (project) => {
         let r = project.rating;
