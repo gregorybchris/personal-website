@@ -43,7 +43,7 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
     await POST(makeQuery(`projects/download/${project.project_id}`));
   };
 
-  onSelectProject = (project: ProjectRecord) => {
+  onSelectProject = (project: ProjectRecord | null) => {
     this.setState({ currentProject: project });
   };
 
@@ -53,6 +53,7 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
         <div className="Projects-title">Code &amp; Programming Projects</div>
         <ProjectTimeline
           projects={this.state.projects}
+          currentProject={this.state.currentProject}
           onSelectProject={this.onSelectProject}
         ></ProjectTimeline>
         <ProjectInfo

@@ -36,7 +36,8 @@ class GraphicsConstants {
 
 export interface ProjectTimelineProps {
   projects: ProjectRecord[];
-  onSelectProject: (project: ProjectRecord) => void;
+  currentProject: ProjectRecord | null;
+  onSelectProject: (project: ProjectRecord | null) => void;
 }
 
 export interface ProjectTimelineState {}
@@ -152,6 +153,19 @@ class ProjectTimeline extends React.Component<
     return `#project_${project.project_id}`;
   };
 
+  getProjectColor = (project: ProjectRecord): string => {
+    switch (project.project_type) {
+      case ProjectTypes.WEB:
+        return Colors.RED;
+      case ProjectTypes.JAR:
+        return Colors.BLUE;
+      case ProjectTypes.PROGRAM:
+        return Colors.GREEN;
+      default:
+        return Colors.BLACK;
+    }
+  };
+
   populateCanvas = (projects: ProjectRecord[]) => {
     const canvas = d3.select(this.canvasRef.current);
 
@@ -172,6 +186,7 @@ class ProjectTimeline extends React.Component<
         // console.log(mouseEvent);
       })
       .on("click", (mouseEvent: any) => {
+        this.props.onSelectProject(null);
         d3.selectAll("circle").classed("selected", false);
         d3.selectAll("circle").classed("deselected", false);
       });
@@ -208,37 +223,18 @@ class ProjectTimeline extends React.Component<
         let r = project.rating;
         return (r * r * 6) / 30 + 9;
       })
-      .attr("stroke-width", 1.5)
+
       .attr("opacity", 1)
-      .attr("fill", (project) => {
-        switch (project.project_type) {
-          case ProjectTypes.WEB:
-            return Colors.RED;
-          case ProjectTypes.JAR:
-            return Colors.BLUE;
-          case ProjectTypes.PROGRAM:
-            return Colors.GREEN;
-          default:
-            return Colors.BLACK;
-        }
-      })
+      .attr("fill", this.getProjectColor)
+      .attr("stroke", this.getProjectColor)
       .attr("id", (project) => `project_${project.project_id}`)
       .on("click", (mouseEvent: any, project: any) => {
         d3.selectAll("circle").classed("deselected", true);
-        d3.select(this.getProjectSelector(project))
-          .classed("deselected", false)
-          .classed("selected", true);
+        d3.select(this.getProjectSelector(project)).classed(
+          "deselected",
+          false
+        );
         this.props.onSelectProject(project);
-      })
-      .on("mouseover", (mouseEvent: any, project: any) => {
-        let circle = d3.select(this.getProjectSelector(project));
-        let radius = +circle.attr("r");
-        circle.attr("r", radius + 3);
-      })
-      .on("mouseout", (mouseEvent: any, project: any) => {
-        let circle = d3.select(this.getProjectSelector(project));
-        let radius = +circle.attr("r");
-        circle.attr("r", radius - 3);
       });
     circles.append("title").text((d) => d.name);
   };
