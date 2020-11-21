@@ -159,7 +159,7 @@
     "controls": null,
     "description": "Cheso (pronounced CHAY-so) is an esoteric programming language that is a knock-off of BrainFuck.",
     "remarks": "After I completed my systems programming class in college (most projects were in C) I realized I was going to quickly lose my ability to program in C. I started this project as an excuse to write some C code outside the classroom, something I didn't expect to ever do again.",
-    "code_link": null,
+    "code_link": "https://github.com/gregorybchris/cheso",
     "download_link": null,
     "image_links": [],
     "primary_language": "C",
