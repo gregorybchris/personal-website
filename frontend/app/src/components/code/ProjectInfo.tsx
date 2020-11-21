@@ -44,7 +44,7 @@ class ProjectInfo extends React.Component<ProjectInfoProps, ProjectInfoState> {
     const downloadLinkElement = downloadLink ? (
       <div className="ProjectInfo-item">
         <span
-          className="ProjectInfo-item-link"
+          className="Common-simple-link"
           onClick={() => this.props.onProjectDownload(project, downloadLink)}
         >
           Download
@@ -56,7 +56,7 @@ class ProjectInfo extends React.Component<ProjectInfoProps, ProjectInfoState> {
     const codeLinkElement = codeLink ? (
       <div className="ProjectInfo-item">
         <span
-          className="ProjectInfo-item-link"
+          className="Common-simple-link"
           onClick={() => this.props.onProjectDownload(project, codeLink)}
         >
           Source Code

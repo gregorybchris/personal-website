@@ -34,7 +34,7 @@ class Contact extends React.Component<ContactProps, ContactState> {
               required
             />
             <input
-              className="Contact-text-input Common-text-field"
+              className="Common-text-field Contact-text-input"
               type="email"
               name="_replyto"
               placeholder="Email"
@@ -42,13 +42,13 @@ class Contact extends React.Component<ContactProps, ContactState> {
               required
             />
             <textarea
-              className="Contact-text-area Common-text-field"
+              className="Common-text-field Contact-text-area"
               name="message"
               placeholder="Message"
               required
             />
             <input
-              className="Contact-send-button Common-button"
+              className="Common-button Contact-send-button"
               type="submit"
               value="Send"
             />

@@ -1,7 +1,6 @@
 import React from "react";
 
 import "./SearchBar.sass";
-import "../common/Common.sass";
 
 export interface SearchBarProps {
   searchText: string;
@@ -16,14 +15,14 @@ class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
     return (
       <div className="SearchBar">
         <input
-          className="SearchBar-input Common-text-field"
+          className="Common-text-field SearchBar-input"
           type="text"
           value={this.props.searchText}
           onChange={this.props.onUpdateSearch}
           placeholder="Filter posts"
         />
         <div
-          className="SearchBar-clear-button Common-button"
+          className="Common-button SearchBar-clear-button"
           onClick={this.props.onClearSearch}
         >
           Clear

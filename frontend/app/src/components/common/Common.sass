@@ -1,9 +1,15 @@
 $background-color: rgb(245, 245, 240)
 $accent-color: rgb(98, 131, 192)
 $accent-focus-color: rgb(31, 67, 182)
+$background-highlight-color: rgb(213, 211, 211)
+$background-highlight-color-active: rgb(199, 197, 197)
+$text-primary-color: rgb(60, 60, 60)
+$text-secondary-color: rgb(107, 107, 106)
 
 $primary-font: "Noto Serif TC"
 $secondary-font: "Raleway"
+
+// Button
 
 .Common-button
   font-family: $secondary-font
@@ -23,6 +29,8 @@ $secondary-font: "Raleway"
 
 .Common-button:active
   background-color: rgb(214, 214, 209)
+
+// Text field
 
 .Common-text-field
   font-family: $secondary-font
@@ -47,3 +55,24 @@ $secondary-font: "Raleway"
 
 .Common-text-field:focus::placeholder
   color: rgb(100, 100, 100)
+
+// Simple link
+
+.Common-simple-link
+  font-family: $secondary-font
+  color: $accent-color
+  text-decoration: none
+  transition: 200ms
+
+.Common-simple-link:hover
+  color: $accent-focus-color
+  cursor: pointer
+
+.Common-simple-link:active
+  color: $accent-focus-color
+
+.Common-simple-link:visited
+  color: $accent-color
+
+.Common-simple-link:visited:hover
+  color: $accent-focus-color

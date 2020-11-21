@@ -10,7 +10,7 @@
 
 .Survey-about-title
   font-family: $primary-font
-  color: rgb(60, 60, 60)
+  color: $text-primary-color
   font-size: 30px
   font-weight: bold
   display: block
@@ -18,7 +18,7 @@
 
 .Survey-about-text
   font-family: $secondary-font
-  color: rgb(40, 40, 40)
+  color: $text-primary-color
   display: block
   width: 80%
   margin: 0px auto
@@ -31,7 +31,7 @@
 .Survey-name
   font-family: $primary-font
   font-size: 25px
-  color: rgb(60, 60, 60)
+  color: $text-primary-color
   font-weight: bold
   padding-bottom: 2px
   display: inline
@@ -45,7 +45,7 @@
 
 .Survey-question-text
   font-family: $secondary-font
-  color: rgb(60, 60, 60)
+  color: $text-primary-color
   padding-bottom: 10px
   text-indent: -14px
 
@@ -57,5 +57,8 @@
 
 .Survey-question-option:hover
   color: $accent-focus-color
-  background-color: rgb(219, 216, 216)
+  background-color: $background-highlight-color
   cursor: pointer
+
+.Survey-question-option:active
+  background-color: $background-highlight-color-active
