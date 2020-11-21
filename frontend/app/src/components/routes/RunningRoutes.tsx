@@ -37,6 +37,14 @@ class RunningRoutes extends React.Component<
     );
   };
 
+  sortRoutesByName = (routes: RunningRouteRecord[]) => {
+    return routes.sort(
+      (routeA: RunningRouteRecord, routeB: RunningRouteRecord) => {
+        return routeA.name < routeB.name ? -1 : 1;
+      }
+    );
+  };
+
   async componentDidMount() {
     const routesQuery = makeQuery("outdoor/running");
     const queryResult = await GET(routesQuery);
@@ -66,7 +74,8 @@ class RunningRoutes extends React.Component<
             {routeRecord.name}
           </a>
         </div>
-        <div className="RunningRoutes-distance">- {routeRecord.distance}mi</div>
+        <div className="RunningRoutes-info">{routeRecord.distance}mi</div>
+        <div className="RunningRoutes-info">{routeRecord.elevation}ft</div>
         <div className="RunningRoutes-tags">
           {routeRecord.tags.map(this.createRouteTagElement)}
         </div>

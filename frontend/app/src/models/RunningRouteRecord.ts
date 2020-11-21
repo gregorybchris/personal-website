@@ -1,10 +1,11 @@
 interface RunningRouteRecord {
-  distance: number;
-  mapometer_id: number;
-  name: string;
   route_id: string;
-  route_type: string;
+  name: string;
   slug: string;
+  route_type: string;
+  distance: number;
+  elevation: number;
+  mapometer_id: number;
   tags: string[];
 }
 
