@@ -76,7 +76,10 @@ class Blog extends React.Component<BlogProps, BlogState> {
     }
 
     for (const tag of post.tags) {
-      if (searchText.startsWith("#") && searchText.substring(1) === tag) {
+      if (
+        searchText.startsWith("#") &&
+        tag.startsWith(searchText.substring(1))
+      ) {
         return true;
       }
     }
