@@ -16,6 +16,13 @@ class Oops extends React.Component<OopsProps, OopsState> {
             Somehow you've ended up on a page that doesn't exist...
           </div>
         </div>
+        <div className="Oops-image-wrap">
+          <img
+            object-fit="cover"
+            className="Oops-image"
+            src="https://chrisgregory.blob.core.windows.net/bio/profiles/wide-eyes-profile.jpg"
+          ></img>
+        </div>
       </div>
     );
   }
