@@ -19,10 +19,29 @@ class RunningRoutes extends React.Component<
     routes: [],
   };
 
+  sortRoutesByTags = (routes: RunningRouteRecord[]) => {
+    return routes.sort(
+      (routeA: RunningRouteRecord, routeB: RunningRouteRecord) => {
+        const numTagsA = routeA.tags.length;
+        const numTagsB = routeB.tags.length;
+        const minTags = Math.min(numTagsA, numTagsB);
+        for (let i = 0; i < minTags; i++) {
+          if (routeA.tags[i] < routeB.tags[i]) {
+            return -1;
+          } else if (routeA.tags[i] > routeB.tags[i]) {
+            return 1;
+          }
+        }
+        return numTagsA - numTagsB;
+      }
+    );
+  };
+
   async componentDidMount() {
     const routesQuery = makeQuery("outdoor/running");
     const queryResult = await GET(routesQuery);
-    this.setState({ routes: queryResult.reverse() });
+    const sortedRoutes = this.sortRoutesByTags(queryResult);
+    this.setState({ routes: sortedRoutes });
   }
 
   getMapometerLink = (routeRecord: RunningRouteRecord) => {
@@ -31,7 +50,7 @@ class RunningRoutes extends React.Component<
   };
 
   createRouteTagElement = (tag: string) => {
-    return <div className="RunningRoutes-tag"></div>;
+    return <div className="RunningRoutes-tag">{tag}</div>;
   };
 
   createRouteElement = (routeRecord: RunningRouteRecord) => {
