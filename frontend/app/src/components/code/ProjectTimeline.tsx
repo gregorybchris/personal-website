@@ -29,7 +29,7 @@ class SimConstants {
 
 class GraphicsConstants {
   static WIDTH = 1000;
-  static HEIGHT = 300;
+  static HEIGHT = 350;
   static PADDING_X = 30;
   static PADDING_Y = 80;
 }
@@ -155,10 +155,6 @@ class ProjectTimeline extends React.Component<
   populateCanvas = (projects: ProjectRecord[]) => {
     const canvas = d3.select(this.canvasRef.current);
 
-    canvas.on("mousemove", (mouseEvent: any) => {
-      // console.log(mouseEvent);
-    });
-
     canvas.selectAll("svg").remove();
     const [width, height] = [GraphicsConstants.WIDTH, GraphicsConstants.HEIGHT];
     const svg = canvas
@@ -166,6 +162,19 @@ class ProjectTimeline extends React.Component<
       .classed("ProjectTimeline-svg", true)
       .attr("preserveAspectRatio", "xMinYMin meet")
       .attr("viewBox", `0 0 ${width} ${height}`);
+
+    svg
+      .append("rect")
+      .attr("width", width)
+      .attr("height", height)
+      .attr("fill", "transparent")
+      .on("mousemove", (mouseEvent: any) => {
+        // console.log(mouseEvent);
+      })
+      .on("click", (mouseEvent: any) => {
+        d3.selectAll("circle").classed("selected", false);
+        d3.selectAll("circle").classed("deselected", false);
+      });
 
     const getProjectTimestamp = (project: ProjectRecord): number =>
       new Date(project.date).getTime();
@@ -200,6 +209,7 @@ class ProjectTimeline extends React.Component<
         return (r * r * 6) / 30 + 9;
       })
       .attr("stroke-width", 1.5)
+      .attr("opacity", 1)
       .attr("fill", (project) => {
         switch (project.project_type) {
           case ProjectTypes.WEB:
@@ -214,8 +224,10 @@ class ProjectTimeline extends React.Component<
       })
       .attr("id", (project) => `project_${project.project_id}`)
       .on("click", (mouseEvent: any, project: any) => {
-        d3.selectAll("circle").attr("stroke", "transparent");
-        d3.select(this.getProjectSelector(project)).attr("stroke", Colors.GRAY);
+        d3.selectAll("circle").classed("deselected", true);
+        d3.select(this.getProjectSelector(project))
+          .classed("deselected", false)
+          .classed("selected", true);
         this.props.onSelectProject(project);
       })
       .on("mouseover", (mouseEvent: any, project: any) => {

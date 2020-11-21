@@ -50,6 +50,7 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
   render() {
     return (
       <div className="Projects">
+        <div className="Projects-title">Code &amp; Programming Projects</div>
         <ProjectTimeline
           projects={this.state.projects}
           onSelectProject={this.onSelectProject}
