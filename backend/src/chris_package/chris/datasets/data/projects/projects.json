@@ -863,12 +863,27 @@
     "rating": 6,
     "project_type": "program",
     "controls": null,
-    "description": "An Swift implementation of interval trees and longest common subsequence.",
+    "description": "A Swift implementation of interval trees and longest common subsequence.",
     "remarks": null,
     "code_link": "https://github.com/gregorybchris/interval-tree",
     "download_link": null,
     "image_links": [],
     "primary_language": "Swift",
+    "archived": false
+  },
+  {
+    "project_id": "acc1ce43-b729-462e-a33d-ca9fd2c51393",
+    "name": "Song Search",
+    "date": "2014-12-14",
+    "rating": 3,
+    "project_type": "program",
+    "controls": null,
+    "description": "Song Search was the final project of my Data Structures course in college. The assignment was to design an implement a method of preprocessing a large database of song lyrics in order to efficiently query for songs based on their lyrics.",
+    "remarks": null,
+    "code_link": "https://github.com/gregorybchris/song-search",
+    "download_link": null,
+    "image_links": [],
+    "primary_language": "C++",
     "archived": false
   }
 ]
