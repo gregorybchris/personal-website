@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Contact from "./contact/Contact";
 import Blog from "./blog/Blog";
 import Home from "./home/Home";
+import Oops from "./Oops";
 import Projects from "./code/Projects";
 import Sandbox from "../sandbox-components/Sandbox";
 import RunningRoutes from "./routes/RunningRoutes";
@@ -24,6 +25,7 @@ function App() {
           <Route path="/links" exact component={() => <Blog />} />
           <Route path="/running" exact component={() => <RunningRoutes />} />
           <Route path="/sandbox" exact component={() => <Sandbox />} />
+          <Route path="*" exact component={() => <Oops />} />
         </Switch>
       </Router>
     </div>
