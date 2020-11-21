@@ -217,6 +217,16 @@ class ProjectTimeline extends React.Component<
         d3.selectAll("circle").attr("stroke", "transparent");
         d3.select(this.getProjectSelector(project)).attr("stroke", Colors.GRAY);
         this.props.onSelectProject(project);
+      })
+      .on("mouseover", (mouseEvent: any, project: any) => {
+        let circle = d3.select(this.getProjectSelector(project));
+        let radius = +circle.attr("r");
+        circle.attr("r", radius + 3);
+      })
+      .on("mouseout", (mouseEvent: any, project: any) => {
+        let circle = d3.select(this.getProjectSelector(project));
+        let radius = +circle.attr("r");
+        circle.attr("r", radius - 3);
       });
     circles.append("title").text((d) => d.name);
   };
