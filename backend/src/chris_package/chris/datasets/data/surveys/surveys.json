@@ -2,15 +2,12 @@
   {
     "survey_id": "a6ab9418-0cab-4ff1-bcef-3ca6456f9e26",
     "name": "Meeting Moved Up",
+    "version": "1.0.0",
     "slug": "meeting-moved-up",
     "date_created": "2020-11-07",
     "questions": [
       {
         "text": "If your meeting is originally scheduled for 2:00pm and you're told it got moved up 30 minutes, what time is the meeting now?",
-        "options": ["1:30pm", "2:30pm"]
-      },
-      {
-        "text": "Imagine someone",
         "options": ["1:30pm", "2:30pm"]
       }
     ],
@@ -19,6 +16,7 @@
   {
     "survey_id": "bf74570c-f461-4e08-b4aa-84413298da6b",
     "name": "Parents on Social Media",
+    "version": "1.0.0",
     "slug": "parents-social-media",
     "date_created": "2020-11-05",
     "questions": [
