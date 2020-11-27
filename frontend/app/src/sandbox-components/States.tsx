@@ -32,7 +32,7 @@ class States extends React.Component<StatesProps, StatesState> {
       "https://chrisgregory.blob.core.windows.net/bio/states/massachusetts.svg",
       "https://chrisgregory.blob.core.windows.net/bio/states/washington.svg",
     ];
-    const images = svg
+    svg
       .selectAll("image")
       .data(stateImageLinks)
       .enter()

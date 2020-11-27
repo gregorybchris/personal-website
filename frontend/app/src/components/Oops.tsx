@@ -19,6 +19,7 @@ class Oops extends React.Component<OopsProps, OopsState> {
         <div className="Oops-image-wrap">
           <img
             object-fit="cover"
+            alt="oops"
             className="Oops-image"
             src="https://chrisgregory.blob.core.windows.net/bio/profiles/wide-eyes-profile.jpg"
           ></img>

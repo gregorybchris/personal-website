@@ -69,6 +69,7 @@ class RunningRoutes extends React.Component<
           <a
             href={mapometerLink}
             target="_blank"
+            rel="noopener noreferrer"
             className="Common-simple-link"
           >
             {routeRecord.name}

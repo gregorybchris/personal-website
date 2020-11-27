@@ -74,6 +74,7 @@ class Home extends React.Component<HomeProps, HomeState> {
           <div className="Home-content-info-wrap">
             <img
               className="Home-profile-image"
+              alt="Profile"
               src="https://chrisgregory.blob.core.windows.net/bio/profiles/mountains-profile-2.jpg"
             ></img>
           </div>

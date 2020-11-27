@@ -64,7 +64,7 @@ class ProjectTimeline extends React.Component<
     let dt = 0;
     let previousTime: number;
     let update = (currentTime: number) => {
-      if (previousTime != undefined) {
+      if (previousTime !== undefined) {
         dt += (currentTime - previousTime) / 1000;
         if (dt >= this.GAME_LOOP_SPF) {
           this.updateCanvas(dt);
@@ -103,7 +103,7 @@ class ProjectTimeline extends React.Component<
     // Compute forces
     containers.forEach((containerA) => {
       containers.forEach((containerB) => {
-        if (containerA.selector == containerB.selector) {
+        if (containerA.selector === containerB.selector) {
           return;
         }
 

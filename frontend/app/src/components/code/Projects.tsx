@@ -65,7 +65,10 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
           ref={this.hiddenDownloadAnchor}
           href={this.state.currentDownloadLink}
           target="_blank"
-        />
+          rel="noopener noreferrer"
+        >
+          Hidden
+        </a>
       </div>
     );
   }

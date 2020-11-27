@@ -7,6 +7,7 @@ export default () => {
     <div className="Music">
       <div className="Music-spotify-wrap">
         <iframe
+          title="latest-music"
           className="Music-spotify-iframe"
           src="https://open.spotify.com/embed/playlist/0oLhscbRKBJdfA5gfNQbe3"
           width="500"
