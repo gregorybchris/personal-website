@@ -52,7 +52,15 @@ export default (props: any) => {
         }
       };
     }
-  }, [reactCanvas]);
+  }, [
+    reactCanvas,
+    antialias,
+    adaptToDeviceRatio,
+    engineOptions,
+    onRender,
+    sceneOptions,
+    props,
+  ]);
 
   return <canvas ref={reactCanvas} {...rest} />;
 };
