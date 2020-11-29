@@ -60,7 +60,9 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
     let response = this.state.response;
     return (
       <div className="Survey-content">
-        <div className="Survey-name">{survey.name}</div>
+        <div className="Survey-name-wrap">
+          <div className="Survey-name">{survey.name}</div>
+        </div>
         <div className="Survey-questions">
           {survey.questions.map((question, questionNumber) => (
             <SurveyQuestion
