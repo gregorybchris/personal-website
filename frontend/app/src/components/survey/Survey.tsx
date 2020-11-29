@@ -10,23 +10,31 @@ export interface SurveyProps {}
 
 export interface SurveyState {
   surveys: SurveyModel[];
+  currentSurvey: SurveyModel | null;
   response: SurveyResponse | null;
 }
 
 class Survey extends React.Component<SurveyProps, SurveyState> {
-  state = {
+  state: SurveyState = {
     surveys: [],
+    currentSurvey: null,
     response: null,
   };
 
   async componentDidMount() {
     const surveysQuery = makeQuery("surveys");
-    const queryResult = await GET(surveysQuery);
-    this.setState({
-      surveys: queryResult
-        .reverse()
-        .filter((survey: SurveyModel) => !survey.archived),
-    });
+    let surveys: SurveyModel[] = await GET(surveysQuery);
+    surveys = surveys.reverse().filter((survey) => !survey.archived);
+    if (surveys.length > 0) {
+      // TODO: Update based on local storage survey completion
+      let currentSurvey = surveys[0];
+      let response = SurveyResponse.fromSurvey(currentSurvey);
+      this.setState({
+        surveys: surveys,
+        currentSurvey: currentSurvey,
+        response: response,
+      });
+    }
   }
 
   getSurveyElement = () => {
@@ -36,46 +44,37 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
           <div className="Survey-message-text">Loading surveys...</div>
         </div>
       );
-    } else {
-      let currentSurvey: SurveyModel | null = null;
-      for (let i = 0; i < this.state.surveys.length; i++) {
-        if (true) {
-          currentSurvey = this.state.surveys[i];
-          break;
-        }
-      }
-
-      if (currentSurvey === null) {
-        return (
-          <div className="Survey-message-wrap">
-            <div className="Survey-message-text">
-              No more surveys to complete!
-            </div>
-          </div>
-        );
-      } else {
-        let survey = currentSurvey as SurveyModel;
-        let response = SurveyResponse.fromSurvey(survey);
-        // this.setState({ response: response });
-        return (
-          <div className="Survey-content">
-            <div className="Survey-name">{survey.name}</div>
-            <div className="Survey-questions">
-              {survey.questions.map((question, questionNumber) => (
-                <SurveyQuestion
-                  key={questionNumber}
-                  surveyId={survey.survey_id}
-                  question={question}
-                  questionNumber={questionNumber}
-                  onOptionClicked={this.onOptionClicked}
-                  response={response}
-                ></SurveyQuestion>
-              ))}
-            </div>
-          </div>
-        );
-      }
     }
+
+    if (this.state.currentSurvey === null || this.state.response == null) {
+      return (
+        <div className="Survey-message-wrap">
+          <div className="Survey-message-text">
+            No more surveys to complete!
+          </div>
+        </div>
+      );
+    }
+
+    let survey = this.state.currentSurvey;
+    let response = this.state.response;
+    return (
+      <div className="Survey-content">
+        <div className="Survey-name">{survey.name}</div>
+        <div className="Survey-questions">
+          {survey.questions.map((question, questionNumber) => (
+            <SurveyQuestion
+              key={questionNumber}
+              surveyId={survey.survey_id}
+              question={question}
+              questionNumber={questionNumber}
+              onOptionClicked={this.onOptionClicked}
+              response={response}
+            ></SurveyQuestion>
+          ))}
+        </div>
+      </div>
+    );
   };
 
   onOptionClicked = async (

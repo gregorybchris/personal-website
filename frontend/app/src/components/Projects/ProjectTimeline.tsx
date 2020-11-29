@@ -178,9 +178,6 @@ class ProjectTimeline extends React.Component<
       .attr("width", width)
       .attr("height", height)
       .attr("fill", "transparent")
-      .on("mousemove", (mouseEvent: any) => {
-        // console.log(mouseEvent);
-      })
       .on("click", (mouseEvent: any) => {
         this.props.onSelectProject(null);
         d3.selectAll("circle").classed("selected", false);
