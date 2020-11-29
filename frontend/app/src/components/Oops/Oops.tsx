@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Oops.sass";
+import "./styles/Oops.sass";
 
 export interface OopsProps {}
 
