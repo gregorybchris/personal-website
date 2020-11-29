@@ -1,27 +1,19 @@
 import React from "react";
 
-import SurveyResponse from "./models/SurveyResponse";
+import Response from "./models/Response";
 import "./styles/Option.sass";
 
-interface SurveyOptionProps {
-  surveyId: string;
+interface OptionProps {
   questionNumber: number;
   optionText: string;
   optionNumber: number;
-  onOptionClicked: (
-    surveyId: string,
-    questionNumber: number,
-    optionNumber: number
-  ) => void;
-  response: SurveyResponse;
+  onOptionClicked: (questionNumber: number, optionNumber: number) => void;
+  response: Response;
 }
 
-interface SurveyOptionState {}
+interface OptionState {}
 
-class SurveyOption extends React.Component<
-  SurveyOptionProps,
-  SurveyOptionState
-> {
+class Option extends React.Component<OptionProps, OptionState> {
   render() {
     let letter = String.fromCharCode(
       "A".charCodeAt(0) + this.props.optionNumber
@@ -30,12 +22,11 @@ class SurveyOption extends React.Component<
       <div
         onClick={() =>
           this.props.onOptionClicked(
-            this.props.surveyId,
             this.props.questionNumber,
             this.props.optionNumber
           )
         }
-        className="SurveyOption"
+        className="Option"
         key={this.props.optionNumber}
       >
         {letter}) {this.props.optionText}
@@ -44,4 +35,4 @@ class SurveyOption extends React.Component<
   }
 }
 
-export default SurveyOption;
+export default Option;

@@ -1,6 +1,6 @@
 import Survey from "./Survey";
 
-class SurveyResponse {
+class Response {
   survey: Survey;
   selections: boolean[][];
 
@@ -13,7 +13,7 @@ class SurveyResponse {
     const counts = survey.questions.map((question) =>
       question.options.map((_) => false)
     );
-    return new SurveyResponse(survey, counts);
+    return new Response(survey, counts);
   }
 
   toString() {
@@ -28,4 +28,4 @@ class SurveyResponse {
   }
 }
 
-export default SurveyResponse;
+export default Response;

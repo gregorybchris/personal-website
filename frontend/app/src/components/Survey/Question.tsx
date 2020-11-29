@@ -1,42 +1,33 @@
 import React from "react";
 
-import SurveyResponse from "./models/SurveyResponse";
+import Response from "./models/Response";
 import Option from "./Option";
 import QuestionModel from "./models/Question";
 import "./styles/Question.sass";
 
-interface SurveyQuestionProps {
-  surveyId: string;
+interface QuestionProps {
   question: QuestionModel;
   questionNumber: number;
-  onOptionClicked: (
-    surveyId: string,
-    questionNumber: number,
-    optionNumber: number
-  ) => void;
-  response: SurveyResponse;
+  onOptionClicked: (questionNumber: number, optionNumber: number) => void;
+  response: Response;
 }
 
-interface SurveyQuestionState {}
+interface QuestionState {}
 
-class SurveyQuestion extends React.Component<
-  SurveyQuestionProps,
-  SurveyQuestionState
-> {
+class Question extends React.Component<QuestionProps, QuestionState> {
   render() {
     return (
-      <div className="SurveyQuestion" key={this.props.questionNumber}>
-        <div className="SurveyQuestion-text">
+      <div className="Question" key={this.props.questionNumber}>
+        <div className="Question-text">
           {this.props.questionNumber + 1}
           {". "}
           {this.props.question.text}
         </div>
-        <div className="SurveyQuestion-options">
+        <div className="Question-options">
           {this.props.question.options.map(
             (optionText: string, optionNumber: number) => (
               <Option
                 key={optionNumber}
-                surveyId={this.props.surveyId}
                 questionNumber={this.props.questionNumber}
                 optionText={optionText}
                 optionNumber={optionNumber}
@@ -51,4 +42,4 @@ class SurveyQuestion extends React.Component<
   }
 }
 
-export default SurveyQuestion;
+export default Question;
