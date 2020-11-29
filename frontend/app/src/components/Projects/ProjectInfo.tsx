@@ -43,20 +43,26 @@ class ProjectInfo extends React.Component<ProjectInfoProps, ProjectInfoState> {
           className="Common-simple-link"
           onClick={() => this.props.onProjectDownload(project, downloadLink)}
         >
-          Download
+          Download project
         </span>
       </div>
     ) : undefined;
 
-    const codeLink = project.code_link === null ? "" : project.code_link;
+    const codeLink = project.source_link === null ? "" : project.source_link;
     const codeLinkElement = codeLink ? (
       <div className="ProjectInfo-item">
-        <span
-          className="Common-simple-link"
-          onClick={() => this.props.onProjectDownload(project, codeLink)}
-        >
-          Source Code
-        </span>
+        <a className="Common-simple-link" href={codeLink} target="_blank">
+          Source code
+        </a>
+      </div>
+    ) : undefined;
+
+    const webLink = project.web_link === null ? "" : project.web_link;
+    const webLinkElement = webLink ? (
+      <div className="ProjectInfo-item">
+        <a className="Common-simple-link" href={webLink} target="_blank">
+          Project demo
+        </a>
       </div>
     ) : undefined;
 
@@ -72,6 +78,7 @@ class ProjectInfo extends React.Component<ProjectInfoProps, ProjectInfoState> {
           </div>
           {downloadLinkElement}
           {codeLinkElement}
+          {webLinkElement}
           <div className="ProjectInfo-item ProjectInfo-description">
             {project.description}
           </div>
