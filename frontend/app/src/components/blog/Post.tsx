@@ -1,7 +1,7 @@
 import React from "react";
 
 import Tag from "./Tag";
-import PostRecord from "./models/PostRecord";
+import PostModel from "./models/Post";
 import "./styles/Post.sass";
 
 import { formatDate } from "../../utilities/DateTimeUtilities";
@@ -11,7 +11,7 @@ import { getSearchParams } from "../../utilities/RequestUtilities";
 // import detailsImage from "../images/details.svg";
 
 export interface PostProps {
-  post: PostRecord;
+  post: PostModel;
   videoTime: string;
   onClickTag: (tag: string) => void;
 }

@@ -2,15 +2,15 @@ import React from "react";
 
 import ProjectInfo from "./ProjectInfo";
 import ProjectTimeline from "./ProjectTimeline";
-import ProjectRecord from "./models/ProjectRecord";
+import ProjectModel from "./models/Project";
 import { makeQuery, GET, POST } from "../../utilities/RequestUtilities";
 import "./styles/Projects.sass";
 
 export interface ProjectsProps {}
 
 export interface ProjectsState {
-  projects: ProjectRecord[];
-  currentProject: ProjectRecord | null;
+  projects: ProjectModel[];
+  currentProject: ProjectModel | null;
   currentDownloadLink: string;
 }
 
@@ -33,7 +33,7 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
     this.setState({ projects: queryResult.reverse() });
   }
 
-  onProjectDownload = async (project: ProjectRecord, link: string) => {
+  onProjectDownload = async (project: ProjectModel, link: string) => {
     this.setState({ currentDownloadLink: link }, () => {
       if (this.hiddenDownloadAnchor && this.hiddenDownloadAnchor.current) {
         this.hiddenDownloadAnchor.current.click();
@@ -43,7 +43,7 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
     await POST(makeQuery(`projects/download/${project.project_id}`));
   };
 
-  onSelectProject = (project: ProjectRecord | null) => {
+  onSelectProject = (project: ProjectModel | null) => {
     this.setState({ currentProject: project });
   };
 

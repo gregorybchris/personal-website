@@ -1,4 +1,4 @@
-interface PostRecord {
+interface Post {
   post_id: string;
   title: string;
   content_type: string;
@@ -17,4 +17,4 @@ interface PostRecord {
   archived: boolean;
 }
 
-export default PostRecord;
+export default Post;

@@ -1,14 +1,14 @@
 import React from "react";
 
 import { makeQuery, GET } from "../../utilities/RequestUtilities";
-import RunningRouteRecord from "./models/RunningRouteRecord";
+import RunningRouteModel from "./models/RunningRoute";
 
 import "./styles/RunningRoutes.sass";
 
 export interface RunningRoutesProps {}
 
 export interface RunningRoutesState {
-  routes: RunningRouteRecord[];
+  routes: RunningRouteModel[];
 }
 
 class RunningRoutes extends React.Component<
@@ -19,9 +19,9 @@ class RunningRoutes extends React.Component<
     routes: [],
   };
 
-  sortRoutesByTags = (routes: RunningRouteRecord[]) => {
+  sortRoutesByTags = (routes: RunningRouteModel[]) => {
     return routes.sort(
-      (routeA: RunningRouteRecord, routeB: RunningRouteRecord) => {
+      (routeA: RunningRouteModel, routeB: RunningRouteModel) => {
         const numTagsA = routeA.tags.length;
         const numTagsB = routeB.tags.length;
         const minTags = Math.min(numTagsA, numTagsB);
@@ -37,9 +37,9 @@ class RunningRoutes extends React.Component<
     );
   };
 
-  sortRoutesByName = (routes: RunningRouteRecord[]) => {
+  sortRoutesByName = (routes: RunningRouteModel[]) => {
     return routes.sort(
-      (routeA: RunningRouteRecord, routeB: RunningRouteRecord) => {
+      (routeA: RunningRouteModel, routeB: RunningRouteModel) => {
         return routeA.name < routeB.name ? -1 : 1;
       }
     );
@@ -52,8 +52,8 @@ class RunningRoutes extends React.Component<
     this.setState({ routes: sortedRoutes });
   }
 
-  getMapometerLink = (routeRecord: RunningRouteRecord) => {
-    const mapometerId = routeRecord.mapometer_id;
+  getMapometerLink = (routeModel: RunningRouteModel) => {
+    const mapometerId = routeModel.mapometer_id;
     return `https://us.mapometer.com/running/route_${mapometerId}.html`;
   };
 
@@ -61,10 +61,10 @@ class RunningRoutes extends React.Component<
     return <div className="RunningRoutes-tag">{tag}</div>;
   };
 
-  createRouteElement = (routeRecord: RunningRouteRecord) => {
-    const mapometerLink = this.getMapometerLink(routeRecord);
+  createRouteElement = (routeModel: RunningRouteModel) => {
+    const mapometerLink = this.getMapometerLink(routeModel);
     return (
-      <div className="RunningRoutes-route" key={routeRecord.route_id}>
+      <div className="RunningRoutes-route" key={routeModel.route_id}>
         <div className="RunningRoutes-name">
           <a
             href={mapometerLink}
@@ -72,13 +72,13 @@ class RunningRoutes extends React.Component<
             rel="noopener noreferrer"
             className="Common-simple-link"
           >
-            {routeRecord.name}
+            {routeModel.name}
           </a>
         </div>
-        <div className="RunningRoutes-info">{routeRecord.distance}mi</div>
-        <div className="RunningRoutes-info">{routeRecord.elevation}ft</div>
+        <div className="RunningRoutes-info">{routeModel.distance}mi</div>
+        <div className="RunningRoutes-info">{routeModel.elevation}ft</div>
         <div className="RunningRoutes-tags">
-          {routeRecord.tags.map(this.createRouteTagElement)}
+          {routeModel.tags.map(this.createRouteTagElement)}
         </div>
       </div>
     );

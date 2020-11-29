@@ -1,4 +1,4 @@
-interface ProjectRecord {
+interface Project {
   project_id: string;
   name: string;
   date: string;
@@ -14,4 +14,4 @@ interface ProjectRecord {
   archived: boolean;
 }
 
-export default ProjectRecord;
+export default Project;

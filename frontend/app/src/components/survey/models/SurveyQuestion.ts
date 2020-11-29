@@ -1,4 +1,4 @@
-interface SurveyQuestionRecord {
+interface SurveyQuestion {
   question_id: string;
   text: string;
   type: string;
@@ -6,4 +6,4 @@ interface SurveyQuestionRecord {
   likert: any | null;
 }
   
-export default SurveyQuestionRecord;
+export default SurveyQuestion;

@@ -1,4 +1,4 @@
-interface RunningRouteRecord {
+interface RunningRoute {
   route_id: string;
   name: string;
   slug: string;
@@ -9,4 +9,4 @@ interface RunningRouteRecord {
   tags: string[];
 }
 
-export default RunningRouteRecord;
+export default RunningRoute;

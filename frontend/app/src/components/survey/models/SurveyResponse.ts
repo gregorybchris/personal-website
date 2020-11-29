@@ -1,4 +1,4 @@
-import SurveyRecord from "./SurveyRecord";
+import Survey from "./Survey";
 
 class SurveyResponse {
   optionCounts: number[]
@@ -7,8 +7,8 @@ class SurveyResponse {
     this.optionCounts = optionCounts
   }
 
-  static fromRecord(surveyRecord: SurveyRecord) {
-    const counts = surveyRecord.questions.map(question => question.options.length)
+  static fromSurvey(survey: Survey) {
+    const counts = survey.questions.map(question => question.options.length)
     return new SurveyResponse(counts)
   }
 }

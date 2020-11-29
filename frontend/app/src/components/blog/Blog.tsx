@@ -1,7 +1,7 @@
 import React from "react";
 
 import Post from "./Post";
-import PostRecord from "./models/PostRecord";
+import PostModel from "./models/Post";
 import SearchBar from "./SearchBar";
 import "./styles/Blog.sass";
 import {
@@ -13,7 +13,7 @@ import {
 export interface BlogProps {}
 
 export interface BlogState {
-  posts: PostRecord[];
+  posts: PostModel[];
   searchText: string;
   currentPostId: string | null;
 }
@@ -54,7 +54,7 @@ class Blog extends React.Component<BlogProps, BlogState> {
     this.setState({ searchText: `#${tag}` });
   };
 
-  isPostEnabled = (post: PostRecord) => {
+  isPostEnabled = (post: PostModel) => {
     const searchText = this.state.searchText;
     const lowerSearchText = searchText.toLowerCase();
 
@@ -93,7 +93,7 @@ class Blog extends React.Component<BlogProps, BlogState> {
     return false;
   };
 
-  createPostElement = (post: PostRecord) => {
+  createPostElement = (post: PostModel) => {
     if (this.isPostEnabled(post)) {
       const time = this.getVideoTime();
       return (

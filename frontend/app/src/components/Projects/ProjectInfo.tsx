@@ -1,13 +1,13 @@
 import React from "react";
 
-import ProjectRecord from "./models/ProjectRecord";
+import ProjectModel from "./models/Project";
 import { formatDate } from "../../utilities/DateTimeUtilities";
 
 import "./styles/ProjectInfo.sass";
 
 export interface ProjectInfoProps {
-  currentProject: ProjectRecord | null;
-  onProjectDownload: (project: ProjectRecord, downloadLink: string) => void;
+  currentProject: ProjectModel | null;
+  onProjectDownload: (project: ProjectModel, downloadLink: string) => void;
 }
 
 export interface ProjectInfoState {}
@@ -28,7 +28,7 @@ class ProjectInfo extends React.Component<ProjectInfoProps, ProjectInfoState> {
     );
   };
 
-  createProjectInfo = (project: ProjectRecord) => {
+  createProjectInfo = (project: ProjectModel) => {
     if (project === null) {
       return;
     }

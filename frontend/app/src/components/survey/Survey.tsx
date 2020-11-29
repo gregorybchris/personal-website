@@ -3,13 +3,13 @@ import React from "react";
 import SurveyResponse from "./models/SurveyResponse";
 import SurveyQuestion from "./SurveyQuestion";
 import { makeQuery, GET, POST } from "../../utilities/RequestUtilities";
-import SurveyRecord from "./models/SurveyRecord";
+import SurveyModel from "./models/Survey";
 import "./styles/Survey.sass";
 
 export interface SurveyProps {}
 
 export interface SurveyState {
-  surveys: SurveyRecord[];
+  surveys: SurveyModel[];
   response: SurveyResponse | null;
 }
 
@@ -25,7 +25,7 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
     this.setState({
       surveys: queryResult
         .reverse()
-        .filter((survey: SurveyRecord) => !survey.archived),
+        .filter((survey: SurveyModel) => !survey.archived),
     });
   }
 
@@ -37,7 +37,7 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
         </div>
       );
     } else {
-      let currentSurvey: SurveyRecord | null = null;
+      let currentSurvey: SurveyModel | null = null;
       for (let i = 0; i < this.state.surveys.length; i++) {
         if (true) {
           currentSurvey = this.state.surveys[i];
@@ -54,8 +54,8 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
           </div>
         );
       } else {
-        let survey = currentSurvey as SurveyRecord;
-        let response = SurveyResponse.fromRecord(survey);
+        let survey = currentSurvey as SurveyModel;
+        let response = SurveyResponse.fromSurvey(survey);
         // this.setState({ response: response });
         return (
           <div className="Survey-content">

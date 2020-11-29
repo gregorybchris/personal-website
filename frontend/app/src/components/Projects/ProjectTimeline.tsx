@@ -4,7 +4,7 @@ import * as d3 from "d3";
 import random from "random";
 import seedrandom from "seedrandom";
 
-import ProjectRecord from "./models/ProjectRecord";
+import ProjectModel from "./models/Project";
 import "./styles/ProjectTimeline.sass";
 
 class ProjectTypes {
@@ -35,9 +35,9 @@ class GraphicsConstants {
 }
 
 export interface ProjectTimelineProps {
-  projects: ProjectRecord[];
-  currentProject: ProjectRecord | null;
-  onSelectProject: (project: ProjectRecord | null) => void;
+  projects: ProjectModel[];
+  currentProject: ProjectModel | null;
+  onSelectProject: (project: ProjectModel | null) => void;
 }
 
 export interface ProjectTimelineState {}
@@ -57,7 +57,7 @@ class ProjectTimeline extends React.Component<
     this.canvasRef = React.createRef();
   }
 
-  startSim = (projects: ProjectRecord[]) => {
+  startSim = (projects: ProjectModel[]) => {
     this.populateCanvas(projects);
     this.simRunning = true;
 
@@ -145,11 +145,11 @@ class ProjectTimeline extends React.Component<
     });
   };
 
-  getProjectSelector = (project: ProjectRecord): string => {
+  getProjectSelector = (project: ProjectModel): string => {
     return `#project_${project.project_id}`;
   };
 
-  getProjectColor = (project: ProjectRecord): string => {
+  getProjectColor = (project: ProjectModel): string => {
     switch (project.project_type) {
       case ProjectTypes.WEB:
         return Colors.RED;
@@ -162,7 +162,7 @@ class ProjectTimeline extends React.Component<
     }
   };
 
-  populateCanvas = (projects: ProjectRecord[]) => {
+  populateCanvas = (projects: ProjectModel[]) => {
     const canvas = d3.select(this.canvasRef.current);
 
     canvas.selectAll("svg").remove();
@@ -187,7 +187,7 @@ class ProjectTimeline extends React.Component<
         d3.selectAll("circle").classed("deselected", false);
       });
 
-    const getProjectTimestamp = (project: ProjectRecord): number =>
+    const getProjectTimestamp = (project: ProjectModel): number =>
       new Date(project.date).getTime();
 
     const minTimestamp: any = d3.min(projects, getProjectTimestamp);
