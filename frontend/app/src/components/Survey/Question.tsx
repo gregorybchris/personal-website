@@ -1,9 +1,9 @@
 import React from "react";
 
 import SurveyResponse from "./models/SurveyResponse";
-import SurveyOption from "./SurveyOption";
+import Option from "./Option";
 import QuestionModel from "./models/Question";
-import "./styles/SurveyQuestion.sass";
+import "./styles/Question.sass";
 
 interface SurveyQuestionProps {
   surveyId: string;
@@ -34,7 +34,7 @@ class SurveyQuestion extends React.Component<
         <div className="SurveyQuestion-options">
           {this.props.question.options.map(
             (optionText: string, optionNumber: number) => (
-              <SurveyOption
+              <Option
                 key={optionNumber}
                 surveyId={this.props.surveyId}
                 questionNumber={this.props.questionNumber}
@@ -42,7 +42,7 @@ class SurveyQuestion extends React.Component<
                 optionNumber={optionNumber}
                 onOptionClicked={this.props.onOptionClicked}
                 response={this.props.response}
-              ></SurveyOption>
+              ></Option>
             )
           )}
         </div>

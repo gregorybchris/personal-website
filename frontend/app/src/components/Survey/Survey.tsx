@@ -1,7 +1,7 @@
 import React from "react";
 
 import SurveyResponse from "./models/SurveyResponse";
-import SurveyQuestion from "./SurveyQuestion";
+import Question from "./Question";
 import { makeQuery, GET, POST } from "../../utilities/RequestUtilities";
 import SurveyModel from "./models/Survey";
 import "./styles/Survey.sass";
@@ -65,14 +65,14 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
         </div>
         <div className="Survey-questions">
           {survey.questions.map((question, questionNumber) => (
-            <SurveyQuestion
+            <Question
               key={questionNumber}
               surveyId={survey.survey_id}
               question={question}
               questionNumber={questionNumber}
               onOptionClicked={this.onOptionClicked}
               response={response}
-            ></SurveyQuestion>
+            ></Question>
           ))}
         </div>
         <div
