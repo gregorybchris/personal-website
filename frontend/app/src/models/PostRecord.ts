@@ -14,7 +14,7 @@ interface PostRecord {
   tags: string[];
   summary: string | null;
   paid: boolean;
-  deleted: boolean;
+  archived: boolean;
 }
 
 export default PostRecord;

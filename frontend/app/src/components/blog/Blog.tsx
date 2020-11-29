@@ -59,7 +59,7 @@ class Blog extends React.Component<BlogProps, BlogState> {
     const lowerSearchText = searchText.toLowerCase();
 
     if (
-      post.deleted ||
+      post.archived ||
       (this.state.currentPostId != null &&
         post.post_id !== this.state.currentPostId)
     ) {
