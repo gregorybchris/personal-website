@@ -1,16 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Contact from "./Contact/Contact";
-import Blog from "./Blog/Blog";
-import Home from "./Home/Home";
-import Oops from "./Oops";
-import Projects from "./Projects/Projects";
-import Sandbox from "../sandbox-components/Sandbox";
-import RunningRoutes from "./Routes/RunningRoutes";
+import Contact from "../Contact/Contact";
+import Blog from "../Blog/Blog";
+import Home from "../Home/Home";
+import Oops from "../Oops/Oops";
+import Projects from "../Projects/Projects";
+import Sandbox from "../../sandbox-components/Sandbox";
+import RunningRoutes from "../Routes/RunningRoutes";
 import Nav from "./Nav";
-import Survey from "./Survey/Survey";
-import "./App.sass";
+import Survey from "../Survey/Survey";
+import "./styles/App.sass";
 
 function App() {
   return (

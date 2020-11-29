@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, withRouter } from "react-router-dom";
 
-import "./Nav.sass";
+import "./styles/Nav.sass";
 
 function Nav() {
   return (
