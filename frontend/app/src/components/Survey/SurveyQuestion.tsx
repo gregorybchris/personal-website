@@ -2,12 +2,12 @@ import React from "react";
 
 import SurveyResponse from "./models/SurveyResponse";
 import SurveyOption from "./SurveyOption";
-import SurveyQuestionModel from "./models/SurveyQuestion";
+import QuestionModel from "./models/Question";
 import "./styles/SurveyQuestion.sass";
 
 interface SurveyQuestionProps {
   surveyId: string;
-  question: SurveyQuestionModel;
+  question: QuestionModel;
   questionNumber: number;
   onOptionClicked: (
     surveyId: string,

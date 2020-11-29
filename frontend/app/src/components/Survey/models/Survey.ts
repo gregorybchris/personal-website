@@ -1,11 +1,11 @@
-import SurveyQuestion from './SurveyQuestion'
+import Question from './Question'
 
 interface Survey {
   survey_id: string;
   name: string;
   slug: string;
   date_created: string;
-  questions: SurveyQuestion[];
+  questions: Question[];
   archived: boolean;
 }
 

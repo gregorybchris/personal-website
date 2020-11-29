@@ -73,6 +73,12 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
             ></SurveyQuestion>
           ))}
         </div>
+        <div
+          className="Common-button Survey-send-button disabled"
+          onClick={() => this.onSurveySubmit(survey, response)}
+        >
+          Submit
+        </div>
       </div>
     );
   };
@@ -88,6 +94,10 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
     const postSurveyQuery = makeQuery(`surveys/${surveyId}`);
     const queryResult = await POST(postSurveyQuery);
     console.log("Result: ", queryResult);
+  };
+
+  onSurveySubmit = async (survey: SurveyModel, response: SurveyResponse) => {
+    console.log(`Submitting survey ${survey.name} with responses ${response}`);
   };
 
   render() {
