@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Contact.sass";
+import "./styles/Contact.sass";
 
 export interface ContactProps {}
 

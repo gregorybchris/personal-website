@@ -1,4 +1,4 @@
-import SurveyRecord from "../../models/SurveyRecord";
+import SurveyRecord from "./SurveyRecord";
 
 class SurveyResponse {
   optionCounts: number[]

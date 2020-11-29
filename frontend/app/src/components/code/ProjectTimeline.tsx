@@ -4,8 +4,8 @@ import * as d3 from "d3";
 import random from "random";
 import seedrandom from "seedrandom";
 
-import ProjectRecord from "../../models/ProjectRecord";
-import "./ProjectTimeline.sass";
+import ProjectRecord from "./models/ProjectRecord";
+import "./styles/ProjectTimeline.sass";
 
 class ProjectTypes {
   static WEB = "web";

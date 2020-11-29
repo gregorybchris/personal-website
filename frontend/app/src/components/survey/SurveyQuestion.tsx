@@ -1,9 +1,9 @@
 import React from "react";
 
-import "./SurveyQuestion.sass";
-import SurveyResponse from "./SurveyResponse";
+import SurveyResponse from "./models/SurveyResponse";
 import SurveyOption from "./SurveyOption";
-import SurveyQuestionRecord from "../../models/SurveyQuestionRecord";
+import SurveyQuestionRecord from "./models/SurveyQuestionRecord";
+import "./styles/SurveyQuestion.sass";
 
 export interface SurveyQuestionProps {
   surveyId: string;

@@ -1,9 +1,9 @@
 import React from "react";
 
-import ProjectRecord from "../../models/ProjectRecord";
+import ProjectRecord from "./models/ProjectRecord";
 import { formatDate } from "../../utilities/DateTimeUtilities";
 
-import "./ProjectInfo.sass";
+import "./styles/ProjectInfo.sass";
 
 export interface ProjectInfoProps {
   currentProject: ProjectRecord | null;

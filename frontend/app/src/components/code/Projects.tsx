@@ -2,9 +2,9 @@ import React from "react";
 
 import ProjectInfo from "./ProjectInfo";
 import ProjectTimeline from "./ProjectTimeline";
-import ProjectRecord from "../../models/ProjectRecord";
+import ProjectRecord from "./models/ProjectRecord";
 import { makeQuery, GET, POST } from "../../utilities/RequestUtilities";
-import "./Projects.sass";
+import "./styles/Projects.sass";
 
 export interface ProjectsProps {}
 

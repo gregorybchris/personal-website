@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "./Home.sass";
+import "./styles/Home.sass";
 
 import shoeIcon from "../../images/icons/shoe.svg";
 import linkIcon from "../../images/icons/link.svg";

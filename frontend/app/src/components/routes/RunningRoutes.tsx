@@ -1,9 +1,9 @@
 import React from "react";
 
 import { makeQuery, GET } from "../../utilities/RequestUtilities";
-import RunningRouteRecord from "../../models/RunningRouteRecord";
+import RunningRouteRecord from "../Code/models/RunningRouteRecord";
 
-import "./RunningRoutes.sass";
+import "./styles/RunningRoutes.sass";
 
 export interface RunningRoutesProps {}
 

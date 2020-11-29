@@ -1,8 +1,8 @@
 import React from "react";
 
 import Tag from "./Tag";
-import PostRecord from "../../models/PostRecord";
-import "./Post.sass";
+import PostRecord from "./models/PostRecord";
+import "./styles/Post.sass";
 
 import { formatDate } from "../../utilities/DateTimeUtilities";
 import { getSearchParams } from "../../utilities/RequestUtilities";

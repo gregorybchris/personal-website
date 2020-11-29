@@ -1,9 +1,9 @@
 import React from "react";
 
 import Post from "./Post";
-import PostRecord from "../../models/PostRecord";
+import PostRecord from "./models/PostRecord";
 import SearchBar from "./SearchBar";
-import "./Blog.sass";
+import "./styles/Blog.sass";
 import {
   getSearchParams,
   makeQuery,

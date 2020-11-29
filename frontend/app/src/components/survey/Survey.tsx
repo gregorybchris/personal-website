@@ -1,10 +1,10 @@
 import React from "react";
 
-import "./Survey.sass";
-import SurveyResponse from "./SurveyResponse";
+import SurveyResponse from "./models/SurveyResponse";
 import SurveyQuestion from "./SurveyQuestion";
 import { makeQuery, GET, POST } from "../../utilities/RequestUtilities";
-import SurveyRecord from "../../models/SurveyRecord";
+import SurveyRecord from "./models/SurveyRecord";
+import "./styles/Survey.sass";
 
 export interface SurveyProps {}
 
