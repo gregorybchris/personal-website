@@ -4,8 +4,8 @@ import Tag from "./Tag";
 import PostRecord from "../../models/PostRecord";
 import "./Post.sass";
 
-import { formatDate } from "../../controllers/DateTimeUtilities";
-import { getSearchParams } from "../../controllers/RequestUtilities";
+import { formatDate } from "../../utilities/DateTimeUtilities";
+import { getSearchParams } from "../../utilities/RequestUtilities";
 
 // import linkImage from "../images/link.svg";
 // import detailsImage from "../images/details.svg";

@@ -3,7 +3,7 @@ import React from "react";
 import ProjectInfo from "./ProjectInfo";
 import ProjectTimeline from "./ProjectTimeline";
 import ProjectRecord from "../../models/ProjectRecord";
-import { makeQuery, GET, POST } from "../../controllers/RequestUtilities";
+import { makeQuery, GET, POST } from "../../utilities/RequestUtilities";
 import "./Projects.sass";
 
 export interface ProjectsProps {}

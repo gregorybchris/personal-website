@@ -1,7 +1,7 @@
 import React from "react";
 
 import ProjectRecord from "../../models/ProjectRecord";
-import { formatDate } from "../../controllers/DateTimeUtilities";
+import { formatDate } from "../../utilities/DateTimeUtilities";
 
 import "./ProjectInfo.sass";
 

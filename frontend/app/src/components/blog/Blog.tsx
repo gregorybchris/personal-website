@@ -8,7 +8,7 @@ import {
   getSearchParams,
   makeQuery,
   GET,
-} from "../../controllers/RequestUtilities";
+} from "../../utilities/RequestUtilities";
 
 export interface BlogProps {}
 

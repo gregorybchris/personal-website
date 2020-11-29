@@ -3,7 +3,7 @@ import React from "react";
 import "./Survey.sass";
 import SurveyResponse from "./SurveyResponse";
 import SurveyQuestion from "./SurveyQuestion";
-import { makeQuery, GET, POST } from "../../controllers/RequestUtilities";
+import { makeQuery, GET, POST } from "../../utilities/RequestUtilities";
 import SurveyRecord from "../../models/SurveyRecord";
 
 export interface SurveyProps {}

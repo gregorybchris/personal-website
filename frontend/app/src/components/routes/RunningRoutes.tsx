@@ -1,6 +1,6 @@
 import React from "react";
 
-import { makeQuery, GET } from "../../controllers/RequestUtilities";
+import { makeQuery, GET } from "../../utilities/RequestUtilities";
 import RunningRouteRecord from "../../models/RunningRouteRecord";
 
 import "./RunningRoutes.sass";
