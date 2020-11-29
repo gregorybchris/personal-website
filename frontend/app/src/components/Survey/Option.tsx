@@ -15,9 +15,14 @@ interface OptionState {}
 
 class Option extends React.Component<OptionProps, OptionState> {
   render() {
-    let letter = String.fromCharCode(
+    const letter = String.fromCharCode(
       "A".charCodeAt(0) + this.props.optionNumber
     );
+    const isChosen = this.props.response.isOptionChosen(
+      this.props.questionNumber,
+      this.props.optionNumber
+    );
+    const chosenClass = isChosen ? "chosen" : "";
     return (
       <div
         onClick={() =>
@@ -26,7 +31,7 @@ class Option extends React.Component<OptionProps, OptionState> {
             this.props.optionNumber
           )
         }
-        className="Option"
+        className={`Option ${chosenClass}`}
         key={this.props.optionNumber}
       >
         {letter}) {this.props.optionText}

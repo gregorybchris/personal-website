@@ -16,8 +16,14 @@ interface QuestionState {}
 
 class Question extends React.Component<QuestionProps, QuestionState> {
   render() {
+    const response = this.props.response;
+    const isComplete = response.isQuestionComplete(this.props.questionNumber);
+    const completeClass = isComplete ? "complete" : "";
     return (
-      <div className="Question" key={this.props.questionNumber}>
+      <div
+        className={`Question ${completeClass}`}
+        key={this.props.questionNumber}
+      >
         <div className="Question-text">
           {this.props.questionNumber + 1}
           {". "}

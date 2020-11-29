@@ -56,8 +56,10 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
       );
     }
 
-    let survey = this.state.current;
-    let response = this.state.response;
+    const survey = this.state.current;
+    const response = this.state.response;
+    const isComplete = response.isSurveyComplete();
+    const buttonDisabledClass = isComplete ? "" : "disabled";
     return (
       <div className="Survey-content">
         <div className="Survey-name-wrap">
@@ -75,7 +77,7 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
           ))}
         </div>
         <div
-          className="Common-button Survey-send-button disabled"
+          className={`Common-button Survey-send-button ${buttonDisabledClass}`}
           onClick={() => this.onSurveySubmit(survey, response)}
         >
           Submit
@@ -85,18 +87,23 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
   };
 
   onOptionClicked = async (question: number, option: number) => {
-    let survey = this.state.current;
-    let surveyId = survey === null ? "" : survey.survey_id;
-    console.log(`Survey ${surveyId}`);
-    console.log(`Selecting option ${option} of question ${question}`);
-    console.log(this.state.response);
-    // const postSurveyQuery = makeQuery(`surveys/${surveyId}`);
-    // const queryResult = await POST(postSurveyQuery);
-    // console.log("Result: ", queryResult);
+    if (this.state.response !== null) {
+      const chosen = this.state.response.isOptionChosen(question, option);
+      this.state.response?.updateOptionChoice(question, option, !chosen);
+    }
+    this.setState({ response: this.state.response });
+    console.log(`Updated response: ${this.state.response}`);
   };
 
   onSurveySubmit = async (survey: SurveyModel, response: Response) => {
-    console.log(`Submitting survey ${survey.name} with responses ${response}`);
+    if (response.isSurveyComplete()) {
+      const surveyId = survey.survey_id;
+      console.log(`Submitting survey ${surveyId} (${survey.name})`);
+      console.log(`Response ${response}`);
+      const postSurveyQuery = makeQuery(`surveys/${surveyId}`);
+      const queryResult = await POST(postSurveyQuery);
+      console.log("Result: ", queryResult);
+    }
   };
 
   render() {
