@@ -5,12 +5,12 @@ import { formatDate } from "../../utilities/DateTimeUtilities";
 
 import "./styles/ProjectInfo.sass";
 
-export interface ProjectInfoProps {
+interface ProjectInfoProps {
   currentProject: ProjectModel | null;
   onProjectDownload: (project: ProjectModel, downloadLink: string) => void;
 }
 
-export interface ProjectInfoState {}
+interface ProjectInfoState {}
 
 class ProjectInfo extends React.Component<ProjectInfoProps, ProjectInfoState> {
   createImageElement = (link: string) => {

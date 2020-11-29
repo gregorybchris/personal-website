@@ -4,9 +4,9 @@ import * as d3 from "d3";
 
 import "./States.css";
 
-export interface StatesProps {}
+interface StatesProps {}
 
-export interface StatesState {}
+interface StatesState {}
 
 class States extends React.Component<StatesProps, StatesState> {
   private canvasRef: React.RefObject<HTMLInputElement>;

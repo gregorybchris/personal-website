@@ -34,13 +34,13 @@ class GraphicsConstants {
   static PADDING_Y = 80;
 }
 
-export interface ProjectTimelineProps {
+interface ProjectTimelineProps {
   projects: ProjectModel[];
   currentProject: ProjectModel | null;
   onSelectProject: (project: ProjectModel | null) => void;
 }
 
-export interface ProjectTimelineState {}
+interface ProjectTimelineState {}
 
 class ProjectTimeline extends React.Component<
   ProjectTimelineProps,

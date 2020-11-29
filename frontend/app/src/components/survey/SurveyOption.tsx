@@ -3,7 +3,7 @@ import React from "react";
 import SurveyResponse from "./models/SurveyResponse";
 import "./styles/SurveyOption.sass";
 
-export interface SurveyOptionProps {
+interface SurveyOptionProps {
   surveyId: string;
   questionNumber: number;
   optionText: string;
@@ -16,7 +16,7 @@ export interface SurveyOptionProps {
   response: SurveyResponse;
 }
 
-export interface SurveyOptionState {}
+interface SurveyOptionState {}
 
 class SurveyOption extends React.Component<
   SurveyOptionProps,

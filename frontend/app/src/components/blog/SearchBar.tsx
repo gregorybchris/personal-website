@@ -2,13 +2,13 @@ import React from "react";
 
 import "./styles/SearchBar.sass";
 
-export interface SearchBarProps {
+interface SearchBarProps {
   searchText: string;
   onUpdateSearch: (e: any) => void;
   onClearSearch: () => void;
 }
 
-export interface SearchBarState {}
+interface SearchBarState {}
 
 class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
   render() {

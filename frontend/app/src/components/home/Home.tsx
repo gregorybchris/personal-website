@@ -6,9 +6,9 @@ import "./styles/Home.sass";
 import shoeIcon from "../../images/icons/shoe.svg";
 import linkIcon from "../../images/icons/link.svg";
 
-export interface HomeProps {}
+interface HomeProps {}
 
-export interface HomeState {}
+interface HomeState {}
 
 class Home extends React.Component<HomeProps, HomeState> {
   render() {

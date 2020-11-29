@@ -10,13 +10,13 @@ import { getSearchParams } from "../../utilities/RequestUtilities";
 // import linkImage from "../images/link.svg";
 // import detailsImage from "../images/details.svg";
 
-export interface PostProps {
+interface PostProps {
   post: PostModel;
   videoTime: string;
   onClickTag: (tag: string) => void;
 }
 
-export interface PostState {
+interface PostState {
   contentLink: string;
   thumbnailUrl: string;
   showSummary: boolean;

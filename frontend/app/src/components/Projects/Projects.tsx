@@ -6,9 +6,9 @@ import ProjectModel from "./models/Project";
 import { makeQuery, GET, POST } from "../../utilities/RequestUtilities";
 import "./styles/Projects.sass";
 
-export interface ProjectsProps {}
+interface ProjectsProps {}
 
-export interface ProjectsState {
+interface ProjectsState {
   projects: ProjectModel[];
   currentProject: ProjectModel | null;
   currentDownloadLink: string;

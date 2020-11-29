@@ -6,9 +6,9 @@ import { makeQuery, GET, POST } from "../../utilities/RequestUtilities";
 import SurveyModel from "./models/Survey";
 import "./styles/Survey.sass";
 
-export interface SurveyProps {}
+interface SurveyProps {}
 
-export interface SurveyState {
+interface SurveyState {
   surveys: SurveyModel[];
   currentSurvey: SurveyModel | null;
   response: SurveyResponse | null;

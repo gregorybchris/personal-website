@@ -2,9 +2,9 @@ import React from "react";
 
 import "./styles/Contact.sass";
 
-export interface ContactProps {}
+interface ContactProps {}
 
-export interface ContactState {}
+interface ContactState {}
 
 class Contact extends React.Component<ContactProps, ContactState> {
   render() {

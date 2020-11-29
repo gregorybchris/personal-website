@@ -5,9 +5,9 @@ import RunningRouteModel from "./models/RunningRoute";
 
 import "./styles/RunningRoutes.sass";
 
-export interface RunningRoutesProps {}
+interface RunningRoutesProps {}
 
-export interface RunningRoutesState {
+interface RunningRoutesState {
   routes: RunningRouteModel[];
 }
 

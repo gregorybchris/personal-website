@@ -10,9 +10,9 @@ import {
   GET,
 } from "../../utilities/RequestUtilities";
 
-export interface BlogProps {}
+interface BlogProps {}
 
-export interface BlogState {
+interface BlogState {
   posts: PostModel[];
   searchText: string;
   currentPostId: string | null;

@@ -2,9 +2,9 @@ import React from "react";
 
 import "./styles/Oops.sass";
 
-export interface OopsProps {}
+interface OopsProps {}
 
-export interface OopsState {}
+interface OopsState {}
 
 class Oops extends React.Component<OopsProps, OopsState> {
   render() {

@@ -2,12 +2,12 @@ import React from "react";
 
 import "./styles/Tag.sass";
 
-export interface TagProps {
+interface TagProps {
   text: string;
   onClickTag: (tag: string) => void;
 }
 
-export interface TagState {}
+interface TagState {}
 
 class Tag extends React.Component<TagProps, TagState> {
   render() {
