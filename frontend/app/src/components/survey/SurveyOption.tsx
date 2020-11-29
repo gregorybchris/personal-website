@@ -22,8 +22,6 @@ class SurveyOption extends React.Component<
   SurveyOptionProps,
   SurveyOptionState
 > {
-  state = {};
-
   render() {
     let letter = String.fromCharCode(
       "A".charCodeAt(0) + this.props.optionNumber

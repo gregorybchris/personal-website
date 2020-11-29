@@ -19,7 +19,7 @@ export interface BlogState {
 }
 
 class Blog extends React.Component<BlogProps, BlogState> {
-  state = {
+  state: BlogState = {
     posts: [],
     searchText: "",
     currentPostId: null,

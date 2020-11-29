@@ -15,7 +15,7 @@ class RunningRoutes extends React.Component<
   RunningRoutesProps,
   RunningRoutesState
 > {
-  state = {
+  state: RunningRoutesState = {
     routes: [],
   };
 

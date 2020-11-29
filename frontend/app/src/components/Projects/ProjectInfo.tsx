@@ -13,10 +13,6 @@ export interface ProjectInfoProps {
 export interface ProjectInfoState {}
 
 class ProjectInfo extends React.Component<ProjectInfoProps, ProjectInfoState> {
-  state = {};
-
-  componentDidMount() {}
-
   createImageElement = (link: string) => {
     return (
       <img

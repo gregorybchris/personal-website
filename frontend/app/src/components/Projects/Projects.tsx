@@ -16,7 +16,7 @@ export interface ProjectsState {
 
 class Projects extends React.Component<ProjectsProps, ProjectsState> {
   private hiddenDownloadAnchor: React.RefObject<HTMLAnchorElement>;
-  state = {
+  state: ProjectsState = {
     projects: [],
     currentProject: null,
     currentDownloadLink: "",

@@ -25,7 +25,7 @@ export interface PostState {
 const YOUTUBE_SOURCE = "YouTube";
 
 class Post extends React.Component<PostProps, PostState> {
-  state = {
+  state: PostState = {
     contentLink: "",
     thumbnailUrl: "",
     showSummary: false,

@@ -50,8 +50,6 @@ class ProjectTimeline extends React.Component<
   private canvasRef: React.RefObject<HTMLInputElement>;
   private simRunning = false;
 
-  state = {};
-
   constructor(props: ProjectTimelineProps) {
     super(props);
     this.canvasRef = React.createRef();

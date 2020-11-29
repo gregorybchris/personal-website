@@ -23,8 +23,6 @@ class SurveyQuestion extends React.Component<
   SurveyQuestionProps,
   SurveyQuestionState
 > {
-  state = {};
-
   render() {
     return (
       <div className="SurveyQuestion" key={this.props.questionNumber}>

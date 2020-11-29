@@ -7,10 +7,6 @@ export interface ContactProps {}
 export interface ContactState {}
 
 class Contact extends React.Component<ContactProps, ContactState> {
-  state = {};
-
-  componentDidMount() {}
-
   render() {
     return (
       <div className="Contact">

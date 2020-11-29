@@ -10,8 +10,6 @@ export interface StatesState {}
 
 class States extends React.Component<StatesProps, StatesState> {
   private canvasRef: React.RefObject<HTMLInputElement>;
-  state = {};
-
   constructor(props: StatesProps) {
     super(props);
     this.canvasRef = React.createRef();

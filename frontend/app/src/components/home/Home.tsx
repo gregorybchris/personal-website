@@ -11,10 +11,6 @@ export interface HomeProps {}
 export interface HomeState {}
 
 class Home extends React.Component<HomeProps, HomeState> {
-  state = {};
-
-  componentDidMount() {}
-
   render() {
     return (
       <div className="Home">
