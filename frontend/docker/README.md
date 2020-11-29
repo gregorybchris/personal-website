@@ -1,6 +1,4 @@
-# Frontend
-
-## Running Frontend in a Docker Container
+# Frontend Docker steps
 
 ```zsh
 docker build -t frontend -f frontend/docker/frontend.Dockerfile frontend/app

@@ -1,6 +1,4 @@
-# Backend
-
-## Running Backend in a Docker Container
+# Backend Docker steps
 
 ```zsh
 docker build -t backend -f backend/docker/backend.Dockerfile backend/src/chris_package
