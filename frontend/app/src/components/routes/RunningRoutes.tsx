@@ -1,7 +1,7 @@
 import React from "react";
 
 import { makeQuery, GET } from "../../utilities/RequestUtilities";
-import RunningRouteRecord from "../Code/models/RunningRouteRecord";
+import RunningRouteRecord from "./models/RunningRouteRecord";
 
 import "./styles/RunningRoutes.sass";
 

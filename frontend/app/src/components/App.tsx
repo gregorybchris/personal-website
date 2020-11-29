@@ -5,7 +5,7 @@ import Contact from "./Contact/Contact";
 import Blog from "./Blog/Blog";
 import Home from "./Home/Home";
 import Oops from "./Oops";
-import Projects from "./Code/Projects";
+import Projects from "./Projects/Projects";
 import Sandbox from "../sandbox-components/Sandbox";
 import RunningRoutes from "./Routes/RunningRoutes";
 import Nav from "./Nav";
