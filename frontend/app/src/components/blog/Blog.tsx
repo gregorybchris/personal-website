@@ -119,19 +119,31 @@ class Blog extends React.Component<BlogProps, BlogState> {
   render() {
     return (
       <div className="Blog">
-        <div className="Blog-header">
-          <a className="Blog-title-link" href="/blog">
-            <div className="Blog-title">Link Blog</div>
-          </a>
+        <div className="Blog-header-wrap">
+          <div className="Blog-title">Link Blog</div>
+          <div className="Blog-about">
+            This page links to a bunch of online content that I found
+            intellectually valuable or interesting. You'll find long videos and
+            articles that take more time to consume than most people would care
+            to spend.
+          </div>
+          <div className="Blog-about">
+            <span className="Blog-about-note">Disclaimer:</span> The presence of
+            a link on this page does not imply an endorsement of the linked
+            content. Some videos and articles posted here I believe to be
+            valuable independent of their relationship to the truth.
+          </div>
         </div>
-        <div className="Blog-search">
-          <SearchBar
-            onClearSearch={this.onClearSearch}
-            onUpdateSearch={this.onUpdateSearch}
-            searchText={this.state.searchText}
-          />
+        <div className="Blog-contents">
+          <div className="Blog-search">
+            <SearchBar
+              onClearSearch={this.onClearSearch}
+              onUpdateSearch={this.onUpdateSearch}
+              searchText={this.state.searchText}
+            />
+          </div>
+          <div className="Blog-posts">{this.createPostElements()}</div>
         </div>
-        <div className="Blog-posts">{this.createPostElements()}</div>
       </div>
     );
   }
