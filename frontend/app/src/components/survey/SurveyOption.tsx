@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./SurveyOption.sass";
+import SurveyResponse from "./SurveyResponse";
 
 export interface SurveyOptionProps {
   surveyId: string;
@@ -12,6 +13,7 @@ export interface SurveyOptionProps {
     questionNumber: number,
     optionNumber: number
   ) => void;
+  response: SurveyResponse;
 }
 
 export interface SurveyOptionState {}

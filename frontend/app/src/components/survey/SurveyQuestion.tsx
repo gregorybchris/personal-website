@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./SurveyQuestion.sass";
+import SurveyResponse from "./SurveyResponse";
 import SurveyOption from "./SurveyOption";
 import SurveyQuestionRecord from "../../models/SurveyQuestionRecord";
 
@@ -13,6 +14,7 @@ export interface SurveyQuestionProps {
     questionNumber: number,
     optionNumber: number
   ) => void;
+  response: SurveyResponse;
 }
 
 export interface SurveyQuestionState {}
@@ -22,13 +24,6 @@ class SurveyQuestion extends React.Component<
   SurveyQuestionState
 > {
   state = {};
-
-  getSurveyQuestionOptionElement = (
-    surveyId: string,
-    optionText: string,
-    optionNumber: number,
-    questionNumber: number
-  ) => {};
 
   render() {
     return (
@@ -48,6 +43,7 @@ class SurveyQuestion extends React.Component<
                 optionText={optionText}
                 optionNumber={optionNumber}
                 onOptionClicked={this.props.onOptionClicked}
+                response={this.props.response}
               ></SurveyOption>
             )
           )}

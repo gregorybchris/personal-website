@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./Survey.sass";
+import SurveyResponse from "./SurveyResponse";
 import SurveyQuestion from "./SurveyQuestion";
 import { makeQuery, GET, POST } from "../../controllers/RequestUtilities";
 import SurveyRecord from "../../models/SurveyRecord";
@@ -9,42 +10,71 @@ export interface SurveyProps {}
 
 export interface SurveyState {
   surveys: SurveyRecord[];
-  currentSurvey: SurveyRecord | null;
+  response: SurveyResponse | null;
 }
 
 class Survey extends React.Component<SurveyProps, SurveyState> {
   state = {
     surveys: [],
-    currentSurvey: null,
+    response: null,
   };
 
   async componentDidMount() {
     const surveysQuery = makeQuery("surveys");
     const queryResult = await GET(surveysQuery);
-    this.setState({ surveys: queryResult.reverse() });
-    this.setState({ currentSurvey: this.state.surveys[0] });
+    this.setState({
+      surveys: queryResult
+        .reverse()
+        .filter((survey: SurveyRecord) => !survey.archived),
+    });
   }
 
-  getSurveyElement = (survey: SurveyRecord | null) => {
-    if (survey == null) {
-      return undefined;
-    } else {
+  getSurveyElement = () => {
+    if (this.state.surveys.length === 0) {
       return (
-        <div className="Survey-content">
-          <div className="Survey-name">{survey.name}</div>
-          <div className="Survey-questions">
-            {survey.questions.map((question, questionNumber) => (
-              <SurveyQuestion
-                key={questionNumber}
-                surveyId={survey.survey_id}
-                question={question}
-                questionNumber={questionNumber}
-                onOptionClicked={this.onOptionClicked}
-              ></SurveyQuestion>
-            ))}
-          </div>
+        <div className="Survey-message-wrap">
+          <div className="Survey-message-text">Loading surveys...</div>
         </div>
       );
+    } else {
+      let currentSurvey: SurveyRecord | null = null;
+      for (let i = 0; i < this.state.surveys.length; i++) {
+        if (true) {
+          currentSurvey = this.state.surveys[i];
+          break;
+        }
+      }
+
+      if (currentSurvey === null) {
+        return (
+          <div className="Survey-message-wrap">
+            <div className="Survey-message-text">
+              No more surveys to complete!
+            </div>
+          </div>
+        );
+      } else {
+        let survey = currentSurvey as SurveyRecord;
+        let response = SurveyResponse.fromRecord(survey);
+        // this.setState({ response: response });
+        return (
+          <div className="Survey-content">
+            <div className="Survey-name">{survey.name}</div>
+            <div className="Survey-questions">
+              {survey.questions.map((question, questionNumber) => (
+                <SurveyQuestion
+                  key={questionNumber}
+                  surveyId={survey.survey_id}
+                  question={question}
+                  questionNumber={questionNumber}
+                  onOptionClicked={this.onOptionClicked}
+                  response={response}
+                ></SurveyQuestion>
+              ))}
+            </div>
+          </div>
+        );
+      }
     }
   };
 
@@ -73,7 +103,7 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
             thanks for taking the time to give your opinion.
           </div>
         </div>
-        {this.getSurveyElement(this.state.currentSurvey)}
+        {this.getSurveyElement()}
       </div>
     );
   }
