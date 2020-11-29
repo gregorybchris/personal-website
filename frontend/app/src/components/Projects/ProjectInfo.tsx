@@ -48,24 +48,6 @@ class ProjectInfo extends React.Component<ProjectInfoProps, ProjectInfoState> {
       </div>
     ) : undefined;
 
-    const codeLink = project.source_link === null ? "" : project.source_link;
-    const codeLinkElement = codeLink ? (
-      <div className="ProjectInfo-item">
-        <a className="Common-simple-link" href={codeLink} target="_blank">
-          Source code
-        </a>
-      </div>
-    ) : undefined;
-
-    const webLink = project.web_link === null ? "" : project.web_link;
-    const webLinkElement = webLink ? (
-      <div className="ProjectInfo-item">
-        <a className="Common-simple-link" href={webLink} target="_blank">
-          Project demo
-        </a>
-      </div>
-    ) : undefined;
-
     return (
       <div className="ProjectInfo-content">
         <div className="ProjectInfo-text">
@@ -77,8 +59,14 @@ class ProjectInfo extends React.Component<ProjectInfoProps, ProjectInfoState> {
             Language: {project.primary_language}
           </div>
           {downloadLinkElement}
-          {codeLinkElement}
-          {webLinkElement}
+          <ProjectInfoLink
+            text="Source code"
+            link={project.source_link}
+          ></ProjectInfoLink>
+          <ProjectInfoLink
+            text="Project demo"
+            link={project.web_link}
+          ></ProjectInfoLink>
           <div className="ProjectInfo-item ProjectInfo-description">
             {project.description}
           </div>
@@ -96,5 +84,30 @@ class ProjectInfo extends React.Component<ProjectInfoProps, ProjectInfoState> {
     return <div className="ProjectInfo">{infoContent}</div>;
   }
 }
+
+interface ProjectInfoLinkProps {
+  text: string;
+  link: string | null;
+}
+
+const ProjectInfoLink = (props: ProjectInfoLinkProps) => {
+  let link = props.link;
+  if (link === null) {
+    return <></>;
+  }
+
+  return (
+    <div className="ProjectInfo-item">
+      <a
+        className="Common-simple-link"
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {props.text}
+      </a>
+    </div>
+  );
+};
 
 export default ProjectInfo;
