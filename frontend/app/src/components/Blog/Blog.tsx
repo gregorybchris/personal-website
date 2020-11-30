@@ -34,7 +34,7 @@ class Blog extends React.Component<BlogProps, BlogState> {
     const queryResult = await GET(postsQuery);
     this.setState({ posts: queryResult["posts"].reverse() });
     const params = getSearchParams();
-    const queryPostId = params.get("postid");
+    const queryPostId = params.get("post");
     if (queryPostId) {
       this.setState({ currentPostId: queryPostId });
     }
@@ -135,13 +135,17 @@ class Blog extends React.Component<BlogProps, BlogState> {
           </div>
         </div>
         <div className="Blog-contents">
-          <div className="Blog-search">
-            <SearchBar
-              onClearSearch={this.onClearSearch}
-              onUpdateSearch={this.onUpdateSearch}
-              searchText={this.state.searchText}
-            />
-          </div>
+          {this.state.currentPostId ? (
+            <></>
+          ) : (
+            <div className="Blog-search">
+              <SearchBar
+                onClearSearch={this.onClearSearch}
+                onUpdateSearch={this.onUpdateSearch}
+                searchText={this.state.searchText}
+              />
+            </div>
+          )}
           <div className="Blog-posts">{this.createPostElements()}</div>
         </div>
       </div>

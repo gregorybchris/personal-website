@@ -5,9 +5,9 @@ import PostModel from "./models/Post";
 import "./styles/Post.sass";
 
 import { formatDate } from "../../utilities/DateTimeUtilities";
-import { getSearchParams } from "../../utilities/RequestUtilities";
+import { getSearchParams, makeURL } from "../../utilities/RequestUtilities";
 
-// import linkImage from "../images/link.svg";
+import linkImage from "../../images/link.svg";
 // import detailsImage from "../images/details.svg";
 
 interface PostProps {
@@ -95,7 +95,7 @@ class Post extends React.Component<PostProps, PostState> {
     return elements;
   };
 
-  getTitleInfo = () => {
+  getTitleElement = () => {
     let elements = [];
     if (this.props.post.speaker !== null) {
       elements.push(
@@ -129,7 +129,14 @@ class Post extends React.Component<PostProps, PostState> {
         <div className="Post-text">
           <div className="Post-title-wrap">
             <a className="Post-title-link" href={this.state.contentLink}>
-              {this.getTitleInfo()}
+              {this.getTitleElement()}
+              <a href={makeURL({ post: this.props.post.post_id }, "links")}>
+                <img
+                  className="Post-link-image"
+                  src={linkImage}
+                  alt="Post link"
+                ></img>
+              </a>
             </a>
           </div>
           {this.getSeriesInfo()}
@@ -143,14 +150,8 @@ class Post extends React.Component<PostProps, PostState> {
         </div>
 
         {/* 
-        <a
-          className="Post-page-link"
-          href={makeURL({ postid: this.props.post.post_id }, "blog")}
-        >
-          <img className="Post-page-link-image" src={linkImage} alt=""></img>
-        </a>
-        <div className="Post-page-link" onClick={this.toggleSummary}>
-          <img className="Post-page-link-image" src={detailsImage} alt=""></img>
+        <div className="Post-link" onClick={this.toggleSummary}>
+          <img className="Post-link-image" src={detailsImage} alt=""></img>
         </div>
         */}
 
