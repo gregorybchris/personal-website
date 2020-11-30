@@ -13,6 +13,7 @@ interface SurveyState {
   surveys: SurveyModel[];
   current: SurveyModel | null;
   response: Response | null;
+  feedback: string;
 }
 
 class Survey extends React.Component<SurveyProps, SurveyState> {
@@ -22,6 +23,7 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
     surveys: [],
     current: null,
     response: null,
+    feedback: "",
   };
 
   async componentDidMount() {
@@ -50,11 +52,13 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
         this.setState({
           current: null,
           response: null,
+          feedback: "",
         });
       } else {
         this.setState({
           current: current,
           response: Response.fromSurvey(current),
+          feedback: "",
         });
       }
     }
@@ -100,6 +104,18 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
             ></Question>
           ))}
         </div>
+        <div className="Survey-feedback-wrap">
+          <div className="Survey-feedback-about">
+            Additional information you'd like to provide? (optional)
+          </div>
+          <textarea
+            className="Common-text-field Survey-feedback"
+            name="feedback"
+            value={this.state.feedback}
+            onChange={this.onUpdateFeedback}
+            placeholder=""
+          />
+        </div>
         <div
           className={`Common-button Survey-send-button ${buttonDisabledClass}`}
           onClick={() => this.onSurveySubmit(survey, response)}
@@ -125,7 +141,11 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
       console.log(`Submitting survey ${surveyId} (${survey.name})`);
       console.log(`Response ${response}`);
       const postSurveyQuery = makeQuery(`surveys/${surveyId}`);
-      const queryResult = await POST(postSurveyQuery);
+      const postBody = {
+        choices: response.choices,
+        feedback: this.state.feedback,
+      };
+      const queryResult = await POST(postSurveyQuery, postBody);
       console.log("Result: ", queryResult);
       const completedIds = STORE.get(Survey.COMPLETED_KEY);
       completedIds.push(surveyId);
@@ -135,8 +155,12 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
   };
 
   onClearCompletedCache = () => {
-    STORE.set(Survey.COMPLETED_KEY, []);
+    STORE.set(Survey.COMPLETED_KEY, [], true);
     this.setCurrentSurvey();
+  };
+
+  onUpdateFeedback = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    this.setState({ feedback: event.target.value });
   };
 
   render() {

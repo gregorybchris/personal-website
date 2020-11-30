@@ -227,7 +227,11 @@ class App:
         for survey in surveys:
             if survey['survey_id'] == survey_id:
                 survey_name = survey['name']
-                logger.info(f"Survey \"{survey_name}\" ({survey_id}) submitted")
+                log_extras = {
+                  'data': flask.request.json,
+                  'user_agent': flask.request.user_agent,
+                }
+                logger.info(f"Survey \"{survey_name}\" ({survey_id}) submitted", extra=log_extras)
 
                 success_message = f"Successfully submitted survey \"{survey_name}\""
                 return create_response(success_message, HTTPCodes.SUCCESS_GENERAL)
