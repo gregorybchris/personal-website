@@ -1,5 +1,6 @@
 """Package web application."""
 import flask
+import json
 import pkg_resources
 
 from flask_cors import CORS
@@ -227,10 +228,21 @@ class App:
         for survey in surveys:
             if survey['survey_id'] == survey_id:
                 survey_name = survey['name']
-                log_extras = {
-                  'data': flask.request.json,
-                  'user_agent': flask.request.user_agent,
+                user_agent = flask.request.user_agent
+                user_agent_properties = {
+                    'browser': user_agent.browser,
+                    'language': user_agent.language,
+                    'platform': user_agent.platform,
+                    'string': user_agent.string,
+                    'version': user_agent.version,
                 }
+                post_data = flask.request.json
+                custom_dimensions = {
+                    'data': json.dumps(post_data),
+                    'user_agent': str(user_agent),
+                    'user_agent_properties': json.dumps(user_agent_properties),
+                }
+                log_extras = {'custom_dimensions': custom_dimensions}
                 logger.info(f"Survey \"{survey_name}\" ({survey_id}) submitted", extra=log_extras)
 
                 success_message = f"Successfully submitted survey \"{survey_name}\""
