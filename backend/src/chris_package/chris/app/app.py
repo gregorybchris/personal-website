@@ -54,6 +54,33 @@ class App:
         self._app.route('/v1/surveys', methods=['GET'])(self.get_surveys_v1)
         self._app.route('/v1/surveys/<survey_id>', methods=['POST'])(self.post_survey_results)
 
+    # region logging
+
+    def _get_request_info(self):
+        user_agent = flask.request.user_agent
+        user_agent_properties = {
+            'browser': user_agent.browser,
+            'language': user_agent.language,
+            'platform': user_agent.platform,
+            'string': user_agent.string,
+            'version': user_agent.version,
+        }
+        return {
+            'data': json.dumps(flask.request.json),
+            'user_agent': str(user_agent),
+            'user_agent_properties': json.dumps(user_agent_properties),
+            'ip_address': flask.request.remote_addr
+        }
+
+    def _log(self, message, *args, extras=None, **kwargs):
+        request_info = self._get_request_info()
+        log_extras = {'custom_dimensions': request_info}
+        extras = log_extras if extras is None else {**log_extras, **extras}
+        from pprint import pprint
+        pprint(extras)
+        logger.info(message, *args, extra=extras, **kwargs)
+
+    # endregion logging
     # region info
 
     def _list_endpoints(self,
@@ -177,7 +204,7 @@ class App:
         for project in projects:
             if project['project_id'] == project_id:
                 project_name = project['name']
-                logger.info(f"Project \"{project_name}\" ({project_id}) downloaded")
+                self._log(f"Project \"{project_name}\" ({project_id}) downloaded")
 
                 success_message = f"Successfully downloaded project {project_name}"
                 return create_response(success_message, HTTPCodes.SUCCESS_GENERAL)
@@ -228,22 +255,7 @@ class App:
         for survey in surveys:
             if survey['survey_id'] == survey_id:
                 survey_name = survey['name']
-                user_agent = flask.request.user_agent
-                user_agent_properties = {
-                    'browser': user_agent.browser,
-                    'language': user_agent.language,
-                    'platform': user_agent.platform,
-                    'string': user_agent.string,
-                    'version': user_agent.version,
-                }
-                post_data = flask.request.json
-                custom_dimensions = {
-                    'data': json.dumps(post_data),
-                    'user_agent': str(user_agent),
-                    'user_agent_properties': json.dumps(user_agent_properties),
-                }
-                log_extras = {'custom_dimensions': custom_dimensions}
-                logger.info(f"Survey \"{survey_name}\" ({survey_id}) submitted", extra=log_extras)
+                self._log(f"Survey \"{survey_name}\" ({survey_id}) submitted")
 
                 success_message = f"Successfully submitted survey \"{survey_name}\""
                 return create_response(success_message, HTTPCodes.SUCCESS_GENERAL)
