@@ -66,8 +66,7 @@ class App:
             'version': user_agent.version,
         }
         return {
-            'data': json.dumps(flask.request.json),
-            'user_agent': str(user_agent),
+            'request_body': json.dumps(flask.request.json),
             'user_agent_properties': json.dumps(user_agent_properties),
             'ip_address': flask.request.remote_addr
         }
