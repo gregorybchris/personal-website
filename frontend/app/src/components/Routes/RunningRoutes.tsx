@@ -95,6 +95,10 @@ class RunningRoutes extends React.Component<
             from college in Boston, and a growing number from different
             neighborhoods of Seattle.
           </div>
+          <div className="RunningRoutes-about">
+            Click on a route name to view the full route in mapOmeter.com along
+            with elevation change throughout the run.
+          </div>
         </div>
         <div className="RunningRoutes-routes">
           {this.state.routes.map(this.createRouteElement)}
