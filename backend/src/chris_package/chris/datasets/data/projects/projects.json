@@ -498,7 +498,7 @@
     "remarks": null,
     "source_link": "https://github.com/gregorybchris/half-plane",
     "download_link": null,
-    "web_link": null,
+    "web_link": "http://static.chrisgregory.me/projects/web/halfplane",
     "image_links": [
       "https://chrisgregory.blob.core.windows.net/projects/images/half-plane--page-1.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/half-plane--page-2.jpg",
@@ -521,7 +521,7 @@
     "remarks": null,
     "source_link": "https://github.com/gregorybchris/chans",
     "download_link": null,
-    "web_link": null,
+    "web_link": "http://static.chrisgregory.me/projects/web/chans",
     "image_links": [
       "https://chrisgregory.blob.core.windows.net/projects/images/chans--page-1.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/chans--page-2.jpg",
@@ -544,7 +544,7 @@
     "remarks": null,
     "source_link": null,
     "download_link": null,
-    "web_link": null,
+    "web_link": "http://static.chrisgregory.me/projects/web/mealme",
     "image_links": [
       "https://chrisgregory.blob.core.windows.net/projects/images/jumbo-meal-me--sliders-01.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/jumbo-meal-me--sliders-02.jpg"
@@ -563,7 +563,7 @@
     "remarks": null,
     "source_link": null,
     "download_link": null,
-    "web_link": null,
+    "web_link": "http://static.chrisgregory.me/projects/web/base",
     "image_links": [
       "https://chrisgregory.blob.core.windows.net/projects/images/base--blank.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/base--binary.jpg",
@@ -628,7 +628,7 @@
     "remarks": null,
     "source_link": "https://github.com/gregorybchris/tsa",
     "download_link": null,
-    "web_link": null,
+    "web_link": "http://static.chrisgregory.me/projects/web/tsa",
     "image_links": [
       "https://chrisgregory.blob.core.windows.net/projects/images/tsa--look-for-yourself.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/tsa--the-big-picture.jpg",
@@ -946,11 +946,30 @@
     "remarks": null,
     "source_link": "https://github.com/gregorybchris/triple-town",
     "download_link": null,
-    "web_link": "https://www.chrisgregory.me/projects/web/triple",
+    "web_link": "https://static.chrisgregory.me/projects/web/triple",
     "image_links": [
       "https://chrisgregory.blob.core.windows.net/projects/images/triple-town--01.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/triple-town--02.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/triple-town--03.jpg"
+    ],
+    "primary_language": "JavaScript",
+    "archived": false
+  },
+  {
+    "project_id": "78f3ed86-17d5-4308-a38c-92b9663bb39b",
+    "name": "Combust",
+    "date": "2018-01-23",
+    "rating": 6,
+    "project_type": "web",
+    "controls": "Click to ignite the torch.",
+    "description": "Combust was my first project for my college web visualization course.",
+    "remarks": null,
+    "source_link": null,
+    "download_link": null,
+    "web_link": "http://static.chrisgregory.me/projects/web/viz/combust",
+    "image_links": [
+      "https://chrisgregory.blob.core.windows.net/projects/images/combust--01.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/combust--02.jpg"
     ],
     "primary_language": "JavaScript",
     "archived": false
