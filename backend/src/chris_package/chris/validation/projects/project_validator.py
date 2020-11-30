@@ -24,13 +24,13 @@ class ProjectValidator(Validator):
 
         seen_names = set()
         seen_project_types = set()
-        # seen_code_links = set()
+        # seen_source_links = set()
         # seen_download_links = set()
 
         for item in items:
             for field in ProjectProperties.FIELDS:
                 if not hasattr(item, field):
-                    results.add_error(f"Project \"{item.title}\" is missing field \"{field}\"")
+                    results.add_error(f"Project \"{item.name}\" is missing field \"{field}\"")
 
             if not re.fullmatch(r'[a-z0-9-]{36}', item.project_id):
                 results.add_error(f"Invalid project_id format \"{item.project_id}\"")
@@ -39,9 +39,9 @@ class ProjectValidator(Validator):
                 results.add_error(f"Duplicate name \"{item.name}\"")
             seen_names.add(item.name)
 
-            # if item.code_link is not None and item.code_link in seen_code_links:
-            #     results.add_error(f"Duplicate code_link \"{item.code_link}\"")
-            # seen_code_links.add(item.code_link)
+            # if item.source_link is not None and item.source_link in seen_source_links:
+            #     results.add_error(f"Duplicate source_link \"{item.source_link}\"")
+            # seen_source_links.add(item.source_link)
 
             # if item.download_link is not None and item.download_link in seen_download_links:
             #     results.add_error(f"Duplicate download_link \"{item.download_link}\"")
@@ -58,9 +58,9 @@ class ProjectValidator(Validator):
                 if not re.fullmatch(r'[0-9]{4}-[0-9]{2}-[0-9]{2}', item.date):
                     results.add_error(f"Invalid date format \"{item.date}\"")
 
-            if item.code_link is not None:
-                if not len(item.code_link) > cls.MIN_LINK_LENGTH:
-                    results.add_error(f"Invalid code_link length \"{item.code_link}\" for \"{item.name}\"")
+            if item.source_link is not None:
+                if not len(item.source_link) > cls.MIN_LINK_LENGTH:
+                    results.add_error(f"Invalid source_link length \"{item.source_link}\" for \"{item.name}\"")
 
             if item.download_link is not None:
                 if not len(item.download_link) > cls.MIN_LINK_LENGTH:

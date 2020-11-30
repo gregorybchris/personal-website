@@ -29,7 +29,7 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
   async componentDidMount() {
     const surveysQuery = makeQuery("surveys");
     let surveys: SurveyModel[] = await GET(surveysQuery);
-    surveys = surveys.reverse().filter((survey) => !survey.archived);
+    surveys = surveys.filter((survey) => !survey.archived);
     this.setState({ surveys: surveys });
     if (!STORE.contains(Survey.COMPLETED_KEY)) {
       STORE.set(Survey.COMPLETED_KEY, []);

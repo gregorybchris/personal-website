@@ -12,7 +12,7 @@ class ProjectProperties:
         'date',
         'project_type',
         'description',
-        'code_link',
+        'source_link',
         'download_link',
         'image_links',
         'primary_language',
