@@ -3,6 +3,7 @@ import React from "react";
 import Response from "./models/Response";
 import Question from "./Question";
 import { makeQuery, GET, POST } from "../../utilities/RequestUtilities";
+import { STORE } from "../../utilities/StorageUtilities";
 import SurveyModel from "./models/Survey";
 import "./styles/Survey.sass";
 
@@ -15,6 +16,8 @@ interface SurveyState {
 }
 
 class Survey extends React.Component<SurveyProps, SurveyState> {
+  static COMPLETED_KEY = "completed-surveys";
+
   state: SurveyState = {
     surveys: [],
     current: null,
@@ -25,15 +28,35 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
     const surveysQuery = makeQuery("surveys");
     let surveys: SurveyModel[] = await GET(surveysQuery);
     surveys = surveys.reverse().filter((survey) => !survey.archived);
-    if (surveys.length > 0) {
-      // TODO: Update based on local storage survey completion
-      let current = surveys[0];
-      let response = Response.fromSurvey(current);
-      this.setState({
-        surveys: surveys,
-        current: current,
-        response: response,
-      });
+    this.setState({ surveys: surveys });
+    if (!STORE.contains(Survey.COMPLETED_KEY)) {
+      STORE.set(Survey.COMPLETED_KEY, []);
+    }
+    this.setCurrentSurvey();
+  }
+
+  setCurrentSurvey() {
+    if (this.state.surveys.length > 0) {
+      const completedIds: Array<string> = STORE.get(Survey.COMPLETED_KEY);
+      const surveys = this.state.surveys;
+      let current: SurveyModel | null = null;
+      for (let i = 0; i < surveys.length; i++) {
+        if (!completedIds.includes(surveys[i].survey_id)) {
+          current = surveys[i];
+        }
+      }
+
+      if (current === null) {
+        this.setState({
+          current: null,
+          response: null,
+        });
+      } else {
+        this.setState({
+          current: current,
+          response: Response.fromSurvey(current),
+        });
+      }
     }
   }
 
@@ -50,7 +73,8 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
       return (
         <div className="Survey-message-wrap">
           <div className="Survey-message-text">
-            No more surveys to complete!
+            No more surveys to complete
+            <span onClick={this.onClearCompletedCache}>!</span>
           </div>
         </div>
       );
@@ -80,7 +104,7 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
           className={`Common-button Survey-send-button ${buttonDisabledClass}`}
           onClick={() => this.onSurveySubmit(survey, response)}
         >
-          Submit
+          Submit Opinion
         </div>
       </div>
     );
@@ -103,7 +127,16 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
       const postSurveyQuery = makeQuery(`surveys/${surveyId}`);
       const queryResult = await POST(postSurveyQuery);
       console.log("Result: ", queryResult);
+      const completedIds = STORE.get(Survey.COMPLETED_KEY);
+      completedIds.push(surveyId);
+      STORE.set(Survey.COMPLETED_KEY, completedIds, true);
+      this.setCurrentSurvey();
     }
+  };
+
+  onClearCompletedCache = () => {
+    STORE.set(Survey.COMPLETED_KEY, []);
+    this.setCurrentSurvey();
   };
 
   render() {

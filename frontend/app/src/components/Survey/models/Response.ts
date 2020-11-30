@@ -20,7 +20,11 @@ class Response {
   isSurveyComplete() {
     const numQuestions = this.survey.questions.length;
     return range(numQuestions)
-      .map((questionNumber) => this.isQuestionComplete(questionNumber))
+      .map((questionNumber) => {
+        const questionComplete = this.isQuestionComplete(questionNumber);
+        const questionRequired = this.survey.questions[questionNumber].required;
+        return questionComplete && questionRequired;
+      })
       .every((x) => x);
   }
 
