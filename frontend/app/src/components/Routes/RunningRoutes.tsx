@@ -87,6 +87,15 @@ class RunningRoutes extends React.Component<
   render() {
     return (
       <div className="RunningRoutes">
+        <div className="RunningRoutes-header">
+          <div className="RunningRoutes-title">Running Routes</div>
+          <div className="RunningRoutes-about">
+            Here you'll find an archive of some of my favorite running routes
+            over the years. I have some from high school in Indianapolis, some
+            from college in Boston, and a growing number from different
+            neighborhoods of Seattle.
+          </div>
+        </div>
         <div className="RunningRoutes-routes">
           {this.state.routes.map(this.createRouteElement)}
         </div>
