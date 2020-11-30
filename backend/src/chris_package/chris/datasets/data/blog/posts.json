@@ -3158,5 +3158,57 @@
     "summary": "Documentary about Aaron Swartz from his early days working on foundational internet protocols to his career fighting for freedom of information. Swartz was an internet expert from an early age and became known for his effort putting a stop to the US SOPA bill that would give US law enforcement the rights and means to shut down any website that might be distributing copyrighted content. He railed against the PACER system of pay-to-download court documents. He also fought against paid research publication databases like Elsevier and JSTOR and contributed to the creative commons license. After being prosecuted by the US government for fraud between 2011 and 2013 Aaron was found dead in his apartment. What's the most important thing you could be working on for the world? If you're not working on that why aren't you?",
     "paid": false,
     "archived": false
+  },
+  {
+    "post_id": "4a4d6d32-09d8-4f3c-a3e6-c1a11003a88b",
+    "title": "Just Intonation vs Equal Temperment",
+    "content_type": "video",
+    "source": "YouTube",
+    "areas": ["music"],
+    "series": null,
+    "speaker": null,
+    "episode_number": null,
+    "length": "00:03:55",
+    "date_created": "2014-02-18",
+    "date_posted": "2020-11-29",
+    "link": "https://www.youtube.com/watch?v=6NlI4No3s0M",
+    "tags": [
+      "music",
+      "harmony",
+      "intonation",
+      "temperment",
+      "piano",
+      "justonic",
+      "tuning"
+    ],
+    "summary": "With modern technology we can achieve the perfect consonant tunings that Bach originally tried to create when writing music for instruments that used tempered tuning.",
+    "paid": false,
+    "archived": true
+  },
+  {
+    "post_id": "bc867667-85d3-409a-a335-9e00cf02047f",
+    "title": "Why It's Impossible to Tune a Piano",
+    "content_type": "video",
+    "source": "YouTube",
+    "areas": ["music", "physics", "mathematics"],
+    "series": "minutephysics",
+    "speaker": null,
+    "episode_number": null,
+    "length": "00:04:19",
+    "date_created": "2015-09-17",
+    "date_posted": "2020-11-29",
+    "link": "https://www.youtube.com/watch?v=1Hqm0dYKUx4",
+    "tags": [
+      "music",
+      "harmony",
+      "intonation",
+      "temperment",
+      "piano",
+      "frequency",
+      "tuning"
+    ],
+    "summary": "String instruments can be tuned by comparing the harmonics of two adjacent strings. However, pianos just have too many strings. If you tried tuning a piano with harmonics you would slowly get farther and farther from doubling the octave frequency as you tuned up the piano. In order to get perfectly consonant octaves (with the upper note double the frequency of the lower) pianos use \"equal tempered\" tuning. The ratio between two notes is the twelth root of two, which maintains the octave ratio. However, whatever you play will be slightly and equally out of tune in any key. Just intonation will sound perfectly consonant in one key, but horrible in other keys.",
+    "paid": false,
+    "archived": false
   }
 ]

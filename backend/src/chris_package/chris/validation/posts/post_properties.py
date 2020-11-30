@@ -21,7 +21,7 @@ class PostProperties:
         'link',
         'tags',
         'summary',
-        'deleted',
+        'archived',
     ]
 
     # endregion field-names
