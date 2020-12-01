@@ -19,9 +19,9 @@ class Music extends React.Component<MusicProps, MusicState> {
             listening to music is the next best thing.
           </div>
           <div className="Music-about">
-            Here's a collection of the stuff I'm listening to right now. I
-            periodically remove old stuff and update with fresh tunes, so check
-            back for changes if you like what you hear.
+            Here's a collection of the stuff I'm listening to right now in no
+            particular order. I periodically remove old stuff and update with
+            fresh tunes, so check back for changes if you like what you hear!
           </div>
         </div>
         <div className="Music-spotify">
