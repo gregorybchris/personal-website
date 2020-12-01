@@ -129,9 +129,9 @@ class Blog extends React.Component<BlogProps, BlogState> {
           </div>
           <div className="Blog-about">
             <span className="Blog-about-note">Disclaimer:</span> The presence of
-            a link on this page does not imply an endorsement of the linked
-            content. Some videos and articles posted here I believe to be
-            valuable independent of their relationship to the truth.
+            a link on this page is not an endorsement of the linked content.
+            Some stuff here I disagreed with and still found it to be worth
+            sharing.
           </div>
         </div>
         <div className="Blog-contents">
