@@ -1,6 +1,5 @@
 import React from "react";
 
-import Music from "./Music";
 import States from "./States";
 import Graphics from "./Graphics";
 
@@ -9,7 +8,6 @@ export default () => {
     <div className="Sandbox">
       <Graphics />
       <States />
-      <Music />
     </div>
   );
 };

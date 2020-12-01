@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 
 import "./styles/Home.sass";
 
-import shoeIcon from "../../images/icons/shoe.svg";
 import linkIcon from "../../images/icons/link.svg";
+import notesIcon from "../../images/icons/notes.svg";
+import shoeIcon from "../../images/icons/shoe.svg";
 
 interface HomeProps {}
 
@@ -23,7 +24,7 @@ class Home extends React.Component<HomeProps, HomeState> {
             like.
           </div>
         </div>
-        {/* <hr className="Home-section-divider" /> */}
+
         <div className="Home-section-content-info">
           <div className="Home-content-info-wrap">
             <div className="Home-content-info-box">
@@ -61,6 +62,26 @@ class Home extends React.Component<HomeProps, HomeState> {
                 <img
                   className="Home-content-info-icon Home-content-info-link-icon"
                   src={linkIcon}
+                  alt=""
+                ></img>
+              </Link>
+            </div>
+          </div>
+
+          <div className="Home-content-info-wrap">
+            <div className="Home-content-info-box">
+              <div className="Home-content-info-title-wrap">
+                <Link className="Home-content-info-title" to="/music">
+                  Music
+                </Link>
+              </div>
+              <div className="Home-content-info-text">
+                The latest and greatest tunes from my public Spotify playlist.
+              </div>
+              <Link className="Home-content-info-title" to="/music">
+                <img
+                  className="Home-content-info-icon Home-content-info-notes-icon"
+                  src={notesIcon}
                   alt=""
                 ></img>
               </Link>
