@@ -4,6 +4,7 @@ interface Project {
   date: string;
   rating: number;
   project_type: string;
+  use_type: string;
   controls: string | null;
   description: string | null;
   remarks: string | null;
