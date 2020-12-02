@@ -105,8 +105,10 @@ class App:
         This includes information about the available API routes.
         """
         return flask.jsonify({
-            'source': 'https://github.com/gregorybchris/personal-website',
+            'docs': 'http://docs.chrisgregory.me/',
+            'package': 'https://pypi.org/project/chris',
             'routes': sorted(self._list_endpoints()),
+            'source': 'https://github.com/gregorybchris/personal-website',
             'version': pkg_resources.get_distribution('chris').version,
         })
 
