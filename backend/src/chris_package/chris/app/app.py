@@ -2,13 +2,16 @@
 import flask
 import json
 import pkg_resources
+import numpy as np
 
+from datetime import datetime
 from flask_cors import CORS
 from typing import List
 
 from chris.app import logging_utilities
 from chris.app import settings
 from chris.app.app_utilities import create_response
+from chris.app.database_utilities import DatabaseCollection, CollectionNames
 from chris.app.http_codes import HTTPCodes
 from chris.datasets.fetch import fetch_dataset
 from chris.datasets.datasets import Datasets
@@ -26,6 +29,8 @@ class App:
         self._app = flask.Flask(__name__)
         self._register_api_endpoints()
         CORS(self._app)
+
+        self._db_surveys = DatabaseCollection(CollectionNames.SURVEYS)
 
     def _register_api_endpoints(self):
         self._app.route('/', methods=['GET'])(self.get_info)
@@ -52,7 +57,8 @@ class App:
 
         self._app.route('/v1/recipes', methods=['GET'])(self.get_recipes_v1)
         self._app.route('/v1/surveys', methods=['GET'])(self.get_surveys_v1)
-        self._app.route('/v1/surveys/<survey_id>', methods=['POST'])(self.post_survey_results)
+        self._app.route('/v1/surveys/<survey_id>', methods=['POST'])(self.post_survey_results_v1)
+        self._app.route('/v1/surveys/results', methods=['GET'])(self.get_survey_results_v1)
 
     # region logging
 
@@ -250,7 +256,7 @@ class App:
         return flask.jsonify(fetch_dataset(Datasets.SURVEYS))
 
     @logging_utilities.log_context('post_survey_results', tag='api')
-    def post_survey_results(self, survey_id):
+    def post_survey_results_v1(self, survey_id):
         """Post a survey result."""
         surveys = fetch_dataset(Datasets.SURVEYS)
         for survey in surveys:
@@ -258,16 +264,60 @@ class App:
                 survey_name = survey['name']
                 self._log(f"Survey \"{survey_name}\" ({survey_id}) submitted")
 
+                document = {
+                    'survey_id': survey_id,
+                    'created_date': datetime.now(),
+                    'response': flask.request.json,
+                }
+                self._db_surveys.insert_one(document)
+
                 success_message = f"Successfully submitted survey \"{survey_name}\""
                 return create_response(success_message, HTTPCodes.SUCCESS_GENERAL)
         error_message = f"Survey with ID {survey_id} not found"
         return create_response(error_message, HTTPCodes.ERROR_NOT_FOUND)
 
+    @logging_utilities.log_context('get_survey_results', tag='api')
+    def get_survey_results_v1(self):
+        """Get survey data."""
+        result_documents = list(self._db_surveys.find())
+        aggregated_choices = {}
+        for result_document in result_documents:
+            survey_id = result_document['survey_id']
+            choices_array = np.array(result_document['response']['choices']).astype(int)
+            if survey_id not in aggregated_choices:
+                aggregated_choices[survey_id] = np.zeros_like(choices_array)
+            aggregated_choices[survey_id] += choices_array
+
+        surveys = fetch_dataset(Datasets.SURVEYS)
+        survey_map = {survey['survey_id']: survey for survey in surveys}
+
+        results = []
+        for survey_id, survey_choices in aggregated_choices.items():
+            survey = survey_map[survey_id]
+            survey_result_questions = []
+            for question_choices, question in zip(survey_choices, survey['questions']):
+                question_choices = question_choices / question_choices.sum()
+                question_result_choices = []
+                for choice_fraction, option in zip(question_choices, question['options']):
+                    question_result_choices.append({
+                        'option': option,
+                        'frequency': choice_fraction,
+                    })
+                survey_result_questions.append({
+                    "question": question['text'],
+                    "options": question_result_choices,
+                })
+            results.append({
+                'survey_name': survey['name'],
+                'questions': survey_result_questions,
+            })
+        return flask.jsonify(results)
+
     # endregion surveys
 
     def run(self):
         """Run the web application."""
-        debug_mode = 1 if bool(settings.FLASK_DEBUG) else 0
-        self._app.run(host=settings.FLASK_HOST,
-                      port=settings.FLASK_RUN_PORT,
+        debug_mode = 1 if bool(settings.FLASK_DEBUG.value) else 0
+        self._app.run(host=settings.FLASK_HOST.value,
+                      port=settings.FLASK_RUN_PORT.value,
                       debug=debug_mode)
