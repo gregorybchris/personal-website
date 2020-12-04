@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 
 def _register_file_handler() -> None:
     file_handler = logging.handlers.RotatingFileHandler(
-        settings.LOG_FILE_NAME.value, maxBytes=DEFAULT_LOG_SIZE, backupCount=DEFAULT_N_BACKUPS)
+        settings.LOG_FILE_NAME, maxBytes=DEFAULT_LOG_SIZE, backupCount=DEFAULT_N_BACKUPS)
     file_formatter = logging.Formatter(
         '%(asctime)s.%(msecs)03d (%(levelname)s) %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
     file_handler.setFormatter(file_formatter)
@@ -26,7 +26,7 @@ def _register_file_handler() -> None:
 
 
 def _register_azure_handler() -> None:
-    key = settings.INSTRUMENTATION_KEY.value
+    key = settings.INSTRUMENTATION_KEY
     if key is None or key == '':
         logger.info("INSTRUMENTATION_KEY not set, logging locally")
     else:
