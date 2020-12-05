@@ -3,9 +3,10 @@ import os
 
 
 class EnvSetting:
-    def __init__(self, variable, default=None):
+    def __init__(self, variable, default=None, required=False):
         self._variable = variable
         self._default = default
+        self._required = required
 
     @property
     def var(self):
@@ -17,7 +18,10 @@ class EnvSetting:
 
     @property
     def value(self):
-        return os.getenv(self._variable, self._default)
+        variable_value = os.getenv(self._variable, self._default)
+        if variable_value is None and self._required:
+            raise EnvironmentError(f"Environment variable {self.var} is not set")
+        return variable_value
 
 
 # region app
@@ -30,12 +34,12 @@ FLASK_HOST = EnvSetting('FLASK_HOST', None)
 # region telemetry
 
 LOG_FILE_NAME = EnvSetting('CGME_LOG_FILE', 'cgme.log')
-INSTRUMENTATION_KEY = EnvSetting('INSTRUMENTATION_KEY', None)
+INSTRUMENTATION_KEY = EnvSetting('CGME_TELEMETRY_KEY', None)
 
 # endregion telemetry
 # region database
 
-DATABASE_CONN_STRING = EnvSetting('CGME_DATABASE_CONN', None)
+DATABASE_CONN_STRING = EnvSetting('CGME_DATABASE_CONN', None, required=True)
 DATABASE_NAME = EnvSetting('CGME_DATABASE_NAME', 'website')
 
 # endregion database

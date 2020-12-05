@@ -33,7 +33,9 @@ stages:
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
         buildContext: $(dockerContextPath)
-        arguments: --build-arg TELEMETRY_KEY=$(APP_INSIGHTS_KEY)
+        arguments: >
+          --build-arg TELEMETRY_KEY="$(APP_INSIGHTS_KEY)"
+          --build-arg DATABASE_CONN="$(MONGODB_CONN)"
         tags: |
           $(Build.BuildId)
           latest

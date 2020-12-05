@@ -1,7 +1,9 @@
 FROM continuumio/miniconda3
 
 ARG TELEMETRY_KEY
-ENV INSTRUMENTATION_KEY $TELEMETRY_KEY
+ENV CGME_TELEMETRY_KEY $TELEMETRY_KEY
+ARG DATABASE_CONN
+ENV CGME_DATABASE_CONN $DATABASE_CONN
 
 # gcc is required for psutil via opencensus
 RUN apt-get update && \
