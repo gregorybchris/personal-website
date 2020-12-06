@@ -24,13 +24,13 @@ class Colors {
 class SimConstants {
   static MULT = 130;
   static VELOCITY_LIMIT = 6;
-  static STILL_THRESHOLD = 0.1;
+  static STILL_THRESHOLD = 0.01;
 }
 
 class GraphicsConstants {
   static WIDTH = 1000;
-  static HEIGHT = 340;
-  static PADDING_X = 50;
+  static HEIGHT = 240;
+  static PADDING_X = 80;
   static PADDING_Y = 80;
 }
 
@@ -65,7 +65,7 @@ class ProjectTimeline extends React.Component<
       if (previousTime !== undefined) {
         dt += (currentTime - previousTime) / 1000;
         if (dt >= this.GAME_LOOP_SPF) {
-          this.updateCanvas(dt);
+          this.updateCanvas(dt, currentTime);
           dt = 0;
         }
       }
@@ -82,7 +82,7 @@ class ProjectTimeline extends React.Component<
     return Math.max(min, Math.min(max, value));
   };
 
-  updateCanvas = (dt: number) => {
+  updateCanvas = (dt: number, currentTime: number) => {
     if (!this.simRunning) {
       return;
     }
@@ -105,25 +105,19 @@ class ProjectTimeline extends React.Component<
           return;
         }
 
-        let [circleA, circleB] = [containerA.circle, containerB.circle];
+        const [circleA, circleB] = [containerA.circle, containerB.circle];
 
-        let [xA, yA] = [+circleA.attr("cx"), +circleA.attr("cy")];
-        let [xB, yB] = [+circleB.attr("cx"), +circleB.attr("cy")];
-        let [rA, rB] = [+circleA.attr("r"), +circleB.attr("r")];
+        const [xA, yA] = [+circleA.attr("cx"), +circleA.attr("cy")];
+        const [xB, yB] = [+circleB.attr("cx"), +circleB.attr("cy")];
+        const [rA, rB] = [+circleA.attr("r"), +circleB.attr("r")];
 
-        let [dx, dy] = [xB - xA, yB - yA];
-        let d = Math.sqrt(dx * dx + dy * dy);
-        // let theta = Math.atan2(dy, dx);
-        // let fy = Math.sin(theta);
-
-        let rFactor = (rA + rB) / 1.6;
-        let sign = yA > yB ? 1 : -1;
-        if (Math.abs(d) < 2 + rFactor) {
-          containerA.force.y += 1.6 * dt * SimConstants.MULT * sign;
-        } else if (Math.abs(d) < 10 + rFactor) {
-          containerA.force.y += 0.8 * dt * SimConstants.MULT * sign;
-        } else if (Math.abs(d) < 25 + rFactor) {
-          containerA.force.y += 0.4 * dt * SimConstants.MULT * sign;
+        const [dx, dy] = [xB - xA, yB - yA];
+        const d = Math.sqrt(dx * dx + dy * dy);
+        const dMax = rA + rB + 4;
+        if (d < dMax) {
+          const sign = yA > yB ? 1 : -1;
+          const dDelta = 1 - d / dMax;
+          containerA.force.y += sign * dDelta * 5;
         }
       });
     });
@@ -208,23 +202,27 @@ class ProjectTimeline extends React.Component<
       })
       .attr("cy", () => {
         let rand = uniform();
-        return height / 2 + 40 * (rand * 2 - 1);
+        const spread = 10;
+        const yCenter = height / 2;
+        return yCenter + spread * (rand * 2 - 1);
       })
       .attr("r", (project) => {
         let r = project.rating;
         return (r * r * 6) / 30 + 9;
       })
-
       .attr("opacity", 1)
       .attr("fill", this.getProjectColor)
+      .attr("fill-opacity", 0)
+      .attr("stroke-width", 4)
       .attr("stroke", this.getProjectColor)
       .attr("id", (project) => `project_${project.project_id}`)
       .on("click", (mouseEvent: any, project: any) => {
-        d3.selectAll("circle").classed("deselected", true);
-        d3.select(this.getProjectSelector(project)).classed(
-          "deselected",
-          false
-        );
+        d3.selectAll("circle")
+          .classed("deselected", true)
+          .classed("selected", false);
+        d3.select(this.getProjectSelector(project))
+          .classed("deselected", false)
+          .classed("selected", true);
         this.props.onSelectProject(project);
       });
     circles.append("title").text((d) => d.name);
