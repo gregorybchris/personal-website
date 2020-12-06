@@ -81,8 +81,6 @@ class App:
         request_info = self._get_request_info()
         log_extras = {'custom_dimensions': request_info}
         extras = log_extras if extras is None else {**log_extras, **extras}
-        from pprint import pprint
-        pprint(extras)
         logger.info(message, *args, extra=extras, **kwargs)
 
     # endregion logging
@@ -280,28 +278,29 @@ class App:
     def get_survey_results_v1(self):
         """Get survey data."""
         result_documents = list(self._db_surveys.find())
-        aggregated_choices = {}
+        aggregated_counts = {}
         for result_document in result_documents:
             survey_id = result_document['survey_id']
             choices_array = np.array(result_document['response']['choices']).astype(int)
-            if survey_id not in aggregated_choices:
-                aggregated_choices[survey_id] = np.zeros_like(choices_array)
-            aggregated_choices[survey_id] += choices_array
+            if survey_id not in aggregated_counts:
+                aggregated_counts[survey_id] = np.zeros_like(choices_array)
+            aggregated_counts[survey_id] += choices_array
 
         surveys = fetch_dataset(Datasets.SURVEYS)
         survey_map = {survey['survey_id']: survey for survey in surveys}
 
         results = []
-        for survey_id, survey_choices in aggregated_choices.items():
+        for survey_id, survey_counts in aggregated_counts.items():
             survey = survey_map[survey_id]
             survey_result_questions = []
-            for question_choices, question in zip(survey_choices, survey['questions']):
-                question_choices = question_choices / question_choices.sum()
+            for question_counts, question in zip(survey_counts, survey['questions']):
+                question_frequencies = question_counts / question_counts.sum()
                 question_result_choices = []
-                for choice_fraction, option in zip(question_choices, question['options']):
+                for option_number in range(len(question['options'])):
                     question_result_choices.append({
-                        'option': option,
-                        'frequency': choice_fraction,
+                        'option': question['options'][option_number],
+                        'frequency': float(question_frequencies[option_number]),
+                        'count': float(question_counts[option_number]),
                     })
                 survey_result_questions.append({
                     "question": question['text'],
