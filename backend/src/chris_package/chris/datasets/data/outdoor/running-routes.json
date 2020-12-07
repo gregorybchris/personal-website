@@ -408,5 +408,15 @@
     "elevation": 443,
     "mapometer_id": 4821473,
     "tags": ["Seattle", "Capitol Hill"]
+  },
+  {
+    "route_id": "1ea8029d-d55f-4423-a589-988355584a0b",
+    "name": "Ravenna",
+    "slug": "ravenna",
+    "route_type": "running",
+    "distance": 7.0,
+    "elevation": 453,
+    "mapometer_id": 5186314,
+    "tags": ["Seattle", "Wallingford"]
   }
 ]
