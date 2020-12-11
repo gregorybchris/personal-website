@@ -418,5 +418,45 @@
     "elevation": 453,
     "mapometer_id": 5186314,
     "tags": ["Seattle", "Wallingford"]
+  },
+  {
+    "route_id": "2a52aa11-2aba-4d65-9ba7-27993c30875c",
+    "name": "Interlaken - Wallingford",
+    "slug": "interlaken-wallingford",
+    "route_type": "running",
+    "distance": 6.71,
+    "elevation": 551,
+    "mapometer_id": 5187805,
+    "tags": ["Seattle", "Wallingford"]
+  },
+  {
+    "route_id": "42719453-66cc-431a-b12d-b8fac4f526be",
+    "name": "Lookout",
+    "slug": "lookout-wallingford",
+    "route_type": "running",
+    "distance": 8,
+    "elevation": 784,
+    "mapometer_id": 5187807,
+    "tags": ["Seattle", "Wallingford"]
+  },
+  {
+    "route_id": "59f9979b-1e1c-43b7-a8d7-4e8ef7c3b55c",
+    "name": "Green Lake Wallingford",
+    "slug": "green-lake-wallingford",
+    "route_type": "running",
+    "distance": 3.85,
+    "elevation": 285,
+    "mapometer_id": 5187811,
+    "tags": ["Seattle", "Wallingford"]
+  },
+  {
+    "route_id": "4f1e310e-3fe1-44bc-abdc-cbefd18c012d",
+    "name": "Animals",
+    "slug": "animals",
+    "route_type": "running",
+    "distance": 6.06,
+    "elevation": 476,
+    "mapometer_id": 5187820,
+    "tags": ["Seattle", "Wallingford"]
   }
 ]
