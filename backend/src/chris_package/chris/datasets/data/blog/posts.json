@@ -3210,5 +3210,34 @@
     "summary": "String instruments can be tuned by comparing the harmonics of two adjacent strings. However, pianos just have too many strings. If you tried tuning a piano with harmonics you would slowly get farther and farther from doubling the octave frequency as you tuned up the piano. In order to get perfectly consonant octaves (with the upper note double the frequency of the lower) pianos use \"equal tempered\" tuning. The ratio between two notes is the twelth root of two, which maintains the octave ratio. However, whatever you play will be slightly and equally out of tune in any key. Just intonation will sound perfectly consonant in one key, but horrible in other keys.",
     "paid": false,
     "archived": false
+  },
+  {
+    "post_id": "01881fc4-ab49-41b5-b4ef-b59e53ab0a73",
+    "title": "Computation and the Fundamental Theory of Physics",
+    "content_type": "video",
+    "source": "YouTube",
+    "areas": ["physics", "mathematics", "computers", "complexity"],
+    "series": "The Royal Institution",
+    "speaker": "Stephen Wolfram",
+    "episode_number": null,
+    "length": "01:18:50",
+    "date_created": "2020-12-10",
+    "date_posted": "2020-12-13",
+    "link": "https://www.youtube.com/watch?v=qoDZKlcdPNM",
+    "tags": [
+      "physics",
+      "theory",
+      "quantum",
+      "everything",
+      "relativity",
+      "graphs",
+      "networks",
+      "particles",
+      "computation",
+      "complexity"
+    ],
+    "summary": "Computational equivalance as worked out by Turing demonstrates that there is a kind of computational speed limit, that all things that perform computation are equivalent and there are no shortcuts. The flip side of the coin is computational irriducibility where some complex patterns might have a simple generator and yet be totally unpredictable after a certain number of steps - while some repitition might pop up, large parts of the generated pattern might be as good as random. In search of a computational model underlying our physical reality, the Wolfram Physics team is using hypergraphs (graphs where one edge can connect multiple nodes) with simple update rules to model the phenomena explained by both general relativity and quantum field theory. The Wolfram findings indicate that these theories of physical phenomena uncovered 20th century are like small islands of computational reducibility in a vast sea of irriducibility. Both relativity and quantum seem to fall out of the distributed nature of the graph update rules. The property of causal invariance in these graphs means that while update rules could play out in more than one way, in the end it doesn't matter to the final state of the graph. And while the update rules, generator function, computational description of our local physics might be static, it may be the case - and perhaps unprovably so - that elsewhere totally different rules apply.",
+    "paid": false,
+    "archived": false
   }
 ]
