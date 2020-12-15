@@ -8,7 +8,6 @@ import { formatDate } from "../../utilities/DateTimeUtilities";
 import { getSearchParams, makeURL } from "../../utilities/RequestUtilities";
 
 import linkImage from "../../images/link.svg";
-// import detailsImage from "../images/details.svg";
 
 interface PostProps {
   post: PostModel;
@@ -130,31 +129,16 @@ class Post extends React.Component<PostProps, PostState> {
           <div className="Post-title-wrap">
             <a className="Post-title-link" href={this.state.contentLink}>
               {this.getTitleElement()}
-              <a href={makeURL({ post: this.props.post.post_id }, "links")}>
-                <img
-                  className="Post-link-image"
-                  src={linkImage}
-                  alt="Post link"
-                ></img>
+              <a href={makeURL({}, `links/${this.props.post.slug}`)}>
+                <img className="Post-link-image" src={linkImage} alt="Post link"></img>
               </a>
             </a>
           </div>
           {this.getSeriesInfo()}
-          <div className="Post-date">
-            {formatDate(this.props.post.date_posted)}
-          </div>
+          <div className="Post-date">{formatDate(this.props.post.date_posted)}</div>
         </div>
         {this.getThumbnailElement()}
-        <div className="Post-tags">
-          {this.props.post.tags.map((tag) => this.createTag(tag))}
-        </div>
-
-        {/* 
-        <div className="Post-link" onClick={this.toggleSummary}>
-          <img className="Post-link-image" src={detailsImage} alt=""></img>
-        </div>
-        */}
-
+        <div className="Post-tags">{this.props.post.tags.map((tag) => this.createTag(tag))}</div>
         {this.getSummaryElement()}
       </div>
     );

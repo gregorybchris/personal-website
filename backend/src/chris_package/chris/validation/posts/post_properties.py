@@ -9,6 +9,7 @@ class PostProperties:
     FIELDS = [
         'post_id',
         'title',
+        'slug',
         'content_type',
         'length',
         'source',

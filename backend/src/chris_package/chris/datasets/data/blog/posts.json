@@ -2,6 +2,7 @@
   {
     "post_id": "21755d9e-79d7-459b-ab44-650af5b6bd67",
     "title": "Web Design: The First 100 Years",
+    "slug": "first-100-web-design",
     "content_type": "article",
     "source": null,
     "areas": ["computers", "technology"],
@@ -12,15 +13,7 @@
     "date_created": null,
     "date_posted": "2015-07-24",
     "link": "http://idlewords.com/talks/web_design_first_100_years.htm",
-    "tags": [
-      "web",
-      "cs",
-      "planes",
-      "technology",
-      "innovation",
-      "progress",
-      "internet"
-    ],
+    "tags": ["web", "cs", "planes", "technology", "innovation", "progress", "internet"],
     "summary": "Aviation innovation of the mid 1900s brought about large and incredibly fast passenger planes. However, with speed came an increased cost of fuel and externalities like environmental impact. Airlines began to focus on cost, accessibility, and customer experience. Diminishing engineering returns and \"good enough\" travel times led to a shift in the industry. The same will happen - and is happening - for the technological boom of the present moment, the internet. The internet of 2060 will not look radically different from the internet of today.",
     "paid": false,
     "archived": false
@@ -28,6 +21,7 @@
   {
     "post_id": "f01d6640-9f01-4f91-8a3b-3b06d4507ee6",
     "title": "Black Boyfriend",
+    "slug": "black-boyfriend",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["justice"],
@@ -46,6 +40,7 @@
   {
     "post_id": "763f5ae6-d2a7-4ad2-a1d1-18efa52761e0",
     "title": "Our Greatest Delusion",
+    "slug": "our-greatest-delusion",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["philosophy", "biology"],
@@ -56,17 +51,7 @@
     "date_created": null,
     "date_posted": "2015-08-19",
     "link": "https://www.youtube.com/watch?v=EKR-HydGohQ",
-    "tags": [
-      "our",
-      "greatest",
-      "delusion",
-      "veritasium",
-      "derek",
-      "muller",
-      "nihilism",
-      "rocks",
-      "life"
-    ],
+    "tags": ["our", "greatest", "delusion", "veritasium", "derek", "muller", "nihilism", "rocks", "life"],
     "summary": "We are deluded in thinking we will live forever. We evolved with an inability to imagine a world without ourselves in it. And so we put off doing the things we know we should. It may seem nihilistic to live a life that just ends but we can find meaning in each moment.",
     "paid": false,
     "archived": false
@@ -74,6 +59,7 @@
   {
     "post_id": "fe9ae8a7-c85b-487f-ad3a-0bc05bef8a6a",
     "title": "Searle, Subjectivity, and Objectivity",
+    "slug": "searle-subjectivity-objectivity",
     "content_type": "article",
     "source": null,
     "areas": ["philosophy", "psychology", "neuroscience"],
@@ -102,6 +88,7 @@
   {
     "post_id": "d0bb9aa4-e033-424d-8e71-1861eef888e7",
     "title": "My Interview With The Stoics",
+    "slug": "interview-with-the-stoics",
     "content_type": "article",
     "source": null,
     "areas": ["philosophy"],
@@ -112,16 +99,7 @@
     "date_created": null,
     "date_posted": "2015-08-26",
     "link": "http://kevinjbrowne.weebly.com/my-interview-with-the-stoics.html",
-    "tags": [
-      "interview",
-      "stoics",
-      "kevin",
-      "browne",
-      "philosophy",
-      "death",
-      "epicurus",
-      "epictetus"
-    ],
+    "tags": ["interview", "stoics", "kevin", "browne", "philosophy", "death", "epicurus", "epictetus"],
     "summary": "We have full control of how we feel. The best way to live life is to take control of your outlook. Do not fear death because it is not under human control. When death comes you will not even be there for it to affect you.",
     "paid": false,
     "archived": false
@@ -129,6 +107,7 @@
   {
     "post_id": "f74cbdfd-44da-4ab8-acbb-1c15c257bd67",
     "title": "The Science of Six Degrees of Separation",
+    "slug": "science-six-degrees-separation",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["complexity"],
@@ -139,16 +118,7 @@
     "date_created": null,
     "date_posted": "2015-08-26",
     "link": "https://www.youtube.com/watch?v=TcxZSmzPw8k",
-    "tags": [
-      "six",
-      "degrees",
-      "separation",
-      "network",
-      "theory",
-      "erdos",
-      "veritasium",
-      "barabasi"
-    ],
+    "tags": ["six", "degrees", "separation", "network", "theory", "erdos", "veritasium", "barabasi"],
     "summary": "Real-world networks are shown to be \"small-world\" networks, meaning it takes very few steps to get between any two people. On the other hand, we also see that there's a high degree of clustering. These seemingly contradictory properties can be reconciled by a relatively small number of random connections that link disparate groups of people.",
     "paid": false,
     "archived": false
@@ -156,6 +126,7 @@
   {
     "post_id": "7b7dcaf8-9af8-42bb-a8fd-a5b41c5605e2",
     "title": "New Bionics",
+    "slug": "new-bionics",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["engineering", "medicine"],
@@ -166,16 +137,7 @@
     "date_created": null,
     "date_posted": "2015-08-30",
     "link": "https://www.youtube.com/watch?v=CDsNZJTWw0w",
-    "tags": [
-      "ted",
-      "bionics",
-      "hugh",
-      "herr",
-      "prosthetics",
-      "robotics",
-      "engineering",
-      "inspirational"
-    ],
+    "tags": ["ted", "bionics", "hugh", "herr", "prosthetics", "robotics", "engineering", "inspirational"],
     "summary": "Active bionics - as opposed to passive bionics - allow people to move more fluidly. Designing prosthetics that faithfully replicate natural human motion has a huge impact on quality of life.",
     "paid": false,
     "archived": false
@@ -183,6 +145,7 @@
   {
     "post_id": "86aa9f7c-ecd1-4022-8a9d-4193312b5c22",
     "title": "The Heisenberg Uncertainty Principle",
+    "slug": "heisenberg-uncertainty-principle",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["physics", "philosophy"],
@@ -193,16 +156,7 @@
     "date_created": null,
     "date_posted": "2015-09-06",
     "link": "https://www.youtube.com/watch?v=TQKELOE9eY4",
-    "tags": [
-      "heisenberg",
-      "uncertainty",
-      "principle",
-      "ted",
-      "teded",
-      "physics",
-      "learn",
-      "knowledge"
-    ],
+    "tags": ["heisenberg", "uncertainty", "principle", "ted", "teded", "physics", "learn", "knowledge"],
     "summary": "The Heisenberg Uncertainty Prinicple exists because we are trading off treating matter as a wave and a particle. It's not about how well we measure things, but about the type of measurement we decide is important and implicitly whether we want to treat the matter as a wave or a particle.",
     "paid": false,
     "archived": false
@@ -210,6 +164,7 @@
   {
     "post_id": "6dffdfa1-a992-4f02-9993-da62b238dca5",
     "title": "Feats of Memory",
+    "slug": "feats-of-memory",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["psychology", "neuroscience"],
@@ -220,15 +175,7 @@
     "date_created": null,
     "date_posted": "2015-09-14",
     "link": "https://www.youtube.com/watch?v=U6PoUg7jXsA",
-    "tags": [
-      "memory",
-      "ted",
-      "brain",
-      "mind",
-      "palace",
-      "learning",
-      "attention"
-    ],
+    "tags": ["memory", "ted", "brain", "mind", "palace", "learning", "attention"],
     "summary": "All memory techniques come down to \"elaborative encoding\". The Baker/baker paradox is where people will remember the profession baker far more easily than the name Baker because the name Baker doesn't really mean anything. The \"method of loci\" also known as the memory palace was popularized by the story of the ancient Greek poet Simonides remembering the guests in a collapsed banquet hall. Great memories are not innate gifts. We are the sum of our memories and to live the life worth living you have to be the kind of person who remembers to remember.",
     "paid": false,
     "archived": false
@@ -236,6 +183,7 @@
   {
     "post_id": "194e23b3-ff8b-441b-9c34-213a52b992c6",
     "title": "On Being Wrong",
+    "slug": "on-being-wrong",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["philosophy", "psychology"],
@@ -246,15 +194,7 @@
     "date_created": null,
     "date_posted": "2015-09-22",
     "link": "https://www.youtube.com/watch?v=QleRgTBMX88",
-    "tags": [
-      "ted",
-      "wrong",
-      "pride",
-      "humility",
-      "mistakes",
-      "learning",
-      "growth"
-    ],
+    "tags": ["ted", "wrong", "pride", "humility", "mistakes", "learning", "growth"],
     "summary": "What do we do when we misunderstand the signs around us? What do we do when we're wrong? We live in the present moment and in the present moment we're never wrong. It doesn't feel bad to be wrong. It feels bad to realize you're wrong. Being wrong feels like being right - \"error blindness\". School teaches us that the way to be successful is to never make any mistakes, instilling perfectionism. Trusting too much that we're on the right side of anything can be dangerous. The miracle of the human mind is not that we can see the world as it is, but as it isn't. And if we want to rediscover wonder we need to look out at the vastly complex universe and say \"I don't know\" ",
     "paid": false,
     "archived": false
@@ -262,6 +202,7 @@
   {
     "post_id": "a1d0b689-4b2f-43b5-8b9b-32f8b83e9886",
     "title": "Persistence of Vision",
+    "slug": "persistence-of-vision",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["physics", "biology"],
@@ -272,15 +213,7 @@
     "date_created": null,
     "date_posted": "2015-10-02",
     "link": "https://www.youtube.com/watch?v=_FlV6pgwlrk",
-    "tags": [
-      "belief",
-      "eyes",
-      "persistence",
-      "vision",
-      "illusion",
-      "perception",
-      "lights"
-    ],
+    "tags": ["belief", "eyes", "persistence", "vision", "illusion", "perception", "lights"],
     "summary": "Persistence of vision - the eye averages what it sees over short periods of time. If you have a flashing light that's slower than 25 flashes per second, you can perceieve the flashes. Otherwise, the neural activation activation associated with one flash will not fully die down before the onset of the next flash.",
     "paid": false,
     "archived": false
@@ -288,6 +221,7 @@
   {
     "post_id": "91edc28b-ca5b-4e98-8b86-01848ed6e2ae",
     "title": "Prisoner Hat Riddle",
+    "slug": "prisoner-hat-riddle",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["logic"],
@@ -298,16 +232,7 @@
     "date_created": null,
     "date_posted": "2015-10-10",
     "link": "https://www.youtube.com/watch?v=N5vJSNXPEwA",
-    "tags": [
-      "strategy",
-      "prisoner",
-      "hat",
-      "riddle",
-      "puzzle",
-      "problem",
-      "aliens",
-      "logic"
-    ],
+    "tags": ["strategy", "prisoner", "hat", "riddle", "puzzle", "problem", "aliens", "logic"],
     "summary": "Ten people in a line, all facing forward, wearing black and white hats have to try to guess the color of their hats. They succeed if at least nine of them guess correctly. They are allowed to stratgize before beginning. The solution is that the person in the back of the line guesses black or white depending on the parity of the number of black and white hats in front. This gives enough information for the rest of the nine people to guess correctly",
     "paid": false,
     "archived": false
@@ -315,6 +240,7 @@
   {
     "post_id": "37271ed5-57c2-4caa-9b10-9287c8a29dd6",
     "title": "Devaluation of Music",
+    "slug": "devaluation-of-music",
     "content_type": "article",
     "source": null,
     "areas": ["music"],
@@ -325,17 +251,7 @@
     "date_created": null,
     "date_posted": "2015-10-15",
     "link": "https://medium.com/cuepoint/the-devaluation-of-music-it-s-worse-than-you-think-f4cf5f26a888",
-    "tags": [
-      "music",
-      "devaluation",
-      "pop",
-      "radio",
-      "singer",
-      "songwriter",
-      "industry",
-      "songs",
-      "composition"
-    ],
+    "tags": ["music", "devaluation", "pop", "radio", "singer", "songwriter", "industry", "songs", "composition"],
     "summary": "The devaluation of music over time has come from more than just streaming services and piracy. Arguably musical culture has become shallower in many dimensions. The streaming-induced shift from physical albums to individual digital tracks has removed the context and history people once consumed from album covers. News has focused on musical celebrity rather than music itself. Radio culture has replaced musical diversity and discovery with common-denominator industrial scale hits. Dwindling music education has left Americans without an appreciation for the depth of composing and playing music.",
     "paid": false,
     "archived": false
@@ -343,6 +259,7 @@
   {
     "post_id": "5ac08a26-5a70-4318-97cb-051cfc584be7",
     "title": "Skewes' Massive Number",
+    "slug": "skewes-massive-number",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["mathematics"],
@@ -353,18 +270,7 @@
     "date_created": null,
     "date_posted": "2015-10-29",
     "link": "https://www.youtube.com/watch?v=Lihh_lMmcDw",
-    "tags": [
-      "skewes",
-      "number",
-      "numberphile",
-      "math",
-      "science",
-      "prime",
-      "james",
-      "grime",
-      "grahams",
-      "expectation"
-    ],
+    "tags": ["skewes", "number", "numberphile", "math", "science", "prime", "james", "grime", "grahams", "expectation"],
     "summary": "The Dirichlet method gives an estimate of the number of primes below a certain number. The method appears to be an upper bound with the estimate always overshooting the actual number of primes. However, Stanley Skewes showed that at some point the signed difference between actual and estimated number of primes flips and that number is greater than 10^10^10^34 - Skewes' number. The moral of the story is that just because some rule holds for a long time doesn't mean it will be true forever.",
     "paid": false,
     "archived": false
@@ -372,6 +278,7 @@
   {
     "post_id": "ebda4f02-ec01-4f12-ad8a-4ad41b9fe076",
     "title": "What If Bears Killed One In Five People?",
+    "slug": "bears-one-in-five",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["comedy", "justice"],
@@ -382,15 +289,7 @@
     "date_created": null,
     "date_posted": "2015-11-11",
     "link": "https://www.youtube.com/watch?v=LNVFPkmZTQ4",
-    "tags": [
-      "collegehumor",
-      "bear",
-      "sexual",
-      "assault",
-      "itsonus",
-      "oneinfive",
-      "rape"
-    ],
+    "tags": ["collegehumor", "bear", "sexual", "assault", "itsonus", "oneinfive", "rape"],
     "summary": "One in five women will be sexually assaulted by the time they finish college. Satire about the frequency of sexual assault and they ways in which sexual assault is rationalized.",
     "paid": false,
     "archived": false
@@ -398,6 +297,7 @@
   {
     "post_id": "737f83b3-ba92-4365-bcd3-6511bc2485bb",
     "title": "Deep Neural Networks Explained",
+    "slug": "deep-neural-networks-explained",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["computers"],
@@ -408,15 +308,7 @@
     "date_created": null,
     "date_posted": "2015-11-26",
     "link": "https://www.youtube.com/watch?v=bHvf7Tagt18",
-    "tags": [
-      "machine",
-      "learning",
-      "deep",
-      "neural",
-      "networks",
-      "natandlo",
-      "google"
-    ],
+    "tags": ["machine", "learning", "deep", "neural", "networks", "natandlo", "google"],
     "summary": "Visual recognition that is so intuitive for humans is pretty hard for computers. Even with many examples it can take computers a long time to learn concepts that are simple to humans. Deep neural networks are composed of artificial neurons that are roughly based on human brain biology.",
     "paid": false,
     "archived": false
@@ -424,6 +316,7 @@
   {
     "post_id": "ce963762-4e21-492e-9ad3-6d12084a4d8c",
     "title": "How Special Relativity Makes Magnets Work",
+    "slug": "special-relativity-magnets",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["physics"],
@@ -453,6 +346,7 @@
   {
     "post_id": "b0b1ef20-9e81-4e60-b93c-4f50ed542eb2",
     "title": "Simulating the Human Brain is a Waste of Energy",
+    "slug": "simulating-human-brain-waste",
     "content_type": "article",
     "source": "Aeon",
     "areas": ["complexity", "computers", "neuroscience"],
@@ -463,17 +357,7 @@
     "date_created": null,
     "date_posted": "2015-12-31",
     "link": "https://aeon.co/opinions/why-trying-to-simulate-the-human-brain-is-a-waste-of-energy",
-    "tags": [
-      "brain",
-      "simulation",
-      "neuro",
-      "neuroscience",
-      "john",
-      "searle",
-      "philosophy",
-      "mind",
-      "blue"
-    ],
+    "tags": ["brain", "simulation", "neuro", "neuroscience", "john", "searle", "philosophy", "mind", "blue"],
     "summary": "In creating a computer simulation you are necessarily leaving some details out. If you didn't you'd just have the real thing. So the question is which features of the brain you leave out when trying to simulate it. Searle makes the point that computer simulations about whether tell you information about rain, not water. One worry about brain simulations is whether we need to understand the brain in order to properly simulate it. We know so little about the parts of the brain and how they interact that one could argue the simulation project is doomed. Another concern is whether we even know when we will have succeeded. You can measure certain features of simulated brains that in isolation are impressive but are far from the stated goal of simulating a real brain.",
     "paid": false,
     "archived": false
@@ -481,6 +365,7 @@
   {
     "post_id": "9d01fdf1-6c33-4186-85a2-f2a2c186d1eb",
     "title": "Koko the Gorilla's Message for World Leaders",
+    "slug": "koko-gorillas-message",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["justice"],
@@ -491,15 +376,7 @@
     "date_created": "2015-12-01",
     "date_posted": "2016-01-05",
     "link": "https://www.youtube.com/watch?v=FVuNTiqHys0",
-    "tags": [
-      "koko",
-      "gorilla",
-      "environment",
-      "global",
-      "warming",
-      "biodiversity",
-      "preservation"
-    ],
+    "tags": ["koko", "gorilla", "environment", "global", "warming", "biodiversity", "preservation"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -507,6 +384,7 @@
   {
     "post_id": "d178c0f6-2b1a-4be1-aaff-0d10606c15c4",
     "title": "DeepMind Masters Go",
+    "slug": "deepmind-masters-go",
     "content_type": "article",
     "source": "Technology Review",
     "areas": [],
@@ -517,18 +395,7 @@
     "date_created": null,
     "date_posted": "2016-01-28",
     "link": "https://www.technologyreview.com/2016/01/27/109178/googles-ai-masters-the-game-of-go-a-decade-earlier-than-expected/",
-    "tags": [
-      "google",
-      "ai",
-      "deepmind",
-      "machine",
-      "learning",
-      "go",
-      "mit",
-      "deep",
-      "artificial",
-      "intelligence"
-    ],
+    "tags": ["google", "ai", "deepmind", "machine", "learning", "go", "mit", "deep", "artificial", "intelligence"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -536,6 +403,7 @@
   {
     "post_id": "f0813368-806a-49b7-9a23-04badc754036",
     "title": "The Science of Sync",
+    "slug": "science-of-sync",
     "content_type": "video",
     "source": "TED",
     "areas": [],
@@ -566,6 +434,7 @@
   {
     "post_id": "890225c5-1c36-493d-8967-94b4219e6a5a",
     "title": "What Discrimination Looks Like In America",
+    "slug": "discrimination-in-america",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -576,16 +445,7 @@
     "date_created": null,
     "date_posted": "2016-02-11",
     "link": "https://www.youtube.com/watch?v=qwIjKuitlu8",
-    "tags": [
-      "race",
-      "racial",
-      "discrimination",
-      "america",
-      "testtube",
-      "systemic",
-      "racism",
-      "blacklivesmatter"
-    ],
+    "tags": ["race", "racial", "discrimination", "america", "testtube", "systemic", "racism", "blacklivesmatter"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -593,6 +453,7 @@
   {
     "post_id": "42aa342f-5f47-487b-b9e5-4ac5ce6f976c",
     "title": "Computers that Can Learn",
+    "slug": "computers-that-can-learn",
     "content_type": "video",
     "source": "TED",
     "areas": [],
@@ -623,6 +484,7 @@
   {
     "post_id": "ee62e04b-ea16-409d-88e9-b12ef27fa74a",
     "title": "Bioelectric Cell for Regeneration",
+    "slug": "bioelectric-regeneration",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -653,6 +515,7 @@
   {
     "post_id": "dce26894-fb47-42c5-a4b4-317913073968",
     "title": "America's Gun Problem",
+    "slug": "americas-gun-problem",
     "content_type": "article",
     "source": "Vox",
     "areas": ["justice", "law", "politics"],
@@ -682,6 +545,7 @@
   {
     "post_id": "08c5d54d-d191-4cb1-8dfa-1fa65cfc971b",
     "title": "Ten Ways to Have a Better Conversation",
+    "slug": "ten-ways-better-conversation",
     "content_type": "video",
     "source": "TED",
     "areas": [],
@@ -692,18 +556,7 @@
     "date_created": null,
     "date_posted": "2016-03-28",
     "link": "https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation",
-    "tags": [
-      "conversation",
-      "ted",
-      "talk",
-      "listen",
-      "tips",
-      "amazed",
-      "celeste",
-      "headlee",
-      "interview",
-      "social"
-    ],
+    "tags": ["conversation", "ted", "talk", "listen", "tips", "amazed", "celeste", "headlee", "interview", "social"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -711,6 +564,7 @@
   {
     "post_id": "11b075f9-9f90-4615-93e3-b4f5baf2bd05",
     "title": "A Visual Introduction to Machine Learning",
+    "slug": "visual-intro-machine-learning",
     "content_type": "article",
     "source": null,
     "areas": [],
@@ -741,6 +595,7 @@
   {
     "post_id": "101c7930-7437-410f-92de-1c99ebca6e1d",
     "title": "Consciousness and Free Will",
+    "slug": "consciousness-free-will",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -770,6 +625,7 @@
   {
     "post_id": "a7129f31-9e60-4977-a1cc-9b986b61b7ef",
     "title": "Stanford Sexual Assault Victim's Letter",
+    "slug": "stanford-victim-letter",
     "content_type": "article",
     "source": "BuzzFeed News",
     "areas": [],
@@ -780,16 +636,7 @@
     "date_created": null,
     "date_posted": "2016-06-12",
     "link": "https://www.buzzfeednews.com/article/katiejmbaker/heres-the-powerful-letter-the-stanford-victim-read-to-her-ra",
-    "tags": [
-      "stanford",
-      "brock",
-      "turner",
-      "consent",
-      "rape",
-      "sexual",
-      "assault",
-      "alcohol"
-    ],
+    "tags": ["stanford", "brock", "turner", "consent", "rape", "sexual", "assault", "alcohol"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -797,6 +644,7 @@
   {
     "post_id": "ef025b9b-41a1-4ad5-aad4-6dc85d8c80ec",
     "title": "Is Most Published Research Wrong?",
+    "slug": "most-published-research-wrong",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -826,6 +674,7 @@
   {
     "post_id": "a4056ce1-a7df-4699-ae18-37b85b3e1a63",
     "title": "How Brain Science Changes Computing",
+    "slug": "brain-science-changes-computing",
     "content_type": "video",
     "source": "TED",
     "areas": [],
@@ -844,6 +693,7 @@
   {
     "post_id": "8ee76935-9586-4b6a-92e7-9f144b2ed3a2",
     "title": "Sam Harris Roasts Trump",
+    "slug": "sam-harris-trump-roast",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -854,18 +704,7 @@
     "date_created": null,
     "date_posted": "2016-10-06",
     "link": "https://www.youtube.com/watch?v=3yBGE80covk",
-    "tags": [
-      "donald",
-      "trump",
-      "sam",
-      "harris",
-      "narcissism",
-      "politics",
-      "hillary",
-      "clinton",
-      "foreign",
-      "policy"
-    ],
+    "tags": ["donald", "trump", "sam", "harris", "narcissism", "politics", "hillary", "clinton", "foreign", "policy"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -873,6 +712,7 @@
   {
     "post_id": "7069a593-5137-40a1-93ab-1ad27f32c35f",
     "title": "The AI Alignment Problem",
+    "slug": "ai-alignment-problem",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -883,17 +723,7 @@
     "date_created": null,
     "date_posted": "2016-10-24",
     "link": "https://www.youtube.com/watch?v=8nt3edWLgIg",
-    "tags": [
-      "ted",
-      "sam",
-      "harris",
-      "ai",
-      "artificial",
-      "intelligence",
-      "neuroscience",
-      "philosophy",
-      "robots"
-    ],
+    "tags": ["ted", "sam", "harris", "ai", "artificial", "intelligence", "neuroscience", "philosophy", "robots"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -901,6 +731,7 @@
   {
     "post_id": "e3ffe9d4-8d86-4db6-aff2-d3d6c737a482",
     "title": "Do Cause and Effect Exist?",
+    "slug": "do-cause-and-effect-exist",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -911,17 +742,7 @@
     "date_created": null,
     "date_posted": "2016-10-24",
     "link": "https://www.youtube.com/watch?v=3AMCcYnAsdQ",
-    "tags": [
-      "minute",
-      "physics",
-      "cause",
-      "effect",
-      "science",
-      "nature",
-      "time",
-      "record",
-      "prediction"
-    ],
+    "tags": ["minute", "physics", "cause", "effect", "science", "nature", "time", "record", "prediction"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -929,6 +750,7 @@
   {
     "post_id": "5068c532-47af-4d3d-96d1-552a596ce94f",
     "title": "Abusing Dolores",
+    "slug": "abusing-dolores",
     "content_type": "audio",
     "source": "Sam Harris",
     "areas": [],
@@ -939,17 +761,7 @@
     "date_created": null,
     "date_posted": "2016-12-17",
     "link": "https://samharris.org/podcasts/abusing-dolores/",
-    "tags": [
-      "sam",
-      "harris",
-      "empathy",
-      "compassion",
-      "free",
-      "will",
-      "reason",
-      "ai",
-      "ethics"
-    ],
+    "tags": ["sam", "harris", "empathy", "compassion", "free", "will", "reason", "ai", "ethics"],
     "summary": null,
     "paid": true,
     "archived": false
@@ -957,6 +769,7 @@
   {
     "post_id": "339aa462-af69-448e-bf47-53141dac2948",
     "title": "Weird Surface Tension",
+    "slug": "weird-surface-tension",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -967,17 +780,7 @@
     "date_created": null,
     "date_posted": "2017-01-05",
     "link": "https://www.youtube.com/watch?v=2uWps9LczH8",
-    "tags": [
-      "bronze",
-      "surface",
-      "tension",
-      "sixty",
-      "symbols",
-      "physics",
-      "emergent",
-      "properties",
-      "science"
-    ],
+    "tags": ["bronze", "surface", "tension", "sixty", "symbols", "physics", "emergent", "properties", "science"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -985,6 +788,7 @@
   {
     "post_id": "7c3f345e-3601-475b-9d05-3bdcde24a5b3",
     "title": "The Simple Solution to Traffic",
+    "slug": "simple-solution-traffic",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -995,15 +799,7 @@
     "date_created": null,
     "date_posted": "2017-01-23",
     "link": "https://www.youtube.com/watch?v=iHzzSao6ypE",
-    "tags": [
-      "cars",
-      "autonomous",
-      "vehicles",
-      "driverless",
-      "traffic",
-      "cgp grey",
-      "emergence"
-    ],
+    "tags": ["cars", "autonomous", "vehicles", "driverless", "traffic", "cgp grey", "emergence"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1011,6 +807,7 @@
   {
     "post_id": "c3a5dc52-040f-425c-a364-3306807be4ec",
     "title": "Equal is Unfair",
+    "slug": "equal-is-unfair",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1021,17 +818,7 @@
     "date_created": null,
     "date_posted": "2017-02-14",
     "link": "https://www.youtube.com/watch?v=HtJwAYJ9B08",
-    "tags": [
-      "yaron",
-      "brook",
-      "ayn",
-      "rand",
-      "objectivism",
-      "exeter",
-      "equal",
-      "unfair",
-      "liberalism"
-    ],
+    "tags": ["yaron", "brook", "ayn", "rand", "objectivism", "exeter", "equal", "unfair", "liberalism"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1039,6 +826,7 @@
   {
     "post_id": "afbabe58-1b07-4a32-92a7-0f5a9c037a2f",
     "title": "Jazz Reharmonization",
+    "slug": "jazz-reharm",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["music"],
@@ -1057,6 +845,7 @@
   {
     "post_id": "5b6df8bd-040b-4b0b-95c9-bec6ae6143ce",
     "title": "Living with Robots",
+    "slug": "living-with-robots",
     "content_type": "audio",
     "source": "Sam Harris",
     "areas": [],
@@ -1087,6 +876,7 @@
   {
     "post_id": "e56a1c5b-a784-44fd-922f-b8c9975b13c2",
     "title": "Benford's Law",
+    "slug": "benfords-law",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1097,17 +887,7 @@
     "date_created": null,
     "date_posted": "2017-03-31",
     "link": "https://www.youtube.com/watch?v=XXjlR2OK1kM",
-    "tags": [
-      "benfords",
-      "law",
-      "numberphile",
-      "steve",
-      "mould",
-      "math",
-      "probability",
-      "statistics",
-      "distributions"
-    ],
+    "tags": ["benfords", "law", "numberphile", "steve", "mould", "math", "probability", "statistics", "distributions"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1115,6 +895,7 @@
   {
     "post_id": "24b608d5-1d08-4c54-bead-9574a3eea6a8",
     "title": "An Impossible Bet",
+    "slug": "an-impossible-bet",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1144,6 +925,7 @@
   {
     "post_id": "8d4d27b8-dfa1-4188-93a9-89b6202a2bb3",
     "title": "What is Technology Doing to Us?",
+    "slug": "technology-doing-to-us",
     "content_type": "audio",
     "source": "Sam Harris",
     "areas": [],
@@ -1172,6 +954,7 @@
   {
     "post_id": "866f7718-4d63-436b-ad11-c396d4a88f0c",
     "title": "Dabiq 15 Issue",
+    "slug": "dabiq-15-issue",
     "content_type": "article",
     "source": null,
     "areas": [],
@@ -1190,6 +973,7 @@
   {
     "post_id": "34a55758-f59a-4ae8-9301-f10b0a8f5f0a",
     "title": "Pi Hiding in Prime Regularities",
+    "slug": "pi-in-primes",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1200,16 +984,7 @@
     "date_created": null,
     "date_posted": "2017-05-21",
     "link": "https://www.youtube.com/watch?v=NaL_Cb42WyY",
-    "tags": [
-      "pi",
-      "primes",
-      "number theory",
-      "math",
-      "complex",
-      "numbers",
-      "riemann zeta function",
-      "3blue1brown"
-    ],
+    "tags": ["pi", "primes", "number theory", "math", "complex", "numbers", "riemann zeta function", "3blue1brown"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1217,6 +992,7 @@
   {
     "post_id": "652b1887-3b64-4a21-bf30-5f3a6400ae86",
     "title": "The Road to Tyranny",
+    "slug": "road-to-tyranny",
     "content_type": "audio",
     "source": "Sam Harris",
     "areas": [],
@@ -1244,6 +1020,7 @@
   {
     "post_id": "624755bf-3c0b-4e0c-8d99-a69708e4039e",
     "title": "Simpson's Paradox",
+    "slug": "simpsons-paradox",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1254,14 +1031,7 @@
     "date_created": null,
     "date_posted": "2017-10-24",
     "link": "https://www.youtube.com/watch?v=ebEkn-BiW5k",
-    "tags": [
-      "paradox",
-      "minute",
-      "physics",
-      "statistics",
-      "correlation",
-      "simpson's"
-    ],
+    "tags": ["paradox", "minute", "physics", "statistics", "correlation", "simpson's"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1269,6 +1039,7 @@
   {
     "post_id": "8eb98c97-e5ff-4436-b4fa-40bf92e838ff",
     "title": "Consciousness and the Self",
+    "slug": "consciousness-and-the-self",
     "content_type": "audio",
     "source": "Sam Harris",
     "areas": [],
@@ -1298,6 +1069,7 @@
   {
     "post_id": "374010ab-ad8e-4b62-b8a8-ef80c3fccb57",
     "title": "Racing Toward the Brink",
+    "slug": "racing-toward-the-brink",
     "content_type": "audio",
     "source": "Sam Harris",
     "areas": [],
@@ -1308,13 +1080,7 @@
     "date_created": null,
     "date_posted": "2018-02-17",
     "link": "https://samharris.org/podcasts/116-ai-racing-toward-brink/",
-    "tags": [
-      "ai",
-      "artificial intelligence",
-      "sam harris",
-      "alignment",
-      "eliezer yudkowsky"
-    ],
+    "tags": ["ai", "artificial intelligence", "sam harris", "alignment", "eliezer yudkowsky"],
     "summary": null,
     "paid": true,
     "archived": false
@@ -1322,6 +1088,7 @@
   {
     "post_id": "d98d7f7c-299a-4266-a97b-b4be55764a14",
     "title": "The Real Problem of Consciousness",
+    "slug": "real-problem-consciousness",
     "content_type": "article",
     "source": "Aeon",
     "areas": [],
@@ -1332,13 +1099,7 @@
     "date_created": null,
     "date_posted": "2018-02-22",
     "link": "https://aeon.co/essays/the-hard-problem-of-consciousness-is-a-distraction-from-the-real-one",
-    "tags": [
-      "anil seth",
-      "consciousness",
-      "self",
-      "neuroscience",
-      "prediction"
-    ],
+    "tags": ["anil seth", "consciousness", "self", "neuroscience", "prediction"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1346,6 +1107,7 @@
   {
     "post_id": "371f1417-cb58-4452-9e04-4d94be1cd8a1",
     "title": "The Science of Seeing",
+    "slug": "science-of-seeing",
     "content_type": "video",
     "source": "Daily Motion",
     "areas": [],
@@ -1356,14 +1118,7 @@
     "date_created": null,
     "date_posted": "2018-03-28",
     "link": "https://www.dailymotion.com/video/x6h9pjl",
-    "tags": [
-      "paradigms",
-      "science",
-      "sight",
-      "derek muller",
-      "plato",
-      "philosophy"
-    ],
+    "tags": ["paradigms", "science", "sight", "derek muller", "plato", "philosophy"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1371,6 +1126,7 @@
   {
     "post_id": "cc2c3e20-4dbf-4933-951a-9ea9fa54c85a",
     "title": "Your Brain is not a Computer",
+    "slug": "your-brain-not-computer",
     "content_type": "article",
     "source": "Aeon",
     "areas": [],
@@ -1398,6 +1154,7 @@
   {
     "post_id": "3f049fea-c32b-4bf0-b0fd-ba6332c95016",
     "title": "The Entropic Brain",
+    "slug": "entropic-brain",
     "content_type": "paper",
     "source": "Frontiers in Human Neuroscience",
     "areas": [],
@@ -1408,15 +1165,7 @@
     "date_created": null,
     "date_posted": "2018-04-09",
     "link": "https://www.frontiersin.org/articles/10.3389/fnhum.2014.00020/full",
-    "tags": [
-      "entropic",
-      "brain",
-      "neuroscience",
-      "consciousness",
-      "philosophy",
-      "psychedelics",
-      "entropy"
-    ],
+    "tags": ["entropic", "brain", "neuroscience", "consciousness", "philosophy", "psychedelics", "entropy"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1424,6 +1173,7 @@
   {
     "post_id": "317e8539-f4a3-4247-8424-44893535baa6",
     "title": "Information & Artificial Intelligence",
+    "slug": "information-and-ai",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1452,6 +1202,7 @@
   {
     "post_id": "c38beed7-37b1-4483-805a-4b9e7a383edc",
     "title": "The Personal Responsibility Vortex",
+    "slug": "personal-responsibility-vortex",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1481,6 +1232,7 @@
   {
     "post_id": "0517cf7d-c98c-4be8-9482-39e766cdfb02",
     "title": "Beyond the Higgs",
+    "slug": "beyond-the-higgs",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1491,16 +1243,7 @@
     "date_created": null,
     "date_posted": "2018-06-26",
     "link": "https://www.youtube.com/watch?v=edvdzh9Pggg",
-    "tags": [
-      "quantum",
-      "physics",
-      "higgs boson",
-      "lhc",
-      "particle",
-      "science",
-      "lepton",
-      "universality"
-    ],
+    "tags": ["quantum", "physics", "higgs boson", "lhc", "particle", "science", "lepton", "universality"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1508,6 +1251,7 @@
   {
     "post_id": "c1ae2b39-3743-4670-9c78-8a6661663123",
     "title": "Tech Companies Control Billions of Minds",
+    "slug": "tech-companies-control-minds",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1518,15 +1262,7 @@
     "date_created": null,
     "date_posted": "2018-07-03",
     "link": "https://www.youtube.com/watch?v=C74amJRp730",
-    "tags": [
-      "attention",
-      "tristan harris",
-      "social media",
-      "facebook",
-      "internet",
-      "wellbeing",
-      "design"
-    ],
+    "tags": ["attention", "tristan harris", "social media", "facebook", "internet", "wellbeing", "design"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1534,6 +1270,7 @@
   {
     "post_id": "9f5a5287-6385-4080-94f3-4af5fd02760c",
     "title": "How Elite Financial Networks Rule the World",
+    "slug": "elite-finance-networks",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1544,15 +1281,7 @@
     "date_created": null,
     "date_posted": "2018-08-09",
     "link": "https://www.youtube.com/watch?v=HNklBtyUZwo",
-    "tags": [
-      "networks",
-      "sandra navidi",
-      "economics",
-      "finance",
-      "politics",
-      "hubs",
-      "elite"
-    ],
+    "tags": ["networks", "sandra navidi", "economics", "finance", "politics", "hubs", "elite"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1560,6 +1289,7 @@
   {
     "post_id": "073a3bea-108d-473e-a9f9-4ec64b64599f",
     "title": "Gallon Smashing Prank",
+    "slug": "gallon-smashing-prank",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1578,6 +1308,7 @@
   {
     "post_id": "92a34a3c-8317-4de0-99d8-7b1a5ac6ac6a",
     "title": "The Master and His Emissary",
+    "slug": "master-and-emissary",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1588,16 +1319,7 @@
     "date_created": null,
     "date_posted": "2018-11-10",
     "link": "https://www.youtube.com/watch?v=xtf4FDlpPZ8",
-    "tags": [
-      "brain",
-      "neuroscience",
-      "hemispheres",
-      "chaos",
-      "meaning",
-      "purpose",
-      "orienting",
-      "philosophy"
-    ],
+    "tags": ["brain", "neuroscience", "hemispheres", "chaos", "meaning", "purpose", "orienting", "philosophy"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1605,6 +1327,7 @@
   {
     "post_id": "e3afba45-70bf-43b5-b745-3b603fdfc790",
     "title": "Genuine Conversation",
+    "slug": "genuine-conversation",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1615,14 +1338,7 @@
     "date_created": null,
     "date_posted": "2018-12-02",
     "link": "https://www.youtube.com/watch?v=tQGksc1I7rA",
-    "tags": [
-      "conversation",
-      "sovereignty",
-      "ideology",
-      "psychology",
-      "collaboration",
-      "jordan greenhall"
-    ],
+    "tags": ["conversation", "sovereignty", "ideology", "psychology", "collaboration", "jordan greenhall"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1630,6 +1346,7 @@
   {
     "post_id": "393feb57-6462-4b34-b236-62bcefda012f",
     "title": "Learning How To Learn",
+    "slug": "learning-how-to-learn",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1640,16 +1357,7 @@
     "date_created": null,
     "date_posted": "2018-12-08",
     "link": "https://www.youtube.com/watch?v=64HGcESw5-8",
-    "tags": [
-      "jordan greenhall",
-      "mastery",
-      "clarity",
-      "sovereignty",
-      "artfulness",
-      "learning",
-      "ai",
-      "deep code"
-    ],
+    "tags": ["jordan greenhall", "mastery", "clarity", "sovereignty", "artfulness", "learning", "ai", "deep code"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1657,6 +1365,7 @@
   {
     "post_id": "6b279e1a-e12f-4390-b32d-3dfb5cb62986",
     "title": "Non-Invasive Brain Surgery",
+    "slug": "non-invasive-brain-surgery",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1667,15 +1376,7 @@
     "date_created": null,
     "date_posted": "2018-12-11",
     "link": "https://www.youtube.com/watch?v=qQhUxd82Rr0",
-    "tags": [
-      "brain",
-      "surgery",
-      "veritasium",
-      "science",
-      "neuroscience",
-      "hippocampus",
-      "blood brain barrier"
-    ],
+    "tags": ["brain", "surgery", "veritasium", "science", "neuroscience", "hippocampus", "blood brain barrier"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1683,6 +1384,7 @@
   {
     "post_id": "4e486cf3-c164-498f-8d84-ec7d1f08bab7",
     "title": "Maybe Not",
+    "slug": "maybe-not",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1693,16 +1395,7 @@
     "date_created": null,
     "date_posted": "2018-12-11",
     "link": "https://www.youtube.com/watch?v=YR5WdGrpoug",
-    "tags": [
-      "programming",
-      "maybe",
-      "null",
-      "nullable",
-      "languages",
-      "clojure",
-      "haskell",
-      "optional"
-    ],
+    "tags": ["programming", "maybe", "null", "nullable", "languages", "clojure", "haskell", "optional"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1710,6 +1403,7 @@
   {
     "post_id": "e8d7e837-b540-4312-9398-87806d95b032",
     "title": "Rules to Live By",
+    "slug": "rules-to-live-by",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1720,16 +1414,7 @@
     "date_created": null,
     "date_posted": "2018-12-14",
     "link": "https://www.youtube.com/watch?v=AscPHmLWo-M",
-    "tags": [
-      "jordan peterson",
-      "psychology",
-      "archetypes",
-      "stories",
-      "esteem",
-      "religion",
-      "morality",
-      "politics"
-    ],
+    "tags": ["jordan peterson", "psychology", "archetypes", "stories", "esteem", "religion", "morality", "politics"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1737,6 +1422,7 @@
   {
     "post_id": "3f676c4d-aeb9-4747-8371-373aae339829",
     "title": "Existential Threat",
+    "slug": "existential-threat",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1747,16 +1433,7 @@
     "date_created": null,
     "date_posted": "2018-12-24",
     "link": "https://www.youtube.com/watch?v=IfoPitvLY7c",
-    "tags": [
-      "existential",
-      "threat",
-      "capitalism",
-      "politics",
-      "economics",
-      "game",
-      "theory",
-      "love"
-    ],
+    "tags": ["existential", "threat", "capitalism", "politics", "economics", "game", "theory", "love"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1764,6 +1441,7 @@
   {
     "post_id": "7631bacc-08c6-4af8-87f5-49125645d188",
     "title": "Apprehending the Transcendent",
+    "slug": "apprehending-transcendent",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1791,6 +1469,7 @@
   {
     "post_id": "19f6ca6f-1b08-49f4-9e2f-c59b1e40a6cc",
     "title": "The Geometry of Particle Physics",
+    "slug": "geometry-particle-physics",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1801,14 +1480,7 @@
     "date_created": null,
     "date_posted": "2019-01-03",
     "link": "https://www.youtube.com/watch?v=wfALJzn1hE8",
-    "tags": [
-      "physics",
-      "garrett lisi",
-      "math",
-      "nature",
-      "science",
-      "geometry"
-    ],
+    "tags": ["physics", "garrett lisi", "math", "nature", "science", "geometry"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1816,6 +1488,7 @@
   {
     "post_id": "0e581011-830f-4822-bb35-e3f0dc243225",
     "title": "The Future of War",
+    "slug": "future-of-war",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1826,15 +1499,7 @@
     "date_created": null,
     "date_posted": "2019-03-05",
     "link": "https://www.youtube.com/watch?v=qOTYgcdNrXE",
-    "tags": [
-      "intelligence",
-      "war",
-      "us military",
-      "smarter every day",
-      "cyber",
-      "russia",
-      "division"
-    ],
+    "tags": ["intelligence", "war", "us military", "smarter every day", "cyber", "russia", "division"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1842,6 +1507,7 @@
   {
     "post_id": "f714ac24-9ab3-4c7f-8785-cef43230ad55",
     "title": "The Information War",
+    "slug": "the-information-war",
     "content_type": "audio",
     "source": "Sam Harris",
     "areas": [],
@@ -1868,6 +1534,7 @@
   {
     "post_id": "f8a6e264-5662-426a-89d1-cff4dfb22cca",
     "title": "The Physics and Philosophy of Time",
+    "slug": "physics-philosophy-time",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1878,16 +1545,7 @@
     "date_created": null,
     "date_posted": "2019-03-23",
     "link": "https://www.youtube.com/watch?v=-6rWqJhDv7M",
-    "tags": [
-      "physics",
-      "time",
-      "carlo rovelli",
-      "quantum",
-      "thermodynamics",
-      "entropy",
-      "gravity",
-      "science"
-    ],
+    "tags": ["physics", "time", "carlo rovelli", "quantum", "thermodynamics", "entropy", "gravity", "science"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -1895,6 +1553,7 @@
   {
     "post_id": "81a4953f-f6e5-4552-ad5f-25ae3e7d791f",
     "title": "Revolutionary Ideas in Science, Math, and Society",
+    "slug": "revolutionary-ideas-science",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1925,6 +1584,7 @@
   {
     "post_id": "6d39cfcd-58ae-4317-ba53-7f7f619762d3",
     "title": "Manipulating the YouTube Algorithm",
+    "slug": "manipulating-youtube",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -1952,6 +1612,7 @@
   {
     "post_id": "a66adaba-bdff-4404-8dee-2a7d71190e66",
     "title": "Automated Machine Learning",
+    "slug": "automated-ml",
     "content_type": "audio",
     "source": "Microsoft",
     "areas": [],
@@ -1980,6 +1641,7 @@
   {
     "post_id": "8abe4045-4a61-4bc9-ae73-716e8419aadd",
     "title": "Competition is for Losers",
+    "slug": "competition-for-losers",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2008,6 +1670,7 @@
   {
     "post_id": "78dff263-2ab5-4c96-9365-7647374072af",
     "title": "Generative Adversarial Networks",
+    "slug": "generative-adversarial-networks",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2034,6 +1697,7 @@
   {
     "post_id": "90ba7007-e179-4b6b-821d-8ef6e83c92b1",
     "title": "Center For Humane Technology",
+    "slug": "center-for-humane-tech",
     "content_type": "video",
     "source": "Vimeo",
     "areas": [],
@@ -2061,6 +1725,7 @@
   {
     "post_id": "bc8944a6-a778-4763-991a-7d0cec321e3e",
     "title": "My Video Went Viral",
+    "slug": "my-video-went-viral",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2071,17 +1736,7 @@
     "date_created": null,
     "date_posted": "2019-05-19",
     "link": "https://www.youtube.com/watch?v=fHsa9DqmId8",
-    "tags": [
-      "click bait",
-      "veritasium",
-      "youtube",
-      "technology",
-      "ai",
-      "algorithm",
-      "internet",
-      "videos",
-      "content"
-    ],
+    "tags": ["click bait", "veritasium", "youtube", "technology", "ai", "algorithm", "internet", "videos", "content"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2089,6 +1744,7 @@
   {
     "post_id": "6a66aefb-72c2-4743-91c8-276af69fb5d1",
     "title": "Get a Spine!",
+    "slug": "get-a-spine",
     "content_type": "video",
     "source": "This American Life",
     "areas": [],
@@ -2116,6 +1772,7 @@
   {
     "post_id": "26b52e61-3e8a-49c6-bc9c-a19c49eafa0c",
     "title": "Eric Weinstein on Joe Rogan",
+    "slug": "weinstein-rogan-july-2019",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2126,14 +1783,7 @@
     "date_created": null,
     "date_posted": "2019-07-14",
     "link": "https://www.youtube.com/watch?v=_EWCN3CPhTI",
-    "tags": [
-      "eric weinstein",
-      "joe rogan",
-      "gauge theory",
-      "portal",
-      "source code",
-      "intelligence"
-    ],
+    "tags": ["eric weinstein", "joe rogan", "gauge theory", "portal", "source code", "intelligence"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2141,6 +1791,7 @@
   {
     "post_id": "493eaafc-e83a-4e7b-8b91-0def7c29c007",
     "title": "Living in the Age of AI",
+    "slug": "living-in-the-ai-age",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2151,15 +1802,7 @@
     "date_created": null,
     "date_posted": "2019-07-14",
     "link": "https://www.youtube.com/watch?v=ZJixNvx9BAc",
-    "tags": [
-      "wired",
-      "ai",
-      "machine learning",
-      "robots",
-      "self driving",
-      "big data",
-      "medicine"
-    ],
+    "tags": ["wired", "ai", "machine learning", "robots", "self driving", "big data", "medicine"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2167,6 +1810,7 @@
   {
     "post_id": "8ed35383-9b87-4395-9b45-7ab46d831e6e",
     "title": "Is Technology Killing Capitalism?",
+    "slug": "technology-killing-capitalism",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2177,15 +1821,7 @@
     "date_created": null,
     "date_posted": "2019-12-02",
     "link": "https://www.youtube.com/watch?v=SYsy6qbKp3Y",
-    "tags": [
-      "technology",
-      "capitalism",
-      "economics",
-      "automation",
-      "markets",
-      "innovation",
-      "eric weinstein"
-    ],
+    "tags": ["technology", "capitalism", "economics", "automation", "markets", "innovation", "eric weinstein"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2193,6 +1829,7 @@
   {
     "post_id": "eb101988-e6d1-4acc-a099-20d4d99112d5",
     "title": "Graph Embeddings and Self-Supervised Learning",
+    "slug": "graph-embeddings",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2203,15 +1840,7 @@
     "date_created": null,
     "date_posted": "2019-12-02",
     "link": "https://www.youtube.com/watch?v=UGPT64wo7lU",
-    "tags": [
-      "graph",
-      "embedding",
-      "machine",
-      "learning",
-      "vector",
-      "representation",
-      "yann lecun"
-    ],
+    "tags": ["graph", "embedding", "machine", "learning", "vector", "representation", "yann lecun"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2219,6 +1848,7 @@
   {
     "post_id": "3e3d3da4-9fc4-415a-a577-e1c58d6334c6",
     "title": "The Ethereal Prince and His Virtual Machine",
+    "slug": "ethereal-prince-vm",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2229,14 +1859,7 @@
     "date_created": null,
     "date_posted": "2019-12-13",
     "link": "https://www.youtube.com/watch?v=8TwNNgiNZ7Y",
-    "tags": [
-      "vitalik buterin",
-      "the portal",
-      "eric weinstein",
-      "crypto",
-      "economics",
-      "technology"
-    ],
+    "tags": ["vitalik buterin", "the portal", "eric weinstein", "crypto", "economics", "technology"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2244,6 +1867,7 @@
   {
     "post_id": "f1e7d03e-33b1-4c08-89f0-a470840da7c8",
     "title": "Regression to the Mean",
+    "slug": "regression-to-the-mean",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2254,16 +1878,7 @@
     "date_created": null,
     "date_posted": "2019-12-26",
     "link": "https://www.youtube.com/watch?v=1tSqSMOyNFE",
-    "tags": [
-      "veritasium",
-      "regression",
-      "mean",
-      "math",
-      "statistics",
-      "reasoning",
-      "logic",
-      "gamblers fallacy"
-    ],
+    "tags": ["veritasium", "regression", "mean", "math", "statistics", "reasoning", "logic", "gamblers fallacy"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2271,6 +1886,7 @@
   {
     "post_id": "04fbfca5-2e7b-4d4f-bf61-7bb6367b12d2",
     "title": "AI Can Now Self-Reproduce",
+    "slug": "ai-self-reproduce",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2281,15 +1897,7 @@
     "date_created": null,
     "date_posted": "2019-12-26",
     "link": "https://www.youtube.com/watch?v=Wu8s0tp9yzY",
-    "tags": [
-      "eric weinstein",
-      "replicator",
-      "ai",
-      "systems",
-      "outtelligence",
-      "computers",
-      "evolution"
-    ],
+    "tags": ["eric weinstein", "replicator", "ai", "systems", "outtelligence", "computers", "evolution"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2297,6 +1905,7 @@
   {
     "post_id": "bbc06d4e-f5cd-4503-b175-4cfb6b27e679",
     "title": "How do you explain consciousness?",
+    "slug": "how-explain-consciousness",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2307,16 +1916,7 @@
     "date_created": null,
     "date_posted": "2020-01-09",
     "link": "https://www.youtube.com/watch?v=uhRhtFFhNzQ",
-    "tags": [
-      "david chalmers",
-      "consciousness",
-      "panpsychism",
-      "iit",
-      "psychology",
-      "neuroscience",
-      "physics",
-      "ted"
-    ],
+    "tags": ["david chalmers", "consciousness", "panpsychism", "iit", "psychology", "neuroscience", "physics", "ted"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2324,6 +1924,7 @@
   {
     "post_id": "eeba9a1a-76aa-477e-9414-c1666d805861",
     "title": "Quantum Quantum",
+    "slug": "quantum-quantum",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2334,14 +1935,7 @@
     "date_created": null,
     "date_posted": "2020-01-09",
     "link": "https://www.youtube.com/watch?v=odLukIWWLfQ",
-    "tags": [
-      "simulation",
-      "nuclear",
-      "health care",
-      "quantum",
-      "paul collider",
-      "future"
-    ],
+    "tags": ["simulation", "nuclear", "health care", "quantum", "paul collider", "future"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2349,6 +1943,7 @@
   {
     "post_id": "cf089ab4-8930-43aa-88d9-1ad9d2e21b63",
     "title": "How China Tracks Everyone",
+    "slug": "china-tracks-everyone",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2359,16 +1954,7 @@
     "date_created": null,
     "date_posted": "2020-01-09",
     "link": "https://www.youtube.com/watch?v=CLo3e1Pak-Y",
-    "tags": [
-      "china",
-      "surveillance",
-      "ai",
-      "machine learning",
-      "skynet",
-      "facial recognition",
-      "regulation",
-      "law"
-    ],
+    "tags": ["china", "surveillance", "ai", "machine learning", "skynet", "facial recognition", "regulation", "law"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2376,6 +1962,7 @@
   {
     "post_id": "e1ea8f9f-0365-4c8b-8aca-283893909759",
     "title": "Science & Absolute Truth",
+    "slug": "science-absolute-truth",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2386,15 +1973,7 @@
     "date_created": null,
     "date_posted": "2020-01-22",
     "link": "https://www.youtube.com/watch?v=u0LIZV5H8bs",
-    "tags": [
-      "karl popper",
-      "philosophy",
-      "science",
-      "truth",
-      "theories",
-      "falsifiability",
-      "epistemology"
-    ],
+    "tags": ["karl popper", "philosophy", "science", "truth", "theories", "falsifiability", "epistemology"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2402,6 +1981,7 @@
   {
     "post_id": "1f7e49f1-d627-4cee-a22e-c5375672f1b4",
     "title": "This Equation Will Change How You See the World",
+    "slug": "equation-change-see-world",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2429,6 +2009,7 @@
   {
     "post_id": "5bfa6dee-82c6-4813-8da2-0b107a725973",
     "title": "Every Melody Has Been Copyrighted",
+    "slug": "every-melody-copyrighted",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["music", "law"],
@@ -2439,15 +2020,7 @@
     "date_created": null,
     "date_posted": "2020-02-14",
     "link": "https://www.youtube.com/watch?v=sfXn_ecH5Rw",
-    "tags": [
-      "music",
-      "copyright",
-      "adam neely",
-      "samples",
-      "melody",
-      "law",
-      "legal"
-    ],
+    "tags": ["music", "copyright", "adam neely", "samples", "melody", "law", "legal"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2455,6 +2028,7 @@
   {
     "post_id": "ed233a38-4482-4541-9a32-acbb008ebce2",
     "title": "Simulating an Epidemic",
+    "slug": "simulating-epidemic",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2465,13 +2039,7 @@
     "date_created": null,
     "date_posted": "2020-03-28",
     "link": "https://www.youtube.com/watch?v=gxAaO2rsdIs",
-    "tags": [
-      "3blue1brown",
-      "grant sanderson",
-      "covid19",
-      "pandemic",
-      "sir model"
-    ],
+    "tags": ["3blue1brown", "grant sanderson", "covid19", "pandemic", "sir model"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2479,6 +2047,7 @@
   {
     "post_id": "ef7a3837-04ff-4d30-a7b6-d39be411a91e",
     "title": "The Prediction and the DISC",
+    "slug": "prediction-and-disc",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2489,13 +2058,7 @@
     "date_created": null,
     "date_posted": "2020-03-28",
     "link": "https://www.youtube.com/watch?v=JLb5hZLw44s",
-    "tags": [
-      "the portal",
-      "mice",
-      "genetics",
-      "eric weinstein",
-      "bret weinstein"
-    ],
+    "tags": ["the portal", "mice", "genetics", "eric weinstein", "bret weinstein"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2503,6 +2066,7 @@
   {
     "post_id": "e4f31773-dc7b-45db-8450-1d7e420e24b2",
     "title": "Half the Universe was Missing",
+    "slug": "half-universe-missing",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2513,15 +2077,7 @@
     "date_created": null,
     "date_posted": "2020-08-03",
     "link": "https://www.youtube.com/watch?v=Kp_kqamkYpw",
-    "tags": [
-      "veritasium",
-      "universe",
-      "cosmology",
-      "dark matter",
-      "whim",
-      "astronomy",
-      "stars"
-    ],
+    "tags": ["veritasium", "universe", "cosmology", "dark matter", "whim", "astronomy", "stars"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2529,6 +2085,7 @@
   {
     "post_id": "f9018815-f502-4c76-ac6c-0341afad5012",
     "title": "UBI and Collective Intelligence",
+    "slug": "ubi-collective-intelligence",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2539,16 +2096,7 @@
     "date_created": null,
     "date_posted": "2020-08-05",
     "link": "https://www.youtube.com/watch?v=x4l0W5RUhMI",
-    "tags": [
-      "jordan greenhall",
-      "distributed",
-      "markets",
-      "ubi",
-      "collective",
-      "intelligence",
-      "signal",
-      "capitalism"
-    ],
+    "tags": ["jordan greenhall", "distributed", "markets", "ubi", "collective", "intelligence", "signal", "capitalism"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2556,6 +2104,7 @@
   {
     "post_id": "cdeb3654-b699-43bd-9896-2ce652c45918",
     "title": "Can We Pull Back From The Brink?",
+    "slug": "pull-back-from-the-brink",
     "content_type": "audio",
     "source": "YouTube",
     "areas": [],
@@ -2566,14 +2115,7 @@
     "date_created": null,
     "date_posted": "2020-08-05",
     "link": "https://www.youtube.com/watch?v=vmgxtcbc4iU",
-    "tags": [
-      "race",
-      "black lives matter",
-      "blm",
-      "police violence",
-      "america",
-      "cops"
-    ],
+    "tags": ["race", "black lives matter", "blm", "police violence", "america", "cops"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2581,6 +2123,7 @@
   {
     "post_id": "069ecb8c-d02c-4151-a177-5162794453b5",
     "title": "The Failure of Meritocracy",
+    "slug": "failure-of-meritocracy",
     "content_type": "audio",
     "source": "YouTube",
     "areas": [],
@@ -2599,6 +2142,7 @@
   {
     "post_id": "8ed9d3f2-eab0-4380-a579-ba330673dcea",
     "title": "How to Increase Productivity",
+    "slug": "how-increase-productivity",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["art", "business"],
@@ -2609,14 +2153,7 @@
     "date_created": null,
     "date_posted": "2020-08-11",
     "link": "https://www.youtube.com/watch?v=5EuWCFCgy58",
-    "tags": [
-      "publishing",
-      "art",
-      "funnel",
-      "practice",
-      "success",
-      "productivity"
-    ],
+    "tags": ["publishing", "art", "funnel", "practice", "success", "productivity"],
     "summary": "Publishing is a style of working and an attitude. Working to public forces you to work on the stuff that matters and squashes the obsessive desires to stick on the little things. Working to publish is the opposite of working for pleasure. Working for pleasure is self-indulgent and a luxury that is inwardly focused rather than giving to others. The world is made of funnels. Every step of every multistep business process there is lots of drop off, reasonably high percentage of failure. Working to publish gives you a huge top layer of the funnel. You can't choose what you're famous for, it's a funnel, a numbers game.",
     "paid": false,
     "archived": false
@@ -2624,6 +2161,7 @@
   {
     "post_id": "90d10aad-dac3-4d1f-b4fe-adb0d8982422",
     "title": "Squares and Tilings",
+    "slug": "squares-tilings",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["mathematics"],
@@ -2634,16 +2172,7 @@
     "date_created": null,
     "date_posted": "2020-08-12",
     "link": "https://www.youtube.com/watch?v=Rpjab--XQ0U",
-    "tags": [
-      "discrete",
-      "function",
-      "harmonic",
-      "tiling",
-      "graph",
-      "geometry",
-      "dual",
-      "math"
-    ],
+    "tags": ["discrete", "function", "harmonic", "tiling", "graph", "geometry", "dual", "math"],
     "summary": "A square tiling is a tiling of the plane only using different sized squares. You can represent a square tiling (with no information lost) using a graph where horizontal lines become vertices, vertical lines become faces of the graph, and squares of the square tiling become edges in the graph. The value at one graph vertex is the average of the neighbors. By turning the square tiling by 90 degrees and performing the same operation we get the dual graph of the original graph (vertices and faces are swapped). The harmonic function applied to the graph shows that the square edge heights in the tiling can be averaged to get other edge heights. This function can be applied to a graph, giving a discrete function, but as the number of graph vertices grows to infinity, as the tiling covers the whole plane, the harmonic function becomes continuous. A lot of physics is about taking things that are discrete at the micro level and discovering properties of the continuous function at macro levels.",
     "paid": false,
     "archived": false
@@ -2651,6 +2180,7 @@
   {
     "post_id": "b0ccda7b-95ec-476e-86db-a8a49165255c",
     "title": "What Makes People Engage With Math",
+    "slug": "why-engage-with-math",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["mathematics"],
@@ -2661,16 +2191,7 @@
     "date_created": null,
     "date_posted": "2020-08-19",
     "link": "https://www.youtube.com/watch?v=s_L-fp8gDzY",
-    "tags": [
-      "math",
-      "excitement",
-      "fourier",
-      "grant sanderson",
-      "3blue1brown",
-      "geometry",
-      "pi",
-      "education"
-    ],
+    "tags": ["math", "excitement", "fourier", "grant sanderson", "3blue1brown", "geometry", "pi", "education"],
     "summary": "Grant Sanderson of 3Blue1Brown explains what can make math more engaging. The Fourier transform (video #4) formula requires calculus with complex numbers. Starting with an intuitive explanation can help the math come across more easily when you dive into the complex, intimidating formalisms. The same goes for neural nets (video #2) Relevance - whether people believe math is useful - can definitely make people engage with math, but it's not the full picture. Colliding blocks counting out pi and whether a random tetrahedron inside a sphere contains the center of that sphere (videos #3 and #1) seem completely useless. Math made useful is like going to the gym, it's not fun but you know what you're getting for it. You don't ask when Harry Potter spells will be useful. Fiction isn't useful, but it's still compelling. G.H. Hardy - trivial mathematics is much more useful than complex math. The most popular math communicators leverage the power of story. Imagining you could solve the hardest problem on the hardest test puts you in the shoes of a math protagonist. Compelling math comes from intertwining usefulness and good storytelling.",
     "paid": false,
     "archived": false
@@ -2678,6 +2199,7 @@
   {
     "post_id": "b4bc11fa-2b7b-49e9-8b01-7d64538be253",
     "title": "Information, Evolution, and Intelligent Design",
+    "slug": "info-evo-intel-design",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2688,16 +2210,7 @@
     "date_created": null,
     "date_posted": "2020-08-19",
     "link": "https://www.youtube.com/watch?v=AZX6awZq5Z0",
-    "tags": [
-      "intelligence",
-      "philosophy",
-      "biology",
-      "information",
-      "design",
-      "complexity",
-      "purpose",
-      "evolution"
-    ],
+    "tags": ["intelligence", "philosophy", "biology", "information", "design", "complexity", "purpose", "evolution"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2705,6 +2218,7 @@
   {
     "post_id": "6d9972d5-c06e-4449-97eb-229addaf5c02",
     "title": "Group Theory and the Monster Group",
+    "slug": "the-monster-group",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["mathematics"],
@@ -2715,16 +2229,7 @@
     "date_created": null,
     "date_posted": "2020-08-19",
     "link": "https://www.youtube.com/watch?v=mH0oCDa74tE",
-    "tags": [
-      "group theory",
-      "isomorphism",
-      "math",
-      "symmetry",
-      "permutation",
-      "physics",
-      "rotation",
-      "monster"
-    ],
+    "tags": ["group theory", "isomorphism", "math", "symmetry", "permutation", "physics", "rotation", "monster"],
     "summary": "Group theory is inextricably linked to symmetry and in turn to fundamental physics through universal laws of conservation. It lets us abstract the idea of symmetry actions away from the symmetry of any one object - groups : symmetry actions :: numbers : counts. Two groups can be considered the same if there is an isomorphism between them. Finite groups can be thought of as falling roughly in simple groups and combinations of simple groups. Simple groups have been categorized into 18 infinite group families (16 Lie groups) and 26 sporadic groups. One of these sporadic groups is called the Monster group and it acts on very high dimensional elements. Fundamental objects are not necessarily simple.",
     "paid": false,
     "archived": false
@@ -2732,6 +2237,7 @@
   {
     "post_id": "3b3de565-290b-4d65-8df9-2df216ef9b92",
     "title": "If Brains are Computers, Who Designs the Software?",
+    "slug": "designing-brain-software",
     "content_type": "video",
     "source": "YouTube",
     "areas": [],
@@ -2742,16 +2248,7 @@
     "date_created": null,
     "date_posted": "2020-08-22",
     "link": "https://www.youtube.com/watch?v=TTFoJQSd48c",
-    "tags": [
-      "philosophy",
-      "brain",
-      "computer",
-      "evolution",
-      "memes",
-      "cognition",
-      "thinking",
-      "design"
-    ],
+    "tags": ["philosophy", "brain", "computer", "evolution", "memes", "cognition", "thinking", "design"],
     "summary": null,
     "paid": false,
     "archived": false
@@ -2759,6 +2256,7 @@
   {
     "post_id": "4326dc4d-cf42-424f-aed2-05d37d23e64d",
     "title": "Free Will Revisited",
+    "slug": "free-will-revisited",
     "content_type": "audio",
     "source": "Sam Harris",
     "areas": ["philosophy"],
@@ -2769,17 +2267,7 @@
     "date_created": null,
     "date_posted": "2020-08-26",
     "link": "https://samharris.org/podcasts/free-will-revisited/",
-    "tags": [
-      "philosophy",
-      "free will",
-      "agency",
-      "golf",
-      "tiger woods",
-      "morality",
-      "freedom",
-      "control",
-      "luck"
-    ],
+    "tags": ["philosophy", "free will", "agency", "golf", "tiger woods", "morality", "freedom", "control", "luck"],
     "summary": "Is there a strong case for compatibilism? Sam Harris confronts Daniel Dennett on his view of free will, accusing him of redefining the term. Dennett responds that he chooses to focus on the part of free will that is scientifically and morally useful rather than the part that people might really care about. The two go back and forth on the case of Tiger Woods, where he is the most responsible person in the world for missing an easy putt (given how much control he has) and yet his missing a putt actually says the least about him. Dennett argues that free will is the extent of an agent's control over its surroundings - degrees of freedom. What does it mean that someone \"could have done otherwise\" and is it a useful or deceptive thinking tool?",
     "paid": true,
     "archived": false
@@ -2787,6 +2275,7 @@
   {
     "post_id": "878a0077-13f4-44a6-886e-ecb07ae6fac6",
     "title": "Is Success Luck or Hard Work?",
+    "slug": "success-luck-hard-work",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["philosophy", "psychology"],
@@ -2797,15 +2286,7 @@
     "date_created": null,
     "date_posted": "2020-08-31",
     "link": "https://www.youtube.com/watch?v=3LopI4YeC4I",
-    "tags": [
-      "philosophy",
-      "bias",
-      "luck",
-      "skill",
-      "success",
-      "altruism",
-      "competition"
-    ],
+    "tags": ["philosophy", "bias", "luck", "skill", "success", "altruism", "competition"],
     "summary": "You need both skill and luck to succeed. The importance of luck increases as the number of competing individuals increases. People tend to credit their own success to hard work rather than luck, therefore feeling like they need to give back less. First, in order to succeed, you have to believe you are in control of your destiny. But second, you need to know that luck actually plays a significant role and you should do your best to increase the luck of others.",
     "paid": false,
     "archived": false
@@ -2813,6 +2294,7 @@
   {
     "post_id": "747a01f6-924b-43d4-9bb7-d846defa048c",
     "title": "TREE vs Graham's Number",
+    "slug": "tree-vs-graham",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["mathematics"],
@@ -2841,6 +2323,7 @@
   {
     "post_id": "49e31e00-bf58-4a8e-aecb-8c5d657efdd2",
     "title": "Inside Mark Zuckerberg's Lost Notebook",
+    "slug": "zuckerberg-lost-notebook",
     "content_type": "article",
     "source": "WIRED",
     "areas": ["business", "technology"],
@@ -2851,14 +2334,7 @@
     "date_created": null,
     "date_posted": "2020-08-31",
     "link": "https://www.wired.com/story/facebook-mark-zuckerberg-lost-notebook/",
-    "tags": [
-      "facebook",
-      "mark zuckerberg",
-      "notebook",
-      "privacy",
-      "technology",
-      "business"
-    ],
+    "tags": ["facebook", "mark zuckerberg", "notebook", "privacy", "technology", "business"],
     "summary": "While Mark Zuckerberg has destroyed many of his handwritten plans from Facebook's early days, 17 pages remain intact, pages part of the journal named \"Book of Change\" which detail Mark's plan for the future of his company. Two ideas meticulously documented in these pages were Open Registration and Feed. Mark grappled with whether to allow just anyone on Facebook, destroying it's gated nature and perceived privacy. He debated \"Dark Profiles\" where people could set up placeholder accounts for their friends and family, a feature which would be seriously considered among Facebook employees for a time. Feed was released as \"News Feed\" and users loudly expressed disaproval about the felt decline in privacy, with the most private personal updates hitting others' News Feeds like tabloids. However, usage numbers told a different story with time-on-site skyrocketing - the personalized recommendations would become a core part of the platform. A controversial feature \"Beacon\" tracked - and then broadcast - purchases on the web. Mark today says he believes Facebook continues to help people and is moving in the right direction, though some innevitable mistakes were made along the way.",
     "paid": false,
     "archived": false
@@ -2866,6 +2342,7 @@
   {
     "post_id": "155eccdd-d45c-417d-8fa5-471d013076f0",
     "title": "Mr. Rogers' Music Was Way More Intricate Than You Remember",
+    "slug": "mr-rogers-music-intricate",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["music"],
@@ -2876,14 +2353,7 @@
     "date_created": null,
     "date_posted": "2020-09-12",
     "link": "https://www.youtube.com/watch?v=Z40SZ77CHK0",
-    "tags": [
-      "jazz",
-      "music",
-      "fred rogers",
-      "johnny costa",
-      "education",
-      "culture"
-    ],
+    "tags": ["jazz", "music", "fred rogers", "johnny costa", "education", "culture"],
     "summary": "When Fred Rogers was starting his show the music budget was very small. He hired Johnny Costa for just $5000. Costa needed the money for his daughter's college education, but he considered himself a serious jazz musician and did not intend to change his style for kids. Mister Rogers' Neighborhood didn't try to dumb down music for kids. Even during the middle of episodes, the show used complex jazz music to express emotional moments. Rogers and Costa believed that even if kids might not like every bit of what they hear, at least they will be exposed to real music.",
     "paid": false,
     "archived": false
@@ -2891,6 +2361,7 @@
   {
     "post_id": "abae0d0d-6898-4e6e-9476-6586b1977787",
     "title": "A Better Description of Entropy",
+    "slug": "better-description-entropy",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["physics"],
@@ -2901,16 +2372,7 @@
     "date_created": "2016-10-13",
     "date_posted": "2020-09-13",
     "link": "https://www.youtube.com/watch?v=w2iTCm0xpDc",
-    "tags": [
-      "stirling engine",
-      "entropy",
-      "disorder",
-      "time",
-      "heat",
-      "change",
-      "molecules",
-      "complexity"
-    ],
+    "tags": ["stirling engine", "entropy", "disorder", "time", "heat", "change", "molecules", "complexity"],
     "summary": "The common definition of entropy is disorder, but another way to think about it is a difference in how clumped together energy is. In a closed system energy will always spread out. This is also a statistical phenomenon. There are very few ways to arrange a set of red and blue balls so that the two colors are separated compared to all other arrangements. It's possible that the balls would sort themselves spontaneously, but it's so unlikely that we never see it. Time can be considered an emergent property of this statistical fact. Time could go in reverse, but it's statistically so unlikely that it never does so in practice.",
     "paid": false,
     "archived": false
@@ -2918,6 +2380,7 @@
   {
     "post_id": "8fa53e7c-c4c2-4dd8-9bfd-bde64cec9070",
     "title": "Bayes' Theorem",
+    "slug": "bayes-theorem",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["mathematics"],
@@ -2945,6 +2408,7 @@
   {
     "post_id": "6a55b499-e868-4723-89d4-ed42815c1902",
     "title": "Why Pop Music is Obsessed With This One Note",
+    "slug": "pop-music-obsessed-note",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["music"],
@@ -2955,16 +2419,7 @@
     "date_created": "2019-09-17",
     "date_posted": "2020-09-20",
     "link": "https://www.youtube.com/watch?v=tR32h5jhPtU",
-    "tags": [
-      "music",
-      "theory",
-      "supertonic",
-      "pop",
-      "diatonic",
-      "chords",
-      "culture",
-      "art"
-    ],
+    "tags": ["music", "theory", "supertonic", "pop", "diatonic", "chords", "culture", "art"],
     "summary": "Pop music has been using one melodic device extensively over the past few years. Sitting on the supertonic is a sound/style that is really easy to work with. The note above the tonic, D in the key of C for example, will be consonant with any diatonic chord. It's also just one note away from two other notes that are very easy to resolve to. Many pop songs will repeat the supertonic and easily resolve at any moment to either the tonic or the mediant. The Weeknd may do this more often than any other popular modern artist, but recent music by Post Malone, Katy Perry, Haim, Rhihanna, Justin Timberlake, Zedd, Daft Punk, Taylor Swift, DNCE, The 1975, Glass Animals, Dua Lipa, and Jacob Collier also uses the same technique.",
     "paid": false,
     "archived": false
@@ -2972,6 +2427,7 @@
   {
     "post_id": "b9691750-511e-4dc0-8de1-9001473e0f38",
     "title": "The Pattern That Never Repeats",
+    "slug": "pattern-never-repeats",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["complexity", "mathematics"],
@@ -2982,16 +2438,7 @@
     "date_created": "2019-09-26",
     "date_posted": "2020-09-28",
     "link": "https://www.youtube.com/watch?v=48sCx-wBs34",
-    "tags": [
-      "pattern",
-      "periodic",
-      "crystal",
-      "penrose",
-      "symmetry",
-      "infinity",
-      "pentagon",
-      "geometry"
-    ],
+    "tags": ["pattern", "periodic", "crystal", "penrose", "symmetry", "infinity", "pentagon", "geometry"],
     "summary": "Is there an aperiodic tiling of the plane? Sir Roger Penrose found an aperiodic tiling with just two shapes. Overlaying two Penrose tilings shows Moire patterns of interference that gives some intuitive evidence for aperiodicity. Another two-tile aperiodic tiling uses kites and darts rather than pentagons, rhombuses, and crowns. While there is one set of rules for a Penrose tiling, there exists an uncountably large number of possible tilings. Because each tiling is infinite you can't prove whether one section of a tiling is taken from a different section of another. The ratio of kites to darts approaches the golden ratio, which is closely related to the five-fold symmetry in the Penrose pattern. While crystals can form locally, Penrose tilings require long-range coordination, so people thought that natural crystals couldn't form this way. However these structures have been created experimentally and are now called quasi-crystals.",
     "paid": false,
     "archived": false
@@ -2999,6 +2446,7 @@
   {
     "post_id": "27b2b652-9e7f-496d-aa19-6490a3648dc8",
     "title": "Levitating Silicone Oil",
+    "slug": "levitate-silicone-oil",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["physics"],
@@ -3009,16 +2457,7 @@
     "date_created": "2019-10-08",
     "date_posted": "2020-10-08",
     "link": "https://www.youtube.com/watch?v=gMAKamGIiMc",
-    "tags": [
-      "buoyancy",
-      "pendulum",
-      "surface tension",
-      "gravity",
-      "force",
-      "pressure",
-      "torque",
-      "equilibrium"
-    ],
+    "tags": ["buoyancy", "pendulum", "surface tension", "gravity", "force", "pressure", "torque", "equilibrium"],
     "summary": "Liquid will fall to the bottom of a jar when the jar is turned upside-down. It is an unstable equilibrium where some perturbation on the surface of the liquid allows gravity to pull the liquid down starting from that initial site. However, if you vibrate the jar at the right frequency, the liquid will stay in place. This can be understood by analogy to an upside-down pendulum. A downward acceleration on an upside-down pendulum will apply a torque toward the equilibrium position. The opposite upward acceleration applies a torque away from the equilibrium position, but that torque is smaller as the pendulum is more upright after the first torque was applied. In the liquid experiment, the downward acceleration of the liquid causes the surface to flatten and the upload acceleration exaggerates perturbations, but less than the flattening. This results in a ratcheting effect and turns the unstable equilibrium into a stable equilibrium.",
     "paid": false,
     "archived": false
@@ -3026,6 +2465,7 @@
   {
     "post_id": "a17ec7e8-a05d-4bc9-b7fc-d0f621e1bed6",
     "title": "Why Isn't Functional Programming the Norm?",
+    "slug": "functional-programming-norm",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["computers"],
@@ -3036,16 +2476,7 @@
     "date_created": "2019-09-30",
     "date_posted": "2020-10-14",
     "link": "https://www.youtube.com/watch?v=QyJZzq0v7Z4",
-    "tags": [
-      "programming",
-      "languages",
-      "object oriented",
-      "computers",
-      "history",
-      "success",
-      "design",
-      "popularity"
-    ],
+    "tags": ["programming", "languages", "object oriented", "computers", "history", "success", "design", "popularity"],
     "summary": "Why are the top ten most popular languages object oriented rather than functional? There are three main reasons languages blow up: killer app (PHP/dynamic HTML, Java applets/web, Ruby/rails, C/OS, JavaScript/web), exclusivity on large platforms (Objective-C/Apple, Swift/Apple, C#/Windows), great advertising (Java). Python is an exception that has just gained popularity slowly over time by being well-designed. How easy it is to migrate to a new language is also important, but not the thing that really catapults a language into the top ten. What makes an OO language OO? Inheritance? Methods? Modules? It's not clear exactly what makes an OO language OO. But inheritance is not considered a best practice (composition over inheritance). Methods are really just syntactic sugar around structs and functions. Many languages have module systems with information hiding. Before Stroustrup made C++ he made \"C with classes\" which didn't do well. When he added a ton more features, then C++ did well. The success of OO languages seems to be an accident of history.",
     "paid": false,
     "archived": false
@@ -3053,6 +2484,7 @@
   {
     "post_id": "8b37da38-07fe-4ad7-8db2-6daa2101810a",
     "title": "Why No One Has Measured the Speed of Light",
+    "slug": "measure-speed-of-light",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["physics"],
@@ -3063,16 +2495,7 @@
     "date_created": "2020-10-31",
     "date_posted": "2020-10-31",
     "link": "https://www.youtube.com/watch?v=pTn6Ewhb27k",
-    "tags": [
-      "light",
-      "physics",
-      "relativity",
-      "convention",
-      "mirrors",
-      "experiment",
-      "plants",
-      "astronomy"
-    ],
+    "tags": ["light", "physics", "relativity", "convention", "mirrors", "experiment", "plants", "astronomy"],
     "summary": "Measuring the two way speed of light is easy theoretically with a clock, a mirror, and a light sensor. We currently define the speed of light to be 299,792,458 m/s. And meters are also defined now in terms of the speed of light. But we've never been able to measure the one way speed of light because you would need two clocks perfectly synchronized in two places which we can't do because of general relativity. As far as physics knows, it's possible that light travels in different speeds going different directions. The speed of light (c) in all directions is actually a convention.",
     "paid": false,
     "archived": false
@@ -3080,6 +2503,7 @@
   {
     "post_id": "4184b777-5594-4261-8981-9ea9004270b7",
     "title": "Computing, Interactive AI, and Race in America",
+    "slug": "computing-ai-race-america",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["philosophy", "computers", "justice"],
@@ -3090,16 +2514,7 @@
     "date_created": "2020-11-01",
     "date_posted": "2020-11-01",
     "link": "https://www.youtube.com/watch?v=LAyZ8IYfGxQ",
-    "tags": [
-      "outliers",
-      "ai",
-      "google",
-      "academia",
-      "models",
-      "disciplines",
-      "race",
-      "machine learning"
-    ],
+    "tags": ["outliers", "ai", "google", "academia", "models", "disciplines", "race", "machine learning"],
     "summary": "People are generally extremely predictable. And those that are outliers are often surprisingly similar to each other. While information silos can cause ideogological differences, what they create more of are differences in how we use language, leading to groups talking past each other. Machine learning is just one piece of AI and one important thing ML misses is being intelligent around other intelligent beings, social learning. Being intelligent alone is meaningless. Both research and industry have short term incentives; In order to get at real intelligence we'll need to take some risks and put an agent out in the chaotic world for an extended period of time. Google didn't come out of no where to solve the question answering problem. They actually changed the problem to minimize false positives given many potential answers. Google doesn't have to give THE answer, just a few high probability answers ranked above lower ones. And then humans had to train to query effectively. The same problem exists in hiring professors: adding noise to your search is too expensive, so you have to just widen your pool of applicants to have a higher chance to find someone good. Tenure isn't a test it's a training process. Ranking colleges on anything other than prestige/narrative is impossible. Academic disciplines give you mindsets, ways of seeing/interacting with the world. Computing as a mindset teaches that models/machines/languages/abstractions/analogies are all connected. Computing will eventually seep into all other disciplines and in turn those disciplines will inform computing. People don't need to code, just learn the precision of communication that coding teaches. Computing is a way to surface assumptions. Assumptions are neural net parameters and programming language if/thens. Race relations have changed recently because of increased transparency and more people are willing to believe how bad things are. Violence is the voice of the unheard and the unfortunate truth is that violence effectively creates change.",
     "paid": false,
     "archived": false
@@ -3107,6 +2522,7 @@
   {
     "post_id": "161d6e55-1bd3-4042-93b1-d1109758c6be",
     "title": "The Speed of Light is NOT Fundamental",
+    "slug": "speed-light-fundamental",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["physics"],
@@ -3134,6 +2550,7 @@
   {
     "post_id": "8ca81414-585e-4b88-9b99-082c51fb5ac0",
     "title": "The Story of Aaron Swartz",
+    "slug": "story-aaron-swartz",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["law", "politics", "justice", "technology"],
@@ -3162,6 +2579,7 @@
   {
     "post_id": "4a4d6d32-09d8-4f3c-a3e6-c1a11003a88b",
     "title": "Just Intonation vs Equal Temperment",
+    "slug": "just-intonation-equal-temperment",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["music"],
@@ -3172,15 +2590,7 @@
     "date_created": "2014-02-18",
     "date_posted": "2020-11-29",
     "link": "https://www.youtube.com/watch?v=6NlI4No3s0M",
-    "tags": [
-      "music",
-      "harmony",
-      "intonation",
-      "temperment",
-      "piano",
-      "justonic",
-      "tuning"
-    ],
+    "tags": ["music", "harmony", "intonation", "temperment", "piano", "justonic", "tuning"],
     "summary": "With modern technology we can achieve the perfect consonant tunings that Bach originally tried to create when writing music for instruments that used tempered tuning.",
     "paid": false,
     "archived": true
@@ -3188,6 +2598,7 @@
   {
     "post_id": "bc867667-85d3-409a-a335-9e00cf02047f",
     "title": "Why It's Impossible to Tune a Piano",
+    "slug": "impossible-tune-piano",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["music", "physics", "mathematics"],
@@ -3198,15 +2609,7 @@
     "date_created": "2015-09-17",
     "date_posted": "2020-11-29",
     "link": "https://www.youtube.com/watch?v=1Hqm0dYKUx4",
-    "tags": [
-      "music",
-      "harmony",
-      "intonation",
-      "temperment",
-      "piano",
-      "frequency",
-      "tuning"
-    ],
+    "tags": ["music", "harmony", "intonation", "temperment", "piano", "frequency", "tuning"],
     "summary": "String instruments can be tuned by comparing the harmonics of two adjacent strings. However, pianos just have too many strings. If you tried tuning a piano with harmonics you would slowly get farther and farther from doubling the octave frequency as you tuned up the piano. In order to get perfectly consonant octaves (with the upper note double the frequency of the lower) pianos use \"equal tempered\" tuning. The ratio between two notes is the twelth root of two, which maintains the octave ratio. However, whatever you play will be slightly and equally out of tune in any key. Just intonation will sound perfectly consonant in one key, but horrible in other keys.",
     "paid": false,
     "archived": false
@@ -3214,6 +2617,7 @@
   {
     "post_id": "01881fc4-ab49-41b5-b4ef-b59e53ab0a73",
     "title": "Computation and the Fundamental Theory of Physics",
+    "slug": "computation-fundamental-theory",
     "content_type": "video",
     "source": "YouTube",
     "areas": ["physics", "mathematics", "computers", "complexity"],

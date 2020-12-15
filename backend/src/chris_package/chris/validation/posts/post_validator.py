@@ -18,6 +18,8 @@ class PostValidator(Validator):
     MIN_SUMMARY_LENGTH = 100
     MAX_SUMMARY_LENGTH = 2100
     MIN_LINK_LENGTH = 5
+    MIN_SLUG_LENGTH = 5
+    MAX_SLUG_LENGTH = 32
 
     @classmethod
     def validate(cls):
@@ -32,6 +34,7 @@ class PostValidator(Validator):
         seen_series = set()
         seen_source = set()
         seen_title = set()
+        seen_slug = set()
 
         for post in posts:
             for field in PostProperties.FIELDS:
@@ -44,6 +47,22 @@ class PostValidator(Validator):
             if post.title in seen_title:
                 results.add_error(f"Duplicate title \"{post.title}\"")
             seen_title.add(post.title)
+
+            slug_length = len(post.slug)
+            if slug_length < cls.MIN_SLUG_LENGTH:
+                results.add_error(f"Slug length ({slug_length}) for \"{post.slug}\" "
+                                    f"is less than {cls.MIN_SLUG_LENGTH}")
+
+            if slug_length > cls.MAX_SLUG_LENGTH:
+                results.add_error(f"Slug length ({slug_length}) for \"{post.slug}\" "
+                                    f"is more than {cls.MAX_SLUG_LENGTH}")
+
+            if post.slug in seen_slug:
+                results.add_error(f"Duplicate slug \"{post.slug}\"")
+            seen_slug.add(post.slug)
+
+            if not re.fullmatch(r'[a-z0-9-]+', post.slug):
+                results.add_error(f"Invalid slug format \"{post.slug}\"")
 
             if post.link in seen_link:
                 results.add_error(f"Duplicate link \"{post.link}\"")
