@@ -4,7 +4,7 @@ trigger:
     - main
   paths:
     include:
-    - backend/src/swift/micro/*
+    - backend/src/micro/*
 
 resources:
 - repo: self
@@ -14,7 +14,7 @@ variables:
   imageRepository: 'micro'
   containerRegistry: 'personalsite.azurecr.io'
   dockerfilePath: 'backend/docker/micro.Dockerfile'
-  dockerContextPath: 'backend/src/swift/micro'
+  dockerContextPath: 'backend/src/micro'
 
 stages:
 - stage: Build
