@@ -105,9 +105,7 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
           ))}
         </div>
         <div className="Survey-feedback-wrap">
-          <div className="Survey-feedback-about">
-            Additional information you'd like to provide? (optional)
-          </div>
+          <div className="Survey-feedback-about">Additional information you'd like to provide? (optional)</div>
           <textarea
             className="Common-text-field Survey-feedback"
             name="feedback"
@@ -132,21 +130,17 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
       this.state.response?.updateOptionChoice(question, option, !chosen);
     }
     this.setState({ response: this.state.response });
-    console.log(`Updated response: ${this.state.response}`);
   };
 
   onSurveySubmit = async (survey: SurveyModel, response: Response) => {
     if (response.isSurveyComplete()) {
       const surveyId = survey.survey_id;
-      console.log(`Submitting survey ${surveyId} (${survey.name})`);
-      console.log(`Response ${response}`);
       const postSurveyQuery = makeQuery(`surveys/${surveyId}`);
       const postBody = {
         choices: response.choices,
         feedback: this.state.feedback,
       };
       const queryResult = await POST(postSurveyQuery, postBody);
-      console.log("Result: ", queryResult);
       const completedIds = STORE.get(Survey.COMPLETED_KEY);
       completedIds.push(surveyId);
       STORE.set(Survey.COMPLETED_KEY, completedIds, true);
@@ -169,10 +163,9 @@ class Survey extends React.Component<SurveyProps, SurveyState> {
         <div className="Survey-about-wrap">
           <div className="Survey-about-title">What do you think?</div>
           <div className="Survey-about-text">
-            Do you ever get so curious about something you wish you could poll
-            the whole world? While guaranteed to fail, I thought I'd try that
-            here. Please check back periodically for new topics. My sincere
-            thanks for taking the time to give your opinion.
+            Do you ever get so curious about something you wish you could poll the whole world? While guaranteed to
+            fail, I thought I'd try that here. Please check back periodically for new topics. My sincere thanks for
+            taking the time to give your opinion.
           </div>
         </div>
         {this.getSurveyElement()}

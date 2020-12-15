@@ -42,10 +42,7 @@ interface ProjectTimelineProps {
 
 interface ProjectTimelineState {}
 
-class ProjectTimeline extends React.Component<
-  ProjectTimelineProps,
-  ProjectTimelineState
-> {
+class ProjectTimeline extends React.Component<ProjectTimelineProps, ProjectTimelineState> {
   private GAME_LOOP_SPF = 1.0 / 65.0;
   private canvasRef: React.RefObject<HTMLInputElement>;
   private simRunning = false;
@@ -176,17 +173,13 @@ class ProjectTimeline extends React.Component<
         d3.selectAll("circle").classed("deselected", false);
       });
 
-    const getProjectTimestamp = (project: ProjectModel): number =>
-      new Date(project.date).getTime();
+    const getProjectTimestamp = (project: ProjectModel): number => new Date(project.date).getTime();
 
     const minTimestamp: any = d3.min(projects, getProjectTimestamp);
     const maxTimestamp: any = d3.max(projects, getProjectTimestamp);
     const xLeft = GraphicsConstants.PADDING_X;
     const xRight = width - GraphicsConstants.PADDING_X;
-    const xScale = d3
-      .scaleLinear()
-      .domain([minTimestamp, maxTimestamp])
-      .range([xLeft, xRight]);
+    const xScale = d3.scaleLinear().domain([minTimestamp, maxTimestamp]).range([xLeft, xRight]);
 
     const uniform = random.uniform(0, 1);
     random.use(seedrandom("0"));
@@ -217,23 +210,24 @@ class ProjectTimeline extends React.Component<
       .attr("stroke", this.getProjectColor)
       .attr("id", (project) => `project_${project.project_id}`)
       .on("click", (mouseEvent: any, project: any) => {
-        d3.selectAll("circle")
-          .classed("deselected", true)
-          .classed("selected", false);
-        d3.select(this.getProjectSelector(project))
-          .classed("deselected", false)
-          .classed("selected", true);
+        d3.selectAll("circle").classed("deselected", true).classed("selected", false);
+        d3.select(this.getProjectSelector(project)).classed("deselected", false).classed("selected", true);
         this.props.onSelectProject(project);
       });
     circles.append("title").text((d) => d.name);
   };
 
-  componentDidUpdate(
-    prevProps: ProjectTimelineProps,
-    prevState: ProjectTimelineState
-  ) {
+  componentDidUpdate(prevProps: ProjectTimelineProps, prevState: ProjectTimelineState) {
     if (prevProps.projects.length === 0) {
       this.startSim(this.props.projects);
+    }
+
+    const project = this.props.currentProject;
+    if (project !== null) {
+      // if (prevProps.currentProject?.project_id !== project.project_id) {
+      d3.selectAll("circle").classed("deselected", true).classed("selected", false);
+      d3.select(this.getProjectSelector(project)).classed("deselected", false).classed("selected", true);
+      // }
     }
   }
 

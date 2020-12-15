@@ -20,7 +20,7 @@ function App() {
         <Nav />
         <Switch>
           <Route path="/" exact component={() => <Home />} />
-          <Route path="/code" exact component={() => <Projects />} />
+          <Route path="/code/:slug?" exact component={(props: any) => <Projects {...props} />} />
           <Route path="/contact" exact component={() => <Contact />} />
           <Route path="/opinion" exact component={() => <Survey />} />
           <Route path="/links" exact component={() => <Blog />} />

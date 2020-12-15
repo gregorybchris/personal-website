@@ -46,12 +46,8 @@ class Blog extends React.Component<BlogProps, BlogState> {
     }
 
     const match = this.props.match;
-    console.log("props", this.props);
-    console.log("match?", match);
     if (match) {
-      console.log(match);
       const { slug } = match.params;
-      console.log(slug);
       if (slug) {
         this.setState({ currentPostSlug: slug });
       }

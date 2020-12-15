@@ -1,4 +1,6 @@
 import React from "react";
+import { match } from "react-router-dom";
+import { History } from "history";
 
 import ProjectInfo from "./ProjectInfo";
 import ProjectTimeline from "./ProjectTimeline";
@@ -6,7 +8,14 @@ import ProjectModel from "./models/Project";
 import { makeQuery, GET, POST } from "../../utilities/RequestUtilities";
 import "./styles/Projects.sass";
 
-interface ProjectsProps {}
+interface ProjectsParams {
+  slug: string;
+}
+
+interface ProjectsProps {
+  match?: match<ProjectsParams>;
+  history?: History;
+}
 
 interface ProjectsState {
   projects: ProjectModel[];
@@ -30,7 +39,20 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
   async componentDidMount() {
     const projectsQuery = makeQuery("projects");
     const queryResult = await GET(projectsQuery);
-    this.setState({ projects: queryResult.reverse() });
+    const projects = queryResult.reverse();
+    this.setState({ projects: projects });
+
+    const match = this.props.match;
+    if (match) {
+      const { slug } = match.params;
+      if (slug) {
+        for (let project of projects) {
+          if (project.slug == slug) {
+            this.setState({ currentProject: project });
+          }
+        }
+      }
+    }
   }
 
   onProjectDownload = async (project: ProjectModel, link: string) => {
@@ -44,6 +66,14 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
   };
 
   onSelectProject = (project: ProjectModel | null) => {
+    const history = this.props.history;
+    if (history) {
+      if (project === null) {
+        history.push("/code");
+      } else {
+        history.push(`/code/${project.slug}`);
+      }
+    }
     this.setState({ currentProject: project });
   };
 

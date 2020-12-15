@@ -1,6 +1,7 @@
 interface Project {
   project_id: string;
   name: string;
+  slug: string;
   date: string;
   rating: number;
   project_type: string;

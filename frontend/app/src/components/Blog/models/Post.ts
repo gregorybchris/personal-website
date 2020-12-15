@@ -1,7 +1,7 @@
 interface Post {
   post_id: string;
   title: string;
-  slug: string | null;
+  slug: string;
   content_type: string;
   source: string | null;
   areas: string[];

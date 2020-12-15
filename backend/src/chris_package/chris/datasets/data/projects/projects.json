@@ -2,6 +2,7 @@
   {
     "project_id": "8b5ab8df-667e-4046-8ef9-1c8fc2e61a5c",
     "name": "Clords",
+    "slug": "clords",
     "date": "2011-08-01",
     "rating": 8,
     "project_type": "jar",
@@ -23,6 +24,7 @@
   {
     "project_id": "a2697eb6-7983-491d-8d16-eeba8ecfdfe7",
     "name": "Evolution",
+    "slug": "evolution",
     "date": "2012-05-01",
     "rating": 6,
     "project_type": "jar",
@@ -45,6 +47,7 @@
   {
     "project_id": "18197593-c864-4650-8a23-da1b265e2ef5",
     "name": "Armada",
+    "slug": "armada",
     "date": "2013-01-01",
     "rating": 5,
     "project_type": "jar",
@@ -67,6 +70,7 @@
   {
     "project_id": "8f472c69-8705-49e0-bed4-999e16ddad0c",
     "name": "Tower of Hanoi",
+    "slug": "tower-of-hanoi",
     "date": "2013-07-01",
     "rating": 6,
     "project_type": "jar",
@@ -88,6 +92,7 @@
   {
     "project_id": "4f6740ec-3fa7-4550-a9d5-e28ab137dcee",
     "name": "Tiles",
+    "slug": "tiles",
     "date": "2013-12-01",
     "rating": 7,
     "project_type": "jar",
@@ -110,6 +115,7 @@
   {
     "project_id": "9bc4c027-141c-4785-9b71-1c2d83826b5c",
     "name": "Sweyp",
+    "slug": "sweyp",
     "date": "2015-04-01",
     "rating": 8,
     "project_type": "jar",
@@ -131,6 +137,7 @@
   {
     "project_id": "3c5e7ac6-ad5a-4106-b61a-e1ec01fb3401",
     "name": "Can You Count",
+    "slug": "can-you-count",
     "date": "2013-08-01",
     "rating": 3,
     "project_type": "jar",
@@ -153,6 +160,7 @@
   {
     "project_id": "50723c4a-84f1-4be3-a3d3-93f35692e8dd",
     "name": "Vector",
+    "slug": "vector",
     "date": "2012-05-01",
     "rating": 4,
     "project_type": "jar",
@@ -177,6 +185,7 @@
   {
     "project_id": "915e28f3-1937-47fc-a935-bd0dc99bab2e",
     "name": "Cheso",
+    "slug": "cheso",
     "date": "2016-10-01",
     "rating": 4,
     "project_type": "program",
@@ -195,6 +204,7 @@
   {
     "project_id": "e89fd7e7-8ebe-47d4-8183-cb5389a4c4a2",
     "name": "Zhed Solver",
+    "slug": "zhed-solver",
     "date": "2017-11-01",
     "rating": 4,
     "project_type": "program",
@@ -213,6 +223,7 @@
   {
     "project_id": "fd4a2ab1-7706-4fc7-81e6-3098842e639e",
     "name": "Kami Sovler",
+    "slug": "kami-solver",
     "date": "2020-02-01",
     "rating": 4,
     "project_type": "program",
@@ -231,6 +242,7 @@
   {
     "project_id": "a9560656-1ea0-469a-8e4b-876bbc8705d8",
     "name": "SemiGenre",
+    "slug": "semi-genre",
     "date": "2019-07-01",
     "rating": 4,
     "project_type": "program",
@@ -255,6 +267,7 @@
   {
     "project_id": "53ae0b07-f315-440f-96b8-5f4a4ce46c35",
     "name": "Flicker",
+    "slug": "flicker",
     "date": "2019-08-01",
     "rating": 5,
     "project_type": "program",
@@ -273,6 +286,7 @@
   {
     "project_id": "efa6779e-c827-4701-ae2a-c3dd64f15432",
     "name": "PCI",
+    "slug": "pci",
     "date": "2018-12-01",
     "rating": 3,
     "project_type": "program",
@@ -295,6 +309,7 @@
   {
     "project_id": "bf840a7e-5462-4ae6-964d-c451662fd7a7",
     "name": "Directed",
+    "slug": "directed",
     "date": "2014-12-01",
     "rating": 3,
     "project_type": "jar",
@@ -319,6 +334,7 @@
   {
     "project_id": "206edf78-3b60-4e52-822e-77303202aeab",
     "name": "World",
+    "slug": "world",
     "date": "2014-07-01",
     "rating": 2,
     "project_type": "jar",
@@ -337,6 +353,7 @@
   {
     "project_id": "1eb75c42-0a6f-489f-9606-301f7c22f88e",
     "name": "Unscrambler",
+    "slug": "unscrambler",
     "date": "2014-04-01",
     "rating": 1,
     "project_type": "jar",
@@ -359,6 +376,7 @@
   {
     "project_id": "d84e30d1-ee9f-49ce-97d9-3afefdfac1a9",
     "name": "Unhinged",
+    "slug": "unhinged",
     "date": "2014-06-01",
     "rating": 2,
     "project_type": "jar",
@@ -380,6 +398,7 @@
   {
     "project_id": "91822823-2364-469b-abed-f88d8ece8dc4",
     "name": "Sketcher",
+    "slug": "sketcher",
     "date": "2012-11-01",
     "rating": 2,
     "project_type": "jar",
@@ -402,6 +421,7 @@
   {
     "project_id": "6348ce9d-a8ca-4a23-ac9d-0064c07b7e85",
     "name": "Seek",
+    "slug": "seek",
     "date": "2015-07-01",
     "rating": 2,
     "project_type": "jar",
@@ -420,6 +440,7 @@
   {
     "project_id": "82df3dac-7509-4522-91ca-d61a0ad0edf1",
     "name": "Dragon Curve",
+    "slug": "dragon-curve",
     "date": "2013-06-01",
     "rating": 1,
     "project_type": "jar",
@@ -448,6 +469,7 @@
   {
     "project_id": "44555c26-dde7-4436-8bac-4e41718735bc",
     "name": "Dot Drawings",
+    "slug": "dot-drawings",
     "date": "2012-12-01",
     "rating": 2,
     "project_type": "jar",
@@ -471,6 +493,7 @@
   {
     "project_id": "6f300287-0073-4b97-9d8d-84ec53f4ed0a",
     "name": "Color Match",
+    "slug": "color-match",
     "date": "2012-10-01",
     "rating": 2,
     "project_type": "jar",
@@ -494,6 +517,7 @@
   {
     "project_id": "051a47b8-5a06-4449-bd97-e262789cc959",
     "name": "Blocks",
+    "slug": "blocks",
     "date": "2013-12-01",
     "rating": 4,
     "project_type": "jar",
@@ -516,6 +540,7 @@
   {
     "project_id": "7e0e20c9-f83c-438f-9078-7e8f026ac043",
     "name": "2048",
+    "slug": "2048",
     "date": "2014-06-01",
     "rating": 5,
     "project_type": "jar",
@@ -538,6 +563,7 @@
   {
     "project_id": "f29f70a5-7f33-4580-b734-097ca1cf8143",
     "name": "Half Plane",
+    "slug": "half-plane",
     "date": "2018-01-01",
     "rating": 8,
     "project_type": "web",
@@ -563,6 +589,7 @@
   {
     "project_id": "e6a3a054-2b58-4306-ab53-39853f0a1531",
     "name": "Chans",
+    "slug": "chans",
     "date": "2017-01-01",
     "rating": 7,
     "project_type": "web",
@@ -588,6 +615,7 @@
   {
     "project_id": "9d61892d-2d0b-4015-9104-d4a727b74351",
     "name": "Jumbo Meal Me",
+    "slug": "jumbo-meal-me",
     "date": "2016-03-01",
     "rating": 4,
     "project_type": "web",
@@ -609,6 +637,7 @@
   {
     "project_id": "836fa8d8-da8b-48a5-872f-6f3091f71c82",
     "name": "Base",
+    "slug": "base",
     "date": "2013-01-01",
     "rating": 4,
     "project_type": "web",
@@ -631,6 +660,7 @@
   {
     "project_id": "aac33770-877c-45e1-9f7a-e097d584f469",
     "name": "Scheduler HD",
+    "slug": "scheduler-hd",
     "date": "2013-08-01",
     "rating": 7,
     "project_type": "web",
@@ -655,6 +685,7 @@
   {
     "project_id": "0edaf5b4-d7f4-49b3-b543-3e766a8c90b9",
     "name": "Park Tudor Chemical Database",
+    "slug": "park-tudor-chemical-database",
     "date": "2013-05-01",
     "rating": 7,
     "project_type": "web",
@@ -680,6 +711,7 @@
   {
     "project_id": "de4192ec-9d0d-4eb8-8dce-72e77b537b2e",
     "name": "TSA",
+    "slug": "tsa",
     "date": "2018-05-01",
     "rating": 8,
     "project_type": "web",
@@ -702,6 +734,7 @@
   {
     "project_id": "1cf70fc4-de53-4a05-9754-516ef8b48059",
     "name": "Check My Code",
+    "slug": "check-my-code",
     "date": "2012-12-01",
     "rating": 1,
     "project_type": "web",
@@ -723,6 +756,7 @@
   {
     "project_id": "a0393218-f87b-46f0-9b49-9756f512e1c3",
     "name": "Oracle",
+    "slug": "oracle",
     "date": "2012-12-01",
     "rating": 1,
     "project_type": "web",
@@ -741,6 +775,7 @@
   {
     "project_id": "329c095d-0de4-457f-950e-f2f3ff27868c",
     "name": "Split Plot",
+    "slug": "split-plot",
     "date": "2018-03-30",
     "rating": 5,
     "project_type": "web",
@@ -762,6 +797,7 @@
   {
     "project_id": "b7361d6e-af28-4c79-a1f4-4cc0a48452a2",
     "name": "Dependy",
+    "slug": "dependy",
     "date": "2019-10-08",
     "rating": 4,
     "project_type": "program",
@@ -783,6 +819,7 @@
   {
     "project_id": "0af4065d-a1a8-46b3-8441-af1ccd61926c",
     "name": "Three Farmer",
+    "slug": "three-farmer",
     "date": "2012-07-12",
     "rating": 4,
     "project_type": "jar",
@@ -801,6 +838,7 @@
   {
     "project_id": "4623e792-4bb9-4823-b79c-09530d677485",
     "name": "Flock",
+    "slug": "flock",
     "date": "2014-01-01",
     "rating": 3,
     "project_type": "jar",
@@ -822,6 +860,7 @@
   {
     "project_id": "27588d45-5b7c-4c76-b027-4a664c8ffd90",
     "name": "Viewer",
+    "slug": "viewer",
     "date": "2014-07-05",
     "rating": 1,
     "project_type": "jar",
@@ -843,6 +882,7 @@
   {
     "project_id": "c8cd9b7e-2002-4096-aea1-788f80d3a1d2",
     "name": "On Move",
+    "slug": "on-move",
     "date": "2020-05-18",
     "rating": 4,
     "project_type": "web",
@@ -861,6 +901,7 @@
   {
     "project_id": "114ed850-4619-42f4-8035-9a64f0878420",
     "name": "TUTF Trends",
+    "slug": "tutf-trends",
     "date": "2018-09-06",
     "rating": 6,
     "project_type": "web",
@@ -882,6 +923,7 @@
   {
     "project_id": "9d19447c-f53c-4811-b6f5-e97124b39769",
     "name": "CompRank",
+    "slug": "comp-rank",
     "date": "2018-04-19",
     "rating": 7,
     "project_type": "web",
@@ -904,6 +946,7 @@
   {
     "project_id": "f40e4251-8d25-4dd5-be9c-1761a49de4c8",
     "name": "Generals SDK",
+    "slug": "generals-sdk",
     "date": "2020-04-03",
     "rating": 6,
     "project_type": "program",
@@ -922,6 +965,7 @@
   {
     "project_id": "114e1f6e-b1b6-4640-8f9e-a9cb84dcc5af",
     "name": "Convolutional Mammogram Analysis",
+    "slug": "convolutional-mammogram-analysis",
     "date": "2016-03-03",
     "rating": 7,
     "project_type": "program",
@@ -940,6 +984,7 @@
   {
     "project_id": "50fed5c3-03f8-42ae-82fd-4380bf4eff65",
     "name": "DirSum",
+    "slug": "dirsum",
     "date": "2019-12-30",
     "rating": 4,
     "project_type": "program",
@@ -958,6 +1003,7 @@
   {
     "project_id": "aa587300-5d17-4460-8f1e-a469242cb869",
     "name": "TinyTable",
+    "slug": "tinytable",
     "date": "2020-02-05",
     "rating": 4,
     "project_type": "program",
@@ -976,6 +1022,7 @@
   {
     "project_id": "31dc8649-6fe2-4c0e-b279-10cf5c40a5be",
     "name": "MIU",
+    "slug": "miu",
     "date": "2019-01-27",
     "rating": 5,
     "project_type": "program",
@@ -989,11 +1036,12 @@
     "web_link": null,
     "image_links": [],
     "primary_language": "Python",
-    "archived": false
+    "archived": true
   },
   {
     "project_id": "7ae769d8-bd57-4d6f-8291-6bfe1addfa24",
     "name": "Interval Tree",
+    "slug": "interval-tree",
     "date": "2015-12-25",
     "rating": 6,
     "project_type": "program",
@@ -1012,6 +1060,7 @@
   {
     "project_id": "acc1ce43-b729-462e-a33d-ca9fd2c51393",
     "name": "Song Search",
+    "slug": "song-search",
     "date": "2014-12-14",
     "rating": 3,
     "project_type": "program",
@@ -1030,6 +1079,7 @@
   {
     "project_id": "e9df8c41-156c-4c63-ad35-2aa198e4b106",
     "name": "Triple Town",
+    "slug": "triple-town",
     "date": "2020-10-27",
     "rating": 7,
     "project_type": "web",
@@ -1052,6 +1102,7 @@
   {
     "project_id": "78f3ed86-17d5-4308-a38c-92b9663bb39b",
     "name": "Combust",
+    "slug": "combust",
     "date": "2018-01-23",
     "rating": 6,
     "project_type": "web",
