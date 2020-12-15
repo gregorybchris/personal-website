@@ -330,9 +330,7 @@
     "source_link": null,
     "download_link": null,
     "web_link": null,
-    "image_links": [
-      "https://chrisgregory.blob.core.windows.net/projects/images/world--01.jpg"
-    ],
+    "image_links": ["https://chrisgregory.blob.core.windows.net/projects/images/world--01.jpg"],
     "primary_language": "Java",
     "archived": true
   },
@@ -550,7 +548,7 @@
     "tags": ["visualization", "walkthrough", "geometry"],
     "source_link": "https://github.com/gregorybchris/half-plane",
     "download_link": null,
-    "web_link": "http://static.chrisgregory.me/projects/web/halfplane",
+    "web_link": "https://static.chrisgregory.me/sub/half-plane",
     "image_links": [
       "https://chrisgregory.blob.core.windows.net/projects/images/half-plane--page-1.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/half-plane--page-2.jpg",
@@ -575,7 +573,7 @@
     "tags": ["visualization", "walkthrough", "geometry"],
     "source_link": "https://github.com/gregorybchris/chans",
     "download_link": null,
-    "web_link": "http://static.chrisgregory.me/projects/web/chans",
+    "web_link": "https://static.chrisgregory.me/sub/chans",
     "image_links": [
       "https://chrisgregory.blob.core.windows.net/projects/images/chans--page-1.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/chans--page-2.jpg",
@@ -600,7 +598,7 @@
     "tags": ["dining", "tool"],
     "source_link": null,
     "download_link": null,
-    "web_link": "http://static.chrisgregory.me/projects/web/mealme",
+    "web_link": "https://static.chrisgregory.me/projects/web/mealme",
     "image_links": [
       "https://chrisgregory.blob.core.windows.net/projects/images/jumbo-meal-me--sliders-01.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/jumbo-meal-me--sliders-02.jpg"
@@ -621,7 +619,7 @@
     "tags": ["binary", "calculator", "numbers"],
     "source_link": null,
     "download_link": null,
-    "web_link": "http://static.chrisgregory.me/projects/web/base",
+    "web_link": "https://static.chrisgregory.me/projects/web/base",
     "image_links": [
       "https://chrisgregory.blob.core.windows.net/projects/images/base--blank.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/base--binary.jpg",
@@ -692,7 +690,7 @@
     "tags": ["visualization", "interactive", "airport", "security"],
     "source_link": "https://github.com/gregorybchris/tsa",
     "download_link": null,
-    "web_link": "http://static.chrisgregory.me/projects/web/tsa",
+    "web_link": "https://static.chrisgregory.me/sub/tsa",
     "image_links": [
       "https://chrisgregory.blob.core.windows.net/projects/images/tsa--look-for-yourself.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/tsa--the-big-picture.jpg",
@@ -736,9 +734,7 @@
     "source_link": null,
     "download_link": null,
     "web_link": null,
-    "image_links": [
-      "https://chrisgregory.blob.core.windows.net/projects/images/oracle--01.jpg"
-    ],
+    "image_links": ["https://chrisgregory.blob.core.windows.net/projects/images/oracle--01.jpg"],
     "primary_language": "Java",
     "archived": true
   },
@@ -798,9 +794,7 @@
     "source_link": null,
     "download_link": null,
     "web_link": null,
-    "image_links": [
-      "https://chrisgregory.blob.core.windows.net/projects/images/three-farmer--01.jpg"
-    ],
+    "image_links": ["https://chrisgregory.blob.core.windows.net/projects/images/three-farmer--01.jpg"],
     "primary_language": "Java",
     "archived": true
   },
@@ -1046,7 +1040,7 @@
     "tags": ["puzzle", "patterns"],
     "source_link": "https://github.com/gregorybchris/triple-town",
     "download_link": null,
-    "web_link": "http://static.chrisgregory.me/projects/web/triple",
+    "web_link": "https://static.chrisgregory.me/sub/triple-town",
     "image_links": [
       "https://chrisgregory.blob.core.windows.net/projects/images/triple-town--01.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/triple-town--02.jpg",
@@ -1068,7 +1062,7 @@
     "tags": ["visualization", "fire"],
     "source_link": null,
     "download_link": null,
-    "web_link": "http://static.chrisgregory.me/projects/web/viz/combust",
+    "web_link": "https://static.chrisgregory.me/sub/combust",
     "image_links": [
       "https://chrisgregory.blob.core.windows.net/projects/images/combust--01.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/combust--02.jpg"
