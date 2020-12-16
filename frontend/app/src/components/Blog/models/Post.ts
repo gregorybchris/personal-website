@@ -13,6 +13,7 @@ interface Post {
   date_posted: string;
   link: string;
   tags: string[];
+  hook: string | null;
   summary: string | null;
   paid: boolean;
   archived: boolean;

@@ -19,7 +19,7 @@ interface PostProps {
 interface PostState {
   contentLink: string;
   thumbnailUrl: string;
-  showSummary: boolean;
+  aboutEnabled: boolean;
 }
 
 const YOUTUBE_SOURCE = "YouTube";
@@ -28,7 +28,7 @@ class Post extends React.Component<PostProps, PostState> {
   state: PostState = {
     contentLink: "",
     thumbnailUrl: "",
-    showSummary: false,
+    aboutEnabled: false,
   };
 
   componentDidMount() {
@@ -135,15 +135,27 @@ class Post extends React.Component<PostProps, PostState> {
     return elements;
   };
 
-  getSummaryElement = () => {
-    const summary = this.props.post.summary;
-    if (summary && this.state.showSummary) {
-      return <div className="Post-summary">{summary}</div>;
-    }
+  toggleAboutSection = () => {
+    this.setState({ aboutEnabled: !this.state.aboutEnabled });
   };
 
-  toggleSummary = () => {
-    this.setState({ showSummary: !this.state.showSummary });
+  getAboutSection = () => {
+    const hook = this.props.post.hook;
+    if (hook === null) {
+      return <></>;
+    }
+
+    let arrow = this.state.aboutEnabled ? <>&larr;</> : <>&rarr;</>;
+    let aboutTextElement = <></>;
+    if (this.state.aboutEnabled) {
+      aboutTextElement = <div className="Post-about-text">{hook}</div>;
+    }
+    return (
+      <div className="Post-about-section" onClick={this.toggleAboutSection}>
+        <div className="Common-simple-link">About {arrow}</div>
+        {aboutTextElement}
+      </div>
+    );
   };
 
   render() {
@@ -165,9 +177,9 @@ class Post extends React.Component<PostProps, PostState> {
           <div className="Post-date">{formatDate(this.props.post.date_posted)}</div>
           {this.getVideoLength()}
         </div>
+        {this.getAboutSection()}
         {this.getThumbnailElement()}
         <div className="Post-tags">{this.props.post.tags.map((tag) => this.createTag(tag))}</div>
-        {this.getSummaryElement()}
       </div>
     );
   }

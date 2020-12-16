@@ -14,6 +14,7 @@
     "date_posted": "2015-07-24",
     "link": "http://idlewords.com/talks/web_design_first_100_years.htm",
     "tags": ["web", "cs", "planes", "technology", "innovation", "progress", "internet"],
+    "hook": null,
     "summary": "Aviation innovation of the mid 1900s brought about large and incredibly fast passenger planes. However, with speed came an increased cost of fuel and externalities like environmental impact. Airlines began to focus on cost, accessibility, and customer experience. Diminishing engineering returns and \"good enough\" travel times led to a shift in the industry. The same will happen - and is happening - for the technological boom of the present moment, the internet. The internet of 2060 will not look radically different from the internet of today.",
     "paid": false,
     "archived": false
@@ -33,6 +34,7 @@
     "date_posted": "2015-08-07",
     "link": "https://www.youtube.com/watch?v=eucT-E1vkms",
     "tags": ["black", "boyfriend", "slam", "poetry", "harris"],
+    "hook": null,
     "summary": "Spoken word poetry about the racism experienced by a young black man when he meets the father of his white girlfriend.",
     "paid": false,
     "archived": false
@@ -52,6 +54,7 @@
     "date_posted": "2015-08-19",
     "link": "https://www.youtube.com/watch?v=EKR-HydGohQ",
     "tags": ["our", "greatest", "delusion", "veritasium", "derek", "muller", "nihilism", "rocks", "life"],
+    "hook": null,
     "summary": "We are deluded in thinking we will live forever. We evolved with an inability to imagine a world without ourselves in it. And so we put off doing the things we know we should. It may seem nihilistic to live a life that just ends but we can find meaning in each moment.",
     "paid": false,
     "archived": false
@@ -81,6 +84,7 @@
       "brain",
       "neuroscience"
     ],
+    "hook": null,
     "summary": "Searle argues that because mental objects arise from physical phenomena they are under the purview of science. This article argues that while the physical correlates of subjective phenomena are understandable through the scientific method, the subjective phenomena themselves are not.",
     "paid": false,
     "archived": false
@@ -100,6 +104,7 @@
     "date_posted": "2015-08-26",
     "link": "http://kevinjbrowne.weebly.com/my-interview-with-the-stoics.html",
     "tags": ["interview", "stoics", "kevin", "browne", "philosophy", "death", "epicurus", "epictetus"],
+    "hook": null,
     "summary": "We have full control of how we feel. The best way to live life is to take control of your outlook. Do not fear death because it is not under human control. When death comes you will not even be there for it to affect you.",
     "paid": false,
     "archived": false
@@ -119,6 +124,7 @@
     "date_posted": "2015-08-26",
     "link": "https://www.youtube.com/watch?v=TcxZSmzPw8k",
     "tags": ["six", "degrees", "separation", "network", "theory", "erdos", "veritasium", "barabasi"],
+    "hook": null,
     "summary": "Real-world networks are shown to be \"small-world\" networks, meaning it takes very few steps to get between any two people. On the other hand, we also see that there's a high degree of clustering. These seemingly contradictory properties can be reconciled by a relatively small number of random connections that link disparate groups of people.",
     "paid": false,
     "archived": false
@@ -138,6 +144,7 @@
     "date_posted": "2015-08-30",
     "link": "https://www.youtube.com/watch?v=CDsNZJTWw0w",
     "tags": ["ted", "bionics", "hugh", "herr", "prosthetics", "robotics", "engineering", "inspirational"],
+    "hook": null,
     "summary": "Active bionics - as opposed to passive bionics - allow people to move more fluidly. Designing prosthetics that faithfully replicate natural human motion has a huge impact on quality of life.",
     "paid": false,
     "archived": false
@@ -157,6 +164,7 @@
     "date_posted": "2015-09-06",
     "link": "https://www.youtube.com/watch?v=TQKELOE9eY4",
     "tags": ["heisenberg", "uncertainty", "principle", "ted", "teded", "physics", "learn", "knowledge"],
+    "hook": null,
     "summary": "The Heisenberg Uncertainty Prinicple exists because we are trading off treating matter as a wave and a particle. It's not about how well we measure things, but about the type of measurement we decide is important and implicitly whether we want to treat the matter as a wave or a particle.",
     "paid": false,
     "archived": false
@@ -176,6 +184,7 @@
     "date_posted": "2015-09-14",
     "link": "https://www.youtube.com/watch?v=U6PoUg7jXsA",
     "tags": ["memory", "ted", "brain", "mind", "palace", "learning", "attention"],
+    "hook": null,
     "summary": "All memory techniques come down to \"elaborative encoding\". The Baker/baker paradox is where people will remember the profession baker far more easily than the name Baker because the name Baker doesn't really mean anything. The \"method of loci\" also known as the memory palace was popularized by the story of the ancient Greek poet Simonides remembering the guests in a collapsed banquet hall. Great memories are not innate gifts. We are the sum of our memories and to live the life worth living you have to be the kind of person who remembers to remember.",
     "paid": false,
     "archived": false
@@ -195,6 +204,7 @@
     "date_posted": "2015-09-22",
     "link": "https://www.youtube.com/watch?v=QleRgTBMX88",
     "tags": ["ted", "wrong", "pride", "humility", "mistakes", "learning", "growth"],
+    "hook": null,
     "summary": "What do we do when we misunderstand the signs around us? What do we do when we're wrong? We live in the present moment and in the present moment we're never wrong. It doesn't feel bad to be wrong. It feels bad to realize you're wrong. Being wrong feels like being right - \"error blindness\". School teaches us that the way to be successful is to never make any mistakes, instilling perfectionism. Trusting too much that we're on the right side of anything can be dangerous. The miracle of the human mind is not that we can see the world as it is, but as it isn't. And if we want to rediscover wonder we need to look out at the vastly complex universe and say \"I don't know\" ",
     "paid": false,
     "archived": false
@@ -214,6 +224,7 @@
     "date_posted": "2015-10-02",
     "link": "https://www.youtube.com/watch?v=_FlV6pgwlrk",
     "tags": ["belief", "eyes", "persistence", "vision", "illusion", "perception", "lights"],
+    "hook": null,
     "summary": "Persistence of vision - the eye averages what it sees over short periods of time. If you have a flashing light that's slower than 25 flashes per second, you can perceieve the flashes. Otherwise, the neural activation activation associated with one flash will not fully die down before the onset of the next flash.",
     "paid": false,
     "archived": false
@@ -233,6 +244,7 @@
     "date_posted": "2015-10-10",
     "link": "https://www.youtube.com/watch?v=N5vJSNXPEwA",
     "tags": ["strategy", "prisoner", "hat", "riddle", "puzzle", "problem", "aliens", "logic"],
+    "hook": null,
     "summary": "Ten people in a line, all facing forward, wearing black and white hats have to try to guess the color of their hats. They succeed if at least nine of them guess correctly. They are allowed to stratgize before beginning. The solution is that the person in the back of the line guesses black or white depending on the parity of the number of black and white hats in front. This gives enough information for the rest of the nine people to guess correctly",
     "paid": false,
     "archived": false
@@ -252,6 +264,7 @@
     "date_posted": "2015-10-15",
     "link": "https://medium.com/cuepoint/the-devaluation-of-music-it-s-worse-than-you-think-f4cf5f26a888",
     "tags": ["music", "devaluation", "pop", "radio", "singer", "songwriter", "industry", "songs", "composition"],
+    "hook": null,
     "summary": "The devaluation of music over time has come from more than just streaming services and piracy. Arguably musical culture has become shallower in many dimensions. The streaming-induced shift from physical albums to individual digital tracks has removed the context and history people once consumed from album covers. News has focused on musical celebrity rather than music itself. Radio culture has replaced musical diversity and discovery with common-denominator industrial scale hits. Dwindling music education has left Americans without an appreciation for the depth of composing and playing music.",
     "paid": false,
     "archived": false
@@ -271,6 +284,7 @@
     "date_posted": "2015-10-29",
     "link": "https://www.youtube.com/watch?v=Lihh_lMmcDw",
     "tags": ["skewes", "number", "numberphile", "math", "science", "prime", "james", "grime", "grahams", "expectation"],
+    "hook": null,
     "summary": "The Dirichlet method gives an estimate of the number of primes below a certain number. The method appears to be an upper bound with the estimate always overshooting the actual number of primes. However, Stanley Skewes showed that at some point the signed difference between actual and estimated number of primes flips and that number is greater than 10^10^10^34 - Skewes' number. The moral of the story is that just because some rule holds for a long time doesn't mean it will be true forever.",
     "paid": false,
     "archived": false
@@ -290,6 +304,7 @@
     "date_posted": "2015-11-11",
     "link": "https://www.youtube.com/watch?v=LNVFPkmZTQ4",
     "tags": ["collegehumor", "bear", "sexual", "assault", "itsonus", "oneinfive", "rape"],
+    "hook": null,
     "summary": "One in five women will be sexually assaulted by the time they finish college. Satire about the frequency of sexual assault and they ways in which sexual assault is rationalized.",
     "paid": false,
     "archived": false
@@ -309,6 +324,7 @@
     "date_posted": "2015-11-26",
     "link": "https://www.youtube.com/watch?v=bHvf7Tagt18",
     "tags": ["machine", "learning", "deep", "neural", "networks", "natandlo", "google"],
+    "hook": null,
     "summary": "Visual recognition that is so intuitive for humans is pretty hard for computers. Even with many examples it can take computers a long time to learn concepts that are simple to humans. Deep neural networks are composed of artificial neurons that are roughly based on human brain biology.",
     "paid": false,
     "archived": false
@@ -339,6 +355,7 @@
       "electricity",
       "science"
     ],
+    "hook": null,
     "summary": "Special relativity asserts that time passes slower for observers moving relatively faster - time dilation. On the other side of the coin, objects are contracted in their direction of motion - length contraction. The effects of special relativiy show up when a positively charged ion is repelled from a wire with flowing current. Your frame of reference determines whether you interpret a field as electric or magnetic. If the cation moves along with the electrons flowing in the wire length contraction will have the wire's electrons spread out and protons bunch together. To the cation this is electric repulsion. To the observer stationary relative to the wire this is interpreted as the magnetic force.",
     "paid": false,
     "archived": false
@@ -358,6 +375,7 @@
     "date_posted": "2015-12-31",
     "link": "https://aeon.co/opinions/why-trying-to-simulate-the-human-brain-is-a-waste-of-energy",
     "tags": ["brain", "simulation", "neuro", "neuroscience", "john", "searle", "philosophy", "mind", "blue"],
+    "hook": null,
     "summary": "In creating a computer simulation you are necessarily leaving some details out. If you didn't you'd just have the real thing. So the question is which features of the brain you leave out when trying to simulate it. Searle makes the point that computer simulations about whether tell you information about rain, not water. One worry about brain simulations is whether we need to understand the brain in order to properly simulate it. We know so little about the parts of the brain and how they interact that one could argue the simulation project is doomed. Another concern is whether we even know when we will have succeeded. You can measure certain features of simulated brains that in isolation are impressive but are far from the stated goal of simulating a real brain.",
     "paid": false,
     "archived": false
@@ -377,6 +395,7 @@
     "date_posted": "2016-01-05",
     "link": "https://www.youtube.com/watch?v=FVuNTiqHys0",
     "tags": ["koko", "gorilla", "environment", "global", "warming", "biodiversity", "preservation"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -396,6 +415,7 @@
     "date_posted": "2016-01-28",
     "link": "https://www.technologyreview.com/2016/01/27/109178/googles-ai-masters-the-game-of-go-a-decade-earlier-than-expected/",
     "tags": ["google", "ai", "deepmind", "machine", "learning", "go", "mit", "deep", "artificial", "intelligence"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -427,6 +447,7 @@
       "steven",
       "strogatz"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -446,6 +467,7 @@
     "date_posted": "2016-02-11",
     "link": "https://www.youtube.com/watch?v=qwIjKuitlu8",
     "tags": ["race", "racial", "discrimination", "america", "testtube", "systemic", "racism", "blacklivesmatter"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -477,6 +499,7 @@
       "prediction",
       "machine"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -508,6 +531,7 @@
       "science",
       "research"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -538,6 +562,7 @@
       "guns",
       "shootings"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -557,6 +582,7 @@
     "date_posted": "2016-03-28",
     "link": "https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation",
     "tags": ["conversation", "ted", "talk", "listen", "tips", "amazed", "celeste", "headlee", "interview", "social"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -588,6 +614,7 @@
       "home",
       "statistics"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -618,6 +645,7 @@
       "neuroscience",
       "intelligence"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -637,6 +665,7 @@
     "date_posted": "2016-06-12",
     "link": "https://www.buzzfeednews.com/article/katiejmbaker/heres-the-powerful-letter-the-stanford-victim-read-to-her-ra",
     "tags": ["stanford", "brock", "turner", "consent", "rape", "sexual", "assault", "alcohol"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -667,6 +696,7 @@
       "science",
       "bias"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -686,6 +716,7 @@
     "date_posted": "2016-09-25",
     "link": "http://www.ted.com/talks/jeff_hawkins_on_how_brain_science_will_change_computing",
     "tags": ["jeff", "hawkins", "neuroscience", "brain", "ted", "neuro"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -705,6 +736,7 @@
     "date_posted": "2016-10-06",
     "link": "https://www.youtube.com/watch?v=3yBGE80covk",
     "tags": ["donald", "trump", "sam", "harris", "narcissism", "politics", "hillary", "clinton", "foreign", "policy"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -724,6 +756,7 @@
     "date_posted": "2016-10-24",
     "link": "https://www.youtube.com/watch?v=8nt3edWLgIg",
     "tags": ["ted", "sam", "harris", "ai", "artificial", "intelligence", "neuroscience", "philosophy", "robots"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -743,6 +776,7 @@
     "date_posted": "2016-10-24",
     "link": "https://www.youtube.com/watch?v=3AMCcYnAsdQ",
     "tags": ["minute", "physics", "cause", "effect", "science", "nature", "time", "record", "prediction"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -762,6 +796,7 @@
     "date_posted": "2016-12-17",
     "link": "https://samharris.org/podcasts/abusing-dolores/",
     "tags": ["sam", "harris", "empathy", "compassion", "free", "will", "reason", "ai", "ethics"],
+    "hook": null,
     "summary": null,
     "paid": true,
     "archived": false
@@ -781,6 +816,7 @@
     "date_posted": "2017-01-05",
     "link": "https://www.youtube.com/watch?v=2uWps9LczH8",
     "tags": ["bronze", "surface", "tension", "sixty", "symbols", "physics", "emergent", "properties", "science"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -800,6 +836,7 @@
     "date_posted": "2017-01-23",
     "link": "https://www.youtube.com/watch?v=iHzzSao6ypE",
     "tags": ["cars", "autonomous", "vehicles", "driverless", "traffic", "cgp grey", "emergence"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -819,6 +856,7 @@
     "date_posted": "2017-02-14",
     "link": "https://www.youtube.com/watch?v=HtJwAYJ9B08",
     "tags": ["yaron", "brook", "ayn", "rand", "objectivism", "exeter", "equal", "unfair", "liberalism"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -838,6 +876,7 @@
     "date_posted": "2017-02-15",
     "link": "https://www.youtube.com/watch?v=JXfQsHT5c30",
     "tags": ["music", "jazz", "reharmonization", "pop", "theory", "adam neely"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -869,6 +908,7 @@
       "uncanny",
       "valley"
     ],
+    "hook": null,
     "summary": null,
     "paid": true,
     "archived": false
@@ -888,6 +928,7 @@
     "date_posted": "2017-03-31",
     "link": "https://www.youtube.com/watch?v=XXjlR2OK1kM",
     "tags": ["benfords", "law", "numberphile", "steve", "mould", "math", "probability", "statistics", "distributions"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -918,6 +959,7 @@
       "expected",
       "value"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -947,6 +989,7 @@
       "facebook",
       "youtube"
     ],
+    "hook": null,
     "summary": null,
     "paid": true,
     "archived": false
@@ -966,6 +1009,7 @@
     "date_posted": "2017-05-15",
     "link": "http://clarionproject.org/factsheets-files/islamic-state-magazine-dabiq-fifteen-breaking-the-cross.pdf",
     "tags": ["dabiq", "islam", "jihadism", "why we hate you", "isis"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -985,6 +1029,7 @@
     "date_posted": "2017-05-21",
     "link": "https://www.youtube.com/watch?v=NaL_Cb42WyY",
     "tags": ["pi", "primes", "number theory", "math", "complex", "numbers", "riemann zeta function", "3blue1brown"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1013,6 +1058,7 @@
       "sam harris",
       "making sense"
     ],
+    "hook": null,
     "summary": null,
     "paid": true,
     "archived": false
@@ -1032,6 +1078,7 @@
     "date_posted": "2017-10-24",
     "link": "https://www.youtube.com/watch?v=ebEkn-BiW5k",
     "tags": ["paradox", "minute", "physics", "statistics", "correlation", "simpson's"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1062,6 +1109,7 @@
       "philosophy",
       "perception"
     ],
+    "hook": null,
     "summary": null,
     "paid": true,
     "archived": false
@@ -1081,6 +1129,7 @@
     "date_posted": "2018-02-17",
     "link": "https://samharris.org/podcasts/116-ai-racing-toward-brink/",
     "tags": ["ai", "artificial intelligence", "sam harris", "alignment", "eliezer yudkowsky"],
+    "hook": null,
     "summary": null,
     "paid": true,
     "archived": false
@@ -1100,6 +1149,7 @@
     "date_posted": "2018-02-22",
     "link": "https://aeon.co/essays/the-hard-problem-of-consciousness-is-a-distraction-from-the-real-one",
     "tags": ["anil seth", "consciousness", "self", "neuroscience", "prediction"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1119,6 +1169,7 @@
     "date_posted": "2018-03-28",
     "link": "https://www.dailymotion.com/video/x6h9pjl",
     "tags": ["paradigms", "science", "sight", "derek muller", "plato", "philosophy"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1147,6 +1198,7 @@
       "science",
       "philosophy"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1166,6 +1218,7 @@
     "date_posted": "2018-04-09",
     "link": "https://www.frontiersin.org/articles/10.3389/fnhum.2014.00020/full",
     "tags": ["entropic", "brain", "neuroscience", "consciousness", "philosophy", "psychedelics", "entropy"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1195,6 +1248,7 @@
       "deep learning",
       "machine learning"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1225,6 +1279,7 @@
       "finance",
       "markers"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1244,6 +1299,7 @@
     "date_posted": "2018-06-26",
     "link": "https://www.youtube.com/watch?v=edvdzh9Pggg",
     "tags": ["quantum", "physics", "higgs boson", "lhc", "particle", "science", "lepton", "universality"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1263,6 +1319,7 @@
     "date_posted": "2018-07-03",
     "link": "https://www.youtube.com/watch?v=C74amJRp730",
     "tags": ["attention", "tristan harris", "social media", "facebook", "internet", "wellbeing", "design"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1282,6 +1339,7 @@
     "date_posted": "2018-08-09",
     "link": "https://www.youtube.com/watch?v=HNklBtyUZwo",
     "tags": ["networks", "sandra navidi", "economics", "finance", "politics", "hubs", "elite"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1301,6 +1359,7 @@
     "date_posted": "2018-10-01",
     "link": "https://www.youtube.com/watch?v=glgblV7Un_g",
     "tags": ["gallon", "smashing", "prank", "grocery", "milk"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1320,6 +1379,7 @@
     "date_posted": "2018-11-10",
     "link": "https://www.youtube.com/watch?v=xtf4FDlpPZ8",
     "tags": ["brain", "neuroscience", "hemispheres", "chaos", "meaning", "purpose", "orienting", "philosophy"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1339,6 +1399,7 @@
     "date_posted": "2018-12-02",
     "link": "https://www.youtube.com/watch?v=tQGksc1I7rA",
     "tags": ["conversation", "sovereignty", "ideology", "psychology", "collaboration", "jordan greenhall"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1358,6 +1419,7 @@
     "date_posted": "2018-12-08",
     "link": "https://www.youtube.com/watch?v=64HGcESw5-8",
     "tags": ["jordan greenhall", "mastery", "clarity", "sovereignty", "artfulness", "learning", "ai", "deep code"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1377,6 +1439,7 @@
     "date_posted": "2018-12-11",
     "link": "https://www.youtube.com/watch?v=qQhUxd82Rr0",
     "tags": ["brain", "surgery", "veritasium", "science", "neuroscience", "hippocampus", "blood brain barrier"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1396,6 +1459,7 @@
     "date_posted": "2018-12-11",
     "link": "https://www.youtube.com/watch?v=YR5WdGrpoug",
     "tags": ["programming", "maybe", "null", "nullable", "languages", "clojure", "haskell", "optional"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1415,6 +1479,7 @@
     "date_posted": "2018-12-14",
     "link": "https://www.youtube.com/watch?v=AscPHmLWo-M",
     "tags": ["jordan peterson", "psychology", "archetypes", "stories", "esteem", "religion", "morality", "politics"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1434,6 +1499,7 @@
     "date_posted": "2018-12-24",
     "link": "https://www.youtube.com/watch?v=IfoPitvLY7c",
     "tags": ["existential", "threat", "capitalism", "politics", "economics", "game", "theory", "love"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1462,6 +1528,7 @@
       "transcendence",
       "religion"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1481,6 +1548,7 @@
     "date_posted": "2019-01-03",
     "link": "https://www.youtube.com/watch?v=wfALJzn1hE8",
     "tags": ["physics", "garrett lisi", "math", "nature", "science", "geometry"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1500,6 +1568,7 @@
     "date_posted": "2019-03-05",
     "link": "https://www.youtube.com/watch?v=qOTYgcdNrXE",
     "tags": ["intelligence", "war", "us military", "smarter every day", "cyber", "russia", "division"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1527,6 +1596,7 @@
       "memes",
       "division"
     ],
+    "hook": null,
     "summary": null,
     "paid": true,
     "archived": false
@@ -1546,6 +1616,7 @@
     "date_posted": "2019-03-23",
     "link": "https://www.youtube.com/watch?v=-6rWqJhDv7M",
     "tags": ["physics", "time", "carlo rovelli", "quantum", "thermodynamics", "entropy", "gravity", "science"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1577,6 +1648,7 @@
       "conspiracy",
       "evolution"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1605,6 +1677,7 @@
       "twitter",
       "social media"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1634,6 +1707,7 @@
       "crispr",
       "artificial intelligence"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1663,6 +1737,7 @@
       "google",
       "tech"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1690,6 +1765,7 @@
       "innovation",
       "artificial intelligence"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1718,6 +1794,7 @@
       "socioergonomics",
       "attention economy"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1737,6 +1814,7 @@
     "date_posted": "2019-05-19",
     "link": "https://www.youtube.com/watch?v=fHsa9DqmId8",
     "tags": ["click bait", "veritasium", "youtube", "technology", "ai", "algorithm", "internet", "videos", "content"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1765,6 +1843,7 @@
       "animals",
       "vertebrates"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1784,6 +1863,7 @@
     "date_posted": "2019-07-14",
     "link": "https://www.youtube.com/watch?v=_EWCN3CPhTI",
     "tags": ["eric weinstein", "joe rogan", "gauge theory", "portal", "source code", "intelligence"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1803,6 +1883,7 @@
     "date_posted": "2019-07-14",
     "link": "https://www.youtube.com/watch?v=ZJixNvx9BAc",
     "tags": ["wired", "ai", "machine learning", "robots", "self driving", "big data", "medicine"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1822,6 +1903,7 @@
     "date_posted": "2019-12-02",
     "link": "https://www.youtube.com/watch?v=SYsy6qbKp3Y",
     "tags": ["technology", "capitalism", "economics", "automation", "markets", "innovation", "eric weinstein"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1841,6 +1923,7 @@
     "date_posted": "2019-12-02",
     "link": "https://www.youtube.com/watch?v=UGPT64wo7lU",
     "tags": ["graph", "embedding", "machine", "learning", "vector", "representation", "yann lecun"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1860,6 +1943,7 @@
     "date_posted": "2019-12-13",
     "link": "https://www.youtube.com/watch?v=8TwNNgiNZ7Y",
     "tags": ["vitalik buterin", "the portal", "eric weinstein", "crypto", "economics", "technology"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1879,6 +1963,7 @@
     "date_posted": "2019-12-26",
     "link": "https://www.youtube.com/watch?v=1tSqSMOyNFE",
     "tags": ["veritasium", "regression", "mean", "math", "statistics", "reasoning", "logic", "gamblers fallacy"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1898,6 +1983,7 @@
     "date_posted": "2019-12-26",
     "link": "https://www.youtube.com/watch?v=Wu8s0tp9yzY",
     "tags": ["eric weinstein", "replicator", "ai", "systems", "outtelligence", "computers", "evolution"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1917,6 +2003,7 @@
     "date_posted": "2020-01-09",
     "link": "https://www.youtube.com/watch?v=uhRhtFFhNzQ",
     "tags": ["david chalmers", "consciousness", "panpsychism", "iit", "psychology", "neuroscience", "physics", "ted"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1936,6 +2023,7 @@
     "date_posted": "2020-01-09",
     "link": "https://www.youtube.com/watch?v=odLukIWWLfQ",
     "tags": ["simulation", "nuclear", "health care", "quantum", "paul collider", "future"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1955,6 +2043,7 @@
     "date_posted": "2020-01-09",
     "link": "https://www.youtube.com/watch?v=CLo3e1Pak-Y",
     "tags": ["china", "surveillance", "ai", "machine learning", "skynet", "facial recognition", "regulation", "law"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -1974,6 +2063,7 @@
     "date_posted": "2020-01-22",
     "link": "https://www.youtube.com/watch?v=u0LIZV5H8bs",
     "tags": ["karl popper", "philosophy", "science", "truth", "theories", "falsifiability", "epistemology"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -2002,6 +2092,7 @@
       "complexity",
       "mandelbrot"
     ],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -2021,6 +2112,7 @@
     "date_posted": "2020-02-14",
     "link": "https://www.youtube.com/watch?v=sfXn_ecH5Rw",
     "tags": ["music", "copyright", "adam neely", "samples", "melody", "law", "legal"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -2040,6 +2132,7 @@
     "date_posted": "2020-03-28",
     "link": "https://www.youtube.com/watch?v=gxAaO2rsdIs",
     "tags": ["3blue1brown", "grant sanderson", "covid19", "pandemic", "sir model"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -2059,6 +2152,7 @@
     "date_posted": "2020-03-28",
     "link": "https://www.youtube.com/watch?v=JLb5hZLw44s",
     "tags": ["the portal", "mice", "genetics", "eric weinstein", "bret weinstein"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -2078,6 +2172,7 @@
     "date_posted": "2020-08-03",
     "link": "https://www.youtube.com/watch?v=Kp_kqamkYpw",
     "tags": ["veritasium", "universe", "cosmology", "dark matter", "whim", "astronomy", "stars"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -2097,6 +2192,7 @@
     "date_posted": "2020-08-05",
     "link": "https://www.youtube.com/watch?v=x4l0W5RUhMI",
     "tags": ["jordan greenhall", "distributed", "markets", "ubi", "collective", "intelligence", "signal", "capitalism"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -2116,6 +2212,7 @@
     "date_posted": "2020-08-05",
     "link": "https://www.youtube.com/watch?v=vmgxtcbc4iU",
     "tags": ["race", "black lives matter", "blm", "police violence", "america", "cops"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -2135,6 +2232,7 @@
     "date_posted": "2020-08-05",
     "link": "https://www.youtube.com/watch?v=UOuRYsAP5Lo",
     "tags": ["policy", "wealth", "income", "education", "rich", "meritocracy"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -2154,6 +2252,7 @@
     "date_posted": "2020-08-11",
     "link": "https://www.youtube.com/watch?v=5EuWCFCgy58",
     "tags": ["publishing", "art", "funnel", "practice", "success", "productivity"],
+    "hook": null,
     "summary": "Publishing is a style of working and an attitude. Working to public forces you to work on the stuff that matters and squashes the obsessive desires to stick on the little things. Working to publish is the opposite of working for pleasure. Working for pleasure is self-indulgent and a luxury that is inwardly focused rather than giving to others. The world is made of funnels. Every step of every multistep business process there is lots of drop off, reasonably high percentage of failure. Working to publish gives you a huge top layer of the funnel. You can't choose what you're famous for, it's a funnel, a numbers game.",
     "paid": false,
     "archived": false
@@ -2173,6 +2272,7 @@
     "date_posted": "2020-08-12",
     "link": "https://www.youtube.com/watch?v=Rpjab--XQ0U",
     "tags": ["discrete", "function", "harmonic", "tiling", "graph", "geometry", "dual", "math"],
+    "hook": null,
     "summary": "A square tiling is a tiling of the plane only using different sized squares. You can represent a square tiling (with no information lost) using a graph where horizontal lines become vertices, vertical lines become faces of the graph, and squares of the square tiling become edges in the graph. The value at one graph vertex is the average of the neighbors. By turning the square tiling by 90 degrees and performing the same operation we get the dual graph of the original graph (vertices and faces are swapped). The harmonic function applied to the graph shows that the square edge heights in the tiling can be averaged to get other edge heights. This function can be applied to a graph, giving a discrete function, but as the number of graph vertices grows to infinity, as the tiling covers the whole plane, the harmonic function becomes continuous. A lot of physics is about taking things that are discrete at the micro level and discovering properties of the continuous function at macro levels.",
     "paid": false,
     "archived": false
@@ -2192,6 +2292,7 @@
     "date_posted": "2020-08-19",
     "link": "https://www.youtube.com/watch?v=s_L-fp8gDzY",
     "tags": ["math", "excitement", "fourier", "grant sanderson", "3blue1brown", "geometry", "pi", "education"],
+    "hook": null,
     "summary": "Grant Sanderson of 3Blue1Brown explains what can make math more engaging. The Fourier transform (video #4) formula requires calculus with complex numbers. Starting with an intuitive explanation can help the math come across more easily when you dive into the complex, intimidating formalisms. The same goes for neural nets (video #2) Relevance - whether people believe math is useful - can definitely make people engage with math, but it's not the full picture. Colliding blocks counting out pi and whether a random tetrahedron inside a sphere contains the center of that sphere (videos #3 and #1) seem completely useless. Math made useful is like going to the gym, it's not fun but you know what you're getting for it. You don't ask when Harry Potter spells will be useful. Fiction isn't useful, but it's still compelling. G.H. Hardy - trivial mathematics is much more useful than complex math. The most popular math communicators leverage the power of story. Imagining you could solve the hardest problem on the hardest test puts you in the shoes of a math protagonist. Compelling math comes from intertwining usefulness and good storytelling.",
     "paid": false,
     "archived": false
@@ -2211,6 +2312,7 @@
     "date_posted": "2020-08-19",
     "link": "https://www.youtube.com/watch?v=AZX6awZq5Z0",
     "tags": ["intelligence", "philosophy", "biology", "information", "design", "complexity", "purpose", "evolution"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -2230,6 +2332,7 @@
     "date_posted": "2020-08-19",
     "link": "https://www.youtube.com/watch?v=mH0oCDa74tE",
     "tags": ["group theory", "isomorphism", "math", "symmetry", "permutation", "physics", "rotation", "monster"],
+    "hook": null,
     "summary": "Group theory is inextricably linked to symmetry and in turn to fundamental physics through universal laws of conservation. It lets us abstract the idea of symmetry actions away from the symmetry of any one object - groups : symmetry actions :: numbers : counts. Two groups can be considered the same if there is an isomorphism between them. Finite groups can be thought of as falling roughly in simple groups and combinations of simple groups. Simple groups have been categorized into 18 infinite group families (16 Lie groups) and 26 sporadic groups. One of these sporadic groups is called the Monster group and it acts on very high dimensional elements. Fundamental objects are not necessarily simple.",
     "paid": false,
     "archived": false
@@ -2249,6 +2352,7 @@
     "date_posted": "2020-08-22",
     "link": "https://www.youtube.com/watch?v=TTFoJQSd48c",
     "tags": ["philosophy", "brain", "computer", "evolution", "memes", "cognition", "thinking", "design"],
+    "hook": null,
     "summary": null,
     "paid": false,
     "archived": false
@@ -2268,6 +2372,7 @@
     "date_posted": "2020-08-26",
     "link": "https://samharris.org/podcasts/free-will-revisited/",
     "tags": ["philosophy", "free will", "agency", "golf", "tiger woods", "morality", "freedom", "control", "luck"],
+    "hook": null,
     "summary": "Is there a strong case for compatibilism? Sam Harris confronts Daniel Dennett on his view of free will, accusing him of redefining the term. Dennett responds that he chooses to focus on the part of free will that is scientifically and morally useful rather than the part that people might really care about. The two go back and forth on the case of Tiger Woods, where he is the most responsible person in the world for missing an easy putt (given how much control he has) and yet his missing a putt actually says the least about him. Dennett argues that free will is the extent of an agent's control over its surroundings - degrees of freedom. What does it mean that someone \"could have done otherwise\" and is it a useful or deceptive thinking tool?",
     "paid": true,
     "archived": false
@@ -2287,6 +2392,7 @@
     "date_posted": "2020-08-31",
     "link": "https://www.youtube.com/watch?v=3LopI4YeC4I",
     "tags": ["philosophy", "bias", "luck", "skill", "success", "altruism", "competition"],
+    "hook": null,
     "summary": "You need both skill and luck to succeed. The importance of luck increases as the number of competing individuals increases. People tend to credit their own success to hard work rather than luck, therefore feeling like they need to give back less. First, in order to succeed, you have to believe you are in control of your destiny. But second, you need to know that luck actually plays a significant role and you should do your best to increase the luck of others.",
     "paid": false,
     "archived": false
@@ -2316,6 +2422,7 @@
       "diagonalization",
       "proofs"
     ],
+    "hook": null,
     "summary": "The fast growing hierarchy lets us reason about extraordinarily large numbers and functions that grow extremely quickly. By using the tools of recursion and diagonalization we can extend the sequence of binary operations: succession, addition, multiplication, exponentiation, tetration, etc. These are important concepts in computability theory and proof theory.",
     "paid": false,
     "archived": false
@@ -2335,6 +2442,7 @@
     "date_posted": "2020-08-31",
     "link": "https://www.wired.com/story/facebook-mark-zuckerberg-lost-notebook/",
     "tags": ["facebook", "mark zuckerberg", "notebook", "privacy", "technology", "business"],
+    "hook": null,
     "summary": "While Mark Zuckerberg has destroyed many of his handwritten plans from Facebook's early days, 17 pages remain intact, pages part of the journal named \"Book of Change\" which detail Mark's plan for the future of his company. Two ideas meticulously documented in these pages were Open Registration and Feed. Mark grappled with whether to allow just anyone on Facebook, destroying it's gated nature and perceived privacy. He debated \"Dark Profiles\" where people could set up placeholder accounts for their friends and family, a feature which would be seriously considered among Facebook employees for a time. Feed was released as \"News Feed\" and users loudly expressed disaproval about the felt decline in privacy, with the most private personal updates hitting others' News Feeds like tabloids. However, usage numbers told a different story with time-on-site skyrocketing - the personalized recommendations would become a core part of the platform. A controversial feature \"Beacon\" tracked - and then broadcast - purchases on the web. Mark today says he believes Facebook continues to help people and is moving in the right direction, though some innevitable mistakes were made along the way.",
     "paid": false,
     "archived": false
@@ -2354,6 +2462,7 @@
     "date_posted": "2020-09-12",
     "link": "https://www.youtube.com/watch?v=Z40SZ77CHK0",
     "tags": ["jazz", "music", "fred rogers", "johnny costa", "education", "culture"],
+    "hook": null,
     "summary": "When Fred Rogers was starting his show the music budget was very small. He hired Johnny Costa for just $5000. Costa needed the money for his daughter's college education, but he considered himself a serious jazz musician and did not intend to change his style for kids. Mister Rogers' Neighborhood didn't try to dumb down music for kids. Even during the middle of episodes, the show used complex jazz music to express emotional moments. Rogers and Costa believed that even if kids might not like every bit of what they hear, at least they will be exposed to real music.",
     "paid": false,
     "archived": false
@@ -2373,6 +2482,7 @@
     "date_posted": "2020-09-13",
     "link": "https://www.youtube.com/watch?v=w2iTCm0xpDc",
     "tags": ["stirling engine", "entropy", "disorder", "time", "heat", "change", "molecules", "complexity"],
+    "hook": null,
     "summary": "The common definition of entropy is disorder, but another way to think about it is a difference in how clumped together energy is. In a closed system energy will always spread out. This is also a statistical phenomenon. There are very few ways to arrange a set of red and blue balls so that the two colors are separated compared to all other arrangements. It's possible that the balls would sort themselves spontaneously, but it's so unlikely that we never see it. Time can be considered an emergent property of this statistical fact. Time could go in reverse, but it's statistically so unlikely that it never does so in practice.",
     "paid": false,
     "archived": false
@@ -2401,6 +2511,7 @@
       "hypothesis",
       "priors"
     ],
+    "hook": null,
     "summary": "Evidence doesn't actually determine what we believe, but update our prior beliefs. We are in some ways Bayesian agents, but in many ways we fall short. Keeping in mind the tricks that Bayes taught us can help us make fewer mistakes when decisions under uncertainty are required. We can visualize this as a 4 quadrant square. The left size is when the hypothesis is true, the right side when the hypothesis is false. And each side is split based on the probability of the evidence given either hypothesis true or hypothesis false. The area of these quadrants can help us reason about the probability of uncertain events.",
     "paid": false,
     "archived": false
@@ -2420,6 +2531,7 @@
     "date_posted": "2020-09-20",
     "link": "https://www.youtube.com/watch?v=tR32h5jhPtU",
     "tags": ["music", "theory", "supertonic", "pop", "diatonic", "chords", "culture", "art"],
+    "hook": null,
     "summary": "Pop music has been using one melodic device extensively over the past few years. Sitting on the supertonic is a sound/style that is really easy to work with. The note above the tonic, D in the key of C for example, will be consonant with any diatonic chord. It's also just one note away from two other notes that are very easy to resolve to. Many pop songs will repeat the supertonic and easily resolve at any moment to either the tonic or the mediant. The Weeknd may do this more often than any other popular modern artist, but recent music by Post Malone, Katy Perry, Haim, Rhihanna, Justin Timberlake, Zedd, Daft Punk, Taylor Swift, DNCE, The 1975, Glass Animals, Dua Lipa, and Jacob Collier also uses the same technique.",
     "paid": false,
     "archived": false
@@ -2439,6 +2551,7 @@
     "date_posted": "2020-09-28",
     "link": "https://www.youtube.com/watch?v=48sCx-wBs34",
     "tags": ["pattern", "periodic", "crystal", "penrose", "symmetry", "infinity", "pentagon", "geometry"],
+    "hook": null,
     "summary": "Is there an aperiodic tiling of the plane? Sir Roger Penrose found an aperiodic tiling with just two shapes. Overlaying two Penrose tilings shows Moire patterns of interference that gives some intuitive evidence for aperiodicity. Another two-tile aperiodic tiling uses kites and darts rather than pentagons, rhombuses, and crowns. While there is one set of rules for a Penrose tiling, there exists an uncountably large number of possible tilings. Because each tiling is infinite you can't prove whether one section of a tiling is taken from a different section of another. The ratio of kites to darts approaches the golden ratio, which is closely related to the five-fold symmetry in the Penrose pattern. While crystals can form locally, Penrose tilings require long-range coordination, so people thought that natural crystals couldn't form this way. However these structures have been created experimentally and are now called quasi-crystals.",
     "paid": false,
     "archived": false
@@ -2458,6 +2571,7 @@
     "date_posted": "2020-10-08",
     "link": "https://www.youtube.com/watch?v=gMAKamGIiMc",
     "tags": ["buoyancy", "pendulum", "surface tension", "gravity", "force", "pressure", "torque", "equilibrium"],
+    "hook": null,
     "summary": "Liquid will fall to the bottom of a jar when the jar is turned upside-down. It is an unstable equilibrium where some perturbation on the surface of the liquid allows gravity to pull the liquid down starting from that initial site. However, if you vibrate the jar at the right frequency, the liquid will stay in place. This can be understood by analogy to an upside-down pendulum. A downward acceleration on an upside-down pendulum will apply a torque toward the equilibrium position. The opposite upward acceleration applies a torque away from the equilibrium position, but that torque is smaller as the pendulum is more upright after the first torque was applied. In the liquid experiment, the downward acceleration of the liquid causes the surface to flatten and the upload acceleration exaggerates perturbations, but less than the flattening. This results in a ratcheting effect and turns the unstable equilibrium into a stable equilibrium.",
     "paid": false,
     "archived": false
@@ -2477,6 +2591,7 @@
     "date_posted": "2020-10-14",
     "link": "https://www.youtube.com/watch?v=QyJZzq0v7Z4",
     "tags": ["programming", "languages", "object oriented", "computers", "history", "success", "design", "popularity"],
+    "hook": null,
     "summary": "Why are the top ten most popular languages object oriented rather than functional? There are three main reasons languages blow up: killer app (PHP/dynamic HTML, Java applets/web, Ruby/rails, C/OS, JavaScript/web), exclusivity on large platforms (Objective-C/Apple, Swift/Apple, C#/Windows), great advertising (Java). Python is an exception that has just gained popularity slowly over time by being well-designed. How easy it is to migrate to a new language is also important, but not the thing that really catapults a language into the top ten. What makes an OO language OO? Inheritance? Methods? Modules? It's not clear exactly what makes an OO language OO. But inheritance is not considered a best practice (composition over inheritance). Methods are really just syntactic sugar around structs and functions. Many languages have module systems with information hiding. Before Stroustrup made C++ he made \"C with classes\" which didn't do well. When he added a ton more features, then C++ did well. The success of OO languages seems to be an accident of history.",
     "paid": false,
     "archived": false
@@ -2496,6 +2611,7 @@
     "date_posted": "2020-10-31",
     "link": "https://www.youtube.com/watch?v=pTn6Ewhb27k",
     "tags": ["light", "physics", "relativity", "convention", "mirrors", "experiment", "plants", "astronomy"],
+    "hook": null,
     "summary": "Measuring the two way speed of light is easy theoretically with a clock, a mirror, and a light sensor. We currently define the speed of light to be 299,792,458 m/s. And meters are also defined now in terms of the speed of light. But we've never been able to measure the one way speed of light because you would need two clocks perfectly synchronized in two places which we can't do because of general relativity. As far as physics knows, it's possible that light travels in different speeds going different directions. The speed of light (c) in all directions is actually a convention.",
     "paid": false,
     "archived": false
@@ -2515,6 +2631,7 @@
     "date_posted": "2020-11-01",
     "link": "https://www.youtube.com/watch?v=LAyZ8IYfGxQ",
     "tags": ["outliers", "ai", "google", "academia", "models", "disciplines", "race", "machine learning"],
+    "hook": null,
     "summary": "People are generally extremely predictable. And those that are outliers are often surprisingly similar to each other. While information silos can cause ideogological differences, what they create more of are differences in how we use language, leading to groups talking past each other. Machine learning is just one piece of AI and one important thing ML misses is being intelligent around other intelligent beings, social learning. Being intelligent alone is meaningless. Both research and industry have short term incentives; In order to get at real intelligence we'll need to take some risks and put an agent out in the chaotic world for an extended period of time. Google didn't come out of no where to solve the question answering problem. They actually changed the problem to minimize false positives given many potential answers. Google doesn't have to give THE answer, just a few high probability answers ranked above lower ones. And then humans had to train to query effectively. The same problem exists in hiring professors: adding noise to your search is too expensive, so you have to just widen your pool of applicants to have a higher chance to find someone good. Tenure isn't a test it's a training process. Ranking colleges on anything other than prestige/narrative is impossible. Academic disciplines give you mindsets, ways of seeing/interacting with the world. Computing as a mindset teaches that models/machines/languages/abstractions/analogies are all connected. Computing will eventually seep into all other disciplines and in turn those disciplines will inform computing. People don't need to code, just learn the precision of communication that coding teaches. Computing is a way to surface assumptions. Assumptions are neural net parameters and programming language if/thens. Race relations have changed recently because of increased transparency and more people are willing to believe how bad things are. Violence is the voice of the unheard and the unfortunate truth is that violence effectively creates change.",
     "paid": false,
     "archived": false
@@ -2543,6 +2660,7 @@
       "dimensions",
       "energy"
     ],
+    "hook": null,
     "summary": "The physical constants we often think of as fundamental (Planck, gravity, speed of light, Boltzmann, etc) are not actually fundamental. You can actually change your units such that all of these constants come out to 1. Each of these constants (e.g. E=mc^2) is relating the scale of two distinct dimensions/units. We can relate all of these units in one formula to determine a more fundamental constant: the fine structure constant. This constant is dimensionless and is just about 1/137. There are actually a total of 26 fundamental constants along with the fine structure constant that are dimensionless. 25 of these come from the standard model. The 26th comes from general relativity. The \"cosmological constant\", the energy density of empty space, vacuum energy, is related to the expansion of space and dark energy. It's possible that these 26 could be reduced, but that would take a revolution in how we understand physics, a revolution in the standard model.",
     "paid": false,
     "archived": false
@@ -2572,6 +2690,7 @@
       "research",
       "copyright"
     ],
+    "hook": null,
     "summary": "Documentary about Aaron Swartz from his early days working on foundational internet protocols to his career fighting for freedom of information. Swartz was an internet expert from an early age and became known for his effort putting a stop to the US SOPA bill that would give US law enforcement the rights and means to shut down any website that might be distributing copyrighted content. He railed against the PACER system of pay-to-download court documents. He also fought against paid research publication databases like Elsevier and JSTOR and contributed to the creative commons license. After being prosecuted by the US government for fraud between 2011 and 2013 Aaron was found dead in his apartment. What's the most important thing you could be working on for the world? If you're not working on that why aren't you?",
     "paid": false,
     "archived": false
@@ -2591,6 +2710,7 @@
     "date_posted": "2020-11-29",
     "link": "https://www.youtube.com/watch?v=6NlI4No3s0M",
     "tags": ["music", "harmony", "intonation", "temperment", "piano", "justonic", "tuning"],
+    "hook": null,
     "summary": "With modern technology we can achieve the perfect consonant tunings that Bach originally tried to create when writing music for instruments that used tempered tuning.",
     "paid": false,
     "archived": true
@@ -2610,6 +2730,7 @@
     "date_posted": "2020-11-29",
     "link": "https://www.youtube.com/watch?v=1Hqm0dYKUx4",
     "tags": ["music", "harmony", "intonation", "temperment", "piano", "frequency", "tuning"],
+    "hook": null,
     "summary": "String instruments can be tuned by comparing the harmonics of two adjacent strings. However, pianos just have too many strings. If you tried tuning a piano with harmonics you would slowly get farther and farther from doubling the octave frequency as you tuned up the piano. In order to get perfectly consonant octaves (with the upper note double the frequency of the lower) pianos use \"equal tempered\" tuning. The ratio between two notes is the twelth root of two, which maintains the octave ratio. However, whatever you play will be slightly and equally out of tune in any key. Just intonation will sound perfectly consonant in one key, but horrible in other keys.",
     "paid": false,
     "archived": false
@@ -2640,6 +2761,7 @@
       "computation",
       "complexity"
     ],
+    "hook": null,
     "summary": "Computational equivalance as worked out by Turing demonstrates that there is a kind of computational speed limit, that all things that perform computation are equivalent and there are no shortcuts. The flip side of the coin is computational irriducibility where some complex patterns might have a simple generator and yet be totally unpredictable after a certain number of steps - while some repitition might pop up, large parts of the generated pattern might be as good as random. In search of a computational model underlying our physical reality, the Wolfram Physics team is using hypergraphs (graphs where one edge can connect multiple nodes) with simple update rules to model the phenomena explained by both general relativity and quantum field theory. The Wolfram findings indicate that these theories of physical phenomena uncovered 20th century are like small islands of computational reducibility in a vast sea of irriducibility. Both relativity and quantum seem to fall out of the distributed nature of the graph update rules. The property of causal invariance in these graphs means that while update rules could play out in more than one way, in the end it doesn't matter to the final state of the graph. And while the update rules, generator function, computational description of our local physics might be static, it may be the case - and perhaps unprovably so - that elsewhere totally different rules apply.",
     "paid": false,
     "archived": false
@@ -2659,6 +2781,7 @@
     "date_posted": "2020-12-16",
     "link": "https://www.youtube.com/watch?v=8Kh9HoCsmrw",
     "tags": ["cognition", "brains", "emergence", "consciousness", "intelligence", "neural", "networks", "biology"],
+    "hook": null,
     "summary": "It's possible that some of the phenomena we see brains exhibit - consciousness and intelligence - are just emergent properties of brains as you add a ton more neurons. Hardware gives you an upper bound for cognitive ability, but the environment that shapes the software is what allows a system to reach its full cognitive potential.",
     "paid": false,
     "archived": false
@@ -2678,6 +2801,7 @@
     "date_posted": "2020-12-16",
     "link": "https://www.youtube.com/watch?v=SfjJoevBbjU",
     "tags": ["neural", "network", "pruning", "model", "representation", "learning", "lottery ticket"],
+    "hook": null,
     "summary": "The lottery ticket hypothesis states that dense and randomly initialized neural networks will by chance have sub-networks that yield good performance when trained. If you start out with one of these sub-networks and train it in isolation you can recover the high performance of the full un-pruned network. However, determining this sub-network - called a \"winning lottery ticket\" seems impossible to do without going through the training process on the full network. The winning tickets when trained in isolation will reach higher test accuracy with fewer training iterations at only 10-20% of the full network size.",
     "paid": false,
     "archived": false
@@ -2697,6 +2821,7 @@
     "date_posted": "2020-12-16",
     "link": "https://www.youtube.com/watch?v=NgDGlcxYrhQ",
     "tags": ["cognition", "brains", "emergence", "consciousness", "intelligence", "neural", "networks", "biology"],
+    "hook": "For some of us, the classroom isn't the best place to learn. Having the right learning community can make a world of difference.",
     "summary": "Learning communities make maps and maps can in turn change the world that uses them. There is a community of life-long learners on YouTube full of people that appreciate learning and understand that it's not just something for the classroom.",
     "paid": false,
     "archived": false

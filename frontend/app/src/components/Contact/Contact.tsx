@@ -13,8 +13,7 @@ class Contact extends React.Component<ContactProps, ContactState> {
         <div className="Contact-header-wrap">
           <div className="Contact-title">Looking forward to hearing from you!</div>
           <div className="Contact-instructions">
-            Fill out this form to send me a message directly. I'll try to get back to you at the email you provide as
-            soon as possible.
+            Fill out this form to send me a message directly. I'll try to get back to you ASAP.
           </div>
         </div>
         <div className="Contact-form-wrap">
