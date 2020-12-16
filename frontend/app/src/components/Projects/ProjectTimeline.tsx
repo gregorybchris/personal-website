@@ -8,17 +8,33 @@ import ProjectModel from "./models/Project";
 import "./styles/ProjectTimeline.sass";
 
 class ProjectTypes {
-  static WEB = "web";
-  static JAR = "jar";
-  static PROGRAM = "program";
+  static GAME = "game";
+  static TOOL = "tool";
+  static TUTORIAL = "tutorial";
+  static VISUALIZATION = "visualization";
 }
 
 class Colors {
   static BLACK = "rgb(0, 0, 0)";
-  static BLUE = "rgb(84, 147, 184)";
-  static GRAY = "rgb(60, 60, 60)";
-  static GREEN = "rgb(63, 150, 36)";
-  static RED = "rgb(200, 88, 70)";
+  static RED = "rgb(239, 71, 111)";
+  static YELLOW = "rgb(255, 209, 102)";
+  static GREEN = "rgb(6, 214, 160)";
+  static BLUE = "rgb(17, 138, 178)";
+  static NAVY = "rgb(7, 59, 76)";
+
+  // static BLACK = "rgb(0, 0, 0)";
+  // static BLUE = "rgb(38, 70, 83)";
+  // static GREEN = "rgb(42, 157, 143)";
+  // static ORANGE = "rgb(244, 162, 97)";
+  // static RED = "rgb(231, 111, 81)";
+  // static YELLOW = "rgb(233, 196, 106)";
+
+  // static BLACK = "rgb(0, 0, 0)";
+  // static RED = "rgb(255, 89, 94)";
+  // static YELLOW = "rgb(255, 202, 58)";
+  // static GREEN = "rgb(138, 201, 38)";
+  // static BLUE = "rgb(25, 130, 196)";
+  // static PURPLE = "rgb(106, 76, 147)";
 }
 
 class SimConstants {
@@ -138,13 +154,15 @@ class ProjectTimeline extends React.Component<ProjectTimelineProps, ProjectTimel
     return `#project_${project.project_id}`;
   };
 
-  getProjectColor = (project: ProjectModel): string => {
-    switch (project.project_type) {
-      case ProjectTypes.WEB:
-        return Colors.RED;
-      case ProjectTypes.JAR:
+  getProjectColor = (projectType: string): string => {
+    switch (projectType) {
+      case ProjectTypes.GAME:
         return Colors.BLUE;
-      case ProjectTypes.PROGRAM:
+      case ProjectTypes.TOOL:
+        return Colors.RED;
+      case ProjectTypes.TUTORIAL:
+        return Colors.YELLOW;
+      case ProjectTypes.VISUALIZATION:
         return Colors.GREEN;
       default:
         return Colors.BLACK;
@@ -204,10 +222,10 @@ class ProjectTimeline extends React.Component<ProjectTimelineProps, ProjectTimel
         return (r * r * 6) / 30 + 9;
       })
       .attr("opacity", 1)
-      .attr("fill", this.getProjectColor)
+      .attr("fill", (project) => this.getProjectColor(project.use_type))
       .attr("fill-opacity", 0)
       .attr("stroke-width", 4)
-      .attr("stroke", this.getProjectColor)
+      .attr("stroke", (project) => this.getProjectColor(project.use_type))
       .attr("id", (project) => `project_${project.project_id}`)
       .on("click", (mouseEvent: any, project: any) => {
         d3.selectAll("circle").classed("deselected", true).classed("selected", false);
@@ -217,6 +235,25 @@ class ProjectTimeline extends React.Component<ProjectTimelineProps, ProjectTimel
     circles.append("title").text((d) => d.name);
   };
 
+  getLegentElement = () => {};
+
+  getLegend = () => {
+    const projectTypes = [ProjectTypes.GAME, ProjectTypes.TOOL, ProjectTypes.TUTORIAL, ProjectTypes.VISUALIZATION];
+    return (
+      <div className="ProjectTimeline-legend">
+        {projectTypes.map((projectType) => {
+          const projectColor = this.getProjectColor(projectType);
+          return (
+            <div className="ProjectTimeline-legend-element">
+              <div className="ProjectTimeline-legend-element-color" style={{ backgroundColor: projectColor }}></div>
+              <div className="ProjectTimeline-legend-element-name">{projectType}</div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
   componentDidUpdate(prevProps: ProjectTimelineProps, prevState: ProjectTimelineState) {
     if (prevProps.projects.length === 0) {
       this.startSim(this.props.projects);
@@ -224,10 +261,8 @@ class ProjectTimeline extends React.Component<ProjectTimelineProps, ProjectTimel
 
     const project = this.props.currentProject;
     if (project !== null) {
-      // if (prevProps.currentProject?.project_id !== project.project_id) {
       d3.selectAll("circle").classed("deselected", true).classed("selected", false);
       d3.select(this.getProjectSelector(project)).classed("deselected", false).classed("selected", true);
-      // }
     }
   }
 
@@ -238,6 +273,7 @@ class ProjectTimeline extends React.Component<ProjectTimelineProps, ProjectTimel
   render() {
     return (
       <div className="ProjectTimeline">
+        {this.getLegend()}
         <div className="ProjectTimeline-canvas" ref={this.canvasRef}></div>
       </div>
     );
