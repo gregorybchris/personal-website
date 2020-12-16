@@ -23,8 +23,7 @@ function App() {
           <Route path="/code/:slug?" exact component={(props: any) => <Projects {...props} />} />
           <Route path="/contact" exact component={() => <Contact />} />
           <Route path="/opinion" exact component={() => <Survey />} />
-          <Route path="/links" exact component={() => <Blog />} />
-          <Route path="/links/:slug" exact component={(props: any) => <Blog {...props} />} />
+          <Route path="/links/:slug?" exact component={(props: any) => <Blog {...props} />} />
           <Route path="/running" exact component={() => <RunningRoutes />} />
           <Route path="/music" exact component={() => <Music />} />
           <Route path="/sandbox" exact component={() => <Sandbox />} />

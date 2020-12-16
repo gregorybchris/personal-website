@@ -13,6 +13,7 @@ interface PostProps {
   post: PostModel;
   videoTime: string;
   onClickTag: (tag: string) => void;
+  onSelectPost: (post: PostModel) => void;
 }
 
 interface PostState {
@@ -129,10 +130,13 @@ class Post extends React.Component<PostProps, PostState> {
           <div className="Post-title-wrap">
             <a className="Post-title-link" href={this.state.contentLink}>
               {this.getTitleElement()}
-              <a href={makeURL({}, `links/${this.props.post.slug}`)}>
-                <img className="Post-link-image" src={linkImage} alt="Post link"></img>
-              </a>
             </a>
+            <img
+              className="Post-link-image"
+              src={linkImage}
+              onClick={() => this.props.onSelectPost(this.props.post)}
+              alt="Post link"
+            ></img>
           </div>
           {this.getSeriesInfo()}
           <div className="Post-date">{formatDate(this.props.post.date_posted)}</div>

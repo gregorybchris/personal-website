@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, match } from "react-router-dom";
+import { History } from "history";
 
 import Post from "./Post";
 import PostModel from "./models/Post";
@@ -13,6 +14,7 @@ interface BlogParams {
 
 interface BlogProps {
   match?: match<BlogParams>;
+  history?: History;
 }
 
 interface BlogState {
@@ -34,6 +36,22 @@ class Blog extends React.Component<BlogProps, BlogState> {
     this.setState({ searchText: "" });
   };
 
+  onSelectPost = (post: PostModel | null) => {
+    const history = this.props.history;
+    if (history) {
+      if (post === null) {
+        history.push("/links");
+      } else {
+        history.push(`/links/${post.slug}`);
+      }
+    }
+    if (post === null) {
+      this.setState({ currentPostSlug: null });
+    } else {
+      this.setState({ currentPostSlug: post.slug });
+    }
+  };
+
   async componentDidMount() {
     const postsQuery = makeQuery("posts");
     const queryResult = await GET(postsQuery);
@@ -50,6 +68,8 @@ class Blog extends React.Component<BlogProps, BlogState> {
       const { slug } = match.params;
       if (slug) {
         this.setState({ currentPostSlug: slug });
+      } else {
+        this.setState({ currentPostSlug: null });
       }
     }
   }
@@ -108,7 +128,15 @@ class Blog extends React.Component<BlogProps, BlogState> {
   createPostElement = (post: PostModel) => {
     if (this.isPostEnabled(post)) {
       const time = this.getVideoTime();
-      return <Post key={post.post_id} post={post} onClickTag={this.onClickTag} videoTime={time} />;
+      return (
+        <Post
+          key={post.post_id}
+          post={post}
+          onClickTag={this.onClickTag}
+          onSelectPost={this.onSelectPost}
+          videoTime={time}
+        />
+      );
     }
   };
 
@@ -121,42 +149,72 @@ class Blog extends React.Component<BlogProps, BlogState> {
     }
   };
 
+  createAboutElement = () => {
+    const slugOrIdExists = this.state.currentPostId !== null || this.state.currentPostSlug !== null;
+    if (slugOrIdExists) {
+      return (
+        <div className="Blog-about">
+          This page gives direct access to one blog link. To return to the full list of links click here:
+        </div>
+      );
+    }
+    return (
+      <div className="Blog-about">
+        <div className="Blog-about-section">
+          On this page you'll find a whole lot of links to stuff online. Topics range from art to neuroscience and
+          philosophy to physics. This is where I dump the videos and articles that I found mindblowing, but take more
+          time to consume than most people would care to spend. I try to reserve posts here for stuff that made me think
+          differently, new paradigms rather than new facts.
+        </div>
+        <div className="Blog-about-section">
+          <span className="Blog-about-note">Disclaimer:</span> I'm not under the impression that all claims made in the
+          linked content are factual, but I do believe much of what you'll find here can be valuable with the appopriate
+          amount of critical thought. If you find anything here to be either offensive or potentially harmful please
+          reach out to me through my{" "}
+          <Link className="Common-simple-link" to="/contact">
+            Contact
+          </Link>{" "}
+          page.
+        </div>
+      </div>
+    );
+  };
+
+  createContentsElement = () => {
+    const slugOrIdExists = this.state.currentPostId !== null || this.state.currentPostSlug !== null;
+    if (slugOrIdExists) {
+      return (
+        <div className="Blog-contents">
+          <div className="Common-button Blog-home-button" onClick={() => this.onSelectPost(null)}>
+            Blog home
+          </div>
+          <div className="Blog-posts">{this.createPostElements()}</div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="Blog-contents">
+          <div className="Blog-search">
+            <SearchBar
+              onClearSearch={this.onClearSearch}
+              onUpdateSearch={this.onUpdateSearch}
+              searchText={this.state.searchText}
+            />
+          </div>
+          <div className="Blog-posts">{this.createPostElements()}</div>
+        </div>
+      );
+    }
+  };
+
   render() {
     return (
       <div className="Blog">
         <div className="Blog-header-wrap">
           <div className="Blog-title">Link Blog</div>
-          <div className="Blog-about">
-            On this page you'll find a whole lot of links to stuff online. Topics range from art to neuroscience and
-            philosophy to physics. This is where I dump the videos and articles that I found mindblowing, but take more
-            time to consume than most people would care to spend. I try to reserve posts here for stuff that made me
-            think differently, new paradigms rather than new facts.
-          </div>
-          <div className="Blog-about">
-            <span className="Blog-about-note">Disclaimer:</span> I'm not under the impression that all claims made in
-            the linked content are factual, but I do believe much of what you'll find here can be valuable with the
-            appopriate amount of critical thought. If you find anything here to be either offensive or potentially
-            harmful please reach out to me through my{" "}
-            <Link className="Common-simple-link" to="/contact">
-              Contact
-            </Link>{" "}
-            page.
-          </div>
+          {this.createAboutElement()}
         </div>
-        <div className="Blog-contents">
-          {this.state.currentPostId || this.state.currentPostSlug ? (
-            <></>
-          ) : (
-            <div className="Blog-search">
-              <SearchBar
-                onClearSearch={this.onClearSearch}
-                onUpdateSearch={this.onUpdateSearch}
-                searchText={this.state.searchText}
-              />
-            </div>
-          )}
-          <div className="Blog-posts">{this.createPostElements()}</div>
-        </div>
+        {this.createContentsElement()}
       </div>
     );
   }
