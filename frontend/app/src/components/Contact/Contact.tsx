@@ -11,12 +11,10 @@ class Contact extends React.Component<ContactProps, ContactState> {
     return (
       <div className="Contact">
         <div className="Contact-header-wrap">
-          <div className="Contact-title">
-            Looking forward to hearing from you!
-          </div>
+          <div className="Contact-title">Looking forward to hearing from you!</div>
           <div className="Contact-instructions">
-            Fill out this form to send me a message directly. I'll try to get
-            back to you at the email you provide as soon as possible
+            Fill out this form to send me a message directly. I'll try to get back to you at the email you provide as
+            soon as possible.
           </div>
         </div>
         <div className="Contact-form-wrap">
@@ -37,17 +35,8 @@ class Contact extends React.Component<ContactProps, ContactState> {
               autoComplete="off"
               required
             />
-            <textarea
-              className="Common-text-field Contact-text-area"
-              name="message"
-              placeholder="Message"
-              required
-            />
-            <input
-              className="Common-button Contact-send-button"
-              type="submit"
-              value="Send"
-            />
+            <textarea className="Common-text-field Contact-text-area" name="message" placeholder="Message" required />
+            <input className="Common-button Contact-send-button" type="submit" value="Send" />
           </form>
         </div>
       </div>
