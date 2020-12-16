@@ -276,7 +276,7 @@
     "description": "Flicker is a Raspberry Pi project used to continuously monitor the environment of a room. It includes utilities for monitoring new data streams and a dashboard for visualizing unexpected changes.",
     "remarks": "The light fixture in my kitchen would go off unexpectedly so I decided to start tracking the light levels for patterns. It turns out that the lights were mounted to an induction plate that would shut off after being on for a while.",
     "tags": ["microcomputer", "monitoring"],
-    "source_link": null,
+    "source_link": "https://github.com/gregorybchris/flicker",
     "download_link": null,
     "web_link": null,
     "image_links": [],
