@@ -9,9 +9,11 @@
   filter: invert(0.4)
 
 .InfoIcon-text
-  display: none
+  position: absolute
+  display: inline-block
+  opacity: 0
   padding-left: 6px
+  transition: 200ms
 
 .InfoIcon:hover .InfoIcon-text
-  display: inline-block
-  position: absolute
+  opacity: 1

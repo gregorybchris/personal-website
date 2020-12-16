@@ -34,13 +34,14 @@ class ProjectInfo extends React.Component<ProjectInfoProps, ProjectInfoState> {
     const downloadLink = project.download_link;
     if (downloadLink !== null) {
       const language = project.primary_language;
-      const buttonText = language == "Java" ? "Download Java runnable archive" : "Download project";
+      const isJava = language == "Java";
+      const buttonText = isJava ? "Download Java runnable archive" : "Download project";
       downloadLinkElement = (
         <div className="ProjectInfo-item">
           <span className="Common-simple-link" onClick={() => this.props.onProjectDownload(project, downloadLink)}>
             {buttonText}
           </span>
-          <InfoIcon text="Your computer might not be able to run this older JAR file."></InfoIcon>
+          {isJava ? <InfoIcon text="Requires a Java installation to run."></InfoIcon> : <></>}
         </div>
       );
     }
@@ -52,8 +53,8 @@ class ProjectInfo extends React.Component<ProjectInfoProps, ProjectInfoState> {
           <div className="ProjectInfo-item">{formattedDate}</div>
           <div className="ProjectInfo-item ProjectInfo-description">{project.description}</div>
           {downloadLinkElement}
+          <ProjectInfoLink text="Live demo" link={project.web_link}></ProjectInfoLink>
           <ProjectInfoLink text="Source code" link={project.source_link}></ProjectInfoLink>
-          <ProjectInfoLink text="Project demo" link={project.web_link}></ProjectInfoLink>
         </div>
         <div className="ProjectInfo-images">{imageElements}</div>
       </div>
