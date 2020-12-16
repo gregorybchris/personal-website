@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./styles/Music.sass";
 
@@ -13,13 +14,16 @@ class Music extends React.Component<MusicProps, MusicState> {
         <div className="Music-header">
           <div className="Music-title">Music</div>
           <div className="Music-about">
-            Music has always been a huge part of my life from violin at an early age to learning piano and guitar on my
-            own. Playing music with others is one of my greatest joys, but when that's not possible listening to music
-            is the next best thing.
+            Here's a collection of the songs I'm into right now in no particular order. If you have a music
+            recommendation for me based on what you find here please send me a message with my{" "}
+            <Link className="Common-simple-link" to="/contact">
+              Contact
+            </Link>{" "}
+            page! I love getting new music from people with similar taste.
           </div>
           <div className="Music-about">
-            Here's a collection of the stuff I'm listening to right now in no particular order. I periodically remove
-            old stuff and update with fresh tunes, so check back for changes if you like what you hear!
+            To hear the full songs you'll need to log into a Spotify account either in your browser or in the Spotify
+            desktop/mobile app.
           </div>
         </div>
         <div className="Music-spotify">

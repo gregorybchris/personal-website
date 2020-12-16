@@ -163,10 +163,9 @@ class Blog extends React.Component<BlogProps, BlogState> {
     return (
       <div className="Blog-about">
         <div className="Blog-about-section">
-          On this page you'll find a whole lot of links to stuff online. Topics range from art to neuroscience and
-          philosophy to physics. This is where I dump the videos and articles that I found mindblowing, but take more
-          time to consume than most people would care to spend. I try to reserve posts here for stuff that made me think
-          differently, new paradigms rather than new facts.
+          Topics range from art to neuroscience and philosophy to physics. I try to reserve posts here for stuff that
+          made me think differently, new paradigms rather than new facts. Videos and articles that meet that criteria
+          have a tendency to be pretty long.
         </div>
         <div className="Blog-about-section">
           <span className="Blog-about-note">Disclaimer:</span> I'm not under the impression that all claims made in the
