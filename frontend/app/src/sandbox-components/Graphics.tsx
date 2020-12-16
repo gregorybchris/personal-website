@@ -3,13 +3,7 @@ import React from "react";
 import SceneComponent from "./SceneComponent";
 import "./Graphics.css";
 
-import {
-  Color3,
-  FreeCamera,
-  HemisphericLight,
-  MeshBuilder,
-  Vector3,
-} from "@babylonjs/core";
+import { Color3, FreeCamera, HemisphericLight, MeshBuilder, Vector3 } from "@babylonjs/core";
 
 let box: any;
 
@@ -41,11 +35,6 @@ const onRender = (scene: any) => {
 
 export default () => (
   <div className="Graphics">
-    <SceneComponent
-      antialias
-      onSceneReady={onSceneReady}
-      onRender={onRender}
-      id="my-canvas"
-    />
+    <SceneComponent antialias onSceneReady={onSceneReady} onRender={onRender} id="my-canvas" />
   </div>
 );

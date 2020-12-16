@@ -12,9 +12,7 @@ class Oops extends React.Component<OopsProps, OopsState> {
       <div className="Oops">
         <div className="Oops-section">
           <div className="Oops-title">Oops! :/</div>
-          <div className="Oops-text">
-            Somehow you've ended up on a page that doesn't exist...
-          </div>
+          <div className="Oops-text">Somehow you've ended up on a page that doesn't exist...</div>
         </div>
         <div className="Oops-image-wrap">
           <img

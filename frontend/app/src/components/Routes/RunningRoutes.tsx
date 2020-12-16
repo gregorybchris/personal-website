@@ -11,38 +11,31 @@ interface RunningRoutesState {
   routes: RunningRouteModel[];
 }
 
-class RunningRoutes extends React.Component<
-  RunningRoutesProps,
-  RunningRoutesState
-> {
+class RunningRoutes extends React.Component<RunningRoutesProps, RunningRoutesState> {
   state: RunningRoutesState = {
     routes: [],
   };
 
   sortRoutesByTags = (routes: RunningRouteModel[]) => {
-    return routes.sort(
-      (routeA: RunningRouteModel, routeB: RunningRouteModel) => {
-        const numTagsA = routeA.tags.length;
-        const numTagsB = routeB.tags.length;
-        const minTags = Math.min(numTagsA, numTagsB);
-        for (let i = 0; i < minTags; i++) {
-          if (routeA.tags[i] < routeB.tags[i]) {
-            return -1;
-          } else if (routeA.tags[i] > routeB.tags[i]) {
-            return 1;
-          }
+    return routes.sort((routeA: RunningRouteModel, routeB: RunningRouteModel) => {
+      const numTagsA = routeA.tags.length;
+      const numTagsB = routeB.tags.length;
+      const minTags = Math.min(numTagsA, numTagsB);
+      for (let i = 0; i < minTags; i++) {
+        if (routeA.tags[i] < routeB.tags[i]) {
+          return -1;
+        } else if (routeA.tags[i] > routeB.tags[i]) {
+          return 1;
         }
-        return numTagsA - numTagsB;
       }
-    );
+      return numTagsA - numTagsB;
+    });
   };
 
   sortRoutesByName = (routes: RunningRouteModel[]) => {
-    return routes.sort(
-      (routeA: RunningRouteModel, routeB: RunningRouteModel) => {
-        return routeA.name < routeB.name ? -1 : 1;
-      }
-    );
+    return routes.sort((routeA: RunningRouteModel, routeB: RunningRouteModel) => {
+      return routeA.name < routeB.name ? -1 : 1;
+    });
   };
 
   async componentDidMount() {
@@ -66,20 +59,13 @@ class RunningRoutes extends React.Component<
     return (
       <div className="RunningRoutes-route" key={routeModel.route_id}>
         <div className="RunningRoutes-name">
-          <a
-            href={mapometerLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="Common-simple-link"
-          >
+          <a href={mapometerLink} target="_blank" rel="noopener noreferrer" className="Common-simple-link">
             {routeModel.name}
           </a>
         </div>
         <div className="RunningRoutes-info">{routeModel.distance}mi</div>
         <div className="RunningRoutes-info">{routeModel.elevation}ft</div>
-        <div className="RunningRoutes-tags">
-          {routeModel.tags.map(this.createRouteTagElement)}
-        </div>
+        <div className="RunningRoutes-tags">{routeModel.tags.map(this.createRouteTagElement)}</div>
       </div>
     );
   };
@@ -90,19 +76,16 @@ class RunningRoutes extends React.Component<
         <div className="RunningRoutes-header">
           <div className="RunningRoutes-title">Running Routes</div>
           <div className="RunningRoutes-about">
-            Here you'll find an archive of some of my favorite running routes
-            over the years. I have some from high school in Indianapolis, some
-            from college in Boston, and a growing number from different
-            neighborhoods of Seattle.
+            Here you'll find an archive of some of my favorite running routes over the years. I have some from high
+            school in Indianapolis, some from college in Boston, and a growing number from different neighborhoods of
+            Seattle.
           </div>
           <div className="RunningRoutes-about">
-            Click on a route name to view the full route in mapOmeter.com along
-            with elevation change throughout the run.
+            Click on a route name to view the full route in mapOmeter.com along with elevation change throughout the
+            run.
           </div>
         </div>
-        <div className="RunningRoutes-routes">
-          {this.state.routes.map(this.createRouteElement)}
-        </div>
+        <div className="RunningRoutes-routes">{this.state.routes.map(this.createRouteElement)}</div>
       </div>
     );
   }

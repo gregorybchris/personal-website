@@ -18,10 +18,8 @@ class Home extends React.Component<HomeProps, HomeState> {
         <div className="Home-section-welcome">
           <div className="Home-welcome-title">Hey there!</div>
           <div className="Home-welcome-text">
-            Thanks for checking out my website. I mostly use this space to try
-            out new web technologies and play with whatever data I can pull
-            together. Take a look around and I hope you'll find something you
-            like.
+            Thanks for checking out my website. I mostly use this space to try out new web technologies and play with
+            whatever data I can pull together. Take a look around and I hope you'll find something you like.
           </div>
         </div>
 
@@ -34,15 +32,10 @@ class Home extends React.Component<HomeProps, HomeState> {
                 </Link>
               </div>
               <div className="Home-content-info-text">
-                Check out some of my favorite running routes in Boston, Seattle,
-                and Indianapolis.
+                Check out some of my favorite running routes in Boston, Seattle, and Indianapolis.
               </div>
               <Link className="Home-content-info-title" to="/running">
-                <img
-                  className="Home-content-info-icon Home-content-info-shoe-icon"
-                  src={shoeIcon}
-                  alt=""
-                ></img>
+                <img className="Home-content-info-icon Home-content-info-shoe-icon" src={shoeIcon} alt=""></img>
               </Link>
             </div>
           </div>
@@ -55,15 +48,10 @@ class Home extends React.Component<HomeProps, HomeState> {
                 </Link>
               </div>
               <div className="Home-content-info-text">
-                A collection of links to videos and articles online that I found
-                insightful or novel.
+                A collection of links to videos and articles online that I found insightful or novel.
               </div>
               <Link className="Home-content-info-title" to="/links">
-                <img
-                  className="Home-content-info-icon Home-content-info-link-icon"
-                  src={linkIcon}
-                  alt=""
-                ></img>
+                <img className="Home-content-info-icon Home-content-info-link-icon" src={linkIcon} alt=""></img>
               </Link>
             </div>
           </div>
@@ -79,11 +67,7 @@ class Home extends React.Component<HomeProps, HomeState> {
                 The latest and greatest tunes from my public Spotify playlist.
               </div>
               <Link className="Home-content-info-title" to="/music">
-                <img
-                  className="Home-content-info-icon Home-content-info-notes-icon"
-                  src={notesIcon}
-                  alt=""
-                ></img>
+                <img className="Home-content-info-icon Home-content-info-notes-icon" src={notesIcon} alt=""></img>
               </Link>
             </div>
           </div>

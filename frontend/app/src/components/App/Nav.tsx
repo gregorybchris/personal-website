@@ -10,21 +10,11 @@ function Nav() {
         <span className="Nav-page-link-text">Home</span>
       </NavLink>
 
-      <NavLink
-        className="Nav-page-link"
-        to="/code"
-        exact
-        activeClassName="current"
-      >
+      <NavLink className="Nav-page-link" to="/code" exact activeClassName="current">
         <span className="Nav-page-link-text">Code</span>
       </NavLink>
 
-      <NavLink
-        className="Nav-page-link"
-        to="/opinion"
-        exact
-        activeClassName="current"
-      >
+      <NavLink className="Nav-page-link" to="/opinion" exact activeClassName="current">
         <span className="Nav-page-link-text">Opinion</span>
       </NavLink>
 
@@ -32,11 +22,7 @@ function Nav() {
         <span className="Nav-page-link-text">Links</span>
       </NavLink>
 
-      <NavLink
-        className="Nav-page-link"
-        to="/contact"
-        activeClassName="current"
-      >
+      <NavLink className="Nav-page-link" to="/contact" activeClassName="current">
         <span className="Nav-page-link-text">Contact</span>
       </NavLink>
     </div>

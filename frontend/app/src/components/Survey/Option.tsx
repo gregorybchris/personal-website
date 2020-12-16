@@ -15,22 +15,12 @@ interface OptionState {}
 
 class Option extends React.Component<OptionProps, OptionState> {
   render() {
-    const letter = String.fromCharCode(
-      "A".charCodeAt(0) + this.props.optionNumber
-    );
-    const isChosen = this.props.response.isOptionChosen(
-      this.props.questionNumber,
-      this.props.optionNumber
-    );
+    const letter = String.fromCharCode("A".charCodeAt(0) + this.props.optionNumber);
+    const isChosen = this.props.response.isOptionChosen(this.props.questionNumber, this.props.optionNumber);
     const chosenClass = isChosen ? "chosen" : "";
     return (
       <div
-        onClick={() =>
-          this.props.onOptionClicked(
-            this.props.questionNumber,
-            this.props.optionNumber
-          )
-        }
+        onClick={() => this.props.onOptionClicked(this.props.questionNumber, this.props.optionNumber)}
         className={`Option ${chosenClass}`}
         key={this.props.optionNumber}
       >

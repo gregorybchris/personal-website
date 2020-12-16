@@ -21,10 +21,7 @@ class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
           onChange={this.props.onUpdateSearch}
           placeholder="Filter posts"
         />
-        <div
-          className="Common-button SearchBar-clear-button"
-          onClick={this.props.onClearSearch}
-        >
+        <div className="Common-button SearchBar-clear-button" onClick={this.props.onClearSearch}>
           Clear
         </div>
       </div>

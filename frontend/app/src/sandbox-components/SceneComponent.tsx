@@ -4,24 +4,11 @@ import { Engine, Scene } from "@babylonjs/core";
 
 export default (props: any) => {
   const reactCanvas = useRef(null);
-  const {
-    antialias,
-    engineOptions,
-    adaptToDeviceRatio,
-    sceneOptions,
-    onRender,
-    onSceneReady,
-    ...rest
-  } = props;
+  const { antialias, engineOptions, adaptToDeviceRatio, sceneOptions, onRender, onSceneReady, ...rest } = props;
 
   useEffect(() => {
     if (reactCanvas.current) {
-      const engine = new Engine(
-        reactCanvas.current,
-        antialias,
-        engineOptions,
-        adaptToDeviceRatio
-      );
+      const engine = new Engine(reactCanvas.current, antialias, engineOptions, adaptToDeviceRatio);
       const scene = new Scene(engine, sceneOptions);
       if (scene.isReady()) {
         props.onSceneReady(scene);
@@ -52,15 +39,7 @@ export default (props: any) => {
         }
       };
     }
-  }, [
-    reactCanvas,
-    antialias,
-    adaptToDeviceRatio,
-    engineOptions,
-    onRender,
-    sceneOptions,
-    props,
-  ]);
+  }, [reactCanvas, antialias, adaptToDeviceRatio, engineOptions, onRender, sceneOptions, props]);
 
   return <canvas ref={reactCanvas} {...rest} />;
 };

@@ -20,28 +20,23 @@ class Question extends React.Component<QuestionProps, QuestionState> {
     const isComplete = response.isQuestionComplete(this.props.questionNumber);
     const completeClass = isComplete ? "complete" : "";
     return (
-      <div
-        className={`Question ${completeClass}`}
-        key={this.props.questionNumber}
-      >
+      <div className={`Question ${completeClass}`} key={this.props.questionNumber}>
         <div className="Question-text">
           {this.props.questionNumber + 1}
           {". "}
           {this.props.question.text}
         </div>
         <div className="Question-options">
-          {this.props.question.options.map(
-            (optionText: string, optionNumber: number) => (
-              <Option
-                key={optionNumber}
-                questionNumber={this.props.questionNumber}
-                optionText={optionText}
-                optionNumber={optionNumber}
-                onOptionClicked={this.props.onOptionClicked}
-                response={this.props.response}
-              ></Option>
-            )
-          )}
+          {this.props.question.options.map((optionText: string, optionNumber: number) => (
+            <Option
+              key={optionNumber}
+              questionNumber={this.props.questionNumber}
+              optionText={optionText}
+              optionNumber={optionNumber}
+              onOptionClicked={this.props.onOptionClicked}
+              response={this.props.response}
+            ></Option>
+          ))}
         </div>
       </div>
     );

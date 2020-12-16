@@ -7,5 +7,5 @@ interface Question {
   options: string[];
   likert: any | null;
 }
-  
+
 export default Question;
