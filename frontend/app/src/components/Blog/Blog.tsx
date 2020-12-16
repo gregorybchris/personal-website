@@ -154,7 +154,9 @@ class Blog extends React.Component<BlogProps, BlogState> {
     if (slugOrIdExists) {
       return (
         <div className="Blog-about">
-          This page gives direct access to one blog link. To return to the full list of links click here:
+          <div className="Blog-about-section">
+            This page gives direct access to one blog link. To return to the full list of links click here:
+          </div>
         </div>
       );
     }
