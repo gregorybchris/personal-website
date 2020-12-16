@@ -60,7 +60,7 @@ class Post extends React.Component<PostProps, PostState> {
   getThumbnailElement() {
     if (this.state.thumbnailUrl) {
       return (
-        <a className="Post-thumbnail-link" href={this.state.contentLink}>
+        <a className="Post-thumbnail-link" href={this.state.contentLink} target="_blank">
           <img
             className="Post-thumbnail"
             src={this.state.thumbnailUrl}
@@ -151,7 +151,7 @@ class Post extends React.Component<PostProps, PostState> {
       <div className="Post" id={this.props.post.post_id}>
         <div className="Post-text">
           <div className="Post-title-wrap">
-            <a className="Post-title-link" href={this.state.contentLink}>
+            <a className="Post-title-link" href={this.state.contentLink} target="_blank">
               {this.getTitleElement()}
             </a>
             <img
