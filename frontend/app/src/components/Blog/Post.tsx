@@ -95,6 +95,29 @@ class Post extends React.Component<PostProps, PostState> {
     return elements;
   };
 
+  getVideoLength = () => {
+    if (this.props.post.length == null) {
+      return <></>;
+    }
+    const length = this.props.post.length;
+    const [hours, minutes, seconds] = length.split(":").map((v) => parseInt(v, 10));
+    let formattedLength = "";
+    if (hours === 0) {
+      if (minutes === 0) {
+        formattedLength = `${seconds}s`;
+      } else {
+        formattedLength = `${minutes}m`;
+      }
+    } else {
+      if (minutes === 0) {
+        formattedLength = `${hours}h`;
+      } else {
+        formattedLength = `${hours}h ${minutes}m`;
+      }
+    }
+    return <div className="Post-video-length">{formattedLength}</div>;
+  };
+
   getTitleElement = () => {
     let elements = [];
     if (this.props.post.speaker !== null) {
@@ -140,6 +163,7 @@ class Post extends React.Component<PostProps, PostState> {
           </div>
           {this.getSeriesInfo()}
           <div className="Post-date">{formatDate(this.props.post.date_posted)}</div>
+          {this.getVideoLength()}
         </div>
         {this.getThumbnailElement()}
         <div className="Post-tags">{this.props.post.tags.map((tag) => this.createTag(tag))}</div>
