@@ -25,6 +25,7 @@ class Contact extends React.Component<ContactProps, ContactState> {
               name="name"
               placeholder="Name"
               autoComplete="off"
+              maxLength={50}
               required
             />
             <input
@@ -33,9 +34,16 @@ class Contact extends React.Component<ContactProps, ContactState> {
               name="_replyto"
               placeholder="Email"
               autoComplete="off"
+              maxLength={50}
               required
             />
-            <textarea className="Common-text-field Contact-text-area" name="message" placeholder="Message" required />
+            <textarea
+              className="Common-text-field Contact-text-area"
+              name="message"
+              placeholder="Message"
+              maxLength={500}
+              required
+            />
             <input className="Common-button Contact-send-button" type="submit" value="Send" />
           </form>
         </div>
