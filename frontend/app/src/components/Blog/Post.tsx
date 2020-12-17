@@ -145,7 +145,7 @@ class Post extends React.Component<PostProps, PostState> {
       return <></>;
     }
 
-    let arrow = this.state.aboutEnabled ? <>&larr;</> : <>&rarr;</>;
+    let arrow = this.state.aboutEnabled ? <>&#8679;</> : <>&#8681;</>;
     let aboutTextElement = <></>;
     if (this.state.aboutEnabled) {
       aboutTextElement = <div className="Post-about-text">{hook}</div>;
