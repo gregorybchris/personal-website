@@ -161,7 +161,7 @@ class Post extends React.Component<PostProps, PostState> {
   render() {
     return (
       <div className="Post" id={this.props.post.post_id}>
-        <div className="Post-text">
+        <div className="Post-info">
           <div className="Post-title-wrap">
             <a className="Post-title-link" href={this.state.contentLink} target="_blank">
               {this.getTitleElement()}
@@ -176,8 +176,8 @@ class Post extends React.Component<PostProps, PostState> {
           {this.getSeriesInfo()}
           <div className="Post-date">{formatDate(this.props.post.date_posted)}</div>
           {this.getVideoLength()}
+          {this.getAboutSection()}
         </div>
-        {this.getAboutSection()}
         {this.getThumbnailElement()}
         <div className="Post-tags">{this.props.post.tags.map((tag) => this.createTag(tag))}</div>
       </div>
