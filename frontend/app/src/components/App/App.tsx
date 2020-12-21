@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Contact from "../Contact/Contact";
+import BlogExplore from "../Blog/BlogExplore";
 import Blog from "../Blog/Blog";
 import Home from "../Home/Home";
 import Music from "../Music/Music";
@@ -27,6 +28,7 @@ function App() {
           <Route path="/running" exact component={() => <RunningRoutes />} />
           <Route path="/music" exact component={() => <Music />} />
           <Route path="/sandbox" exact component={() => <Sandbox />} />
+          <Route path="/link-graph" exact component={() => <BlogExplore />} />
           <Route path="*" exact component={() => <Oops />} />
         </Switch>
       </Router>

@@ -13,6 +13,8 @@ class PostValidator(Validator):
 
     MIN_POST_TAGS = 5
     MAX_POST_TAGS = 11
+    MIN_AREAS = 1
+    MAX_AREAS = 5
     MIN_TAG_LENGTH = 2
     MAX_TAG_LENGTH = 25
     MIN_SUMMARY_LENGTH = 100
@@ -28,7 +30,6 @@ class PostValidator(Validator):
         n_posts = len(posts)
         results = ValidationResults(n_posts, 'post')
 
-        seen_areas = set()
         seen_content_type = set()
         seen_link = set()
         seen_series = set()
@@ -68,12 +69,17 @@ class PostValidator(Validator):
                 results.add_error(f"Duplicate link \"{post.link}\"")
             seen_link.add(post.link)
 
-            if len(post.areas) > 0:
-                for area in post.areas:
-                    if area not in PostProperties.AREAS:
-                        results.add_error(f"Unknown area \"{area}\" for \"{post.title}\"")
-                    seen_areas.add(area)
-                results.add_completed('area')
+            n_areas = len(post.areas)
+            if n_areas < cls.MIN_AREAS:
+                results.add_error(f"Number of areas ({n_areas}) for \"{post.title}\" "
+                                  f"is less than {cls.MIN_AREAS}")
+            if n_areas > cls.MAX_AREAS:
+                results.add_error(f"Number of areas ({n_areas}) for \"{post.title}\" "
+                                  f"is more than {cls.MAX_AREAS}")
+
+            for area in post.areas:
+                if area not in PostProperties.AREAS:
+                    results.add_error(f"Unknown area \"{area}\" for \"{post.title}\"")
 
             if post.content_type is not None:
                 if post.content_type not in PostProperties.CONTENT_TYPES:
@@ -149,7 +155,6 @@ class PostValidator(Validator):
         # Validate unused
 
         seen_known_map = [
-            ('areas', seen_areas, PostProperties.AREAS),
             ('content_type', seen_content_type, PostProperties.CONTENT_TYPES),
             ('series', seen_series, PostProperties.SERIES),
             ('source', seen_source, PostProperties.SOURCES),

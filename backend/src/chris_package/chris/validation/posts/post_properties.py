@@ -36,10 +36,11 @@ class PostProperties:
         'comedy',
         'complexity',
         'computers',
+        'economics',
         'education',
-        'engineering',
         'justice',
         'law',
+        'lifestyle',
         'logic',
         'mathematics',
         'medicine',
@@ -49,6 +50,7 @@ class PostProperties:
         'physics',
         'politics',
         'psychology',
+        'religion',
         'technology',
     ]
 

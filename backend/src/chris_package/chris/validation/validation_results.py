@@ -44,7 +44,7 @@ class ValidationResults:
         if n_errors == 0:
             print_rgb(f"Successfully validated {self._n_items} items", Color.GREEN)
             completed_counts = self._completed.values()
-            completed_percents = [v / self._n_items for v in completed_counts]
+            completed_percents = [v / self._n_items * 100 for v in completed_counts]
             completed_table = {
                 'Field': self._completed.keys(),
                 'Percent Completed': completed_percents,
