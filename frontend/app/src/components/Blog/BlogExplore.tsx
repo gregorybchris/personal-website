@@ -98,6 +98,8 @@ class BlogExplore extends React.Component<BlogExploreProps, BlogExploreState> {
       });
       for (let j = i + 1; j < posts.length; j++) {
         // let numSharedAreas = posts[i].areas.filter((tag) => posts[j].areas.includes(tag)).length;
+        // let numSharedAreas = posts[i].areas.slice(0, 2).filter((tag) => posts[j].areas.slice(0, 2).includes(tag))
+        // .length;
         let numSharedAreas = posts[i].areas[0] == posts[j].areas[0] ? 1 : 0;
         if (numSharedAreas == 0) {
           continue;
@@ -139,7 +141,7 @@ class BlogExplore extends React.Component<BlogExploreProps, BlogExploreState> {
     const link = svg
       .append("g")
       .attr("stroke", "rgb(150, 150, 150)")
-      .attr("stroke-opacity", 0.1)
+      .attr("stroke-opacity", 0.2)
       .selectAll("line")
       .data(links)
       .join("line")
@@ -153,11 +155,24 @@ class BlogExplore extends React.Component<BlogExploreProps, BlogExploreState> {
       .data(nodes)
       .enter()
       .append("circle")
-      .attr("r", 3)
+      .classed("BlogExplore-node-circle", true)
+      .attr("r", (node: GraphNode) => {
+        const length = node.post.length;
+        if (length === null) {
+          return 6;
+        } else {
+          const [hours, minutes, _] = length.split(":").map((v) => parseInt(v, 10));
+          const totalMinutes = hours * 60 + minutes;
+          return totalMinutes > 10 ? 9 : 4;
+        }
+        console.log(length);
+        return 6;
+      })
       .attr("stroke", color)
       .attr("stroke-opacity", 0.8)
       .attr("stroke-width", 3)
-      .attr("fill", "transparent")
+      .attr("fill", color)
+      .attr("fill-opacity", 0)
       .attr("id", (node: GraphNode) => node.post.post_id)
       .call(this.onDrag(simulation));
 
