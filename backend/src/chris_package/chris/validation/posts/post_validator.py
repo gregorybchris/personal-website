@@ -19,6 +19,8 @@ class PostValidator(Validator):
     MAX_TAG_LENGTH = 25
     MIN_SUMMARY_LENGTH = 100
     MAX_SUMMARY_LENGTH = 2100
+    MIN_HOOK_LENGTH = 50
+    MAX_HOOK_LENGTH = 100
     MIN_LINK_LENGTH = 5
     MIN_SLUG_LENGTH = 5
     MAX_SLUG_LENGTH = 32
@@ -49,18 +51,24 @@ class PostValidator(Validator):
                 results.add_error(f"Duplicate title \"{post.title}\"")
             seen_title.add(post.title)
 
-            slug_length = len(post.slug)
-            if slug_length < cls.MIN_SLUG_LENGTH:
-                results.add_error(f"Slug length ({slug_length}) for \"{post.slug}\" "
-                                    f"is less than {cls.MIN_SLUG_LENGTH}")
+            if post.slug is None:
+                results.add_error(f"Post \"{post.title}\" is missing the required 'slug' field")
+            else:
+                slug_length = len(post.slug)
+                if slug_length < cls.MIN_SLUG_LENGTH:
+                    results.add_error(f"Slug length ({slug_length}) for \"{post.slug}\" "
+                                        f"is less than {cls.MIN_SLUG_LENGTH}")
 
-            if slug_length > cls.MAX_SLUG_LENGTH:
-                results.add_error(f"Slug length ({slug_length}) for \"{post.slug}\" "
-                                    f"is more than {cls.MAX_SLUG_LENGTH}")
+                if slug_length > cls.MAX_SLUG_LENGTH:
+                    results.add_error(f"Slug length ({slug_length}) for \"{post.slug}\" "
+                                        f"is more than {cls.MAX_SLUG_LENGTH}")
 
-            if post.slug in seen_slug:
-                results.add_error(f"Duplicate slug \"{post.slug}\"")
-            seen_slug.add(post.slug)
+                if not re.fullmatch(r'[a-z0-9-]+', post.slug):
+                    results.add_error(f"Invalid slug format \"{post.slug}\"")
+
+                if post.slug in seen_slug:
+                    results.add_error(f"Duplicate slug \"{post.slug}\"")
+                seen_slug.add(post.slug)
 
             if not re.fullmatch(r'[a-z0-9-]+', post.slug):
                 results.add_error(f"Invalid slug format \"{post.slug}\"")
@@ -103,6 +111,7 @@ class PostValidator(Validator):
             else:
                 if not re.fullmatch(r'[0-9]{2}:[0-5][0-9]:[0-5][0-9]', post.length):
                     results.add_error(f"Invalid video length format \"{post.length}\"")
+                results.add_completed('length')
 
             if post.link is None:
                 if not post.deleted:
@@ -132,6 +141,18 @@ class PostValidator(Validator):
                                       f"is more than {cls.MAX_SUMMARY_LENGTH}")
 
                 results.add_completed('summary')
+
+            if post.hook is not None:
+                hook_length = len(post.hook)
+                if hook_length < cls.MIN_HOOK_LENGTH:
+                    results.add_error(f"Hook length ({hook_length}) for \"{post.title}\" "
+                                      f"is less than {cls.MIN_HOOK_LENGTH}")
+
+                if hook_length > cls.MAX_HOOK_LENGTH:
+                    results.add_error(f"Hook length ({hook_length}) for \"{post.title}\" "
+                                      f"is more than {cls.MAX_HOOK_LENGTH}")
+
+                results.add_completed('hook')
 
             n_tags = len(post.tags)
             if n_tags < cls.MIN_POST_TAGS:
