@@ -241,10 +241,10 @@ class ProjectTimeline extends React.Component<ProjectTimelineProps, ProjectTimel
     const projectTypes = [ProjectTypes.GAME, ProjectTypes.TOOL, ProjectTypes.TUTORIAL, ProjectTypes.VISUALIZATION];
     return (
       <div className="ProjectTimeline-legend">
-        {projectTypes.map((projectType) => {
+        {projectTypes.map((projectType, index) => {
           const projectColor = this.getProjectColor(projectType);
           return (
-            <div className="ProjectTimeline-legend-element">
+            <div className="ProjectTimeline-legend-element" key={index}>
               <div className="ProjectTimeline-legend-element-color" style={{ backgroundColor: projectColor }}></div>
               <div className="ProjectTimeline-legend-element-name">{projectType}</div>
             </div>
