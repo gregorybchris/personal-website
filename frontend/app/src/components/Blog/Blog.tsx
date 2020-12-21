@@ -165,17 +165,7 @@ class Blog extends React.Component<BlogProps, BlogState> {
         <div className="Blog-about-section">
           Topics range from art to neuroscience and philosophy to physics. I try to reserve posts here for stuff that
           made me think differently, new paradigms rather than new facts. Videos and articles that meet that criteria
-          have a tendency to be pretty long.
-        </div>
-        <div className="Blog-about-section">
-          <span className="Blog-about-note">Disclaimer:</span> I'm not under the impression that all claims made in the
-          linked content are factual, but I do believe much of what you'll find here can be valuable with the appopriate
-          amount of critical thought. If you find anything here to be either offensive or potentially harmful please
-          reach out to me through my{" "}
-          <Link className="Common-simple-link" to="/contact">
-            Contact
-          </Link>{" "}
-          page.
+          have a tendency to be pretty long, so judge for yourself if any are worth it.
         </div>
       </div>
     );
