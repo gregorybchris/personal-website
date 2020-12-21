@@ -1,4 +1,5 @@
 import React from "react";
+import { History } from "history";
 
 import * as d3 from "d3";
 import PostModel from "./models/Post";
@@ -6,7 +7,9 @@ import "./styles/BlogExplore.sass";
 import { makeQuery, GET } from "../../utilities/RequestUtilities";
 import { range } from "../../utilities/ArrayUtilities";
 
-interface BlogExploreProps {}
+interface BlogExploreProps {
+  history?: History;
+}
 
 interface BlogExploreState {
   posts: PostModel[];
@@ -16,6 +19,7 @@ interface BlogExploreState {
 interface GraphNode {
   id: string;
   group: number;
+  post: PostModel;
 }
 
 interface GraphLink {
@@ -90,6 +94,7 @@ class BlogExplore extends React.Component<BlogExploreProps, BlogExploreState> {
       nodes.push({
         id: posts[i].slug,
         group: group == null ? 0 : +scale(group),
+        post: posts[i],
       });
       for (let j = i + 1; j < posts.length; j++) {
         // let numSharedAreas = posts[i].areas.filter((tag) => posts[j].areas.includes(tag)).length;
@@ -129,7 +134,7 @@ class BlogExplore extends React.Component<BlogExploreProps, BlogExploreState> {
       .force("x", d3.forceX())
       .force("y", d3.forceY());
 
-    const svg = d3.select("#canvas").attr("viewBox", `${-width / 2} ${-height / 2} ${width} ${height}`);
+    const svg = d3.select(this.ref.current).attr("viewBox", `${-width / 2} ${-height / 2} ${width} ${height}`);
 
     const link = svg
       .append("g")
@@ -141,21 +146,30 @@ class BlogExplore extends React.Component<BlogExploreProps, BlogExploreState> {
       .attr("stroke-width", (d) => Math.sqrt(d.value));
 
     const scale = d3.scaleOrdinal(d3.schemeCategory10);
-    const color = (d: GraphNode) => scale(`${d.group}`);
+    const color = (node: GraphNode) => scale(`${node.group}`);
 
     const node = svg
-      .append("g")
       .selectAll("circle")
       .data(nodes)
-      .join("circle")
+      .enter()
+      .append("circle")
       .attr("r", 3)
       .attr("stroke", color)
       .attr("stroke-opacity", 0.8)
       .attr("stroke-width", 3)
       .attr("fill", "transparent")
+      .attr("id", (node: GraphNode) => node.post.post_id)
       .call(this.onDrag(simulation));
 
     node.append("title").text((d) => d.id);
+
+    node.on("click", (mouseEvent: any, node: any) => {
+      console.log(node.post.slug);
+      const history = this.props.history;
+      if (history) {
+        history.push(`/links/${node.post.slug}`);
+      }
+    });
 
     simulation.on("tick", () => {
       link
