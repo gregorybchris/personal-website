@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./styles/Home.sass";
 
-import linkIcon from "../../images/icons/link.svg";
+// import linkIcon from "../../images/icons/link.svg";
 import notesIcon from "../../images/icons/notes.svg";
 import shoeIcon from "../../images/icons/shoe.svg";
 
@@ -40,7 +40,7 @@ class Home extends React.Component<HomeProps, HomeState> {
             </div>
           </div>
 
-          <div className="Home-content-info-wrap">
+          {/* <div className="Home-content-info-wrap">
             <div className="Home-content-info-box">
               <div className="Home-content-info-title-wrap">
                 <Link className="Home-content-info-title" to="/links">
@@ -54,7 +54,7 @@ class Home extends React.Component<HomeProps, HomeState> {
                 <img className="Home-content-info-icon Home-content-info-link-icon" src={linkIcon} alt=""></img>
               </Link>
             </div>
-          </div>
+          </div> */}
 
           <div className="Home-content-info-wrap">
             <div className="Home-content-info-box">

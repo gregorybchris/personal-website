@@ -34,7 +34,7 @@ class ProjectInfo extends React.Component<ProjectInfoProps, ProjectInfoState> {
     const downloadLink = project.download_link;
     if (downloadLink !== null) {
       const language = project.primary_language;
-      const isJava = language == "Java";
+      const isJava = language === "Java";
       const buttonText = isJava ? "Download Java runnable archive" : "Download project";
       downloadLinkElement = (
         <div className="ProjectInfo-item">
@@ -62,7 +62,8 @@ class ProjectInfo extends React.Component<ProjectInfoProps, ProjectInfoState> {
   };
 
   render() {
-    let infoContent = this.props.currentProject == null ? undefined : this.createProjectInfo(this.props.currentProject);
+    let infoContent =
+      this.props.currentProject === null ? undefined : this.createProjectInfo(this.props.currentProject);
     return <div className="ProjectInfo">{infoContent}</div>;
   }
 }

@@ -47,7 +47,7 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
       const { slug } = match.params;
       if (slug) {
         for (let project of projects) {
-          if (project.slug == slug) {
+          if (project.slug === slug) {
             this.setState({ currentProject: project });
           }
         }

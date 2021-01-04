@@ -5,7 +5,7 @@ import PostModel from "./models/Post";
 import "./styles/Post.sass";
 
 import { formatDate } from "../../utilities/DateTimeUtilities";
-import { getSearchParams, makeURL } from "../../utilities/RequestUtilities";
+import { getSearchParams } from "../../utilities/RequestUtilities";
 
 import linkImage from "../../images/link.svg";
 
@@ -60,7 +60,7 @@ class Post extends React.Component<PostProps, PostState> {
   getThumbnailElement() {
     if (this.state.thumbnailUrl) {
       return (
-        <a className="Post-thumbnail-link" href={this.state.contentLink} target="_blank">
+        <a className="Post-thumbnail-link" href={this.state.contentLink} target="_blank" rel="noopener noreferrer">
           <img
             className="Post-thumbnail"
             src={this.state.thumbnailUrl}
@@ -163,7 +163,7 @@ class Post extends React.Component<PostProps, PostState> {
       <div className="Post" id={this.props.post.post_id}>
         <div className="Post-info">
           <div className="Post-title-wrap">
-            <a className="Post-title-link" href={this.state.contentLink} target="_blank">
+            <a className="Post-title-link" href={this.state.contentLink} target="_blank" rel="noopener noreferrer">
               {this.getTitleElement()}
             </a>
             <img

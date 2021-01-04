@@ -81,27 +81,27 @@ class BlogExplore extends React.Component<BlogExploreProps, BlogExploreState> {
     const links = [];
     const posts = this.state.posts;
 
-    let groups = posts.map((post) => (post.areas.length == 0 ? "" : post.areas[0])).filter((v) => v !== "");
+    let groups = posts.map((post) => (post.areas.length === 0 ? "" : post.areas[0])).filter((v) => v !== "");
     const uniqueGroups = Array.from(new Set(groups));
     const groupNumbers = range(uniqueGroups.length).map((n) => `${n}`);
     const scale = d3.scaleOrdinal(d3.schemeCategory10).domain(uniqueGroups).range(groupNumbers);
 
     for (let i = 0; i < posts.length; i++) {
-      if (posts[i].areas.length == 0) {
+      if (posts[i].areas.length === 0) {
         continue;
       }
       let group = posts[i].areas[0];
       nodes.push({
         id: posts[i].slug,
-        group: group == null ? 0 : +scale(group),
+        group: group === null ? 0 : +scale(group),
         post: posts[i],
       });
       for (let j = i + 1; j < posts.length; j++) {
         // let numSharedAreas = posts[i].areas.filter((tag) => posts[j].areas.includes(tag)).length;
         // let numSharedAreas = posts[i].areas.slice(0, 2).filter((tag) => posts[j].areas.slice(0, 2).includes(tag))
         // .length;
-        let numSharedAreas = posts[i].areas[0] == posts[j].areas[0] ? 1 : 0;
-        if (numSharedAreas == 0) {
+        let numSharedAreas = posts[i].areas[0] === posts[j].areas[0] ? 1 : 0;
+        if (numSharedAreas === 0) {
           continue;
         }
         links.push({
@@ -165,7 +165,6 @@ class BlogExplore extends React.Component<BlogExploreProps, BlogExploreState> {
           const totalMinutes = hours * 60 + minutes;
           return totalMinutes > 10 ? 9 : 4;
         }
-        console.log(length);
         return 6;
       })
       .attr("stroke", color)

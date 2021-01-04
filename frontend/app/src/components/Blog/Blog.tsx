@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, match } from "react-router-dom";
+import { match } from "react-router-dom";
 import { History } from "history";
 
 import Post from "./Post";
@@ -97,8 +97,8 @@ class Blog extends React.Component<BlogProps, BlogState> {
     }
 
     const slugOrIdExists = this.state.currentPostId != null || this.state.currentPostSlug != null;
-    const currentIdMatch = post.post_id == this.state.currentPostId;
-    const currentSlugMatch = post.slug == this.state.currentPostSlug;
+    const currentIdMatch = post.post_id === this.state.currentPostId;
+    const currentSlugMatch = post.slug === this.state.currentPostSlug;
     if (slugOrIdExists && !currentIdMatch && !currentSlugMatch) {
       return false;
     }
