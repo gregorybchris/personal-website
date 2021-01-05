@@ -1120,5 +1120,43 @@
     ],
     "primary_language": "JavaScript",
     "archived": false
+  },
+  {
+    "project_id": "8a246519-431f-400f-ab6c-b8c5f4478827",
+    "name": "Spike",
+    "slug": "spike",
+    "date": "2020-12-29",
+    "rating": 1,
+    "project_type": "program",
+    "use_type": "tool",
+    "controls": null,
+    "description": "Spike is a simple implementation of a spiking neural network (SNN), designed to more closely model biological neural networks than artificial neural networks (ANNs).",
+    "remarks": null,
+    "tags": ["neuroscience", "network"],
+    "source_link": "https://github.com/gregorybchris/spike",
+    "download_link": null,
+    "web_link": null,
+    "image_links": [],
+    "primary_language": "JavaScript",
+    "archived": false
+  },
+  {
+    "project_id": "9fa885ec-7ac7-483e-9f16-eeb7ca9a3813",
+    "name": "Robby",
+    "slug": "robby",
+    "date": "2021-01-03",
+    "rating": 1,
+    "project_type": "program",
+    "use_type": "tool",
+    "controls": null,
+    "description": "Robby is a small project that uses a genetic algorithm to teach a robot (named Robby) to pick up trash in a cluttered room.",
+    "remarks": null,
+    "tags": ["evolution", "genetic", "robot"],
+    "source_link": "https://github.com/gregorybchris/robby",
+    "download_link": null,
+    "web_link": null,
+    "image_links": [],
+    "primary_language": "Rust",
+    "archived": false
   }
 ]
