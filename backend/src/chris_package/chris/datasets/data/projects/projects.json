@@ -614,22 +614,22 @@
   },
   {
     "project_id": "9d61892d-2d0b-4015-9104-d4a727b74351",
-    "name": "Jumbo Meal Me",
-    "slug": "jumbo-meal-me",
+    "name": "Jumbo Meal",
+    "slug": "jumbo-meal",
     "date": "2016-03-01",
     "rating": 6,
     "project_type": "web",
     "use_type": "tool",
     "controls": null,
-    "description": "Jumbo Meal Me was a website I created at the end of my sophomore year in college. As I prepared to move off campus and leave my dining plan behind, I realized that students often spent more on meal plans than they needed to. Selecting a smaller meal plan and then paying for some meals in cash (JumboCash) could save you hundreds of dollars per semester. This little calculator told you the meal schedule you should follow to save the most money based on your meal preferences.",
+    "description": "Jumbo Meal was a website I created at the end of my sophomore year in college. As I prepared to move off campus and leave my dining plan behind, I realized that students often spent more on meal plans than they needed to. Selecting a smaller meal plan and then paying for some meals in cash (JumboCash) could save you hundreds of dollars per semester. This little calculator told you the meal schedule you should follow to save the most money based on your meal preferences.",
     "remarks": null,
     "tags": ["dining", "tool"],
     "source_link": null,
     "download_link": null,
-    "web_link": "https://static.chrisgregory.me/projects/web/mealme",
+    "web_link": "https://static.chrisgregory.me/sub/jumbo-meal",
     "image_links": [
-      "https://chrisgregory.blob.core.windows.net/projects/images/jumbo-meal-me--sliders-01.jpg",
-      "https://chrisgregory.blob.core.windows.net/projects/images/jumbo-meal-me--sliders-02.jpg"
+      "https://chrisgregory.blob.core.windows.net/projects/images/jumbo-meal--sliders-01.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/jumbo-meal--sliders-02.jpg"
     ],
     "primary_language": "JavaScript",
     "archived": false
@@ -648,7 +648,7 @@
     "tags": ["binary", "calculator", "numbers"],
     "source_link": null,
     "download_link": null,
-    "web_link": "https://static.chrisgregory.me/projects/web/base",
+    "web_link": "https://static.chrisgregory.me/sub/base",
     "image_links": [
       "https://chrisgregory.blob.core.windows.net/projects/images/base--blank.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/base--binary.jpg",
