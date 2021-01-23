@@ -176,7 +176,7 @@ class Post extends React.Component<PostProps, PostState> {
           {this.getSeriesInfo()}
           <div className="Post-date">{formatDate(this.props.post.date_posted)}</div>
           {this.getVideoLength()}
-          {this.getAboutSection()}
+          {/* {this.getAboutSection()} */}
         </div>
         {this.getThumbnailElement()}
         <div className="Post-tags">{this.props.post.tags.map((tag) => this.createTag(tag))}</div>

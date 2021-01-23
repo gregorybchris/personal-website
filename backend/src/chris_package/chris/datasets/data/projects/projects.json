@@ -101,7 +101,7 @@
     "description": "Tiles is a puzzle game where the aim is to move a player around a board to touch every tile exactly once. There are ten levels that get progressively harder. The game is roughly based on the Miniclip game Bloxors where a block will fall through the floor if it rolls over the same area twice.",
     "remarks": null,
     "tags": ["puzzle", "levels"],
-    "source_link": null,
+    "source_link": "https://github.com/gregorybchris/tiles",
     "download_link": "https://chrisgregory.blob.core.windows.net/projects/jars/tiles.jar",
     "web_link": null,
     "image_links": [
@@ -124,7 +124,7 @@
     "description": "Sweyp is a knock-off of the classic game Boggle where you construct words by connecting chains of adjacent letters from a 4x4 array.",
     "remarks": "I started working on this game when my college roommate was assigned a Boggle solver for his intro to Computer Science course. I thought it could be a good chance for me to improve upon my previous graphical projects and include animations to make the game more exciting. I had previously struggled to decouple controller and view layers in games and this was the first project where I discovered those design patterns for myself.",
     "tags": ["words", "fast-paced"],
-    "source_link": null,
+    "source_link": "https://github.com/gregorybchris/sweyp",
     "download_link": "https://chrisgregory.blob.core.windows.net/projects/jars/sweyp.jar",
     "web_link": null,
     "image_links": [
