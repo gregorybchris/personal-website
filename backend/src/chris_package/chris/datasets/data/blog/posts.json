@@ -2860,7 +2860,7 @@
     "date_created": "2020-01-28",
     "date_posted": "2020-01-02",
     "link": "https://www.youtube.com/watch?v=45lqfnDM9Kw",
-    "tags": ["xxxxxx", "xxxxxx", "xxxxxx", "xxxxxx", "xxxxxx", "xxxxxx", "xxxxxx", "xxxxxx", "xxxxxx"],
+    "tags": ["software", "machine", "learning", "framework", "long-tail", "models", "cluster"],
     "hook": null,
     "summary": "Software 1.0 to software 2.0 is a move from human-written code to machine-written code. ML frameworks themselves are evolving fast and low level DNN operations are being abstracted more and more, allowing engineers to focus on the data and problem at hand. It's not that software 1.0 is being replaced by software 2.0, it's that software 2.0 is solving new problems and being deployed in new contexts that software 1.0 couldn't handle. To solve new-model-itis Chris Re built a system that would shift the focus from training to monitoring quality and improving supervision. Taking a wider view of model performance we see the importance of edge cases, the long tail of \"fine-grained interactions\" that made a model useful in the real world. Classification tends to ignore differences within each class, which can hurt performance. Clustering samples in the feature space can uncover important sub-classes that lead to more robust models.",
     "paid": false,
