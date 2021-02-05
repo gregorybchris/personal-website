@@ -33,19 +33,23 @@ class PostValidator(Validator):
         results = ValidationResults(n_posts, 'post')
 
         seen_content_type = set()
+        seen_id = set()
         seen_link = set()
         seen_series = set()
+        seen_slug = set()
         seen_source = set()
         seen_title = set()
-        seen_slug = set()
 
         for post in posts:
             for field in PostProperties.FIELDS:
                 if not hasattr(post, field):
                     results.add_error(f"Post \"{post.title}\" is missing field \"{field}\"")
 
+            if post.post_id in seen_id:
+                results.add_error(f"Duplicate post_id \"{post.post_id}\"")
             if not re.fullmatch(r'[a-z0-9-]{36}', post.post_id):
                 results.add_error(f"Invalid post_id format \"{post.post_id}\"")
+            seen_id.add(post.post_id)
 
             if post.title in seen_title:
                 results.add_error(f"Duplicate title \"{post.title}\"")
@@ -57,11 +61,11 @@ class PostValidator(Validator):
                 slug_length = len(post.slug)
                 if slug_length < cls.MIN_SLUG_LENGTH:
                     results.add_error(f"Slug length ({slug_length}) for \"{post.slug}\" "
-                                        f"is less than {cls.MIN_SLUG_LENGTH}")
+                                      f"is less than {cls.MIN_SLUG_LENGTH}")
 
                 if slug_length > cls.MAX_SLUG_LENGTH:
                     results.add_error(f"Slug length ({slug_length}) for \"{post.slug}\" "
-                                        f"is more than {cls.MAX_SLUG_LENGTH}")
+                                      f"is more than {cls.MAX_SLUG_LENGTH}")
 
                 if not re.fullmatch(r'[a-z0-9-]+', post.slug):
                     results.add_error(f"Invalid slug format \"{post.slug}\"")
