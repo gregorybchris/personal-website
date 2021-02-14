@@ -89,6 +89,7 @@ class PostProperties:
         'Smarter Every Day',
         'Stanford HAI',
         'Steve Mould',
+        'Talks at Google',
         'TED',
         'TED Ed',
         'The Portal',

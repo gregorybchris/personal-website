@@ -2905,5 +2905,25 @@
     "summary": "George Williams came up with the theory of antagonistic pleiotropy, a biological explanation of senescence (the process of aging). The number of genes in the genome is much smaller than the number of traits we have, so genes do multiple things (pleiotropy). Selection favors a gene that increases fitness at a young age while decreasing fitness at an old age because the organism may not life long enough to suffer the cost. Selection \"sees\" an organism much more clearly in early life than in late life. Animals that can fly live longer than animals of the same size that don't fly because they can fly away from danger and thus selection forces act in late life as well in early life. Telomeres are sections of repeating DNA at the ends of chromosomes that shorten with each cell division. This limiting \"counter\" of cell division helps keep cancerous cells from replicating indefinitely. Lab mice have extremely long telomeres and live very short lives. All of the lab mice in the country were coming from JAX lab in Bar Harbor, Maine. By radically elongating a mouse's telomeres you give it the ability to replace its tissues indefinitely. A toxin that destroys human tissues may not harm a mouse that is great at tissue repair and that same mouse will also have a much higher rate of cancer than a mouse with normally sized telomeres.",
     "paid": false,
     "archived": false
+  },
+  {
+    "post_id": "51d8e03d-3c9f-4c43-ac92-efec9a14724d",
+    "title": "Strong Towns",
+    "slug": "strong-towns",
+    "content_type": "video",
+    "source": "YouTube",
+    "areas": ["economics", "politics", "complexity"],
+    "series": "Talks at Google",
+    "speaker": "Charles Marohn",
+    "episode_number": null,
+    "length": "00:54:30",
+    "date_created": "2019-11-27",
+    "date_posted": "2021-02-14",
+    "link": "https://www.youtube.com/watch?v=Em7nqDqQ8oM",
+    "tags": ["suburb", "development", "infrastructure", "cities", "plans", "america", "neighborhoods", "growth"],
+    "hook": null,
+    "summary": "Before WWII, urban living was ubiquitous, combining residential and commercial infrastructure. General purpose construction allowed for flexibility under changing economic and social conditions. Movement to suburbs provided cities short term financial gain as state taxes paid for development and cities raked in new property taxes. Home owners were happy to leave city centers for clean modern neighborhoods. Long term maintenance of suburban infrastructure, however, far outweighs initial gains and 70 years after the suburban experiment began the financially viable city centers hare heavily subsidizing modern American suburbs. Detroit was the first to attempt this development pattern and it was able to thrive even through the great depression, but it was also the first to crumble under its own growth obligations. Complex communities are built to be adaptive and robust. We need to build lovable places worthy of our affection that we will want to maintain. Make no little plans, but also no large leaps. As wealthy people move back into cities the poor are driven to suburbs where they will not be able to maintain the crumbling infrastructure. Cars and city density are correlated with the issue, but the root cause is the suburban development pattern.",
+    "paid": false,
+    "archived": false
   }
 ]
