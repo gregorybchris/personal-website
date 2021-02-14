@@ -4,17 +4,6 @@ import pytest
 from chris.app import settings
 
 
-def get_settings():
-    # Contains (setting variable name, environment variable name, variable default value)
-    return [
-        ('FLASK_RUN_PORT', settings.VAR_FLASK_RUN_PORT, settings.DEFAULT_FLASK_RUN_PORT),
-        ('FLASK_DEBUG', settings.VAR_FLASK_DEBUG, settings.DEFAULT_FLASK_DEBUG),
-        ('FLASK_HOST', settings.VAR_FLASK_HOST, settings.DEFAULT_FLASK_HOST),
-        ('LOG_FILE_NAME', settings.VAR_LOG_FILE_NAME, settings.DEFAULT_LOG_FILE_NAME),
-        ('INSTRUMENTATION_KEY', settings.VAR_INSTRUMENTATION_KEY, settings.DEFAULT_INSTRUMENTATION_KEY),
-    ]
-
-
 class TestSettings:
 
     def test_basic(self, monkeypatch):
