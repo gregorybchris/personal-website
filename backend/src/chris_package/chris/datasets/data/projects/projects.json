@@ -1158,5 +1158,24 @@
     "image_links": [],
     "primary_language": "Rust",
     "archived": false
+  },
+  {
+    "project_id": "9e6e1f38-2d0e-4ee1-a0b7-dfbc9984c752",
+    "name": "jsonvl",
+    "slug": "jsonvl",
+    "date": "2021-02-17",
+    "rating": 3,
+    "project_type": "program",
+    "use_type": "tool",
+    "controls": null,
+    "description": "jsonvl is a command line tool and python module that validates JSON based on typed schemas.",
+    "remarks": null,
+    "tags": ["programming", "data", "constraints"],
+    "source_link": "https://github.com/gregorybchris/jsonvl",
+    "download_link": null,
+    "web_link": null,
+    "image_links": [],
+    "primary_language": "Python",
+    "archived": false
   }
 ]
