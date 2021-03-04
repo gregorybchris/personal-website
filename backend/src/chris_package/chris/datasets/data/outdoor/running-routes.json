@@ -458,5 +458,25 @@
     "elevation": 476,
     "mapometer_id": 5187820,
     "tags": ["Seattle", "Wallingford"]
+  },
+  {
+    "route_id": "aaef0f97-363c-4626-88d0-c390a673bbd7",
+    "name": "Montlake",
+    "slug": "montlake",
+    "route_type": "running",
+    "distance": 5.21,
+    "elevation": 358,
+    "mapometer_id": 5203519,
+    "tags": ["Seattle", "Wallingford"]
+  },
+  {
+    "route_id": "74d6c86e-096c-49ae-8b66-a333297b69e7",
+    "name": "Wetlands",
+    "slug": "wetlands",
+    "route_type": "running",
+    "distance": 7.37,
+    "elevation": 312,
+    "mapometer_id": 5203516,
+    "tags": ["Seattle", "Wallingford"]
   }
 ]
