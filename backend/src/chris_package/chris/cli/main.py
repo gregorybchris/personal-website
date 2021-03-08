@@ -2,11 +2,12 @@
 import argparse
 
 from chris.app.app import App
-from chris.validation.projects.project_validator import validate as validate_projects
-from chris.validation.posts.post_validator import validate as validate_posts
-
+from chris._utilities.generate_guid import generate
+from chris._validation.validate import validate_posts
+from chris._validation.validate import validate_projects
 
 SUBPARSER_NAME_APP = 'app'
+SUBPARSER_NAME_GUID = 'guid'
 SUBPARSER_NAME_VALIDATE = 'validate'
 
 
@@ -23,7 +24,13 @@ def parse_args():
                                        help="Chris package commands.")
 
     subparsers.add_parser(SUBPARSER_NAME_APP)
-    subparsers.add_parser(SUBPARSER_NAME_VALIDATE)
+
+    guid_parser = subparsers.add_parser(SUBPARSER_NAME_GUID)
+    guid_parser.add_argument('n', type=int, help="Number of guids to generate")
+
+    validate_parser = subparsers.add_parser(SUBPARSER_NAME_VALIDATE)
+    validate_parser.add_argument('--type', choices=['posts', 'projects'],
+                                 help="Type of entity to validate")
 
     args = parser.parse_args()
     return args
@@ -36,7 +43,11 @@ def run_cli():
     if args.command == SUBPARSER_NAME_APP:
         start_app()
     elif args.command == SUBPARSER_NAME_VALIDATE:
-        validate_posts()
-        validate_projects()
+        if args.type is None or args.type == 'posts':
+            validate_posts()
+        if args.type is None or args.type == 'projects':
+            validate_projects()
+    elif args.command == SUBPARSER_NAME_GUID:
+        generate(n=args.n)
     else:
         raise ValueError("Invalid command")

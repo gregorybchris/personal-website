@@ -1,9 +1,9 @@
 dnspython
 Flask
 flask-cors
+jsonvl
 numpy
 opencensus-ext-azure
 pandas
 pymongo
-sty
 tabulate

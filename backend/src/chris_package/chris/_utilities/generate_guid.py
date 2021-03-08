@@ -3,6 +3,16 @@ import argparse
 import uuid
 
 
+def generate(n=1):
+    """
+    Generate a number of random GUIDs and print them to stdout.
+
+    :param n: The number of GUIDs to generate.
+    """
+    for _ in range(n):
+        print(str(uuid.uuid4()))
+
+
 def parse_args():
     """Parse script args."""
     parser = argparse.ArgumentParser()
@@ -13,5 +23,4 @@ def parse_args():
 
 if __name__ == '__main__':
     args = parse_args()
-    for _ in range(args.n):
-        print(str(uuid.uuid4()))
+    generate(args.n)
