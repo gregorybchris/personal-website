@@ -1,6 +1,7 @@
 """Post validator."""
-from jsonvl import validate_file
+from jsonvl import Validator, validate_file
 from pathlib import Path
+from chris._validation.constraints import MonotoneIncreaseConstraint
 
 
 DATA_DIRPATH = Path(__file__).parent / '..' / 'datasets' / 'data'
@@ -20,5 +21,7 @@ def validate_posts():
 
 def validate_projects():
     """Validate all projects."""
-    validate_file(PROJECTS_FILEPATH, PROJECTS_SCHEMA_FILEPATH)
+    validator = Validator()
+    validator.register_constraint(MonotoneIncreaseConstraint(), 'array', 'monotone_inc')
+    validator.validate_file(PROJECTS_FILEPATH, PROJECTS_SCHEMA_FILEPATH)
     print("Validation succeeded: projects")

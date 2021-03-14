@@ -2,7 +2,8 @@
   "type": "array",
   "elem": "#project",
   "cons": {
-    "unique": ["@all.project_id", "@all.name", "@all.slug"]
+    "unique": ["@all.project_id", "@all.name", "@all.slug"],
+    "monotone_inc": ["@all.date"]
   },
   "defs": {
     "#project": {
