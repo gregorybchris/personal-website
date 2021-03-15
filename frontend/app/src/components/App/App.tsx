@@ -28,9 +28,11 @@ function App() {
           <Route path="/links/:slug?" exact component={(props: any) => <Blog {...props} />} />
           <Route path="/running" exact component={() => <RunningRoutes />} />
           <Route path="/music" exact component={() => <Music />} />
+
           <Route path="/sandbox" exact component={() => <Sandbox />} />
           <Route path="/link-graph" exact component={(props: any) => <BlogExplore {...props} />} />
           <Route path="/places" exact component={(props: any) => <Places {...props} />} />
+
           <Route path="*" exact component={() => <Oops />} />
         </Switch>
       </Router>
