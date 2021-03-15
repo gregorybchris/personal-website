@@ -220,6 +220,17 @@
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
   {
+    "route_id": "c92259c1-de20-47f3-8f84-a7482fe45000",
+    "name": "Ex-Cemetery",
+    "slug": "extended-cemetery-gantcher",
+    "route_type": "running",
+    "distance": 6.23,
+    "elevation": 322,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/extended-cemetery-gantcher.json",
+    "mapometer_id": 5228846,
+    "tags": ["Boston", "Tufts", "Gantcher"]
+  },
+  {
     "route_id": "66399132-c27e-4286-aea4-234760412e50",
     "name": "Short Glam",
     "slug": "short-glam-gantcher",
