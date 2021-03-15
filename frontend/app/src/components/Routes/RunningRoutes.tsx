@@ -1,7 +1,7 @@
 import React from "react";
 
 import { LatLngExpression, Map } from "leaflet";
-import { MapContainer, TileLayer, Polygon } from "react-leaflet";
+import { MapContainer, TileLayer, Polyline } from "react-leaflet";
 
 import { makeQuery, GET } from "../../utilities/RequestUtilities";
 import RunningRouteModel from "./models/RunningRoute";
@@ -131,7 +131,7 @@ class RunningRoutes extends React.Component<RunningRoutesProps, RunningRoutesSta
           zoomOffset={-1}
           accessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         />
-        <Polygon positions={this.state.currentRouteData.points.map((p) => [p.latitude, p.longitude])} />
+        <Polyline positions={this.state.currentRouteData.points.map((p) => [p.latitude, p.longitude])} />
       </MapContainer>
     );
   };
