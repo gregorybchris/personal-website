@@ -27,11 +27,14 @@ class Archive extends React.Component<ArchiveProps, ArchiveState> {
   };
 
   createItem = (itemModel: ArchiveItemModel) => {
+    const date = new Date(itemModel.date);
+    const year = date.getFullYear();
+
     return (
       <div className="Archive-item" key={itemModel.version}>
         <div className="Archive-item-details">
           <div className="Archive-item-version">ChrisOffline v{itemModel.version}</div>
-          <div className="Archive-item-date">{itemModel.date}</div>
+          <div className="Archive-item-date">{year}</div>
         </div>
         <div className="Archive-item-images">{itemModel.image_links.map((imageUrl) => this.createImage(imageUrl))}</div>
       </div>
