@@ -7,6 +7,7 @@ import Blog from "../Blog/Blog";
 import Home from "../Home/Home";
 import Music from "../Music/Music";
 import Oops from "../Oops/Oops";
+import Places from "../Places/Places";
 import Projects from "../Projects/Projects";
 import Sandbox from "../../sandbox-components/Sandbox";
 import RunningRoutes from "../Routes/RunningRoutes";
@@ -29,6 +30,7 @@ function App() {
           <Route path="/music" exact component={() => <Music />} />
           <Route path="/sandbox" exact component={() => <Sandbox />} />
           <Route path="/link-graph" exact component={(props: any) => <BlogExplore {...props} />} />
+          <Route path="/places" exact component={(props: any) => <Places {...props} />} />
           <Route path="*" exact component={() => <Oops />} />
         </Switch>
       </Router>
