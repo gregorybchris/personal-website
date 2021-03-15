@@ -46,7 +46,7 @@ class Archive extends React.Component<ArchiveProps, ArchiveState> {
       <div className="Archive">
         <div className="Archive-header">
           <div className="Archive-title">Archive</div>
-          <div className="Archive-about">The archive off all old versions of my personal website.</div>
+          <div className="Archive-about">The archive for previous encarnations of this website.</div>
         </div>
         <div className="Archive-items">{this.state.items.map((item) => this.createItem(item))}</div>
       </div>
