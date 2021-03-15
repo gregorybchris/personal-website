@@ -6,18 +6,9 @@
     "route_type": "running",
     "distance": 6.0,
     "elevation": 282,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/09-red-line.json",
     "mapometer_id": 4613919,
     "tags": ["Boston", "Tufts", "Gantcher"]
-  },
-  {
-    "route_id": "e12f0651-308c-4e56-9190-f568165fa908",
-    "name": "Interlaken",
-    "slug": "interlaken-cap-hill",
-    "route_type": "running",
-    "distance": 4.52,
-    "elevation": 531,
-    "mapometer_id": 4851982,
-    "tags": ["Seattle", "Capitol Hill"]
   },
   {
     "route_id": "03997b02-55b5-4590-9f0f-641ad1b09444",
@@ -26,7 +17,19 @@
     "route_type": "running",
     "distance": 2.41,
     "elevation": 82,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/main-street.json",
     "mapometer_id": 4287237,
+    "tags": ["Boston", "Tufts", "Gantcher"]
+  },
+  {
+    "route_id": "5c436a26-c703-4e17-a376-c45bcd0580bf",
+    "name": "C Loop",
+    "slug": "c-loop",
+    "route_type": "running",
+    "distance": 3.24,
+    "elevation": 161,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/c-loop.json",
+    "mapometer_id": 4390322,
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
   {
@@ -36,6 +39,7 @@
     "route_type": "running",
     "distance": 1.98,
     "elevation": 56,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/mystic-stoplight-cooldown.json",
     "mapometer_id": 4287239,
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
@@ -46,6 +50,7 @@
     "route_type": "running",
     "distance": 4.25,
     "elevation": 161,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/lakes.json",
     "mapometer_id": 4306522,
     "tags": ["Boston", "Tufts", "Ossipee"]
   },
@@ -56,7 +61,19 @@
     "route_type": "running",
     "distance": 8.16,
     "elevation": 312,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/fresh-pond-gantcher.json",
     "mapometer_id": 4373697,
+    "tags": ["Boston", "Tufts", "Gantcher"]
+  },
+  {
+    "route_id": "9a3a6714-5f08-4cd9-9394-87a8d8e3ef64",
+    "name": "Fresh Pond 2 Laps",
+    "slug": "fresh-pond-2-laps-gantcher",
+    "route_type": "running",
+    "distance": 10.21,
+    "elevation": 374,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/fresh-pond-2-laps-gantcher.json",
+    "mapometer_id": 4373705,
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
   {
@@ -66,6 +83,7 @@
     "route_type": "running",
     "distance": 4.97,
     "elevation": 92,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/levee.json",
     "mapometer_id": 4325400,
     "tags": ["Indianapolis", "Arden"]
   },
@@ -76,6 +94,7 @@
     "route_type": "running",
     "distance": 4.59,
     "elevation": 115,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/86th-street.json",
     "mapometer_id": 4325405,
     "tags": ["Indianapolis", "Arden"]
   },
@@ -86,6 +105,7 @@
     "route_type": "running",
     "distance": 7.02,
     "elevation": 422,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/butler-canal.json",
     "mapometer_id": 4327746,
     "tags": ["Indianapolis", "Butler"]
   },
@@ -96,6 +116,7 @@
     "route_type": "running",
     "distance": 5.06,
     "elevation": 115,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/south-monon.json",
     "mapometer_id": 4330557,
     "tags": ["Indianapolis", "Arden"]
   },
@@ -106,6 +127,7 @@
     "route_type": "running",
     "distance": 3.53,
     "elevation": 230,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/short-glam-ossipee.json",
     "mapometer_id": 4335590,
     "tags": ["Boston", "Tufts", "Ossipee"]
   },
@@ -116,6 +138,7 @@
     "route_type": "running",
     "distance": 7.49,
     "elevation": 203,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/two-bridges.json",
     "mapometer_id": 4340406,
     "tags": ["Boston", "Tufts", "Ossipee"]
   },
@@ -126,6 +149,7 @@
     "route_type": "running",
     "distance": 6.31,
     "elevation": 217,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/fresh-pond-ossipee.json",
     "mapometer_id": 4346456,
     "tags": ["Boston", "Tufts", "Ossipee"]
   },
@@ -136,6 +160,7 @@
     "route_type": "running",
     "distance": 4.23,
     "elevation": 243,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/long-glam-ossipee.json",
     "mapometer_id": 4357555,
     "tags": ["Boston", "Tufts", "Ossipee"]
   },
@@ -146,6 +171,7 @@
     "route_type": "running",
     "distance": 5.0,
     "elevation": 135,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/chips.json",
     "mapometer_id": 4373686,
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
@@ -156,18 +182,9 @@
     "route_type": "running",
     "distance": 7.63,
     "elevation": 276,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/chips-glam.json",
     "mapometer_id": 4373688,
     "tags": ["Boston", "Tufts", "Ossipee"]
-  },
-  {
-    "route_id": "c95c9e1c-8fc3-41f6-82ef-410eaa961a82",
-    "name": "Full Glam",
-    "slug": "full-glam",
-    "route_type": "running",
-    "distance": 3.39,
-    "elevation": 187,
-    "mapometer_id": 4373700,
-    "tags": ["Boston", "Tufts", "Gantcher"]
   },
   {
     "route_id": "5274e131-aed7-42fe-be1e-8ba9d6346fd6",
@@ -176,6 +193,7 @@
     "route_type": "running",
     "distance": 7.04,
     "elevation": 289,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/cemetery-ossipee.json",
     "mapometer_id": 4380541,
     "tags": ["Boston", "Tufts", "Ossipee"]
   },
@@ -186,6 +204,7 @@
     "route_type": "running",
     "distance": 5.15,
     "elevation": 210,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/cemetery-gantcher.json",
     "mapometer_id": 4373699,
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
@@ -196,17 +215,19 @@
     "route_type": "running",
     "distance": 2.44,
     "elevation": 125,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/short-glam-gantcher.json",
     "mapometer_id": 4373702,
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
   {
-    "route_id": "9a3a6714-5f08-4cd9-9394-87a8d8e3ef64",
-    "name": "Fresh Pond 2 Laps",
-    "slug": "fresh-pond-2-laps-gantcher",
+    "route_id": "c95c9e1c-8fc3-41f6-82ef-410eaa961a82",
+    "name": "Full Glam",
+    "slug": "full-glam",
     "route_type": "running",
-    "distance": 10.21,
-    "elevation": 374,
-    "mapometer_id": 4373705,
+    "distance": 3.39,
+    "elevation": 187,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/full-glam.json",
+    "mapometer_id": 4373700,
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
   {
@@ -216,8 +237,20 @@
     "route_type": "running",
     "distance": 5.05,
     "elevation": 144,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/09-spy-line.json",
     "mapometer_id": 4380489,
     "tags": ["Boston", "Tufts", "Ossipee"]
+  },
+  {
+    "route_id": "56b97327-84fb-459f-ad40-fc97afce305b",
+    "name": "Short-Res",
+    "slug": "short-res",
+    "route_type": "running",
+    "distance": 5.7,
+    "elevation": 341,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/short-res.json",
+    "mapometer_id": 4530503,
+    "tags": ["Boston", "Tufts", "Gantcher"]
   },
   {
     "route_id": "3786e100-2b11-4d55-ace4-6726540f444d",
@@ -226,6 +259,7 @@
     "route_type": "running",
     "distance": 7.13,
     "elevation": 505,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/mid-res.json",
     "mapometer_id": 4383411,
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
@@ -236,6 +270,7 @@
     "route_type": "running",
     "distance": 7.41,
     "elevation": 502,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/swimming-hole.json",
     "mapometer_id": 4383414,
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
@@ -246,6 +281,7 @@
     "route_type": "running",
     "distance": 3.8,
     "elevation": 171,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/west-med.json",
     "mapometer_id": 4386432,
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
@@ -256,6 +292,7 @@
     "route_type": "running",
     "distance": 2.43,
     "elevation": 92,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/medford-square.json",
     "mapometer_id": 4386434,
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
@@ -266,17 +303,8 @@
     "route_type": "running",
     "distance": 7.91,
     "elevation": 292,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/spy-pond.json",
     "mapometer_id": 4390321,
-    "tags": ["Boston", "Tufts", "Gantcher"]
-  },
-  {
-    "route_id": "5c436a26-c703-4e17-a376-c45bcd0580bf",
-    "name": "C Loop",
-    "slug": "c-loop",
-    "route_type": "running",
-    "distance": 3.24,
-    "elevation": 161,
-    "mapometer_id": 4390322,
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
   {
@@ -286,6 +314,7 @@
     "route_type": "running",
     "distance": 9.11,
     "elevation": 344,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/goldman-sachs.json",
     "mapometer_id": 4489061,
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
@@ -296,17 +325,8 @@
     "route_type": "running",
     "distance": 5.33,
     "elevation": 151,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/hb.json",
     "mapometer_id": 4530495,
-    "tags": ["Boston", "Tufts", "Gantcher"]
-  },
-  {
-    "route_id": "56b97327-84fb-459f-ad40-fc97afce305b",
-    "name": "Short-Res",
-    "slug": "short-res",
-    "route_type": "running",
-    "distance": 5.7,
-    "elevation": 341,
-    "mapometer_id": 4530503,
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
   {
@@ -316,6 +336,7 @@
     "route_type": "running",
     "distance": 4.97,
     "elevation": 118,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/oxbow-monon.json",
     "mapometer_id": 4543949,
     "tags": ["Indianapolis", "Arden"]
   },
@@ -326,6 +347,7 @@
     "route_type": "running",
     "distance": 6.6,
     "elevation": 390,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/green-aurora.json",
     "mapometer_id": 4573136,
     "tags": ["Seattle", "UW"]
   },
@@ -336,6 +358,7 @@
     "route_type": "running",
     "distance": 4.6,
     "elevation": 420,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/interlaken-uw.json",
     "mapometer_id": 4573345,
     "tags": ["Seattle", "UW"]
   },
@@ -346,6 +369,7 @@
     "route_type": "running",
     "distance": 4.49,
     "elevation": 400,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/near-tower.json",
     "mapometer_id": 4642039,
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
@@ -356,6 +380,7 @@
     "route_type": "running",
     "distance": 9.49,
     "elevation": 404,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/belmont.json",
     "mapometer_id": 4715557,
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
@@ -366,6 +391,7 @@
     "route_type": "running",
     "distance": 8.78,
     "elevation": 295,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/belmont-lakes.json",
     "mapometer_id": 4715558,
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
@@ -376,6 +402,7 @@
     "route_type": "running",
     "distance": 10.48,
     "elevation": 453,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/bu-fake-10.json",
     "mapometer_id": 4715560,
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
@@ -386,7 +413,19 @@
     "route_type": "running",
     "distance": 2.87,
     "elevation": 404,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/volunteer-park.json",
     "mapometer_id": 4809070,
+    "tags": ["Seattle", "Capitol Hill"]
+  },
+  {
+    "route_id": "e12f0651-308c-4e56-9190-f568165fa908",
+    "name": "Interlaken",
+    "slug": "interlaken-cap-hill",
+    "route_type": "running",
+    "distance": 4.52,
+    "elevation": 531,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/interlaken-cap-hill.json",
+    "mapometer_id": 4851982,
     "tags": ["Seattle", "Capitol Hill"]
   },
   {
@@ -396,6 +435,7 @@
     "route_type": "running",
     "distance": 6.48,
     "elevation": 705,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/portage.json",
     "mapometer_id": 4821471,
     "tags": ["Seattle", "Capitol Hill"]
   },
@@ -406,6 +446,7 @@
     "route_type": "running",
     "distance": 5.34,
     "elevation": 443,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/short-portage.json",
     "mapometer_id": 4821473,
     "tags": ["Seattle", "Capitol Hill"]
   },
@@ -416,6 +457,7 @@
     "route_type": "running",
     "distance": 7.0,
     "elevation": 453,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/ravenna.json",
     "mapometer_id": 5186314,
     "tags": ["Seattle", "Wallingford"]
   },
@@ -426,6 +468,7 @@
     "route_type": "running",
     "distance": 6.71,
     "elevation": 551,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/interlaken-wallingford.json",
     "mapometer_id": 5187805,
     "tags": ["Seattle", "Wallingford"]
   },
@@ -436,6 +479,7 @@
     "route_type": "running",
     "distance": 8,
     "elevation": 784,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/lookout-wallingford.json",
     "mapometer_id": 5187807,
     "tags": ["Seattle", "Wallingford"]
   },
@@ -446,6 +490,7 @@
     "route_type": "running",
     "distance": 3.85,
     "elevation": 285,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/green-lake-wallingford.json",
     "mapometer_id": 5187811,
     "tags": ["Seattle", "Wallingford"]
   },
@@ -456,6 +501,7 @@
     "route_type": "running",
     "distance": 6.06,
     "elevation": 476,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/animals.json",
     "mapometer_id": 5187820,
     "tags": ["Seattle", "Wallingford"]
   },
@@ -466,6 +512,7 @@
     "route_type": "running",
     "distance": 5.21,
     "elevation": 358,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/montlake.json",
     "mapometer_id": 5203519,
     "tags": ["Seattle", "Wallingford"]
   },
@@ -476,6 +523,7 @@
     "route_type": "running",
     "distance": 7.37,
     "elevation": 312,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/wetlands.json",
     "mapometer_id": 5203516,
     "tags": ["Seattle", "Wallingford"]
   }

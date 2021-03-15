@@ -5,6 +5,7 @@ interface RunningRoute {
   route_type: string;
   distance: number;
   elevation: number;
+  route_data_link: string;
   mapometer_id: number;
   tags: string[];
 }
