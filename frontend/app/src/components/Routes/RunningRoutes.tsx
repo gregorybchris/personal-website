@@ -1,6 +1,6 @@
 import React from "react";
 
-import { LatLngExpression, Map } from "leaflet";
+import { Map } from "leaflet";
 import { MapContainer, TileLayer, Polyline } from "react-leaflet";
 
 import { makeQuery, GET } from "../../utilities/RequestUtilities";
@@ -94,18 +94,7 @@ class RunningRoutes extends React.Component<RunningRoutesProps, RunningRoutesSta
   updateMap = () => {
     if (this.state.currentRouteData && this.map) {
       let points = this.state.currentRouteData.points;
-      let minLat: number, maxLat: number, minLon: number, maxLon: number;
-      minLat = maxLat = points[0].latitude;
-      minLon = maxLon = points[0].longitude;
-      points.forEach((point) => {
-        minLat = Math.min(point.latitude, minLat);
-        maxLat = Math.max(point.latitude, maxLat);
-        minLon = Math.min(point.longitude, minLon);
-        maxLon = Math.max(point.longitude, maxLon);
-      });
-      const position: LatLngExpression = [(minLat + maxLat) / 2, (minLon + maxLon) / 2];
-
-      this.map.setView(position, this.map.getZoom());
+      this.map.fitBounds(points.map((p) => [p.latitude, p.longitude]));
     }
   };
 
