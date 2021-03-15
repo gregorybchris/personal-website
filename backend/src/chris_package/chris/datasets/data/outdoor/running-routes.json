@@ -55,6 +55,17 @@
     "tags": ["Boston", "Tufts", "Ossipee"]
   },
   {
+    "route_id": "89f5250f-e736-4a97-ba02-47ffd6269ca1",
+    "name": "Upper Mystic Lakes",
+    "slug": "upper-mystic-lakes",
+    "route_type": "running",
+    "distance": 5,
+    "elevation": 210,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/upper-mystic-lakes.json",
+    "mapometer_id": 5228782,
+    "tags": ["Boston", "Tufts"]
+  },
+  {
     "route_id": "b35fde4c-8dab-4438-b12a-64d7c72fb4fd",
     "name": "Fresh Pond",
     "slug": "fresh-pond-gantcher",
