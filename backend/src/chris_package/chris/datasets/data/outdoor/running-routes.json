@@ -1,5 +1,16 @@
 [
   {
+    "route_id": "84b3f91a-e1ab-43b5-ab14-0dfb21bb855c",
+    "name": "Battle Road",
+    "slug": "battle-road",
+    "route_type": "running",
+    "distance": 5.0,
+    "elevation": 290,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/battle-road.json",
+    "mapometer_id": 5228863,
+    "tags": ["Boston"]
+  },
+  {
     "route_id": "6cca2c08-3f95-4f9a-8c10-14bb97889a1d",
     "name": "'09 Red Line",
     "slug": "09-red-line",
@@ -59,7 +70,7 @@
     "name": "Upper Mystic Lakes",
     "slug": "upper-mystic-lakes",
     "route_type": "running",
-    "distance": 5,
+    "distance": 5.0,
     "elevation": 210,
     "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/upper-mystic-lakes.json",
     "mapometer_id": 5228782,
