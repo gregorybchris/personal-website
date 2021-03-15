@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import Archive from "../Archive/Archive";
 import Contact from "../Contact/Contact";
 import BlogExplore from "../Blog/BlogExplore";
 import Blog from "../Blog/Blog";
@@ -32,6 +33,7 @@ function App() {
           <Route path="/sandbox" exact component={() => <Sandbox />} />
           <Route path="/link-graph" exact component={(props: any) => <BlogExplore {...props} />} />
           <Route path="/places" exact component={(props: any) => <Places {...props} />} />
+          <Route path="/archive" exact component={(props: any) => <Archive {...props} />} />
 
           <Route path="*" exact component={() => <Oops />} />
         </Switch>

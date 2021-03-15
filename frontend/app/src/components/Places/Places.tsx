@@ -7,8 +7,6 @@ interface PlacesProps {}
 interface PlacesState {}
 
 class Places extends React.Component<PlacesProps, PlacesState> {
-  async componentDidMount() {}
-
   render() {
     return (
       <div className="Places">

@@ -101,6 +101,16 @@ class Datasets:
 
     # endregion projects
 
+    # region archive
+
+    ARCHIVE = DatasetInfo(
+        'Archive',
+        'archive/archive.json',
+        DatasetFormats.JSON,
+        "Personal website revision archive.")
+
+    # endregion archive
+
     # region surveys
 
     SURVEYS = DatasetInfo(

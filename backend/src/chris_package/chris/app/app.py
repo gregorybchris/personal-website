@@ -51,6 +51,8 @@ class App:
         self._app.route('/v1/projects', methods=['GET'])(self.get_projects_v1)
         self._app.route('/v1/projects/download/<project_id>', methods=['POST'])(self.post_projects_download_v1)
 
+        self._app.route('/v1/archive', methods=['GET'])(self.get_archive_v1)
+
         self._app.route('/v1/professional', methods=['GET'])(self.get_professional_v1)
         self._app.route('/v1/professional/courses', methods=['GET'])(self.get_professional_courses_v1)
         self._app.route('/v1/professional/jobs', methods=['GET'])(self.get_professional_jobs_v1)
@@ -217,6 +219,14 @@ class App:
         return create_response(error_message, HTTPCodes.ERROR_NOT_FOUND)
 
     # endregion projects
+    # region archive
+
+    @logging_utilities.log_context('get_archive', tag='api')
+    def get_archive_v1(self):
+        """Get archive data."""
+        return flask.jsonify(fetch_dataset(Datasets.ARCHIVE))
+
+    # endregion archive
     # region professional
 
     @logging_utilities.log_context('get_professional', tag='api')
