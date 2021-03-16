@@ -198,6 +198,17 @@
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
   {
+    "route_id": "caa31406-8b1c-45d3-a410-253f13518e64",
+    "name": "Ex-Chips",
+    "slug": "extended-chips",
+    "route_type": "running",
+    "distance": 7.17,
+    "elevation": 226,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/extended-chips.json",
+    "mapometer_id": 5229302,
+    "tags": ["Boston", "Tufts", "Gantcher"]
+  },
+  {
     "route_id": "ef9ae845-7c9e-4f93-943d-26f7390a5f1c",
     "name": "Chips-Glam",
     "slug": "chips-glam",
@@ -294,6 +305,17 @@
     "elevation": 505,
     "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/mid-res.json",
     "mapometer_id": 4383411,
+    "tags": ["Boston", "Tufts", "Gantcher"]
+  },
+  {
+    "route_id": "2b77df31-6a46-45b4-8cdf-a4e3d9d95e97",
+    "name": "Long-Res",
+    "slug": "long-res",
+    "route_type": "running",
+    "distance": 8.67,
+    "elevation": 707,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/long-res.json",
+    "mapometer_id": 5229261,
     "tags": ["Boston", "Tufts", "Gantcher"]
   },
   {
@@ -559,5 +581,49 @@
     "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/wetlands.json",
     "mapometer_id": 5203516,
     "tags": ["Seattle", "Wallingford"]
+  },
+  {
+    "route_id": "ff5073ee-4d62-4ec5-89ed-2bd6d318430e",
+    "name": "Manning",
+    "slug": "manning",
+    "route_type": "running",
+    "distance": 3.9,
+    "elevation": 213,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/manning.json",
+    "mapometer_id": 5229274,
+    "tags": ["Indianapolis", "Arden"]
+  },
+  {
+    "route_id": "cd94c999-e00b-493a-8f51-8c2471dfa7c0",
+    "name": "Harvard",
+    "slug": "harvard",
+    "route_type": "running",
+    "distance": 5.4,
+    "elevation": 207,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/harvard.json",
+    "mapometer_id": 5229243,
+    "tags": ["Boston", "Tufts", "Gantcher"]
+  },
+  {
+    "route_id": "d3738e46-5ace-4534-8a90-573967ddbb8a",
+    "name": "Long Pennsylvania",
+    "slug": "long-pennsylvania",
+    "route_type": "running",
+    "distance": 2.32,
+    "elevation": 98,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/long-pennsylvania.json",
+    "mapometer_id": 5229275,
+    "tags": ["Indianapolis", "Arden"]
+  },
+  {
+    "route_id": "7f28418d-4736-45d5-9e99-9fe6ddd1dda7",
+    "name": "Art Museum",
+    "slug": "art-museum",
+    "route_type": "running",
+    "distance": 2.64,
+    "elevation": 98,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/art-museum.json",
+    "mapometer_id": 5229290,
+    "tags": ["Indianapolis", "Arden"]
   }
 ]
