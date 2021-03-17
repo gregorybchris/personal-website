@@ -26,32 +26,27 @@ class RunningRoutes extends React.Component<RunningRoutesProps, RunningRoutesSta
 
   private map: Map | null = null;
 
-  sortRoutesByTags = (routes: RunningRouteModel[]) => {
+  sortRoutes = (routes: RunningRouteModel[]) => {
     return routes.sort((routeA: RunningRouteModel, routeB: RunningRouteModel) => {
-      const numTagsA = routeA.tags.length;
-      const numTagsB = routeB.tags.length;
-      const minTags = Math.min(numTagsA, numTagsB);
-      for (let i = 0; i < minTags; i++) {
-        if (routeA.tags[i] < routeB.tags[i]) {
-          return -1;
-        } else if (routeA.tags[i] > routeB.tags[i]) {
-          return 1;
-        }
-      }
-      return numTagsA - numTagsB;
-    });
-  };
+      const [cityA, cityB] = [routeA.tags[0], routeB.tags[0]];
+      const [nameA, nameB] = [routeA.name, routeB.name];
+      const [distanceA, distanceB] = [routeA.distance, routeB.distance];
+      const cityCompare = cityA < cityB ? -1 : cityA > cityB ? 1 : 0;
+      const nameCompare = nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
+      const distanceCompare = distanceA < distanceB ? -1 : distanceA > distanceB ? 1 : 0;
 
-  sortRoutesByName = (routes: RunningRouteModel[]) => {
-    return routes.sort((routeA: RunningRouteModel, routeB: RunningRouteModel) => {
-      return routeA.name < routeB.name ? -1 : 1;
+      if (cityCompare !== 0) {
+        return cityCompare;
+      } else {
+        return distanceCompare * -1;
+      }
     });
   };
 
   async componentDidMount() {
     const routesQuery = makeQuery("outdoor/running");
     const routes = await GET(routesQuery);
-    const sortedRoutes = this.sortRoutesByTags(routes);
+    const sortedRoutes = this.sortRoutes(routes);
     this.setState({ routes: sortedRoutes });
 
     this.onRouteClick(this.state.routes[0]);
@@ -102,8 +97,8 @@ class RunningRoutes extends React.Component<RunningRoutesProps, RunningRoutesSta
                 >
                   {route.name}
                 </td>
-                <td className="RunningRoutes-table-cell RunningRoutes-info">{route.distance}mi</td>
-                <td className="RunningRoutes-table-cell RunningRoutes-info">{route.elevation}ft</td>
+                <td className="RunningRoutes-table-cell RunningRoutes-info">{route.distance} mi</td>
+                <td className="RunningRoutes-table-cell RunningRoutes-info">{route.elevation} ft</td>
                 <td className="RunningRoutes-table-cell RunningRoutes-tag">{route.tags[0]}</td>
               </tr>
             ))}
