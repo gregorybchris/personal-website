@@ -73,15 +73,42 @@ class RunningRoutes extends React.Component<RunningRoutesProps, RunningRoutesSta
     this.updateMap();
   };
 
-  createRouteElement = (routeModel: RunningRouteModel) => {
+  createRoutesTableElement = () => {
     return (
-      <div className="RunningRoutes-route" key={routeModel.route_id}>
-        <div className="RunningRoutes-name Common-simple-link" onClick={() => this.onRouteClick(routeModel)}>
-          {routeModel.name}
-        </div>
-        <div className="RunningRoutes-info">{routeModel.distance}mi</div>
-        <div className="RunningRoutes-info">{routeModel.elevation}ft</div>
-        <div className="RunningRoutes-tags">{routeModel.tags.map(this.createRouteTagElement)}</div>
+      <div className="RunningRoutes-routes">
+        <table className="RunningRoutes-table">
+          <thead className="RunningRoutes-table-header">
+            <tr className="RunningRoutes-table-row">
+              <td className="RunningRoutes-table-cell">
+                <span className="RunningRoutes-table-header-cell-text">Route</span>
+              </td>
+              <td className="RunningRoutes-table-cell">
+                <span className="RunningRoutes-table-header-cell-text">Distance</span>
+              </td>
+              <td className="RunningRoutes-table-cell">
+                <span className="RunningRoutes-table-header-cell-text">Elevation</span>
+              </td>
+              <td className="RunningRoutes-table-cell">
+                <span className="RunningRoutes-table-header-cell-text">City</span>
+              </td>
+            </tr>
+          </thead>
+          <tbody className="RunningRoutes-table-body">
+            {this.state.routes.map((route) => (
+              <tr className="RunningRoutes-table-row">
+                <td
+                  className="RunningRoutes-table-cell RunningRoutes-name Common-simple-link"
+                  onClick={() => this.onRouteClick(route)}
+                >
+                  {route.name}
+                </td>
+                <td className="RunningRoutes-table-cell RunningRoutes-info">{route.distance}mi</td>
+                <td className="RunningRoutes-table-cell RunningRoutes-info">{route.elevation}ft</td>
+                <td className="RunningRoutes-table-cell RunningRoutes-tag">{route.tags[0]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   };
@@ -104,24 +131,29 @@ class RunningRoutes extends React.Component<RunningRoutesProps, RunningRoutesSta
     }
 
     return (
-      <MapContainer
-        className="RunningRoutes-map"
-        whenCreated={this.initializeMap}
-        center={[51.505, -0.09]}
-        zoom={13}
-        scrollWheelZoom={true}
-      >
-        <TileLayer
-          url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
-          id="mapbox/streets-v11"
-          attribution=""
-          maxZoom={18}
-          tileSize={512}
-          zoomOffset={-1}
-          accessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-        />
-        <Polyline positions={this.state.currentRouteData.points.map((p) => [p.latitude, p.longitude])} />
-      </MapContainer>
+      <div className="RunningRoutes-map-section">
+        <div className="RunningRoutes-map-route-name">{this.state.currentRoute?.name}</div>
+        <div className="RunningRoutes-map-wrap">
+          <MapContainer
+            className="RunningRoutes-map"
+            whenCreated={this.initializeMap}
+            center={[51.505, -0.09]}
+            zoom={13}
+            scrollWheelZoom={true}
+          >
+            <TileLayer
+              url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
+              id="mapbox/streets-v11"
+              attribution=""
+              maxZoom={18}
+              tileSize={512}
+              zoomOffset={-1}
+              accessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+            />
+            <Polyline positions={this.state.currentRouteData.points.map((p) => [p.latitude, p.longitude])} />
+          </MapContainer>
+        </div>
+      </div>
     );
   };
 
@@ -136,11 +168,8 @@ class RunningRoutes extends React.Component<RunningRoutesProps, RunningRoutesSta
             around Seattle.
           </div>
         </div>
-        <div className="RunningRoutes-routes">{this.state.routes.map(this.createRouteElement)}</div>
-        <div className="RunningRoutes-map-section">
-          <div className="RunningRoutes-map-route-name">{this.state.currentRoute?.name}</div>
-          <div className="RunningRoutes-map-wrap">{this.createMapElement()}</div>
-        </div>
+        {this.createRoutesTableElement()}
+        {this.createMapElement()}
       </div>
     );
   }
