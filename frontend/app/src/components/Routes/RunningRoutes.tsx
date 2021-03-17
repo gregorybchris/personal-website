@@ -29,10 +29,8 @@ class RunningRoutes extends React.Component<RunningRoutesProps, RunningRoutesSta
   sortRoutes = (routes: RunningRouteModel[]) => {
     return routes.sort((routeA: RunningRouteModel, routeB: RunningRouteModel) => {
       const [cityA, cityB] = [routeA.tags[0], routeB.tags[0]];
-      const [nameA, nameB] = [routeA.name, routeB.name];
       const [distanceA, distanceB] = [routeA.distance, routeB.distance];
       const cityCompare = cityA < cityB ? -1 : cityA > cityB ? 1 : 0;
-      const nameCompare = nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
       const distanceCompare = distanceA < distanceB ? -1 : distanceA > distanceB ? 1 : 0;
 
       if (cityCompare !== 0) {
@@ -97,8 +95,18 @@ class RunningRoutes extends React.Component<RunningRoutesProps, RunningRoutesSta
                 >
                   {route.name}
                 </td>
-                <td className="RunningRoutes-table-cell RunningRoutes-info">{route.distance} mi</td>
-                <td className="RunningRoutes-table-cell RunningRoutes-info">{route.elevation} ft</td>
+                <td
+                  className="RunningRoutes-table-cell RunningRoutes-info"
+                  title={`${(route.distance * 1.609344).toFixed(1)} km`}
+                >
+                  {route.distance} mi
+                </td>
+                <td
+                  className="RunningRoutes-table-cell RunningRoutes-info"
+                  title={`${(route.elevation * 0.3048).toFixed(0)} m`}
+                >
+                  {route.elevation} ft
+                </td>
                 <td className="RunningRoutes-table-cell RunningRoutes-tag">{route.tags[0]}</td>
               </tr>
             ))}
