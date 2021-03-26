@@ -69,45 +69,36 @@ class RunningRoutes extends React.Component<RunningRoutesProps, RunningRoutesSta
   createRoutesTableElement = () => {
     return (
       <div className="RunningRoutes-routes">
-        <table className="RunningRoutes-table">
-          <thead className="RunningRoutes-table-header">
-            <tr className="RunningRoutes-table-row">
-              <td className="RunningRoutes-table-cell">
-                <span className="RunningRoutes-table-header-cell-text">Route</span>
+        <table className="Common-table">
+          <thead className="Common-table-header">
+            <tr className="Common-table-row">
+              <td className="Common-table-cell">
+                <span className="Common-table-header-cell-text">Route</span>
               </td>
-              <td className="RunningRoutes-table-cell">
-                <span className="RunningRoutes-table-header-cell-text">Distance</span>
+              <td className="Common-table-cell">
+                <span className="Common-table-header-cell-text">Distance</span>
               </td>
-              <td className="RunningRoutes-table-cell">
-                <span className="RunningRoutes-table-header-cell-text">Elevation</span>
+              <td className="Common-table-cell">
+                <span className="Common-table-header-cell-text">Elevation</span>
               </td>
-              <td className="RunningRoutes-table-cell">
-                <span className="RunningRoutes-table-header-cell-text">City</span>
+              <td className="Common-table-cell">
+                <span className="Common-table-header-cell-text">City</span>
               </td>
             </tr>
           </thead>
-          <tbody className="RunningRoutes-table-body">
+          <tbody className="Common-table-body">
             {this.state.routes.map((route) => (
-              <tr className="RunningRoutes-table-row">
-                <td
-                  className="RunningRoutes-table-cell RunningRoutes-name Common-simple-link"
-                  onClick={() => this.onRouteClick(route)}
-                >
+              <tr className="Common-table-row">
+                <td className="Common-table-cell Common-simple-link" onClick={() => this.onRouteClick(route)}>
                   {route.name}
                 </td>
-                <td
-                  className="RunningRoutes-table-cell RunningRoutes-info"
-                  title={`${(route.distance * 1.609344).toFixed(1)} km`}
-                >
+                <td className="Common-table-cell" title={`${(route.distance * 1.609344).toFixed(1)} km`}>
                   {route.distance} mi
                 </td>
-                <td
-                  className="RunningRoutes-table-cell RunningRoutes-info"
-                  title={`${(route.elevation * 0.3048).toFixed(0)} m`}
-                >
+                <td className="Common-table-cell" title={`${(route.elevation * 0.3048).toFixed(0)} m`}>
                   {route.elevation} ft
                 </td>
-                <td className="RunningRoutes-table-cell RunningRoutes-tag">{route.tags[0]}</td>
+                <td className="Common-table-cell RunningRoutes-tag">{route.tags[0]}</td>
               </tr>
             ))}
           </tbody>
