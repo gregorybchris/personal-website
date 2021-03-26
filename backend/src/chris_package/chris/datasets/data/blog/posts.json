@@ -2965,5 +2965,25 @@
     "summary": "Less than 0.5% of the US government budget goes to NASA. Why should we work on new techologies for space when we already have so many issues here on Earth? What if humans never tried to build a boat? 1) About half of NASA projects are actually working on technologies to help here on Earth. 2) NASA does a lot of work to protect against extinction including warning systems for asteroids as well as providing the possibility of getting us off Earth if we ever need to. 3) The first US satelite was build at NASA. We don't know what we don't know, so we can't expect NASA to tell us what they will find before they find it. 4) Private companies are incentivized to invest in research that will provide a positive return on investment. Government organizations can focus on projects that help many people without making money. 5) As humans there are burning questions we long to answer. Space exploration is inspiring.",
     "paid": false,
     "archived": false
+  },
+  {
+    "post_id": "626fdcd2-1b1e-4bde-a634-e2485dd876cb",
+    "title": "This is why we can't have nice things",
+    "slug": "why-cant-have-nice-things",
+    "content_type": "video",
+    "source": "YouTube",
+    "areas": ["technology", "economics", "law"],
+    "series": "Veritasium",
+    "speaker": null,
+    "episode_number": null,
+    "length": "00:17:20",
+    "date_created": "2021-03-26",
+    "date_posted": "2021-03-26",
+    "link": "https://www.youtube.com/watch?v=j5v8D-alAKE",
+    "tags": ["light bulbs", "planned", "obsolescence", "phoebus", "iphone", "ford", "innovation"],
+    "hook": null,
+    "summary": "Between 1880 and 1920 the life expectancy of the incandescent bulb rose dramatically as demand pushed innovation of materials and bulb design. In Geneva 1924 the leading lightbulb companies created the Phoebus cartel to coordinate R&D efforts to make shorter lasting lightbulbs. To enforce a 1000 hour limit each company agreed to send in bulb samples and for each hour above that limit companies were charged a fine. Light bulb longevity decreased over the coming years while light bulb company profit margins increased. The Phoebus cartel hid behind the guise of standardization. Planned obsolescence is everywhere from iPhones to cars to fashion. The \"right to repair\" legislation could make it cheaper to fix products designed to fail. While the iPhone of the future might be made to last Apple can always change the design to make it stylistically obsolete.",
+    "paid": false,
+    "archived": false
   }
 ]
