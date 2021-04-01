@@ -26,7 +26,8 @@ def parse_args():
     subparsers.add_parser(SUBPARSER_NAME_APP)
 
     guid_parser = subparsers.add_parser(SUBPARSER_NAME_GUID)
-    guid_parser.add_argument('n', type=int, help="Number of guids to generate")
+    guid_parser.add_argument('-n', '--n_guids', type=int, default=1,
+                             help="Number of guids to generate")
 
     validate_parser = subparsers.add_parser(SUBPARSER_NAME_VALIDATE)
     validate_parser.add_argument('--type', choices=['posts', 'projects'],
@@ -48,6 +49,6 @@ def run_cli():
         if args.type is None or args.type == 'projects':
             validate_projects()
     elif args.command == SUBPARSER_NAME_GUID:
-        generate(n=args.n)
+        generate(n=args.n_guids)
     else:
         raise ValueError("Invalid command")
