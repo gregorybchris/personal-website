@@ -682,5 +682,17 @@
     "mapometer_id": 5229290,
     "tags": ["Indianapolis", "Arden"],
     "archived": false
+  },
+  {
+    "route_id": "3c393e15-090b-493f-a420-f1b821c266cb",
+    "name": "Upper Jordan Trail",
+    "slug": "upper-jordan-trail",
+    "route_type": "running",
+    "distance": 4.75,
+    "elevation": 1212,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/upper-jordan-trail.json",
+    "mapometer_id": 5237907,
+    "tags": ["Berkeley"],
+    "archived": false
   }
 ]
