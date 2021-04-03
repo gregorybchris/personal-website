@@ -7,8 +7,7 @@
     "elevation": 2200,
     "area": "Mount Rainier Area",
     "region": "PNW",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 46.888028,
@@ -24,8 +23,7 @@
     "elevation": 2000,
     "area": "Central Cascades/Steven's Pass",
     "region": "PNW",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 47.808778,
@@ -41,8 +39,7 @@
     "elevation": 350,
     "area": "South Cascades/Mount St. Helens",
     "region": "PNW",
-    "travel": null,
-    "notes": "Lava tubes",
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 46.108278,
@@ -58,8 +55,7 @@
     "elevation": 0,
     "area": "Columbia River Gorge",
     "region": "PNW",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 45.5895,
@@ -75,8 +71,7 @@
     "elevation": 1858,
     "area": "Issaquah Alps/Tiger Mountain",
     "region": "PNW",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 47.499861,
@@ -92,8 +87,7 @@
     "elevation": null,
     "area": "Mt. Hood National Forest",
     "region": "PNW",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 43.981306,
@@ -109,8 +103,7 @@
     "elevation": 1700,
     "area": "Olympic Peninsula/Northern Coast",
     "region": "PNW",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 47.969361,
@@ -126,8 +119,7 @@
     "elevation": 300,
     "area": "Olympic Peninsula/Pacific Coast",
     "region": "PNW",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 47.860667,
@@ -143,8 +135,7 @@
     "elevation": 0,
     "area": "Olympic Peninsula/Pacific Coast",
     "region": "PNW",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 47.941667,
@@ -160,8 +151,7 @@
     "elevation": 1700,
     "area": "North Cascades/Mount Baker Area",
     "region": "PNW",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 48.85425,
@@ -177,8 +167,7 @@
     "elevation": 3150,
     "area": "Snoqualmie Region/North Bend Area",
     "region": "PNW",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 47.488167,
@@ -194,8 +183,7 @@
     "elevation": 4640,
     "area": "Mount Rainier Area",
     "region": "PNW",
-    "travel": null,
-    "notes": "Glissaded down",
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 46.785417,
@@ -211,8 +199,7 @@
     "elevation": 4000,
     "area": "Snoqualmie Region/North Bend Area",
     "region": "PNW",
-    "travel": null,
-    "notes": "Old route up / new route down",
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 47.466861,
@@ -228,8 +215,7 @@
     "elevation": 2700,
     "area": "Central Cascades/Steven's Pass",
     "region": "PNW",
-    "travel": null,
-    "notes": "Beckler Campground",
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 47.708361,
@@ -245,8 +231,7 @@
     "elevation": 2400,
     "area": "Central Cascades/Steven's Pass",
     "region": "PNW",
-    "travel": null,
-    "notes": "Beckler Campground",
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 47.634806,
@@ -262,8 +247,7 @@
     "elevation": 1580,
     "area": "Central Cascades/Steven's Pass",
     "region": "PNW",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 47.678639,
@@ -279,8 +263,7 @@
     "elevation": 2300,
     "area": "North Cascades/Mountain Loop Highway",
     "region": "PNW",
-    "travel": null,
-    "notes": "Gold Basin Campground",
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 48.070306,
@@ -296,8 +279,7 @@
     "elevation": 1160,
     "area": "Snoqualmie Region/North Bend Area",
     "region": "PNW",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 47.435333,
@@ -313,8 +295,7 @@
     "elevation": 1000,
     "area": "North Cascades/Mountain Loop Highway",
     "region": "PNW",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 48.082944,
@@ -330,8 +311,7 @@
     "elevation": 2100,
     "area": "Snoqualmie Region/Teanaway",
     "region": "PNW",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 47.436694,
@@ -347,8 +327,7 @@
     "elevation": 3100,
     "area": "North Cascades/Mount Baker Area",
     "region": "PNW",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 48.897667,
@@ -364,8 +343,7 @@
     "elevation": null,
     "area": "Crater Lake National Park",
     "region": "PNW",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 42.97975,
@@ -381,8 +359,7 @@
     "elevation": null,
     "area": "Enchantments",
     "region": "PNW",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 47.544111,
@@ -398,8 +375,7 @@
     "elevation": 2420,
     "area": "Snoqualmie Region/Snoqualmie Pass",
     "region": "PNW",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 47.424694,
@@ -415,8 +391,7 @@
     "elevation": 500,
     "area": "Acadia National Park - Maine",
     "region": "New England",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 44.316583,
@@ -432,8 +407,7 @@
     "elevation": 1800,
     "area": "New Hampshire",
     "region": "New England",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 42.844861,
@@ -449,8 +423,7 @@
     "elevation": null,
     "area": "Lake Bled - Slovenia",
     "region": "Eastern Europe",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 46.292639,
@@ -466,8 +439,7 @@
     "elevation": 341,
     "area": "Richmond",
     "region": "California",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 37.916471,
@@ -483,8 +455,7 @@
     "elevation": 1500,
     "area": "Berkeley",
     "region": "California",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 37.862699,
@@ -500,13 +471,28 @@
     "elevation": 209,
     "area": "Marin",
     "region": "California",
-    "travel": null,
-    "notes": null,
+    "travel_time": null,
     "next": false,
     "coordinates": {
       "latitude": 37.959202,
       "longitude": -122.60982,
       "formatted": "37/57/33.1/N 122/36/35.4/W"
+    }
+  },
+  {
+    "route_id": "1b7ce392-7c44-4d5b-a01f-41b912e0a0b0",
+    "name": "Tilden Nature Area - Wildcat Peak",
+    "date": "2020-12-30",
+    "miles": 3.4,
+    "elevation": 702,
+    "area": "Berkeley",
+    "region": "California",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 37.908369,
+      "longitude": -122.264182,
+      "formatted": "37/54/30.1/N 122/15/51.1/W"
     }
   },
   {
@@ -517,8 +503,7 @@
     "elevation": 1350,
     "area": "North Cascades/Mountain Loop Highway",
     "region": "PNW",
-    "travel": 1.5,
-    "notes": null,
+    "travel_time": 1.5,
     "next": false,
     "coordinates": null
   },
@@ -530,8 +515,7 @@
     "elevation": 2500,
     "area": "Snoqualmie Region/Teanaway",
     "region": "PNW",
-    "travel": 2.5,
-    "notes": null,
+    "travel_time": 2.5,
     "next": true,
     "coordinates": null
   },
@@ -543,8 +527,7 @@
     "elevation": 1550,
     "area": "North Cascades/Pasayten",
     "region": "PNW",
-    "travel": 3.0,
-    "notes": null,
+    "travel_time": 3.0,
     "next": false,
     "coordinates": null
   },
@@ -556,8 +539,7 @@
     "elevation": 1875,
     "area": "South Cascades/Mount Adams Area",
     "region": "PNW",
-    "travel": 2.5,
-    "notes": null,
+    "travel_time": 2.5,
     "next": false,
     "coordinates": null
   },
@@ -569,8 +551,7 @@
     "elevation": 1250,
     "area": "South Cascades/Goat Rocks",
     "region": "PNW",
-    "travel": 1.0,
-    "notes": null,
+    "travel_time": 1.0,
     "next": false,
     "coordinates": null
   },
@@ -582,8 +563,7 @@
     "elevation": 1000,
     "area": "South Cascades/Mount St. Helens",
     "region": "PNW",
-    "travel": 3.0,
-    "notes": null,
+    "travel_time": 3.0,
     "next": false,
     "coordinates": null
   },
@@ -595,8 +575,7 @@
     "elevation": 1100,
     "area": "Mount Rainier Area",
     "region": "PNW",
-    "travel": 2.5,
-    "notes": null,
+    "travel_time": 2.5,
     "next": true,
     "coordinates": null
   },
@@ -608,8 +587,7 @@
     "elevation": 1400,
     "area": "South Cascades/Mount St. Helens",
     "region": "PNW",
-    "travel": 3.0,
-    "notes": null,
+    "travel_time": 3.0,
     "next": false,
     "coordinates": null
   },
@@ -621,8 +599,7 @@
     "elevation": 2450,
     "area": "Central Cascades/Steven's Pass",
     "region": "PNW",
-    "travel": 2.5,
-    "notes": null,
+    "travel_time": 2.5,
     "next": false,
     "coordinates": null
   },
@@ -634,8 +611,7 @@
     "elevation": 1900,
     "area": "Central Cascades/Steven's Pass",
     "region": "PNW",
-    "travel": 2.0,
-    "notes": null,
+    "travel_time": 2.0,
     "next": false,
     "coordinates": null
   },
@@ -647,8 +623,7 @@
     "elevation": 2200,
     "area": "North Cascades/Mount Baker Area",
     "region": "PNW",
-    "travel": 2.5,
-    "notes": null,
+    "travel_time": 2.5,
     "next": false,
     "coordinates": null
   },
@@ -660,8 +635,7 @@
     "elevation": 4000,
     "area": "North Cascades/North Cascades Highway",
     "region": "PNW",
-    "travel": 3.0,
-    "notes": null,
+    "travel_time": 3.0,
     "next": false,
     "coordinates": null
   },
@@ -673,8 +647,7 @@
     "elevation": 1400,
     "area": "North Cascades/North Cascades Highway",
     "region": "PNW",
-    "travel": 2.5,
-    "notes": null,
+    "travel_time": 2.5,
     "next": false,
     "coordinates": null
   },
@@ -686,8 +659,7 @@
     "elevation": 2300,
     "area": "Central Cascades/Leavenworth Area",
     "region": "PNW",
-    "travel": 3.0,
-    "notes": null,
+    "travel_time": 3.0,
     "next": true,
     "coordinates": null
   },
@@ -699,8 +671,7 @@
     "elevation": 1450,
     "area": "Mount Rainier Area",
     "region": "PNW",
-    "travel": 2.0,
-    "notes": null,
+    "travel_time": 2.0,
     "next": false,
     "coordinates": null
   },
@@ -712,8 +683,7 @@
     "elevation": 600,
     "area": "North Cascades/Mountain Loop Highway",
     "region": "PNW",
-    "travel": 1.0,
-    "notes": null,
+    "travel_time": 1.0,
     "next": false,
     "coordinates": null
   },
@@ -725,8 +695,7 @@
     "elevation": 3100,
     "area": "North Cascades/Mount Baker Area",
     "region": "PNW",
-    "travel": 3.0,
-    "notes": null,
+    "travel_time": 3.0,
     "next": false,
     "coordinates": null
   },
@@ -738,8 +707,7 @@
     "elevation": 3400,
     "area": "Snoqualmie Region/North Bend Area",
     "region": "PNW",
-    "travel": 1.5,
-    "notes": null,
+    "travel_time": 1.5,
     "next": false,
     "coordinates": null
   },
@@ -751,8 +719,7 @@
     "elevation": 2000,
     "area": "Olympic Peninsula/Northern Coast",
     "region": "PNW",
-    "travel": 3.0,
-    "notes": null,
+    "travel_time": 3.0,
     "next": false,
     "coordinates": null
   },
@@ -764,8 +731,7 @@
     "elevation": 3300,
     "area": "Olympic Peninsula/Hood Canal",
     "region": "PNW",
-    "travel": 2.5,
-    "notes": null,
+    "travel_time": 2.5,
     "next": false,
     "coordinates": null
   },
@@ -777,8 +743,7 @@
     "elevation": 1500,
     "area": "Central Cascades/Stevens Pass",
     "region": "PNW",
-    "travel": 2.0,
-    "notes": null,
+    "travel_time": 2.0,
     "next": true,
     "coordinates": null
   },
@@ -790,8 +755,7 @@
     "elevation": 3300,
     "area": "Central Cascades/Stevens Pass",
     "region": "PNW",
-    "travel": 2.0,
-    "notes": null,
+    "travel_time": 2.0,
     "next": true,
     "coordinates": null
   },
@@ -803,8 +767,7 @@
     "elevation": 4300,
     "area": "Snoqualmie Region/Teanaway",
     "region": "PNW",
-    "travel": 2.5,
-    "notes": null,
+    "travel_time": 2.5,
     "next": false,
     "coordinates": null
   }
