@@ -87,8 +87,8 @@ class RunningRoutes extends React.Component<RunningRoutesProps, RunningRoutesSta
             </tr>
           </thead>
           <tbody className="Common-table-body">
-            {this.state.routes.map((route) => (
-              <tr className="Common-table-row">
+            {this.state.routes.map((route, routeNumber) => (
+              <tr className="Common-table-row" key={routeNumber}>
                 <td className="Common-table-cell Common-simple-link" onClick={() => this.onRouteClick(route)}>
                   {route.name}
                 </td>
