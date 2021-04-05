@@ -770,5 +770,53 @@
     "travel_time": 2.5,
     "next": false,
     "coordinates": null
+  },
+  {
+    "route_id": "9de2c9d2-bd4b-4cc1-be1e-db179ad9705c",
+    "name": "Mariposa Grove",
+    "date": "2018-07-04",
+    "miles": 7,
+    "elevation": 1200,
+    "area": "Yosemite",
+    "region": "California",
+    "travel_time": 2.5,
+    "next": false,
+    "coordinates": {
+      "latitude": 37.501574,
+      "longitude": -119.611093,
+      "formatted": "37/30/05.7/N 119°36/39.9/W"
+    }
+  },
+  {
+    "route_id": "d8a08b17-78cb-47e1-8b6d-f475fee78a41",
+    "name": "Half Dome",
+    "date": "2018-07-06",
+    "miles": 14,
+    "elevation": 5300,
+    "area": "Yosemite",
+    "region": "California",
+    "travel_time": 2.5,
+    "next": false,
+    "coordinates": {
+      "latitude": 37.732859,
+      "longitude": -119.557871,
+      "formatted": "37/43/58.3/N 119°33/28.3/W"
+    }
+  },
+  {
+    "route_id": "a1d84bc0-7896-4cd8-8c00-0810f7099e99",
+    "name": "Mirror Lake",
+    "date": "2019-09-15",
+    "miles": 2.4,
+    "elevation": 100,
+    "area": "Yosemite",
+    "region": "California",
+    "travel_time": 2.5,
+    "next": false,
+    "coordinates": {
+      "latitude": 37.739386,
+      "longitude": -119.560354,
+      "formatted": "37/44/21.8/N 119/33/37.3/W"
+    }
   }
 ]
