@@ -694,5 +694,17 @@
     "mapometer_id": 5237907,
     "tags": ["Berkeley"],
     "archived": false
+  },
+  {
+    "route_id": "b4b74663-aefd-4ba5-b0c2-0a5336f171c3",
+    "name": "The Cut",
+    "slug": "the-cut",
+    "route_type": "running",
+    "distance": 5.5,
+    "elevation": 194,
+    "route_data_link": "https://chrisgregory.blob.core.windows.net/routes/running/the-cut.json",
+    "mapometer_id": 5203514,
+    "tags": ["Seattle", "Wallingford"],
+    "archived": false
   }
 ]
