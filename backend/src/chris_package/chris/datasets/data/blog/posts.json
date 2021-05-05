@@ -3025,5 +3025,25 @@
     "summary": "McDonald's has an exclusive parnership with Taylor, the maker of many fast-food soft-serve machines. 25% of Taylor's revenue comes from repairs and parts. Even their advertisements are for the quality of their repair teams. McDonald's franchise owners end up paying money to service technicians and losing money to machine down time. The \"service menu\" on the machine is only available to service technicians and not the owner of the machine even though the service menu contains \"critical operating parameters\". Other fast-food companies also purchase ice cream machines from Taylor, but different models that are not designed to break. When a new product, Kytch, was invented to fix the existing Taylor machines, McDonald's corporate strongly recommended against using Kytch, which \"creates a potential very serious safety risk\" and announced an upcoming product that would perform the same function as Kytch. That new product will be made by Powerhouse Dynamics, owned by parent company Middleby, also the parent company of Taylor.",
     "paid": false,
     "archived": false
+  },
+  {
+    "post_id": "56f76b48-6fd5-401d-b7e0-23518a2a07e4",
+    "title": "Emergence and Complexity",
+    "slug": "emergence-and-complexity",
+    "content_type": "video",
+    "source": "YouTube",
+    "areas": ["complexity", "biology"],
+    "series": "Standford - Human Behavioral Biology",
+    "speaker": "Robert Sapolsky",
+    "episode_number": 22,
+    "length": "01:42:30",
+    "date_created": "2011-02-01",
+    "date_posted": "2021-05-04",
+    "link": "https://www.youtube.com/watch?v=o_ZuWbX-CyE",
+    "tags": ["fractals", "blood", "cantor", "dimension", "complexity", "system", "network"],
+    "hook": null,
+    "summary": "Blood vessels branching in the body can reach the whole body very efficiently. The circulatory system is only 5% of a human's body mass and yet no cell is more than 5 cells away from a blood vessel. This is possible because the network of vessels follows a simple branching rule. It's a fractal. And fractals have a non-integer dimensionality, the \"fractal dimension\". For example the Cantor set is created by taking a line and removing the middle third, then repeating that process for each remaining third recursively. An infinite number of points are left with zero surface area. The Koch snowflake is made by a similar process, adding length rather than removing. The area of the snowflake converges while the length of the perimeter grows to infinity. The dimension is somewhere between 1 and 2.",
+    "paid": false,
+    "archived": false
   }
 ]
