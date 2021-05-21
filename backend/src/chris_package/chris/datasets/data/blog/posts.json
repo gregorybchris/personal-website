@@ -3045,5 +3045,25 @@
     "summary": "Blood vessels branching in the body can reach the whole body very efficiently. The circulatory system is only 5% of a human's body mass and yet no cell is more than 5 cells away from a blood vessel. This is possible because the network of vessels follows a simple branching rule. It's a fractal. And fractals have a non-integer dimensionality, the \"fractal dimension\". For example the Cantor set is created by taking a line and removing the middle third, then repeating that process for each remaining third recursively. An infinite number of points are left with zero surface area. The Koch snowflake is made by a similar process, adding length rather than removing. The area of the snowflake converges while the length of the perimeter grows to infinity. The dimension is somewhere between 1 and 2.",
     "paid": false,
     "archived": false
+  },
+  {
+    "post_id": "6c7cce1b-d391-4f3a-9fd4-2234a6500180",
+    "title": "The Evolution of Males and Females",
+    "slug": "evolution-males-and-females",
+    "content_type": "video",
+    "source": "YouTube",
+    "areas": ["biology", "complexity"],
+    "series": "The Royal Institution",
+    "speaker": "Judith Mank",
+    "episode_number": null,
+    "length": "00:37:39",
+    "date_created": "2016-04-27",
+    "date_posted": "2021-05-19",
+    "link": "https://www.youtube.com/watch?v=En26p6GvtHw",
+    "tags": ["insects", "ants", "bees", "sex", "genetics", "molly", "fish", "clones"],
+    "hook": null,
+    "summary": "Some insects - particularly the hymenoptera like ants/bees/wasps - will have male/female diversity through haplodiploidy (number of copies of each chromosome). Females come from fertilized eggs and males from unfertilized eggs. So male offspring will only have half of a mother's genetic information and mothers will be genetically closer to their sisters than to their sons. The evolutionary interest shifts away from offspring and toward the hive/colony. This makes \"rafting\" possible where ants will float on sacrificial rafts made of their dead sisters. The Amazon molly pretends to have sex. Females give birth to clone daughters. But they need a sperm cell to pierce the egg before being ejected, so the Amazon molly mates with the sailfin molly. The Amazon molly gives birth to only daughters so the number of Amazon molly can grow much faster than the sailfin molly. This leads to strange cycles of extinction and recolonization.",
+    "paid": false,
+    "archived": false
   }
 ]
