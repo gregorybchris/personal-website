@@ -2,7 +2,8 @@
   {
     "route_id": "609bfbe8-e14e-447a-8744-37f6547dd685",
     "name": "Summerland Trail",
-    "date": "2017-06-03",
+    "slug": "summerland-trail",
+    "dates": ["2017-06-03"],
     "miles": 8,
     "elevation": 2200,
     "area": "Mount Rainier Area",
@@ -18,7 +19,8 @@
   {
     "route_id": "e8bc254d-3bd9-47a9-8f98-a4908d2e38ac",
     "name": "Lake Serene",
-    "date": "2017-06-18",
+    "slug": "lake-serene",
+    "dates": ["2017-06-18"],
     "miles": 8,
     "elevation": 2000,
     "area": "Central Cascades/Steven's Pass",
@@ -34,7 +36,8 @@
   {
     "route_id": "664c8def-ccb0-4c54-90ca-7ffa2a92a711",
     "name": "Ape Caves",
-    "date": "2017-07-16",
+    "slug": "ape-caves",
+    "dates": ["2017-07-16"],
     "miles": 3,
     "elevation": 350,
     "area": "South Cascades/Mount St. Helens",
@@ -50,7 +53,8 @@
   {
     "route_id": "9973b356-c2a1-4674-b4ca-02ea8d5e6360",
     "name": "Oneonta Gorge",
-    "date": "2017-07-30",
+    "slug": "oneonta-gorge",
+    "dates": ["2017-07-30"],
     "miles": 1,
     "elevation": 0,
     "area": "Columbia River Gorge",
@@ -66,7 +70,8 @@
   {
     "route_id": "b77e1aa3-4e8b-4323-a39b-70f37bbe0d17",
     "name": "Poo Poo Point",
-    "date": "2017-08-05",
+    "slug": "poo-poo-point",
+    "dates": ["2017-08-05"],
     "miles": 7,
     "elevation": 1858,
     "area": "Issaquah Alps/Tiger Mountain",
@@ -81,8 +86,9 @@
   },
   {
     "route_id": "871b5e50-1750-49e4-b2ee-fb1a0b46d942",
-    "name": "Elk Lake to Olallie Lake (PCT",
-    "date": "2018-06-13",
+    "name": "Elk Lake to Olallie Lake (PCT)",
+    "slug": "elk-to-olallie",
+    "dates": ["2018-06-13"],
     "miles": 75,
     "elevation": null,
     "area": "Mt. Hood National Forest",
@@ -98,7 +104,8 @@
   {
     "route_id": "9b267022-ba01-4335-8fea-d41b3b91b498",
     "name": "Klahhane Ridge",
-    "date": "2018-07-17",
+    "slug": "klahhane-ridge",
+    "dates": ["2018-07-17"],
     "miles": 8,
     "elevation": 1700,
     "area": "Olympic Peninsula/Northern Coast",
@@ -114,7 +121,8 @@
   {
     "route_id": "44c9b858-6309-470f-aa8e-efccca1df918",
     "name": "Hoh River Trail",
-    "date": "2018-07-18",
+    "slug": "hoh-river-trail",
+    "dates": ["2018-07-18"],
     "miles": 10,
     "elevation": 300,
     "area": "Olympic Peninsula/Pacific Coast",
@@ -130,7 +138,8 @@
   {
     "route_id": "ae7b54ac-cd0e-4a50-ba09-88cf5b29a439",
     "name": "Hole-in-the-Wall / Rialto Beach",
-    "date": "2018-07-19",
+    "slug": "hole-in-the-wall",
+    "dates": ["2018-07-19"],
     "miles": 4,
     "elevation": 0,
     "area": "Olympic Peninsula/Pacific Coast",
@@ -146,7 +155,8 @@
   {
     "route_id": "0a06bc75-8fdd-4829-80c1-0db8d5435d21",
     "name": "Chain Lakes Loop",
-    "date": "2018-08-04",
+    "slug": "chain-lakes-loop",
+    "dates": ["2018-08-04"],
     "miles": 8,
     "elevation": 1700,
     "area": "North Cascades/Mount Baker Area",
@@ -162,7 +172,8 @@
   {
     "route_id": "61fe54aa-cdb9-4cd5-9f56-a00ff81fed7a",
     "name": "Mount Si",
-    "date": "2018-09-23",
+    "slug": "mount-si",
+    "dates": ["2018-09-23"],
     "miles": 8,
     "elevation": 3150,
     "area": "Snoqualmie Region/North Bend Area",
@@ -178,7 +189,8 @@
   {
     "route_id": "0335979a-60d8-4f2f-b7d6-133fd7de5c8a",
     "name": "Camp Muir",
-    "date": "2019-05-12",
+    "slug": "camp-muir",
+    "dates": ["2019-05-12"],
     "miles": 8,
     "elevation": 4640,
     "area": "Mount Rainier Area",
@@ -194,7 +206,8 @@
   {
     "route_id": "b40a254e-3748-4533-90d6-3a544469955f",
     "name": "Mailbox Peak",
-    "date": "2019-07-06",
+    "slug": "mailbox",
+    "dates": ["2019-07-06"],
     "miles": 10,
     "elevation": 4000,
     "area": "Snoqualmie Region/North Bend Area",
@@ -210,7 +223,8 @@
   {
     "route_id": "d41847f4-906f-4c76-a411-016ecd1bb49a",
     "name": "Surprise Lake",
-    "date": "2019-08-03",
+    "slug": "surprise-lake",
+    "dates": ["2019-08-03"],
     "miles": 11,
     "elevation": 2700,
     "area": "Central Cascades/Steven's Pass",
@@ -226,7 +240,8 @@
   {
     "route_id": "148fdabb-cfc1-4a56-959b-7362a0e760df",
     "name": "Lake Malachite / Copper Lake",
-    "date": "2019-08-04",
+    "slug": "malachite-copper-lakes",
+    "dates": ["2019-08-04"],
     "miles": 9,
     "elevation": 2400,
     "area": "Central Cascades/Steven's Pass",
@@ -242,7 +257,8 @@
   {
     "route_id": "cd41ed39-9359-4f58-80da-e3c6bd0642be",
     "name": "Tonga Ridge & Fisher Lake",
-    "date": "2019-08-25",
+    "slug": "tonga-ridge-fisher-lake",
+    "dates": ["2019-08-25"],
     "miles": 10,
     "elevation": 1580,
     "area": "Central Cascades/Steven's Pass",
@@ -258,7 +274,8 @@
   {
     "route_id": "263be3fa-db24-4dc3-b2bc-4586bfdb37e9",
     "name": "Mount Pilchuck",
-    "date": "2019-08-31",
+    "slug": "pilchuck",
+    "dates": ["2019-08-31"],
     "miles": 6,
     "elevation": 2300,
     "area": "North Cascades/Mountain Loop Highway",
@@ -274,7 +291,8 @@
   {
     "route_id": "9c09133d-0a52-4c10-ac28-2ecd6bdf2a46",
     "name": "Rattlesnake Ledge",
-    "date": "2019-09-07",
+    "slug": "rattlesnake-ledge",
+    "dates": ["2019-09-07"],
     "miles": 4,
     "elevation": 1160,
     "area": "Snoqualmie Region/North Bend Area",
@@ -290,7 +308,8 @@
   {
     "route_id": "8af0f919-26d8-4d20-ac6c-b96e1e0d2ddb",
     "name": "Heather Lake",
-    "date": "2019-10-05",
+    "slug": "heather-lake",
+    "dates": ["2019-10-05"],
     "miles": 5,
     "elevation": 1000,
     "area": "North Cascades/Mountain Loop Highway",
@@ -306,7 +325,8 @@
   {
     "route_id": "d9039140-3d8a-46ce-b0a4-9dae4cf3318e",
     "name": "Longs Pass",
-    "date": "2020-07-04",
+    "slug": "longs-pass",
+    "dates": ["2020-07-04"],
     "miles": 6,
     "elevation": 2100,
     "area": "Snoqualmie Region/Teanaway",
@@ -322,7 +342,8 @@
   {
     "route_id": "b45c0a8c-097a-4cc9-8945-268dfabb58d3",
     "name": "Goat Mountain",
-    "date": "2020-08-01",
+    "slug": "goat-mountain",
+    "dates": ["2020-08-01"],
     "miles": 9,
     "elevation": 3100,
     "area": "North Cascades/Mount Baker Area",
@@ -337,10 +358,11 @@
   },
   {
     "route_id": "4de8fb8f-5aa9-42b2-901b-2f34a68773b9",
-    "name": "Crater Lake",
-    "date": "2020-08-08",
-    "miles": null,
-    "elevation": null,
+    "name": "Cleetwood Cove Trail - Crater Lake",
+    "slug": "cleetwood-cove-trail-crater-lake",
+    "dates": ["2020-08-08"],
+    "miles": 2,
+    "elevation": 620,
     "area": "Crater Lake National Park",
     "region": "PNW",
     "travel_time": null,
@@ -354,8 +376,9 @@
   {
     "route_id": "da724c45-7003-411e-b7df-c3523c235390",
     "name": "Snow Lake",
-    "date": "2020-09-05",
-    "miles": null,
+    "slug": "snow-lake",
+    "dates": ["2020-09-05", "2021-05-23"],
+    "miles": 7,
     "elevation": null,
     "area": "Enchantments",
     "region": "PNW",
@@ -370,7 +393,8 @@
   {
     "route_id": "36312608-71b7-4f19-bb65-be59fbf55fe5",
     "name": "Mason Lake",
-    "date": "2020-10-03",
+    "slug": "mason-lake",
+    "dates": ["2020-10-03"],
     "miles": 6.5,
     "elevation": 2420,
     "area": "Snoqualmie Region/Snoqualmie Pass",
@@ -386,7 +410,8 @@
   {
     "route_id": "d6d63fa8-d903-4015-b379-e30f3cbd9e48",
     "name": "Gorham Mountain Loop to Sand Beach",
-    "date": "2018-05-24",
+    "slug": "gorham-mountain-loop-sand-beach",
+    "dates": ["2018-05-24"],
     "miles": 4,
     "elevation": 500,
     "area": "Acadia National Park - Maine",
@@ -402,7 +427,8 @@
   {
     "route_id": "d089cbb6-3aab-4ca9-8241-ce75c744f8f8",
     "name": "Mount Monadnock",
-    "date": "2018-05-28",
+    "slug": "monadnock",
+    "dates": ["2018-05-28"],
     "miles": 5,
     "elevation": 1800,
     "area": "New Hampshire",
@@ -418,7 +444,8 @@
   {
     "route_id": "0ac79a1f-18fb-4968-8e61-5554fad40f55",
     "name": "Mostnika Gorge",
-    "date": "2019-06-11",
+    "slug": "mostnika-gorge",
+    "dates": ["2019-06-11"],
     "miles": 7,
     "elevation": null,
     "area": "Lake Bled - Slovenia",
@@ -434,7 +461,8 @@
   {
     "route_id": "12fa6876-479e-412d-ae23-98e3b6d88015",
     "name": "Miller Knox",
-    "date": "2020-12-21",
+    "slug": "miller-knox",
+    "dates": ["2020-12-21"],
     "miles": 1.5,
     "elevation": 341,
     "area": "Richmond",
@@ -450,7 +478,8 @@
   {
     "route_id": "9202449d-a3d2-4450-8c5b-c9198430cf38",
     "name": "Stonewall-Panoramic Trail - Caparral Peak",
-    "date": "2020-12-26",
+    "slug": "caparral-peak",
+    "dates": ["2020-12-26"],
     "miles": 5.1,
     "elevation": 1500,
     "area": "Berkeley",
@@ -466,7 +495,8 @@
   {
     "route_id": "c429f27c-62dd-4a22-841f-aea78dafde01",
     "name": "Bon Tempe Lake",
-    "date": "2020-12-30",
+    "slug": "bon-tempe-lake",
+    "dates": ["2020-12-30"],
     "miles": 5.1,
     "elevation": 209,
     "area": "Marin",
@@ -482,7 +512,8 @@
   {
     "route_id": "1b7ce392-7c44-4d5b-a01f-41b912e0a0b0",
     "name": "Tilden Nature Area - Wildcat Peak",
-    "date": "2020-12-30",
+    "slug": "wildcat-peak",
+    "dates": ["2020-12-30"],
     "miles": 3.4,
     "elevation": 702,
     "area": "Berkeley",
@@ -498,7 +529,8 @@
   {
     "route_id": "fbb5b998-505c-45a0-9805-657630b57631",
     "name": "Lake 22",
-    "date": null,
+    "slug": "lake-22",
+    "dates": null,
     "miles": 6,
     "elevation": 1350,
     "area": "North Cascades/Mountain Loop Highway",
@@ -510,7 +542,8 @@
   {
     "route_id": "909bcab6-838c-43b3-bb3c-8ce7cdb2c2e9",
     "name": "Lake Ingalls",
-    "date": null,
+    "slug": "lake-ingalls",
+    "dates": null,
     "miles": 9,
     "elevation": 2500,
     "area": "Snoqualmie Region/Teanaway",
@@ -522,7 +555,8 @@
   {
     "route_id": "ad361616-a16c-43ce-ad39-aad64e1a26f5",
     "name": "Horseshoe Basin",
-    "date": null,
+    "slug": "horseshoe-basin",
+    "dates": null,
     "miles": 12,
     "elevation": 1550,
     "area": "North Cascades/Pasayten",
@@ -534,7 +568,8 @@
   {
     "route_id": "2419e8d9-67fb-4077-a7d5-27860c7435a8",
     "name": "Bird Mountain Loop",
-    "date": null,
+    "slug": "bird-mountain-loop",
+    "dates": null,
     "miles": 10,
     "elevation": 1875,
     "area": "South Cascades/Mount Adams Area",
@@ -546,7 +581,8 @@
   {
     "route_id": "6ee11f21-f4b3-4541-a2a6-677afe856049",
     "name": "Bear Creek Mountain",
-    "date": null,
+    "slug": "bear-creek-mountain",
+    "dates": null,
     "miles": 7,
     "elevation": 1250,
     "area": "South Cascades/Goat Rocks",
@@ -558,7 +594,8 @@
   {
     "route_id": "09362756-a8f8-46e8-b73e-509e8450f282",
     "name": "Harry's Ridge",
-    "date": null,
+    "slug": "harrys-ridge",
+    "dates": null,
     "miles": 8,
     "elevation": 1000,
     "area": "South Cascades/Mount St. Helens",
@@ -570,7 +607,8 @@
   {
     "route_id": "0a072f97-c8eb-467c-bf9a-509773f86750",
     "name": "Tolmie Peak Lookout / Eunice Lake",
-    "date": null,
+    "slug": "eunice-lake",
+    "dates": null,
     "miles": 8,
     "elevation": 1100,
     "area": "Mount Rainier Area",
@@ -582,7 +620,8 @@
   {
     "route_id": "e5935a10-ea56-4077-b455-e43e769f4200",
     "name": "South Coldwater Trail",
-    "date": null,
+    "slug": "south-coldwater-trail",
+    "dates": null,
     "miles": 7,
     "elevation": 1400,
     "area": "South Cascades/Mount St. Helens",
@@ -594,7 +633,8 @@
   {
     "route_id": "fe7b3ec7-bb94-4d86-bffc-e3bb57889b9c",
     "name": "Larch Lake",
-    "date": null,
+    "slug": "larch-lake",
+    "dates": null,
     "miles": 12,
     "elevation": 2450,
     "area": "Central Cascades/Steven's Pass",
@@ -606,7 +646,8 @@
   {
     "route_id": "a892e6cb-5b6b-48fb-a35c-05fa99f89acc",
     "name": "Spider Meadow / Phelps Basin",
-    "date": null,
+    "slug": "spider-meadow-phelps-basin",
+    "dates": null,
     "miles": 13,
     "elevation": 1900,
     "area": "Central Cascades/Steven's Pass",
@@ -618,7 +659,8 @@
   {
     "route_id": "864c7a15-b906-4859-be79-0bfb6a725d04",
     "name": "Park Butte",
-    "date": null,
+    "slug": "park-butte",
+    "dates": null,
     "miles": 8,
     "elevation": 2200,
     "area": "North Cascades/Mount Baker Area",
@@ -630,7 +672,8 @@
   {
     "route_id": "21791700-a777-4fdb-81ff-1ba85df73572",
     "name": "Cascade Pass / Sahale Arm",
-    "date": null,
+    "slug": "cascade-pass-sahale-arm",
+    "dates": null,
     "miles": 12,
     "elevation": 4000,
     "area": "North Cascades/North Cascades Highway",
@@ -642,7 +685,8 @@
   {
     "route_id": "d176f7d3-4e35-4271-a652-dbc848938846",
     "name": "Diablo Lake",
-    "date": null,
+    "slug": "diablo-lake",
+    "dates": null,
     "miles": 8,
     "elevation": 1400,
     "area": "North Cascades/North Cascades Highway",
@@ -654,7 +698,8 @@
   {
     "route_id": "7e291369-cd8a-4136-8776-3657ae781938",
     "name": "Colchuck Lake",
-    "date": null,
+    "slug": "colchuck-lake",
+    "dates": null,
     "miles": 8,
     "elevation": 2300,
     "area": "Central Cascades/Leavenworth Area",
@@ -666,7 +711,8 @@
   {
     "route_id": "d97419bc-254f-4f7c-8768-207bbb99527f",
     "name": "Skyline Trail Loop",
-    "date": null,
+    "slug": "skyline-trail-loop",
+    "dates": null,
     "miles": 6,
     "elevation": 1450,
     "area": "Mount Rainier Area",
@@ -678,7 +724,8 @@
   {
     "route_id": "c9dde852-245a-4e62-a620-1076af4d8586",
     "name": "Lime Kiln Trail",
-    "date": null,
+    "slug": "lime-kiln-trail",
+    "dates": null,
     "miles": 7,
     "elevation": 600,
     "area": "North Cascades/Mountain Loop Highway",
@@ -690,7 +737,8 @@
   {
     "route_id": "9fd59743-9c6a-4817-af3c-dd4c074eee71",
     "name": "Hannegan Pass/Peak",
-    "date": null,
+    "slug": "hannegan-pass-peak",
+    "dates": null,
     "miles": 10,
     "elevation": 3100,
     "area": "North Cascades/Mount Baker Area",
@@ -702,7 +750,8 @@
   {
     "route_id": "daa2f435-c7b5-40fa-8967-8cdfa2c51d92",
     "name": "Bandera Mountain",
-    "date": null,
+    "slug": "bandera-mountain",
+    "dates": null,
     "miles": 8,
     "elevation": 3400,
     "area": "Snoqualmie Region/North Bend Area",
@@ -714,7 +763,8 @@
   {
     "route_id": "a8e5f87c-fbf1-401c-8664-582f6fec5ea9",
     "name": "Mount Storm King",
-    "date": null,
+    "slug": "mount-storm-king",
+    "dates": null,
     "miles": 4,
     "elevation": 2000,
     "area": "Olympic Peninsula/Northern Coast",
@@ -726,7 +776,8 @@
   {
     "route_id": "d5795fc9-968c-4edc-98ac-cb8fcc8817e5",
     "name": "Mount Ellinor",
-    "date": null,
+    "slug": "mount-ellinor",
+    "dates": null,
     "miles": 6,
     "elevation": 3300,
     "area": "Olympic Peninsula/Hood Canal",
@@ -738,7 +789,8 @@
   {
     "route_id": "a2d1bf45-5a0f-4e1a-8653-16f06a99b5b8",
     "name": "Lake Valhalla",
-    "date": null,
+    "slug": "lake-valhalla",
+    "dates": null,
     "miles": 7,
     "elevation": 1500,
     "area": "Central Cascades/Stevens Pass",
@@ -750,7 +802,8 @@
   {
     "route_id": "b6f9ff2c-50ce-4cd8-b2fd-6ad14f55d022",
     "name": "Blanca Lake",
-    "date": null,
+    "slug": "blanca-lake",
+    "dates": null,
     "miles": 8,
     "elevation": 3300,
     "area": "Central Cascades/Stevens Pass",
@@ -762,7 +815,8 @@
   {
     "route_id": "1617f8e8-aedb-4742-8153-7553c6734dba",
     "name": "Navaho Peak",
-    "date": null,
+    "slug": "navaho-peak",
+    "dates": null,
     "miles": 14,
     "elevation": 4300,
     "area": "Snoqualmie Region/Teanaway",
@@ -774,7 +828,8 @@
   {
     "route_id": "9de2c9d2-bd4b-4cc1-be1e-db179ad9705c",
     "name": "Mariposa Grove",
-    "date": "2018-07-04",
+    "slug": "mariposa-grove",
+    "dates": ["2018-07-04"],
     "miles": 7,
     "elevation": 1200,
     "area": "Yosemite",
@@ -790,7 +845,8 @@
   {
     "route_id": "d8a08b17-78cb-47e1-8b6d-f475fee78a41",
     "name": "Half Dome",
-    "date": "2018-07-06",
+    "slug": "half-dome",
+    "dates": ["2018-07-06"],
     "miles": 14,
     "elevation": 5300,
     "area": "Yosemite",
@@ -806,7 +862,8 @@
   {
     "route_id": "a1d84bc0-7896-4cd8-8c00-0810f7099e99",
     "name": "Mirror Lake",
-    "date": "2019-09-15",
+    "slug": "mirror-lake",
+    "dates": ["2019-09-15"],
     "miles": 2.4,
     "elevation": 100,
     "area": "Yosemite",
@@ -822,7 +879,8 @@
   {
     "route_id": "19bef72d-d1b6-45dd-8943-fe617eda6c18",
     "name": "Lighthouse Point Trail",
-    "date": "2021-02-20",
+    "slug": "lighthouse-point-trail",
+    "dates": ["2021-02-20"],
     "miles": 2.5,
     "elevation": 321,
     "area": "Deception Pass",
@@ -838,7 +896,8 @@
   {
     "route_id": "dc3a4c1e-f9af-4627-ae27-ab7826afeabe",
     "name": "Maple Pass Trail",
-    "date": null,
+    "slug": "maple-pass-trail",
+    "dates": null,
     "miles": 6.6,
     "elevation": 2145,
     "area": "Okanogan-Wenatchee National Forest",
@@ -846,5 +905,22 @@
     "travel_time": null,
     "next": true,
     "coordinates": null
+  },
+  {
+    "route_id": "f6f6f9c2-0c66-4b94-9d4c-e3233321fa52",
+    "name": "Baker Lake Trail",
+    "slug": "baker-lake-trail",
+    "dates": ["2021-06-12"],
+    "miles": 6,
+    "elevation": 500,
+    "area": "North Cascades/Mount Baker Area",
+    "region": "PNW",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 48.75026,
+      "longitude": -121.555787,
+      "formatted": "48/45/00.9/N 121/33/20.8/W"
+    }
   }
 ]

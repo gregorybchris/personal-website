@@ -5,6 +5,8 @@ from chris.app.app import App
 from chris._utilities.generate_guid import generate
 from chris._validation.validate import validate_posts
 from chris._validation.validate import validate_projects
+from chris._validation.validate import validate_hikes
+
 
 SUBPARSER_NAME_APP = 'app'
 SUBPARSER_NAME_GUID = 'guid'
@@ -26,11 +28,13 @@ def parse_args():
     subparsers.add_parser(SUBPARSER_NAME_APP)
 
     guid_parser = subparsers.add_parser(SUBPARSER_NAME_GUID)
-    guid_parser.add_argument('-n', '--n_guids', type=int, default=1,
+    guid_parser.add_argument('-n', '--n_guids',
+                             type=int, default=1,
                              help="Number of guids to generate")
 
     validate_parser = subparsers.add_parser(SUBPARSER_NAME_VALIDATE)
-    validate_parser.add_argument('--type', choices=['posts', 'projects'],
+    validate_parser.add_argument('--type',
+                                 choices=['posts', 'projects', 'hikes'],
                                  help="Type of entity to validate")
 
     args = parser.parse_args()
@@ -48,6 +52,8 @@ def run_cli():
             validate_posts()
         if args.type is None or args.type == 'projects':
             validate_projects()
+        if args.type is None or args.type == 'hikes':
+            validate_hikes()
     elif args.command == SUBPARSER_NAME_GUID:
         generate(n=args.n_guids)
     else:
