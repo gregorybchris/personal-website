@@ -10,7 +10,7 @@
       "attr": {
         "route_id": "#guid",
         "name": "string",
-        "slug": "string",
+        "slug": "#slug",
         "dates": ["null", "#datelist"],
         "miles": "number",
         "elevation": ["null", "number"],
@@ -25,6 +25,12 @@
       "type": "string",
       "cons": {
         "format": { "type": "regex", "pattern": "^[a-z0-9-]{36}$" }
+      }
+    },
+    "#slug": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^[a-z0-9-]+$" }
       }
     },
     "#date": {
@@ -45,7 +51,15 @@
       "attr": {
         "latitude": "number",
         "longitude": "number",
-        "formatted": "string"
+        "formatted": {
+          "type": "string",
+          "cons": {
+            "format": {
+              "type": "regex",
+              "pattern": "^\\d+\\/\\d+\\/\\d+\\.\\d+\\/[NS] \\d+\\/\\d+\\/\\d+\\.\\d+\\/[EW]$"
+            }
+          }
+        }
       }
     }
   }

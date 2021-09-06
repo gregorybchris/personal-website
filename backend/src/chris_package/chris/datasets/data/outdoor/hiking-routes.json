@@ -190,8 +190,8 @@
     "route_id": "0335979a-60d8-4f2f-b7d6-133fd7de5c8a",
     "name": "Camp Muir",
     "slug": "camp-muir",
-    "dates": ["2019-05-12"],
-    "miles": 8,
+    "dates": ["2019-05-12", "2021-08-22"],
+    "miles": 10,
     "elevation": 4640,
     "area": "Mount Rainier Area",
     "region": "PNW",
@@ -839,7 +839,7 @@
     "coordinates": {
       "latitude": 37.501574,
       "longitude": -119.611093,
-      "formatted": "37/30/05.7/N 119°36/39.9/W"
+      "formatted": "37/30/05.7/N 119/36/39.9/W"
     }
   },
   {
@@ -856,7 +856,7 @@
     "coordinates": {
       "latitude": 37.732859,
       "longitude": -119.557871,
-      "formatted": "37/43/58.3/N 119°33/28.3/W"
+      "formatted": "37/43/58.3/N 119/33/28.3/W"
     }
   },
   {
@@ -921,6 +921,74 @@
       "latitude": 48.75026,
       "longitude": -121.555787,
       "formatted": "48/45/00.9/N 121/33/20.8/W"
+    }
+  },
+  {
+    "route_id": "a0d942dd-b2ab-4312-ac55-00c66fdd1d9f",
+    "name": "Crow Pass Trail",
+    "slug": "crow-pass-trail",
+    "dates": ["2021-08-26"],
+    "miles": 8,
+    "elevation": 2200,
+    "area": "Anchorage",
+    "region": "Alaska",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 61.028335,
+      "longitude": -149.115759,
+      "formatted": "61/01/42.0/N 149/06/56.7/W"
+    }
+  },
+  {
+    "route_id": "e9d60d18-d8aa-4e20-9bdc-2f3fd4a8451f",
+    "name": "Mount Alyeska",
+    "slug": "mount-alyeska",
+    "dates": ["2021-08-28"],
+    "miles": 2.5,
+    "elevation": 2150,
+    "area": "Anchorage",
+    "region": "Alaska",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 60.971632,
+      "longitude": -149.102286,
+      "formatted": "60/58/17.9/N 149/06/08.2/W"
+    }
+  },
+  {
+    "route_id": "fc04a2f2-6fa1-40bd-86dc-0c813a1b7222",
+    "name": "Harding Ice Field Trail",
+    "slug": "harding-ice-field-trail",
+    "dates": ["2021-08-29"],
+    "miles": 8.5,
+    "elevation": 3050,
+    "area": "Kenai Fjords National Park",
+    "region": "Alaska",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 60.188483,
+      "longitude": -149.630853,
+      "formatted": "60/11/18.5/N 149/37/51.1/W"
+    }
+  },
+  {
+    "route_id": "5fd2382d-8383-4559-bd00-815bfd35a2c2",
+    "name": "Reed Lakes",
+    "slug": "reed-lakes",
+    "dates": ["2021-09-01"],
+    "miles": 9.25,
+    "elevation": 2000,
+    "area": "Palmer",
+    "region": "Alaska",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 61.804057,
+      "longitude": -149.202753,
+      "formatted": "61/48/14.6/N 149/12/09.9/W"
     }
   }
 ]
