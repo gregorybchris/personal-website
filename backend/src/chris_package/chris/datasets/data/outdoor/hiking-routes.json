@@ -990,5 +990,22 @@
       "longitude": -149.202753,
       "formatted": "61/48/14.6/N 149/12/09.9/W"
     }
+  },
+  {
+    "route_id": "ce5445ea-cef4-42cb-99bf-9526039b108d",
+    "name": "Skyline Loop Trail",
+    "slug": "skyline-loop",
+    "dates": ["2021-10-02"],
+    "miles": 5,
+    "elevation": 1450,
+    "area": "Mount Rainier Area",
+    "region": "PNW",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 46.785417,
+      "longitude": -121.735833,
+      "formatted": "46/47/07.5/N 121/44/09.0/W"
+    }
   }
 ]
