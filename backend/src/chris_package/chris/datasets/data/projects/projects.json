@@ -1211,7 +1211,7 @@
     "tags": ["visualization", "interactive", "cellular", "automata"],
     "source_link": "https://github.com/gregorybchris/big-life",
     "download_link": null,
-    "web_link": null,
+    "web_link": "https://static.chrisgregory.me/sub/big-life",
     "image_links": [],
     "primary_language": "TypeScript",
     "archived": false
