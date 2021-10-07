@@ -1196,5 +1196,24 @@
     "image_links": [],
     "primary_language": "Python",
     "archived": false
+  },
+  {
+    "project_id": "aceed201-d04e-4199-8044-49df57df720b",
+    "name": "Big Life",
+    "slug": "big-life",
+    "date": "2021-10-06",
+    "rating": 3,
+    "project_type": "web",
+    "use_type": "visualization",
+    "controls": null,
+    "description": "Web visualization of Conway's Game of Life. Uses a sparse cell representation to make computing larger patterns more efficient.",
+    "remarks": null,
+    "tags": ["visualization", "interactive", "cellular", "automata"],
+    "source_link": "https://github.com/gregorybchris/big-life",
+    "download_link": null,
+    "web_link": null,
+    "image_links": [],
+    "primary_language": "TypeScript",
+    "archived": false
   }
 ]
