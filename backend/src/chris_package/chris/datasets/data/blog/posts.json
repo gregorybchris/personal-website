@@ -2928,7 +2928,7 @@
   },
   {
     "post_id": "bbdb1af3-fe25-40e5-abea-ab8a26099f87",
-    "title": "AlphaFold 2 is terrifying",
+    "title": "AlphaFold 2 is Terrifying",
     "slug": "alphafold-terrifying",
     "content_type": "video",
     "source": "YouTube",
@@ -2948,7 +2948,7 @@
   },
   {
     "post_id": "318846fb-c482-4756-8bf6-e35a40b253fd",
-    "title": "Is NASA a waste of money?",
+    "title": "Is NASA a Waste of Money?",
     "slug": "is-nasa-waste-money",
     "content_type": "video",
     "source": "YouTube",
@@ -2968,7 +2968,7 @@
   },
   {
     "post_id": "626fdcd2-1b1e-4bde-a634-e2485dd876cb",
-    "title": "This is why we can't have nice things",
+    "title": "This is Why We Can't Have Nice Things",
     "slug": "why-cant-have-nice-things",
     "content_type": "video",
     "source": "YouTube",
@@ -3324,7 +3324,7 @@
     "hook": null,
     "summary": null,
     "paid": false,
-    "archived": false
+    "archived": true
   },
   {
     "post_id": "8647200e-10c8-4886-9692-e0da343ef69f",
