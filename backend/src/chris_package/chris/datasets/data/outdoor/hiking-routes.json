@@ -513,7 +513,7 @@
     "route_id": "1b7ce392-7c44-4d5b-a01f-41b912e0a0b0",
     "name": "Tilden Nature Area - Wildcat Peak",
     "slug": "wildcat-peak",
-    "dates": ["2020-12-30"],
+    "dates": ["2020-12-30", "2021-12-31"],
     "miles": 3.4,
     "elevation": 702,
     "area": "Berkeley",
@@ -1006,6 +1006,23 @@
       "latitude": 46.785417,
       "longitude": -121.735833,
       "formatted": "46/47/07.5/N 121/44/09.0/W"
+    }
+  },
+  {
+    "route_id": "ce5445ea-cef4-42cb-99bf-9526039b108d",
+    "name": "Briones Resevoir Loop",
+    "slug": "briones-resevoir-loop",
+    "dates": ["2022-01-08"],
+    "miles": 3,
+    "elevation": 450,
+    "area": "Berkeley",
+    "region": "California",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 37.913055,
+      "longitude": -122.202561,
+      "formatted": "37/54/47.0/N 122/12/09.2/W"
     }
   }
 ]
