@@ -1024,5 +1024,31 @@
       "longitude": -122.202561,
       "formatted": "37/54/47.0/N 122/12/09.2/W"
     }
+  },
+  {
+    "route_id": "5a9b6dfa-405f-44f2-89ea-90b0e6d48a89",
+    "name": "High Divide Loop (7 Lakes Basin)",
+    "slug": "high-divide-seven-lakes",
+    "dates": null,
+    "miles": 19,
+    "elevation": 4000,
+    "area": "Olympic Peninsula/Northern Coast",
+    "region": "PNW",
+    "travel_time": 3.0,
+    "next": false,
+    "coordinates": null
+  },
+  {
+    "route_id": "acd0af08-934f-4b62-84db-7b5c7f869ceb",
+    "name": "Mount Forgotten",
+    "slug": "mount-forgotten",
+    "dates": null,
+    "miles": 13,
+    "elevation": 4300,
+    "area": "North Cascades/Mountain Loop Highway",
+    "region": "PNW",
+    "travel_time": 1.5,
+    "next": false,
+    "coordinates": null
   }
 ]
