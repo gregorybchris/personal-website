@@ -527,6 +527,227 @@
     }
   },
   {
+    "route_id": "9de2c9d2-bd4b-4cc1-be1e-db179ad9705c",
+    "name": "Mariposa Grove",
+    "slug": "mariposa-grove",
+    "dates": ["2018-07-04"],
+    "miles": 7,
+    "elevation": 1200,
+    "area": "Yosemite",
+    "region": "California",
+    "travel_time": 2.5,
+    "next": false,
+    "coordinates": {
+      "latitude": 37.501574,
+      "longitude": -119.611093,
+      "formatted": "37/30/05.7/N 119/36/39.9/W"
+    }
+  },
+  {
+    "route_id": "d8a08b17-78cb-47e1-8b6d-f475fee78a41",
+    "name": "Half Dome",
+    "slug": "half-dome",
+    "dates": ["2018-07-06"],
+    "miles": 14,
+    "elevation": 5300,
+    "area": "Yosemite",
+    "region": "California",
+    "travel_time": 2.5,
+    "next": false,
+    "coordinates": {
+      "latitude": 37.732859,
+      "longitude": -119.557871,
+      "formatted": "37/43/58.3/N 119/33/28.3/W"
+    }
+  },
+  {
+    "route_id": "a1d84bc0-7896-4cd8-8c00-0810f7099e99",
+    "name": "Mirror Lake",
+    "slug": "mirror-lake",
+    "dates": ["2019-09-15"],
+    "miles": 2.4,
+    "elevation": 100,
+    "area": "Yosemite",
+    "region": "California",
+    "travel_time": 2.5,
+    "next": false,
+    "coordinates": {
+      "latitude": 37.739386,
+      "longitude": -119.560354,
+      "formatted": "37/44/21.8/N 119/33/37.3/W"
+    }
+  },
+  {
+    "route_id": "19bef72d-d1b6-45dd-8943-fe617eda6c18",
+    "name": "Lighthouse Point Trail",
+    "slug": "lighthouse-point-trail",
+    "dates": ["2021-02-20"],
+    "miles": 2.5,
+    "elevation": 321,
+    "area": "Deception Pass",
+    "region": "PNW",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 48.416584,
+      "longitude": -122.65116,
+      "formatted": "48/24/59.7/N 122/39/04.2/W"
+    }
+  },
+  {
+    "route_id": "f6f6f9c2-0c66-4b94-9d4c-e3233321fa52",
+    "name": "Baker Lake Trail",
+    "slug": "baker-lake-trail",
+    "dates": ["2021-06-12"],
+    "miles": 6,
+    "elevation": 500,
+    "area": "North Cascades/Mount Baker Area",
+    "region": "PNW",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 48.75026,
+      "longitude": -121.555787,
+      "formatted": "48/45/00.9/N 121/33/20.8/W"
+    }
+  },
+  {
+    "route_id": "a0d942dd-b2ab-4312-ac55-00c66fdd1d9f",
+    "name": "Crow Pass Trail",
+    "slug": "crow-pass-trail",
+    "dates": ["2021-08-26"],
+    "miles": 8,
+    "elevation": 2200,
+    "area": "Anchorage",
+    "region": "Alaska",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 61.028335,
+      "longitude": -149.115759,
+      "formatted": "61/01/42.0/N 149/06/56.7/W"
+    }
+  },
+  {
+    "route_id": "e9d60d18-d8aa-4e20-9bdc-2f3fd4a8451f",
+    "name": "Mount Alyeska",
+    "slug": "mount-alyeska",
+    "dates": ["2021-08-28"],
+    "miles": 2.5,
+    "elevation": 2150,
+    "area": "Anchorage",
+    "region": "Alaska",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 60.971632,
+      "longitude": -149.102286,
+      "formatted": "60/58/17.9/N 149/06/08.2/W"
+    }
+  },
+  {
+    "route_id": "fc04a2f2-6fa1-40bd-86dc-0c813a1b7222",
+    "name": "Harding Ice Field Trail",
+    "slug": "harding-ice-field-trail",
+    "dates": ["2021-08-29"],
+    "miles": 8.5,
+    "elevation": 3050,
+    "area": "Kenai Fjords National Park",
+    "region": "Alaska",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 60.188483,
+      "longitude": -149.630853,
+      "formatted": "60/11/18.5/N 149/37/51.1/W"
+    }
+  },
+  {
+    "route_id": "5fd2382d-8383-4559-bd00-815bfd35a2c2",
+    "name": "Reed Lakes",
+    "slug": "reed-lakes",
+    "dates": ["2021-09-01"],
+    "miles": 9.25,
+    "elevation": 2000,
+    "area": "Palmer",
+    "region": "Alaska",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 61.804057,
+      "longitude": -149.202753,
+      "formatted": "61/48/14.6/N 149/12/09.9/W"
+    }
+  },
+  {
+    "route_id": "ce5445ea-cef4-42cb-99bf-9526039b108d",
+    "name": "Skyline Loop Trail",
+    "slug": "skyline-loop",
+    "dates": ["2021-10-02"],
+    "miles": 5,
+    "elevation": 1450,
+    "area": "Mount Rainier Area",
+    "region": "PNW",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 46.785417,
+      "longitude": -121.735833,
+      "formatted": "46/47/07.5/N 121/44/09.0/W"
+    }
+  },
+  {
+    "route_id": "37a22efd-62c6-4cd7-b45a-b9c5bc6d589b",
+    "name": "Briones Resevoir Loop",
+    "slug": "briones-resevoir-loop",
+    "dates": ["2022-01-08"],
+    "miles": 3,
+    "elevation": 450,
+    "area": "Berkeley",
+    "region": "California",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 37.913055,
+      "longitude": -122.202561,
+      "formatted": "37/54/47.0/N 122/12/09.2/W"
+    }
+  },
+  {
+    "route_id": "f3b73629-617e-4030-91ce-db4c97223ac2",
+    "name": "Awa'awapuhi/Nu'alolo Trail",
+    "slug": "awaawapuhi-nualolo",
+    "dates": ["2022-04-30"],
+    "miles": 11,
+    "elevation": 3953,
+    "area": "Ku'ia Natural Area Reserve",
+    "region": "Kaua'i, Hawai'i",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 22.141398,
+      "longitude": -159.6486261,
+      "formatted": "22/08/29.0/N 159/38/55.1/W"
+    }
+  },
+  {
+    "route_id": "f8c6c2ef-f670-478a-bfad-26c9ffcfc29e",
+    "name": "Kalalau Trail",
+    "slug": "kalalau-trail",
+    "dates": ["2022-05-02"],
+    "miles": 4,
+    "elevation": 600,
+    "area": "Na Pali Coast State Wilderness Park",
+    "region": "Kaua'i, Hawai'i",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 22.220358,
+      "longitude": -159.582563,
+      "formatted": "22/13/13.3/N 159/34/57.2/W"
+    }
+  },
+  {
     "route_id": "fbb5b998-505c-45a0-9805-657630b57631",
     "name": "Lake 22",
     "slug": "lake-22",
@@ -826,74 +1047,6 @@
     "coordinates": null
   },
   {
-    "route_id": "9de2c9d2-bd4b-4cc1-be1e-db179ad9705c",
-    "name": "Mariposa Grove",
-    "slug": "mariposa-grove",
-    "dates": ["2018-07-04"],
-    "miles": 7,
-    "elevation": 1200,
-    "area": "Yosemite",
-    "region": "California",
-    "travel_time": 2.5,
-    "next": false,
-    "coordinates": {
-      "latitude": 37.501574,
-      "longitude": -119.611093,
-      "formatted": "37/30/05.7/N 119/36/39.9/W"
-    }
-  },
-  {
-    "route_id": "d8a08b17-78cb-47e1-8b6d-f475fee78a41",
-    "name": "Half Dome",
-    "slug": "half-dome",
-    "dates": ["2018-07-06"],
-    "miles": 14,
-    "elevation": 5300,
-    "area": "Yosemite",
-    "region": "California",
-    "travel_time": 2.5,
-    "next": false,
-    "coordinates": {
-      "latitude": 37.732859,
-      "longitude": -119.557871,
-      "formatted": "37/43/58.3/N 119/33/28.3/W"
-    }
-  },
-  {
-    "route_id": "a1d84bc0-7896-4cd8-8c00-0810f7099e99",
-    "name": "Mirror Lake",
-    "slug": "mirror-lake",
-    "dates": ["2019-09-15"],
-    "miles": 2.4,
-    "elevation": 100,
-    "area": "Yosemite",
-    "region": "California",
-    "travel_time": 2.5,
-    "next": false,
-    "coordinates": {
-      "latitude": 37.739386,
-      "longitude": -119.560354,
-      "formatted": "37/44/21.8/N 119/33/37.3/W"
-    }
-  },
-  {
-    "route_id": "19bef72d-d1b6-45dd-8943-fe617eda6c18",
-    "name": "Lighthouse Point Trail",
-    "slug": "lighthouse-point-trail",
-    "dates": ["2021-02-20"],
-    "miles": 2.5,
-    "elevation": 321,
-    "area": "Deception Pass",
-    "region": "PNW",
-    "travel_time": null,
-    "next": false,
-    "coordinates": {
-      "latitude": 48.416584,
-      "longitude": -122.65116,
-      "formatted": "48/24/59.7/N 122/39/04.2/W"
-    }
-  },
-  {
     "route_id": "dc3a4c1e-f9af-4627-ae27-ab7826afeabe",
     "name": "Maple Pass Trail",
     "slug": "maple-pass-trail",
@@ -905,125 +1058,6 @@
     "travel_time": null,
     "next": true,
     "coordinates": null
-  },
-  {
-    "route_id": "f6f6f9c2-0c66-4b94-9d4c-e3233321fa52",
-    "name": "Baker Lake Trail",
-    "slug": "baker-lake-trail",
-    "dates": ["2021-06-12"],
-    "miles": 6,
-    "elevation": 500,
-    "area": "North Cascades/Mount Baker Area",
-    "region": "PNW",
-    "travel_time": null,
-    "next": false,
-    "coordinates": {
-      "latitude": 48.75026,
-      "longitude": -121.555787,
-      "formatted": "48/45/00.9/N 121/33/20.8/W"
-    }
-  },
-  {
-    "route_id": "a0d942dd-b2ab-4312-ac55-00c66fdd1d9f",
-    "name": "Crow Pass Trail",
-    "slug": "crow-pass-trail",
-    "dates": ["2021-08-26"],
-    "miles": 8,
-    "elevation": 2200,
-    "area": "Anchorage",
-    "region": "Alaska",
-    "travel_time": null,
-    "next": false,
-    "coordinates": {
-      "latitude": 61.028335,
-      "longitude": -149.115759,
-      "formatted": "61/01/42.0/N 149/06/56.7/W"
-    }
-  },
-  {
-    "route_id": "e9d60d18-d8aa-4e20-9bdc-2f3fd4a8451f",
-    "name": "Mount Alyeska",
-    "slug": "mount-alyeska",
-    "dates": ["2021-08-28"],
-    "miles": 2.5,
-    "elevation": 2150,
-    "area": "Anchorage",
-    "region": "Alaska",
-    "travel_time": null,
-    "next": false,
-    "coordinates": {
-      "latitude": 60.971632,
-      "longitude": -149.102286,
-      "formatted": "60/58/17.9/N 149/06/08.2/W"
-    }
-  },
-  {
-    "route_id": "fc04a2f2-6fa1-40bd-86dc-0c813a1b7222",
-    "name": "Harding Ice Field Trail",
-    "slug": "harding-ice-field-trail",
-    "dates": ["2021-08-29"],
-    "miles": 8.5,
-    "elevation": 3050,
-    "area": "Kenai Fjords National Park",
-    "region": "Alaska",
-    "travel_time": null,
-    "next": false,
-    "coordinates": {
-      "latitude": 60.188483,
-      "longitude": -149.630853,
-      "formatted": "60/11/18.5/N 149/37/51.1/W"
-    }
-  },
-  {
-    "route_id": "5fd2382d-8383-4559-bd00-815bfd35a2c2",
-    "name": "Reed Lakes",
-    "slug": "reed-lakes",
-    "dates": ["2021-09-01"],
-    "miles": 9.25,
-    "elevation": 2000,
-    "area": "Palmer",
-    "region": "Alaska",
-    "travel_time": null,
-    "next": false,
-    "coordinates": {
-      "latitude": 61.804057,
-      "longitude": -149.202753,
-      "formatted": "61/48/14.6/N 149/12/09.9/W"
-    }
-  },
-  {
-    "route_id": "ce5445ea-cef4-42cb-99bf-9526039b108d",
-    "name": "Skyline Loop Trail",
-    "slug": "skyline-loop",
-    "dates": ["2021-10-02"],
-    "miles": 5,
-    "elevation": 1450,
-    "area": "Mount Rainier Area",
-    "region": "PNW",
-    "travel_time": null,
-    "next": false,
-    "coordinates": {
-      "latitude": 46.785417,
-      "longitude": -121.735833,
-      "formatted": "46/47/07.5/N 121/44/09.0/W"
-    }
-  },
-  {
-    "route_id": "ce5445ea-cef4-42cb-99bf-9526039b108d",
-    "name": "Briones Resevoir Loop",
-    "slug": "briones-resevoir-loop",
-    "dates": ["2022-01-08"],
-    "miles": 3,
-    "elevation": 450,
-    "area": "Berkeley",
-    "region": "California",
-    "travel_time": null,
-    "next": false,
-    "coordinates": {
-      "latitude": 37.913055,
-      "longitude": -122.202561,
-      "formatted": "37/54/47.0/N 122/12/09.2/W"
-    }
   },
   {
     "route_id": "5a9b6dfa-405f-44f2-89ea-90b0e6d48a89",
