@@ -1254,7 +1254,7 @@
     "tags": ["visualization", "ant", "colony", "pheromones", "emergence"],
     "source_link": "https://github.com/gregorybchris/ants",
     "download_link": null,
-    "web_link": null,
+    "web_link": "https://static.chrisgregory.me/sub/ants/demo",
     "image_links": [
       "https://chrisgregory.blob.core.windows.net/projects/images/ants--01.jpg",
       "https://chrisgregory.blob.core.windows.net/projects/images/ants--02.jpg"
