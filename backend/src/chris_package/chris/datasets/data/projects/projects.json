@@ -1215,5 +1215,50 @@
     "image_links": [],
     "primary_language": "TypeScript",
     "archived": false
+  },
+  {
+    "project_id": "2d4a74a5-e1d5-4d87-9881-893adeb64532",
+    "name": "Contraction",
+    "slug": "contraction",
+    "date": "2022-04-18",
+    "rating": 3,
+    "project_type": "program",
+    "use_type": "tool",
+    "controls": null,
+    "description": "Optimizing graph contractions with graph neural networks.",
+    "remarks": null,
+    "tags": ["graph", "contraction", "prediction", "network"],
+    "source_link": "https://github.com/gregorybchris/contraction",
+    "download_link": null,
+    "web_link": null,
+    "image_links": [
+      "https://chrisgregory.blob.core.windows.net/projects/images/contraction--01.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/contraction--02.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/contraction--03.jpg"
+    ],
+    "primary_language": "Python",
+    "archived": false
+  },
+  {
+    "project_id": "0c49142d-d458-4a4a-a2e1-7c7ec73f66cf",
+    "name": "Ants",
+    "slug": "ants",
+    "date": "2022-05-12",
+    "rating": 5,
+    "project_type": "web",
+    "use_type": "visualization",
+    "controls": null,
+    "description": "Web visualization of ants foraging using pheromones.",
+    "remarks": null,
+    "tags": ["visualization", "ant", "colony", "pheromones", "emergence"],
+    "source_link": "https://github.com/gregorybchris/ants",
+    "download_link": null,
+    "web_link": null,
+    "image_links": [
+      "https://chrisgregory.blob.core.windows.net/projects/images/ants--01.jpg",
+      "https://chrisgregory.blob.core.windows.net/projects/images/ants--02.jpg"
+    ],
+    "primary_language": "TypeScript",
+    "archived": false
   }
 ]

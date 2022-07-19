@@ -85,7 +85,7 @@
           "cons": {
             "unique": "@all",
             "min_size": 5,
-            "max_size": 11
+            "max_size": 14
           }
         },
         "hook": [
