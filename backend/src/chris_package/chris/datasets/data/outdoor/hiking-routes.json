@@ -1084,5 +1084,39 @@
     "travel_time": 1.5,
     "next": false,
     "coordinates": null
+  },
+  {
+    "route_id": "aaa9aa74-529f-4099-ac50-a02f1db44d4e",
+    "name": "Mount Dickerman",
+    "slug": "mount-dickerman",
+    "dates": ["2022-08-06"],
+    "miles": 8.3,
+    "elevation": 3850,
+    "area": "North Cascades/Mountain Loop Highway",
+    "region": "PNW",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 48.054285,
+      "longitude": -121.49103,
+      "formatted": "48/03/15.4/N 121/29/27.7/W"
+    }
+  },
+  {
+    "route_id": "36519c33-c5f2-49bc-94fb-e4e6eaedab9f",
+    "name": "Enchanted Valley O'Neil Loop",
+    "slug": "enchanted-valley-oneil",
+    "dates": ["2022-08-09"],
+    "miles": 58,
+    "elevation": 11036,
+    "area": "Olympic Peninsula/Pacific Coast",
+    "region": "PNW",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 47.573165,
+      "longitude": -123.569046,
+      "formatted": "47/34/23.4/N 123/34/08.6/W"
+    }
   }
 ]
