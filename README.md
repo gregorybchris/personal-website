@@ -14,6 +14,8 @@ The [YAML deployment pipelines](https://docs.microsoft.com/en-us/azure/devops/pi
 
 ## Contributions
 
+- [Learn Python Programming](https://www.scaler.com/topics/python)
+
 While I'm not sure why in the world anyone might want to contribute to my personal portfolio and website, contributions are welcome and appreciated! Please [fork and create a pull request](https://guides.github.com/activities/forking/). If you find a bug please feel free to file an issue on this repository.
 
 ## Running in Development Mode
