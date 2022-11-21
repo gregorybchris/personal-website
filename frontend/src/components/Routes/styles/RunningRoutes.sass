@@ -1,0 +1,98 @@
+@import "../../Common/styles/Common"
+
+.RunningRoutes
+  padding: 30px
+
+.RunningRoutes-header
+  width: 80%
+  margin: 0px auto
+  text-align: center
+  padding-bottom: 20px
+
+.RunningRoutes-title
+  font-family: $primary-font
+  color: $text-primary-color
+  font-size: 30px
+  font-weight: bold
+  display: block
+  padding-bottom: 10px
+
+.RunningRoutes-about
+  font-family: $secondary-font
+  color: $text-primary-color
+  display: block
+  width: 80%
+  margin: 0px auto
+  padding: 10px 0px
+
+.RunningRoutes-routes
+  display: inline-block
+  box-sizing: border-box
+  vertical-align: top
+  text-align: center
+  margin: 0px auto
+  padding: 0px 20px
+  width: 50%
+  height: 600px
+  overflow-y: scroll
+  -ms-overflow-style: none
+  scrollbar-width: none
+
+.RunningRoutes-routes::-webkit-scrollbar
+  display: none
+
+.Running-routes-tag
+  color: $text-primary-color
+  font-family: $secondary-font
+  display: inline-block
+  margin: 0px 2px
+  padding: 4px 6px
+  font-size: 12px
+  background-color: $background-highlight-color
+
+.RunningRoutes-map-section
+  display: inline-block
+  box-sizing: border-box
+  vertical-align: top
+  width: 50%
+  padding: 0px 15px
+
+.RunningRoutes-map-route-name
+  font-family: $primary-font
+  font-weight: bold
+  font-size: 18px
+  padding-bottom: 2px
+  border-bottom: 1px solid $accent-color
+  display: inline
+
+.RunningRoutes-map-wrap
+  width: 100%
+  height: 600px
+  box-shadow: 0px 0px 6px 2px $shadow-color
+  margin-top: 20px
+
+.RunningRoutes-map
+  width: 100%
+  height: 100%
+
+@media screen and (min-width: 200px) and (max-width: 800px)
+  .RunningRoutes-about
+    width: 100%
+
+  .RunningRoutes-routes
+    display: block
+    width: 100%
+    margin-bottom: 30px
+    padding: 0px
+
+  .RunningRoutes-map-section
+    display: block
+    margin: 0px auto
+    width: 100%
+
+.RunningRoutes-map-error
+  font-family: $primary-font
+  color: $text-primary-color
+  font-size: 14px
+  font-weight: bold
+  padding: 15px 25px

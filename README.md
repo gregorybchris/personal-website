@@ -6,11 +6,7 @@ In 2012 I followed a tutorial series from [thenewboston](https://www.youtube.com
 
 In 2013 my online portfolio went live at ChrisOffline.com and while others loved to poke fun at the ironic name, I was extremely proud of the self-teaching that went into the final product. The creativity of graphical programming combined with the connectivity of the open internet had me hooked.
 
-About once a year since that initial release I've recreated my website totally from scratch, each time adding more technologies to my web development toolkit. The latest reincarnation of my website lives at [ChrisGregory.me](https://www.ChrisGregory.me), is hosted on [Microsoft's Azure cloud](https://azure.microsoft.com/en-us/), and uses [React](https://reactjs.org/) with [TypeScript](https://www.typescriptlang.org/) to take advantage of the latest web development trends.
-
-## Deployment
-
-The [YAML deployment pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema) for this website can be found at [backend/pipelines](http://github.com/gregorybchris/personal-website/tree/main/backend/pipelines) and [frontend/pipelines](http://github.com/gregorybchris/personal-website/tree/main/frontend/pipelines) in this repository. They will run whenever new code is checked into the `main` branch and push a [Docker](https://www.docker.com/) image to an [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/). Those images are automatically picked up by an [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/) to enable continuous deployment.
+Every few years since that initial release I've recreated my website totally from scratch, each time adding more technologies to my web development toolkit. The latest reincarnation of my website lives at [ChrisGregory.me](https://www.ChrisGregory.me), is hosted on [Google Cloud](https://cloud.google.com), and uses [React](https://reactjs.org/) with [TypeScript](https://www.typescriptlang.org/) to take advantage of the latest web development trends.
 
 ## Contributions
 
