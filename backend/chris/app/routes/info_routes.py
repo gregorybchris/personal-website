@@ -1,6 +1,8 @@
+from pathlib import Path
+
 from fastapi import APIRouter
 from fastapi.logger import logger
-from fastapi.responses import JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel
 
 from chris import __version__ as package_version
@@ -33,3 +35,13 @@ def get_version() -> JSONResponse:
     return JSONResponse({
         "version": package_version,
     })
+
+
+@logging_utilities.log_context("get_index", tag="api")
+@router.get(path="/index")
+def get_index() -> JSONResponse:
+    logger.info("GET app index!")
+    templates_dirpath = Path(__file__).parent.parent / "templates"
+    index_filepath = templates_dirpath / "index.html"
+    index_content = index_filepath.read_text()
+    return HTMLResponse(content=index_content, status_code=200)
