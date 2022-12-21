@@ -1,19 +1,21 @@
 from jsonvl import Constraint
+from typing import Any
 
 
 class MonotoneIncreaseConstraint(Constraint):
-    def constrain(self, constraint_name, data, query_paths, path):
+
+    def constrain(self, constraint_name: str, data: Any, constraint_param: Any, path: Any) -> None:
         if len(data) < 2:
             return
 
-        if isinstance(query_paths, list):
+        if isinstance(constraint_param, list):
             pass
-        elif isinstance(query_paths, str):
-            query_paths = [query_paths]
+        elif isinstance(constraint_param, str):
+            constraint_param = [constraint_param]
         else:
             raise TypeError("Invalid consraint argument")
 
-        for query_path in query_paths:
+        for query_path in constraint_param:
             xs = self.query(data, query_path)
 
             for i in range(1, len(xs)):

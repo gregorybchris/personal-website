@@ -39,19 +39,23 @@ cgme = "chris.cli.main:cli"
 [tool.poetry.group.dev.dependencies]
 covcheck = "^0.4.2"
 flake8 = "^4.0.1"
-mypy = "^0.910"
-pycodestyle = "^2.5.0"
-pydocstyle = "^4.0.1"
+mypy = "^0.960"
+pydocstyle = "^6.1.1"
 pylint = "^2.15.8"
 pyproject-flake8 = "^0.0.1a2"
 pytest = "^7.2.0"
 pytest-cov = "^4.0.0"
 semver = "^2.13.0"
 yapf = "^0.32.0"
+toml = "^0.10.2"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
 requires = ["poetry-core>=1.0.0"]
+
+[tool.covcheck]
+branch = 42.0
+line = 76.0
 
 [tool.flake8]
 ignore = ""           # Required to disable default ignores
@@ -64,10 +68,14 @@ disallow_untyped_defs = true
 ignore_missing_imports = true
 
 [tool.pylint.basic]
+good-names = ["f", "h", "i", "j", "k", "m", "n", "w", "x", "xs", "y"]
 notes = ["FIXME"]
 
 [tool.pylint.format]
 max-line-length = 120
+
+[tool.pylint.master]
+extension-pkg-allow-list = ["pydantic"]
 
 [tool.pylint.messages_control]
 disable = [
@@ -75,7 +83,6 @@ disable = [
   "unspecified-encoding",
   "missing-docstring",
   "wrong-import-order",
-  "no-self-use",
   "duplicate-code",
   "too-few-public-methods",
 ]

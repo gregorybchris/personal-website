@@ -13,17 +13,23 @@ def cli() -> None:
 
 
 @cli.command()
-@click.option("-n", "--n_guids", type=int, default=1, help="Number of guids to generate")
+@click.option("-n", "--n-guids", type=int, default=1, help="Number of guids to generate")
 def guid(n_guids: int) -> None:
     generate(n=n_guids)
 
 
 @cli.command()
-@click.option("--type", type=click.Choice(["posts", "projects", "hikes"]), help="Type of entity to validate")
-def validate(type: str) -> None:
-    if type is None or type == "posts":
-        validate_posts()
-    if type is None or type == "projects":
-        validate_projects()
-    if type is None or type == "hikes":
-        validate_hikes()
+@click.option("-t",
+              "--entity-type",
+              type=click.Choice(["posts", "projects", "hikes"]),
+              multiple=True,
+              help="Type of entity to validate")
+def validate(entity_type: str) -> None:
+    validator_map = {
+        "posts": validate_posts,
+        "projects": validate_projects,
+        "hikes": validate_hikes,
+    }
+    for entity, validator in validator_map.items():
+        if entity in entity_type or len(entity_type) == 0:
+            validator()

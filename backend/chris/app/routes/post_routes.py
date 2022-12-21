@@ -16,6 +16,6 @@ class TempModel(BaseModel):
 
 # @logging_utilities.log_context("get_posts", tag="api")
 @router.get(path="/posts", response_model=TempModel)
-def get_posts():
+def get_posts() -> JSONResponse:
     """Get blog post data."""
     return JSONResponse({"posts": fetch_dataset(Datasets.POSTS)})

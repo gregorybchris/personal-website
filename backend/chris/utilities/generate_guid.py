@@ -2,7 +2,7 @@
 import uuid
 
 
-def generate(n=1):
+def generate(n: int = 1) -> None:
     """
     Generate a number of random GUIDs and print them to stdout.
 

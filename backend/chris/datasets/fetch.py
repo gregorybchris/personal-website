@@ -8,12 +8,11 @@ from pathlib import Path
 from chris.datasets.datasets import Datasets
 from chris.datasets.dataset_formats import DatasetFormats
 from chris.datasets.dataset_info import DatasetInfo
-from chris.datasets.type_aliases import DatasetType
 
 DATA_DIR = Path(__file__).parent.absolute() / "data"
 
 
-def fetch_dataset(dataset_info: DatasetInfo) -> DatasetType:
+def fetch_dataset(dataset_info: DatasetInfo) -> pd.DataFrame:
     """
     Fetch a dataset.
 
@@ -28,6 +27,6 @@ def fetch_dataset(dataset_info: DatasetInfo) -> DatasetType:
     return data
 
 
-def fetch_projects() -> DatasetType:
+def fetch_projects() -> pd.DataFrame:
     """Fetch the projects dataset."""
     return fetch_dataset(Datasets.PROJECTS)

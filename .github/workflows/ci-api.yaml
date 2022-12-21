@@ -1,0 +1,78 @@
+name: Package CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version:
+          - "3.8"
+          - "3.9"
+          - "3.10"
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Python ${{ matrix.python-version }} Setup
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Python dependencies
+        run: |
+          pip install poetry
+          if [ -d /poetryenvs ]; then rm -rf ~/poetryenvs; fi
+          poetry config virtualenvs.path ~/poetryenvs
+          poetry install
+
+      - name: Run flake8
+        run: |
+          poetry run pflake8 chris --config pyproject.toml
+          poetry run pflake8 tests --config pyproject.toml
+        working-directory: backend
+
+      - name: Run pylint
+        run: |
+          poetry run pylint chris --rcfile pyproject.toml
+        working-directory: backend
+
+      - name: Run mypy
+        run: |
+          poetry run mypy chris --config pyproject.toml
+        working-directory: backend
+
+      - name: Run pytest
+        run: |
+          poetry run pytest tests --cov=chris --cov-report=html --cov-report=xml --cov-branch
+        working-directory: backend
+
+      # - name: Run pydocstyle
+      #   run: |
+      #     poetry run pydocstyle chris
+      #   working-directory: backend
+
+      - name: Upload HTML Coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-html
+          path: backend/htmlcov
+
+      - name: Upload XML Coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-xml
+          path: backend/coverage.xml
+
+      - name: Check Coverage
+        run: |
+          poetry run covcheck coverage.xml --config pyproject.toml
+        working-directory: backend

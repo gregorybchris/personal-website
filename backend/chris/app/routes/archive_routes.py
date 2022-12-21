@@ -16,6 +16,6 @@ class TempModel(BaseModel):
 
 # @logging_utilities.log_context("get_archive", tag="api")
 @router.get(path="/archive", response_model=TempModel)
-def get_archive():
+def get_archive() -> JSONResponse:
     """Get archive data."""
     return JSONResponse(fetch_dataset(Datasets.ARCHIVE))
