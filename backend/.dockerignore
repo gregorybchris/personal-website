@@ -1,0 +1,5 @@
+.dockerignore
+chris.egg-info
+tests
+cgme.log
+fly.toml

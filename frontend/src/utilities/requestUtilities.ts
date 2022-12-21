@@ -1,7 +1,7 @@
 import { isDevEnvironment } from "./environmentUtilities";
 
-const DEV_BACKEND_ROOT = "http://localhost:8000/v1/";
-const PROD_BACKEND_ROOT = "https://api.chrisgregory.me/v1/";
+const DEV_BACKEND_ROOT = "http://localhost:8000/";
+const PROD_BACKEND_ROOT = "https://api.chrisgregory.me/";
 const FRONTEND_ROOT = window.location.origin;
 
 const getBackendRoot = () => {
