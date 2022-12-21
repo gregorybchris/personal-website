@@ -1,4 +1,4 @@
-name: Deploy API
+name: API CD
 
 on:
   workflow_dispatch:
