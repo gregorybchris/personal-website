@@ -33,14 +33,14 @@ def get_outdoor_cycling():
 
 
 # @logging_utilities.log_context("get_outdoor_hiking", tag="api")
-@router.get(path="outdoor/hiking", response_model=TempModel)
+@router.get(path="/outdoor/hiking", response_model=TempModel)
 def get_outdoor_hiking():
     """Get hiking data."""
     return JSONResponse(fetch_dataset(Datasets.HIKING_ROUTES))
 
 
 # @logging_utilities.log_context("get_outdoor_running", tag="api")
-@router.get(path="outdoor/running", response_model=TempModel)
+@router.get(path="/outdoor/running", response_model=TempModel)
 def get_outdoor_running():
     """Get running data."""
     return JSONResponse(fetch_dataset(Datasets.RUNNING_ROUTES))
