@@ -7,6 +7,8 @@ from chris.app.routes import (archive_routes, info_routes, media_routes, outdoor
 
 ALLOWED_ORIGINS = [
     "http://localhost:3001",
+    "https://www.chrisgregory.me",
+    "https://chrisgregory.me",
 ]
 
 app = FastAPI()
