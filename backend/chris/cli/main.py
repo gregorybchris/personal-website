@@ -2,9 +2,7 @@
 import click
 
 from chris.utilities.generate_guid import generate
-from chris.validation.validate import validate_posts
-from chris.validation.validate import validate_projects
-from chris.validation.validate import validate_hikes
+from chris.validation.validate import (validate_hikes, validate_jobs, validate_posts, validate_projects)
 
 
 @click.group()
@@ -29,6 +27,7 @@ def validate(entity_type: str) -> None:
         "posts": validate_posts,
         "projects": validate_projects,
         "hikes": validate_hikes,
+        "jobs": validate_jobs,
     }
     for entity, validator in validator_map.items():
         if entity in entity_type or len(entity_type) == 0:

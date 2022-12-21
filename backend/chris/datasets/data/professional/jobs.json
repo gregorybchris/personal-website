@@ -40,5 +40,12 @@
     "date": "2020-09-01",
     "job_type": "job",
     "description": null
+  },
+  {
+    "event_id": "04ae7dc6-e4be-4d62-b098-22b4069d8575",
+    "name": "Machine Learning Engineer at Hume AI",
+    "date": "2021-10-12",
+    "job_type": "job",
+    "description": null
   }
 ]

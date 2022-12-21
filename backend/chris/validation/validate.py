@@ -15,6 +15,9 @@ PROJECTS_SCHEMA_FILEPATH = SCHEMAS_DIRPATH / "projects-schema.json"
 HIKES_FILEPATH = DATA_DIRPATH / "outdoor" / "hiking-routes.json"
 HIKES_SCHEMA_FILEPATH = SCHEMAS_DIRPATH / "hiking-routes-schema.json"
 
+JOBS_FILEPATH = DATA_DIRPATH / "professional" / "jobs.json"
+JOBS_SCHEMA_FILEPATH = SCHEMAS_DIRPATH / "jobs-schema.json"
+
 
 def validate_posts() -> None:
     """Validate all posts."""
@@ -36,3 +39,9 @@ def validate_hikes() -> None:
     validator.register_constraint(MonotoneIncreaseConstraint(), "array", "monotone_inc")
     validator.validate_file(HIKES_FILEPATH, HIKES_SCHEMA_FILEPATH)
     print("Validation succeeded: hikes")
+
+
+def validate_jobs() -> None:
+    """Validate all jobs."""
+    validate_file(JOBS_FILEPATH, JOBS_SCHEMA_FILEPATH)
+    print("Validation succeeded: jobs")
