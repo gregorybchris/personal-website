@@ -39,7 +39,7 @@ def get_version() -> JSONResponse:
 
 @logging_utilities.log_context("get_index", tag="api")
 @router.get(path="/index")
-def get_index() -> JSONResponse:
+def get_index() -> HTMLResponse:
     logger.info("GET app index!")
     templates_dirpath = Path(__file__).parent.parent / "templates"
     index_filepath = templates_dirpath / "index.html"
