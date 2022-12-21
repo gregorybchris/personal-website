@@ -33,6 +33,7 @@ jobs:
           if [ -d /poetryenvs ]; then rm -rf ~/poetryenvs; fi
           poetry config virtualenvs.path ~/poetryenvs
           poetry install
+        working-directory: backend
 
       - name: Run flake8
         run: |
