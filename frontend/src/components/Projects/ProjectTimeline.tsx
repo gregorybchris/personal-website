@@ -47,7 +47,7 @@ export default function ProjectTimeline(props: ProjectTimelineProps) {
   const GAME_LOOP_SPF = 1.0 / 65.0;
 
   const canvasRef = useRef<HTMLDivElement>(null);
-  const [simRunning, setSimRunning] = useState(false);
+  let simRunning = useRef(false);
 
   useEffect(() => {
     if (props.projects.length !== 0) {
@@ -61,13 +61,13 @@ export default function ProjectTimeline(props: ProjectTimelineProps) {
     }
 
     return () => {
-      setSimRunning(false);
+      simRunning.current = false;
     };
   }, [props.projects]);
 
   function startSim() {
     populateCanvas();
-    setSimRunning(true);
+    simRunning.current = true;
 
     let dt = 0;
     let previousTime: number;
@@ -80,7 +80,7 @@ export default function ProjectTimeline(props: ProjectTimelineProps) {
         }
       }
       previousTime = currentTime;
-      if (!simRunning) {
+      if (!simRunning.current) {
         return;
       }
       window.requestAnimationFrame(update);
@@ -88,12 +88,8 @@ export default function ProjectTimeline(props: ProjectTimelineProps) {
     window.requestAnimationFrame(update);
   }
 
-  function clip(value: number, min: number, max: number) {
-    return Math.max(min, Math.min(max, value));
-  }
-
   function updateCanvas(dt: number, currentTime: number) {
-    if (!simRunning) {
+    if (!simRunning.current) {
       return;
     }
 
@@ -131,6 +127,8 @@ export default function ProjectTimeline(props: ProjectTimelineProps) {
         }
       });
     });
+
+    const clip = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
 
     // Apply forces
     containers.forEach((container) => {
