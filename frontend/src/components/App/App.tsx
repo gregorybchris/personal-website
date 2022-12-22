@@ -13,7 +13,7 @@ import Oops from "../Oops/Oops";
 import Places from "../Places/Places";
 import Projects from "../Projects/Projects";
 import RunningRoutes from "../Routes/RunningRoutes";
-// import Survey from "../Survey/Survey";
+import Survey from "../Survey/Survey";
 
 export default function App() {
   return (
@@ -26,7 +26,7 @@ export default function App() {
             <Route path=":slug" element={<Projects />} />
           </Route>
           <Route path="/contact" element={<Contact />} />
-          {/* <Route path="/opinion" element={<Survey />} /> */}
+          <Route path="/opinion" element={<Survey />} />
           <Route path="/links" element={<Blog />}>
             <Route path=":slug" element={<Blog />} />
           </Route>

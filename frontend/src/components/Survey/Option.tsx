@@ -8,12 +8,14 @@ interface OptionProps {
   optionNumber: number;
   onOptionClicked: (questionNumber: number, optionNumber: number) => void;
   response: Response;
+  updater: boolean;
 }
 
 export default function Option(props: OptionProps) {
   const letter = String.fromCharCode("A".charCodeAt(0) + props.optionNumber);
   const isChosen = props.response.isOptionChosen(props.questionNumber, props.optionNumber);
   const chosenClass = isChosen ? "chosen" : "";
+
   return (
     <div
       onClick={() => props.onOptionClicked(props.questionNumber, props.optionNumber)}
