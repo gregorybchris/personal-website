@@ -12,12 +12,15 @@ class Datasets:
         "Podcast Episodes",
         "blog/podcast-episodes.json",
         DatasetFormats.JSON,
-        "Podcast episodes.")
+        "Podcast episodes.",
+    )
+
     POSTS = DatasetInfo(
         "Posts",
         "blog/posts.json",
         DatasetFormats.JSON,
-        "Blog posts.")
+        "Blog posts.",
+    )
 
     # endregion blog
 
@@ -27,7 +30,8 @@ class Datasets:
         "Recipes",
         "cooking/recipes.json",
         DatasetFormats.JSON,
-        "Cooking recipes.")
+        "Cooking recipes.",
+    )
 
     # endregion cooking
 
@@ -37,22 +41,36 @@ class Datasets:
         "Movies",
         "media/movies.csv",
         DatasetFormats.CSV,
-        "Movies.")
+        "Movies.",
+    )
+
     PODCASTS = DatasetInfo(
         "Podcasts",
         "media/podcasts.csv",
         DatasetFormats.CSV,
-        "Podcasts.")
+        "Podcasts.",
+    )
+
     TV_SHOWS = DatasetInfo(
         "TV Shows",
         "media/tv-shows.csv",
         DatasetFormats.CSV,
-        "TV shows.")
+        "TV shows.",
+    )
+
     YOUTUBE_CHANNELS = DatasetInfo(
         "YouTube Channels",
         "media/youtube-channels.csv",
         DatasetFormats.CSV,
-        "YouTube channels.")
+        "YouTube channels.",
+    )
+
+    BOOKS = DatasetInfo(
+        "Books",
+        "media/books.json",
+        DatasetFormats.JSON,
+        "Books.",
+    )
 
     # endregion media
 
@@ -62,17 +80,22 @@ class Datasets:
         "Cycling Routes",
         "outdoor/cycling-routes.json",
         DatasetFormats.JSON,
-        "Cycling routes.")
+        "Cycling routes.",
+    )
+
     HIKING_ROUTES = DatasetInfo(
         "Hiking Routes",
         "outdoor/hiking-routes.json",
         DatasetFormats.JSON,
-        "Hiking routes.")
+        "Hiking routes.",
+    )
+
     RUNNING_ROUTES = DatasetInfo(
         "Running Routes",
         "outdoor/running-routes.json",
         DatasetFormats.JSON,
-        "Running routes.")
+        "Running routes.",
+    )
 
     # endregion outdoor
 
@@ -82,12 +105,15 @@ class Datasets:
         "College Courses",
         "professional/courses.json",
         DatasetFormats.JSON,
-        "College courses.")
+        "College courses.",
+    )
+
     JOBS = DatasetInfo(
         "Jobs",
         "professional/jobs.json",
         DatasetFormats.JSON,
-        "Jobs.")
+        "Jobs.",
+    )
 
     # endregion professional
 
@@ -97,7 +123,8 @@ class Datasets:
         "Projects",
         "projects/projects.json",
         DatasetFormats.JSON,
-        "Software projects.")
+        "Software projects.",
+    )
 
     # endregion projects
 
@@ -107,7 +134,8 @@ class Datasets:
         "Archive",
         "archive/archive.json",
         DatasetFormats.JSON,
-        "Personal website revision archive.")
+        "Personal website revision archive.",
+    )
 
     # endregion archive
 
@@ -117,6 +145,7 @@ class Datasets:
         "Surveys",
         "surveys/surveys.json",
         DatasetFormats.JSON,
-        "Surveys.")
+        "Surveys.",
+    )
 
     # endregion surveys

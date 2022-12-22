@@ -1,0 +1,93 @@
+[
+  {
+    "isbn": "978-0399184413",
+    "title": "Seven Brief Lessons on Physics",
+    "subtitle": null,
+    "author": "Carlo Rovelli",
+    "tags": ["short", "science"]
+  },
+  {
+    "isbn": "978-1451683400",
+    "title": "Free Will",
+    "subtitle": null,
+    "author": "Sam Harris",
+    "tags": ["short", "philosophy"]
+  },
+  {
+    "isbn": "978-1940051000",
+    "title": "Lying",
+    "subtitle": null,
+    "author": "Sam Harris",
+    "tags": ["short"]
+  },
+  {
+    "isbn": "978-0060652944",
+    "title": "The Abolition of Man",
+    "subtitle": null,
+    "author": "C. S. Lewis",
+    "tags": ["short", "philosophy"]
+  },
+  {
+    "isbn": "978-1476731711",
+    "title": "Finite and Infinite Games",
+    "subtitle": "A Vision of Life as Play and Possibility",
+    "author": "James Carse",
+    "tags": ["short", "philosophy"]
+  },
+  {
+    "isbn": "978-0190871338",
+    "title": "A World Beyond Physics",
+    "subtitle": "The Emergence and Evolution of Life",
+    "author": "Stuart A. Kauffman",
+    "tags": ["short", "science"]
+  },
+  {
+    "isbn": "978-1947864269",
+    "title": "Worlds Hidden in Plain Sight",
+    "subtitle": "The Evolving Idea of Complexity at the Santa Fe Institute",
+    "author": "David C. Krakauer",
+    "tags": ["science"]
+  },
+  {
+    "isbn": "978-0735216112",
+    "title": "The Order of Time",
+    "subtitle": null,
+    "author": "Carlo Rovelli",
+    "tags": ["science"]
+  },
+  {
+    "isbn": "978-0393254693",
+    "title": "The Case Against Reality",
+    "subtitle": "Why Evolution Hid the Truth from Our Eyes",
+    "author": "Donald Hoffman",
+    "tags": ["philosophy"]
+  },
+  {
+    "isbn": "978-0393355505",
+    "title": "From Bacteria to Bach and Back",
+    "subtitle": "The Evolution of Minds",
+    "author": "Daniel C. Dennett",
+    "tags": ["philosophy"]
+  },
+  {
+    "isbn": "978-0465026562",
+    "title": "Gödel, Escher, Bach",
+    "subtitle": "An Eternal Golden Braid",
+    "author": "Douglas R. Hofstadter",
+    "tags": ["philosophy"]
+  },
+  {
+    "isbn": "978-0465085736",
+    "title": "Linked",
+    "subtitle": "How Everything Is Connected to Everything Else and What It Means for Business, Science, and Everyday Life",
+    "author": "Albert-László Barabási",
+    "tags": ["science"]
+  },
+  {
+    "isbn": "978-0226468013",
+    "title": "Metaphors We Live By",
+    "subtitle": null,
+    "author": "George Lakoff",
+    "tags": ["philosophy"]
+  }
+]

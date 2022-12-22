@@ -60,3 +60,10 @@ def get_media_youtube() -> JSONResponse:
     """Get YouTube data."""
     youtube_df = fetch_dataset(Datasets.YOUTUBE_CHANNELS)
     return JSONResponse(list(youtube_df.T.to_dict().values()))
+
+
+# @logging_utilities.log_context("get_media_books", tag="api")
+@router.get(path="/media/books", response_model=TempModel)
+def get_media_books() -> JSONResponse:
+    """Get books data."""
+    return JSONResponse(fetch_dataset(Datasets.BOOKS))

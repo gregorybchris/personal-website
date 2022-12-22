@@ -1,0 +1,41 @@
+{
+  "type": "array",
+  "elem": "#book",
+  "cons": {
+    "unique": ["@all.isbn", "@all.title"]
+  },
+  "defs": {
+    "#book": {
+      "type": "object",
+      "attr": {
+        "isbn": {
+          "type": "string",
+          "cons": {
+            "format": { "type": "regex", "pattern": "^[0-9]{3}-[0-9]{10}$" }
+          }
+        },
+        "title": {
+          "type": "string",
+          "cons": {
+            "format": { "type": "regex", "pattern": "^.{2,60}$" }
+          }
+        },
+        "author": {
+          "type": "string",
+          "cons": {
+            "format": { "type": "regex", "pattern": "^.{5,32}$" }
+          }
+        },
+        "tags": {
+          "type": "array",
+          "elem": {
+            "type": "string",
+            "cons": {
+              "in": ["short", "science", "philosophy"]
+            }
+          }
+        }
+      }
+    }
+  }
+}

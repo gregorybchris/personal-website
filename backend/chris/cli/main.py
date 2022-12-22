@@ -2,7 +2,13 @@
 import click
 
 from chris.utilities.generate_guid import generate
-from chris.validation.validate import (validate_hikes, validate_jobs, validate_posts, validate_projects)
+from chris.validation.validate import (
+    validate_books,
+    validate_hikes,
+    validate_jobs,
+    validate_posts,
+    validate_projects,
+)
 
 
 @click.group()
@@ -17,17 +23,20 @@ def guid(n_guids: int) -> None:
 
 
 @cli.command()
-@click.option("-t",
-              "--entity-type",
-              type=click.Choice(["posts", "projects", "hikes"]),
-              multiple=True,
-              help="Type of entity to validate")
+@click.option(
+    "-t",
+    "--entity-type",
+    type=click.Choice(["hikes", "posts", "projects"]),
+    multiple=True,
+    help="Type of entity to validate",
+)
 def validate(entity_type: str) -> None:
     validator_map = {
-        "posts": validate_posts,
-        "projects": validate_projects,
+        "books": validate_books,
         "hikes": validate_hikes,
         "jobs": validate_jobs,
+        "posts": validate_posts,
+        "projects": validate_projects,
     }
     for entity, validator in validator_map.items():
         if entity in entity_type or len(entity_type) == 0:
