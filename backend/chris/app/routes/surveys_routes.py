@@ -25,7 +25,7 @@ class TempModel(BaseModel):
 
 @logging_utilities.log_context("get_surveys", tag="api")
 @router.get(path="/surveys", response_model=TempModel)
-def get_surveys():
+def get_surveys() -> JSONResponse:
     """Get survey data."""
     return JSONResponse(fetch_dataset(Datasets.SURVEYS))
 
@@ -56,27 +56,30 @@ def post_survey_results(request: RequestModel, survey_id: str) -> JSONResponse:
 def get_survey_results() -> JSONResponse:
     """Get survey data."""
     # result_documents = list(db.find_all())
-    result_documents = []
+    result_documents: List[Dict[str, Any]] = []
     counts = {}
     for result_document in result_documents:
         survey_id = result_document["survey_id"]
-        choices_array = [int(v) for v in result_document["response"]["choices"]]
+        choices_array = [[int(v) for v in vs] for vs in result_document["response"]["choices"]]
         if survey_id not in counts:
-            counts[survey_id] = [0 for _ in choices_array]
-        counts[survey_id] += choices_array
+            counts[survey_id] = [[0 for _ in xs] for xs in choices_array]
 
+        for i in range(len(counts[survey_id])):
+            for j in range(len(counts[survey_id][0])):
+                counts[survey_id][i][j] += choices_array[i][j]
     surveys = fetch_dataset(Datasets.SURVEYS)
     survey_map = {survey["survey_id"]: survey for survey in surveys}
     return JSONResponse(_results_from_counts(counts, survey_map))
 
 
-def _results_from_counts(counts: Dict[str, List[int]], survey_map: Dict[str, Any]) -> Dict[str, Any]:
+def _results_from_counts(counts: Dict[str, List[List[int]]], survey_map: Dict[str, Any]) -> List[Dict[str, Any]]:
     results = []
     for survey_id, survey_counts in counts.items():
         survey = survey_map[survey_id]
         survey_result_questions = []
         for question_counts, question in zip(survey_counts, survey["questions"]):
-            question_frequencies = question_counts / question_counts.sum()
+            question_counts_sum = sum(question_counts)
+            question_frequencies = [c / question_counts_sum for c in question_counts]
             question_result_choices = []
             for option_number in range(len(question["options"])):
                 question_result_choices.append({
