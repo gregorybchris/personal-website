@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
-# from chris.app import logging_utilities
+from chris.app import logging_utilities
 from chris.datasets.fetch import fetch_dataset
 from chris.datasets.datasets import Datasets
 
@@ -14,7 +14,7 @@ class TempModel(BaseModel):
     temp: str = "temp"
 
 
-# @logging_utilities.log_context("get_media", tag="api")
+@logging_utilities.log_context("get_media", tag="api")
 @router.get(path="/media", response_model=TempModel)
 def get_media() -> JSONResponse:
     """Get media data."""
@@ -30,7 +30,7 @@ def get_media() -> JSONResponse:
     })
 
 
-# @logging_utilities.log_context("get_media_movies", tag="api")
+@logging_utilities.log_context("get_media_movies", tag="api")
 @router.get(path="/media/movies", response_model=TempModel)
 def get_media_movies() -> JSONResponse:
     """Get movie data."""
@@ -38,7 +38,7 @@ def get_media_movies() -> JSONResponse:
     return JSONResponse(list(movies_df.T.to_dict().values()))
 
 
-# @logging_utilities.log_context("get_media_podcasts", tag="api")
+@logging_utilities.log_context("get_media_podcasts", tag="api")
 @router.get(path="/media/tv", response_model=TempModel)
 def get_media_podcasts() -> JSONResponse:
     """Get podcast data."""
@@ -46,7 +46,7 @@ def get_media_podcasts() -> JSONResponse:
     return JSONResponse(list(podcasts_df.T.to_dict().values()))
 
 
-# @logging_utilities.log_context("get_media_tv", tag="api")
+@logging_utilities.log_context("get_media_tv", tag="api")
 @router.get(path="/media/podcasts", response_model=TempModel)
 def get_media_tv() -> JSONResponse:
     """Get TV data."""
@@ -54,7 +54,7 @@ def get_media_tv() -> JSONResponse:
     return JSONResponse(list(tv_df.T.to_dict().values()))
 
 
-# @logging_utilities.log_context("get_media_youtube", tag="api")
+@logging_utilities.log_context("get_media_youtube", tag="api")
 @router.get(path="/media/youtube", response_model=TempModel)
 def get_media_youtube() -> JSONResponse:
     """Get YouTube data."""
@@ -62,7 +62,7 @@ def get_media_youtube() -> JSONResponse:
     return JSONResponse(list(youtube_df.T.to_dict().values()))
 
 
-# @logging_utilities.log_context("get_media_books", tag="api")
+@logging_utilities.log_context("get_media_books", tag="api")
 @router.get(path="/media/books", response_model=TempModel)
 def get_media_books() -> JSONResponse:
     """Get books data."""

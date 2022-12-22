@@ -3,7 +3,7 @@ from fastapi.logger import logger
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
-# from chris.app import logging_utilities
+from chris.app import logging_utilities
 from chris.datasets.fetch import fetch_dataset
 from chris.datasets.datasets import Datasets
 
@@ -15,14 +15,14 @@ class TempModel(BaseModel):
     temp: str = "temp"
 
 
-# @logging_utilities.log_context("get_projects", tag="api")
+@logging_utilities.log_context("get_projects", tag="api")
 @router.get(path="/projects", response_model=TempModel)
 def get_projects() -> JSONResponse:
     """Get project data."""
     return JSONResponse(fetch_dataset(Datasets.PROJECTS))
 
 
-# @logging_utilities.log_context("post_projects_download", tag="api")
+@logging_utilities.log_context("post_projects_download", tag="api")
 @router.post(path="/projects/download/<project_id>", response_model=TempModel)
 def post_projects_download(project_id: str) -> JSONResponse:
     """Post a project download action."""
