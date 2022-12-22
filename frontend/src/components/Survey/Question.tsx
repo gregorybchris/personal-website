@@ -9,12 +9,14 @@ interface QuestionProps {
   questionNumber: number;
   onOptionClicked: (questionNumber: number, optionNumber: number) => void;
   response: Response;
+  updater: boolean;
 }
 
 export default function Question(props: QuestionProps) {
   const response = props.response;
   const isComplete = response.isQuestionComplete(props.questionNumber);
   const completeClass = isComplete ? "complete" : "";
+
   return (
     <div className={`Question ${completeClass}`} key={props.questionNumber}>
       <div className="Question-text">
@@ -31,6 +33,7 @@ export default function Question(props: QuestionProps) {
             optionNumber={optionNumber}
             onOptionClicked={props.onOptionClicked}
             response={props.response}
+            updater={props.updater}
           />
         ))}
       </div>

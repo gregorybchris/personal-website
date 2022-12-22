@@ -15,6 +15,7 @@ export default function Survey() {
   const [current, setCurrent] = useState<SurveyModel | null>(null);
   const [response, setResponse] = useState<Response | null>(null);
   const [feedback, setFeedback] = useState("");
+  const [updater, setUpdater] = useState(false);
 
   useEffect(() => {
     const surveysQuery = makeQuery("surveys");
@@ -24,9 +25,12 @@ export default function Survey() {
       if (!STORE.contains(COMPLETED_KEY)) {
         STORE.set(COMPLETED_KEY, []);
       }
-      setCurrentSurvey();
     });
   }, []);
+
+  useEffect(() => {
+    setCurrentSurvey();
+  }, [surveys]);
 
   function setCurrentSurvey() {
     if (surveys.length > 0) {
@@ -86,6 +90,7 @@ export default function Survey() {
               questionNumber={questionNumber}
               onOptionClicked={onOptionClicked}
               response={response}
+              updater={updater}
             />
           ))}
         </div>
@@ -109,12 +114,13 @@ export default function Survey() {
     );
   }
 
-  async function onOptionClicked(question: number, option: number) {
+  function onOptionClicked(question: number, option: number) {
     if (response !== null) {
       const chosen = response.isOptionChosen(question, option);
-      response?.updateOptionChoice(question, option, !chosen);
+      response.updateOptionChoice(question, option, !chosen);
     }
     setResponse(response);
+    setUpdater((prev) => !prev);
   }
 
   async function onSurveySubmit(survey: SurveyModel, response: Response) {
@@ -125,7 +131,7 @@ export default function Survey() {
         choices: response.choices,
         feedback,
       };
-      const queryResult = await POST(postSurveyQuery, postBody);
+      await POST(postSurveyQuery, postBody);
       const completedIds = STORE.get(COMPLETED_KEY);
       completedIds.push(surveyId);
       STORE.set(COMPLETED_KEY, completedIds, true);
