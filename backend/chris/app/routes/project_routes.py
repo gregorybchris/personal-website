@@ -23,7 +23,7 @@ def get_projects() -> JSONResponse:
 
 
 @logging_utilities.log_context("post_projects_download", tag="api")
-@router.post(path="/projects/download/<project_id>", response_model=TempModel)
+@router.post(path="/projects/download/{project_id}", response_model=TempModel)
 def post_projects_download(project_id: str) -> JSONResponse:
     """Post a project download action."""
     projects = fetch_dataset(Datasets.PROJECTS)
