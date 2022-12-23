@@ -67,7 +67,7 @@
     "title": "From Bacteria to Bach and Back",
     "subtitle": "The Evolution of Minds",
     "author": "Daniel C. Dennett",
-    "tags": ["philosophy"]
+    "tags": ["philosophy", "science"]
   },
   {
     "isbn": "978-0465026562",
@@ -89,5 +89,12 @@
     "subtitle": null,
     "author": "George Lakoff",
     "tags": ["philosophy"]
+  },
+  {
+    "isbn": "978-0142003848",
+    "title": "Freedom Evolves",
+    "subtitle": null,
+    "author": "Daniel C. Dennett",
+    "tags": ["philosophy", "science"]
   }
 ]

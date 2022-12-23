@@ -20,6 +20,15 @@
             "format": { "type": "regex", "pattern": "^.{2,60}$" }
           }
         },
+        "subtitle": [
+          "null",
+          {
+            "type": "string",
+            "cons": {
+              "format": { "type": "regex", "pattern": "^.{2,120}$" }
+            }
+          }
+        ],
         "author": {
           "type": "string",
           "cons": {
