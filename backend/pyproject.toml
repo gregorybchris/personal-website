@@ -55,7 +55,7 @@ requires = ["poetry-core>=1.0.0"]
 
 [tool.covcheck]
 branch = 22.0
-line = 71.0
+line = 67.0
 
 [tool.flake8]
 ignore = ""           # Required to disable default ignores
@@ -68,7 +68,7 @@ disallow_untyped_defs = true
 ignore_missing_imports = true
 
 [tool.pylint.basic]
-good-names = ["f", "h", "i", "j", "k", "m", "n", "w", "x", "xs", "y"]
+good-names = ["e", "f", "h", "i", "j", "k", "m", "n", "w", "x", "xs", "y"]
 notes = ["FIXME"]
 
 [tool.pylint.format]

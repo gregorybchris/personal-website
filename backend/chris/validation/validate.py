@@ -34,7 +34,6 @@ def validate_courses() -> None:
     print("Validation succeeded: courses")
 
 
-
 def validate_hikes() -> None:
     """Validate all hikes."""
     validator = Validator()
@@ -89,4 +88,3 @@ def validate_projects() -> None:
         print("Validation failed: projects")
         print(e)
     print("Validation succeeded: projects")
-

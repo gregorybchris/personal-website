@@ -20,6 +20,7 @@ VALIDATOR_MAP = {
     "projects": validate_projects,
 }
 
+
 @click.group()
 def cli() -> None:
     pass
@@ -35,7 +36,7 @@ def guid(n_guids: int) -> None:
 @click.option(
     "-t",
     "--entity-type",
-    type=click.Choice(VALIDATOR_MAP.keys()),
+    type=click.Choice(list(VALIDATOR_MAP.keys())),
     multiple=True,
     help="Type of entity to validate",
 )
