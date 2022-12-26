@@ -8,32 +8,31 @@ DATA_DIRPATH = Path(__file__).parent / ".." / "datasets" / "data"
 SCHEMAS_DIRPATH = Path(__file__).parent / "schemas"
 
 
-def validate_posts() -> None:
-    """Validate all posts."""
+def validate_books() -> None:
+    """Validate all books."""
     try:
         validate_file(
-            DATA_DIRPATH / "blog" / "posts.json",
-            SCHEMAS_DIRPATH / "posts-schema.json",
+            DATA_DIRPATH / "media" / "books.json",
+            SCHEMAS_DIRPATH / "books-schema.json",
         )
     except JsonValidationError as e:
-        print("Validation failed: posts")
+        print("Validation failed: books")
         print(e)
-    print("Validation succeeded: posts")
+    print("Validation succeeded: books")
 
 
-def validate_projects() -> None:
-    """Validate all projects."""
-    validator = Validator()
-    validator.register_constraint(MonotoneIncreaseConstraint(), "array", "monotone_inc")
+def validate_courses() -> None:
+    """Validate all courses."""
     try:
-        validator.validate_file(
-            DATA_DIRPATH / "projects" / "projects.json",
-            SCHEMAS_DIRPATH / "projects-schema.json",
+        validate_file(
+            DATA_DIRPATH / "professional" / "courses.json",
+            SCHEMAS_DIRPATH / "courses-schema.json",
         )
     except JsonValidationError as e:
-        print("Validation failed: projects")
+        print("Validation failed: courses")
         print(e)
-    print("Validation succeeded: projects")
+    print("Validation succeeded: courses")
+
 
 
 def validate_hikes() -> None:
@@ -64,14 +63,30 @@ def validate_jobs() -> None:
     print("Validation succeeded: jobs")
 
 
-def validate_books() -> None:
-    """Validate all books."""
+def validate_posts() -> None:
+    """Validate all posts."""
     try:
         validate_file(
-            DATA_DIRPATH / "media" / "books.json",
-            SCHEMAS_DIRPATH / "books-schema.json",
+            DATA_DIRPATH / "blog" / "posts.json",
+            SCHEMAS_DIRPATH / "posts-schema.json",
         )
     except JsonValidationError as e:
-        print("Validation failed: books")
+        print("Validation failed: posts")
         print(e)
-    print("Validation succeeded: books")
+    print("Validation succeeded: posts")
+
+
+def validate_projects() -> None:
+    """Validate all projects."""
+    validator = Validator()
+    validator.register_constraint(MonotoneIncreaseConstraint(), "array", "monotone_inc")
+    try:
+        validator.validate_file(
+            DATA_DIRPATH / "projects" / "projects.json",
+            SCHEMAS_DIRPATH / "projects-schema.json",
+        )
+    except JsonValidationError as e:
+        print("Validation failed: projects")
+        print(e)
+    print("Validation succeeded: projects")
+
