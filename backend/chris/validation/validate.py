@@ -1,90 +1,33 @@
 """Post validator."""
-from jsonvl import Validator, validate_file
+from jsonvl import Validator
 from jsonvl.errors import JsonValidationError
 from pathlib import Path
-from chris.validation.constraints import MonotoneIncreaseConstraint
+from chris.validation.contraints import MonotoneIncreaseConstraint
 
-DATA_DIRPATH = Path(__file__).parent / ".." / "datasets" / "data"
+DATA_DIRPATH = Path(__file__).parent.parent / "datasets" / "data"
 SCHEMAS_DIRPATH = Path(__file__).parent / "schemas"
 
 
-def validate_books() -> None:
-    """Validate all books."""
-    try:
-        validate_file(
-            DATA_DIRPATH / "media" / "books.json",
-            SCHEMAS_DIRPATH / "books-schema.json",
-        )
-    except JsonValidationError as e:
-        print("Validation failed: books")
-        print(e)
-    print("Validation succeeded: books")
+def validate_all() -> None:
+    """Validate all entities."""
 
-
-def validate_courses() -> None:
-    """Validate all courses."""
-    try:
-        validate_file(
-            DATA_DIRPATH / "professional" / "courses.json",
-            SCHEMAS_DIRPATH / "courses-schema.json",
-        )
-    except JsonValidationError as e:
-        print("Validation failed: courses")
-        print(e)
-    print("Validation succeeded: courses")
-
-
-def validate_hikes() -> None:
-    """Validate all hikes."""
     validator = Validator()
     validator.register_constraint(MonotoneIncreaseConstraint(), "array", "monotone_inc")
-    try:
-        validator.validate_file(
-            DATA_DIRPATH / "outdoor" / "hiking-routes.json",
-            SCHEMAS_DIRPATH / "hiking-routes-schema.json",
-        )
-    except JsonValidationError as e:
-        print("Validation failed: hikes")
-        print(e)
-    print("Validation succeeded: hikes")
+    schema_map = [
+        ("books", "media/books.json", "books-schema.json"),
+        ("courses", "professional/courses.json", "courses-schema.json"),
+        ("hiking", "outdoor/hiking-routes.json", "hiking-routes-schema.json"),
+        ("jobs", "professional/jobs.json", "jobs-schema.json"),
+        ("posts", "blog/posts.json", "posts-schema.json"),
+        ("projects", "projects/projects.json", "projects-schema.json"),
+    ]
+    for name, data_filename, schema_filename in schema_map:
+        data_filepath = DATA_DIRPATH / data_filename
+        schema_filepath = SCHEMAS_DIRPATH / schema_filename
 
-
-def validate_jobs() -> None:
-    """Validate all jobs."""
-    try:
-        validate_file(
-            DATA_DIRPATH / "professional" / "jobs.json",
-            SCHEMAS_DIRPATH / "jobs-schema.json",
-        )
-    except JsonValidationError as e:
-        print("Validation failed: jobs")
-        print(e)
-    print("Validation succeeded: jobs")
-
-
-def validate_posts() -> None:
-    """Validate all posts."""
-    try:
-        validate_file(
-            DATA_DIRPATH / "blog" / "posts.json",
-            SCHEMAS_DIRPATH / "posts-schema.json",
-        )
-    except JsonValidationError as e:
-        print("Validation failed: posts")
-        print(e)
-    print("Validation succeeded: posts")
-
-
-def validate_projects() -> None:
-    """Validate all projects."""
-    validator = Validator()
-    validator.register_constraint(MonotoneIncreaseConstraint(), "array", "monotone_inc")
-    try:
-        validator.validate_file(
-            DATA_DIRPATH / "projects" / "projects.json",
-            SCHEMAS_DIRPATH / "projects-schema.json",
-        )
-    except JsonValidationError as e:
-        print("Validation failed: projects")
-        print(e)
-    print("Validation succeeded: projects")
+        try:
+            validator.validate_file(data_filepath, schema_filepath)
+        except JsonValidationError as e:
+            print(f"Validation failed: {name}")
+            print(e)
+        print(f"Validation succeeded: {name}")
