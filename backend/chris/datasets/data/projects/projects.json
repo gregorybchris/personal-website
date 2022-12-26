@@ -1276,10 +1276,32 @@
     "tags": ["visualization", "ant", "colony", "pheromones", "emergence"],
     "source_link": "https://github.com/gregorybchris/ants",
     "download_link": null,
-    "web_link": "https://static.chrisgregory.me/sub/ants/demo",
+    "web_link": "https://static.chrisgregory.me/ants/demo",
     "image_links": [
       "https://storage.googleapis.com/chris-gregory/projects/images/ants--01.jpg",
       "https://storage.googleapis.com/chris-gregory/projects/images/ants--02.jpg"
+    ],
+    "primary_language": "TypeScript",
+    "archived": false
+  },
+  {
+    "project_id": "d711b3f1-e998-4f45-aee2-204713efdd2f",
+    "name": "Chladni",
+    "slug": "chladni",
+    "date": "2022-12-25",
+    "rating": 5,
+    "project_type": "web",
+    "use_type": "visualization",
+    "controls": null,
+    "description": "Web visualization of Chladni figures. A vibrating surface is simulated as a 2D standing wave. Sand particles are added which bounce around, their magnitude of movement proportional to the surface's wave magnitude. Regions on the surface with no movement correspond to nodes of the wave and sand tends to pool in these regions.",
+    "remarks": null,
+    "tags": ["visualization", "chladni", "figures", "resonance", "vibration"],
+    "source_link": "https://github.com/gregorybchris/chladni",
+    "download_link": null,
+    "web_link": "https://static.chrisgregory.me/chladni/demo",
+    "image_links": [
+      "https://storage.googleapis.com/chris-gregory/projects/images/chladni--01.jpg",
+      "https://storage.googleapis.com/chris-gregory/projects/images/chladni--02.jpg"
     ],
     "primary_language": "TypeScript",
     "archived": false
