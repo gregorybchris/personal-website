@@ -20,6 +20,7 @@ VALIDATOR_MAP = {
     "projects": validate_projects,
 }
 
+
 @click.group()
 def cli() -> None:
     pass
