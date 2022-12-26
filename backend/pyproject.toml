@@ -55,7 +55,7 @@ requires = ["poetry-core>=1.0.0"]
 
 [tool.covcheck]
 branch = 22.0
-line = 71.0
+line = 67.0
 
 [tool.flake8]
 ignore = ""           # Required to disable default ignores
