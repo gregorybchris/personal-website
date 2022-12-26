@@ -68,7 +68,7 @@ disallow_untyped_defs = true
 ignore_missing_imports = true
 
 [tool.pylint.basic]
-good-names = ["f", "h", "i", "j", "k", "m", "n", "w", "x", "xs", "y"]
+good-names = ["e", "f", "h", "i", "j", "k", "m", "n", "w", "x", "xs", "y"]
 notes = ["FIXME"]
 
 [tool.pylint.format]
