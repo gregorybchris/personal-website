@@ -95,11 +95,11 @@ export default function Blog() {
     }
 
     for (const tag of post.tags) {
-      if (searchText.startsWith("#") && tag.startsWith(searchText.substring(1))) {
+      if (lowerSearchText.startsWith("#") && tag.startsWith(lowerSearchText.substring(1))) {
         return true;
       }
 
-      if (tag.startsWith(searchText)) {
+      if (tag.startsWith(lowerSearchText)) {
         return true;
       }
     }
