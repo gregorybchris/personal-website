@@ -7,12 +7,47 @@ import { useEffect, useState } from "react";
 import RouteDataModel from "./models/RouteData";
 import RouteMap from "./RouteMap";
 import RunningRouteModel from "./models/RunningRoute";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function RunningRoutes() {
   const [routes, setRoutes] = useState<RunningRouteModel[]>([]);
   const [currentRoute, setCurrentRoute] = useState<RunningRouteModel | null>(null);
   const [currentRouteData, setCurrentRouteData] = useState<RouteDataModel | null>(null);
   const [mapBoxToken, setMapBoxToken] = useState("");
+  const { slug } = useParams();
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    const token = import.meta.env.VITE_MAPBOX_TOKEN;
+    if (token) {
+      setMapBoxToken(token);
+    }
+
+    const routesQuery = makeQuery("outdoor/running");
+    GET(routesQuery).then((routes: RunningRouteModel[]) => {
+      setRoutes(sortRoutes(routes));
+    });
+  }, []);
+
+  useEffect(() => {
+    if (routes.length == 0) return;
+
+    const filtered = routes.filter((route) => route.slug == slug);
+    if (filtered.length == 0) {
+      onSelectRoute(routes[0]);
+    } else {
+      onSelectRoute(filtered[0]);
+    }
+  }, [slug, routes]);
+
+  async function onSelectRoute(route: RunningRouteModel) {
+    navigate(`/running/${route.slug}`);
+
+    const routeDataUrl = route.route_data_link;
+    const routeData = await GET(routeDataUrl);
+    setCurrentRoute(route);
+    setCurrentRouteData(routeData);
+  }
 
   function sortRoutes(routes: RunningRouteModel[]) {
     return routes.sort((routeA: RunningRouteModel, routeB: RunningRouteModel) => {
@@ -27,30 +62,6 @@ export default function RunningRoutes() {
         return distanceCompare * -1;
       }
     });
-  }
-
-  useEffect(() => {
-    const routesQuery = makeQuery("outdoor/running");
-    GET(routesQuery).then((routes: RunningRouteModel[]) => {
-      const sortedRoutes = sortRoutes(routes);
-      setRoutes(sortedRoutes);
-      onRouteClick(routes[0]);
-    });
-  }, []);
-
-  useEffect(() => {
-    const token = import.meta.env.VITE_MAPBOX_TOKEN;
-    if (token) {
-      setMapBoxToken(token);
-    }
-  }, []);
-
-  async function onRouteClick(routeModel: RunningRouteModel) {
-    const routeDataUrl = routeModel.route_data_link;
-    const routeData = await GET(routeDataUrl);
-    // const routeData = jordanData;
-    setCurrentRoute(routeModel);
-    setCurrentRouteData(routeData);
   }
 
   return (
@@ -85,7 +96,7 @@ export default function RunningRoutes() {
           <tbody className="Common-table-body">
             {routes.map((route, routeNumber) => (
               <tr className="Common-table-row" key={routeNumber}>
-                <td className="Common-table-cell Common-simple-link" onClick={() => onRouteClick(route)}>
+                <td className="Common-table-cell Common-simple-link" onClick={() => onSelectRoute(route)}>
                   {route.name}
                 </td>
                 <td className="Common-table-cell" title={`${(route.distance * 1.609344).toFixed(1)} km`}>

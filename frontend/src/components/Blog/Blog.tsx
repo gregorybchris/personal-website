@@ -1,7 +1,7 @@
 import "./styles/Blog.sass";
 
 import { GET, getSearchParams, makeQuery } from "../../utilities/requestUtilities";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import Post from "./Post";
@@ -16,9 +16,7 @@ export default function Blog() {
   const { slug } = useParams();
   let navigate = useNavigate();
 
-  function onClearSearch() {
-    setSearchText("");
-  }
+  const slugOrIdExists = currentPostId !== null || currentPostSlug !== null;
 
   function onSelectPost(post: PostModel | null) {
     if (post === null) {
@@ -63,22 +61,13 @@ export default function Blog() {
     return paramTime === null ? "" : paramTime;
   }
 
-  function onUpdateSearch(event: React.ChangeEvent<HTMLInputElement>) {
-    setSearchText(event.target.value);
-  }
-
-  function onClickTag(tag: string) {
-    setSearchText(`#${tag}`);
-  }
-
-  function isPostEnabled(post: PostModel) {
+  function isPostVisible(post: PostModel) {
     const lowerSearchText = searchText.toLowerCase();
 
     if (post.archived) {
       return false;
     }
 
-    const slugOrIdExists = currentPostId != null || currentPostSlug != null;
     const currentIdMatch = post.post_id === currentPostId;
     const currentSlugMatch = post.slug === currentPostSlug;
     if (slugOrIdExists && !currentIdMatch && !currentSlugMatch) {
@@ -107,75 +96,58 @@ export default function Blog() {
     return false;
   }
 
-  function createPostElement(post: PostModel) {
-    if (isPostEnabled(post)) {
-      const time = getVideoTime();
-      return (
-        <Post key={post.post_id} post={post} onClickTag={onClickTag} onSelectPost={onSelectPost} videoTime={time} />
-      );
-    }
-  }
-
-  function createPostElements() {
-    if (posts.length === 0) {
-      return <span className="Blog-posts-loading">Loading posts...</span>;
-    } else {
-      return posts.map((post) => createPostElement(post));
-    }
-  }
-
-  function createAboutElement() {
-    const slugOrIdExists = currentPostId !== null || currentPostSlug !== null;
-    if (slugOrIdExists) {
-      return (
-        <div className="Blog-about">
-          <div className="Blog-about-section">
-            This page gives direct access to one blog link. To return to the full list of links click here:
-          </div>
-        </div>
-      );
-    }
-    return (
-      <div className="Blog-about">
-        <div className="Blog-about-section">
-          Topics range from art to neuroscience and philosophy to physics. I try to reserve posts here for stuff that
-          made me think differently, new paradigms rather than new facts. Videos and articles that meet that criteria
-          have a tendency to be pretty long, so judge for yourself if any are worth it.
-        </div>
-      </div>
-    );
-  }
-
-  function createContentsElement() {
-    const slugOrIdExists = currentPostId !== null || currentPostSlug !== null;
-    if (slugOrIdExists) {
-      return (
-        <div className="Blog-contents">
-          <div className="Common-button Blog-home-button" onClick={() => onSelectPost(null)}>
-            Blog home
-          </div>
-          <div className="Blog-posts">{createPostElements()}</div>
-        </div>
-      );
-    } else {
-      return (
-        <div className="Blog-contents">
-          <div className="Blog-search">
-            <SearchBar onClearSearch={onClearSearch} onUpdateSearch={onUpdateSearch} searchText={searchText} />
-          </div>
-          <div className="Blog-posts">{createPostElements()}</div>
-        </div>
-      );
-    }
-  }
-
   return (
     <div className="Blog">
       <div className="Blog-header-wrap">
         <div className="Blog-title">Link Blog</div>
-        {createAboutElement()}
+        {slugOrIdExists ? (
+          <div className="Blog-about">
+            <div className="Blog-about-section">
+              This page gives direct access to one blog link. To return to the full list of links click here:
+            </div>
+          </div>
+        ) : (
+          <div className="Blog-about">
+            <div className="Blog-about-section">
+              Topics range from art to neuroscience and philosophy to physics. I try to reserve posts here for stuff
+              that made me think differently, new paradigms rather than new facts. Videos and articles that meet that
+              criteria have a tendency to be pretty long, so judge for yourself if any are worth it.
+            </div>
+          </div>
+        )}
       </div>
-      {createContentsElement()}
+      <div className="Blog-contents">
+        {slugOrIdExists ? (
+          <div className="Common-button Blog-home-button" onClick={() => onSelectPost(null)}>
+            Blog home
+          </div>
+        ) : (
+          <div className="Blog-search">
+            <SearchBar
+              onClearSearch={() => setSearchText("")}
+              onUpdateSearch={(event) => setSearchText(event.target.value)}
+              searchText={searchText}
+            />
+          </div>
+        )}
+        <div className="Blog-posts">
+          {posts.length === 0 ? (
+            <span className="Blog-posts-loading">Loading posts...</span>
+          ) : (
+            posts
+              .filter(isPostVisible)
+              .map((post) => (
+                <Post
+                  key={post.post_id}
+                  post={post}
+                  onClickTag={(tag) => setSearchText(`#${tag}`)}
+                  onSelectPost={onSelectPost}
+                  videoTime={getVideoTime()}
+                />
+              ))
+          )}
+        </div>
+      </div>
     </div>
   );
 }
