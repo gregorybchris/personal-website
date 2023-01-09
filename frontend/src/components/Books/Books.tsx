@@ -36,7 +36,7 @@ export default function Books() {
       </div>
       <div className="w-4/5 grid grid-cols-3 pt-5 justify-items-center">
         {books
-          .filter((book) => activeTags.length == 0 || book.tags.some((tag) => activeTags.includes(tag)))
+          .filter((book) => activeTags.length == 0 || activeTags.every((tag) => book.tags.includes(tag)))
           .sort((bookA, bookB) => bookB.recommendability - bookA.recommendability)
           .map((book) => (
             <Book key={book.isbn} book={book} onTagClick={onTagClick} activeTags={activeTags} />
