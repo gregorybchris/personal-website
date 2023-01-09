@@ -35,6 +35,13 @@
             "format": { "type": "regex", "pattern": "^.{5,32}$" }
           }
         },
+        "year_read": {
+          "type": "number",
+          "cons": {
+            "gte": 1995,
+            "lte": 2100
+          }
+        },
         "tags": {
           "type": "array",
           "elem": {

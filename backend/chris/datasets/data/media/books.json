@@ -4,97 +4,135 @@
     "title": "Seven Brief Lessons on Physics",
     "subtitle": null,
     "author": "Carlo Rovelli",
-    "tags": ["short", "science"]
+    "tags": ["short", "science"],
+    "year_read": 2019
   },
   {
     "isbn": "978-1451683400",
     "title": "Free Will",
     "subtitle": null,
     "author": "Sam Harris",
-    "tags": ["short", "philosophy"]
+    "tags": ["short", "philosophy"],
+    "year_read": 2013
   },
   {
     "isbn": "978-1940051000",
     "title": "Lying",
     "subtitle": null,
     "author": "Sam Harris",
-    "tags": ["short"]
+    "tags": ["short"],
+    "year_read": 2014
   },
   {
     "isbn": "978-0060652944",
     "title": "The Abolition of Man",
     "subtitle": null,
     "author": "C. S. Lewis",
-    "tags": ["short", "philosophy"]
+    "tags": ["short", "philosophy"],
+    "year_read": 2015
   },
   {
     "isbn": "978-1476731711",
     "title": "Finite and Infinite Games",
     "subtitle": "A Vision of Life as Play and Possibility",
     "author": "James Carse",
-    "tags": ["short", "philosophy"]
+    "tags": ["short", "philosophy"],
+    "year_read": 2019
   },
   {
     "isbn": "978-0190871338",
     "title": "A World Beyond Physics",
     "subtitle": "The Emergence and Evolution of Life",
     "author": "Stuart A. Kauffman",
-    "tags": ["short", "science"]
+    "tags": ["short", "science"],
+    "year_read": 2021
   },
   {
     "isbn": "978-1947864269",
     "title": "Worlds Hidden in Plain Sight",
     "subtitle": "The Evolving Idea of Complexity at the Santa Fe Institute",
     "author": "David C. Krakauer",
-    "tags": ["science"]
+    "tags": ["science"],
+    "year_read": 2019
   },
   {
     "isbn": "978-0735216112",
     "title": "The Order of Time",
     "subtitle": null,
     "author": "Carlo Rovelli",
-    "tags": ["science"]
+    "tags": ["science"],
+    "year_read": 2019
   },
   {
     "isbn": "978-0393254693",
     "title": "The Case Against Reality",
     "subtitle": "Why Evolution Hid the Truth from Our Eyes",
     "author": "Donald Hoffman",
-    "tags": ["philosophy"]
+    "tags": ["philosophy"],
+    "year_read": 2020
   },
   {
     "isbn": "978-0393355505",
     "title": "From Bacteria to Bach and Back",
     "subtitle": "The Evolution of Minds",
     "author": "Daniel C. Dennett",
-    "tags": ["philosophy", "science"]
+    "tags": ["philosophy", "science"],
+    "year_read": 2018
   },
   {
     "isbn": "978-0465026562",
     "title": "Gödel, Escher, Bach",
     "subtitle": "An Eternal Golden Braid",
     "author": "Douglas R. Hofstadter",
-    "tags": ["philosophy"]
+    "tags": ["philosophy"],
+    "year_read": 2020
   },
   {
     "isbn": "978-0465085736",
     "title": "Linked",
     "subtitle": "How Everything Is Connected to Everything Else and What It Means for Business, Science, and Everyday Life",
     "author": "Albert-László Barabási",
-    "tags": ["science"]
+    "tags": ["science"],
+    "year_read": 2014
   },
   {
     "isbn": "978-0226468013",
     "title": "Metaphors We Live By",
     "subtitle": null,
     "author": "George Lakoff",
-    "tags": ["philosophy"]
+    "tags": ["philosophy"],
+    "year_read": 2022
   },
   {
     "isbn": "978-0142003848",
     "title": "Freedom Evolves",
     "subtitle": null,
     "author": "Daniel C. Dennett",
-    "tags": ["philosophy", "science"]
+    "tags": ["philosophy", "science"],
+    "year_read": 2015
+  },
+  {
+    "isbn": "978-1101970317",
+    "title": "Life 3.0",
+    "subtitle": "Being Human in the Age of Artificial Intelligence",
+    "author": "Max Tegmark",
+    "tags": ["science"],
+    "year_read": 2018
+  },
+  {
+    "isbn": "978-0387947914",
+    "title": "How Nature Works",
+    "subtitle": "The Science of Self-Organized Criticality",
+    "author": "Per Bak",
+    "tags": ["science"],
+    "year_read": 2022
+  },
+  {
+    "isbn": "978-0198788607",
+    "title": "The Selfish Gene",
+    "subtitle": null,
+    "author": "Richard Dawkins",
+    "tags": ["science"],
+    "year_read": 2022
   }
 ]
