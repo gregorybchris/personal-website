@@ -3,10 +3,9 @@
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "mikestead.dotenv",
-    "rust-lang.rust-analyzer",
     "syler.sass-indented",
+    "bradlc.vscode-tailwindcss",
     "tamasfe.even-better-toml",
-    "vadimcn.vscode-lldb",
     "yzhang.markdown-all-in-one",
   ]
 }
