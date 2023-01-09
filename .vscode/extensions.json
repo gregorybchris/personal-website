@@ -1,5 +1,6 @@
 {
   "recommendations": [
+    "amatiasq.sort-imports",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "mikestead.dotenv",
