@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
 import "./styles/Hidden.sass";
+
+import { Link } from "react-router-dom";
 
 export default function Hidden() {
   return (
@@ -15,6 +16,9 @@ export default function Hidden() {
         <div className="Hidden-links">
           <Link to="/hidden/archive" className="Hidden-page-link">
             <div className="Hidden-page-link-box">Archive</div>
+          </Link>
+          <Link to="/hidden/books" className="Hidden-page-link">
+            <div className="Hidden-page-link-box">Books</div>
           </Link>
           <Link to="/hidden/places" className="Hidden-page-link">
             <div className="Hidden-page-link-box">Places</div>

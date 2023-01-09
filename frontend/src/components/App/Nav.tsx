@@ -1,7 +1,8 @@
-import { NavLink } from "react-router-dom";
+import "./styles/Nav.sass";
+
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
-import "./styles/Nav.sass";
+import { NavLink } from "react-router-dom";
 
 function Nav() {
   const getLinkClassName = (baseClassName: string) => {

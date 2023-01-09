@@ -5,7 +5,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Archive from "../Archive/Archive";
 import Blog from "../Blog/Blog";
 import BlogExplore from "../Blog/BlogExplore";
+import Books from "../Books/Books";
 import Contact from "../Contact/Contact";
+import Hidden from "../Hidden/Hidden";
 import Home from "../Home/Home";
 import Music from "../Music/Music";
 import Nav from "./Nav";
@@ -14,7 +16,6 @@ import Places from "../Places/Places";
 import Projects from "../Projects/Projects";
 import RunningRoutes from "../Routes/RunningRoutes";
 import Survey from "../Survey/Survey";
-import Hidden from "../Hidden/Hidden";
 
 export default function App() {
   return (
@@ -36,6 +37,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
 
           <Route path="/hidden" element={<Hidden />} />
+          <Route path="/hidden/books" element={<Books />} />
           <Route path="/hidden/opinion" element={<Survey />} />
           <Route path="/hidden/link-graph" element={<BlogExplore />} />
           <Route path="/hidden/places" element={<Places />} />
