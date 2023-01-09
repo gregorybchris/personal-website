@@ -42,6 +42,13 @@
             "lte": 2100
           }
         },
+        "recommendability": {
+          "type": "number",
+          "cons": {
+            "gte": 1,
+            "lte": 10
+          }
+        },
         "tags": {
           "type": "array",
           "elem": {
