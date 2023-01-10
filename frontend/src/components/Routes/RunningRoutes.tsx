@@ -3,11 +3,11 @@ import "./styles/RunningRoutes.sass";
 import { GET, makeQuery } from "../../utilities/requestUtilities";
 import { MapContainer, Polyline, TileLayer } from "react-leaflet";
 import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import RouteDataModel from "./models/RouteData";
 import RouteMap from "./RouteMap";
 import RunningRouteModel from "./models/RunningRoute";
-import { useNavigate, useParams } from "react-router-dom";
 
 export default function RunningRoutes() {
   const [routes, setRoutes] = useState<RunningRouteModel[]>([]);
@@ -25,23 +25,25 @@ export default function RunningRoutes() {
 
     const routesQuery = makeQuery("outdoor/running");
     GET(routesQuery).then((routes: RunningRouteModel[]) => {
-      setRoutes(sortRoutes(routes));
+      setRoutes(routes.sort(routeCompare));
     });
   }, []);
 
   useEffect(() => {
     if (routes.length == 0) return;
 
-    const filtered = routes.filter((route) => route.slug == slug);
-    if (filtered.length == 0) {
-      onSelectRoute(routes[0]);
+    if (slug) {
+      const match = routes.find((route) => route.slug == slug);
+      onSelectRoute(match || routes[0]);
     } else {
-      onSelectRoute(filtered[0]);
+      onSelectRoute(routes[0], false);
     }
   }, [slug, routes]);
 
-  async function onSelectRoute(route: RunningRouteModel) {
-    navigate(`/running/${route.slug}`);
+  async function onSelectRoute(route: RunningRouteModel, nav: boolean = true) {
+    if (nav) {
+      navigate(`/running/${route.slug}`);
+    }
 
     const routeDataUrl = route.route_data_link;
     const routeData = await GET(routeDataUrl);
@@ -49,19 +51,17 @@ export default function RunningRoutes() {
     setCurrentRouteData(routeData);
   }
 
-  function sortRoutes(routes: RunningRouteModel[]) {
-    return routes.sort((routeA: RunningRouteModel, routeB: RunningRouteModel) => {
-      const [cityA, cityB] = [routeA.tags[0], routeB.tags[0]];
-      const [distanceA, distanceB] = [routeA.distance, routeB.distance];
-      const cityCompare = cityA < cityB ? -1 : cityA > cityB ? 1 : 0;
-      const distanceCompare = distanceA < distanceB ? -1 : distanceA > distanceB ? 1 : 0;
+  function routeCompare(routeA: RunningRouteModel, routeB: RunningRouteModel) {
+    const [cityA, cityB] = [routeA.tags[0], routeB.tags[0]];
+    const [distanceA, distanceB] = [routeA.distance, routeB.distance];
+    const cityCompare = cityA < cityB ? -1 : cityA > cityB ? 1 : 0;
+    const distanceCompare = distanceA < distanceB ? -1 : distanceA > distanceB ? 1 : 0;
 
-      if (cityCompare !== 0) {
-        return cityCompare;
-      } else {
-        return distanceCompare * -1;
-      }
-    });
+    if (cityCompare !== 0) {
+      return cityCompare;
+    } else {
+      return distanceCompare * -1;
+    }
   }
 
   return (
