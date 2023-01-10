@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Archive from "../Archive/Archive";
 import Blog from "../Blog/Blog";
-import BlogExplore from "../Blog/BlogExplore";
+import BlogGraph from "../Blog/BlogGraph";
 import Books from "../Books/Books";
 import Contact from "../Contact/Contact";
 import Hidden from "../Hidden/Hidden";
@@ -39,7 +39,7 @@ export default function App() {
           <Route path="/hidden" element={<Hidden />} />
           <Route path="/hidden/books" element={<Books />} />
           <Route path="/hidden/opinion" element={<Survey />} />
-          <Route path="/hidden/link-graph" element={<BlogExplore />} />
+          <Route path="/hidden/blog-graph" element={<BlogGraph />} />
           <Route path="/hidden/places" element={<Places />} />
           <Route path="/hidden/archive" element={<Archive />} />
 

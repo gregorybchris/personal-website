@@ -3,11 +3,11 @@ import "./styles/BlogExplore.sass";
 import * as d3 from "d3";
 
 import { GET, makeQuery } from "../../utilities/requestUtilities";
-import { useEffect, useRef, useState } from "react";
 
 import PostModel from "./models/Post";
 import { range } from "../../utilities/arrayUtilities";
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 
 interface GraphNode {
   id: string;
@@ -26,20 +26,17 @@ interface GraphData {
   links: GraphLink[];
 }
 
-export default function BlogExplore() {
+export default function BlogGraph() {
   const ref = useRef<SVGSVGElement>(null);
-  const [posts, setPosts] = useState<PostModel[]>([]);
   let navigate = useNavigate();
 
-  useEffect(() => {
-    const postsQuery = makeQuery("posts");
-    GET(postsQuery).then((queryResult) => {
-      const allPosts: PostModel[] = queryResult["posts"];
-      setPosts(allPosts.reverse().filter((post) => !post.archived));
-      const data = getData();
-      createSimulation(data);
-    });
-  }, []);
+  const postsQuery = makeQuery("posts");
+  GET(postsQuery).then((queryResult) => {
+    const allPosts: PostModel[] = queryResult["posts"];
+    const posts = allPosts.reverse().filter((post) => !post.archived);
+    const data = getData(posts);
+    createSimulation(data);
+  });
 
   function onDrag(simulation: any): any {
     const dragStarted = (event: any) => {
@@ -62,7 +59,7 @@ export default function BlogExplore() {
     return d3.drag().on("start", dragStarted).on("drag", dragged).on("end", dragEnded);
   }
 
-  function getData(): GraphData {
+  function getData(posts: PostModel[]): GraphData {
     const nodes = [];
     const links = [];
 
@@ -82,9 +79,6 @@ export default function BlogExplore() {
         post: posts[i],
       });
       for (let j = i + 1; j < posts.length; j++) {
-        // let numSharedAreas = posts[i].areas.filter((tag) => posts[j].areas.includes(tag)).length;
-        // let numSharedAreas = posts[i].areas.slice(0, 2).filter((tag) => posts[j].areas.slice(0, 2).includes(tag))
-        // .length;
         let numSharedAreas = posts[i].areas[0] === posts[j].areas[0] ? 1 : 0;
         if (numSharedAreas === 0) {
           continue;
@@ -115,7 +109,6 @@ export default function BlogExplore() {
 
     const simulation = d3
       .forceSimulation(nodes)
-
       .force(
         "link",
         d3.forceLink(links).id((d: any) => d.id)
