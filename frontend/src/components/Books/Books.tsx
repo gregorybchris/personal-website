@@ -34,7 +34,7 @@ export default function Books() {
           enjoyed!
         </div>
       </div>
-      <div className="w-4/5 grid grid-cols-3 pt-5 justify-items-center">
+      <div className="w-4/5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-5 justify-items-center">
         {books
           .filter((book) => activeTags.length == 0 || activeTags.every((tag) => book.tags.includes(tag)))
           .sort((bookA, bookB) => bookB.recommendability - bookA.recommendability)

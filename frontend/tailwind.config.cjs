@@ -14,6 +14,12 @@ module.exports = {
         "text-2": "rgb(107, 107, 106)",
         "text-3": "rgb(10, 10, 10)",
       },
+      gridTemplateColumns: {
+        1: "repeat(1, minmax(0, 1fr))",
+        2: "repeat(2, minmax(0, 1fr))",
+        3: "repeat(3, minmax(0, 1fr))",
+        4: "repeat(4, minmax(0, 1fr))",
+      },
     },
     fontFamily: {
       raleway: "Raleway",
