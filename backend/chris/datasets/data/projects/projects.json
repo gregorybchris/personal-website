@@ -12,11 +12,11 @@
     "remarks": "Clords was the first major graphical program I made on my own. The creative control Java Swing provided in 2011 inspired me to start creating the games I always wanted to play as kid.",
     "tags": ["words", "puzzle"],
     "source_link": null,
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/jars/clords",
+    "download_link": "https://storage.googleapis.com/cgme/projects/jars/clords",
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/clords--home-screen.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/clords--level-1.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/clords--home-screen.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/clords--level-1.jpg"
     ],
     "primary_language": "Java",
     "archived": false
@@ -34,12 +34,12 @@
     "remarks": "My first time playing one of these element simulation games was on a friend's jail-broken iPod Touch in middle school. There was something so exciting about touching a screen with your finger and seeing particle effects come to lift. While that game had only a few elements, I later found the Dan-Ball Powder Game on which I wasted countless hours growing trees and watching ants build complex nests.",
     "tags": ["art", "sandbox", "boredom"],
     "source_link": null,
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/jars/evolution.jar",
+    "download_link": "https://storage.googleapis.com/cgme/projects/jars/evolution.jar",
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/evolution--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/evolution--02.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/evolution--03.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/evolution--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/evolution--02.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/evolution--03.jpg"
     ],
     "primary_language": "Java",
     "archived": false
@@ -60,11 +60,11 @@
     "download_link": null,
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/vector--01-login.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/vector--02-connecting.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/vector--03-chat.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/vector--04-players.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/vector--05-game.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/vector--01-login.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/vector--02-connecting.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/vector--03-chat.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/vector--04-players.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/vector--05-game.jpg"
     ],
     "primary_language": "Java",
     "archived": false
@@ -84,7 +84,7 @@
     "source_link": null,
     "download_link": null,
     "web_link": null,
-    "image_links": ["https://storage.googleapis.com/chris-gregory/projects/images/three-farmer--01.jpg"],
+    "image_links": ["https://storage.googleapis.com/cgme/projects/images/three-farmer--01.jpg"],
     "primary_language": "Java",
     "archived": true
   },
@@ -101,13 +101,13 @@
     "remarks": "This game was based off of an old Android app, but I can't find it on the Google Play store anymore.",
     "tags": ["puzzle", "matching"],
     "source_link": null,
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/jars/color-match.jar",
+    "download_link": "https://storage.googleapis.com/cgme/projects/jars/color-match.jar",
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/color-match--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/color-match--02.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/color-match--03.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/color-match--04.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/color-match--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/color-match--02.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/color-match--03.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/color-match--04.jpg"
     ],
     "primary_language": "Java",
     "archived": false
@@ -125,12 +125,12 @@
     "remarks": null,
     "tags": ["sketch", "art"],
     "source_link": null,
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/jars/sketcher.jar",
+    "download_link": "https://storage.googleapis.com/cgme/projects/jars/sketcher.jar",
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/sketcher--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/sketcher--02.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/sketcher--instructions.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/sketcher--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/sketcher--02.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/sketcher--instructions.jpg"
     ],
     "primary_language": "Java",
     "archived": false
@@ -148,13 +148,13 @@
     "remarks": "This is actually based on some online widget that I have not been able to dig up.",
     "tags": ["art", "boredom"],
     "source_link": null,
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/jars/dot-drawings.jar",
+    "download_link": "https://storage.googleapis.com/cgme/projects/jars/dot-drawings.jar",
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/dot-drawings--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/dot-drawings--02.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/dot-drawings--03.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/dot-drawings--04.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/dot-drawings--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/dot-drawings--02.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/dot-drawings--03.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/dot-drawings--04.jpg"
     ],
     "primary_language": "Java",
     "archived": false
@@ -175,8 +175,8 @@
     "download_link": null,
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/check-my-code--log-in.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/check-my-code--sign-up.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/check-my-code--log-in.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/check-my-code--sign-up.jpg"
     ],
     "primary_language": "PHP",
     "archived": false
@@ -196,7 +196,7 @@
     "source_link": null,
     "download_link": null,
     "web_link": null,
-    "image_links": ["https://storage.googleapis.com/chris-gregory/projects/images/oracle--01.jpg"],
+    "image_links": ["https://storage.googleapis.com/cgme/projects/images/oracle--01.jpg"],
     "primary_language": "Java",
     "archived": true
   },
@@ -213,12 +213,12 @@
     "remarks": "When starting to create Armada I realized I had some good experience creating games on my own, but I needed to work on being more collaborative. I asked my friend Mattie Shepard, a very talented designer, to help me create a better visual experience for my game. She came up with some graphical assets that I could import into the game. The final product had a different feel from anything I had worked on before and it got me excited about the novel results that can come from putting two heads together.",
     "tags": ["fast-paced", "multiplayer"],
     "source_link": null,
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/jars/armada.jar",
+    "download_link": "https://storage.googleapis.com/cgme/projects/jars/armada.jar",
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/armada--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/armada--02.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/armada--ship.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/armada--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/armada--02.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/armada--ship.jpg"
     ],
     "primary_language": "Java",
     "archived": false
@@ -239,9 +239,9 @@
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/base",
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/base--blank.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/base--binary.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/base--hello.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/base--blank.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/base--binary.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/base--hello.jpg"
     ],
     "primary_language": "JavaScript",
     "archived": false
@@ -262,12 +262,12 @@
     "download_link": null,
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/ptcd--01-login.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/ptcd--02-home.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/ptcd--03-database.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/ptcd--04-bottle.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/ptcd--05-confirm.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/ptcd--06-email.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/ptcd--01-login.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/ptcd--02-home.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/ptcd--03-database.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/ptcd--04-bottle.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/ptcd--05-confirm.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/ptcd--06-email.jpg"
     ],
     "primary_language": "C#",
     "archived": false
@@ -285,18 +285,18 @@
     "remarks": null,
     "tags": ["fractal", "art"],
     "source_link": null,
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/jars/dragon-curve.jar",
+    "download_link": "https://storage.googleapis.com/cgme/projects/jars/dragon-curve.jar",
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/dragon-curve--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/dragon-curve--02.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/dragon-curve--03.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/dragon-curve--04.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/dragon-curve--05.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/dragon-curve--06.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/dragon-curve--07.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/dragon-curve--08.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/dragon-curve--09.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/dragon-curve--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/dragon-curve--02.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/dragon-curve--03.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/dragon-curve--04.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/dragon-curve--05.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/dragon-curve--06.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/dragon-curve--07.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/dragon-curve--08.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/dragon-curve--09.jpg"
     ],
     "primary_language": "Java",
     "archived": true
@@ -314,11 +314,11 @@
     "remarks": "My high school data structures class assigned homework to write a Tower of Hanoi solver. However, turning a graphical game into a command-line solver didn't feel right. I created this game at a time when I started to feel confident in my ability to create a visually appealing game given enough time.",
     "tags": ["puzzle"],
     "source_link": null,
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/jars/tower-of-hanoi.jar",
+    "download_link": "https://storage.googleapis.com/cgme/projects/jars/tower-of-hanoi.jar",
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/tower-of-hanoi--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/tower-of-hanoi--02.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/tower-of-hanoi--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/tower-of-hanoi--02.jpg"
     ],
     "primary_language": "Java",
     "archived": false
@@ -336,12 +336,12 @@
     "remarks": "I have never been very good at just sitting down and hacking on a project on-demand, but an incredible game developer friend of mine asked me to join him for Ludum Dare, so I created this little toy in a few hours. My goal was to create something that looked good but was definitely achievable in a short amount of time. The concept is ridiculously simple, but I'm still proud of how it turned out in such a short amount of time.",
     "tags": ["precision", "counting"],
     "source_link": null,
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/jars/can-you-count.jar",
+    "download_link": "https://storage.googleapis.com/cgme/projects/jars/can-you-count.jar",
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/can-you-count--home.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/can-you-count--ready.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/can-you-count--score.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/can-you-count--home.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/can-you-count--ready.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/can-you-count--score.jpg"
     ],
     "primary_language": "Java",
     "archived": false
@@ -362,11 +362,11 @@
     "download_link": null,
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/schedulerhd--01-home.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/schedulerhd--02-search.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/schedulerhd--06-edit.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/schedulerhd--07-classes.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/schedulerhd--08-teachers.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/schedulerhd--01-home.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/schedulerhd--02-search.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/schedulerhd--06-edit.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/schedulerhd--07-classes.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/schedulerhd--08-teachers.jpg"
     ],
     "primary_language": "C#",
     "archived": false
@@ -384,12 +384,12 @@
     "remarks": null,
     "tags": ["puzzle", "levels"],
     "source_link": "https://github.com/gregorybchris/tiles",
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/jars/tiles.jar",
+    "download_link": "https://storage.googleapis.com/cgme/projects/jars/tiles.jar",
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/tiles--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/tiles--02.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/tiles--03.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/tiles--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/tiles--02.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/tiles--03.jpg"
     ],
     "primary_language": "Java",
     "archived": false
@@ -407,12 +407,12 @@
     "remarks": null,
     "tags": ["patterns", "fast-paced"],
     "source_link": null,
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/jars/blocks.jar",
+    "download_link": "https://storage.googleapis.com/cgme/projects/jars/blocks.jar",
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/blocks--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/blocks--02.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/blocks--03.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/blocks--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/blocks--02.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/blocks--03.jpg"
     ],
     "primary_language": "Java",
     "archived": false
@@ -430,11 +430,11 @@
     "remarks": null,
     "tags": ["simulation", "birds", "boids", "flocking"],
     "source_link": null,
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/jars/flock.jar",
+    "download_link": "https://storage.googleapis.com/cgme/projects/jars/flock.jar",
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/flock--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/flock--02.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/flock--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/flock--02.jpg"
     ],
     "primary_language": "Java",
     "archived": false
@@ -452,12 +452,12 @@
     "remarks": null,
     "tags": ["puzzle", "solver"],
     "source_link": null,
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/jars/unscrambler.jar",
+    "download_link": "https://storage.googleapis.com/cgme/projects/jars/unscrambler.jar",
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/unscrambler--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/unscrambler--02.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/unscrambler--03.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/unscrambler--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/unscrambler--02.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/unscrambler--03.jpg"
     ],
     "primary_language": "Java",
     "archived": true
@@ -475,11 +475,11 @@
     "remarks": null,
     "tags": ["memory"],
     "source_link": null,
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/jars/unhinged.jar",
+    "download_link": "https://storage.googleapis.com/cgme/projects/jars/unhinged.jar",
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/unhinged--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/unhinged--02.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/unhinged--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/unhinged--02.jpg"
     ],
     "primary_language": "Java",
     "archived": false
@@ -497,12 +497,12 @@
     "remarks": "One major downside of my implementation is the lack of animations which makes playing this knock-off much less fun than the original.",
     "tags": ["puzzle"],
     "source_link": null,
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/jars/2048.jar",
+    "download_link": "https://storage.googleapis.com/cgme/projects/jars/2048.jar",
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/2048--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/2048--02.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/2048--03.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/2048--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/2048--02.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/2048--03.jpg"
     ],
     "primary_language": "Java",
     "archived": false
@@ -522,7 +522,7 @@
     "source_link": null,
     "download_link": null,
     "web_link": null,
-    "image_links": ["https://storage.googleapis.com/chris-gregory/projects/images/world--01.jpg"],
+    "image_links": ["https://storage.googleapis.com/cgme/projects/images/world--01.jpg"],
     "primary_language": "Java",
     "archived": true
   },
@@ -539,11 +539,11 @@
     "remarks": "Viewer was the first 3D program I created from scratch. At this point I still had very little experience working with any code other than my own and so if I wanted 3D graphics I would have to create it myself. I didn't know that much vector math, let alone the quaternions needed to do 3D rotation correctly. Nevertheless, the project turned out alright.",
     "tags": ["simulation", "3D", "world"],
     "source_link": null,
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/jars/viewer.jar",
+    "download_link": "https://storage.googleapis.com/cgme/projects/jars/viewer.jar",
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/viewer--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/viewer--02.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/viewer--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/viewer--02.jpg"
     ],
     "primary_language": "Java",
     "archived": false
@@ -561,14 +561,14 @@
     "remarks": null,
     "tags": ["interactive", "graphs"],
     "source_link": "https://github.com/gregorybchris/directed",
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/jars/directed.jar",
+    "download_link": "https://storage.googleapis.com/cgme/projects/jars/directed.jar",
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/directed--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/directed--02.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/directed--03.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/directed--04.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/directed--05.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/directed--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/directed--02.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/directed--03.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/directed--04.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/directed--05.jpg"
     ],
     "primary_language": "Java",
     "archived": false
@@ -605,11 +605,11 @@
     "remarks": "I started working on this game when my college roommate was assigned a Boggle solver for his intro to Computer Science course. I thought it could be a good chance for me to improve upon my previous graphical projects and include animations to make the game more exciting. I had previously struggled to decouple controller and view layers in games and this was the first project where I discovered those design patterns for myself.",
     "tags": ["words", "fast-paced"],
     "source_link": "https://github.com/gregorybchris/sweyp",
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/jars/sweyp.jar",
+    "download_link": "https://storage.googleapis.com/cgme/projects/jars/sweyp.jar",
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/sweyp--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/sweyp--02.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/sweyp--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/sweyp--02.jpg"
     ],
     "primary_language": "Java",
     "archived": false
@@ -627,7 +627,7 @@
     "remarks": null,
     "tags": ["ai", "path-finding"],
     "source_link": "https://github.com/gregorybchris/seek",
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/jars/seek.jar",
+    "download_link": "https://storage.googleapis.com/cgme/projects/jars/seek.jar",
     "web_link": null,
     "image_links": [],
     "primary_language": "Java",
@@ -687,8 +687,8 @@
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/jumbo-meal",
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/jumbo-meal--sliders-01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/jumbo-meal--sliders-02.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/jumbo-meal--sliders-01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/jumbo-meal--sliders-02.jpg"
     ],
     "primary_language": "JavaScript",
     "archived": false
@@ -706,7 +706,7 @@
     "remarks": null,
     "tags": ["research", "deep learning", "paper", "computer vision"],
     "source_link": "https://github.com/gregorybchris/convolutional-mammogram-analysis",
-    "download_link": "https://storage.googleapis.com/chris-gregory/projects/papers/cnn-mammogram.pdf",
+    "download_link": "https://storage.googleapis.com/cgme/projects/papers/cnn-mammogram.pdf",
     "web_link": null,
     "image_links": [],
     "primary_language": "Python",
@@ -747,12 +747,12 @@
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/chans",
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/chans--page-1.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/chans--page-2.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/chans--page-3.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/chans--page-4.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/chans--page-5.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/chans--page-6.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/chans--page-1.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/chans--page-2.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/chans--page-3.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/chans--page-4.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/chans--page-5.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/chans--page-6.jpg"
     ],
     "primary_language": "JavaScript",
     "archived": false
@@ -792,12 +792,12 @@
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/half-plane",
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/half-plane--page-1.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/half-plane--page-2.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/half-plane--page-3.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/half-plane--page-4.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/half-plane--page-5.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/half-plane--page-6.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/half-plane--page-1.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/half-plane--page-2.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/half-plane--page-3.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/half-plane--page-4.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/half-plane--page-5.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/half-plane--page-6.jpg"
     ],
     "primary_language": "JavaScript",
     "archived": false
@@ -818,8 +818,8 @@
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/combust",
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/combust--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/combust--02.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/combust--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/combust--02.jpg"
     ],
     "primary_language": "JavaScript",
     "archived": false
@@ -840,8 +840,8 @@
     "download_link": null,
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/split-plot--home.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/split-plot--page.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/split-plot--home.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/split-plot--page.jpg"
     ],
     "primary_language": "JavaScript",
     "archived": false
@@ -862,9 +862,9 @@
     "download_link": null,
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/comprank--home.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/comprank--compare.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/comprank--rankings.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/comprank--home.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/comprank--compare.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/comprank--rankings.jpg"
     ],
     "primary_language": "JavaScript",
     "archived": false
@@ -885,9 +885,9 @@
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/tsa",
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/tsa--look-for-yourself.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/tsa--the-big-picture.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/tsa--header.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/tsa--look-for-yourself.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/tsa--the-big-picture.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/tsa--header.jpg"
     ],
     "primary_language": "JavaScript",
     "archived": false
@@ -908,8 +908,8 @@
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/tutf-trends",
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/tutf-trends--chris-400m.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/tutf-trends--chris-600m.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/tutf-trends--chris-400m.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/tutf-trends--chris-600m.jpg"
     ],
     "primary_language": "JavaScript",
     "archived": false
@@ -930,9 +930,9 @@
     "download_link": null,
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/pci-mine.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/pci-original.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/pci-paper.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/pci-mine.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/pci-original.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/pci-paper.jpg"
     ],
     "primary_language": "JavaScript",
     "archived": false
@@ -972,11 +972,11 @@
     "download_link": null,
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/semigenre--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/semigenre--02.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/semigenre--03.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/semigenre--04.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/semigenre--05.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/semigenre--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/semigenre--02.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/semigenre--03.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/semigenre--04.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/semigenre--05.jpg"
     ],
     "primary_language": "Python",
     "archived": false
@@ -1016,8 +1016,8 @@
     "download_link": null,
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/dependy--dependy-graph.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/dependy--semigenre-graph.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/dependy--dependy-graph.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/dependy--semigenre-graph.jpg"
     ],
     "primary_language": "Python",
     "archived": false
@@ -1133,9 +1133,9 @@
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/triple-town",
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/triple-town--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/triple-town--02.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/triple-town--03.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/triple-town--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/triple-town--02.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/triple-town--03.jpg"
     ],
     "primary_language": "JavaScript",
     "archived": false
@@ -1212,7 +1212,7 @@
     "source_link": "https://github.com/gregorybchris/big-life",
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/big-life",
-    "image_links": ["https://storage.googleapis.com/chris-gregory/projects/images/big-life--01.jpg"],
+    "image_links": ["https://storage.googleapis.com/cgme/projects/images/big-life--01.jpg"],
     "primary_language": "TypeScript",
     "archived": false
   },
@@ -1232,8 +1232,8 @@
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/orbit",
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/orbit--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/orbit--02.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/orbit--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/orbit--02.jpg"
     ],
     "primary_language": "JavaScript",
     "archived": false
@@ -1254,10 +1254,10 @@
     "download_link": null,
     "web_link": null,
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/contraction--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/contraction--02.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/contraction--03.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/contraction--04.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/contraction--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/contraction--02.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/contraction--03.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/contraction--04.jpg"
     ],
     "primary_language": "Python",
     "archived": false
@@ -1278,8 +1278,8 @@
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/ants/demo",
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/ants--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/ants--02.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/ants--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/ants--02.jpg"
     ],
     "primary_language": "TypeScript",
     "archived": false
@@ -1300,8 +1300,8 @@
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/chladni/demo",
     "image_links": [
-      "https://storage.googleapis.com/chris-gregory/projects/images/chladni--01.jpg",
-      "https://storage.googleapis.com/chris-gregory/projects/images/chladni--02.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/chladni--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/chladni--02.jpg"
     ],
     "primary_language": "TypeScript",
     "archived": false

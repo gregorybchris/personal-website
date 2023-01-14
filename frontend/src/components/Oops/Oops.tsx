@@ -12,7 +12,7 @@ export default function Oops() {
           object-fit="cover"
           alt="oops"
           className="Oops-image"
-          src="https://storage.googleapis.com/chris-gregory/bio/profiles/wide-eyes-profile.jpg"
+          src="https://storage.googleapis.com/cgme/bio/profiles/wide-eyes-profile.jpg"
         />
       </div>
     </div>

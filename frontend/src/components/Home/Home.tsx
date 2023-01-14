@@ -50,7 +50,7 @@ export default function Home() {
           <img
             className="Home-profile-image"
             alt="Profile"
-            src="https://storage.googleapis.com/chris-gregory/bio/profiles/mountains-profile-2.jpg"
+            src="https://storage.googleapis.com/cgme/bio/profiles/mountains-profile-2.jpg"
           />
         </div>
       </div>
