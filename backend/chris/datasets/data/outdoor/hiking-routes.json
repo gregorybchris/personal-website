@@ -477,7 +477,7 @@
   },
   {
     "route_id": "9202449d-a3d2-4450-8c5b-c9198430cf38",
-    "name": "Stonewall-Panoramic Trail - Caparral Peak",
+    "name": "Stonewall-Panoramic Trail - Chaparral Peak",
     "slug": "caparral-peak",
     "dates": ["2020-12-26"],
     "miles": 5.1,
@@ -1117,6 +1117,23 @@
       "latitude": 47.573165,
       "longitude": -123.569046,
       "formatted": "47/34/23.4/N 123/34/08.6/W"
+    }
+  },
+  {
+    "route_id": "960c5660-ad9e-44ad-9aee-a83cf5d8ea1d",
+    "name": "Point Pinole Regional Shoreline",
+    "slug": "point-pinole",
+    "dates": ["2023-01-27"],
+    "miles": 4,
+    "elevation": 130,
+    "area": "Richmond",
+    "region": "California",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 37.991487,
+      "longitude": -122.355324,
+      "formatted": "37/59/29.4/N 122/21/19.2/W"
     }
   }
 ]
