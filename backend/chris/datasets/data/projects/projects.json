@@ -1321,7 +1321,10 @@
     "source_link": "https://github.com/gregorybchris/decidio",
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/decidio/demo",
-    "image_links": [],
+    "image_links": [
+      "https://storage.googleapis.com/cgme/projects/images/decidio--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/decidio--02.jpg"
+    ],
     "primary_language": "TypeScript",
     "archived": false
   }
