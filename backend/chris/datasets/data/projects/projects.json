@@ -1305,5 +1305,24 @@
     ],
     "primary_language": "TypeScript",
     "archived": false
+  },
+  {
+    "project_id": "8ec826b8-8f3b-400a-917d-d162514b7d8b",
+    "name": "Decidio",
+    "slug": "decidio",
+    "date": "2023-02-03",
+    "rating": 5,
+    "project_type": "web",
+    "use_type": "tool",
+    "controls": null,
+    "description": "Little web tool to help you make hard decisions. Fill out your options and the criteria you care about and decidio will help you reason about the best choice.",
+    "remarks": null,
+    "tags": ["decision", "choice", "options", "preferences", "uncertainty"],
+    "source_link": "https://github.com/gregorybchris/decidio",
+    "download_link": null,
+    "web_link": "https://static.chrisgregory.me/decidio/demo",
+    "image_links": [],
+    "primary_language": "TypeScript",
+    "archived": false
   }
 ]
