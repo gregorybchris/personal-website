@@ -1375,7 +1375,7 @@
     "project_type": "web",
     "use_type": "tool",
     "controls": null,
-    "description": "Boids flocking simulation with a QuadTree data structure.",
+    "description": "Boids flocking simulation with an optional quadtree visualization.",
     "remarks": null,
     "tags": ["visualization", "boids", "quadtree", "space", "partitioning"],
     "source_link": "https://github.com/gregorybchris/quad",
