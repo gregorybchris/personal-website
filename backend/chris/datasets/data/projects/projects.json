@@ -1373,7 +1373,7 @@
     "date": "2023-03-11",
     "rating": 5,
     "project_type": "web",
-    "use_type": "tool",
+    "use_type": "visualization",
     "controls": null,
     "description": "Boids flocking simulation with an optional quadtree visualization.",
     "remarks": null,
