@@ -1217,6 +1217,25 @@
     "archived": false
   },
   {
+    "project_id": "ba5994d6-dc3e-4623-8d77-2d70e81c484d",
+    "name": "hlucb",
+    "slug": "hlucb",
+    "date": "2022-01-09",
+    "rating": 1,
+    "project_type": "program",
+    "use_type": "tool",
+    "controls": null,
+    "description": "A Python implementation of the Hamming-LUCB algorithm from the paper \"Approximate ranking from pairwise comparisons\".",
+    "remarks": null,
+    "tags": ["programming", "comparison", "ranking"],
+    "source_link": "https://github.com/gregorybchris/hlucb",
+    "download_link": null,
+    "web_link": null,
+    "image_links": [],
+    "primary_language": "Python",
+    "archived": false
+  },
+  {
     "project_id": "4e8452f7-cbab-4e91-a29c-1bd45f47e733",
     "name": "Orbit",
     "slug": "orbit",
@@ -1324,6 +1343,47 @@
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/decidio--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/decidio--02.jpg"
+    ],
+    "primary_language": "TypeScript",
+    "archived": false
+  },
+  {
+    "project_id": "28e421c5-9424-48a2-a1cf-4c12f951c10b",
+    "name": "BFPRT",
+    "slug": "bfprt",
+    "date": "2023-02-19",
+    "rating": 1,
+    "project_type": "program",
+    "use_type": "tool",
+    "controls": null,
+    "description": "Fast median finding with the median of medians selection algorithm, also known as BFPRT - named after the authors of Blum et al. (1973).",
+    "remarks": null,
+    "tags": ["programming", "median", "selection", "algorithm"],
+    "source_link": "https://github.com/gregorybchris/bfprt",
+    "download_link": null,
+    "web_link": null,
+    "image_links": [],
+    "primary_language": "Python",
+    "archived": false
+  },
+  {
+    "project_id": "cc12891f-1bf0-4603-b8ad-f5a03f09c67e",
+    "name": "Quad",
+    "slug": "quad",
+    "date": "2023-03-11",
+    "rating": 5,
+    "project_type": "web",
+    "use_type": "tool",
+    "controls": null,
+    "description": "Boids flocking simulation with a QuadTree data structure.",
+    "remarks": null,
+    "tags": ["visualization", "boids", "quadtree", "space", "partitioning"],
+    "source_link": "https://github.com/gregorybchris/quad",
+    "download_link": null,
+    "web_link": "https://static.chrisgregory.me/quad/demo",
+    "image_links": [
+      "https://storage.googleapis.com/cgme/projects/images/quad--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/quad--02.jpg"
     ],
     "primary_language": "TypeScript",
     "archived": false
