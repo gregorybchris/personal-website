@@ -1387,5 +1387,27 @@
     ],
     "primary_language": "TypeScript",
     "archived": false
+  },
+  {
+    "project_id": "274bf483-ae8d-4c33-b181-39b820b1400b",
+    "name": "Cado",
+    "slug": "cado",
+    "date": "2023-03-23",
+    "rating": 5,
+    "project_type": "program",
+    "use_type": "tool",
+    "controls": null,
+    "description": "Cado is a notebook IDE with a focus on reactivity. By explicitly defining cell dependencies you get benefits that other notebook IDEs like Jupyter can't provide.",
+    "remarks": null,
+    "tags": ["coding", "development", "environment", "python", "programming"],
+    "source_link": "https://github.com/gregorybchris/cado",
+    "download_link": null,
+    "web_link": null,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/projects/images/cado--notebooks.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/cado--notebook.jpg"
+    ],
+    "primary_language": "Python",
+    "archived": false
   }
 ]
