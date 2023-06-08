@@ -1135,5 +1135,22 @@
       "longitude": -122.355324,
       "formatted": "37/59/29.4/N 122/21/19.2/W"
     }
+  },
+  {
+    "route_id": "b4fab547-93c6-4521-95cf-c24ba2b26cac",
+    "name": "Oyster Dome",
+    "slug": "oyster-dome",
+    "dates": ["2023-05-28"],
+    "miles": 6.5,
+    "elevation": 1900,
+    "area": "Puget Sound And Islands/Bellingham Area",
+    "region": "PNW",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 48.608517,
+      "longitude": -122.433308,
+      "formatted": "48/36/30.7/N 122/25/59.9/W"
+    }
   }
 ]
