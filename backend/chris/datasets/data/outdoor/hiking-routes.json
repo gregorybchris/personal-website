@@ -1152,5 +1152,22 @@
       "longitude": -122.433308,
       "formatted": "48/36/30.7/N 122/25/59.9/W"
     }
+  },
+  {
+    "route_id": "bdcd21bd-1e88-4989-b59c-be0df1f16067",
+    "name": "Yellow Aster Butte",
+    "slug": "yellow-aster-butte",
+    "dates": ["2023-07-22"],
+    "miles": 7.5,
+    "elevation": 2550,
+    "area": "North Cascades/Mount Baker Area",
+    "region": "PNW",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 48.943309,
+      "longitude": -121.662679,
+      "formatted": "48/56/35.9/N 121/39/45.6/W"
+    }
   }
 ]
