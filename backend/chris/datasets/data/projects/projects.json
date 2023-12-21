@@ -1422,7 +1422,7 @@
     "description": "Hub for boathouse and rowing logistics. A web app to enable members of rowing boathouses to quickly generate lineups for practices.",
     "remarks": null,
     "tags": ["rowing", "boathouse", "lineups", "generator", "seat", "race", "erg"],
-    "source_link": "https://github.com/gregorybchris/engineroom",
+    "source_link": null,
     "download_link": null,
     "web_link": null,
     "image_links": [
