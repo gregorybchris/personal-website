@@ -1409,5 +1409,28 @@
     ],
     "primary_language": "Python",
     "archived": false
+  },
+  {
+    "project_id": "8df1ea6d-6fd0-451e-8928-65b9d12b2a72",
+    "name": "EngineRoom",
+    "slug": "engineroom",
+    "date": "2023-11-11",
+    "rating": 7,
+    "project_type": "web",
+    "use_type": "tool",
+    "controls": null,
+    "description": "Hub for boathouse and rowing logistics. A web app to enable members of rowing boathouses to quickly generate lineups for practices.",
+    "remarks": null,
+    "tags": ["rowing", "boathouse", "lineups", "generator", "seat", "race", "erg"],
+    "source_link": "https://github.com/gregorybchris/engineroom",
+    "download_link": null,
+    "web_link": null,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/projects/images/engineroom--01.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/engineroom--02.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/engineroom--03.jpg"
+    ],
+    "primary_language": "TypeScript",
+    "archived": false
   }
 ]
