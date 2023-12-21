@@ -1304,6 +1304,25 @@
     "archived": false
   },
   {
+    "project_id": "bebb901b-a937-4b27-aef0-704d0ff162c1",
+    "name": "Wavelength",
+    "slug": "wavelength",
+    "date": "2022-11-25",
+    "rating": 5,
+    "project_type": "program",
+    "use_type": "game",
+    "controls": "Press enter to generate a new turn.",
+    "description": "Command line clone of the Wavelength board game. Generate prompts to play Wavelength from anywhere.",
+    "remarks": null,
+    "tags": ["board", "game", "guess", "spectrum", "extreme"],
+    "source_link": "https://github.com/gregorybchris/wavelength",
+    "download_link": null,
+    "web_link": null,
+    "image_links": [],
+    "primary_language": "Python",
+    "archived": false
+  },
+  {
     "project_id": "d711b3f1-e998-4f45-aee2-204713efdd2f",
     "name": "Chladni",
     "slug": "chladni",
