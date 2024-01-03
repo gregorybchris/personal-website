@@ -11,11 +11,12 @@ interface BookProps {
 export default function Book(props: BookProps) {
   const imageLinks = props.book.image_links;
   const imageLink = props.bookShape == "square" ? imageLinks.square : imageLinks.book;
+  const timestamp = Date.now();
   return (
     <div className="mb-4">
       <a href={props.book.goodreads_link} target="_blank">
         <div className="py-4 flex justify-center">
-          <img src={`${imageLink}?a=3`} className="w-48" />
+          <img src={`${imageLink}?a=${timestamp}`} className="w-48" />
         </div>
 
         <div className="font-bold text-center">{props.book.title}</div>
