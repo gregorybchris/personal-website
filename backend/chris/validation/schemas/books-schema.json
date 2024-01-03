@@ -35,13 +35,8 @@
             "format": { "type": "regex", "pattern": "^.{5,32}$" }
           }
         },
-        "year_read": {
-          "type": "number",
-          "cons": {
-            "gte": 1995,
-            "lte": 2100
-          }
-        },
+        "year_published": "#year",
+        "year_read": "#year",
         "recommendability": {
           "type": "number",
           "cons": {
@@ -74,6 +69,13 @@
         "format": { "type": "regex", "pattern": "^http[s]?://" },
         "min_length": 5,
         "max_length": 120
+      }
+    },
+    "#year": {
+      "type": "number",
+      "cons": {
+        "gte": 0,
+        "lte": 2050
       }
     }
   }
