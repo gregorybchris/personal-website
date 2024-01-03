@@ -16,7 +16,7 @@ export default function Book(props: BookProps) {
     <div className="mb-4">
       <a href={props.book.goodreads_link} target="_blank">
         <div className="py-4 flex justify-center">
-          <img src={`${imageLink}?a=${timestamp}`} className="w-48" />
+          <img src={`${imageLink}?a=${timestamp}`} className="w-48 border-2 border-dark-background" />
         </div>
 
         <div className="font-bold text-center">{props.book.title}</div>

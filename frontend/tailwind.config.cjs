@@ -13,6 +13,7 @@ module.exports = {
         "text-1": "rgb(60, 60, 60)",
         "text-2": "rgb(107, 107, 106)",
         "text-3": "rgb(10, 10, 10)",
+        "dark-background": "rgb(215, 215, 210)",
       },
       gridTemplateColumns: {
         1: "repeat(1, minmax(0, 1fr))",
