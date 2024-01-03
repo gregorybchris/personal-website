@@ -57,7 +57,22 @@
               "in": ["short", "science", "philosophy"]
             }
           }
+        },
+        "image_links": {
+          "type": "object",
+          "attr": {
+            "book": "#link",
+            "square": "#link"
+          }
         }
+      }
+    },
+    "#link": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^http[s]?://" },
+        "min_length": 5,
+        "max_length": 120
       }
     }
   }

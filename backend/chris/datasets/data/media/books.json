@@ -6,7 +6,11 @@
     "author": "Carlo Rovelli",
     "year_read": 2019,
     "recommendability": 10,
-    "tags": ["short", "science"]
+    "tags": ["short", "science"],
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/seven-brief-lessons-on-physics.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/seven-brief-lessons-on-physics.jpg"
+    }
   },
   {
     "isbn": "978-1451683400",
@@ -15,7 +19,11 @@
     "author": "Sam Harris",
     "year_read": 2013,
     "recommendability": 5,
-    "tags": ["short", "philosophy"]
+    "tags": ["short", "philosophy"],
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/free-will.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/free-will.jpg"
+    }
   },
   {
     "isbn": "978-1940051000",
@@ -24,7 +32,11 @@
     "author": "Sam Harris",
     "year_read": 2014,
     "recommendability": 6,
-    "tags": ["short", "philosophy"]
+    "tags": ["short", "philosophy"],
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/lying.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/lying.jpg"
+    }
   },
   {
     "isbn": "978-0061949135",
@@ -33,7 +45,11 @@
     "author": "C. S. Lewis",
     "year_read": 2015,
     "recommendability": 3,
-    "tags": ["short", "philosophy"]
+    "tags": ["short", "philosophy"],
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/the-abolition-of-man.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/the-abolition-of-man.jpg"
+    }
   },
   {
     "isbn": "978-1476731711",
@@ -42,7 +58,11 @@
     "author": "James Carse",
     "year_read": 2019,
     "recommendability": 9,
-    "tags": ["short", "philosophy"]
+    "tags": ["short", "philosophy"],
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/finite-and-infinite-games.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/finite-and-infinite-games.jpg"
+    }
   },
   {
     "isbn": "978-0190871338",
@@ -51,7 +71,11 @@
     "author": "Stuart A. Kauffman",
     "year_read": 2021,
     "recommendability": 8,
-    "tags": ["short", "science"]
+    "tags": ["short", "science"],
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/a-world-beyond-physics.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/a-world-beyond-physics.jpg"
+    }
   },
   {
     "isbn": "978-1947864146",
@@ -60,7 +84,11 @@
     "author": "David C. Krakauer",
     "year_read": 2019,
     "recommendability": 8,
-    "tags": ["science"]
+    "tags": ["science"],
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/worlds-hidden-in-plain-sight.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/worlds-hidden-in-plain-sight.jpg"
+    }
   },
   {
     "isbn": "978-0735216112",
@@ -69,7 +97,11 @@
     "author": "Carlo Rovelli",
     "year_read": 2019,
     "recommendability": 8,
-    "tags": ["science"]
+    "tags": ["science"],
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/the-order-of-time.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/the-order-of-time.jpg"
+    }
   },
   {
     "isbn": "978-0393254693",
@@ -78,7 +110,11 @@
     "author": "Donald Hoffman",
     "year_read": 2020,
     "recommendability": 7,
-    "tags": ["philosophy"]
+    "tags": ["philosophy"],
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/the-case-against-reality.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/the-case-against-reality.jpg"
+    }
   },
   {
     "isbn": "978-0393355505",
@@ -87,7 +123,11 @@
     "author": "Daniel C. Dennett",
     "year_read": 2018,
     "recommendability": 7,
-    "tags": ["philosophy", "science"]
+    "tags": ["philosophy", "science"],
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/from-bacteria-to-bach-and-back.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/from-bacteria-to-bach-and-back.jpg"
+    }
   },
   {
     "isbn": "978-0465026562",
@@ -96,7 +136,11 @@
     "author": "Douglas R. Hofstadter",
     "year_read": 2020,
     "recommendability": 6,
-    "tags": ["philosophy"]
+    "tags": ["philosophy"],
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/godel-escher-bach.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/godel-escher-bach.jpg"
+    }
   },
   {
     "isbn": "978-0465085736",
@@ -105,7 +149,11 @@
     "author": "Albert-László Barabási",
     "year_read": 2014,
     "recommendability": 9,
-    "tags": ["science"]
+    "tags": ["science"],
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/linked.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/linked.jpg"
+    }
   },
   {
     "isbn": "978-0226470993",
@@ -114,7 +162,11 @@
     "author": "George Lakoff",
     "year_read": 2022,
     "recommendability": 7,
-    "tags": ["philosophy"]
+    "tags": ["philosophy"],
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/metaphors-we-live-by.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/metaphors-we-live-by.jpg"
+    }
   },
   {
     "isbn": "978-0142003848",
@@ -123,7 +175,11 @@
     "author": "Daniel C. Dennett",
     "year_read": 2015,
     "recommendability": 6,
-    "tags": ["philosophy", "science"]
+    "tags": ["philosophy", "science"],
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/freedom-evolves.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/freedom-evolves.jpg"
+    }
   },
   {
     "isbn": "978-1101970317",
@@ -132,7 +188,11 @@
     "author": "Max Tegmark",
     "year_read": 2018,
     "recommendability": 8,
-    "tags": ["science"]
+    "tags": ["science"],
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/life-3.0.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/life-3.0.jpg"
+    }
   },
   {
     "isbn": "978-0387947914",
@@ -141,7 +201,11 @@
     "author": "Per Bak",
     "year_read": 2022,
     "recommendability": 7,
-    "tags": ["science"]
+    "tags": ["science"],
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/how-nature-works.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/how-nature-works.jpg"
+    }
   },
   {
     "isbn": "978-0198788607",
@@ -150,6 +214,10 @@
     "author": "Richard Dawkins",
     "year_read": 2022,
     "recommendability": 6,
-    "tags": ["science"]
+    "tags": ["science"],
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/the-selfish-gene.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/the-selfish-gene.jpg"
+    }
   }
 ]
