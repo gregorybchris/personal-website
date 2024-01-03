@@ -36,6 +36,7 @@
           }
         },
         "year_published": "#year",
+        "pages": "number",
         "year_read": "#year",
         "recommendability": {
           "type": "number",
