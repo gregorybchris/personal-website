@@ -6,4 +6,9 @@ export default interface BookData {
   year_read: number;
   recommendability: number;
   tags: string[];
+  goodreads_link: string;
+  image_links: {
+    book: string;
+    square: string;
+  };
 }
