@@ -7,6 +7,7 @@
     "year_read": 2019,
     "recommendability": 10,
     "tags": ["short", "science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/25734172-seven-brief-lessons-on-physics",
     "image_links": {
       "book": "https://storage.googleapis.com/cgme/books/book/seven-brief-lessons-on-physics.jpg",
       "square": "https://storage.googleapis.com/cgme/books/square/seven-brief-lessons-on-physics.jpg"
@@ -20,6 +21,7 @@
     "year_read": 2013,
     "recommendability": 5,
     "tags": ["short", "philosophy"],
+    "goodreads_link": "https://www.goodreads.com/book/show/13259270-free-will",
     "image_links": {
       "book": "https://storage.googleapis.com/cgme/books/book/free-will.jpg",
       "square": "https://storage.googleapis.com/cgme/books/square/free-will.jpg"
@@ -33,6 +35,7 @@
     "year_read": 2014,
     "recommendability": 6,
     "tags": ["short", "philosophy"],
+    "goodreads_link": "https://www.goodreads.com/book/show/18869177-lying",
     "image_links": {
       "book": "https://storage.googleapis.com/cgme/books/book/lying.jpg",
       "square": "https://storage.googleapis.com/cgme/books/square/lying.jpg"
@@ -46,6 +49,7 @@
     "year_read": 2015,
     "recommendability": 3,
     "tags": ["short", "philosophy"],
+    "goodreads_link": "https://www.goodreads.com/book/show/25825420-the-abolition-of-man",
     "image_links": {
       "book": "https://storage.googleapis.com/cgme/books/book/the-abolition-of-man.jpg",
       "square": "https://storage.googleapis.com/cgme/books/square/the-abolition-of-man.jpg"
@@ -59,6 +63,7 @@
     "year_read": 2019,
     "recommendability": 9,
     "tags": ["short", "philosophy"],
+    "goodreads_link": "https://www.goodreads.com/book/show/189989.Finite_and_Infinite_Games",
     "image_links": {
       "book": "https://storage.googleapis.com/cgme/books/book/finite-and-infinite-games.jpg",
       "square": "https://storage.googleapis.com/cgme/books/square/finite-and-infinite-games.jpg"
@@ -72,6 +77,7 @@
     "year_read": 2021,
     "recommendability": 8,
     "tags": ["short", "science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/41542080-a-world-beyond-physics",
     "image_links": {
       "book": "https://storage.googleapis.com/cgme/books/book/a-world-beyond-physics.jpg",
       "square": "https://storage.googleapis.com/cgme/books/square/a-world-beyond-physics.jpg"
@@ -85,6 +91,7 @@
     "year_read": 2019,
     "recommendability": 8,
     "tags": ["science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/45700960-worlds-hidden-in-plain-sight",
     "image_links": {
       "book": "https://storage.googleapis.com/cgme/books/book/worlds-hidden-in-plain-sight.jpg",
       "square": "https://storage.googleapis.com/cgme/books/square/worlds-hidden-in-plain-sight.jpg"
@@ -98,6 +105,7 @@
     "year_read": 2019,
     "recommendability": 8,
     "tags": ["science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/36442813-the-order-of-time",
     "image_links": {
       "book": "https://storage.googleapis.com/cgme/books/book/the-order-of-time.jpg",
       "square": "https://storage.googleapis.com/cgme/books/square/the-order-of-time.jpg"
@@ -111,6 +119,7 @@
     "year_read": 2020,
     "recommendability": 7,
     "tags": ["philosophy"],
+    "goodreads_link": "https://www.goodreads.com/book/show/41817484-the-case-against-reality",
     "image_links": {
       "book": "https://storage.googleapis.com/cgme/books/book/the-case-against-reality.jpg",
       "square": "https://storage.googleapis.com/cgme/books/square/the-case-against-reality.jpg"
@@ -124,6 +133,7 @@
     "year_read": 2018,
     "recommendability": 7,
     "tags": ["philosophy", "science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/35167699-from-bacteria-to-bach-and-back",
     "image_links": {
       "book": "https://storage.googleapis.com/cgme/books/book/from-bacteria-to-bach-and-back.jpg",
       "square": "https://storage.googleapis.com/cgme/books/square/from-bacteria-to-bach-and-back.jpg"
@@ -137,6 +147,7 @@
     "year_read": 2020,
     "recommendability": 6,
     "tags": ["philosophy"],
+    "goodreads_link": "https://www.goodreads.com/book/show/24113.G_del_Escher_Bach",
     "image_links": {
       "book": "https://storage.googleapis.com/cgme/books/book/godel-escher-bach.jpg",
       "square": "https://storage.googleapis.com/cgme/books/square/godel-escher-bach.jpg"
@@ -150,6 +161,7 @@
     "year_read": 2014,
     "recommendability": 9,
     "tags": ["science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/154293.Linked",
     "image_links": {
       "book": "https://storage.googleapis.com/cgme/books/book/linked.jpg",
       "square": "https://storage.googleapis.com/cgme/books/square/linked.jpg"
@@ -163,6 +175,7 @@
     "year_read": 2022,
     "recommendability": 7,
     "tags": ["philosophy"],
+    "goodreads_link": "https://www.goodreads.com/book/show/34459.Metaphors_We_Live_By",
     "image_links": {
       "book": "https://storage.googleapis.com/cgme/books/book/metaphors-we-live-by.jpg",
       "square": "https://storage.googleapis.com/cgme/books/square/metaphors-we-live-by.jpg"
@@ -176,6 +189,7 @@
     "year_read": 2015,
     "recommendability": 6,
     "tags": ["philosophy", "science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/2071.Freedom_Evolves",
     "image_links": {
       "book": "https://storage.googleapis.com/cgme/books/book/freedom-evolves.jpg",
       "square": "https://storage.googleapis.com/cgme/books/square/freedom-evolves.jpg"
@@ -189,6 +203,7 @@
     "year_read": 2018,
     "recommendability": 8,
     "tags": ["science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/34272565-life-3-0",
     "image_links": {
       "book": "https://storage.googleapis.com/cgme/books/book/life-3.0.jpg",
       "square": "https://storage.googleapis.com/cgme/books/square/life-3.0.jpg"
@@ -202,6 +217,7 @@
     "year_read": 2022,
     "recommendability": 7,
     "tags": ["science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/869836.How_Nature_Works",
     "image_links": {
       "book": "https://storage.googleapis.com/cgme/books/book/how-nature-works.jpg",
       "square": "https://storage.googleapis.com/cgme/books/square/how-nature-works.jpg"
@@ -215,6 +231,7 @@
     "year_read": 2022,
     "recommendability": 6,
     "tags": ["science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/61535.The_Selfish_Gene",
     "image_links": {
       "book": "https://storage.googleapis.com/cgme/books/book/the-selfish-gene.jpg",
       "square": "https://storage.googleapis.com/cgme/books/square/the-selfish-gene.jpg"

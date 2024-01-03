@@ -58,6 +58,7 @@
             }
           }
         },
+        "goodreads_link": "#link",
         "image_links": {
           "type": "object",
           "attr": {
