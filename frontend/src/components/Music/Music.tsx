@@ -8,17 +8,14 @@ export default function Music() {
       <div className="Music-header">
         <div className="Music-title">Music</div>
         <div className="Music-about">
-          Here's a collection of the songs I'm into right now in no particular order. If you have a music recommendation
-          for me based on what you find here please send me a message with my{" "}
+          Spotify is getting scary good at recommending music. But a song from a human being is an infinitely more
+          precious gift. Even if you're into something totally different, shoot me a link with my{" "}
           <Link className="Common-simple-link" to="/contact">
             Contact
           </Link>{" "}
-          page! I love getting new music from people with similar taste.
+          page!
         </div>
-        <div className="Music-about">
-          To hear the full songs you'll need to log into a Spotify account either in your browser or in the Spotify
-          desktop/mobile app.
-        </div>
+        <div className="Music-about">Click on the album cover below to listen to full songs.</div>
       </div>
       <div className="Music-spotify">
         <iframe

@@ -77,7 +77,7 @@ export default function RunningRoutes() {
 
       <div className="RunningRoutes-routes">
         <table className="Common-table">
-          <thead className="Common-table-header">
+          <thead className="Common-table-header RunningRoutes-routes-table-header">
             <tr className="Common-table-row">
               <td className="Common-table-cell">
                 <span className="Common-table-header-cell-text">Route</span>
@@ -93,7 +93,7 @@ export default function RunningRoutes() {
               </td>
             </tr>
           </thead>
-          <tbody className="Common-table-body">
+          <tbody className="Common-table-body RunningRoutes-routes-table-body">
             {routes.map((route, routeNumber) => (
               <tr className="Common-table-row" key={routeNumber}>
                 <td className="Common-table-cell Common-simple-link" onClick={() => onSelectRoute(route)}>

@@ -109,9 +109,9 @@ export default function Blog() {
         ) : (
           <div className="Blog-about">
             <div className="Blog-about-section">
-              Topics range from art to neuroscience and philosophy to physics. I try to reserve posts here for stuff
-              that made me think differently, new paradigms rather than new facts. Videos and articles that meet that
-              criteria have a tendency to be pretty long, so judge for yourself if any are worth it.
+              Topics range from art to neuroscience and philosophy to physics. I try to reserve posts here for videos
+              and articles that made me think differently, new paradigms rather than new facts. Stuff that meets that
+              standard tends to be a bit longer, but personally I'd take that deal any day.
             </div>
           </div>
         )}

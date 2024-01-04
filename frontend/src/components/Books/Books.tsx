@@ -40,8 +40,10 @@ export default function Books() {
       <div className="w-4/5">
         <div className="font-noto text-text-1 text-3xl font-bold mb-5 text-center">Books</div>
         <div className="text-text-1 pb-5 text-center">
-          I don't consider myself a huge reader, but I do try to get a couple in every year. Here are some books I
-          enjoyed!
+          Sharing books can be a dangerous game, the knife's edge between a mind transformed and the most dreadful
+          obligation of assigned reading. And book preferences are wonderfully personal. My own literary corner would no
+          doubt be considered niche to many people. But if, on the off chance, you're a fan of one of the titles below
+          you might consider picking up another, not assigned, obligation free.
         </div>
       </div>
 
