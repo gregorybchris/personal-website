@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Book from "./Book";
 import BookData from "./BookData";
 import BookTag from "./BookTag";
+import { cn } from "../../utilities/styleUtilities";
 
 export default function Books() {
   const [books, setBooks] = useState<BookData[]>([]);
@@ -46,16 +47,22 @@ export default function Books() {
 
       <div className="flex flex-row justify-between gap-2 mt-2">
         <div
-          className="cursor-pointer hover:border-accent-focus border-accent border-2 transition-all"
+          className={cn(
+            "cursor-pointer hover:border-accent-focus border-accent border-2 transition-all",
+            bookShape == "book" && "bg-accent"
+          )}
           onClick={() => setBookShape("book")}
         >
-          <BooksIcon size={32} />
+          <BooksIcon size={32} color={bookShape == "book" ? "white" : "black"} />
         </div>
         <div
-          className="cursor-pointer hover:border-accent-focus border-accent border-2 transition-all"
+          className={cn(
+            "cursor-pointer hover:border-accent-focus border-accent border-2 transition-all",
+            bookShape == "square" && "bg-accent"
+          )}
           onClick={() => setBookShape("square")}
         >
-          <SquaresFour size={32} />
+          <SquaresFour size={32} color={bookShape == "square" ? "white" : "black"} />
         </div>
       </div>
 
@@ -65,7 +72,14 @@ export default function Books() {
         ))}
       </div>
 
-      <div className="w-4/5 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 pt-5 justify-items-center">
+      <div
+        className={cn(
+          "w-4/5 grid pt-5 justify-items-center",
+          bookShape == "square"
+            ? "grid-cols-1 md:grid-cols-3 lg:grid-cols-4"
+            : "grid-cols-1 md:grid-cols-4 lg:grid-cols-5"
+        )}
+      >
         {books
           .filter((book) => activeTags.length == 0 || activeTags.every((tag) => book.tags.includes(tag)))
           .sort((bookA, bookB) => bookB.recommendability - bookA.recommendability)

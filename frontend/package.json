@@ -12,6 +12,7 @@
     "@fontsource/noto-serif-tc": "^4.5.12",
     "@fontsource/raleway": "^4.5.11",
     "@phosphor-icons/react": "^2.0.15",
+    "clsx": "^2.1.0",
     "d3": "^7.6.1",
     "d3-force": "^3.0.0",
     "leaflet": "^1.9.3",
@@ -20,7 +21,8 @@
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.1.0",
     "react-router-dom": "^6.4.3",
-    "seedrandom": "^3.0.5"
+    "seedrandom": "^3.0.5",
+    "tailwind-merge": "^2.2.0"
   },
   "devDependencies": {
     "@types/d3": "^7.4.0",
