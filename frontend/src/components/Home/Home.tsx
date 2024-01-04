@@ -17,33 +17,27 @@ export default function Home() {
 
       <div className="Home-section-content-info">
         <div className="Home-content-info-wrap">
-          <div className="Home-content-info-box">
-            <div className="Home-content-info-title-wrap">
-              <Link className="Home-content-info-title" to="/running">
-                Running
-              </Link>
-            </div>
-            <div className="Home-content-info-text">
-              Check out some of my favorite running routes in Boston, Seattle, and Indianapolis.
-            </div>
-            <Link className="Home-content-info-title" to="/running">
+          <Link to="/running">
+            <div className="Home-content-info-box">
+              <div className="Home-content-info-title">Running</div>
+              <div className="Home-content-info-text">
+                Check out some of my favorite running routes in Boston, Seattle, and Indianapolis.
+              </div>
               <img className="Home-content-info-icon Home-content-info-shoe-icon" src={shoeIcon} alt="" />
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
 
         <div className="Home-content-info-wrap">
-          <div className="Home-content-info-box">
-            <div className="Home-content-info-title-wrap">
-              <Link className="Home-content-info-title" to="/music">
-                Music
-              </Link>
-            </div>
-            <div className="Home-content-info-text">The latest and greatest tunes from my public Spotify playlist.</div>
-            <Link className="Home-content-info-title" to="/music">
+          <Link to="/music">
+            <div className="Home-content-info-box">
+              <div className="Home-content-info-title">Music</div>
+              <div className="Home-content-info-text">
+                The latest and greatest tunes from my public Spotify playlist.
+              </div>
               <img className="Home-content-info-icon Home-content-info-notes-icon" src={notesIcon} alt="" />
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
 
         <div className="Home-content-info-wrap">
