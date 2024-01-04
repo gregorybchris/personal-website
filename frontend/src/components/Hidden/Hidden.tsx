@@ -20,9 +20,6 @@ export default function Hidden() {
           <Link to="/hidden/blog-graph" className="Hidden-page-link">
             <div className="Hidden-page-link-box">Blog Graph</div>
           </Link>
-          <Link to="/hidden/books" className="Hidden-page-link">
-            <div className="Hidden-page-link-box">Books</div>
-          </Link>
           <Link to="/hidden/places" className="Hidden-page-link">
             <div className="Hidden-page-link-box">Places</div>
           </Link>

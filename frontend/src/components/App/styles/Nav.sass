@@ -4,6 +4,9 @@
   background-color: $background-color
   padding: 12px 25px
 
+.Nav-row
+  display: inline-block
+
 .Nav-page-link
   font-family: $secondary-font
   font-size: 16px
@@ -17,11 +20,11 @@
 
 @media screen and (min-width: 200px) and (max-width: 640px)
   .Nav
+    justify-content: center
     text-align: center
-    padding: 12px 0px
 
   .Nav-page-link
-    font-size: 14px
+    font-size: 16px
 
 .Nav-page-link.current
   border-bottom: 1px solid $accent-color
