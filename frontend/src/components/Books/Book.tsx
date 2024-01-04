@@ -21,7 +21,7 @@ export default function Book(props: BookProps) {
           <img
             src={`${imageLink}?a=${timestamp}`}
             className={cn(
-              "border-2 border-dark-background",
+              "border-2 border-dark-background hover:border-accent transition-all",
               isSquare ? "h-[300px] md:h-[200px]" : "h-[300px] md:h-[250px]"
             )}
           />
