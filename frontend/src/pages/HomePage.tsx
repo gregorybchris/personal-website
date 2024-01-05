@@ -44,7 +44,8 @@ export function HomePage() {
                 <MusicNotes size={40} weight="light" color="#6283C0" />
               </div>
               <div className="text-md block pt-4 text-left font-raleway text-text-2">
-                The latest and greatest tunes from my public Spotify playlist.
+                Listen to a playlist of the songs I've been listening to
+                recently.
               </div>
             </div>
           </Link>
