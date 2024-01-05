@@ -3,7 +3,7 @@ import "../styles/projects.css";
 import * as d3 from "d3";
 
 import random, { RNG } from "random";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 import { Project as ProjectModel } from "../models/projectsModels";
 import seedrandom from "seedrandom";
@@ -56,8 +56,12 @@ export function CodeProjectsTimeline(props: CodeProjectsTimelineProps) {
 
     const project = props.currentProject;
     if (project !== null) {
-      d3.selectAll("circle").classed("deselected", true).classed("selected", false);
-      d3.select(getProjectSelector(project)).classed("deselected", false).classed("selected", true);
+      d3.selectAll("circle")
+        .classed("deselected", true)
+        .classed("selected", false);
+      d3.select(getProjectSelector(project))
+        .classed("deselected", false)
+        .classed("selected", true);
     }
 
     return () => {
@@ -128,7 +132,8 @@ export function CodeProjectsTimeline(props: CodeProjectsTimelineProps) {
       });
     });
 
-    const clip = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
+    const clip = (value: number, min: number, max: number) =>
+      Math.max(min, Math.min(max, value));
 
     // Apply forces
     containers.forEach((container) => {
@@ -188,13 +193,17 @@ export function CodeProjectsTimeline(props: CodeProjectsTimelineProps) {
         d3.selectAll("circle").classed("deselected", false);
       });
 
-    const getProjectTimestamp = (project: ProjectModel): number => new Date(project.date).getTime();
+    const getProjectTimestamp = (project: ProjectModel): number =>
+      new Date(project.date).getTime();
 
     const minTimestamp: any = d3.min(props.projects, getProjectTimestamp);
     const maxTimestamp: any = d3.max(props.projects, getProjectTimestamp);
     const xLeft = GraphicsConstants.PADDING_X;
     const xRight = width - GraphicsConstants.PADDING_X;
-    const xScale = d3.scaleLinear().domain([minTimestamp, maxTimestamp]).range([xLeft, xRight]);
+    const xScale = d3
+      .scaleLinear()
+      .domain([minTimestamp, maxTimestamp])
+      .range([xLeft, xRight]);
 
     const uniform = random.uniform(0, 1);
     random.use(seedrandom("0") as unknown as RNG);
@@ -225,15 +234,24 @@ export function CodeProjectsTimeline(props: CodeProjectsTimelineProps) {
       .attr("stroke", (project) => getProjectColor(project.use_type))
       .attr("id", (project) => `project_${project.project_id}`)
       .on("click", (mouseEvent: any, project: any) => {
-        d3.selectAll("circle").classed("deselected", true).classed("selected", false);
-        d3.select(getProjectSelector(project)).classed("deselected", false).classed("selected", true);
+        d3.selectAll("circle")
+          .classed("deselected", true)
+          .classed("selected", false);
+        d3.select(getProjectSelector(project))
+          .classed("deselected", false)
+          .classed("selected", true);
         props.onSelectProject(project);
       });
     circles.append("title").text((d) => d.name);
   }
 
   function getLegend() {
-    const projectTypes = [ProjectTypes.GAME, ProjectTypes.TOOL, ProjectTypes.TUTORIAL, ProjectTypes.VISUALIZATION];
+    const projectTypes = [
+      ProjectTypes.GAME,
+      ProjectTypes.TOOL,
+      ProjectTypes.TUTORIAL,
+      ProjectTypes.VISUALIZATION,
+    ];
     return (
       <div className="my-5 text-center">
         {projectTypes.map((projectType, index) => {
@@ -241,10 +259,10 @@ export function CodeProjectsTimeline(props: CodeProjectsTimelineProps) {
           return (
             <div className="inline-block px-3" key={index}>
               <div
-                className="w-2.5 h-2.5 rounded-full inline-block mr-1"
+                className="mr-1 inline-block h-2.5 w-2.5 rounded-full"
                 style={{ backgroundColor: projectColor }}
               ></div>
-              <div className="font-raleway inline-block">{projectType}</div>
+              <div className="inline-block font-raleway">{projectType}</div>
             </div>
           );
         })}

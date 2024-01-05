@@ -56,17 +56,26 @@ export function BlogGraph() {
       event.subject.fy = null;
     };
 
-    return d3.drag().on("start", dragStarted).on("drag", dragged).on("end", dragEnded);
+    return d3
+      .drag()
+      .on("start", dragStarted)
+      .on("drag", dragged)
+      .on("end", dragEnded);
   }
 
   function getData(posts: PostModel[]): GraphData {
     const nodes = [];
     const links = [];
 
-    let groups = posts.map((post) => (post.areas.length === 0 ? "" : post.areas[0])).filter((v) => v !== "");
+    let groups = posts
+      .map((post) => (post.areas.length === 0 ? "" : post.areas[0]))
+      .filter((v) => v !== "");
     const uniqueGroups = Array.from(new Set(groups));
     const groupNumbers = range(uniqueGroups.length).map((n) => `${n}`);
-    const scale = d3.scaleOrdinal(d3.schemeCategory10).domain(uniqueGroups).range(groupNumbers);
+    const scale = d3
+      .scaleOrdinal(d3.schemeCategory10)
+      .domain(uniqueGroups)
+      .range(groupNumbers);
 
     for (let i = 0; i < posts.length; i++) {
       if (posts[i].areas.length === 0) {
@@ -111,13 +120,15 @@ export function BlogGraph() {
       .forceSimulation(nodes)
       .force(
         "link",
-        d3.forceLink(links).id((d: any) => d.id)
+        d3.forceLink(links).id((d: any) => d.id),
       )
       .force("charge", d3.forceManyBody())
       .force("x", d3.forceX())
       .force("y", d3.forceY());
 
-    const svg = d3.select(currentRef).attr("viewBox", `${-width / 2} ${-height / 2} ${width} ${height}`);
+    const svg = d3
+      .select(currentRef)
+      .attr("viewBox", `${-width / 2} ${-height / 2} ${width} ${height}`);
 
     const link = svg
       .append("g")
@@ -142,7 +153,9 @@ export function BlogGraph() {
         if (length === null) {
           return 6;
         } else {
-          const [hours, minutes, _] = length.split(":").map((v) => parseInt(v, 10));
+          const [hours, minutes, _] = length
+            .split(":")
+            .map((v) => parseInt(v, 10));
           const totalMinutes = hours * 60 + minutes;
           return totalMinutes > 10 ? 9 : 4;
         }
@@ -175,7 +188,7 @@ export function BlogGraph() {
 
   return (
     <div className="BlogExplore">
-      <svg className="w-[95%] h-[600px] block mx-auto" ref={ref}></svg>
+      <svg className="mx-auto block h-[600px] w-[95%]" ref={ref}></svg>
     </div>
   );
 }

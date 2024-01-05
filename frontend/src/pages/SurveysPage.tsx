@@ -90,7 +90,7 @@ export function SurveysPage() {
   function getSurveyElement() {
     if (surveys.length === 0) {
       return (
-        <div className="pt-10 mx-auto text-center">
+        <div className="mx-auto pt-10 text-center">
           <div className="font-raleway text-text-1">Loading surveys...</div>
         </div>
       );
@@ -98,7 +98,7 @@ export function SurveysPage() {
 
     if (current === null || response == null) {
       return (
-        <div className="pt-10 mx-auto text-center">
+        <div className="mx-auto pt-10 text-center">
           <div className="font-raleway text-text-1">
             No more surveys to complete
             <span onClick={onClearCompletedCache}>!</span>
@@ -111,13 +111,13 @@ export function SurveysPage() {
     const isComplete = response.isSurveyComplete();
     const buttonDisabledClass = isComplete ? "" : "disabled";
     return (
-      <div className="w-[80%] md:w-[50%] py-10 text-center mx-auto">
+      <div className="mx-auto w-[80%] py-10 text-center md:w-[50%]">
         <div className="w-full text-left">
-          <div className="mx-auto block text-center md:text-left border-b border-background font-noto text-2xl text-text-1 font-bold pb-1 md:inline md:border-accent">
+          <div className="mx-auto block border-b border-background pb-1 text-center font-noto text-2xl font-bold text-text-1 md:inline md:border-accent md:text-left">
             {survey.name}
           </div>
         </div>
-        <div className="pt-3 pb-4 text-left">
+        <div className="pb-4 pt-3 text-left">
           {survey.questions.map((question, questionNumber) => (
             <SurveyQuestion
               key={questionNumber}
@@ -129,10 +129,12 @@ export function SurveysPage() {
             />
           ))}
         </div>
-        <div className="text-left w-full pb-10">
-          <div className="font-raleway text-text-1 pb-3">Additional information you'd like to provide? (optional)</div>
+        <div className="w-full pb-10 text-left">
+          <div className="pb-3 font-raleway text-text-1">
+            Additional information you'd like to provide? (optional)
+          </div>
           <textarea
-            className="Common-text-field w-full h-[80px]"
+            className="Common-text-field h-[80px] w-full"
             name="feedback"
             value={feedback}
             onChange={onUpdateFeedback}
@@ -140,7 +142,7 @@ export function SurveysPage() {
           />
         </div>
         <div
-          className={`Common-button inline-block mx-auto ${buttonDisabledClass}`}
+          className={`Common-button mx-auto inline-block ${buttonDisabledClass}`}
           onClick={() => onSurveySubmit(survey, response)}
         >
           Submit Opinion
@@ -151,12 +153,15 @@ export function SurveysPage() {
 
   return (
     <div className="bg-background">
-      <div className="w-[80%] mx-auto text-center">
-        <div className="font-noto text-text-1 text-3xl font-bold block mb-5 mt-8">What do you think?</div>
-        <div className="font-raleway text-text-1 block w-[80%] mx-auto">
-          Your responses here are totally anonymous, so take your time and answer honestly. These questions are intended
-          to be fun and thought-provoking. I'll periodically add new surveys, so if you enjoy these, feel free to check
-          back later.
+      <div className="mx-auto w-[80%] text-center">
+        <div className="mb-5 mt-8 block font-noto text-3xl font-bold text-text-1">
+          What do you think?
+        </div>
+        <div className="mx-auto block w-[80%] font-raleway text-text-1">
+          Your responses here are totally anonymous, so take your time and
+          answer honestly. These questions are intended to be fun and
+          thought-provoking. I'll periodically add new surveys, so if you enjoy
+          these, feel free to check back later.
         </div>
       </div>
       {getSurveyElement()}

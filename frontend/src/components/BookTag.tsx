@@ -11,8 +11,8 @@ export function BookTag(props: BookTagProps) {
     <div
       onClick={() => props.onClick(props.tag)}
       className={cn(
-        "px-3 py-1.5 mx-1 text-accent cursor-pointer hover:bg-background-highlight-active hover:text-accent-focus hover:ease-linear duration-150",
-        props.active && "bg-background-highlight"
+        "mx-1 cursor-pointer px-3 py-1.5 text-accent duration-150 hover:bg-background-highlight-active hover:text-accent-focus hover:ease-linear",
+        props.active && "bg-background-highlight",
       )}
     >
       <div className="text-sm">#{props.tag}</div>

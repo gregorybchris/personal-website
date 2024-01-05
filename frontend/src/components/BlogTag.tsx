@@ -6,7 +6,7 @@ interface BlogTagProps {
 export function BlogTag(props: BlogTagProps) {
   return (
     <div
-      className="inline-block mr-1 text-accent py-1 px-3 transition-all cursor-pointer hover:bg-background-highlight hover:text-accent-focus active:bg-background-highlight-active"
+      className="mr-1 inline-block cursor-pointer px-3 py-1 text-accent transition-all hover:bg-background-highlight hover:text-accent-focus active:bg-background-highlight-active"
       onClick={() => props.onClickTag(props.text)}
     >
       <span className="font-raleway text-sm">#{props.text}</span>

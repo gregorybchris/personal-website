@@ -29,7 +29,9 @@ export class Response {
   }
 
   static fromSurvey(survey: Survey) {
-    const choices = survey.questions.map((question) => question.options.map((_) => false));
+    const choices = survey.questions.map((question) =>
+      question.options.map((_) => false),
+    );
     return new Response(survey, choices);
   }
 
@@ -66,7 +68,11 @@ export class Response {
     }
   }
 
-  updateOptionChoice(questionNumber: number, optionNumber: number, choice: boolean = true) {
+  updateOptionChoice(
+    questionNumber: number,
+    optionNumber: number,
+    choice: boolean = true,
+  ) {
     const multiselect = this.survey.questions[questionNumber].multiselect;
     if (!multiselect) {
       this.resetQuestion(questionNumber);

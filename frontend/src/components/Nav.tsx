@@ -9,13 +9,13 @@ function Nav() {
       const { isActive } = params;
       return cn(
         "font-raleway text-md pt-2 px-2 pb-1 mx-1 mb-2 inline-block text-text-1 transition-all border-b border-transparent hover:text-text-3",
-        isActive && "border-accent"
+        isActive && "border-accent",
       );
     };
   }
 
   return (
-    <div className="bg-background py-3 px-6 text-center md:text-left">
+    <div className="bg-background px-6 py-3 text-center md:text-left">
       <div className="inline-block">
         <NavLink to="/" className={getLinkClassName()}>
           Home

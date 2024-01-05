@@ -10,8 +10,11 @@ import { useParams } from "react-router-dom";
 export function CodeProjectsPage() {
   const hiddenDownloadAnchor = useRef<HTMLAnchorElement>(null);
   const [projects, setProjects] = useState<ProjectModel[]>([]);
-  const [currentProject, setCurrentProject] = useState<ProjectModel | null>(null);
-  const [currentDownloadProject, setCurrentDownloadProject] = useState<ProjectModel | null>(null);
+  const [currentProject, setCurrentProject] = useState<ProjectModel | null>(
+    null,
+  );
+  const [currentDownloadProject, setCurrentDownloadProject] =
+    useState<ProjectModel | null>(null);
   const { slug } = useParams();
   let navigate = useNavigate();
 
@@ -60,11 +63,18 @@ export function CodeProjectsPage() {
 
   return (
     <div className="bg-background">
-      <div className="font-noto text-text-1 text-2xl md:text-3xl font-bold block text-center mt-8">
+      <div className="mt-8 block text-center font-noto text-2xl font-bold text-text-1 md:text-3xl">
         Code &amp; Programming Projects
       </div>
-      <CodeProjectsTimeline projects={projects} currentProject={currentProject} onSelectProject={onSelectProject} />
-      <CodeProjectInfo currentProject={currentProject} onProjectDownload={onProjectDownload} />
+      <CodeProjectsTimeline
+        projects={projects}
+        currentProject={currentProject}
+        onSelectProject={onSelectProject}
+      />
+      <CodeProjectInfo
+        currentProject={currentProject}
+        onProjectDownload={onProjectDownload}
+      />
       {currentDownloadProject?.download_link && (
         <a
           className="display-none"

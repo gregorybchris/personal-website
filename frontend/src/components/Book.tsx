@@ -21,8 +21,8 @@ export function Book(props: BookProps) {
           <img
             src={`${imageLink}?a=${timestamp}`}
             className={cn(
-              "border-2 border-background-dark hover:border-accent transition-all",
-              isSquare ? "h-[300px] md:h-[200px]" : "h-[300px] md:h-[250px]"
+              "border-2 border-background-dark transition-all hover:border-accent",
+              isSquare ? "h-[300px] md:h-[200px]" : "h-[300px] md:h-[250px]",
             )}
           />
         </a>
@@ -31,13 +31,18 @@ export function Book(props: BookProps) {
       {props.bookShape == "book" && (
         <div>
           <a href={props.book.goodreads_link} target="_blank">
-            <div className="font-bold text-center">{props.book.title}</div>
+            <div className="text-center font-bold">{props.book.title}</div>
             <div className="text-center">{props.book.author}</div>
           </a>
 
-          <div className="flex justify-center mt-1">
+          <div className="mt-1 flex justify-center">
             {props.book.tags.map((tag) => (
-              <BookTag key={tag} tag={tag} onClick={props.onTagClick} active={props.activeTags.includes(tag)} />
+              <BookTag
+                key={tag}
+                tag={tag}
+                onClick={props.onTagClick}
+                active={props.activeTags.includes(tag)}
+              />
             ))}
           </div>
         </div>

@@ -84,7 +84,10 @@ export function BlogPage() {
     }
 
     for (const tag of post.tags) {
-      if (lowerSearchText.startsWith("#") && tag.startsWith(lowerSearchText.substring(1))) {
+      if (
+        lowerSearchText.startsWith("#") &&
+        tag.startsWith(lowerSearchText.substring(1))
+      ) {
         return true;
       }
 
@@ -98,23 +101,31 @@ export function BlogPage() {
 
   return (
     <div className="bg-background pt-8">
-      <div className="w-[80%] mx-auto text-center">
-        <div className="font-noto text-text-1 text-3xl font-bold block mb-5">Link Blog</div>
+      <div className="mx-auto w-[80%] text-center">
+        <div className="mb-5 block font-noto text-3xl font-bold text-text-1">
+          Link Blog
+        </div>
         {slugOrIdExists ? (
-          <div className="font-raleway text-text-1 block w-[80%] mx-auto pb-5">
-            This page gives direct access to one blog link. To return to the full list of links click here:
+          <div className="mx-auto block w-[80%] pb-5 font-raleway text-text-1">
+            This page gives direct access to one blog link. To return to the
+            full list of links click here:
           </div>
         ) : (
-          <div className="font-raleway text-text-1 block w-[80%] mx-auto pb-5">
-            Topics range from art to neuroscience and philosophy to physics. I try to reserve posts here for videos and
-            articles that made me think differently, new paradigms rather than new facts. Stuff that meets that standard
-            tends to be a bit longer, but personally I'd take that deal any day.
+          <div className="mx-auto block w-[80%] pb-5 font-raleway text-text-1">
+            Topics range from art to neuroscience and philosophy to physics. I
+            try to reserve posts here for videos and articles that made me think
+            differently, new paradigms rather than new facts. Stuff that meets
+            that standard tends to be a bit longer, but personally I'd take that
+            deal any day.
           </div>
         )}
       </div>
       <div className="pt-5">
         {slugOrIdExists ? (
-          <div className="Common-button w-[120px] block text-center mx-auto" onClick={() => onSelectPost(null)}>
+          <div
+            className="Common-button mx-auto block w-[120px] text-center"
+            onClick={() => onSelectPost(null)}
+          >
             Blog home
           </div>
         ) : (

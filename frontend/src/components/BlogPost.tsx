@@ -26,7 +26,9 @@ export function BlogPost(props: BlogPostProps) {
     if (!thumbnailUrl) {
       if (props.post.source === YOUTUBE_SOURCE) {
         const idParam = postLinkParams.get("v");
-        setThumbnailUrl(`https://img.youtube.com/vi/${idParam}/maxresdefault.jpg`);
+        setThumbnailUrl(
+          `https://img.youtube.com/vi/${idParam}/maxresdefault.jpg`,
+        );
       }
     }
 
@@ -44,7 +46,9 @@ export function BlogPost(props: BlogPostProps) {
   }
 
   function formatLength(length: string) {
-    const [hours, minutes, seconds] = length.split(":").map((v) => parseInt(v, 10));
+    const [hours, minutes, seconds] = length
+      .split(":")
+      .map((v) => parseInt(v, 10));
     let formattedLength = "";
     if (hours === 0) {
       if (minutes === 0) {
@@ -74,38 +78,49 @@ export function BlogPost(props: BlogPostProps) {
   }
 
   return (
-    <div className="border-l-2 border-accent mb-10 max-w-[90%] py-3 pl-8" id={props.post.post_id}>
+    <div
+      className="mb-10 max-w-[90%] border-l-2 border-accent py-3 pl-8"
+      id={props.post.post_id}
+    >
       <div className="pb-3">
         <div className="mb-2">
           <a href={contentLink} target="_blank" rel="noopener noreferrer">
-            <div className="font-noto text-text-1 font-bold text-xl inline-block">{title}</div>
+            <div className="inline-block font-noto text-xl font-bold text-text-1">
+              {title}
+            </div>
           </a>
           <div
-            className="mb-1 cursor-pointer p-1 hover:bg-background-dark rounded-full mr-3 transition-all inline-block ml-2 align-middle"
+            className="mb-1 ml-2 mr-3 inline-block cursor-pointer rounded-full p-1 align-middle transition-all hover:bg-background-dark"
             onClick={() => props.onSelectPost(props.post)}
           >
             <LinkIcon size={20} color="#6283C0" />
           </div>
         </div>
         {seriesName && (
-          <div className="font-raleway text-text-2 font-bold mb-1 text-md inline-block">{seriesDetails}</div>
+          <div className="text-md mb-1 inline-block font-raleway font-bold text-text-2">
+            {seriesDetails}
+          </div>
         )}
-        <div className="font-raleway font-bold text-md text-text-2 mb-1">{formatDate(props.post.date_posted)}</div>
+        <div className="text-md mb-1 font-raleway font-bold text-text-2">
+          {formatDate(props.post.date_posted)}
+        </div>
         {props.post.length && (
-          <div className="font-raleway font-bold text-md text-text-2">{formatLength(props.post.length)}</div>
+          <div className="text-md font-raleway font-bold text-text-2">
+            {formatLength(props.post.length)}
+          </div>
         )}
       </div>
       {thumbnailUrl && (
         <a href={contentLink} target="_blank" rel="noopener noreferrer">
           <img
-            className="rounded-md w-[250px] shadow-[0_0_6px_2px_rgba(0,0,0,0.3)]"
+            className="w-[250px] rounded-md shadow-[0_0_6px_2px_rgba(0,0,0,0.3)]"
             src={thumbnailUrl}
             alt="Post thumbnail"
             onLoad={onThumbnailLoad}
           />
         </a>
       )}
-      <div className="mt-3 mb-2">
+      <div className="mb-2 mt-3">
         {props.post.tags.map((tag) => (
           <BlogTag key={tag} text={tag} onClickTag={props.onClickTag} />
         ))}

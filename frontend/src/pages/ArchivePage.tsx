@@ -14,10 +14,12 @@ export function ArchivePage() {
   }, []);
 
   return (
-    <div className="px-3 md:px-8 py-8">
-      <div className="w-[80%] mx-auto text-center pb-5">
-        <div className="font-noto text-text-1 text-3xl font-bold block pb-3">Archive</div>
-        <div className="font-raleway text-text-1 block w-[80%] mx-auto py-3">
+    <div className="px-3 py-8 md:px-8">
+      <div className="mx-auto w-[80%] pb-5 text-center">
+        <div className="block pb-3 font-noto text-3xl font-bold text-text-1">
+          Archive
+        </div>
+        <div className="mx-auto block w-[80%] py-3 font-raleway text-text-1">
           The archive for previous incarnations of this website.
         </div>
       </div>
@@ -40,14 +42,16 @@ function ArchiveItem({ archiveItem }: ArchiveItemProps) {
 
   return (
     <div>
-      <div className="font-raleway text-center">
-        <div className="text-text-1 font-noto font-bold text-xl">ChrisOffline v{archiveItem.version}</div>
+      <div className="text-center font-raleway">
+        <div className="font-noto text-xl font-bold text-text-1">
+          ChrisOffline v{archiveItem.version}
+        </div>
         <div className="text-md">{year}</div>
       </div>
       <div className="text-center">
         {archiveItem.image_links.map((imageUrl) => (
           <img
-            className="w-[90%] md:w-[70%] block my-5 mx-auto shadow-[0_0_6px_2px_rgba(0,0,0,0.3)]"
+            className="mx-auto my-5 block w-[90%] shadow-[0_0_6px_2px_rgba(0,0,0,0.3)] md:w-[70%]"
             src={imageUrl}
             key={imageUrl}
             alt="Archive screenshot"

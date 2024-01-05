@@ -13,17 +13,22 @@ interface SurveyQuestionOptionProps {
 
 export function SurveyQuestionOption(props: SurveyQuestionOptionProps) {
   const letter = String.fromCharCode("A".charCodeAt(0) + props.optionNumber);
-  const isChosen = props.response.isOptionChosen(props.questionNumber, props.optionNumber);
+  const isChosen = props.response.isOptionChosen(
+    props.questionNumber,
+    props.optionNumber,
+  );
 
   return (
     <div
-      onClick={() => props.onOptionClicked(props.questionNumber, props.optionNumber)}
+      onClick={() =>
+        props.onOptionClicked(props.questionNumber, props.optionNumber)
+      }
       className={cn(
-        "font-raleway text-accent py-1 px-3 transition-all",
+        "px-3 py-1 font-raleway text-accent transition-all",
         isChosen && "bg-background-highlight-light",
         "active:bg-background-highlight-active",
-        "hover:text-accent-focus hover:bg-background-highlight cursor-pointer",
-        props.questionComplete && "text-accent-light"
+        "cursor-pointer hover:bg-background-highlight hover:text-accent-focus",
+        props.questionComplete && "text-accent-light",
       )}
       key={props.optionNumber}
     >

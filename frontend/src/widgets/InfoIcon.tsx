@@ -8,9 +8,13 @@ interface InfoIconProps {
 
 export default function InfoIcon(props: InfoIconProps) {
   return (
-    <div className="inline-block ml-2 align-middle">
-      <QuestionIcon className="info-icon mb-1 inline-block" size={20} color="#6283C0" />
-      <div className="cursor-default info-icon-text text-text-2 absolute inline-block opacity-0 pl-2 transition-all">
+    <div className="ml-2 inline-block align-middle">
+      <QuestionIcon
+        className="info-icon mb-1 inline-block"
+        size={20}
+        color="#6283C0"
+      />
+      <div className="info-icon-text absolute inline-block cursor-default pl-2 text-text-2 opacity-0 transition-all">
         {props.text}
       </div>
     </div>
