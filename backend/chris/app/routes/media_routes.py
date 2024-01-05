@@ -39,7 +39,7 @@ def get_media_movies() -> JSONResponse:
 
 
 @logging_utilities.log_context("get_media_podcasts", tag="api")
-@router.get(path="/media/tv", response_model=TempModel)
+@router.get(path="/media/podcasts", response_model=TempModel)
 def get_media_podcasts() -> JSONResponse:
     """Get podcast data."""
     podcasts_df = fetch_dataset(Datasets.PODCASTS)
@@ -47,7 +47,7 @@ def get_media_podcasts() -> JSONResponse:
 
 
 @logging_utilities.log_context("get_media_tv", tag="api")
-@router.get(path="/media/podcasts", response_model=TempModel)
+@router.get(path="/media/tv", response_model=TempModel)
 def get_media_tv() -> JSONResponse:
     """Get TV data."""
     tv_df = fetch_dataset(Datasets.TV_SHOWS)
