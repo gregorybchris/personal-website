@@ -1,0 +1,3 @@
+.info-icon:hover + .info-icon-text {
+  opacity: 1;
+}

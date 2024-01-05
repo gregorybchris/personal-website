@@ -4,9 +4,8 @@
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "mikestead.dotenv",
-    "syler.sass-indented",
     "bradlc.vscode-tailwindcss",
     "tamasfe.even-better-toml",
-    "yzhang.markdown-all-in-one",
+    "yzhang.markdown-all-in-one"
   ]
 }

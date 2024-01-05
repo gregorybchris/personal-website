@@ -1,0 +1,20 @@
+.project-timeline-circle.archived {
+  display: none;
+}
+
+.project-timeline-circle {
+  transition: 200ms;
+}
+
+.project-timeline-circle:hover {
+  cursor: pointer;
+  fill-opacity: 0.2;
+}
+
+.project-timeline-circle.deselected {
+  stroke-opacity: 0.2;
+}
+
+.project-timeline-circle.selected {
+  fill-opacity: 0.5;
+}

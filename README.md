@@ -4,7 +4,7 @@
 
 In 2012 I followed a tutorial series from [thenewboston](https://www.youtube.com/watch?v=k3dJKtQmyd0&list=PLC1322B5A0180C946&index=2) to create my first web page. In those days [Ruby on Rails](https://rubyonrails.org) was just reaching peak popularity, but most introductory resources still focused on [PHP](https://www.php.net). The popular tutorials on [w3schools](https://www.w3schools.com/php) guided me seamlessly from static HTML and CSS to fully interactive websites. To take my websites public I set up a simple [MAMP server](https://www.mamp.info/en/mac) on an old computer in my basement, my first foray into networking and server configuration. Setting up a server from scratch was extremely educational, but the process was just too tedious to keep up, so I bit the bullet and invested in a web hosting service with a brand new domain name.
 
-In 2013 my online portfolio went live at ChrisOffline.com and while others loved to poke fun at the ironic name, I was extremely proud of the self-teaching that went into the final product. The creativity of graphical programming combined with the connectivity of the open internet had me hooked.
+In 2013 my online portfolio went live at ChrisOffline.com and while friends loved poking fun at the ironic name, I was extremely proud of the self-teaching that went into the final product. The creativity of graphical programming combined with the connectivity of the open internet had me hooked.
 
 Every few years since that initial release I've recreated my website totally from scratch, each time adding more technologies to my web development toolkit. The latest reincarnation of my website lives at [ChrisGregory.me](https://www.chrisgregory.me) and uses [TypeScript](https://www.typescriptlang.org), [React](https://reactjs.org), and [Vite](https://vitejs.dev) for the UI and [Python](https://www.python.org) and [FastAPI](https://fastapi.tiangolo.com) for the API. The UI is hosted on [Vercel](https://vercel.com) and the API on [Fly.io](https://fly.io). Some additional CDN requirements are handled by [Cloudflare](https://www.cloudflare.com).
 
@@ -18,8 +18,7 @@ While I'm not sure why in the world anyone might want to contribute to my person
 
 Requirements:
 
-- [Python](https://www.python.org) (>= 3.8)
-- [pip](https://pip.pypa.io/en/stable)
+- [Python](https://www.python.org)
 - [Poetry](https://python-poetry.org)
 
 ```bash
@@ -33,11 +32,11 @@ poetry run uvicorn chris.app.app:app --host 0.0.0.0 --port 8000 --reload
 Requirements:
 
 - [node](https://nodejs.org)
-- [yarn](https://classic.yarnpkg.com)
-- [A modern web browser](https://www.google.com/chrome/)
+- [pnpm](https://pnpm.io)
+- [A modern web browser](https://www.google.com/chrome)
 
 ```bash
 cd frontend
-yarn install
-yarn dev
+pnpm install
+pnpm run dev
 ```

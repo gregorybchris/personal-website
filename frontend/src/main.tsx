@@ -8,9 +8,9 @@ import "@fontsource/noto-serif-tc/300.css";
 import "@fontsource/noto-serif-tc/400.css";
 import "@fontsource/noto-serif-tc/500.css";
 import "@fontsource/noto-serif-tc/600.css";
-import "./index.css";
+import "./main.css";
 
-import App from "./components/App/App";
+import { App } from "./App";
 import React from "react";
 import ReactDOM from "react-dom/client";
 

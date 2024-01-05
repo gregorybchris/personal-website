@@ -1,0 +1,8 @@
+.blog-graph-node-circle {
+  transition: 200ms;
+}
+
+.blog-graph-node-circle:hover {
+  cursor: pointer;
+  fill-opacity: 0.5;
+}
