@@ -8,12 +8,15 @@ import { CodeProjectsPage } from "./pages/CodeProjectsPage";
 import { ContactPage } from "./pages/ContactPage";
 import { HiddenPage } from "./pages/HiddenPage";
 import { HomePage } from "./pages/HomePage";
+import { MoviesPage } from "./pages/MoviesPage";
 import { MusicPage } from "./pages/MusicPage";
 import Nav from "./components/Nav";
 import { OopsPage } from "./pages/OopsPage";
 import { PlacesPage } from "./pages/PlacesPage";
 import { RunningRoutesPage } from "./pages/RunningRoutesPage";
 import { SurveysPage } from "./pages/SurveysPage";
+import { TvShowsPage } from "./pages/TvShowsPage";
+import { YouTubeChannelsPage } from "./pages/YouTubeChannelsPage";
 
 export function App() {
   return (
@@ -41,6 +44,9 @@ export function App() {
           <Route path="/hidden/blog-graph" element={<BlogGraph />} />
           <Route path="/hidden/places" element={<PlacesPage />} />
           <Route path="/hidden/archive" element={<ArchivePage />} />
+          <Route path="/hidden/shows" element={<TvShowsPage />} />
+          <Route path="/hidden/channels" element={<YouTubeChannelsPage />} />
+          <Route path="/hidden/movies" element={<MoviesPage />} />
 
           <Route path="*" element={<OopsPage />} />
         </Routes>

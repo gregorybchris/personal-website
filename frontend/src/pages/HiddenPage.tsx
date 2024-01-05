@@ -37,6 +37,24 @@ export function HiddenPage() {
               Surveys
             </div>
           </Link>
+          <Link to="/hidden/shows" className="block font-raleway text-text-1">
+            <div className="inline-block border-b border-background px-2 pt-2 transition-all hover:border-accent">
+              TV Shows
+            </div>
+          </Link>
+          <Link
+            to="/hidden/channels"
+            className="block font-raleway text-text-1"
+          >
+            <div className="inline-block border-b border-background px-2 pt-2 transition-all hover:border-accent">
+              YouTube Channels
+            </div>
+          </Link>
+          <Link to="/hidden/movies" className="block font-raleway text-text-1">
+            <div className="inline-block border-b border-background px-2 pt-2 transition-all hover:border-accent">
+              Movies
+            </div>
+          </Link>
         </div>
       </div>
     </div>
