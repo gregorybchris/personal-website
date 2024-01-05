@@ -81,8 +81,8 @@ export function RunningRoutesPage() {
       </div>
 
       <div className="inline-block h-[500px] w-[100%] overflow-y-scroll text-center align-top md:w-[50%]">
-        <table className="Common-table border-l-2 border-accent">
-          <thead className="Common-table-header sticky top-0 bg-background">
+        <table className="Common-table border-l-2 border-accent pl-4">
+          <thead className="Common-table-header sticky top-0 bg-background font-noto font-bold">
             <tr className="Common-table-row">
               <td className="Common-table-cell">
                 <span className="Common-table-header-cell-text">Route</span>
@@ -98,7 +98,7 @@ export function RunningRoutesPage() {
               </td>
             </tr>
           </thead>
-          <tbody className="Common-table-body RunningRoutes-routes-table-body">
+          <tbody className="Common-table-body RunningRoutes-routes-table-body font-raleway">
             {routes.map((route, routeNumber) => (
               <tr className="Common-table-row" key={routeNumber}>
                 <td

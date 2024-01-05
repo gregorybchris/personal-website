@@ -98,7 +98,6 @@
 }
 
 .Common-table-header {
-  font-family: "Raleway";
   color: #3c3c3c;
 }
 
@@ -112,7 +111,6 @@
 
 .Common-table-cell {
   padding: 4px 7px;
-  font-family: "Raleway";
   color: #3c3c3c;
   padding: 0px 8px;
 }
