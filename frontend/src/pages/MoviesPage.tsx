@@ -3,11 +3,11 @@ import "../styles/radar.css";
 import { GET, makeQuery } from "../utilities/requestUtilities";
 import { useEffect, useState } from "react";
 
+import { Movie } from "../models/mediaModels";
 import Radar from "react-d3-radar";
-import { YouTubeChannel } from "../models/mediaModels";
 
 export function MoviesPage() {
-  const [movies, setMovies] = useState<YouTubeChannel[]>([]);
+  const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
     const moviesQuery = makeQuery("media/movies");
