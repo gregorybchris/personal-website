@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { RouteMap } from "../components/RouteMap";
+import { SimpleLink } from "../widgets/SimpleLink";
 
 export function RunningRoutesPage() {
   const [routes, setRoutes] = useState<RunningRoute[]>([]);
@@ -73,10 +74,11 @@ export function RunningRoutesPage() {
           Running Routes
         </div>
         <div className="mx-auto block w-[80%] py-3 font-raleway text-text-1">
-          Here you'll find an archive of some of my favorite running routes over
-          the years. I have some from high school in Indianapolis, some from
-          college in Boston, and a growing number from different neighborhoods
-          around Seattle.
+          If you like running and happen to be in a city I've lived in, then
+          this page is for you. Shout out to my favorite route mapping website,
+          the tried and true{" "}
+          <SimpleLink text="us.mapometer.com" link="https://us.mapometer.com" />
+          .
         </div>
       </div>
 
