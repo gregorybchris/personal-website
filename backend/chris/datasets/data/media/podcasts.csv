@@ -1,9 +1,14 @@
 name,media_type,category,production_score,personality_score,information_score,consistency_score,rank
-Making Sense,podcast,general,10,8,10,10,1
-Lex Fridman,podcast,stem,9,9,9,10,2
-Mindscape,podcast,stem,8,9,8,6,3
-Reply All,podcast,general,9,8,9,8,4
-The Portal,podcast,general,7,7,9,4,5
-Armchair Expert,podcast,general,8,9,8,8,6
-The Daily,podcast,general,9,6,9,8,7
-Talking Machines,podcast,stem,8,9,7,7,8
+Making Sense,podcast,general,8,8,10,10,1
+Lex Fridman,podcast,general,6,8,9,10,2
+Mindscape,podcast,stem,8,7,8,6,3
+Reply All,podcast,informational,10,9,9,8,4
+All-In,podcast,general,6,8,9,5,5
+The Portal,podcast,general,6,6,9,4,6
+Dwarkesh Podcast,podcast,general,6,7,9,8,7
+Machine Learning Street Talk,podcast,stem,8,7,7,7,8
+Armchair Expert,podcast,general,8,9,8,8,9
+The Daily,podcast,informational,10,4,9,8,10
+Talking Machines,podcast,stem,6,7,7,7,11
+The Dirtbag Diaries,podcast,outdoor,8,4,5,7,12
+Ologies,podcast,stem,8,7,8,7,13
