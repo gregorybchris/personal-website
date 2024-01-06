@@ -2,11 +2,11 @@ import "../styles/icons.css";
 
 import { Question as QuestionIcon } from "@phosphor-icons/react";
 
-interface InfoIconProps {
+interface MoreInfoProps {
   text: string;
 }
 
-export default function InfoIcon(props: InfoIconProps) {
+export function MoreInfo(props: MoreInfoProps) {
   return (
     <div className="ml-2 inline-block align-middle">
       <QuestionIcon

@@ -1,5 +1,5 @@
 import { ActionLink } from "../widgets/ActionLink";
-import InfoIcon from "../widgets/InfoIcon";
+import { MoreInfo } from "../widgets/MoreInfo";
 import { Project as ProjectModel } from "../models/projectsModels";
 import { SimpleLink } from "../widgets/SimpleLink";
 import { formatDate } from "../utilities/datetimeUtilities";
@@ -81,7 +81,7 @@ function DownloadLink(props: {
         text={isJava ? "Download Java runnable archive" : "Download project"}
         onClick={() => props.onDownload(props.project)}
       />
-      {isJava && <InfoIcon text="Requires a Java installation to run" />}
+      {isJava && <MoreInfo text="Requires a Java installation to run" />}
     </div>
   );
 }
