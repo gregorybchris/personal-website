@@ -55,6 +55,14 @@ export function HiddenPage() {
               Movies
             </div>
           </Link>
+          <Link
+            to="/hidden/podcasts"
+            className="block font-raleway text-text-1"
+          >
+            <div className="inline-block border-b border-background px-2 pt-2 transition-all hover:border-accent">
+              Podcasts
+            </div>
+          </Link>
         </div>
       </div>
     </div>

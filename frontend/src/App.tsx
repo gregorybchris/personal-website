@@ -13,6 +13,7 @@ import { MusicPage } from "./pages/MusicPage";
 import Nav from "./components/Nav";
 import { OopsPage } from "./pages/OopsPage";
 import { PlacesPage } from "./pages/PlacesPage";
+import { PodcastsPage } from "./pages/PodcastsPage";
 import { RunningRoutesPage } from "./pages/RunningRoutesPage";
 import { SurveysPage } from "./pages/SurveysPage";
 import { TvShowsPage } from "./pages/TvShowsPage";
@@ -47,6 +48,7 @@ export function App() {
           <Route path="/hidden/shows" element={<TvShowsPage />} />
           <Route path="/hidden/channels" element={<YouTubeChannelsPage />} />
           <Route path="/hidden/movies" element={<MoviesPage />} />
+          <Route path="/hidden/podcasts" element={<PodcastsPage />} />
 
           <Route path="*" element={<OopsPage />} />
         </Routes>

@@ -30,3 +30,14 @@ export interface Movie {
   dialog_score: string;
   rank: string;
 }
+
+export interface Podcast {
+  name: string;
+  media_type: string;
+  category: string;
+  production_score: string;
+  personality_score: string;
+  information_score: string;
+  consistency_score: string;
+  rank: string;
+}
