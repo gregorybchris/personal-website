@@ -47,14 +47,14 @@ export function RecipesPage() {
   }
 
   return (
-    <div className="p-8">
+    <div className="px-2 py-8 md:px-20">
       <div className="mx-auto w-[90%] pb-5 text-center md:w-[80%]">
         <div className="block pb-3 font-noto text-3xl font-bold text-text-1">
           Recipes
         </div>
       </div>
 
-      <div className="flex flex-row flex-wrap justify-center px-10">
+      <div className="flex flex-row flex-wrap justify-center">
         {recipes.map((recipe) => {
           const icon = getIcon(recipe.food_type);
 

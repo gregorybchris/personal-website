@@ -56,7 +56,7 @@ export function RecipePage() {
       )}
 
       {recipe !== undefined && (
-        <div>
+        <div className="w-[95%] md:w-[80%]">
           <a href={recipe.bigoven_link} target="_blank">
             <div className="inline-block border-b border-accent font-noto text-3xl">
               {recipe.name}
@@ -78,7 +78,7 @@ export function RecipePage() {
             </div>
           </div>
 
-          <div className="relative mb-8 w-[80%] border-l-2 border-accent pb-3 pl-8">
+          <div className="relative mb-8 border-l-2 border-accent pb-3 pl-8">
             <div className="absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent bg-background"></div>
             <div className="pb-3 font-noto text-xl">Notes</div>
             <div className="font-raleway text-sm leading-6">
@@ -86,7 +86,7 @@ export function RecipePage() {
             </div>
           </div>
 
-          <div className="relative mb-8 w-[80%] border-l-2 border-accent pb-3 pl-8">
+          <div className="relative mb-8 border-l-2 border-accent pb-3 pl-8">
             <div className="absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent bg-background"></div>
             <div className="pb-3 font-noto text-xl">Ingredients</div>
             <div className="font-raleway text-sm">
@@ -99,7 +99,7 @@ export function RecipePage() {
                     <div className="flex-none">{ingredient.name}</div>
                     <div className="mx-3 h-1 w-full border-b border-dotted border-accent"></div>
                   </div>
-                  <div className="">
+                  <div className="flex-none">
                     {!!ingredient.amount && (
                       <div className="inline-block h-9 w-9 rounded-full bg-accent pt-2 text-center font-bold text-background">
                         {convertFraction(ingredient.amount)}
@@ -115,7 +115,7 @@ export function RecipePage() {
             </div>
           </div>
 
-          <div className="relative mb-8 w-[80%] border-l-2 border-accent pb-3 pl-8">
+          <div className="relative mb-8 border-l-2 border-accent pb-3 pl-8">
             <div className="absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent bg-background"></div>
             <div className="pb-3 font-noto text-xl">Instructions</div>
             <div className="font-raleway text-sm leading-6">
