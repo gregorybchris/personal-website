@@ -1,4 +1,4 @@
-import { ClockCountdown } from "@phosphor-icons/react";
+import { ClockCountdown, Users } from "@phosphor-icons/react";
 
 export function RecipesPage() {
   return (
@@ -13,7 +13,8 @@ export function RecipesPage() {
       </div>
 
       <div className="mx-auto mt-5 w-[95%] max-w-[500px]">
-        <ClockCountdown size={80} color="#3e8fda" weight="thin" />;
+        <ClockCountdown size={80} color="#3e8fda" weight="thin" />
+        <Users size={80} color="#3e8fda" weight="thin" />
       </div>
     </div>
   );
