@@ -99,16 +99,16 @@ export function RecipePage() {
                     <div className="flex-none">{ingredient.name}</div>
                     <div className="mx-3 h-1 w-full border-b border-dotted border-accent"></div>
                   </div>
-                  <div>
-                    {!!ingredient.amount ? (
+                  <div className="">
+                    {!!ingredient.amount && (
                       <div className="inline-block h-9 w-9 rounded-full bg-accent pt-2 text-center font-bold text-background">
                         {convertFraction(ingredient.amount)}
                       </div>
-                    ) : (
-                      ""
-                    )}{" "}
-                    {ingredient.units || ""}{" "}
-                    {!!ingredient.notes ? ` - (${ingredient.notes})` : ""}
+                    )}
+                    <span className="ml-2">
+                      {ingredient.units || ""}{" "}
+                      {!!ingredient.notes ? ` (${ingredient.notes})` : ""}
+                    </span>
                   </div>
                 </div>
               ))}

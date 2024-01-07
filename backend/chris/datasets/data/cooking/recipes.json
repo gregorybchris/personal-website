@@ -121,7 +121,7 @@
       { "name": "salt and pepper", "amount": null, "units": null, "notes": "to taste" }
     ],
     "instructions": "Heat butter, garlic and olive oil in a large skillet. Add shrimp and sauté on both sides until done (about 5 minutes). Pour off pan drippings into a small sauce pan. Add the remaining ingredients. Cook over high heat 1 minute. Pour sauce over shrimp and serve with rice to absorb the juices.",
-    "notes": null
+    "notes": "My dad's shrimp recipe."
   },
   {
     "name": "Pumpkin Bread",
@@ -147,7 +147,7 @@
       { "name": "salt", "amount": 1.5, "units": "tsp", "notes": null }
     ],
     "instructions": "Bake 1 hour at 350F",
-    "notes": "Makes two loaves."
+    "notes": "The Davies family recipe. Makes two loaves."
   },
   {
     "name": "Noodle Cookies",
