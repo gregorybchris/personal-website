@@ -42,7 +42,7 @@
       { "name": "lettuce", "amount": 0.5, "units": "head" }
     ],
     "instructions": "In a frying pan, combine oil and sesame seeds. Cook over medium-low heat, stirring often, until seeds begin to turn golden (3-4 minutes). Remove from heat and let cool. Mix in vinegar, sugar, and soy. Pound breasts very thin, marinade (if desired), broil. Cut into thin strips, put on salad, add dressing.",
-    "notes": null
+    "notes": "This one's a crown pleaser. Make double to be safe because people will be getting seconds."
   },
   {
     "name": "Steak Marinade",
@@ -132,10 +132,22 @@
     "origin": "Davies family",
     "prep_time": "01:30:00",
     "serves": 4,
-    "archived": true,
-    "ingredients": [],
-    "instructions": null,
-    "notes": null
+    "archived": false,
+    "ingredients": [
+      { "name": "eggs", "amount": 4, "units": null, "notes": null },
+      { "name": "water", "amount": 0.666, "units": "cups", "notes": null },
+      { "name": "salad oil", "amount": 1, "units": "cup", "notes": null },
+      { "name": "pumpkin", "amount": 1, "units": "lb can", "notes": null },
+      { "name": "sugar", "amount": 3, "units": "cups", "notes": null },
+      { "name": "flour", "amount": 3.333, "units": "cups", "notes": null },
+      { "name": "baking soda", "amount": 2, "units": "tsp", "notes": null },
+      { "name": "cinnamon", "amount": 1, "units": "tsp", "notes": null },
+      { "name": "clove", "amount": 0.125, "units": "tsp", "notes": null },
+      { "name": "nutmeg", "amount": 1, "units": "tsp", "notes": null },
+      { "name": "salt", "amount": 1.5, "units": "tsp", "notes": null }
+    ],
+    "instructions": "Bake 1 hour at 350F",
+    "notes": "Makes two loaves."
   },
   {
     "name": "Noodle Cookies",
