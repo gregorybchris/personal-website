@@ -41,13 +41,11 @@ export function BooksPage() {
         <div className="mb-5 text-center font-noto text-3xl font-bold text-text-1">
           Books
         </div>
-        <div className="pb-5 text-center text-text-1">
-          Sharing books can be a dangerous game, the knife's edge between a mind
-          transformed and the most dreadful obligation of assigned reading. And
-          book preferences are wonderfully personal. My own literary corner
-          would no doubt be considered niche to many people. But if, on the off
-          chance, you're a fan of one of the titles below you might consider
-          picking up another, not assigned, obligation free.
+        <div className="mx-auto w-[95%] py-3 text-center text-text-1 md:w-[70%]">
+          I don't love recommending books because it always feels like assigned
+          reading and I never liked assigned reading. But on the off chance
+          you're a fan of one of the titles below you might consider picking up
+          another, pressure free and unassigned.
         </div>
       </div>
 

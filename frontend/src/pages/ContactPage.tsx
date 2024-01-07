@@ -5,11 +5,10 @@ export function ContactPage() {
     <div className="bg-background p-8">
       <div className="mx-auto w-[80%] text-center">
         <div className="mb-5 block font-noto text-3xl font-bold text-text-1">
-          Looking forward to hearing from you!
+          Fill out this form to send me a message
         </div>
         <div className="mx-auto block w-[80%] font-raleway text-text-1">
-          Fill out this form to send me a message. I'll try to get back to you
-          ASAP.
+          Looking forward to hearing from you!
         </div>
       </div>
       <div className="mx-auto mt-[50px] w-[90%] max-w-[500px]">

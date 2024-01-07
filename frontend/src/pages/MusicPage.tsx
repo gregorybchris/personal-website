@@ -11,8 +11,8 @@ export function MusicPage() {
         </div>
         <div className="mx-auto block w-[95%] py-3 font-raleway text-text-1 md:w-[70%]">
           Spotify is getting scary good at recommending music. But a song from a
-          human being is an infinitely more precious gift. Even if you're into
-          something totally different, shoot me a link with my{" "}
+          human being always feels more personal. Even if the music you're into
+          is totally different, shoot me a link with my{" "}
           <Link className="Common-simple-link" to="/contact">
             Contact
           </Link>{" "}

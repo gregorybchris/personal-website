@@ -114,9 +114,8 @@ export function BlogPage() {
           <div className="mx-auto block w-[80%] pb-5 font-raleway text-text-1">
             Topics range from art to neuroscience and philosophy to physics. I
             try to reserve posts here for videos and articles that made me think
-            differently, new paradigms rather than new facts. Stuff that meets
-            that standard tends to be a bit longer, but personally I'd take that
-            deal any day.
+            differently. Stuff that meets that standard tends to be a bit
+            longer.
           </div>
         )}
       </div>
