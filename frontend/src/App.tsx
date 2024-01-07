@@ -14,6 +14,7 @@ import Nav from "./components/Nav";
 import { OopsPage } from "./pages/OopsPage";
 import { PlacesPage } from "./pages/PlacesPage";
 import { PodcastsPage } from "./pages/PodcastsPage";
+import { RecipePage } from "./pages/RecipePage";
 import { RecipesPage } from "./pages/RecipesPage";
 import { RunningRoutesPage } from "./pages/RunningRoutesPage";
 import { SurveysPage } from "./pages/SurveysPage";
@@ -51,6 +52,7 @@ export function App() {
           <Route path="/hidden/movies" element={<MoviesPage />} />
           <Route path="/hidden/podcasts" element={<PodcastsPage />} />
           <Route path="/hidden/recipes" element={<RecipesPage />} />
+          <Route path="/hidden/recipes/:slug" element={<RecipePage />} />
 
           <Route path="*" element={<OopsPage />} />
         </Routes>

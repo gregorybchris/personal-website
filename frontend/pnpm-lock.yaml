@@ -29,6 +29,9 @@ dependencies:
   leaflet:
     specifier: ^1.9.3
     version: 1.9.4
+  luxon:
+    specifier: ^3.4.4
+    version: 3.4.4
   random:
     specifier: ^4.0.3
     version: 4.1.0
@@ -61,6 +64,9 @@ devDependencies:
   '@types/leaflet':
     specifier: ^1.9.0
     version: 1.9.8
+  '@types/luxon':
+    specifier: ^3.4.0
+    version: 3.4.0
   '@types/react':
     specifier: ^18.0.24
     version: 18.2.46
@@ -877,6 +883,10 @@ packages:
     resolution: {integrity: sha512-EXdsL4EhoUtGm2GC2ZYtXn+Fzc6pluVgagvo2VC1RHWToLGlTRwVYoDpqS/7QXa01rmDyBjJk3Catpf60VMkwg==}
     dependencies:
       '@types/geojson': 7946.0.13
+    dev: true
+
+  /@types/luxon@3.4.0:
+    resolution: {integrity: sha512-PEVoA4MOfSsFNaPrZjIUGUZujBDxnO/tj2A2N9KfzlR+pNgpBdDuk0TmRvSMAVUP5q4q8IkMEZ8UOp3MIr+QgA==}
     dev: true
 
   /@types/prop-types@15.7.11:
@@ -1949,6 +1959,11 @@ packages:
     dependencies:
       yallist: 3.1.1
     dev: true
+
+  /luxon@3.4.4:
+    resolution: {integrity: sha512-zobTr7akeGHnv7eBOXcRgMeCP6+uyYsczwmeRCauvpvaAltgNyTbLH/+VaEAPUeWBT+1GuNmz4wC/6jtQzbbVA==}
+    engines: {node: '>=12'}
+    dev: false
 
   /magic-string@0.26.7:
     resolution: {integrity: sha512-hX9XH3ziStPoPhJxLq1syWuZMxbDvGNbVchfrdCtanC7D13888bMFow61x8axrx+GfHLtVeAx2kxL7tTGRl+Ow==}

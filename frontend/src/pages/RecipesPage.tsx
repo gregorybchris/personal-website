@@ -1,20 +1,91 @@
-import { ClockCountdown, Users } from "@phosphor-icons/react";
+import {
+  BowlFood,
+  Cookie,
+  CookingPot,
+  FishSimple,
+  ForkKnife,
+  Knife,
+  Shrimp,
+} from "@phosphor-icons/react";
+import { GET, makeQuery } from "../utilities/requestUtilities";
+import { useEffect, useState } from "react";
+
+import { Recipe } from "../models/recipesModels";
+import { formatDuration } from "../utilities/datetimeUtilities";
+import { useNavigate } from "react-router-dom";
 
 export function RecipesPage() {
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const recipesQuery = makeQuery("recipes");
+    GET(recipesQuery).then((queryResult) => {
+      setRecipes(queryResult);
+    });
+  }, []);
+
+  function getIcon(foodType: string) {
+    switch (foodType) {
+      case "shrimp":
+        return <Shrimp size={30} color="#f5f5f0" weight="regular" />;
+      case "cookie":
+        return <Cookie size={30} color="#f5f5f0" weight="regular" />;
+      case "fork-knife":
+        return <ForkKnife size={30} color="#f5f5f0" weight="regular" />;
+      case "knife":
+        return <Knife size={30} color="#f5f5f0" weight="regular" />;
+      case "baked":
+        return <CookingPot size={30} color="#f5f5f0" weight="regular" />;
+      case "bowl":
+        return <BowlFood size={30} color="#f5f5f0" weight="regular" />;
+      case "fish":
+        return <FishSimple size={30} color="#f5f5f0" weight="regular" />;
+      default:
+        return <ForkKnife size={30} color="#f5f5f0" weight="regular" />;
+    }
+  }
+
   return (
     <div className="p-8">
       <div className="mx-auto w-[90%] pb-5 text-center md:w-[80%]">
         <div className="block pb-3 font-noto text-3xl font-bold text-text-1">
           Recipes
         </div>
-        <div className="mx-auto block w-[95%] py-3 font-raleway text-text-1 md:w-[70%]">
-          Here are some recipes!
-        </div>
       </div>
 
-      <div className="mx-auto mt-5 w-[95%] max-w-[500px]">
-        <ClockCountdown size={80} color="#3e8fda" weight="thin" />
-        <Users size={80} color="#3e8fda" weight="thin" />
+      <div className="flex flex-row flex-wrap justify-center px-10">
+        {recipes.map((recipe) => {
+          const icon = getIcon(recipe.food_type);
+
+          return (
+            !recipe.archived && (
+              <div
+                key={recipe.name}
+                className="relative mx-4 my-3 flex h-[130px] w-[240px] cursor-pointer flex-row items-center border-2 border-accent text-center transition-all hover:border-accent-focus"
+                onClick={() => navigate(`/hidden/recipes/${recipe.slug}`)}
+              >
+                <div className="absolute -left-3 -top-3 rounded-full bg-accent p-2">
+                  {icon}
+                </div>
+
+                <div className="w-full text-center">
+                  <div className="mb-2 inline-block border-b border-background-dark font-noto">
+                    {recipe.name}
+                  </div>
+                  <div>
+                    <div className="font-raleway text-xs">
+                      Ready in {formatDuration(recipe.prep_time)}
+                    </div>
+                    <div className="font-raleway text-xs">
+                      Serves {recipe.serves}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )
+          );
+        })}
       </div>
     </div>
   );
