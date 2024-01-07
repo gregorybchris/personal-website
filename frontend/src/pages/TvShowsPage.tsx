@@ -12,7 +12,7 @@ export function TvShowsPage() {
   useEffect(() => {
     const showsQuery = makeQuery("media/tv");
     GET(showsQuery).then((queryResult) => {
-      console.log(queryResult);
+      queryResult;
       setShows(queryResult);
     });
   }, []);

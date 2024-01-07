@@ -12,7 +12,6 @@ export function YouTubeChannelsPage() {
   useEffect(() => {
     const channelsQuery = makeQuery("media/youtube");
     GET(channelsQuery).then((queryResult) => {
-      console.log(queryResult);
       setChannels(queryResult);
     });
   }, []);

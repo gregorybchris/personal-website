@@ -12,7 +12,6 @@ export function PodcastsPage() {
   useEffect(() => {
     const podcastsQuery = makeQuery("media/podcasts");
     GET(podcastsQuery).then((queryResult) => {
-      console.log(queryResult);
       setPodcasts(queryResult);
     });
   }, []);

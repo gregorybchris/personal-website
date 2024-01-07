@@ -12,7 +12,6 @@ export function MoviesPage() {
   useEffect(() => {
     const moviesQuery = makeQuery("media/movies");
     GET(moviesQuery).then((queryResult) => {
-      console.log(queryResult);
       setMovies(queryResult);
     });
   }, []);

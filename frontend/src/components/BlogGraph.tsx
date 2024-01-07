@@ -171,7 +171,6 @@ export function BlogGraph() {
     node.append("title").text((d) => d.id);
 
     node.on("click", (mouseEvent: any, node: any) => {
-      console.log(node.post.slug);
       navigate(`/links/${node.post.slug}`);
     });
 
