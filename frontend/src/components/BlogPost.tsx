@@ -93,7 +93,7 @@ export function BlogPost(props: BlogPostProps) {
             className="mb-1 ml-2 mr-3 inline-block cursor-pointer rounded-full p-1 align-middle transition-all hover:bg-background-dark"
             onClick={() => props.onSelectPost(props.post)}
           >
-            <LinkIcon size={20} color="#6283C0" />
+            <LinkIcon size={20} color="#6283c0" />
           </div>
         </div>
         {seriesName && (

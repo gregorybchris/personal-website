@@ -1,5 +1,6 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
+import { CommandBar } from "./CommandBar";
 import { NavLink } from "react-router-dom";
 import { cn } from "../utilities/styleUtilities";
 
@@ -16,6 +17,8 @@ function Nav() {
 
   return (
     <div className="bg-background px-6 py-3 text-center md:text-left">
+      <CommandBar />
+
       <div className="inline-block">
         <NavLink to="/" className={getLinkClassName()}>
           Home

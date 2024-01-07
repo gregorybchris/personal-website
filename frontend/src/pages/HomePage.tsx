@@ -24,7 +24,7 @@ export function HomePage() {
                 <div className="border-b border-accent font-noto text-lg font-bold text-text-1">
                   Running
                 </div>
-                <SneakerMove size={40} weight="light" color="#6283C0" />
+                <SneakerMove size={40} weight="light" color="#6283c0" />
               </div>
               <div className="text-md block pt-4 text-left font-raleway text-text-2">
                 Check out some of my favorite running routes in Boston, Seattle,
@@ -41,7 +41,7 @@ export function HomePage() {
                 <div className="border-b border-accent font-noto text-lg font-bold text-text-1">
                   Music
                 </div>
-                <MusicNotes size={40} weight="light" color="#6283C0" />
+                <MusicNotes size={40} weight="light" color="#6283c0" />
               </div>
               <div className="text-md block pt-4 text-left font-raleway text-text-2">
                 Listen to a playlist of the songs I've been listening to

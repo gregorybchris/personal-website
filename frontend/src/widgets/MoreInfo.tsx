@@ -12,7 +12,7 @@ export function MoreInfo(props: MoreInfoProps) {
       <QuestionIcon
         className="info-icon mb-1 inline-block"
         size={20}
-        color="#6283C0"
+        color="#6283c0"
       />
       <div className="info-icon-text absolute inline-block cursor-default pl-2 text-text-2 opacity-0 transition-all">
         {props.text}

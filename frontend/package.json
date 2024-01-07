@@ -13,6 +13,7 @@
     "@fontsource/raleway": "^4.5.11",
     "@phosphor-icons/react": "^2.0.15",
     "clsx": "^2.1.0",
+    "cmdk": "^0.2.0",
     "d3": "^7.6.1",
     "d3-force": "^3.0.0",
     "leaflet": "^1.9.3",

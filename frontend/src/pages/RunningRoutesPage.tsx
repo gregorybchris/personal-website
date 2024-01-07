@@ -137,7 +137,7 @@ export function RunningRoutesPage() {
           <div className="mt-5 h-[450px] w-full shadow-[0_0_6px_2px_rgba(0,0,0,0.3)]">
             {mapBoxToken && (
               <MapContainer
-                className="h-full w-full"
+                className="!z-[10] h-full w-full"
                 center={[51.505, -0.09]}
                 zoom={13}
                 scrollWheelZoom={true}
