@@ -63,6 +63,11 @@ export function HiddenPage() {
               Podcasts
             </div>
           </Link>
+          <Link to="/hidden/recipes" className="block font-raleway text-text-1">
+            <div className="inline-block border-b border-background px-2 pt-2 transition-all hover:border-accent">
+              Recipes
+            </div>
+          </Link>
         </div>
       </div>
     </div>
