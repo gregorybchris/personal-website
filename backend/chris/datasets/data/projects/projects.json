@@ -1489,5 +1489,27 @@
     "image_links": [],
     "primary_language": "Python",
     "archived": false
+  },
+  {
+    "project_id": "9c2be332-91a6-4ad0-883a-b7d6f1aba7eb",
+    "name": "Vidrank",
+    "slug": "vidrank",
+    "date": "2024-01-15",
+    "rating": 5,
+    "project_type": "program",
+    "use_type": "tool",
+    "controls": null,
+    "description": "Web interface for prioritizing YouTube videos in large playlists. Uses TrueSkill rating algorithm to select batches of videos to compare for fast ranking.",
+    "remarks": null,
+    "tags": ["youtube", "video", "interface", "trueskill", "ranking", "rating", "prioritization", "elo"],
+    "source_link": "https://github.com/gregorybchris/vidrank",
+    "download_link": null,
+    "web_link": null,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/projects/images/vidrank--main.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/vidrank--ratings.jpg"
+    ],
+    "primary_language": "TypeScript",
+    "archived": false
   }
 ]
