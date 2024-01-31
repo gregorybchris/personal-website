@@ -68,6 +68,14 @@ export function HiddenPage() {
               Recipes
             </div>
           </Link>
+          <Link
+            to="/hidden/watermark"
+            className="block font-raleway text-text-1"
+          >
+            <div className="inline-block border-b border-background px-2 pt-2 transition-all hover:border-accent">
+              Watermark
+            </div>
+          </Link>
         </div>
       </div>
     </div>

@@ -19,6 +19,7 @@ import { RecipesPage } from "./pages/RecipesPage";
 import { RunningRoutesPage } from "./pages/RunningRoutesPage";
 import { SurveysPage } from "./pages/SurveysPage";
 import { TvShowsPage } from "./pages/TvShowsPage";
+import { WatermarkPage } from "./pages/WatermarkPage";
 import { YouTubeChannelsPage } from "./pages/YouTubeChannelsPage";
 
 export function App() {
@@ -53,6 +54,7 @@ export function App() {
           <Route path="/hidden/podcasts" element={<PodcastsPage />} />
           <Route path="/hidden/recipes" element={<RecipesPage />} />
           <Route path="/hidden/recipes/:slug" element={<RecipePage />} />
+          <Route path="/hidden/watermark" element={<WatermarkPage />} />
 
           <Route path="*" element={<OopsPage />} />
         </Routes>
