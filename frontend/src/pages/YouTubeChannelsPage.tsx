@@ -23,7 +23,7 @@ export function YouTubeChannelsPage() {
           YouTube Channels
         </div>
         <div className="py-3 font-raleway text-text-1">
-          I watch a lot of YouTube
+          Some great YouTube videos!
         </div>
       </div>
 

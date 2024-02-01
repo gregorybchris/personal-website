@@ -22,9 +22,7 @@ export function MoviesPage() {
         <div className="pb-3 font-noto text-3xl font-bold text-text-1">
           Movies
         </div>
-        <div className="py-3 font-raleway text-text-1">
-          I watch a lot of movies
-        </div>
+        <div className="py-3 font-raleway text-text-1">Some great movies!</div>
       </div>
 
       {movies.length == 0 && <div>Loading movies...</div>}

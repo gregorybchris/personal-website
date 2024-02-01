@@ -23,7 +23,9 @@ export function TvShowsPage() {
         <div className="pb-3 font-noto text-3xl font-bold text-text-1">
           TV Shows
         </div>
-        <div className="py-3 font-raleway text-text-1">I watch a lot of TV</div>
+        <div className="py-3 font-raleway text-text-1">
+          Some great TV shows!
+        </div>
       </div>
 
       {shows.length == 0 && <div>Loading shows...</div>}

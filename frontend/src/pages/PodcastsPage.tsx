@@ -23,7 +23,7 @@ export function PodcastsPage() {
           Podcasts
         </div>
         <div className="py-3 font-raleway text-text-1">
-          I listen to a lot of podcasts
+          Some great podcasts!
         </div>
       </div>
 
