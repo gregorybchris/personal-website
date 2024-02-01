@@ -14,6 +14,7 @@ import Nav from "./components/Nav";
 import { OopsPage } from "./pages/OopsPage";
 import { PlacesPage } from "./pages/PlacesPage";
 import { PodcastsPage } from "./pages/PodcastsPage";
+import { ProjectPreviewsPage } from "./pages/ProjectPreviewsPage";
 import { RecipePage } from "./pages/RecipePage";
 import { RecipesPage } from "./pages/RecipesPage";
 import { RunningRoutesPage } from "./pages/RunningRoutesPage";
@@ -55,6 +56,7 @@ export function App() {
           <Route path="/hidden/recipes" element={<RecipesPage />} />
           <Route path="/hidden/recipes/:slug" element={<RecipePage />} />
           <Route path="/hidden/watermark" element={<WatermarkPage />} />
+          <Route path="/hidden/projects" element={<ProjectPreviewsPage />} />
 
           <Route path="*" element={<OopsPage />} />
         </Routes>
