@@ -1,5 +1,7 @@
 import "../styles/common.css";
 
+import { NavLink } from "react-router-dom";
+
 export function ContactPage() {
   return (
     <div className="bg-background p-8">
@@ -46,6 +48,9 @@ export function ContactPage() {
           />
         </form>
       </div>
+      <NavLink to="/hidden">
+        <div className="absolute right-5 top-5 h-10 w-10 cursor-pointer rounded-full bg-transparent"></div>
+      </NavLink>
     </div>
   );
 }
