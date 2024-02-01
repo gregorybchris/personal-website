@@ -10,7 +10,7 @@ import decidioImage from "../assets/images/projects/decidio.svg";
 import directedImage from "../assets/images/projects/directed.svg";
 import dirstuffImage from "../assets/images/projects/dirstuff.svg";
 import engineroomImage from "../assets/images/projects/engineroom.svg";
-import halfplaneImage from "../assets/images/projects/halfplane.svg";
+import halfplaneImage from "../assets/images/projects/half-plane.svg";
 import jumboMealImage from "../assets/images/projects/jumbo-meal.svg";
 import langtonImage from "../assets/images/projects/langton.svg";
 import ptcdImage from "../assets/images/projects/ptcd.svg";
@@ -36,7 +36,7 @@ const IMAGE_MAP = new Map([
   ["directed", directedImage],
   ["dirstuff", dirstuffImage],
   ["engineroom", engineroomImage],
-  ["halfplane", halfplaneImage],
+  ["half-plane", halfplaneImage],
   ["jumbo-meal", jumboMealImage],
   ["langton", langtonImage],
   ["ptcd", ptcdImage],
