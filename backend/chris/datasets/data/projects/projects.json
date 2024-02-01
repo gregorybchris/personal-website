@@ -1441,5 +1441,23 @@
     ],
     "primary_language": "TypeScript",
     "archived": false
+  },
+  {
+    "project_id": "e3d78601-e7ca-483a-a3a4-632e13d64e78",
+    "name": "Langton",
+    "slug": "langton",
+    "date": "2024-01-17",
+    "rating": 3,
+    "project_type": "simulation",
+    "controls": null,
+    "description": "Simulation of a cellular automaton called Langton's ant. It's a demonstration of very simple rules leading to complex emergent behavior.",
+    "remarks": null,
+    "tags": ["simulation", "cellular", "automaton", "ant", "langton"],
+    "source_link": "https://github.com/gregorybchris/langton",
+    "download_link": null,
+    "web_link": null,
+    "image_links": ["https://storage.googleapis.com/cgme/projects/images/langton--01.gif"],
+    "primary_language": "Python",
+    "archived": false
   }
 ]
