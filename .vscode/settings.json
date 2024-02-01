@@ -31,5 +31,5 @@
   "python.testing.pytestEnabled": true,
   "python.testing.unittestEnabled": false,
   "python.testing.cwd": "backend/tests",
-  "cSpell.words": ["bfprt", "chladni", "decidio", "halfplane", "sweyp", "vidrank"]
+  "cSpell.words": ["bfprt", "chladni", "decidio", "halfplane", "ptcd", "sweyp", "vidrank"]
 }

@@ -13,7 +13,7 @@ import engineroomImage from "../assets/images/projects/engineroom.svg";
 import halfplaneImage from "../assets/images/projects/halfplane.svg";
 import jumboMealImage from "../assets/images/projects/jumbo-meal.svg";
 import langtonImage from "../assets/images/projects/langton.svg";
-import parkTudorChemicalDatabaseImage from "../assets/images/projects/park-tudor-chemical-database.svg";
+import ptcdImage from "../assets/images/projects/ptcd.svg";
 import quadImage from "../assets/images/projects/quad.svg";
 import scrapscriptImage from "../assets/images/projects/scrapscript.svg";
 import sweypImage from "../assets/images/projects/sweyp.svg";
@@ -39,7 +39,7 @@ const IMAGE_MAP = new Map([
   ["halfplane", halfplaneImage],
   ["jumbo-meal", jumboMealImage],
   ["langton", langtonImage],
-  ["park-tudor-chemical-database", parkTudorChemicalDatabaseImage],
+  ["ptcd", ptcdImage],
   ["quad", quadImage],
   ["scrapscript", scrapscriptImage],
   ["sweyp", sweypImage],
