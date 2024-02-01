@@ -30,5 +30,6 @@
   "python.linting.pylintArgs": ["--rcfile=../backend/pyproject.toml"],
   "python.testing.pytestEnabled": true,
   "python.testing.unittestEnabled": false,
-  "python.testing.cwd": "backend/tests"
+  "python.testing.cwd": "backend/tests",
+  "cSpell.words": ["bfprt", "chladni", "decidio", "halfplane", "sweyp", "vidrank"]
 }
