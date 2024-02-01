@@ -77,7 +77,7 @@ export function CodeProjectsPage() {
       />
       {currentDownloadProject?.download_link && (
         <a
-          className="display-none"
+          className="opacity-0"
           ref={hiddenDownloadAnchor}
           href={currentDownloadProject?.download_link}
           target="_blank"

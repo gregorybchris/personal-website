@@ -10,18 +10,20 @@ import seedrandom from "seedrandom";
 
 class ProjectTypes {
   static GAME = "game";
+  static PROGRAM = "program";
+  static SIMULATION = "simulation";
   static TOOL = "tool";
-  static TUTORIAL = "tutorial";
   static VISUALIZATION = "visualization";
 }
 
 class Colors {
   static BLACK = "rgb(0, 0, 0)";
-  static RED = "rgb(239, 71, 111)";
-  static YELLOW = "rgb(255, 209, 102)";
-  static GREEN = "rgb(6, 214, 160)";
-  static BLUE = "rgb(17, 138, 178)";
-  static NAVY = "rgb(7, 59, 76)";
+  static BLUE = "rgb(41, 128, 185)";
+  static GREEN = "rgb(39, 174, 96)";
+  static ORANGE = "rgb(230, 126, 34)";
+  static PURPLE = "rgb(142, 68, 173)";
+  static RED = "rgb(231, 76, 60)";
+  static YELLOW = "rgb(241, 196, 15)";
 }
 
 class SimConstants {
@@ -157,13 +159,15 @@ export function CodeProjectsTimeline(props: CodeProjectsTimelineProps) {
   function getProjectColor(projectType: string): string {
     switch (projectType) {
       case ProjectTypes.GAME:
-        return Colors.BLUE;
-      case ProjectTypes.TOOL:
         return Colors.RED;
-      case ProjectTypes.TUTORIAL:
+      case ProjectTypes.PROGRAM:
         return Colors.YELLOW;
-      case ProjectTypes.VISUALIZATION:
+      case ProjectTypes.SIMULATION:
         return Colors.GREEN;
+      case ProjectTypes.TOOL:
+        return Colors.BLUE;
+      case ProjectTypes.VISUALIZATION:
+        return Colors.PURPLE;
       default:
         return Colors.BLACK;
     }
@@ -228,10 +232,10 @@ export function CodeProjectsTimeline(props: CodeProjectsTimelineProps) {
         return (r * r * 6) / 30 + 9;
       })
       .attr("opacity", 1)
-      .attr("fill", (project) => getProjectColor(project.use_type))
+      .attr("fill", (project) => getProjectColor(project.project_type))
       .attr("fill-opacity", 0)
       .attr("stroke-width", 4)
-      .attr("stroke", (project) => getProjectColor(project.use_type))
+      .attr("stroke", (project) => getProjectColor(project.project_type))
       .attr("id", (project) => `project_${project.project_id}`)
       .on("click", (mouseEvent: any, project: any) => {
         d3.selectAll("circle")
@@ -248,8 +252,9 @@ export function CodeProjectsTimeline(props: CodeProjectsTimelineProps) {
   function getLegend() {
     const projectTypes = [
       ProjectTypes.GAME,
+      ProjectTypes.PROGRAM,
+      ProjectTypes.SIMULATION,
       ProjectTypes.TOOL,
-      ProjectTypes.TUTORIAL,
       ProjectTypes.VISUALIZATION,
     ];
     return (

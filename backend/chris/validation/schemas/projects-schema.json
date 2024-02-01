@@ -22,11 +22,9 @@
         "project_type": {
           "type": "string",
           "cons": {
-            "format": { "type": "regex", "pattern": "^[a-z]{3,10}$" },
-            "in": ["jar", "program", "web"]
+            "in": ["game", "tool", "visualization", "program", "simulation"]
           }
         },
-        "use_type": "string",
         "controls": ["string", "null"],
         "description": [
           {
