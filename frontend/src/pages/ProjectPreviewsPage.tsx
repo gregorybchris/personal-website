@@ -61,7 +61,7 @@ export function ProjectPreviewsPage() {
       <div className="flex w-4/5 flex-wrap items-center justify-center pt-20">
         {Array.from(IMAGE_MAP.keys()).map((slug) => (
           <NavLink to={`/code/${slug}`}>
-            <div className="cursor-pointer opacity-70 grayscale-[70%] transition-all hover:opacity-100 hover:grayscale-0">
+            <div className="cursor-pointer opacity-90 grayscale-[60%] transition-all hover:opacity-100 hover:grayscale-0">
               <img src={slugToImage(slug)} className="w-32" />
             </div>
           </NavLink>
