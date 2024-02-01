@@ -4,6 +4,7 @@ import { GET, getSearchParams, makeQuery } from "../utilities/requestUtilities";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+import { ArrowLeft } from "@phosphor-icons/react";
 import { BlogPost } from "../components/BlogPost";
 import { BlogSearchBar } from "../components/BlogSearchBar";
 import { Post as PostModel } from "../models/blogModels";
@@ -11,54 +12,19 @@ import { Post as PostModel } from "../models/blogModels";
 export function BlogPage() {
   const [posts, setPosts] = useState<PostModel[]>([]);
   const [searchText, setSearchText] = useState<string>("");
-  const [currentPostId, setCurrentPostId] = useState<string | null>(null);
-  const [currentPostSlug, setCurrentPostSlug] = useState<string | null>(null);
   const { slug } = useParams();
   let navigate = useNavigate();
-
-  const slugOrIdExists = currentPostId !== null || currentPostSlug !== null;
-
-  function onSelectPost(post: PostModel | null) {
-    if (post === null) {
-      setCurrentPostSlug(null);
-      navigate("/links");
-    } else {
-      setCurrentPostSlug(post.slug);
-      navigate(`/links/${post.slug}`);
-    }
-  }
-
-  useEffect(() => {
-    if (slug) {
-      setCurrentPostSlug(slug);
-    } else {
-      setCurrentPostSlug(null);
-    }
-  }, [slug]);
 
   useEffect(() => {
     const postsQuery = makeQuery("posts");
     GET(postsQuery).then((queryResult) => {
       setPosts(queryResult["posts"].reverse());
     });
-
-    const searchParams = getSearchParams();
-    const paramPostId = searchParams.get("post");
-    if (paramPostId) {
-      setCurrentPostId(paramPostId);
-    }
-
-    if (slug) {
-      setCurrentPostSlug(slug);
-    } else {
-      setCurrentPostSlug(null);
-    }
   }, []);
 
   function getVideoTime() {
     const searchParams = getSearchParams();
-    const paramTime = searchParams.get("t");
-    return paramTime === null ? "" : paramTime;
+    return searchParams.get("t") || "";
   }
 
   function isPostVisible(post: PostModel) {
@@ -68,9 +34,7 @@ export function BlogPage() {
       return false;
     }
 
-    const currentIdMatch = post.post_id === currentPostId;
-    const currentSlugMatch = post.slug === currentPostSlug;
-    if (slugOrIdExists && !currentIdMatch && !currentSlugMatch) {
+    if (slug && post.slug !== slug) {
       return false;
     }
 
@@ -105,12 +69,7 @@ export function BlogPage() {
         <div className="mb-5 block font-noto text-3xl font-bold text-text-1">
           Link Blog
         </div>
-        {slugOrIdExists ? (
-          <div className="mx-auto block w-[80%] pb-5 font-raleway text-text-1">
-            This page gives direct access to one blog link. To return to the
-            full list of links click here:
-          </div>
-        ) : (
+        {!slug && (
           <div className="mx-auto block w-[80%] pb-5 font-raleway text-text-1">
             Topics range from art to neuroscience and philosophy to physics. I
             try to reserve posts here for videos and articles that made me think
@@ -120,14 +79,18 @@ export function BlogPage() {
         )}
       </div>
       <div className="pt-5">
-        {slugOrIdExists ? (
+        {slug && (
           <div
-            className="Common-button mx-auto block w-[120px] text-center"
-            onClick={() => onSelectPost(null)}
+            className="mb-4 ml-10 inline-block cursor-pointer rounded-md px-2 py-1 hover:bg-background-dark"
+            onClick={() => navigate("/links")}
           >
-            Blog home
+            <div className="flex flex-row space-x-2 font-raleway">
+              <ArrowLeft size={25} color="#6283c0" weight="regular" />
+              <div>Back to all links</div>
+            </div>
           </div>
-        ) : (
+        )}
+        {!slug && (
           <div className="ml-10">
             <BlogSearchBar
               onClearSearch={() => setSearchText("")}
@@ -147,7 +110,7 @@ export function BlogPage() {
                   key={post.post_id}
                   post={post}
                   onClickTag={(tag) => setSearchText(`#${tag}`)}
-                  onSelectPost={onSelectPost}
+                  onSelectPost={(post) => navigate(`/links/${post.slug}`)}
                   videoTime={getVideoTime()}
                 />
               ))
