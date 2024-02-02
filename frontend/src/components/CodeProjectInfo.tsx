@@ -1,5 +1,11 @@
+import {
+  Coffee,
+  DownloadSimple,
+  GithubLogo,
+  Play,
+} from "@phosphor-icons/react";
+
 import { ActionLink } from "../widgets/ActionLink";
-import { MoreInfo } from "../widgets/MoreInfo";
 import { Project as ProjectModel } from "../models/projectsModels";
 import { SimpleLink } from "../widgets/SimpleLink";
 import { formatDate } from "../utilities/datetimeUtilities";
@@ -33,10 +39,18 @@ export function CodeProjectInfo(props: CodeProjectInfoProps) {
               />
             )}
             {project.web_link && (
-              <ProjectInfoLink text="Live demo" link={project.web_link} />
+              <ProjectInfoLink
+                text="Live demo"
+                link={project.web_link}
+                kind="demo"
+              />
             )}
             {project.source_link && (
-              <ProjectInfoLink text="Source code" link={project.source_link} />
+              <ProjectInfoLink
+                text="Source code"
+                link={project.source_link}
+                kind="source"
+              />
             )}
           </div>
           <div>
@@ -62,26 +76,45 @@ function ProjectImage(props: { url: string }) {
   );
 }
 
-function ProjectInfoLink(props: { text: string; link: string }) {
+interface ProjectInfoLinkProps {
+  text: string;
+  link: string;
+  kind: "source" | "demo";
+}
+
+function ProjectInfoLink({ text, link, kind }: ProjectInfoLinkProps) {
   return (
-    <div className="mb-2 font-raleway text-text-1">
-      <SimpleLink text={props.text} link={props.link} />
+    <div className="mb-1 flex flex-row items-center space-x-2">
+      {kind === "source" ? (
+        <GithubLogo size={25} weight="duotone" color="#6283c0" />
+      ) : (
+        <Play size={25} weight="duotone" color="#6283c0" />
+      )}
+      <div className="text-text-1">
+        <SimpleLink text={text} link={link} />
+      </div>
     </div>
   );
 }
 
-function DownloadLink(props: {
+interface DownloadLinkProps {
   project: ProjectModel;
   onDownload: (project: ProjectModel) => void;
-}) {
-  const isJava = props.project.primary_language === "Java";
+}
+
+function DownloadLink({ project, onDownload }: DownloadLinkProps) {
+  const isJava = project.primary_language === "Java";
   return (
-    <div className="mb-2 font-raleway text-text-1">
-      <ActionLink
-        text={isJava ? "Download Java runnable archive" : "Download project"}
-        onClick={() => props.onDownload(props.project)}
-      />
-      {isJava && <MoreInfo text="Requires a Java installation to run" />}
+    <div className="mb-1 flex flex-row items-center space-x-2">
+      {isJava ? (
+        <Coffee size={25} weight="duotone" color="#6283c0" />
+      ) : (
+        <DownloadSimple size={25} weight="duotone" color="#6283c0" />
+      )}
+
+      <div className="text-text-1">
+        <ActionLink text="Download" onClick={() => onDownload(project)} />
+      </div>
     </div>
   );
 }
