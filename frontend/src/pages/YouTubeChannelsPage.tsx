@@ -24,7 +24,7 @@ export function YouTubeChannelsPage() {
           YouTube Channels
         </div>
         <div className="py-3 font-raleway text-text-1">
-          Some great YouTube videos!
+          Some great YouTube channels!
         </div>
       </div>
 
