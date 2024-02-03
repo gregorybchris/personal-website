@@ -9,7 +9,8 @@
       "production": 5,
       "dialog": 7
     },
-    "rank": 1
+    "rank": 1,
+    "link": "https://www.imdb.com/title/tt0758758"
   },
   {
     "name": "Jobs",
@@ -21,7 +22,8 @@
       "production": 6,
       "dialog": 7
     },
-    "rank": 2
+    "rank": 2,
+    "link": "https://www.imdb.com/title/tt2357129"
   },
   {
     "name": "The Social Network",
@@ -33,7 +35,8 @@
       "production": 8,
       "dialog": 8
     },
-    "rank": 3
+    "rank": 3,
+    "link": "https://www.imdb.com/title/tt1285016"
   },
   {
     "name": "The Theory of Everything",
@@ -45,7 +48,8 @@
       "production": 7,
       "dialog": 8
     },
-    "rank": 4
+    "rank": 4,
+    "link": "https://www.imdb.com/title/tt2980516"
   },
   {
     "name": "21",
@@ -57,7 +61,8 @@
       "production": 6,
       "dialog": 7
     },
-    "rank": 5
+    "rank": 5,
+    "link": "https://www.imdb.com/title/tt0478087"
   },
   {
     "name": "The Imitation Game",
@@ -69,7 +74,8 @@
       "production": 8,
       "dialog": 7
     },
-    "rank": 6
+    "rank": 6,
+    "link": "https://www.imdb.com/title/tt2084970"
   },
   {
     "name": "October Sky",
@@ -81,7 +87,8 @@
       "production": 4,
       "dialog": 6
     },
-    "rank": 7
+    "rank": 7,
+    "link": "https://www.imdb.com/title/tt0132477"
   },
   {
     "name": "Good Will Hunting",
@@ -93,7 +100,8 @@
       "production": 6,
       "dialog": 10
     },
-    "rank": 8
+    "rank": 8,
+    "link": "https://www.imdb.com/title/tt0119217"
   },
   {
     "name": "Gladiator",
@@ -105,7 +113,8 @@
       "production": 9,
       "dialog": 7
     },
-    "rank": 9
+    "rank": 9,
+    "link": "https://www.imdb.com/title/tt0172495"
   },
   {
     "name": "A Beautiful Mind",
@@ -117,7 +126,8 @@
       "production": 5,
       "dialog": 5
     },
-    "rank": 10
+    "rank": 10,
+    "link": "https://www.imdb.com/title/tt0268978"
   },
   {
     "name": "The Prestige",
@@ -129,7 +139,8 @@
       "production": 8,
       "dialog": 6
     },
-    "rank": 11
+    "rank": 11,
+    "link": "https://www.imdb.com/title/tt0482571"
   },
   {
     "name": "Hidden Figures",
@@ -141,7 +152,8 @@
       "production": 7,
       "dialog": 7
     },
-    "rank": 12
+    "rank": 12,
+    "link": "https://www.imdb.com/title/tt4846340"
   },
   {
     "name": "Dead Poet's Society",
@@ -153,7 +165,8 @@
       "production": 5,
       "dialog": 7
     },
-    "rank": 13
+    "rank": 13,
+    "link": "https://www.imdb.com/title/tt0097165"
   },
   {
     "name": "Anna Karenina",
@@ -165,7 +178,8 @@
       "production": 10,
       "dialog": 6
     },
-    "rank": 14
+    "rank": 14,
+    "link": "https://www.imdb.com/title/tt1781769"
   },
   {
     "name": "Interstellar",
@@ -177,7 +191,8 @@
       "production": 7,
       "dialog": 6
     },
-    "rank": 15
+    "rank": 15,
+    "link": "https://www.imdb.com/title/tt0816692"
   },
   {
     "name": "Silence",
@@ -189,7 +204,8 @@
       "production": 9,
       "dialog": 7
     },
-    "rank": 16
+    "rank": 16,
+    "link": "https://www.imdb.com/title/tt0490215"
   },
   {
     "name": "The Notebook",
@@ -201,7 +217,8 @@
       "production": 6,
       "dialog": 5
     },
-    "rank": 17
+    "rank": 17,
+    "link": "https://www.imdb.com/title/tt0332280"
   },
   {
     "name": "Without Limits",
@@ -213,7 +230,8 @@
       "production": 5,
       "dialog": 6
     },
-    "rank": 18
+    "rank": 18,
+    "link": "https://www.imdb.com/title/tt0119934"
   },
   {
     "name": "Forrest Gump",
@@ -225,7 +243,8 @@
       "production": 5,
       "dialog": 7
     },
-    "rank": 19
+    "rank": 19,
+    "link": "https://www.imdb.com/title/tt0109830"
   },
   {
     "name": "The Pursuit of Happyness",
@@ -237,7 +256,8 @@
       "production": 5,
       "dialog": 8
     },
-    "rank": 20
+    "rank": 20,
+    "link": "https://www.imdb.com/title/tt0454921"
   },
   {
     "name": "Like Crazy",
@@ -249,7 +269,8 @@
       "production": 6,
       "dialog": 6
     },
-    "rank": 21
+    "rank": 21,
+    "link": "https://www.imdb.com/title/tt1758692"
   },
   {
     "name": "Minimalism",
@@ -261,6 +282,7 @@
       "production": 7,
       "dialog": 6
     },
-    "rank": 22
+    "rank": 22,
+    "link": "https://www.imdb.com/title/tt3810760"
   }
 ]

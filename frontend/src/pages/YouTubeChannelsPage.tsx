@@ -4,6 +4,7 @@ import { GET, makeQuery } from "../utilities/requestUtilities";
 import { useEffect, useState } from "react";
 
 import Radar from "react-d3-radar";
+import { SimpleLink } from "../widgets/SimpleLink";
 import { YouTubeChannel } from "../models/mediaModels";
 
 export function YouTubeChannelsPage() {
@@ -34,7 +35,9 @@ export function YouTubeChannelsPage() {
             {channels.map((channel) => (
               <div className="w-[300px] p-6 text-center" key={channel.name}>
                 <div className="mb-10 w-full text-center">
-                  <div className="font-noto font-bold">{channel.name}</div>
+                  <SimpleLink link={channel.link}>
+                    <div className="font-noto font-bold">{channel.name}</div>
+                  </SimpleLink>
                 </div>
 
                 <div className="radar-chart mx-auto block h-32 w-32">

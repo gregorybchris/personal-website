@@ -9,7 +9,8 @@
       "information": 10,
       "consistency": 10
     },
-    "rank": 1
+    "rank": 1,
+    "link": "https://www.youtube.com/@1veritasium"
   },
   {
     "name": "Numberphile",
@@ -21,7 +22,8 @@
       "information": 10,
       "consistency": 8
     },
-    "rank": 2
+    "rank": 2,
+    "link": "https://www.youtube.com/@numberphile"
   },
   {
     "name": "3Blue1Brown",
@@ -33,7 +35,8 @@
       "information": 10,
       "consistency": 10
     },
-    "rank": 3
+    "rank": 3,
+    "link": "https://www.youtube.com/@3blue1brown"
   },
   {
     "name": "Steve Mould",
@@ -57,7 +60,8 @@
       "information": 9,
       "consistency": 7
     },
-    "rank": 5
+    "rank": 5,
+    "link": "https://www.youtube.com/@minutephysics"
   },
   {
     "name": "SmarterEveryDay",
@@ -69,7 +73,8 @@
       "information": 8,
       "consistency": 7
     },
-    "rank": 6
+    "rank": 6,
+    "link": "https://www.youtube.com/@smartereveryday"
   },
   {
     "name": "Yannic Kilcher",
@@ -81,7 +86,8 @@
       "information": 9,
       "consistency": 8
     },
-    "rank": 7
+    "rank": 7,
+    "link": "https://www.youtube.com/@yannickilcher"
   },
   {
     "name": "My Self Reliance",
@@ -93,7 +99,8 @@
       "information": 7,
       "consistency": 6
     },
-    "rank": 8
+    "rank": 8,
+    "link": "https://www.youtube.com/@myselfreliance"
   },
   {
     "name": "Sampson Boat Co",
@@ -105,7 +112,8 @@
       "information": 8,
       "consistency": 6
     },
-    "rank": 9
+    "rank": 9,
+    "link": "https://www.youtube.com/@sampsonboatco"
   },
   {
     "name": "The Royal Institution",
@@ -117,7 +125,8 @@
       "information": 9,
       "consistency": 5
     },
-    "rank": 10
+    "rank": 10,
+    "link": "https://www.youtube.com/@theroyalinstitution"
   },
   {
     "name": "Sixty Symbols",
@@ -129,7 +138,8 @@
       "information": 8,
       "consistency": 5
     },
-    "rank": 11
+    "rank": 11,
+    "link": "https://www.youtube.com/@sixtysymbols"
   },
   {
     "name": "Practical Engineering",
@@ -141,7 +151,8 @@
       "information": 7,
       "consistency": 8
     },
-    "rank": 12
+    "rank": 12,
+    "link": "https://www.youtube.com/@practicalengineeringchannel"
   },
   {
     "name": "Two Minute Papers",
@@ -153,7 +164,8 @@
       "information": 6,
       "consistency": 5
     },
-    "rank": 13
+    "rank": 13,
+    "link": "https://www.youtube.com/@twominutepapers"
   },
   {
     "name": "Computerphile",
@@ -165,7 +177,8 @@
       "information": 5,
       "consistency": 4
     },
-    "rank": 14
+    "rank": 14,
+    "link": "https://www.youtube.com/@computerphile"
   },
   {
     "name": "Chris Salomone",
@@ -177,7 +190,8 @@
       "information": 5,
       "consistency": 6
     },
-    "rank": 15
+    "rank": 15,
+    "link": "https://www.youtube.com/@foureyes.furniture"
   },
   {
     "name": "Josh Turner Guitar",
@@ -189,7 +203,8 @@
       "information": 1,
       "consistency": 8
     },
-    "rank": 16
+    "rank": 16,
+    "link": "https://www.youtube.com/@joshturnerguitar"
   },
   {
     "name": "Sean Angus Watson",
@@ -201,7 +216,8 @@
       "information": 1,
       "consistency": 7
     },
-    "rank": 17
+    "rank": 17,
+    "link": "https://www.youtube.com/@seananguswatson"
   },
   {
     "name": "Food Wishes",
@@ -213,7 +229,8 @@
       "information": 8,
       "consistency": 7
     },
-    "rank": 18
+    "rank": 18,
+    "link": "https://www.youtube.com/@foodwishes"
   },
   {
     "name": "Simone Giertz",
@@ -225,7 +242,8 @@
       "information": 7,
       "consistency": 9
     },
-    "rank": 19
+    "rank": 19,
+    "link": "https://www.youtube.com/@simonegiertz"
   },
   {
     "name": "NileRed",
@@ -237,6 +255,7 @@
       "information": 9,
       "consistency": 7
     },
-    "rank": 20
+    "rank": 20,
+    "link": "https://www.youtube.com/@nilered"
   }
 ]

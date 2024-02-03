@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import { Movie } from "../models/mediaModels";
 import Radar from "react-d3-radar";
+import { SimpleLink } from "../widgets/SimpleLink";
 
 export function MoviesPage() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -32,7 +33,9 @@ export function MoviesPage() {
             {movies.map((movie) => (
               <div className="w-[300px] p-6 text-center" key={movie.name}>
                 <div className="mb-10 w-full text-center">
-                  <div className="font-noto font-bold">{movie.name}</div>
+                  <SimpleLink link={movie.link}>
+                    <div className="font-noto font-bold">{movie.name}</div>
+                  </SimpleLink>
                 </div>
 
                 <div className="radar-chart mx-auto block h-32 w-32">

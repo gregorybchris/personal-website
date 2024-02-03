@@ -9,6 +9,7 @@ export interface TvShow {
     dialog: number;
   };
   rank: number;
+  link: string;
 }
 
 export interface YouTubeChannel {
@@ -22,6 +23,7 @@ export interface YouTubeChannel {
     consistency: number;
   };
   rank: number;
+  link: string;
 }
 
 export interface Movie {
@@ -35,6 +37,7 @@ export interface Movie {
     dialog: number;
   };
   rank: number;
+  link: string;
 }
 
 export interface Podcast {

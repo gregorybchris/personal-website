@@ -4,6 +4,7 @@ import { GET, makeQuery } from "../utilities/requestUtilities";
 import { useEffect, useState } from "react";
 
 import Radar from "react-d3-radar";
+import { SimpleLink } from "../widgets/SimpleLink";
 import { TvShow } from "../models/mediaModels";
 
 export function TvShowsPage() {
@@ -35,7 +36,9 @@ export function TvShowsPage() {
             {shows.map((show) => (
               <div className="w-[300px] p-6 text-center" key={show.name}>
                 <div className="mb-10 w-full text-center">
-                  <div className="font-noto font-bold">{show.name}</div>
+                  <SimpleLink link={show.link}>
+                    <div className="font-noto font-bold">{show.name}</div>
+                  </SimpleLink>
                 </div>
 
                 <div className="radar-chart mx-auto block h-32 w-32">
