@@ -30,8 +30,8 @@ export function PodcastsPage() {
 
       {podcasts.length == 0 && <div>Loading podcasts...</div>}
       {podcasts.length > 0 && (
-        <div className="">
-          <div className="grid md:grid-cols-3 lg:grid-cols-5">
+        <div className="flex flex-col items-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
             {podcasts.map((podcast) => (
               <div className="w-[300px] p-6 text-center" key={podcast.name}>
                 <div className="mb-10 flex w-full flex-col items-center space-y-3 text-center">
@@ -42,7 +42,7 @@ export function PodcastsPage() {
                   <img
                     src={`https://static.pocketcasts.com/discover/images/webp/480/${podcast.pocket_casts_id}.webp`}
                     alt={podcast.name}
-                    className="size-40 rounded-lg"
+                    className="size-40 rounded-md"
                   />
                 </div>
 

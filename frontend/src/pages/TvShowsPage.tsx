@@ -31,8 +31,8 @@ export function TvShowsPage() {
 
       {shows.length == 0 && <div>Loading shows...</div>}
       {shows.length > 0 && (
-        <div className="">
-          <div className="grid md:grid-cols-3 lg:grid-cols-5">
+        <div className="flex flex-col items-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
             {shows.map((show) => (
               <div className="w-[300px] p-6 text-center" key={show.name}>
                 <div className="mb-10 w-full text-center">

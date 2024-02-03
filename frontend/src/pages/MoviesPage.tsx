@@ -28,8 +28,8 @@ export function MoviesPage() {
 
       {movies.length == 0 && <div>Loading movies...</div>}
       {movies.length > 0 && (
-        <div className="">
-          <div className="grid md:grid-cols-3 lg:grid-cols-5">
+        <div className="flex flex-col items-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
             {movies.map((movie) => (
               <div className="w-[300px] p-6 text-center" key={movie.name}>
                 <div className="mb-10 w-full text-center">
