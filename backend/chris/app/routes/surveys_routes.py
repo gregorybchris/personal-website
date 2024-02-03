@@ -18,20 +18,16 @@ class RequestModel(BaseModel):
     feedback: str
 
 
-class TempModel(BaseModel):
-    # TODO: Change this model
-    temp: str = "temp"
-
 
 @logging_utilities.log_context("get_surveys", tag="api")
-@router.get(path="/surveys", response_model=TempModel)
+@router.get(path="/surveys")
 def get_surveys() -> JSONResponse:
     """Get survey data."""
     return JSONResponse(fetch_dataset(Datasets.SURVEYS))
 
 
 @logging_utilities.log_context("post_survey_results", tag="api")
-@router.post(path="/surveys/{survey_id}", response_model=TempModel)
+@router.post(path="/surveys/{survey_id}")
 def post_survey_results(request: RequestModel, survey_id: str) -> JSONResponse:
     """Post a survey result."""
     surveys = fetch_dataset(Datasets.SURVEYS)
@@ -52,7 +48,7 @@ def post_survey_results(request: RequestModel, survey_id: str) -> JSONResponse:
 
 
 @logging_utilities.log_context("get_survey_results", tag="api")
-@router.get(path="/surveys/results", response_model=TempModel)
+@router.get(path="/surveys/results")
 def get_survey_results() -> JSONResponse:
     """Get survey data."""
     # result_documents = list(db.find_all())

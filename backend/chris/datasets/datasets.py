@@ -60,8 +60,8 @@ class Datasets:
 
     YOUTUBE_CHANNELS = DatasetInfo(
         "YouTube Channels",
-        "media/youtube-channels.csv",
-        DatasetFormats.CSV,
+        "media/youtube-channels.json",
+        DatasetFormats.JSON,
         "YouTube channels.",
     )
 

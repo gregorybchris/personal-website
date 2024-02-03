@@ -31,10 +31,10 @@ export function YouTubeChannelsPage() {
       {channels.length > 0 && (
         <div className="">
           <div className="grid md:grid-cols-3 lg:grid-cols-5">
-            {channels.map((show) => (
-              <div className="w-[300px] p-6 text-center" key={show.name}>
+            {channels.map((channel) => (
+              <div className="w-[300px] p-6 text-center" key={channel.name}>
                 <div className="mb-10 w-full text-center">
-                  <div className="font-noto font-bold">{show.name}</div>
+                  <div className="font-noto font-bold">{channel.name}</div>
                 </div>
 
                 <div className="radar-chart mx-auto block h-32 w-32">
@@ -49,20 +49,20 @@ export function YouTubeChannelsPage() {
                     }}
                     data={{
                       variables: [
-                        { key: "production_score", label: "Production" },
-                        { key: "personality_score", label: "Personality" },
-                        { key: "information_score", label: "Information" },
-                        { key: "consistency_score", label: "Consistency" },
+                        { key: "productionScore", label: "Production" },
+                        { key: "personalityScore", label: "Personality" },
+                        { key: "informationScore", label: "Information" },
+                        { key: "consistencyScore", label: "Consistency" },
                       ],
                       sets: [
                         {
                           key: "me",
                           label: "My Scores",
                           values: {
-                            production_score: show.production_score,
-                            personality_score: show.personality_score,
-                            information_score: show.information_score,
-                            consistency_score: show.consistency_score,
+                            productionScore: channel.scores.production,
+                            personalityScore: channel.scores.personality,
+                            informationScore: channel.scores.information,
+                            consistencyScore: channel.scores.consistency,
                           },
                         },
                       ],

@@ -13,10 +13,12 @@ export interface YouTubeChannel {
   name: string;
   media_type: string;
   category: string;
-  production_score: number;
-  personality_score: number;
-  information_score: number;
-  consistency_score: number;
+  scores: {
+    production: number;
+    personality: number;
+    information: number;
+    consistency: number;
+  };
   rank: number;
 }
 

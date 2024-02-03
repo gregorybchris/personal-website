@@ -1,0 +1,242 @@
+[
+  {
+    "name": "Veritasium",
+    "media_type": "youtube",
+    "category": "stem",
+    "scores": {
+      "production": 9,
+      "personality": 7,
+      "information": 10,
+      "consistency": 10
+    },
+    "rank": 1
+  },
+  {
+    "name": "Numberphile",
+    "media_type": "youtube",
+    "category": "stem",
+    "scores": {
+      "production": 7,
+      "personality": 9,
+      "information": 10,
+      "consistency": 8
+    },
+    "rank": 2
+  },
+  {
+    "name": "3Blue1Brown",
+    "media_type": "youtube",
+    "category": "stem",
+    "scores": {
+      "production": 10,
+      "personality": 6,
+      "information": 10,
+      "consistency": 10
+    },
+    "rank": 3
+  },
+  {
+    "name": "Steve Mould",
+    "media_type": "youtube",
+    "category": "stem",
+    "scores": {
+      "production": 7,
+      "personality": 7,
+      "information": 10,
+      "consistency": 9
+    },
+    "rank": 4
+  },
+  {
+    "name": "minutephysics",
+    "media_type": "youtube",
+    "category": "stem",
+    "scores": {
+      "production": 8,
+      "personality": 3,
+      "information": 9,
+      "consistency": 7
+    },
+    "rank": 5
+  },
+  {
+    "name": "SmarterEveryDay",
+    "media_type": "youtube",
+    "category": "stem",
+    "scores": {
+      "production": 8,
+      "personality": 9,
+      "information": 8,
+      "consistency": 7
+    },
+    "rank": 6
+  },
+  {
+    "name": "Yannic Kilcher",
+    "media_type": "youtube",
+    "category": "stem",
+    "scores": {
+      "production": 7,
+      "personality": 6,
+      "information": 9,
+      "consistency": 8
+    },
+    "rank": 7
+  },
+  {
+    "name": "My Self Reliance",
+    "media_type": "youtube",
+    "category": "craft",
+    "scores": {
+      "production": 10,
+      "personality": 8,
+      "information": 7,
+      "consistency": 6
+    },
+    "rank": 8
+  },
+  {
+    "name": "Sampson Boat Co",
+    "media_type": "youtube",
+    "category": "craft",
+    "scores": {
+      "production": 7,
+      "personality": 7,
+      "information": 8,
+      "consistency": 6
+    },
+    "rank": 9
+  },
+  {
+    "name": "The Royal Institution",
+    "media_type": "youtube",
+    "category": "stem",
+    "scores": {
+      "production": 10,
+      "personality": 1,
+      "information": 9,
+      "consistency": 5
+    },
+    "rank": 10
+  },
+  {
+    "name": "Sixty Symbols",
+    "media_type": "youtube",
+    "category": "stem",
+    "scores": {
+      "production": 8,
+      "personality": 3,
+      "information": 8,
+      "consistency": 5
+    },
+    "rank": 11
+  },
+  {
+    "name": "Practical Engineering",
+    "media_type": "youtube",
+    "category": "stem",
+    "scores": {
+      "production": 7,
+      "personality": 5,
+      "information": 7,
+      "consistency": 8
+    },
+    "rank": 12
+  },
+  {
+    "name": "Two Minute Papers",
+    "media_type": "youtube",
+    "category": "stem",
+    "scores": {
+      "production": 6,
+      "personality": 5,
+      "information": 6,
+      "consistency": 5
+    },
+    "rank": 13
+  },
+  {
+    "name": "Computerphile",
+    "media_type": "youtube",
+    "category": "stem",
+    "scores": {
+      "production": 6,
+      "personality": 4,
+      "information": 5,
+      "consistency": 4
+    },
+    "rank": 14
+  },
+  {
+    "name": "Chris Salomone",
+    "media_type": "youtube",
+    "category": "craft",
+    "scores": {
+      "production": 9,
+      "personality": 7,
+      "information": 5,
+      "consistency": 6
+    },
+    "rank": 15
+  },
+  {
+    "name": "Josh Turner Guitar",
+    "media_type": "youtube",
+    "category": "music",
+    "scores": {
+      "production": 6,
+      "personality": 7,
+      "information": 1,
+      "consistency": 8
+    },
+    "rank": 16
+  },
+  {
+    "name": "Sean Angus Watson",
+    "media_type": "youtube",
+    "category": "music",
+    "scores": {
+      "production": 5,
+      "personality": 7,
+      "information": 1,
+      "consistency": 7
+    },
+    "rank": 17
+  },
+  {
+    "name": "Food Wishes",
+    "media_type": "youtube",
+    "category": "cooking",
+    "scores": {
+      "production": 7,
+      "personality": 10,
+      "information": 8,
+      "consistency": 7
+    },
+    "rank": 18
+  },
+  {
+    "name": "Simone Giertz",
+    "media_type": "youtube",
+    "category": "craft",
+    "scores": {
+      "production": 7,
+      "personality": 10,
+      "information": 7,
+      "consistency": 9
+    },
+    "rank": 19
+  },
+  {
+    "name": "NileRed",
+    "media_type": "youtube",
+    "category": "stem",
+    "scores": {
+      "production": 6,
+      "personality": 6,
+      "information": 9,
+      "consistency": 7
+    },
+    "rank": 20
+  }
+]
