@@ -31,10 +31,10 @@ export function PodcastsPage() {
       {podcasts.length > 0 && (
         <div className="">
           <div className="grid md:grid-cols-3 lg:grid-cols-5">
-            {podcasts.map((show) => (
-              <div className="w-[300px] p-6 text-center" key={show.name}>
+            {podcasts.map((podcast) => (
+              <div className="w-[300px] p-6 text-center" key={podcast.name}>
                 <div className="mb-10 w-full text-center">
-                  <div className="font-noto font-bold">{show.name}</div>
+                  <div className="font-noto font-bold">{podcast.name}</div>
                 </div>
 
                 <div className="radar-chart mx-auto block h-32 w-32">
@@ -59,10 +59,10 @@ export function PodcastsPage() {
                           key: "me",
                           label: "My Scores",
                           values: {
-                            production_score: show.production_score,
-                            personality_score: show.personality_score,
-                            information_score: show.information_score,
-                            consistency_score: show.consistency_score,
+                            production_score: podcast.production_score,
+                            personality_score: podcast.personality_score,
+                            information_score: podcast.information_score,
+                            consistency_score: podcast.consistency_score,
                           },
                         },
                       ],

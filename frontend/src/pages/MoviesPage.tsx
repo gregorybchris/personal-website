@@ -29,10 +29,10 @@ export function MoviesPage() {
       {movies.length > 0 && (
         <div className="">
           <div className="grid md:grid-cols-3 lg:grid-cols-5">
-            {movies.map((show) => (
-              <div className="w-[300px] p-6 text-center" key={show.name}>
+            {movies.map((movie) => (
+              <div className="w-[300px] p-6 text-center" key={movie.name}>
                 <div className="mb-10 w-full text-center">
-                  <div className="font-noto font-bold">{show.name}</div>
+                  <div className="font-noto font-bold">{movie.name}</div>
                 </div>
 
                 <div className="radar-chart mx-auto block h-32 w-32">
@@ -57,10 +57,10 @@ export function MoviesPage() {
                           key: "me",
                           label: "My Scores",
                           values: {
-                            production_score: show.production_score,
-                            dialog_score: show.dialog_score,
-                            characters_score: show.characters_score,
-                            plot_score: show.plot_score,
+                            production_score: movie.production_score,
+                            dialog_score: movie.dialog_score,
+                            characters_score: movie.characters_score,
+                            plot_score: movie.plot_score,
                           },
                         },
                       ],
