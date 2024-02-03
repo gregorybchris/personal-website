@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import { Podcast } from "../models/mediaModels";
 import Radar from "react-d3-radar";
+import { SimpleLink } from "../widgets/SimpleLink";
 
 export function PodcastsPage() {
   const [podcasts, setPodcasts] = useState<Podcast[]>([]);
@@ -34,7 +35,9 @@ export function PodcastsPage() {
             {podcasts.map((podcast) => (
               <div className="w-[300px] p-6 text-center" key={podcast.name}>
                 <div className="mb-10 w-full text-center">
-                  <div className="font-noto font-bold">{podcast.name}</div>
+                  <SimpleLink link={podcast.apple_link}>
+                    <div className="font-noto font-bold">{podcast.name}</div>
+                  </SimpleLink>
                 </div>
 
                 <div className="radar-chart mx-auto block h-32 w-32">

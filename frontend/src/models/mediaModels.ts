@@ -51,4 +51,6 @@ export interface Podcast {
     consistency: number;
   };
   rank: number;
+  apple_link: string;
+  pocket_casts_link: string;
 }
