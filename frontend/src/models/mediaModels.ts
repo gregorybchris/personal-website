@@ -53,4 +53,5 @@ export interface Podcast {
   rank: number;
   apple_link: string;
   pocket_casts_link: string;
+  pocket_casts_id: string;
 }

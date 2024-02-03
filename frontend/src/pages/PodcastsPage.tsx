@@ -34,10 +34,16 @@ export function PodcastsPage() {
           <div className="grid md:grid-cols-3 lg:grid-cols-5">
             {podcasts.map((podcast) => (
               <div className="w-[300px] p-6 text-center" key={podcast.name}>
-                <div className="mb-10 w-full text-center">
+                <div className="mb-10 flex w-full flex-col items-center space-y-3 text-center">
                   <SimpleLink link={podcast.apple_link}>
                     <div className="font-noto font-bold">{podcast.name}</div>
                   </SimpleLink>
+
+                  <img
+                    src={`https://static.pocketcasts.com/discover/images/webp/480/${podcast.pocket_casts_id}.webp`}
+                    alt={podcast.name}
+                    className="size-40 rounded-lg"
+                  />
                 </div>
 
                 <div className="radar-chart mx-auto block h-32 w-32">
