@@ -1,7 +1,6 @@
 [
   {
     "name": "Making Sense",
-    "media_type": "podcast",
     "category": "general",
     "scores": {
       "production": 8,
@@ -16,7 +15,6 @@
   },
   {
     "name": "Lex Fridman",
-    "media_type": "podcast",
     "category": "general",
     "scores": {
       "production": 6,
@@ -31,7 +29,6 @@
   },
   {
     "name": "Mindscape",
-    "media_type": "podcast",
     "category": "stem",
     "scores": {
       "production": 8,
@@ -46,7 +43,6 @@
   },
   {
     "name": "Reply All",
-    "media_type": "podcast",
     "category": "informational",
     "scores": {
       "production": 10,
@@ -61,7 +57,6 @@
   },
   {
     "name": "All-In",
-    "media_type": "podcast",
     "category": "general",
     "scores": {
       "production": 6,
@@ -76,7 +71,6 @@
   },
   {
     "name": "The Portal",
-    "media_type": "podcast",
     "category": "general",
     "scores": {
       "production": 6,
@@ -91,7 +85,6 @@
   },
   {
     "name": "Dwarkesh Podcast",
-    "media_type": "podcast",
     "category": "general",
     "scores": {
       "production": 6,
@@ -106,7 +99,6 @@
   },
   {
     "name": "Machine Learning Street Talk",
-    "media_type": "podcast",
     "category": "stem",
     "scores": {
       "production": 8,
@@ -121,7 +113,6 @@
   },
   {
     "name": "Armchair Expert",
-    "media_type": "podcast",
     "category": "general",
     "scores": {
       "production": 8,
@@ -136,7 +127,6 @@
   },
   {
     "name": "The Daily",
-    "media_type": "podcast",
     "category": "informational",
     "scores": {
       "production": 10,
@@ -151,7 +141,6 @@
   },
   {
     "name": "Talking Machines",
-    "media_type": "podcast",
     "category": "stem",
     "scores": {
       "production": 6,
@@ -166,7 +155,6 @@
   },
   {
     "name": "The Dirtbag Diaries",
-    "media_type": "podcast",
     "category": "outdoor",
     "scores": {
       "production": 8,
@@ -181,7 +169,6 @@
   },
   {
     "name": "Ologies",
-    "media_type": "podcast",
     "category": "stem",
     "scores": {
       "production": 8,

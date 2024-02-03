@@ -1,7 +1,6 @@
 [
   {
     "name": "Into the Wild",
-    "media_type": "movie",
     "genre": "historical fiction",
     "scores": {
       "plot": 7,
@@ -14,7 +13,6 @@
   },
   {
     "name": "Jobs",
-    "media_type": "movie",
     "genre": "historical fiction",
     "scores": {
       "plot": 7,
@@ -27,7 +25,6 @@
   },
   {
     "name": "The Social Network",
-    "media_type": "movie",
     "genre": "historical fiction",
     "scores": {
       "plot": 6,
@@ -40,7 +37,6 @@
   },
   {
     "name": "The Theory of Everything",
-    "media_type": "movie",
     "genre": "historical fiction",
     "scores": {
       "plot": 8,
@@ -53,7 +49,6 @@
   },
   {
     "name": "21",
-    "media_type": "movie",
     "genre": "historical fiction",
     "scores": {
       "plot": 7,
@@ -66,7 +61,6 @@
   },
   {
     "name": "The Imitation Game",
-    "media_type": "movie",
     "genre": "historical fiction",
     "scores": {
       "plot": 7,
@@ -79,7 +73,6 @@
   },
   {
     "name": "October Sky",
-    "media_type": "movie",
     "genre": "historical fiction",
     "scores": {
       "plot": 6,
@@ -92,7 +85,6 @@
   },
   {
     "name": "Good Will Hunting",
-    "media_type": "movie",
     "genre": "drama",
     "scores": {
       "plot": 6,
@@ -105,7 +97,6 @@
   },
   {
     "name": "Gladiator",
-    "media_type": "movie",
     "genre": "action",
     "scores": {
       "plot": 8,
@@ -118,7 +109,6 @@
   },
   {
     "name": "A Beautiful Mind",
-    "media_type": "movie",
     "genre": "historical fiction",
     "scores": {
       "plot": 8,
@@ -131,7 +121,6 @@
   },
   {
     "name": "The Prestige",
-    "media_type": "movie",
     "genre": "drama",
     "scores": {
       "plot": 10,
@@ -144,7 +133,6 @@
   },
   {
     "name": "Hidden Figures",
-    "media_type": "movie",
     "genre": "historical fiction",
     "scores": {
       "plot": 9,
@@ -157,7 +145,6 @@
   },
   {
     "name": "Dead Poet's Society",
-    "media_type": "movie",
     "genre": "drama",
     "scores": {
       "plot": 7,
@@ -170,7 +157,6 @@
   },
   {
     "name": "Anna Karenina",
-    "media_type": "movie",
     "genre": "drama",
     "scores": {
       "plot": 6,
@@ -183,7 +169,6 @@
   },
   {
     "name": "Interstellar",
-    "media_type": "movie",
     "genre": "scifi",
     "scores": {
       "plot": 9,
@@ -196,7 +181,6 @@
   },
   {
     "name": "Silence",
-    "media_type": "movie",
     "genre": "drama",
     "scores": {
       "plot": 9,
@@ -209,7 +193,6 @@
   },
   {
     "name": "The Notebook",
-    "media_type": "movie",
     "genre": "romance",
     "scores": {
       "plot": 6,
@@ -222,7 +205,6 @@
   },
   {
     "name": "Without Limits",
-    "media_type": "movie",
     "genre": "historical fiction",
     "scores": {
       "plot": 7,
@@ -235,7 +217,6 @@
   },
   {
     "name": "Forrest Gump",
-    "media_type": "movie",
     "genre": "drama",
     "scores": {
       "plot": 6,
@@ -248,7 +229,6 @@
   },
   {
     "name": "The Pursuit of Happyness",
-    "media_type": "movie",
     "genre": "drama",
     "scores": {
       "plot": 8,
@@ -261,7 +241,6 @@
   },
   {
     "name": "Like Crazy",
-    "media_type": "movie",
     "genre": "romance",
     "scores": {
       "plot": 4,
@@ -274,7 +253,6 @@
   },
   {
     "name": "Minimalism",
-    "media_type": "movie",
     "genre": "documentary",
     "scores": {
       "plot": 7,

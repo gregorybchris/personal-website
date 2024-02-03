@@ -1,7 +1,6 @@
 [
   {
     "name": "Halt and Catch Fire",
-    "media_type": "tv",
     "genre": "drama",
     "scores": {
       "plot": 8,
@@ -14,7 +13,6 @@
   },
   {
     "name": "Community",
-    "media_type": "tv",
     "genre": "comedy",
     "scores": {
       "plot": 8,
@@ -27,7 +25,6 @@
   },
   {
     "name": "Westworld",
-    "media_type": "tv",
     "genre": "drama",
     "scores": {
       "plot": 9,
@@ -40,7 +37,6 @@
   },
   {
     "name": "House",
-    "media_type": "tv",
     "genre": "drama",
     "scores": {
       "plot": 9,
@@ -53,7 +49,6 @@
   },
   {
     "name": "Black Mirror",
-    "media_type": "tv",
     "genre": "drama",
     "scores": {
       "plot": 10,
@@ -66,7 +61,6 @@
   },
   {
     "name": "Sherlock",
-    "media_type": "tv",
     "genre": "drama",
     "scores": {
       "plot": 9,
@@ -79,7 +73,6 @@
   },
   {
     "name": "The Bear",
-    "media_type": "tv",
     "genre": "drama",
     "scores": {
       "plot": 7,
@@ -92,7 +85,6 @@
   },
   {
     "name": "The Last of Us",
-    "media_type": "tv",
     "genre": "thriller",
     "scores": {
       "plot": 8,
@@ -105,7 +97,6 @@
   },
   {
     "name": "I Think You Should Leave",
-    "media_type": "tv",
     "genre": "comedy",
     "scores": {
       "plot": 1,
@@ -118,7 +109,6 @@
   },
   {
     "name": "How I Met Your Mother",
-    "media_type": "tv",
     "genre": "sitcom",
     "scores": {
       "plot": 5,
@@ -131,7 +121,6 @@
   },
   {
     "name": "Silo",
-    "media_type": "tv",
     "genre": "drama",
     "scores": {
       "plot": 9,
@@ -144,7 +133,6 @@
   },
   {
     "name": "Rick and Morty",
-    "media_type": "tv",
     "genre": "comedy",
     "scores": {
       "plot": 9,
@@ -157,7 +145,6 @@
   },
   {
     "name": "Severance",
-    "media_type": "tv",
     "genre": "drama",
     "scores": {
       "plot": 8,
@@ -170,7 +157,6 @@
   },
   {
     "name": "Normal People",
-    "media_type": "tv",
     "genre": "drama",
     "scores": {
       "plot": 5,
@@ -183,7 +169,6 @@
   },
   {
     "name": "Lessons in Chemistry",
-    "media_type": "tv",
     "genre": "drama",
     "scores": {
       "plot": 7,
@@ -196,7 +181,6 @@
   },
   {
     "name": "Portlandia",
-    "media_type": "tv",
     "genre": "comedy",
     "scores": {
       "plot": 3,
@@ -209,7 +193,6 @@
   },
   {
     "name": "The Queen's Gambit",
-    "media_type": "tv",
     "genre": "drama",
     "scores": {
       "plot": 6,
@@ -222,7 +205,6 @@
   },
   {
     "name": "Silicon Valley",
-    "media_type": "tv",
     "genre": "comedy",
     "scores": {
       "plot": 7,
@@ -235,7 +217,6 @@
   },
   {
     "name": "Wild Wild Country",
-    "media_type": "tv",
     "genre": "documentary",
     "scores": {
       "plot": 10,

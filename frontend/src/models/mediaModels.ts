@@ -1,6 +1,5 @@
 export interface TvShow {
   name: string;
-  media_type: string;
   genre: string;
   scores: {
     plot: number;
@@ -14,7 +13,6 @@ export interface TvShow {
 
 export interface YouTubeChannel {
   name: string;
-  media_type: string;
   category: string;
   scores: {
     production: number;
@@ -28,7 +26,6 @@ export interface YouTubeChannel {
 
 export interface Movie {
   name: string;
-  media_type: string;
   genre: string;
   scores: {
     plot: number;
@@ -42,7 +39,6 @@ export interface Movie {
 
 export interface Podcast {
   name: string;
-  media_type: string;
   category: string;
   scores: {
     production: number;

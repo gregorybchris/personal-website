@@ -1,7 +1,6 @@
 [
   {
     "name": "Veritasium",
-    "media_type": "youtube",
     "category": "stem",
     "scores": {
       "production": 9,
@@ -14,7 +13,6 @@
   },
   {
     "name": "Numberphile",
-    "media_type": "youtube",
     "category": "stem",
     "scores": {
       "production": 7,
@@ -27,7 +25,6 @@
   },
   {
     "name": "3Blue1Brown",
-    "media_type": "youtube",
     "category": "stem",
     "scores": {
       "production": 10,
@@ -40,7 +37,6 @@
   },
   {
     "name": "Steve Mould",
-    "media_type": "youtube",
     "category": "stem",
     "scores": {
       "production": 7,
@@ -52,7 +48,6 @@
   },
   {
     "name": "minutephysics",
-    "media_type": "youtube",
     "category": "stem",
     "scores": {
       "production": 8,
@@ -65,7 +60,6 @@
   },
   {
     "name": "SmarterEveryDay",
-    "media_type": "youtube",
     "category": "stem",
     "scores": {
       "production": 8,
@@ -78,7 +72,6 @@
   },
   {
     "name": "Yannic Kilcher",
-    "media_type": "youtube",
     "category": "stem",
     "scores": {
       "production": 7,
@@ -91,7 +84,6 @@
   },
   {
     "name": "My Self Reliance",
-    "media_type": "youtube",
     "category": "craft",
     "scores": {
       "production": 10,
@@ -104,7 +96,6 @@
   },
   {
     "name": "Sampson Boat Co",
-    "media_type": "youtube",
     "category": "craft",
     "scores": {
       "production": 7,
@@ -117,7 +108,6 @@
   },
   {
     "name": "The Royal Institution",
-    "media_type": "youtube",
     "category": "stem",
     "scores": {
       "production": 10,
@@ -130,7 +120,6 @@
   },
   {
     "name": "Sixty Symbols",
-    "media_type": "youtube",
     "category": "stem",
     "scores": {
       "production": 8,
@@ -143,7 +132,6 @@
   },
   {
     "name": "Practical Engineering",
-    "media_type": "youtube",
     "category": "stem",
     "scores": {
       "production": 7,
@@ -156,7 +144,6 @@
   },
   {
     "name": "Two Minute Papers",
-    "media_type": "youtube",
     "category": "stem",
     "scores": {
       "production": 6,
@@ -169,7 +156,6 @@
   },
   {
     "name": "Computerphile",
-    "media_type": "youtube",
     "category": "stem",
     "scores": {
       "production": 6,
@@ -182,7 +168,6 @@
   },
   {
     "name": "Chris Salomone",
-    "media_type": "youtube",
     "category": "craft",
     "scores": {
       "production": 9,
@@ -195,7 +180,6 @@
   },
   {
     "name": "Josh Turner Guitar",
-    "media_type": "youtube",
     "category": "music",
     "scores": {
       "production": 6,
@@ -208,7 +192,6 @@
   },
   {
     "name": "Sean Angus Watson",
-    "media_type": "youtube",
     "category": "music",
     "scores": {
       "production": 5,
@@ -221,7 +204,6 @@
   },
   {
     "name": "Food Wishes",
-    "media_type": "youtube",
     "category": "cooking",
     "scores": {
       "production": 7,
@@ -234,7 +216,6 @@
   },
   {
     "name": "Simone Giertz",
-    "media_type": "youtube",
     "category": "craft",
     "scores": {
       "production": 7,
@@ -247,7 +228,6 @@
   },
   {
     "name": "NileRed",
-    "media_type": "youtube",
     "category": "stem",
     "scores": {
       "production": 6,
