@@ -12,7 +12,7 @@ import { formatDate } from "../utilities/datetimeUtilities";
 
 interface CodeProjectInfoProps {
   currentProject: ProjectModel | null;
-  onProjectDownload: (project: ProjectModel) => void;
+  onDownload: (project: ProjectModel) => void;
 }
 
 export function CodeProjectInfo(props: CodeProjectInfoProps) {
@@ -33,10 +33,7 @@ export function CodeProjectInfo(props: CodeProjectInfoProps) {
               {project.description}
             </div>
             {project.download_link && (
-              <DownloadLink
-                project={project}
-                onDownload={props.onProjectDownload}
-              />
+              <DownloadLink project={project} onDownload={props.onDownload} />
             )}
             {project.web_link && (
               <ProjectInfoLink
@@ -84,15 +81,15 @@ interface ProjectInfoLinkProps {
 
 function ProjectInfoLink({ text, link, kind }: ProjectInfoLinkProps) {
   return (
-    <div className="mb-1 flex flex-row items-center space-x-2">
-      {kind === "source" ? (
-        <GithubLogo size={25} weight="duotone" color="#6283c0" />
-      ) : (
-        <Play size={25} weight="duotone" color="#6283c0" />
-      )}
-      <div className="text-text-1">
-        <SimpleLink text={text} link={link} />
-      </div>
+    <div className="mb-1 flex flex-row">
+      <SimpleLink link={link} className="flex flex-row items-center space-x-2">
+        {kind === "source" ? (
+          <GithubLogo size={25} weight="duotone" color="#6283c0" />
+        ) : (
+          <Play size={25} weight="duotone" color="#6283c0" />
+        )}
+        <div>{text}</div>
+      </SimpleLink>
     </div>
   );
 }
@@ -105,16 +102,18 @@ interface DownloadLinkProps {
 function DownloadLink({ project, onDownload }: DownloadLinkProps) {
   const isJava = project.primary_language === "Java";
   return (
-    <div className="mb-1 flex flex-row items-center space-x-2">
-      {isJava ? (
-        <Coffee size={25} weight="duotone" color="#6283c0" />
-      ) : (
-        <DownloadSimple size={25} weight="duotone" color="#6283c0" />
-      )}
-
-      <div className="text-text-1">
-        <ActionLink text="Download" onClick={() => onDownload(project)} />
-      </div>
+    <div className="mb-1 flex flex-row">
+      <ActionLink
+        onClick={() => onDownload(project)}
+        className="flex flex-row items-center space-x-2"
+      >
+        {isJava ? (
+          <Coffee size={25} weight="duotone" color="#6283c0" />
+        ) : (
+          <DownloadSimple size={25} weight="duotone" color="#6283c0" />
+        )}
+        <div>Download</div>
+      </ActionLink>
     </div>
   );
 }

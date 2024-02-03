@@ -1,20 +1,30 @@
+import { cn } from "../utilities/styleUtilities";
+
 interface SimpleLink {
-  text: string;
   link: string;
   sameWindow?: boolean;
+  children?: React.ReactNode;
+  className?: string;
 }
 
-export function SimpleLink({ text, link, sameWindow }: SimpleLink) {
-  const target =
-    sameWindow === undefined ? "_blank" : sameWindow ? "_self" : "_blank";
+export function SimpleLink({
+  link,
+  sameWindow,
+  children,
+  className,
+}: SimpleLink) {
+  const target = sameWindow ?? false ? "_self" : "_blank";
   return (
     <a
-      className="cursor-pointer font-raleway text-accent transition-all visited:text-accent hover:text-accent-focus active:text-accent-focus"
+      className={cn(
+        "cursor-pointer font-raleway text-accent transition-all visited:text-accent hover:text-accent-focus active:text-accent-focus",
+        className,
+      )}
       href={link}
       target={target}
       rel="noopener noreferrer"
     >
-      {text}
+      {children}
     </a>
   );
 }

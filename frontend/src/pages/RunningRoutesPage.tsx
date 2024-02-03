@@ -77,7 +77,9 @@ export function RunningRoutesPage() {
           If you like running and happen to be in a city I've lived in, then
           this page is for you. Shout out to my favorite route mapping website,
           the tried and true{" "}
-          <SimpleLink text="us.mapometer.com" link="https://us.mapometer.com" />
+          <SimpleLink link="https://us.mapometer.com">
+            us.mapometer.com
+          </SimpleLink>
           .
         </div>
       </div>

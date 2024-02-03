@@ -1,15 +1,21 @@
-interface SimpleLink {
-  text: string;
+import { cn } from "../utilities/styleUtilities";
+
+interface ActionLinkProps {
   onClick?: () => void;
+  children?: React.ReactNode;
+  className?: string;
 }
 
-export function ActionLink({ text, onClick }: SimpleLink) {
+export function ActionLink({ onClick, children, className }: ActionLinkProps) {
   return (
-    <span
+    <div
       onClick={onClick}
-      className="cursor-pointer font-raleway text-accent transition-all visited:text-accent hover:text-accent-focus active:text-accent-focus"
+      className={cn(
+        "cursor-pointer font-raleway text-accent transition-all visited:text-accent hover:text-accent-focus active:text-accent-focus",
+        className,
+      )}
     >
-      {text}
-    </span>
+      {children}
+    </div>
   );
 }
