@@ -47,20 +47,20 @@ export function MoviesPage() {
                     }}
                     data={{
                       variables: [
-                        { key: "production_score", label: "Production" },
-                        { key: "dialog_score", label: "Dialog" },
-                        { key: "characters_score", label: "Characters" },
-                        { key: "plot_score", label: "Plot" },
+                        { key: "productionScore", label: "Production" },
+                        { key: "dialogScore", label: "Dialog" },
+                        { key: "charactersScore", label: "Characters" },
+                        { key: "plotScore", label: "Plot" },
                       ],
                       sets: [
                         {
                           key: "me",
                           label: "My Scores",
                           values: {
-                            production_score: movie.production_score,
-                            dialog_score: movie.dialog_score,
-                            characters_score: movie.characters_score,
-                            plot_score: movie.plot_score,
+                            productionScore: movie.scores.production,
+                            dialogScore: movie.scores.dialog,
+                            charactersScore: movie.scores.characters,
+                            plotScore: movie.scores.plot,
                           },
                         },
                       ],

@@ -39,22 +39,22 @@ class Datasets:
 
     MOVIES = DatasetInfo(
         "Movies",
-        "media/movies.csv",
-        DatasetFormats.CSV,
+        "media/movies.json",
+        DatasetFormats.JSON,
         "Movies.",
     )
 
     PODCASTS = DatasetInfo(
         "Podcasts",
-        "media/podcasts.csv",
-        DatasetFormats.CSV,
+        "media/podcasts.json",
+        DatasetFormats.JSON,
         "Podcasts.",
     )
 
     TV_SHOWS = DatasetInfo(
         "TV Shows",
-        "media/tv-shows.csv",
-        DatasetFormats.CSV,
+        "media/tv-shows.json",
+        DatasetFormats.JSON,
         "TV shows.",
     )
 

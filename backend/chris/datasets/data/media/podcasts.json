@@ -1,0 +1,158 @@
+[
+  {
+    "name": "Making Sense",
+    "media_type": "podcast",
+    "category": "general",
+    "scores": {
+      "production": 8,
+      "personality": 8,
+      "information": 10,
+      "consistency": 10
+    },
+    "rank": 1
+  },
+  {
+    "name": "Lex Fridman",
+    "media_type": "podcast",
+    "category": "general",
+    "scores": {
+      "production": 6,
+      "personality": 8,
+      "information": 9,
+      "consistency": 10
+    },
+    "rank": 2
+  },
+  {
+    "name": "Mindscape",
+    "media_type": "podcast",
+    "category": "stem",
+    "scores": {
+      "production": 8,
+      "personality": 7,
+      "information": 8,
+      "consistency": 6
+    },
+    "rank": 3
+  },
+  {
+    "name": "Reply All",
+    "media_type": "podcast",
+    "category": "informational",
+    "scores": {
+      "production": 10,
+      "personality": 9,
+      "information": 9,
+      "consistency": 8
+    },
+    "rank": 4
+  },
+  {
+    "name": "All-In",
+    "media_type": "podcast",
+    "category": "general",
+    "scores": {
+      "production": 6,
+      "personality": 8,
+      "information": 9,
+      "consistency": 5
+    },
+    "rank": 5
+  },
+  {
+    "name": "The Portal",
+    "media_type": "podcast",
+    "category": "general",
+    "scores": {
+      "production": 6,
+      "personality": 6,
+      "information": 9,
+      "consistency": 4
+    },
+    "rank": 6
+  },
+  {
+    "name": "Dwarkesh Podcast",
+    "media_type": "podcast",
+    "category": "general",
+    "scores": {
+      "production": 6,
+      "personality": 7,
+      "information": 9,
+      "consistency": 8
+    },
+    "rank": 7
+  },
+  {
+    "name": "Machine Learning Street Talk",
+    "media_type": "podcast",
+    "category": "stem",
+    "scores": {
+      "production": 8,
+      "personality": 7,
+      "information": 7,
+      "consistency": 7
+    },
+    "rank": 8
+  },
+  {
+    "name": "Armchair Expert",
+    "media_type": "podcast",
+    "category": "general",
+    "scores": {
+      "production": 8,
+      "personality": 9,
+      "information": 8,
+      "consistency": 8
+    },
+    "rank": 9
+  },
+  {
+    "name": "The Daily",
+    "media_type": "podcast",
+    "category": "informational",
+    "scores": {
+      "production": 10,
+      "personality": 4,
+      "information": 9,
+      "consistency": 8
+    },
+    "rank": 10
+  },
+  {
+    "name": "Talking Machines",
+    "media_type": "podcast",
+    "category": "stem",
+    "scores": {
+      "production": 6,
+      "personality": 7,
+      "information": 7,
+      "consistency": 7
+    },
+    "rank": 11
+  },
+  {
+    "name": "The Dirtbag Diaries",
+    "media_type": "podcast",
+    "category": "outdoor",
+    "scores": {
+      "production": 8,
+      "personality": 4,
+      "information": 5,
+      "consistency": 7
+    },
+    "rank": 12
+  },
+  {
+    "name": "Ologies",
+    "media_type": "podcast",
+    "category": "stem",
+    "scores": {
+      "production": 8,
+      "personality": 7,
+      "information": 8,
+      "consistency": 7
+    },
+    "rank": 13
+  }
+]

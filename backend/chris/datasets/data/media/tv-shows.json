@@ -1,0 +1,230 @@
+[
+  {
+    "name": "Halt and Catch Fire",
+    "media_type": "tv",
+    "genre": "drama",
+    "scores": {
+      "plot": 8,
+      "characters": 7,
+      "production": 7,
+      "dialog": 8
+    },
+    "rank": 1
+  },
+  {
+    "name": "Community",
+    "media_type": "tv",
+    "genre": "comedy",
+    "scores": {
+      "plot": 8,
+      "characters": 10,
+      "production": 5,
+      "dialog": 9
+    },
+    "rank": 2
+  },
+  {
+    "name": "Westworld",
+    "media_type": "tv",
+    "genre": "drama",
+    "scores": {
+      "plot": 9,
+      "characters": 7,
+      "production": 10,
+      "dialog": 8
+    },
+    "rank": 3
+  },
+  {
+    "name": "House",
+    "media_type": "tv",
+    "genre": "drama",
+    "scores": {
+      "plot": 9,
+      "characters": 9,
+      "production": 7,
+      "dialog": 7
+    },
+    "rank": 4
+  },
+  {
+    "name": "Black Mirror",
+    "media_type": "tv",
+    "genre": "drama",
+    "scores": {
+      "plot": 10,
+      "characters": 1,
+      "production": 10,
+      "dialog": 5
+    },
+    "rank": 5
+  },
+  {
+    "name": "Sherlock",
+    "media_type": "tv",
+    "genre": "drama",
+    "scores": {
+      "plot": 9,
+      "characters": 5,
+      "production": 8,
+      "dialog": 8
+    },
+    "rank": 6
+  },
+  {
+    "name": "The Bear",
+    "media_type": "tv",
+    "genre": "drama",
+    "scores": {
+      "plot": 7,
+      "characters": 8,
+      "production": 8,
+      "dialog": 9
+    },
+    "rank": 7
+  },
+  {
+    "name": "The Last of Us",
+    "media_type": "tv",
+    "genre": "thriller",
+    "scores": {
+      "plot": 8,
+      "characters": 8,
+      "production": 9,
+      "dialog": 7
+    },
+    "rank": 8
+  },
+  {
+    "name": "I Think You Should Leave",
+    "media_type": "tv",
+    "genre": "comedy",
+    "scores": {
+      "plot": 1,
+      "characters": 2,
+      "production": 5,
+      "dialog": 8
+    },
+    "rank": 9
+  },
+  {
+    "name": "How I Met Your Mother",
+    "media_type": "tv",
+    "genre": "sitcom",
+    "scores": {
+      "plot": 5,
+      "characters": 9,
+      "production": 3,
+      "dialog": 5
+    },
+    "rank": 10
+  },
+  {
+    "name": "Silo",
+    "media_type": "tv",
+    "genre": "drama",
+    "scores": {
+      "plot": 9,
+      "characters": 6,
+      "production": 8,
+      "dialog": 6
+    },
+    "rank": 11
+  },
+  {
+    "name": "Rick and Morty",
+    "media_type": "tv",
+    "genre": "comedy",
+    "scores": {
+      "plot": 9,
+      "characters": 4,
+      "production": 4,
+      "dialog": 9
+    },
+    "rank": 12
+  },
+  {
+    "name": "Severance",
+    "media_type": "tv",
+    "genre": "drama",
+    "scores": {
+      "plot": 8,
+      "characters": 7,
+      "production": 8,
+      "dialog": 7
+    },
+    "rank": 13
+  },
+  {
+    "name": "Normal People",
+    "media_type": "tv",
+    "genre": "drama",
+    "scores": {
+      "plot": 5,
+      "characters": 7,
+      "production": 7,
+      "dialog": 8
+    },
+    "rank": 14
+  },
+  {
+    "name": "Lessons in Chemistry",
+    "media_type": "tv",
+    "genre": "drama",
+    "scores": {
+      "plot": 7,
+      "characters": 7,
+      "production": 6,
+      "dialog": 7
+    },
+    "rank": 15
+  },
+  {
+    "name": "Portlandia",
+    "media_type": "tv",
+    "genre": "comedy",
+    "scores": {
+      "plot": 3,
+      "characters": 2,
+      "production": 2,
+      "dialog": 8
+    },
+    "rank": 16
+  },
+  {
+    "name": "The Queen's Gambit",
+    "media_type": "tv",
+    "genre": "drama",
+    "scores": {
+      "plot": 6,
+      "characters": 7,
+      "production": 9,
+      "dialog": 8
+    },
+    "rank": 17
+  },
+  {
+    "name": "Silicon Valley",
+    "media_type": "tv",
+    "genre": "comedy",
+    "scores": {
+      "plot": 7,
+      "characters": 8,
+      "production": 5,
+      "dialog": 8
+    },
+    "rank": 18
+  },
+  {
+    "name": "Wild Wild Country",
+    "media_type": "tv",
+    "genre": "documentary",
+    "scores": {
+      "plot": 10,
+      "characters": 7,
+      "production": 7,
+      "dialog": 4
+    },
+    "rank": 19
+  }
+]

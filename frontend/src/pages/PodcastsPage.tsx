@@ -49,20 +49,20 @@ export function PodcastsPage() {
                     }}
                     data={{
                       variables: [
-                        { key: "production_score", label: "Production" },
-                        { key: "personality_score", label: "Personality" },
-                        { key: "information_score", label: "Information" },
-                        { key: "consistency_score", label: "Consistency" },
+                        { key: "productionScore", label: "Production" },
+                        { key: "personalityScore", label: "Personality" },
+                        { key: "informationScore", label: "Information" },
+                        { key: "consistencyScore", label: "Consistency" },
                       ],
                       sets: [
                         {
                           key: "me",
                           label: "My Scores",
                           values: {
-                            production_score: podcast.production_score,
-                            personality_score: podcast.personality_score,
-                            information_score: podcast.information_score,
-                            consistency_score: podcast.consistency_score,
+                            productionScore: podcast.scores.production,
+                            personalityScore: podcast.scores.personality,
+                            informationScore: podcast.scores.information,
+                            consistencyScore: podcast.scores.consistency,
                           },
                         },
                       ],

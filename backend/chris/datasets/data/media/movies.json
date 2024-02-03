@@ -1,0 +1,266 @@
+[
+  {
+    "name": "Into the Wild",
+    "media_type": "movie",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 7,
+      "characters": 8,
+      "production": 5,
+      "dialog": 7
+    },
+    "rank": 1
+  },
+  {
+    "name": "Jobs",
+    "media_type": "movie",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 7,
+      "characters": 7,
+      "production": 6,
+      "dialog": 7
+    },
+    "rank": 2
+  },
+  {
+    "name": "The Social Network",
+    "media_type": "movie",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 6,
+      "characters": 7,
+      "production": 8,
+      "dialog": 8
+    },
+    "rank": 3
+  },
+  {
+    "name": "The Theory of Everything",
+    "media_type": "movie",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 8,
+      "characters": 9,
+      "production": 7,
+      "dialog": 8
+    },
+    "rank": 4
+  },
+  {
+    "name": "21",
+    "media_type": "movie",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 7,
+      "characters": 6,
+      "production": 6,
+      "dialog": 7
+    },
+    "rank": 5
+  },
+  {
+    "name": "The Imitation Game",
+    "media_type": "movie",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 7,
+      "characters": 6,
+      "production": 8,
+      "dialog": 7
+    },
+    "rank": 6
+  },
+  {
+    "name": "October Sky",
+    "media_type": "movie",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 6,
+      "characters": 7,
+      "production": 4,
+      "dialog": 6
+    },
+    "rank": 7
+  },
+  {
+    "name": "Good Will Hunting",
+    "media_type": "movie",
+    "genre": "drama",
+    "scores": {
+      "plot": 6,
+      "characters": 10,
+      "production": 6,
+      "dialog": 10
+    },
+    "rank": 8
+  },
+  {
+    "name": "Gladiator",
+    "media_type": "movie",
+    "genre": "action",
+    "scores": {
+      "plot": 8,
+      "characters": 10,
+      "production": 9,
+      "dialog": 7
+    },
+    "rank": 9
+  },
+  {
+    "name": "A Beautiful Mind",
+    "media_type": "movie",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 8,
+      "characters": 7,
+      "production": 5,
+      "dialog": 5
+    },
+    "rank": 10
+  },
+  {
+    "name": "The Prestige",
+    "media_type": "movie",
+    "genre": "drama",
+    "scores": {
+      "plot": 10,
+      "characters": 5,
+      "production": 8,
+      "dialog": 6
+    },
+    "rank": 11
+  },
+  {
+    "name": "Hidden Figures",
+    "media_type": "movie",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 9,
+      "characters": 8,
+      "production": 7,
+      "dialog": 7
+    },
+    "rank": 12
+  },
+  {
+    "name": "Dead Poet's Society",
+    "media_type": "movie",
+    "genre": "drama",
+    "scores": {
+      "plot": 7,
+      "characters": 10,
+      "production": 5,
+      "dialog": 7
+    },
+    "rank": 13
+  },
+  {
+    "name": "Anna Karenina",
+    "media_type": "movie",
+    "genre": "drama",
+    "scores": {
+      "plot": 6,
+      "characters": 9,
+      "production": 10,
+      "dialog": 6
+    },
+    "rank": 14
+  },
+  {
+    "name": "Interstellar",
+    "media_type": "movie",
+    "genre": "scifi",
+    "scores": {
+      "plot": 9,
+      "characters": 7,
+      "production": 7,
+      "dialog": 6
+    },
+    "rank": 15
+  },
+  {
+    "name": "Silence",
+    "media_type": "movie",
+    "genre": "drama",
+    "scores": {
+      "plot": 9,
+      "characters": 7,
+      "production": 9,
+      "dialog": 7
+    },
+    "rank": 16
+  },
+  {
+    "name": "The Notebook",
+    "media_type": "movie",
+    "genre": "romance",
+    "scores": {
+      "plot": 6,
+      "characters": 8,
+      "production": 6,
+      "dialog": 5
+    },
+    "rank": 17
+  },
+  {
+    "name": "Without Limits",
+    "media_type": "movie",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 7,
+      "characters": 7,
+      "production": 5,
+      "dialog": 6
+    },
+    "rank": 18
+  },
+  {
+    "name": "Forrest Gump",
+    "media_type": "movie",
+    "genre": "drama",
+    "scores": {
+      "plot": 6,
+      "characters": 9,
+      "production": 5,
+      "dialog": 7
+    },
+    "rank": 19
+  },
+  {
+    "name": "The Pursuit of Happyness",
+    "media_type": "movie",
+    "genre": "drama",
+    "scores": {
+      "plot": 8,
+      "characters": 9,
+      "production": 5,
+      "dialog": 8
+    },
+    "rank": 20
+  },
+  {
+    "name": "Like Crazy",
+    "media_type": "movie",
+    "genre": "romance",
+    "scores": {
+      "plot": 4,
+      "characters": 8,
+      "production": 6,
+      "dialog": 6
+    },
+    "rank": 21
+  },
+  {
+    "name": "Minimalism",
+    "media_type": "movie",
+    "genre": "documentary",
+    "scores": {
+      "plot": 7,
+      "characters": 4,
+      "production": 7,
+      "dialog": 6
+    },
+    "rank": 22
+  }
+]

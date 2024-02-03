@@ -50,20 +50,20 @@ export function TvShowsPage() {
                     }}
                     data={{
                       variables: [
-                        { key: "production_score", label: "Production" },
-                        { key: "dialog_score", label: "Dialog" },
-                        { key: "characters_score", label: "Characters" },
-                        { key: "plot_score", label: "Plot" },
+                        { key: "productionScore", label: "Production" },
+                        { key: "dialogScore", label: "Dialog" },
+                        { key: "charactersScore", label: "Characters" },
+                        { key: "plotScore", label: "Plot" },
                       ],
                       sets: [
                         {
                           key: "me",
                           label: "My Scores",
                           values: {
-                            production_score: show.production_score,
-                            dialog_score: show.dialog_score,
-                            characters_score: show.characters_score,
-                            plot_score: show.plot_score,
+                            productionScore: show.scores.production,
+                            dialogScore: show.scores.dialog,
+                            charactersScore: show.scores.characters,
+                            plotScore: show.scores.plot,
                           },
                         },
                       ],

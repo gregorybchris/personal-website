@@ -2,10 +2,12 @@ export interface TvShow {
   name: string;
   media_type: string;
   genre: string;
-  plot_score: number;
-  characters_score: number;
-  production_score: number;
-  dialog_score: number;
+  scores: {
+    plot: number;
+    characters: number;
+    production: number;
+    dialog: number;
+  };
   rank: number;
 }
 
@@ -26,20 +28,24 @@ export interface Movie {
   name: string;
   media_type: string;
   genre: string;
-  plot_score: string;
-  characters_score: string;
-  production_score: string;
-  dialog_score: string;
-  rank: string;
+  scores: {
+    plot: number;
+    characters: number;
+    production: number;
+    dialog: number;
+  };
+  rank: number;
 }
 
 export interface Podcast {
   name: string;
   media_type: string;
   category: string;
-  production_score: string;
-  personality_score: string;
-  information_score: string;
-  consistency_score: string;
-  rank: string;
+  scores: {
+    production: number;
+    personality: number;
+    information: number;
+    consistency: number;
+  };
+  rank: number;
 }
