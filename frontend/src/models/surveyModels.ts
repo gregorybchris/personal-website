@@ -50,7 +50,7 @@ export class Response {
     const question = this.survey.questions[questionNumber];
     const questionChoices = this.choices[questionNumber];
     if (question.multiselect) {
-      // TODO: Add multiselect logic for quesiton completion
+      // TODO: Add multiselect logic for question completion
       return true;
     } else {
       return questionChoices.some((x) => x);
