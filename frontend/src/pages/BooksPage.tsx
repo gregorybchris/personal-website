@@ -45,7 +45,7 @@ export function BooksPage() {
           I don't love recommending books because it always feels like assigned
           reading and I never liked assigned reading. But on the off chance
           you're a fan of one of the titles below you might consider picking up
-          another, pressure free and unassigned.
+          another, totally unassigned.
         </div>
       </div>
 
