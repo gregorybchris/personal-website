@@ -140,6 +140,20 @@
     "pocket_casts_id": "4eb5b260-c933-0134-10da-25324e2a541d"
   },
   {
+    "name": "The Joy of x",
+    "category": "stem",
+    "scores": {
+      "production": 6,
+      "personality": 6,
+      "information": 8,
+      "consistency": 8
+    },
+    "rank": 11,
+    "apple_link": "https://podcasts.apple.com/us/podcast/the-joy-of-x/id1495067186",
+    "pocket_casts_link": "https://play.pocketcasts.com/podcasts/6fc3e440-19f4-0138-9fa9-0acc26574db2",
+    "pocket_casts_id": "6fc3e440-19f4-0138-9fa9-0acc26574db2"
+  },
+  {
     "name": "Talking Machines",
     "category": "stem",
     "scores": {
@@ -148,7 +162,7 @@
       "information": 7,
       "consistency": 7
     },
-    "rank": 11,
+    "rank": 12,
     "apple_link": "https://podcasts.apple.com/us/podcast/talking-machines/id955198749",
     "pocket_casts_link": "https://play.pocketcasts.com/podcasts/1efbcba0-7592-0132-e061-5f4c86fd3263",
     "pocket_casts_id": "1efbcba0-7592-0132-e061-5f4c86fd3263"
@@ -162,7 +176,7 @@
       "information": 5,
       "consistency": 7
     },
-    "rank": 12,
+    "rank": 13,
     "apple_link": "https://podcasts.apple.com/us/podcast/the-dirtbag-diaries/id218290471",
     "pocket_casts_link": "https://play.pocketcasts.com/podcasts/df1b6700-0c99-012e-fb56-00163e1b201c",
     "pocket_casts_id": "df1b6700-0c99-012e-fb56-00163e1b201c"
@@ -176,9 +190,23 @@
       "information": 8,
       "consistency": 7
     },
-    "rank": 13,
+    "rank": 14,
     "apple_link": "https://podcasts.apple.com/us/podcast/ologies/id1278815517",
     "pocket_casts_link": "https://play.pocketcasts.com/podcasts/eb7f8fa0-73d4-0135-9034-63f4b61a9224",
     "pocket_casts_id": "eb7f8fa0-73d4-0135-9034-63f4b61a9224"
+  },
+  {
+    "name": "Exploration: LIVE!",
+    "category": "comedy",
+    "scores": {
+      "production": 3,
+      "personality": 9,
+      "information": 2,
+      "consistency": 6
+    },
+    "rank": 15,
+    "apple_link": "https://podcasts.apple.com/us/podcast/exploration-live/id1597801158",
+    "pocket_casts_link": "https://play.pocketcasts.com/podcasts/dbc967a0-5b84-013a-d710-0acc26574db2",
+    "pocket_casts_id": "dbc967a0-5b84-013a-d710-0acc26574db2"
   }
 ]
