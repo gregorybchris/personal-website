@@ -31,7 +31,7 @@
             "type": "string",
             "cons": {
               "min_length": 50,
-              "max_length": 1200
+              "max_length": 500
             }
           },
           "null"
