@@ -1,7 +1,7 @@
 import { GET, POST, makeQuery } from "../utilities/requestUtilities";
 import { useEffect, useRef, useState } from "react";
 
-import { CodeProjectInfo } from "../components/CodeProjectInfo";
+import { CodeProjectModal } from "../components/CodeProjectModal";
 import { CodeProjectsTimeline } from "../components/CodeProjectsTimeline";
 import { Project as ProjectModel } from "../models/projectsModels";
 import { useNavigate } from "react-router-dom";
@@ -49,6 +49,7 @@ export function CodeProjectsPage() {
   }
 
   function onSelectProject(project: ProjectModel | null) {
+    console.log("Selecting project", project);
     if (project === null) {
       navigate("/code");
     } else {
@@ -67,10 +68,15 @@ export function CodeProjectsPage() {
         currentProject={currentProject}
         onSelectProject={onSelectProject}
       />
-      <CodeProjectInfo
-        currentProject={currentProject}
-        onDownload={onDownload}
-      />
+      {currentProject && (
+        <CodeProjectModal
+          project={currentProject}
+          open={!!currentProject}
+          onClose={() => onSelectProject(null)}
+          onDownload={onDownload}
+        />
+        // <CodeProjectInfo project={currentProject} onDownload={onDownload} />
+      )}
       {currentProject?.download_link && (
         <a
           className="opacity-0"

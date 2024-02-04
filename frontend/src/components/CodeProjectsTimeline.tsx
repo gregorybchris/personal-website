@@ -45,23 +45,33 @@ interface CodeProjectsTimelineProps {
   onSelectProject: (project: ProjectModel | null) => void;
 }
 
-export function CodeProjectsTimeline(props: CodeProjectsTimelineProps) {
+export function CodeProjectsTimeline({
+  projects,
+  currentProject,
+  onSelectProject,
+}: CodeProjectsTimelineProps) {
   const GAME_LOOP_SPF = 1.0 / 65.0;
 
   const canvasRef = useRef<HTMLDivElement>(null);
   let simRunning = useRef(false);
 
   useEffect(() => {
-    if (props.projects.length !== 0) {
+    if (currentProject === null) {
+      d3.selectAll("circle").classed("selected", false);
+      d3.selectAll("circle").classed("deselected", false);
+    }
+  }, [currentProject]);
+
+  useEffect(() => {
+    if (projects.length !== 0) {
       startSim();
     }
 
-    const project = props.currentProject;
-    if (project !== null) {
+    if (currentProject !== null) {
       d3.selectAll("circle")
         .classed("deselected", true)
         .classed("selected", false);
-      d3.select(getProjectSelector(project))
+      d3.select(getProjectSelector(currentProject))
         .classed("deselected", false)
         .classed("selected", true);
     }
@@ -69,7 +79,7 @@ export function CodeProjectsTimeline(props: CodeProjectsTimelineProps) {
     return () => {
       simRunning.current = false;
     };
-  }, [props.projects]);
+  }, [projects]);
 
   function startSim() {
     populateCanvas();
@@ -99,7 +109,7 @@ export function CodeProjectsTimeline(props: CodeProjectsTimelineProps) {
       return;
     }
 
-    let containers = props.projects.map((project) => {
+    let containers = projects.map((project) => {
       let selector = getProjectSelector(project);
       let circle = d3.select(selector);
       return {
@@ -192,7 +202,7 @@ export function CodeProjectsTimeline(props: CodeProjectsTimelineProps) {
       .attr("height", height)
       .attr("fill", "transparent")
       .on("click", (mouseEvent: any) => {
-        props.onSelectProject(null);
+        onSelectProject(null);
         d3.selectAll("circle").classed("selected", false);
         d3.selectAll("circle").classed("deselected", false);
       });
@@ -200,8 +210,8 @@ export function CodeProjectsTimeline(props: CodeProjectsTimelineProps) {
     const getProjectTimestamp = (project: ProjectModel): number =>
       new Date(project.date).getTime();
 
-    const minTimestamp: any = d3.min(props.projects, getProjectTimestamp);
-    const maxTimestamp: any = d3.max(props.projects, getProjectTimestamp);
+    const minTimestamp: any = d3.min(projects, getProjectTimestamp);
+    const maxTimestamp: any = d3.max(projects, getProjectTimestamp);
     const xLeft = GraphicsConstants.PADDING_X;
     const xRight = width - GraphicsConstants.PADDING_X;
     const xScale = d3
@@ -213,13 +223,13 @@ export function CodeProjectsTimeline(props: CodeProjectsTimelineProps) {
     random.use(seedrandom("0") as unknown as RNG);
     const circles = svg
       .selectAll("circle")
-      .data(props.projects)
+      .data(projects)
       .enter()
       .append("circle")
       .classed("project-timeline-circle", true)
       .classed("archived", (d) => d.archived)
-      .attr("cx", (project) => {
-        return xScale(getProjectTimestamp(project)) || 0;
+      .attr("cx", (p) => {
+        return xScale(getProjectTimestamp(p)) || 0;
       })
       .attr("cy", () => {
         let rand = uniform();
@@ -227,24 +237,24 @@ export function CodeProjectsTimeline(props: CodeProjectsTimelineProps) {
         const yCenter = height / 2;
         return yCenter + spread * (rand * 2 - 1);
       })
-      .attr("r", (project) => {
-        let r = project.rating;
+      .attr("r", (p) => {
+        let r = p.rating;
         return (r * r * 6) / 30 + 9;
       })
       .attr("opacity", 1)
-      .attr("fill", (project) => getProjectColor(project.project_type))
+      .attr("fill", (p) => getProjectColor(p.project_type))
       .attr("fill-opacity", 0)
       .attr("stroke-width", 4)
-      .attr("stroke", (project) => getProjectColor(project.project_type))
-      .attr("id", (project) => `project_${project.project_id}`)
-      .on("click", (mouseEvent: any, project: any) => {
+      .attr("stroke", (p) => getProjectColor(p.project_type))
+      .attr("id", (p) => `project_${p.project_id}`)
+      .on("click", (mouseEvent: any, p: any) => {
         d3.selectAll("circle")
           .classed("deselected", true)
           .classed("selected", false);
-        d3.select(getProjectSelector(project))
+        d3.select(getProjectSelector(p))
           .classed("deselected", false)
           .classed("selected", true);
-        props.onSelectProject(project);
+        onSelectProject(p);
       });
     circles.append("title").text((d) => d.name);
   }
