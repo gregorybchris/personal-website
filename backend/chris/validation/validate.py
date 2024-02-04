@@ -30,4 +30,5 @@ def validate_all() -> None:
         except JsonValidationError as e:
             print(f"Validation failed: {name}")
             print(e)
-        print(f"Validation succeeded: {name}")
+        else:
+            print(f"Validation succeeded: {name}")
