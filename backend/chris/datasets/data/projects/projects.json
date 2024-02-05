@@ -1400,7 +1400,7 @@
     "source_link": "https://github.com/tekknolagi/scrapscript",
     "download_link": null,
     "web_link": "https://scrapscript.fly.dev/repl",
-    "image_links": [],
+    "image_links": ["https://storage.googleapis.com/cgme/projects/images/scrapscript--01.jpg"],
     "primary_language": "Python",
     "archived": false
   },
