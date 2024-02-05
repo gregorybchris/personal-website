@@ -10,9 +10,6 @@ logger = getLogger(__name__)
 P = ParamSpec("P")  # Parameter type variable for decorated function
 R = TypeVar("R")  # Return type variable for decorated function
 
-DEFAULT_LOG_SIZE = 5000000
-DEFAULT_N_BACKUPS = 5
-
 
 def log_context(name: str, tag: str = "=") -> Callable[[Callable[P, R]], Callable[P, R]]:
     def decorator(decorated_func: Callable[P, R]) -> Callable[P, R]:
