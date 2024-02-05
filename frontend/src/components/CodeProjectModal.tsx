@@ -99,7 +99,7 @@ export function CodeProjectModal({
 function ProjectImage(props: { url: string }) {
   return (
     <img
-      className="m-1 max-h-[200px] max-w-[90%] border-2 border-background-dark"
+      className="m-1 max-h-[270px] max-w-[90%] border-2 border-background-dark"
       src={props.url}
       key={props.url}
       alt="Project screenshot"
