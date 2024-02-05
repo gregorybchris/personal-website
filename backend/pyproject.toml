@@ -22,7 +22,6 @@ include = "chris"
 [tool.poetry.dependencies]
 click = "^8.1.7"
 fastapi = "^0.109.2"
-httpx = "^0.26.0"
 jsonvl = "^0.5.0"
 pandas = "^2.2.0"
 pydantic = "^2.6.0"
