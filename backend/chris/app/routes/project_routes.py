@@ -1,22 +1,25 @@
+from logging import getLogger
+
 from fastapi import APIRouter
-from fastapi.logger import logger
 from fastapi.responses import JSONResponse
 
 from chris.app import logging_utilities
 from chris.datasets.datasets import Datasets
 from chris.datasets.fetch import fetch_dataset
 
+logger = getLogger(__name__)
+
 router = APIRouter()
 
 
-@logging_utilities.log_context("get_projects", tag="api")
 @router.get(path="/projects")
+@logging_utilities.log_context("get_projects", tag="api")
 def get_projects() -> JSONResponse:
     return JSONResponse(fetch_dataset(Datasets.PROJECTS))
 
 
-@logging_utilities.log_context("post_projects_download", tag="api")
 @router.post(path="/projects/download/{project_id}")
+@logging_utilities.log_context("post_projects_download", tag="api")
 def post_projects_download(project_id: str) -> JSONResponse:
     projects = fetch_dataset(Datasets.PROJECTS)
     for project in projects:

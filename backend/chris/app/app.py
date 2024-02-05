@@ -1,3 +1,5 @@
+from logging import basicConfig
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -12,6 +14,8 @@ from chris.app.routes import (
     recipe_routes,
     surveys_routes,
 )
+
+basicConfig(level="INFO")
 
 ALLOWED_ORIGINS = [
     "http://localhost:3001",

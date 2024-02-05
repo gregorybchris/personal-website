@@ -1,9 +1,11 @@
 import functools
 import time
+from logging import getLogger
 from typing import Callable, TypeVar
 
-from fastapi.logger import logger
 from typing_extensions import ParamSpec
+
+logger = getLogger(__name__)
 
 P = ParamSpec("P")  # Parameter type variable for decorated function
 R = TypeVar("R")  # Return type variable for decorated function

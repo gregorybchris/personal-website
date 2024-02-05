@@ -1,14 +1,16 @@
 from datetime import datetime
+from logging import getLogger
 from typing import Any, Dict, List
 
 from fastapi import APIRouter
-from fastapi.logger import logger
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from chris.app import logging_utilities
 from chris.datasets.datasets import Datasets
 from chris.datasets.fetch import fetch_dataset
+
+logger = getLogger(__name__)
 
 router = APIRouter()
 
@@ -18,14 +20,14 @@ class RequestModel(BaseModel):
     feedback: str
 
 
-@logging_utilities.log_context("get_surveys", tag="api")
 @router.get(path="/surveys")
+@logging_utilities.log_context("get_surveys", tag="api")
 def get_surveys() -> JSONResponse:
     return JSONResponse(fetch_dataset(Datasets.SURVEYS))
 
 
-@logging_utilities.log_context("post_survey_results", tag="api")
 @router.post(path="/surveys/{survey_id}")
+@logging_utilities.log_context("post_survey_results", tag="api")
 def post_survey_results(request: RequestModel, survey_id: str) -> JSONResponse:
     surveys = fetch_dataset(Datasets.SURVEYS)
     # TODO: Check for invalid survey ID
@@ -44,8 +46,8 @@ def post_survey_results(request: RequestModel, survey_id: str) -> JSONResponse:
     return JSONResponse({"message": f"Survey with ID {survey_id} not found"})
 
 
-@logging_utilities.log_context("get_survey_results", tag="api")
 @router.get(path="/surveys/results")
+@logging_utilities.log_context("get_survey_results", tag="api")
 def get_survey_results() -> JSONResponse:
     # result_documents = list(db.find_all())
     result_documents: List[Dict[str, Any]] = []
