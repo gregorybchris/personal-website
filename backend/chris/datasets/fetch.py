@@ -19,11 +19,11 @@ def fetch_dataset(dataset_info: DatasetInfo) -> pd.DataFrame:
 
     :param dataset_info: DatasetInfo dataset metadata object.
     """
-    dataset_path = DATA_DIR / dataset_info.data_path
-    if dataset_info.data_format == DatasetFormat.JSON:
+    dataset_path = DATA_DIR / dataset_info.filepath
+    if dataset_info.dataset_format == DatasetFormat.JSON:
         with open(dataset_path, "r", encoding="utf-8") as f:
             data = json.load(f)
-    elif dataset_info.data_format == DatasetFormat.CSV:
+    elif dataset_info.dataset_format == DatasetFormat.CSV:
         data = pd.read_csv(dataset_path)
     return data
 

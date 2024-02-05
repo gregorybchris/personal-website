@@ -8,4 +8,3 @@ class DatasetFormat(StrEnum):
 
     JSON = auto()
     CSV = auto()
-    TSV = auto()

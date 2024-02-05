@@ -4,7 +4,6 @@ from chris.app.env_setting import EnvSetting
 
 
 class TestSettings:
-
     def test_basic(self, monkeypatch: MonkeyPatch) -> None:
         setting = EnvSetting("TEST_VARIABLE")
         monkeypatch.setenv("TEST_VARIABLE", "value")

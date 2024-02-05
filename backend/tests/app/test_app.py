@@ -10,7 +10,6 @@ def test_client_fixture() -> TestClient:
 
 
 class TestApp:
-
     def test_get_projects(self, test_client: TestClient) -> None:
         response = test_client.get("/projects")
         assert response.status_code == 200

@@ -3,16 +3,13 @@ from chris.datasets.dataset_format import DatasetFormat
 
 
 class TestDatasetInfo:
-
     def test_get_dataset_info_attributes(self) -> None:
         name = "Dataset Name"
-        data_path = "folder/dataset-path.csv"
-        data_format = DatasetFormat.CSV
-        description = "Test dataset."
+        filepath = "folder/dataset-path.csv"
+        dataset_format = DatasetFormat.CSV
 
-        info = DatasetInfo(name, data_path, data_format, description)
+        info = DatasetInfo(name, filepath, dataset_format)
 
         assert info.name == name
-        assert info.data_path == data_path
-        assert info.data_format == data_format
-        assert info.description == description
+        assert info.filepath == filepath
+        assert info.dataset_format == dataset_format
