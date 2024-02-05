@@ -1351,7 +1351,7 @@
     "rating": 5,
     "project_type": "tool",
     "controls": null,
-    "description": "Cado is a notebook IDE with a focus on reactivity. By explicitly defining cell dependencies you get benefits that other notebook IDEs like Jupyter can't provide. When a cell runs all of its dependencies listen for changes to the output and update themselves accordingly. Dependencies only rerun when needed and you are guaranteed that running the notebook will always result in the same output regardless of the order of cell execution.",
+    "description": "Cado is a notebook IDE with a focus on reactivity. By explicitly defining cell dependencies you get benefits that other notebook IDEs like Jupyter can't provide. When a cell runs, all of its dependencies listen for changes to the output and update themselves accordingly. Dependencies only rerun when needed. The directed acyclic graph of cells guarantees that the notebook will always produce the same output regardless of the order of cell execution.",
     "remarks": null,
     "tags": ["coding", "development", "environment", "python", "programming"],
     "source_link": "https://github.com/gregorybchris/cado",
