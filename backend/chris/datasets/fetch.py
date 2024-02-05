@@ -1,5 +1,3 @@
-"""Dataset fetching convenience functions."""
-
 import json
 
 import pandas as pd
@@ -14,11 +12,6 @@ DATA_DIR = Path(__file__).parent.absolute() / "data"
 
 
 def fetch_dataset(dataset_info: DatasetInfo) -> pd.DataFrame:
-    """
-    Fetch a dataset.
-
-    :param dataset_info: DatasetInfo dataset metadata object.
-    """
     dataset_path = DATA_DIR / dataset_info.filepath
     if dataset_info.dataset_format == DatasetFormat.JSON:
         with open(dataset_path, "r", encoding="utf-8") as f:
@@ -29,5 +22,4 @@ def fetch_dataset(dataset_info: DatasetInfo) -> pd.DataFrame:
 
 
 def fetch_projects() -> pd.DataFrame:
-    """Fetch the projects dataset."""
     return fetch_dataset(Datasets.PROJECTS)

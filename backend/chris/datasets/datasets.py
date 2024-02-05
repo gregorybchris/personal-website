@@ -1,5 +1,3 @@
-"""Datasets."""
-
 from chris.datasets.dataset_info import DatasetInfo
 
 

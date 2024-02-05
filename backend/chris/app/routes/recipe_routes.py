@@ -11,5 +11,4 @@ router = APIRouter()
 @logging_utilities.log_context("get_recipes", tag="api")
 @router.get(path="/recipes")
 def get_recipes() -> JSONResponse:
-    """Get recipe data."""
     return JSONResponse(fetch_dataset(Datasets.RECIPES))

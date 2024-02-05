@@ -1,5 +1,3 @@
-"""Logging utilities."""
-
 import functools
 import time
 from typing import Callable, TypeVar
@@ -15,15 +13,7 @@ DEFAULT_N_BACKUPS = 5
 
 
 def log_context(name: str, tag: str = "=") -> Callable[[Callable[P, R]], Callable[P, R]]:
-    """
-    Decorate a function for logging activity.
-
-    :param name: Name of the activity.
-    :param tag: Tag for the kind of activity.
-    """
-
     def decorator(decorated_func: Callable[P, R]) -> Callable[P, R]:
-
         @functools.wraps(decorated_func)
         def func_wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
             start_time = time.time()

@@ -12,14 +12,12 @@ router = APIRouter()
 @logging_utilities.log_context("get_projects", tag="api")
 @router.get(path="/projects")
 def get_projects() -> JSONResponse:
-    """Get project data."""
     return JSONResponse(fetch_dataset(Datasets.PROJECTS))
 
 
 @logging_utilities.log_context("post_projects_download", tag="api")
 @router.post(path="/projects/download/{project_id}")
 def post_projects_download(project_id: str) -> JSONResponse:
-    """Post a project download action."""
     projects = fetch_dataset(Datasets.PROJECTS)
     for project in projects:
         if project["project_id"] == project_id:

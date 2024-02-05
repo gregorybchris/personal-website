@@ -1,5 +1,3 @@
-"""Main entrypoint for the chris package."""
-
 import click
 
 from chris.utilities.generate_uuid import generate

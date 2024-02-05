@@ -1,5 +1,3 @@
-"""Post validator."""
-
 from jsonvl import Validator
 from jsonvl.errors import JsonValidationError
 from pathlib import Path
@@ -10,8 +8,6 @@ SCHEMAS_DIRPATH = Path(__file__).parent / "schemas"
 
 
 def validate_all() -> None:
-    """Validate all entities."""
-
     validator = Validator()
     validator.register_constraint(MonotoneIncreaseConstraint(), "array", "monotone_inc")
     schema_map = [

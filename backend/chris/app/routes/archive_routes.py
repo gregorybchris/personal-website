@@ -11,5 +11,4 @@ router = APIRouter()
 @logging_utilities.log_context("get_archive", tag="api")
 @router.get(path="/archive")
 def get_archive() -> JSONResponse:
-    """Get archive data."""
     return JSONResponse(fetch_dataset(Datasets.ARCHIVE))

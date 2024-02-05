@@ -1,4 +1,3 @@
-"""Module init."""
 from chris.datasets.fetch import (
     fetch_dataset,
     fetch_projects,

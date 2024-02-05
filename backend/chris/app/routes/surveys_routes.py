@@ -21,14 +21,12 @@ class RequestModel(BaseModel):
 @logging_utilities.log_context("get_surveys", tag="api")
 @router.get(path="/surveys")
 def get_surveys() -> JSONResponse:
-    """Get survey data."""
     return JSONResponse(fetch_dataset(Datasets.SURVEYS))
 
 
 @logging_utilities.log_context("post_survey_results", tag="api")
 @router.post(path="/surveys/{survey_id}")
 def post_survey_results(request: RequestModel, survey_id: str) -> JSONResponse:
-    """Post a survey result."""
     surveys = fetch_dataset(Datasets.SURVEYS)
     # TODO: Check for invalid survey ID
     for survey in surveys:
@@ -49,7 +47,6 @@ def post_survey_results(request: RequestModel, survey_id: str) -> JSONResponse:
 @logging_utilities.log_context("get_survey_results", tag="api")
 @router.get(path="/surveys/results")
 def get_survey_results() -> JSONResponse:
-    """Get survey data."""
     # result_documents = list(db.find_all())
     result_documents: List[Dict[str, Any]] = []
     counts = {}
