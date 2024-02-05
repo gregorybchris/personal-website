@@ -8,8 +8,6 @@ from chris.datasets.datasets import Datasets
 router = APIRouter()
 
 
-
-
 @logging_utilities.log_context("get_recipes", tag="api")
 @router.get(path="/recipes")
 def get_recipes() -> JSONResponse:

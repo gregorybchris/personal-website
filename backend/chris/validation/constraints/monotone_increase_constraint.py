@@ -13,7 +13,7 @@ class MonotoneIncreaseConstraint(Constraint):
         elif isinstance(constraint_param, str):
             constraint_param = [constraint_param]
         else:
-            raise TypeError("Invalid consraint argument")
+            raise TypeError("Invalid constraint argument")
 
         for query_path in constraint_param:
             xs = self.query(data, query_path)

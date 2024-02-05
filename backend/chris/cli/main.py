@@ -1,7 +1,8 @@
 """Main entrypoint for the chris package."""
+
 import click
 
-from chris.utilities.generate_guid import generate
+from chris.utilities.generate_uuid import generate
 from chris.validation.validate import validate_all
 
 
@@ -11,9 +12,9 @@ def cli() -> None:
 
 
 @cli.command()
-@click.option("-n", "--n-guids", type=int, default=1, help="Number of guids to generate")
-def guid(n_guids: int) -> None:
-    generate(n=n_guids)
+@click.option("-n", "--n-uuids", type=int, default=1, help="Number of uuids to generate")
+def uuid(n_uuids: int) -> None:
+    generate(n=n_uuids)
 
 
 @cli.command()

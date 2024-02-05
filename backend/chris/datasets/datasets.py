@@ -1,5 +1,6 @@
 """Information for all package datasets."""
-from chris.datasets.dataset_formats import DatasetFormats
+
+from chris.datasets.dataset_format import DatasetFormat
 from chris.datasets.dataset_info import DatasetInfo
 
 
@@ -11,14 +12,14 @@ class Datasets:
     PODCAST_EPISODES = DatasetInfo(
         "Podcast Episodes",
         "blog/podcast-episodes.json",
-        DatasetFormats.JSON,
+        DatasetFormat.JSON,
         "Podcast episodes.",
     )
 
     POSTS = DatasetInfo(
         "Posts",
         "blog/posts.json",
-        DatasetFormats.JSON,
+        DatasetFormat.JSON,
         "Blog posts.",
     )
 
@@ -29,7 +30,7 @@ class Datasets:
     RECIPES = DatasetInfo(
         "Recipes",
         "cooking/recipes.json",
-        DatasetFormats.JSON,
+        DatasetFormat.JSON,
         "Cooking recipes.",
     )
 
@@ -40,35 +41,35 @@ class Datasets:
     MOVIES = DatasetInfo(
         "Movies",
         "media/movies.json",
-        DatasetFormats.JSON,
+        DatasetFormat.JSON,
         "Movies.",
     )
 
     PODCASTS = DatasetInfo(
         "Podcasts",
         "media/podcasts.json",
-        DatasetFormats.JSON,
+        DatasetFormat.JSON,
         "Podcasts.",
     )
 
     TV_SHOWS = DatasetInfo(
         "TV Shows",
         "media/tv-shows.json",
-        DatasetFormats.JSON,
+        DatasetFormat.JSON,
         "TV shows.",
     )
 
     YOUTUBE_CHANNELS = DatasetInfo(
         "YouTube Channels",
         "media/youtube-channels.json",
-        DatasetFormats.JSON,
+        DatasetFormat.JSON,
         "YouTube channels.",
     )
 
     BOOKS = DatasetInfo(
         "Books",
         "media/books.json",
-        DatasetFormats.JSON,
+        DatasetFormat.JSON,
         "Books.",
     )
 
@@ -79,21 +80,21 @@ class Datasets:
     CYCLING_ROUTES = DatasetInfo(
         "Cycling Routes",
         "outdoor/cycling-routes.json",
-        DatasetFormats.JSON,
+        DatasetFormat.JSON,
         "Cycling routes.",
     )
 
     HIKING_ROUTES = DatasetInfo(
         "Hiking Routes",
         "outdoor/hiking-routes.json",
-        DatasetFormats.JSON,
+        DatasetFormat.JSON,
         "Hiking routes.",
     )
 
     RUNNING_ROUTES = DatasetInfo(
         "Running Routes",
         "outdoor/running-routes.json",
-        DatasetFormats.JSON,
+        DatasetFormat.JSON,
         "Running routes.",
     )
 
@@ -104,14 +105,14 @@ class Datasets:
     COURSES = DatasetInfo(
         "College Courses",
         "professional/courses.json",
-        DatasetFormats.JSON,
+        DatasetFormat.JSON,
         "College courses.",
     )
 
     JOBS = DatasetInfo(
         "Jobs",
         "professional/jobs.json",
-        DatasetFormats.JSON,
+        DatasetFormat.JSON,
         "Jobs.",
     )
 
@@ -122,7 +123,7 @@ class Datasets:
     PROJECTS = DatasetInfo(
         "Projects",
         "projects/projects.json",
-        DatasetFormats.JSON,
+        DatasetFormat.JSON,
         "Software projects.",
     )
 
@@ -133,7 +134,7 @@ class Datasets:
     ARCHIVE = DatasetInfo(
         "Archive",
         "archive/archive.json",
-        DatasetFormats.JSON,
+        DatasetFormat.JSON,
         "Personal website revision archive.",
     )
 
@@ -144,7 +145,7 @@ class Datasets:
     SURVEYS = DatasetInfo(
         "Surveys",
         "surveys/surveys.json",
-        DatasetFormats.JSON,
+        DatasetFormat.JSON,
         "Surveys.",
     )
 

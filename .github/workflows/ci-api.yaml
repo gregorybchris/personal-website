@@ -15,9 +15,8 @@ jobs:
     strategy:
       matrix:
         python-version:
-          - "3.8"
-          - "3.9"
-          - "3.10"
+          - "3.11"
+          - "3.12"
 
     steps:
       - uses: actions/checkout@v2
@@ -35,31 +34,22 @@ jobs:
           poetry install
         working-directory: backend
 
-      - name: Run flake8
-        run: |
-          poetry run pflake8 chris --config pyproject.toml
-          poetry run pflake8 tests --config pyproject.toml
-        working-directory: backend
-
       - name: Run pylint
         run: |
           poetry run pylint chris --rcfile pyproject.toml
+          poetry run pylint tests --rcfile pyproject.toml
         working-directory: backend
 
       - name: Run mypy
         run: |
           poetry run mypy chris --config pyproject.toml
+          poetry run mypy tests --config pyproject.toml
         working-directory: backend
 
       - name: Run pytest
         run: |
           poetry run pytest tests --cov=chris --cov-report=html --cov-report=xml --cov-branch
         working-directory: backend
-
-      # - name: Run pydocstyle
-      #   run: |
-      #     poetry run pydocstyle chris
-      #   working-directory: backend
 
       - name: Upload HTML Coverage
         uses: actions/upload-artifact@v2

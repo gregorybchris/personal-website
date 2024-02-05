@@ -8,7 +8,7 @@
     "#hike": {
       "type": "object",
       "attr": {
-        "route_id": "#guid",
+        "route_id": "#uuid",
         "name": "string",
         "slug": "#slug",
         "dates": ["null", "#datelist"],
@@ -21,7 +21,7 @@
         "coordinates": ["null", "#coords"]
       }
     },
-    "#guid": {
+    "#uuid": {
       "type": "string",
       "cons": {
         "format": { "type": "regex", "pattern": "^[a-z0-9-]{36}$" }

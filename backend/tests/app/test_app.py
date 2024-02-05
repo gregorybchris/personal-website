@@ -4,13 +4,14 @@ from fastapi.testclient import TestClient
 from chris.app.app import app
 
 
+@pytest.fixture(name="test_client")
+def test_client_fixture() -> TestClient:
+    return TestClient(app)
+
+
 class TestApp:
 
-    @pytest.fixture
-    def test_client(self):
-        return TestClient(app)
-
-    def test_get_projects(self, test_client: TestClient):
+    def test_get_projects(self, test_client: TestClient) -> None:
         response = test_client.get("/projects")
         assert response.status_code == 200
         response_body = response.json()

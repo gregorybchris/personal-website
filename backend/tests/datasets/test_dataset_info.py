@@ -1,13 +1,13 @@
 from chris.datasets.dataset_info import DatasetInfo
-from chris.datasets.dataset_formats import DatasetFormats
+from chris.datasets.dataset_format import DatasetFormat
 
 
 class TestDatasetInfo:
 
-    def test_get_dataset_info_attributes(self):
+    def test_get_dataset_info_attributes(self) -> None:
         name = "Dataset Name"
         data_path = "folder/dataset-path.csv"
-        data_format = DatasetFormats.CSV
+        data_format = DatasetFormat.CSV
         description = "Test dataset."
 
         info = DatasetInfo(name, data_path, data_format, description)

@@ -8,17 +8,17 @@ from chris.datasets.datasets import Datasets
 router = APIRouter()
 
 
-
-
 @logging_utilities.log_context("get_outdoor", tag="api")
 @router.get(path="/outdoor")
 def get_outdoor() -> JSONResponse:
     """Get outdoor data."""
-    return JSONResponse({
-        "cycling": fetch_dataset(Datasets.CYCLING_ROUTES),
-        "hiking": fetch_dataset(Datasets.HIKING_ROUTES),
-        "running": fetch_dataset(Datasets.RUNNING_ROUTES),
-    })
+    return JSONResponse(
+        {
+            "cycling": fetch_dataset(Datasets.CYCLING_ROUTES),
+            "hiking": fetch_dataset(Datasets.HIKING_ROUTES),
+            "running": fetch_dataset(Datasets.RUNNING_ROUTES),
+        }
+    )
 
 
 @logging_utilities.log_context("get_outdoor_cycling", tag="api")

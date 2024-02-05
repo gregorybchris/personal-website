@@ -23,18 +23,22 @@ class Version(BaseModel):
 @router.get(path="/", response_model=Status)
 def get_status() -> JSONResponse:
     logger.info("GET app status")
-    return JSONResponse({
-        "status": "healthy",
-    })
+    return JSONResponse(
+        {
+            "status": "healthy",
+        }
+    )
 
 
 @logging_utilities.log_context("get_version", tag="api")
 @router.get(path="/version", response_model=Version)
 def get_version() -> JSONResponse:
     logger.info("GET app version")
-    return JSONResponse({
-        "version": package_version,
-    })
+    return JSONResponse(
+        {
+            "version": package_version,
+        }
+    )
 
 
 @logging_utilities.log_context("get_index", tag="api")

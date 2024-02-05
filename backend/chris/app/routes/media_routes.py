@@ -8,7 +8,6 @@ from chris.datasets.datasets import Datasets
 router = APIRouter()
 
 
-
 @logging_utilities.log_context("get_media", tag="api")
 @router.get(path="/media")
 def get_media() -> JSONResponse:
@@ -18,14 +17,16 @@ def get_media() -> JSONResponse:
     podcasts = fetch_dataset(Datasets.PODCASTS)
     tv_shows = fetch_dataset(Datasets.TV_SHOWS)
     youtube_channels = fetch_dataset(Datasets.YOUTUBE_CHANNELS)
-    
-    return JSONResponse({
-        "books": books,
-        "movies": movies,
-        "podcasts": podcasts,
-        "tv": tv_shows,
-        "youtube": youtube_channels,
-    })
+
+    return JSONResponse(
+        {
+            "books": books,
+            "movies": movies,
+            "podcasts": podcasts,
+            "tv": tv_shows,
+            "youtube": youtube_channels,
+        }
+    )
 
 
 @logging_utilities.log_context("get_media_movies", tag="api")

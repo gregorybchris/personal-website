@@ -1,4 +1,5 @@
 """Logging utilities."""
+
 import functools
 import time
 from typing import Callable, TypeVar
@@ -6,8 +7,8 @@ from typing_extensions import ParamSpec
 
 from fastapi.logger import logger
 
-P = ParamSpec('P')  # Parameter type variable for decorated function
-R = TypeVar('R')  # Return type variable for decorated function
+P = ParamSpec("P")  # Parameter type variable for decorated function
+R = TypeVar("R")  # Return type variable for decorated function
 
 DEFAULT_LOG_SIZE = 5000000
 DEFAULT_N_BACKUPS = 5

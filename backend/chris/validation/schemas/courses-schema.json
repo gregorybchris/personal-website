@@ -24,7 +24,7 @@
         "course_type": {
           "type": "string",
           "cons": {
-            "in": ["compter_science", "cognitive_science", "other"]
+            "in": ["computer_science", "cognitive_science", "other"]
           }
         }
       }

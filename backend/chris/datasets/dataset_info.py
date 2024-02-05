@@ -4,11 +4,7 @@
 class DatasetInfo:
     """Dataset metadata."""
 
-    def __init__(self,
-                 name: str,
-                 data_path: str,
-                 data_format: str,
-                 description: str) -> None:
+    def __init__(self, name: str, data_path: str, data_format: str, description: str) -> None:
         """
         Construct a DatasetInfo.
 
@@ -24,4 +20,4 @@ class DatasetInfo:
 
     def __str__(self) -> str:
         """Get the string representation of the dataset DatasetInfo."""
-        return f"Dataset(name=\"{self.name}\")"
+        return f'Dataset(name="{self.name}")'

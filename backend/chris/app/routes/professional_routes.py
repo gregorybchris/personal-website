@@ -8,16 +8,16 @@ from chris.datasets.datasets import Datasets
 router = APIRouter()
 
 
-
-
 @logging_utilities.log_context("get_professional", tag="api")
 @router.get(path="/professional")
 def get_professional() -> JSONResponse:
     """Get professional data."""
-    return JSONResponse({
-        "courses": fetch_dataset(Datasets.COURSES),
-        "jobs": fetch_dataset(Datasets.JOBS),
-    })
+    return JSONResponse(
+        {
+            "courses": fetch_dataset(Datasets.COURSES),
+            "jobs": fetch_dataset(Datasets.JOBS),
+        }
+    )
 
 
 @logging_utilities.log_context("get_professional_courses", tag="api")

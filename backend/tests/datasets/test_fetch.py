@@ -1,31 +1,33 @@
+from typing import Optional, Union, List
 import pytest
 
-import pandas as pd
+from pandas import DataFrame
 
-from .. import utilities
+from tests.utilities import get_public_class_members
 
 from chris.datasets import fetch_projects
 from chris.datasets.datasets import Datasets
-from chris.datasets.dataset_formats import DatasetFormats
+from chris.datasets.dataset_info import DatasetInfo
+from chris.datasets.dataset_format import DatasetFormat
 from chris.datasets.fetch import fetch_dataset
 
 
 class TestFetch:
 
-    @pytest.mark.parametrize("dataset_info", utilities.get_public_class_members(Datasets))
-    def test_fetch_all(self, dataset_info):
+    @pytest.mark.parametrize("dataset_info", get_public_class_members(Datasets))
+    def test_fetch_all(self, dataset_info: DatasetInfo) -> None:
         dataset = fetch_dataset(dataset_info)
         self.validate_data(dataset, dataset_info)
 
-    def validate_data(self, dataset, dataset_info):
+    def validate_data(self, dataset: Union[List[DatasetInfo], DataFrame], dataset_info: Optional[DatasetInfo]) -> None:
         if dataset_info is None:
             assert dataset is not None
         else:
-            if dataset_info.data_format == DatasetFormats.JSON:
+            if dataset_info.data_format == DatasetFormat.JSON:
                 assert isinstance(dataset, list)
-            elif dataset_info.data_format == DatasetFormats.CSV:
-                assert isinstance(dataset, pd.DataFrame)
+            elif dataset_info.data_format == DatasetFormat.CSV:
+                assert isinstance(dataset, DataFrame)
 
-    def test_fetch_projects(self):
+    def test_fetch_projects(self) -> None:
         data = fetch_projects()
         self.validate_data(data, None)

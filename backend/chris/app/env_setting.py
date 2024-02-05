@@ -1,4 +1,5 @@
 """App settings."""
+
 import os
 from typing import Optional
 

@@ -1,8 +1,9 @@
 """Post validator."""
+
 from jsonvl import Validator
 from jsonvl.errors import JsonValidationError
 from pathlib import Path
-from chris.validation.contraints import MonotoneIncreaseConstraint
+from chris.validation.constraints import MonotoneIncreaseConstraint
 
 DATA_DIRPATH = Path(__file__).parent.parent / "datasets" / "data"
 SCHEMAS_DIRPATH = Path(__file__).parent / "schemas"

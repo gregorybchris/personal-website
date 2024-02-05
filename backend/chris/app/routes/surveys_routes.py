@@ -18,7 +18,6 @@ class RequestModel(BaseModel):
     feedback: str
 
 
-
 @logging_utilities.log_context("get_surveys", tag="api")
 @router.get(path="/surveys")
 def get_surveys() -> JSONResponse:
@@ -35,7 +34,7 @@ def post_survey_results(request: RequestModel, survey_id: str) -> JSONResponse:
     for survey in surveys:
         if survey["survey_id"] == survey_id:
             survey_name = survey["name"]
-            logger.info(f"Survey \"{survey_name}\" ({survey_id}) submitted")
+            logger.info(f'Survey "{survey_name}" ({survey_id}) submitted')
             _ = {
                 "survey_id": survey_id,
                 "created_date": datetime.now(),
@@ -43,7 +42,7 @@ def post_survey_results(request: RequestModel, survey_id: str) -> JSONResponse:
             }
             # db.insert_one(document)
 
-            return JSONResponse({"message": f"Successfully submitted survey \"{survey_name}\""})
+            return JSONResponse({"message": f'Successfully submitted survey "{survey_name}"'})
     return JSONResponse({"message": f"Survey with ID {survey_id} not found"})
 
 
@@ -78,17 +77,23 @@ def _results_from_counts(counts: Dict[str, List[List[int]]], survey_map: Dict[st
             question_frequencies = [c / question_counts_sum for c in question_counts]
             question_result_choices = []
             for option_number in range(len(question["options"])):
-                question_result_choices.append({
-                    "option": question["options"][option_number],
-                    "frequency": float(question_frequencies[option_number]),
-                    "count": float(question_counts[option_number]),
-                })
-            survey_result_questions.append({
-                "question": question["text"],
-                "options": question_result_choices,
-            })
-        results.append({
-            "survey_name": survey["name"],
-            "questions": survey_result_questions,
-        })
+                question_result_choices.append(
+                    {
+                        "option": question["options"][option_number],
+                        "frequency": float(question_frequencies[option_number]),
+                        "count": float(question_counts[option_number]),
+                    }
+                )
+            survey_result_questions.append(
+                {
+                    "question": question["text"],
+                    "options": question_result_choices,
+                }
+            )
+        results.append(
+            {
+                "survey_name": survey["name"],
+                "questions": survey_result_questions,
+            }
+        )
     return results

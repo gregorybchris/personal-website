@@ -1,9 +1,19 @@
 """Package web application."""
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from chris.app.routes import (archive_routes, info_routes, media_routes, outdoor_routes, post_routes,
-                              professional_routes, project_routes, recipe_routes, surveys_routes)
+from chris.app.routes import (
+    archive_routes,
+    info_routes,
+    media_routes,
+    outdoor_routes,
+    post_routes,
+    professional_routes,
+    project_routes,
+    recipe_routes,
+    surveys_routes,
+)
 
 ALLOWED_ORIGINS = [
     "http://localhost:3001",
