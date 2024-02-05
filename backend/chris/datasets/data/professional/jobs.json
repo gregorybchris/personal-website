@@ -43,8 +43,22 @@
   },
   {
     "event_id": "04ae7dc6-e4be-4d62-b098-22b4069d8575",
-    "name": "Machine Learning Engineer at Hume AI",
+    "name": "ML Engineer at Hume AI",
     "date": "2021-10-12",
+    "job_type": "job",
+    "description": null
+  },
+  {
+    "event_id": "3844b7d5-2c12-478b-8e4b-6d06aa2a641f",
+    "name": "Senior ML Engineer at Hume AI",
+    "date": "2022-11-14",
+    "job_type": "job",
+    "description": null
+  },
+  {
+    "event_id": "ef6c6b2b-9b16-46c9-a8f7-0c22e58c68c3",
+    "name": "ML Engineering Manager at Hume AI",
+    "date": "2024-02-05",
     "job_type": "job",
     "description": null
   }
