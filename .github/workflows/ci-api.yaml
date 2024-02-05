@@ -1,6 +1,12 @@
 name: API CI
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - backend/**
+      - .github/workflows/ci-api.yaml
   pull_request:
     branches:
       - main
