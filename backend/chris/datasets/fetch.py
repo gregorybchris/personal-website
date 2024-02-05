@@ -1,12 +1,11 @@
 import json
+from pathlib import Path
 
 import pandas as pd
 
-from pathlib import Path
-
-from chris.datasets.datasets import Datasets
 from chris.datasets.dataset_format import DatasetFormat
 from chris.datasets.dataset_info import DatasetInfo
+from chris.datasets.datasets import Datasets
 
 DATA_DIR = Path(__file__).parent.absolute() / "data"
 

@@ -1,5 +1,6 @@
-from jsonvl import Constraint
 from typing import Any
+
+from jsonvl import Constraint
 
 
 class MonotoneIncreaseConstraint(Constraint):

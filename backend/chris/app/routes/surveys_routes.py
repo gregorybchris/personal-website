@@ -7,8 +7,8 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from chris.app import logging_utilities
-from chris.datasets.fetch import fetch_dataset
 from chris.datasets.datasets import Datasets
+from chris.datasets.fetch import fetch_dataset
 
 router = APIRouter()
 

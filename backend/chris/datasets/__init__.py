@@ -1,7 +1,4 @@
-from chris.datasets.fetch import (
-    fetch_dataset,
-    fetch_projects,
-)
+from chris.datasets.fetch import fetch_dataset, fetch_projects
 
 __all__ = [
     "fetch_dataset",

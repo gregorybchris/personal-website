@@ -1,15 +1,14 @@
-from typing import Optional, Union, List
-import pytest
+from typing import List, Optional, Union
 
+import pytest
 from pandas import DataFrame
 
-from tests.utilities import get_public_class_members
-
 from chris.datasets import fetch_projects
-from chris.datasets.datasets import Datasets
-from chris.datasets.dataset_info import DatasetInfo
 from chris.datasets.dataset_format import DatasetFormat
+from chris.datasets.dataset_info import DatasetInfo
+from chris.datasets.datasets import Datasets
 from chris.datasets.fetch import fetch_dataset
+from tests.utilities import get_public_class_members
 
 
 class TestFetch:

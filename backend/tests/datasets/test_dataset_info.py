@@ -1,5 +1,5 @@
-from chris.datasets.dataset_info import DatasetInfo
 from chris.datasets.dataset_format import DatasetFormat
+from chris.datasets.dataset_info import DatasetInfo
 
 
 class TestDatasetInfo:
