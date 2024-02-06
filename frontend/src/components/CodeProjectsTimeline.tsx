@@ -5,8 +5,8 @@ import * as d3 from "d3";
 import random, { RNG } from "random";
 import { useEffect, useRef } from "react";
 
-import { Project as ProjectModel } from "../models/projectsModels";
 import seedrandom from "seedrandom";
+import { Project as ProjectModel } from "../models/projectsModels";
 
 class ProjectTypes {
   static GAME = "game";
@@ -272,12 +272,14 @@ export function CodeProjectsTimeline({
         {projectTypes.map((projectType, index) => {
           const projectColor = getProjectColor(projectType);
           return (
-            <div className="inline-block px-3" key={index}>
+            <div className="inline-block px-2 md:px-3" key={index}>
               <div
                 className="mr-1 inline-block h-2.5 w-2.5 rounded-full"
                 style={{ backgroundColor: projectColor }}
               ></div>
-              <div className="inline-block font-raleway">{projectType}</div>
+              <div className="inline-block font-raleway text-xs md:text-sm">
+                {projectType}
+              </div>
             </div>
           );
         })}
