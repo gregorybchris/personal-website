@@ -1,11 +1,10 @@
-import { GET, POST, makeQuery } from "../utilities/requestUtilities";
 import { useEffect, useRef, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { GET, POST, makeQuery } from "../utilities/requestUtilities";
 
 import { CodeProjectModal } from "../components/CodeProjectModal";
 import { CodeProjectsTimeline } from "../components/CodeProjectsTimeline";
 import { Project as ProjectModel } from "../models/projectsModels";
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
 
 export function CodeProjectsPage() {
   const downloadAnchor = useRef<HTMLAnchorElement>(null);
@@ -49,7 +48,6 @@ export function CodeProjectsPage() {
   }
 
   function onSelectProject(project: ProjectModel | null) {
-    console.log("Selecting project", project);
     if (project === null) {
       navigate("/code");
     } else {

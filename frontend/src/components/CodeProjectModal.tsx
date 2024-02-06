@@ -6,13 +6,12 @@ import {
   GithubLogo,
   Play,
 } from "@phosphor-icons/react";
+import { Project, Project as ProjectModel } from "../models/projectsModels";
 
-import { ActionLink } from "../widgets/ActionLink";
 import { X as CloseIcon } from "@phosphor-icons/react";
-import { Project } from "../models/projectsModels";
-import { Project as ProjectModel } from "../models/projectsModels";
-import { SimpleLink } from "../widgets/SimpleLink";
 import { formatDate } from "../utilities/datetimeUtilities";
+import { ActionLink } from "../widgets/ActionLink";
+import { SimpleLink } from "../widgets/SimpleLink";
 
 interface CodeProjectModalProps {
   project: Project;
@@ -28,7 +27,6 @@ export function CodeProjectModal({
   onDownload,
 }: CodeProjectModalProps) {
   function onModalOpenChange(open: boolean) {
-    console.log("model change", open);
     if (!open) {
       onClose();
     }

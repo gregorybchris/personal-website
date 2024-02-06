@@ -1,26 +1,8 @@
-import { Duration } from "luxon";
+import { DateTime, Duration } from "luxon";
 
 export function formatDate(dateString: string): string {
-  const date = new Date(dateString);
-  const yearNumber = date.getFullYear();
-  const monthNumber = date.getMonth();
-  const dayNumber = date.getDate() + 1;
-  const monthNames = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  const monthName = monthNames[monthNumber];
-  return `${monthName}. ${dayNumber}, ${yearNumber}`;
+  const d = DateTime.fromISO(dateString);
+  return d.toLocaleString(DateTime.DATE_MED);
 }
 
 export function formatDuration(timeString: string): string {
