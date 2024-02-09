@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "amatiasq.sort-imports",
+    "bradlc.vscode-tailwindcss",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "mikestead.dotenv",
@@ -9,7 +10,6 @@
     "ms-python.mypy-type-checker",
     "ms-python.pylint",
     "ms-python.python",
-    "bradlc.vscode-tailwindcss",
     "tamasfe.even-better-toml",
     "yzhang.markdown-all-in-one"
   ]
