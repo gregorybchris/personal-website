@@ -13,6 +13,7 @@
     "source_link": null,
     "download_link": "https://storage.googleapis.com/cgme/projects/jars/clords",
     "web_link": null,
+    "original_link": "https://apps.apple.com/us/app/7-little-words-daily-puzzles/id431434152",
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/clords--home-screen.jpg",
       "https://storage.googleapis.com/cgme/projects/images/clords--level-1.jpg"
@@ -34,6 +35,7 @@
     "source_link": null,
     "download_link": "https://storage.googleapis.com/cgme/projects/jars/evolution.jar",
     "web_link": null,
+    "original_link": "https://dan-ball.jp/en/javagame/dust",
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/evolution--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/evolution--02.jpg",
@@ -56,6 +58,7 @@
     "source_link": null,
     "download_link": null,
     "web_link": null,
+    "original_link": "https://cestos-full.en.aptoide.com/app",
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/vector--01-login.jpg",
       "https://storage.googleapis.com/cgme/projects/images/vector--02-connecting.jpg",
@@ -80,6 +83,7 @@
     "source_link": null,
     "download_link": null,
     "web_link": null,
+    "original_link": "https://apps.apple.com/us/app/triple-town-fun-addictive-puzzle-matching-game/id490532168",
     "image_links": ["https://storage.googleapis.com/cgme/projects/images/three-farmer--01.jpg"],
     "primary_language": "Java",
     "archived": true
@@ -98,6 +102,7 @@
     "source_link": null,
     "download_link": "https://storage.googleapis.com/cgme/projects/jars/color-match.jar",
     "web_link": null,
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/color-match--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/color-match--02.jpg",
@@ -121,6 +126,7 @@
     "source_link": null,
     "download_link": "https://storage.googleapis.com/cgme/projects/jars/sketcher.jar",
     "web_link": null,
+    "original_link": "https://en.wikipedia.org/wiki/Etch_A_Sketch",
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/sketcher--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/sketcher--02.jpg",
@@ -143,6 +149,7 @@
     "source_link": null,
     "download_link": "https://storage.googleapis.com/cgme/projects/jars/dot-drawings.jar",
     "web_link": null,
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/dot-drawings--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/dot-drawings--02.jpg",
@@ -166,6 +173,7 @@
     "source_link": null,
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/check-my-code--log-in.jpg",
       "https://storage.googleapis.com/cgme/projects/images/check-my-code--sign-up.jpg"
@@ -187,6 +195,7 @@
     "source_link": null,
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": ["https://storage.googleapis.com/cgme/projects/images/oracle--01.jpg"],
     "primary_language": "Java",
     "archived": true
@@ -205,6 +214,7 @@
     "source_link": null,
     "download_link": "https://storage.googleapis.com/cgme/projects/jars/armada.jar",
     "web_link": null,
+    "original_link": "https://www.neopets.com/games/game.phtml?game_id=772",
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/armada--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/armada--02.jpg",
@@ -227,6 +237,7 @@
     "source_link": null,
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/base",
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/base--blank.jpg",
       "https://storage.googleapis.com/cgme/projects/images/base--binary.jpg",
@@ -249,6 +260,7 @@
     "source_link": null,
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/ptcd--01-login.jpg",
       "https://storage.googleapis.com/cgme/projects/images/ptcd--02-home.jpg",
@@ -274,6 +286,7 @@
     "source_link": null,
     "download_link": "https://storage.googleapis.com/cgme/projects/jars/dragon-curve.jar",
     "web_link": null,
+    "original_link": "https://en.wikipedia.org/wiki/Dragon_curve",
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/dragon-curve--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/dragon-curve--02.jpg",
@@ -302,6 +315,7 @@
     "source_link": null,
     "download_link": "https://storage.googleapis.com/cgme/projects/jars/tower-of-hanoi.jar",
     "web_link": null,
+    "original_link": "https://en.wikipedia.org/wiki/Tower_of_Hanoi",
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/tower-of-hanoi--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/tower-of-hanoi--02.jpg"
@@ -323,6 +337,7 @@
     "source_link": null,
     "download_link": "https://storage.googleapis.com/cgme/projects/jars/can-you-count.jar",
     "web_link": null,
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/can-you-count--home.jpg",
       "https://storage.googleapis.com/cgme/projects/images/can-you-count--ready.jpg",
@@ -345,6 +360,7 @@
     "source_link": "https://github.com/gregorybchris/scheduler-hd",
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/schedulerhd--01-home.jpg",
       "https://storage.googleapis.com/cgme/projects/images/schedulerhd--02-search.jpg",
@@ -369,6 +385,7 @@
     "source_link": "https://github.com/gregorybchris/tiles",
     "download_link": "https://storage.googleapis.com/cgme/projects/jars/tiles.jar",
     "web_link": null,
+    "original_link": "https://minicliponline.com/games/bloxorz",
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/tiles--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/tiles--02.jpg",
@@ -391,6 +408,7 @@
     "source_link": null,
     "download_link": "https://storage.googleapis.com/cgme/projects/jars/blocks.jar",
     "web_link": null,
+    "original_link": "https://en.wikipedia.org/wiki/Tetris",
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/blocks--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/blocks--02.jpg",
@@ -413,6 +431,7 @@
     "source_link": null,
     "download_link": "https://storage.googleapis.com/cgme/projects/jars/flock.jar",
     "web_link": null,
+    "original_link": "https://en.wikipedia.org/wiki/Boids",
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/flock--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/flock--02.jpg"
@@ -434,6 +453,7 @@
     "source_link": null,
     "download_link": "https://storage.googleapis.com/cgme/projects/jars/unscrambler.jar",
     "web_link": null,
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/unscrambler--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/unscrambler--02.jpg",
@@ -456,6 +476,7 @@
     "source_link": null,
     "download_link": "https://storage.googleapis.com/cgme/projects/jars/unhinged.jar",
     "web_link": null,
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/unhinged--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/unhinged--02.jpg"
@@ -477,6 +498,7 @@
     "source_link": null,
     "download_link": "https://storage.googleapis.com/cgme/projects/jars/2048.jar",
     "web_link": null,
+    "original_link": "https://play2048.co",
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/2048--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/2048--02.jpg",
@@ -499,6 +521,7 @@
     "source_link": null,
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": ["https://storage.googleapis.com/cgme/projects/images/world--01.jpg"],
     "primary_language": "Java",
     "archived": true
@@ -517,6 +540,7 @@
     "source_link": null,
     "download_link": "https://storage.googleapis.com/cgme/projects/jars/viewer.jar",
     "web_link": null,
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/viewer--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/viewer--02.jpg",
@@ -539,6 +563,7 @@
     "source_link": "https://github.com/gregorybchris/directed",
     "download_link": "https://storage.googleapis.com/cgme/projects/jars/directed.jar",
     "web_link": null,
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/directed--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/directed--02.jpg",
@@ -563,6 +588,7 @@
     "source_link": "https://github.com/gregorybchris/song-search",
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [],
     "primary_language": "C++",
     "archived": false
@@ -581,6 +607,7 @@
     "source_link": "https://github.com/gregorybchris/sweyp",
     "download_link": "https://storage.googleapis.com/cgme/projects/jars/sweyp.jar",
     "web_link": null,
+    "original_link": "https://en.wikipedia.org/wiki/Boggle",
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/sweyp--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/sweyp--02.jpg"
@@ -602,6 +629,7 @@
     "source_link": "https://github.com/gregorybchris/seek",
     "download_link": "https://storage.googleapis.com/cgme/projects/jars/seek.jar",
     "web_link": null,
+    "original_link": null,
     "image_links": [],
     "primary_language": "Java",
     "archived": false
@@ -620,6 +648,7 @@
     "source_link": "https://github.com/gregorybchris/interval-tree",
     "download_link": null,
     "web_link": null,
+    "original_link": "https://en.wikipedia.org/wiki/Interval_tree",
     "image_links": [],
     "primary_language": "Swift",
     "archived": false
@@ -638,6 +667,7 @@
     "source_link": "https://github.com/gregorybchris/lcs",
     "download_link": null,
     "web_link": null,
+    "original_link": "https://en.wikipedia.org/wiki/Longest_common_subsequence",
     "image_links": [],
     "primary_language": "Swift",
     "archived": false
@@ -656,6 +686,7 @@
     "source_link": null,
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/jumbo-meal",
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/jumbo-meal--sliders-01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/jumbo-meal--sliders-02.jpg"
@@ -677,6 +708,7 @@
     "source_link": "https://github.com/gregorybchris/convolutional-mammogram-analysis",
     "download_link": "https://storage.googleapis.com/cgme/projects/papers/cnn-mammogram.pdf",
     "web_link": null,
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/convolutional-mammogram-analysis--scan.jpg",
       "https://storage.googleapis.com/cgme/projects/images/convolutional-mammogram-analysis--loss.jpg"
@@ -698,6 +730,7 @@
     "source_link": "https://github.com/gregorybchris/cheso",
     "download_link": null,
     "web_link": null,
+    "original_link": "https://en.wikipedia.org/wiki/Brainfuck",
     "image_links": [],
     "primary_language": "C",
     "archived": false
@@ -716,6 +749,7 @@
     "source_link": "https://github.com/gregorybchris/chans",
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/chans",
+    "original_link": "https://en.wikipedia.org/wiki/Chan%27s_algorithm",
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/chans--page-1.jpg",
       "https://storage.googleapis.com/cgme/projects/images/chans--page-2.jpg",
@@ -741,6 +775,7 @@
     "source_link": "https://github.com/gregorybchris/solvers",
     "download_link": null,
     "web_link": null,
+    "original_link": "https://apps.apple.com/us/app/zhed/id1209524498",
     "image_links": [],
     "primary_language": "Haskell",
     "archived": false
@@ -759,6 +794,7 @@
     "source_link": "https://github.com/gregorybchris/half-plane",
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/half-plane",
+    "original_link": "https://en.wikipedia.org/wiki/Fractional_cascading",
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/half-plane--page-1.jpg",
       "https://storage.googleapis.com/cgme/projects/images/half-plane--page-2.jpg",
@@ -784,6 +820,7 @@
     "source_link": null,
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/combust",
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/combust--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/combust--02.jpg"
@@ -805,6 +842,7 @@
     "source_link": "https://github.com/gregorybchris/split-plot",
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/split-plot--home.jpg",
       "https://storage.googleapis.com/cgme/projects/images/split-plot--page.jpg"
@@ -826,6 +864,7 @@
     "source_link": "https://github.com/gregorybchris/comp-rank",
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/comprank--home.jpg",
       "https://storage.googleapis.com/cgme/projects/images/comprank--compare.jpg",
@@ -848,6 +887,7 @@
     "source_link": "https://github.com/gregorybchris/tsa",
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/tsa",
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/tsa--look-for-yourself.jpg",
       "https://storage.googleapis.com/cgme/projects/images/tsa--the-big-picture.jpg",
@@ -870,6 +910,7 @@
     "source_link": "https://github.com/gregorybchris/tutf-trends",
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/tutf-trends",
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/tutf-trends--chris-400m.jpg",
       "https://storage.googleapis.com/cgme/projects/images/tutf-trends--chris-600m.jpg"
@@ -891,6 +932,7 @@
     "source_link": "https://github.com/gregorybchris/pci",
     "download_link": null,
     "web_link": null,
+    "original_link": "https://onlinelibrary.wiley.com/doi/full/10.1002/ana.24779",
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/pci-mine.jpg",
       "https://storage.googleapis.com/cgme/projects/images/pci-original.jpg",
@@ -913,6 +955,7 @@
     "source_link": "https://github.com/gregorybchris/miu",
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [],
     "primary_language": "Python",
     "archived": false
@@ -931,6 +974,7 @@
     "source_link": "https://github.com/gregorybchris/semi-genre",
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/semigenre--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/semigenre--02.jpg",
@@ -955,6 +999,7 @@
     "source_link": "https://github.com/gregorybchris/flicker",
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [],
     "primary_language": "Python",
     "archived": false
@@ -973,6 +1018,7 @@
     "source_link": "https://github.com/gregorybchris/dependy",
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/dependy--dependy-graph.jpg",
       "https://storage.googleapis.com/cgme/projects/images/dependy--semigenre-graph.jpg"
@@ -994,6 +1040,7 @@
     "source_link": "https://github.com/gregorybchris/dirstuff",
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [],
     "primary_language": "Python",
     "archived": false
@@ -1012,6 +1059,7 @@
     "source_link": null,
     "download_link": null,
     "web_link": null,
+    "original_link": "https://apps.apple.com/us/app/kami/id710724007",
     "image_links": [],
     "primary_language": "Haskell",
     "archived": true
@@ -1030,6 +1078,7 @@
     "source_link": "https://github.com/gregorybchris/tinytable",
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [],
     "primary_language": "Python",
     "archived": true
@@ -1048,6 +1097,7 @@
     "source_link": "https://github.com/gregorybchris/generals-sdk",
     "download_link": null,
     "web_link": null,
+    "original_link": "https://generals.io",
     "image_links": [],
     "primary_language": "Python",
     "archived": false
@@ -1066,6 +1116,7 @@
     "source_link": "https://github.com/gregorybchris/on-move",
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [],
     "primary_language": "JavaScript",
     "archived": true
@@ -1084,6 +1135,7 @@
     "source_link": "https://github.com/gregorybchris/triple-town",
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/triple-town",
+    "original_link": "https://apps.apple.com/us/app/triple-town-fun-addictive-puzzle-matching-game/id490532168",
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/triple-town--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/triple-town--02.jpg",
@@ -1106,6 +1158,7 @@
     "source_link": "https://github.com/gregorybchris/spike",
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [],
     "primary_language": "JavaScript",
     "archived": false
@@ -1124,6 +1177,7 @@
     "source_link": "https://github.com/gregorybchris/robby",
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [],
     "primary_language": "Rust",
     "archived": false
@@ -1142,6 +1196,7 @@
     "source_link": "https://github.com/gregorybchris/jsonvl",
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [],
     "primary_language": "Python",
     "archived": false
@@ -1160,6 +1215,7 @@
     "source_link": "https://github.com/gregorybchris/big-life",
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/big-life",
+    "original_link": null,
     "image_links": ["https://storage.googleapis.com/cgme/projects/images/big-life--01.jpg"],
     "primary_language": "TypeScript",
     "archived": false
@@ -1178,6 +1234,7 @@
     "source_link": "https://github.com/gregorybchris/hlucb",
     "download_link": null,
     "web_link": null,
+    "original_link": "https://arxiv.org/abs/1801.01253",
     "image_links": [],
     "primary_language": "Python",
     "archived": false
@@ -1196,6 +1253,7 @@
     "source_link": "https://github.com/gregorybchris/orbit",
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/sub/orbit",
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/orbit--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/orbit--02.jpg"
@@ -1217,6 +1275,7 @@
     "source_link": "https://github.com/gregorybchris/contraction",
     "download_link": null,
     "web_link": null,
+    "original_link": "https://apps.apple.com/us/app/kami/id710724007",
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/contraction--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/contraction--02.jpg",
@@ -1240,6 +1299,7 @@
     "source_link": "https://github.com/gregorybchris/ants",
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/ants/demo",
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/ants--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/ants--02.jpg"
@@ -1261,6 +1321,7 @@
     "source_link": "https://github.com/gregorybchris/wavelength",
     "download_link": null,
     "web_link": null,
+    "original_link": "https://www.wavelength.zone",
     "image_links": [],
     "primary_language": "Python",
     "archived": false
@@ -1279,6 +1340,7 @@
     "source_link": "https://github.com/gregorybchris/chladni",
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/chladni/demo",
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/chladni--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/chladni--02.jpg"
@@ -1300,6 +1362,7 @@
     "source_link": "https://github.com/gregorybchris/decidio",
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/decidio/demo",
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/decidio--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/decidio--02.jpg"
@@ -1321,6 +1384,7 @@
     "source_link": "https://github.com/gregorybchris/bfprt",
     "download_link": null,
     "web_link": null,
+    "original_link": "https://en.wikipedia.org/wiki/Median_of_medians",
     "image_links": [],
     "primary_language": "Python",
     "archived": false
@@ -1339,6 +1403,7 @@
     "source_link": "https://github.com/gregorybchris/quad",
     "download_link": null,
     "web_link": "https://static.chrisgregory.me/quad/demo",
+    "original_link": "https://en.wikipedia.org/wiki/Quadtree",
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/quad--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/quad--02.jpg"
@@ -1360,6 +1425,7 @@
     "source_link": "https://github.com/gregorybchris/cado",
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/cado--notebooks.jpg",
       "https://storage.googleapis.com/cgme/projects/images/cado--notebook.jpg"
@@ -1381,6 +1447,7 @@
     "source_link": null,
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/engineroom--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/engineroom--02.jpg",
@@ -1397,12 +1464,13 @@
     "rating": 9,
     "project_type": "program",
     "controls": null,
-    "description": "Scrapscript is a functional programming language that aims to solve the software shareability problem. My friend Max and I found the specification for this language by Taylor Troesh on https://scrapscript.org and were excited about its potential. We decided to implement an interpreter in Python and created our own web REPL so you can try the language out for yourself without downloading anything.",
+    "description": "Scrapscript is a functional programming language that aims to solve the software shareability problem. My friend Max and I found the specification for this language by Taylor Troesh and were excited about its potential. We decided to implement an interpreter in Python and created our own web REPL so you can try the language out for yourself without downloading anything.",
     "remarks": null,
     "tags": ["scrapscript", "language", "functional", "interpreter", "compiler", "dependency", "haskell", "api"],
     "source_link": "https://github.com/tekknolagi/scrapscript",
     "download_link": null,
     "web_link": "https://scrapscript.fly.dev/repl",
+    "original_link": "https://scrapscript.org",
     "image_links": ["https://storage.googleapis.com/cgme/projects/images/scrapscript--01.jpg"],
     "primary_language": "Python",
     "archived": false
@@ -1421,6 +1489,7 @@
     "source_link": "https://github.com/gregorybchris/typogenetics",
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [],
     "primary_language": "Python",
     "archived": false
@@ -1439,6 +1508,7 @@
     "source_link": "https://github.com/gregorybchris/vidrank",
     "download_link": null,
     "web_link": null,
+    "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/vidrank--main.jpg",
       "https://storage.googleapis.com/cgme/projects/images/vidrank--ratings.jpg"
@@ -1460,6 +1530,7 @@
     "source_link": "https://github.com/gregorybchris/langton",
     "download_link": null,
     "web_link": null,
+    "original_link": "https://en.wikipedia.org/wiki/Langton%27s_ant",
     "image_links": ["https://storage.googleapis.com/cgme/projects/images/langton--01.gif"],
     "primary_language": "Python",
     "archived": false

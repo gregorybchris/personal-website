@@ -1,9 +1,11 @@
 import * as Dialog from "@radix-ui/react-dialog";
+import { match } from "ts-pattern";
 
 import {
   Coffee,
   DownloadSimple,
   GithubLogo,
+  Lightbulb,
   Play,
 } from "@phosphor-icons/react";
 import { Project, Project as ProjectModel } from "../models/projectsModels";
@@ -50,7 +52,7 @@ export function CodeProjectModal({
               {project.description}
             </Dialog.Description>
 
-            <div>
+            <div className="flex flex-col space-y-2">
               {project.download_link && (
                 <DownloadLink project={project} onDownload={onDownload} />
               )}
@@ -66,6 +68,13 @@ export function CodeProjectModal({
                   text="Source code"
                   link={project.source_link}
                   kind="source"
+                />
+              )}
+              {project.original_link && (
+                <ProjectInfoLink
+                  text="Original"
+                  link={project.original_link}
+                  kind="original"
                 />
               )}
             </div>
@@ -112,18 +121,25 @@ function ProjectImage({ url }: ProjectImageProps) {
 interface ProjectInfoLinkProps {
   text: string;
   link: string;
-  kind: "source" | "demo";
+  kind: "source" | "demo" | "original";
 }
 
 function ProjectInfoLink({ text, link, kind }: ProjectInfoLinkProps) {
   return (
-    <div className="mb-1 flex flex-row">
+    <div className="flex flex-row">
       <SimpleLink link={link} className="flex flex-row items-center space-x-2">
-        {kind === "source" ? (
-          <GithubLogo size={25} weight="duotone" color="#6283c0" />
-        ) : (
-          <Play size={25} weight="duotone" color="#6283c0" />
-        )}
+        {match(kind)
+          .with("source", () => (
+            <GithubLogo size={25} weight="duotone" color="#6283c0" />
+          ))
+          .with("demo", () => (
+            <Play size={25} weight="duotone" color="#6283c0" />
+          ))
+          .with("original", () => (
+            <Lightbulb size={25} weight="duotone" color="#6283c0" />
+          ))
+          .exhaustive()}
+
         <div>{text}</div>
       </SimpleLink>
     </div>
@@ -139,7 +155,7 @@ function DownloadLink({ project, onDownload }: DownloadLinkProps) {
   const isJava = project.primary_language === "Java";
   const text = isJava ? "Download JAR" : "Download";
   return (
-    <div className="mb-1 flex flex-row">
+    <div className="flex flex-row">
       <ActionLink
         onClick={() => onDownload(project)}
         className="flex flex-row items-center space-x-2"
