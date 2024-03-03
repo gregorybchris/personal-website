@@ -677,7 +677,10 @@
     "source_link": "https://github.com/gregorybchris/convolutional-mammogram-analysis",
     "download_link": "https://storage.googleapis.com/cgme/projects/papers/cnn-mammogram.pdf",
     "web_link": null,
-    "image_links": [],
+    "image_links": [
+      "https://storage.googleapis.com/cgme/projects/images/convolutional-mammogram-analysis--scan.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/convolutional-mammogram-analysis--loss.jpg"
+    ],
     "primary_language": "Python",
     "archived": false
   },
