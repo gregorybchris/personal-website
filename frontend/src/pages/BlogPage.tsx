@@ -27,6 +27,14 @@ export function BlogPage() {
     return searchParams.get("t") || "";
   }
 
+  function onClickTag(tag: string) {
+    if (searchText === `#${tag}`) {
+      setSearchText("");
+    } else {
+      setSearchText(`#${tag}`);
+    }
+  }
+
   function isPostVisible(post: PostModel) {
     const lowerSearchText = searchText.toLowerCase();
 
@@ -109,7 +117,7 @@ export function BlogPage() {
                 <BlogPost
                   key={post.post_id}
                   post={post}
-                  onClickTag={(tag) => setSearchText(`#${tag}`)}
+                  onClickTag={onClickTag}
                   onSelectPost={(post) => navigate(`/links/${post.slug}`)}
                   videoTime={getVideoTime()}
                 />
