@@ -4,10 +4,10 @@ import * as d3 from "d3";
 
 import { GET, makeQuery } from "../utilities/requestUtilities";
 
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Post as PostModel } from "../models/blogModels";
 import { range } from "../utilities/arrayUtilities";
-import { useNavigate } from "react-router-dom";
-import { useRef } from "react";
 
 interface GraphNode {
   id: string;

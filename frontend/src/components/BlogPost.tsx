@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-import { BlogTag } from "./BlogTag";
 import { Link as LinkIcon } from "@phosphor-icons/react";
 import { Post as PostModel } from "../models/blogModels";
 import { formatDate } from "../utilities/datetimeUtilities";
 import { getSearchParams } from "../utilities/requestUtilities";
+import { BlogTag } from "./BlogTag";
 
 interface BlogPostProps {
   post: PostModel;

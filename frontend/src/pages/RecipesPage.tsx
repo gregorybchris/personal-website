@@ -7,12 +7,12 @@ import {
   Knife,
   Shrimp,
 } from "@phosphor-icons/react";
-import { GET, makeQuery } from "../utilities/requestUtilities";
 import { useEffect, useState } from "react";
+import { GET, makeQuery } from "../utilities/requestUtilities";
 
+import { useNavigate } from "react-router-dom";
 import { Recipe } from "../models/recipesModels";
 import { formatDuration } from "../utilities/datetimeUtilities";
-import { useNavigate } from "react-router-dom";
 
 export function RecipesPage() {
   const [recipes, setRecipes] = useState<Recipe[]>([]);

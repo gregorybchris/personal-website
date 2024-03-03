@@ -1,10 +1,10 @@
 import "../styles/common.css";
 
-import { GET, makeQuery } from "../utilities/requestUtilities";
-import { MapContainer, Polyline, TileLayer } from "react-leaflet";
-import { RouteData, RunningRoute } from "../models/routesModels";
 import { useEffect, useState } from "react";
+import { MapContainer, Polyline, TileLayer } from "react-leaflet";
 import { useNavigate, useParams } from "react-router-dom";
+import { RouteData, RunningRoute } from "../models/routesModels";
+import { GET, makeQuery } from "../utilities/requestUtilities";
 
 import { RouteMap } from "../components/RouteMap";
 import { SimpleLink } from "../widgets/SimpleLink";

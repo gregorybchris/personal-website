@@ -1,10 +1,10 @@
 import "../styles/radar.css";
 
-import { GET, makeQuery } from "../utilities/requestUtilities";
 import { useEffect, useState } from "react";
+import { GET, makeQuery } from "../utilities/requestUtilities";
 
-import { Podcast } from "../models/mediaModels";
 import Radar from "react-d3-radar";
+import { Podcast } from "../models/mediaModels";
 import { SimpleLink } from "../widgets/SimpleLink";
 
 export function PodcastsPage() {

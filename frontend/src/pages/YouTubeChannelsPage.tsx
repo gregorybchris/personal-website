@@ -1,11 +1,11 @@
 import "../styles/radar.css";
 
-import { GET, makeQuery } from "../utilities/requestUtilities";
 import { useEffect, useState } from "react";
+import { GET, makeQuery } from "../utilities/requestUtilities";
 
 import Radar from "react-d3-radar";
-import { SimpleLink } from "../widgets/SimpleLink";
 import { YouTubeChannel } from "../models/mediaModels";
+import { SimpleLink } from "../widgets/SimpleLink";
 
 export function YouTubeChannelsPage() {
   const [channels, setChannels] = useState<YouTubeChannel[]>([]);

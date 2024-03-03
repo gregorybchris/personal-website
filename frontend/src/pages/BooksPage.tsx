@@ -1,10 +1,10 @@
 import { Books as BooksIcon, SquaresFour } from "@phosphor-icons/react";
-import { GET, makeQuery } from "../utilities/requestUtilities";
 import { useEffect, useState } from "react";
+import { GET, makeQuery } from "../utilities/requestUtilities";
 
 import { Book } from "../components/Book";
-import { BookData } from "../models/booksModels";
 import { BookTag } from "../components/BookTag";
+import { BookData } from "../models/booksModels";
 import { cn } from "../utilities/styleUtilities";
 
 export function BooksPage() {

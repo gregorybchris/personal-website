@@ -1,6 +1,6 @@
 import { BookData } from "../models/booksModels";
-import { BookTag } from "./BookTag";
 import { cn } from "../utilities/styleUtilities";
+import { BookTag } from "./BookTag";
 
 interface BookProps {
   book: BookData;

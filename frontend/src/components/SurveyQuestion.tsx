@@ -1,7 +1,7 @@
 import { Question as QuestionModel, Response } from "../models/surveyModels";
 
-import { SurveyQuestionOption } from "./SurveyQuestionOption";
 import { cn } from "../utilities/styleUtilities";
+import { SurveyQuestionOption } from "./SurveyQuestionOption";
 
 interface QuestionProps {
   question: QuestionModel;

@@ -1,6 +1,6 @@
-import { RouteData } from "../models/routesModels";
 import { useEffect } from "react";
 import { useMap } from "react-leaflet";
+import { RouteData } from "../models/routesModels";
 
 interface RouteMapProps {
   routeData: RouteData;

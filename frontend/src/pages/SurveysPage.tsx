@@ -1,11 +1,11 @@
 import "../styles/common.css";
 
-import { GET, POST, makeQuery } from "../utilities/requestUtilities";
 import React, { useEffect, useState } from "react";
 import { Response, Survey as SurveyModel } from "../models/surveyModels";
+import { GET, POST, makeQuery } from "../utilities/requestUtilities";
 
-import { STORE } from "../utilities/storageUtilities";
 import { SurveyQuestion } from "../components/SurveyQuestion";
+import { STORE } from "../utilities/storageUtilities";
 
 export function SurveysPage() {
   const COMPLETED_KEY = "completed-surveys";

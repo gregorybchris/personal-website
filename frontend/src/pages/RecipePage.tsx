@@ -1,7 +1,7 @@
 import { ArrowLeft, ClockCountdown, Users } from "@phosphor-icons/react";
-import { GET, makeQuery } from "../utilities/requestUtilities";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { GET, makeQuery } from "../utilities/requestUtilities";
 
 import { Recipe } from "../models/recipesModels";
 import { formatDuration } from "../utilities/datetimeUtilities";

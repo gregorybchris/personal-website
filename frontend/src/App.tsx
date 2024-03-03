@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { ArchivePage } from "./pages/ArchivePage";
 import { BlogGraph } from "./components/BlogGraph";
+import Nav from "./components/Nav";
+import { ArchivePage } from "./pages/ArchivePage";
 import { BlogPage } from "./pages/BlogPage";
 import { BooksPage } from "./pages/BooksPage";
 import { CodeProjectsPage } from "./pages/CodeProjectsPage";
@@ -10,7 +11,6 @@ import { HiddenPage } from "./pages/HiddenPage";
 import { HomePage } from "./pages/HomePage";
 import { MoviesPage } from "./pages/MoviesPage";
 import { MusicPage } from "./pages/MusicPage";
-import Nav from "./components/Nav";
 import { OopsPage } from "./pages/OopsPage";
 import { PlacesPage } from "./pages/PlacesPage";
 import { PodcastsPage } from "./pages/PodcastsPage";

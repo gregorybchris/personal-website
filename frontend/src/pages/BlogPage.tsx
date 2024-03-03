@@ -1,8 +1,8 @@
 import "../styles/common.css";
 
-import { GET, getSearchParams, makeQuery } from "../utilities/requestUtilities";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { GET, getSearchParams, makeQuery } from "../utilities/requestUtilities";
 
 import { ArrowLeft } from "@phosphor-icons/react";
 import { BlogPost } from "../components/BlogPost";
