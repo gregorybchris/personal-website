@@ -9,15 +9,15 @@ interface BookProps {
   bookShape: string;
 }
 
-export function Book(props: BookProps) {
-  const imageLinks = props.book.image_links;
-  const isSquare = props.bookShape == "square";
+export function Book({ book, activeTags, onTagClick, bookShape }: BookProps) {
+  const imageLinks = book.image_links;
+  const isSquare = bookShape == "square";
   const imageLink = isSquare ? imageLinks.square : imageLinks.book;
   const timestamp = Date.now();
   return (
     <div className={cn("px-2", isSquare ? "py-0" : "py-3")}>
       <div className="mb-2 flex justify-center">
-        <a href={props.book.goodreads_link} target="_blank">
+        <a href={book.goodreads_link} target="_blank">
           <img
             src={`${imageLink}?a=${timestamp}`}
             className={cn(
@@ -28,20 +28,20 @@ export function Book(props: BookProps) {
         </a>
       </div>
 
-      {props.bookShape == "book" && (
+      {bookShape == "book" && (
         <div>
-          <a href={props.book.goodreads_link} target="_blank">
-            <div className="text-center font-bold">{props.book.title}</div>
-            <div className="text-center">{props.book.author}</div>
+          <a href={book.goodreads_link} target="_blank">
+            <div className="text-center font-bold">{book.title}</div>
+            <div className="text-center">{book.author}</div>
           </a>
 
           <div className="mt-1 flex justify-center">
-            {props.book.tags.map((tag) => (
+            {book.tags.map((tag) => (
               <BookTag
                 key={tag}
                 tag={tag}
-                onClick={props.onTagClick}
-                active={props.activeTags.includes(tag)}
+                onClick={onTagClick}
+                active={activeTags.includes(tag)}
               />
             ))}
           </div>

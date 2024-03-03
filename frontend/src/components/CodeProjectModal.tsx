@@ -94,12 +94,16 @@ export function CodeProjectModal({
   );
 }
 
-function ProjectImage(props: { url: string }) {
+interface ProjectImageProps {
+  url: string;
+}
+
+function ProjectImage({ url }: ProjectImageProps) {
   return (
     <img
       className="m-1 max-h-[270px] max-w-[90%] border-2 border-background-dark"
-      src={props.url}
-      key={props.url}
+      src={url}
+      key={url}
       alt="Project screenshot"
     />
   );

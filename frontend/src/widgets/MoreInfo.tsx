@@ -6,7 +6,7 @@ interface MoreInfoProps {
   text: string;
 }
 
-export function MoreInfo(props: MoreInfoProps) {
+export function MoreInfo({ text }: MoreInfoProps) {
   return (
     <div className="ml-2 inline-block align-middle">
       <QuestionIcon
@@ -15,7 +15,7 @@ export function MoreInfo(props: MoreInfoProps) {
         color="#6283c0"
       />
       <div className="info-icon-text absolute inline-block cursor-default pl-2 text-text-2 opacity-0 transition-all">
-        {props.text}
+        {text}
       </div>
     </div>
   );

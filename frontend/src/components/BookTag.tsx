@@ -6,16 +6,16 @@ interface BookTagProps {
   onClick: (tag: string) => void;
 }
 
-export function BookTag(props: BookTagProps) {
+export function BookTag({ tag, active, onClick }: BookTagProps) {
   return (
     <div
-      onClick={() => props.onClick(props.tag)}
+      onClick={() => onClick(tag)}
       className={cn(
         "mx-1 cursor-pointer rounded-md px-3 py-1 text-accent duration-150 hover:bg-background-highlight-active hover:text-accent-focus hover:ease-linear",
-        props.active && "bg-background-highlight",
+        active && "bg-background-highlight",
       )}
     >
-      <div className="text-sm">#{props.tag}</div>
+      <div className="text-sm">#{tag}</div>
     </div>
   );
 }

@@ -11,37 +11,40 @@ interface QuestionProps {
   updater: boolean;
 }
 
-export function SurveyQuestion(props: QuestionProps) {
-  const response = props.response;
-  const isComplete = response.isQuestionComplete(props.questionNumber);
+export function SurveyQuestion({
+  question,
+  questionNumber,
+  onOptionClicked,
+  response,
+  updater,
+}: QuestionProps) {
+  const isComplete = response.isQuestionComplete(questionNumber);
 
   return (
-    <div className="pb-5 pt-3" key={props.questionNumber}>
+    <div className="pb-5 pt-3" key={questionNumber}>
       <div
         className={cn(
           "pb-3 -indent-4 font-raleway text-text-1 transition-all",
           isComplete && "text-text-4",
         )}
       >
-        {props.questionNumber + 1}
+        {questionNumber + 1}
         {". "}
-        {props.question.text}
+        {question.text}
       </div>
       <div className="Question-options">
-        {props.question.options.map(
-          (optionText: string, optionNumber: number) => (
-            <SurveyQuestionOption
-              key={optionNumber}
-              questionNumber={props.questionNumber}
-              optionText={optionText}
-              optionNumber={optionNumber}
-              onOptionClicked={props.onOptionClicked}
-              response={props.response}
-              updater={props.updater}
-              questionComplete={isComplete}
-            />
-          ),
-        )}
+        {question.options.map((optionText: string, optionNumber: number) => (
+          <SurveyQuestionOption
+            key={optionNumber}
+            questionNumber={questionNumber}
+            optionText={optionText}
+            optionNumber={optionNumber}
+            onOptionClicked={onOptionClicked}
+            response={response}
+            updater={updater}
+            questionComplete={isComplete}
+          />
+        ))}
       </div>
     </div>
   );

@@ -15,16 +15,21 @@ interface BlogPostProps {
 
 const YOUTUBE_SOURCE = "YouTube";
 
-export function BlogPost(props: BlogPostProps) {
+export function BlogPost({
+  post,
+  videoTime,
+  onClickTag,
+  onSelectPost,
+}: BlogPostProps) {
   const [contentLink, setContentLink] = useState<string>("");
   const [thumbnailUrl, setThumbnailUrl] = useState<string>("");
 
   useEffect(() => {
-    const postLink = props.post.link;
+    const postLink = post.link;
     const postLinkParams = getSearchParams(postLink);
 
     if (!thumbnailUrl) {
-      if (props.post.source === YOUTUBE_SOURCE) {
+      if (post.source === YOUTUBE_SOURCE) {
         const idParam = postLinkParams.get("v");
         setThumbnailUrl(
           `https://img.youtube.com/vi/${idParam}/maxresdefault.jpg`,
@@ -32,7 +37,6 @@ export function BlogPost(props: BlogPostProps) {
       }
     }
 
-    const videoTime = props.videoTime;
     const fullLink = videoTime ? `${postLink}&t=${videoTime}` : postLink;
     setContentLink(fullLink);
   }, []);
@@ -66,21 +70,21 @@ export function BlogPost(props: BlogPostProps) {
     return formattedLength;
   }
 
-  let title = props.post.title;
-  if (props.post.speaker) {
-    title = `${props.post.speaker}: ${title}`;
+  let title = post.title;
+  if (post.speaker) {
+    title = `${post.speaker}: ${title}`;
   }
 
-  const seriesName = props.post.series;
+  const seriesName = post.series;
   let seriesDetails = seriesName;
-  if (props.post.episode_number) {
-    seriesDetails = `${seriesDetails} (#${props.post.episode_number})`;
+  if (post.episode_number) {
+    seriesDetails = `${seriesDetails} (#${post.episode_number})`;
   }
 
   return (
     <div
       className="mb-10 max-w-[90%] border-l-2 border-accent py-3 pl-8"
-      id={props.post.post_id}
+      id={post.post_id}
     >
       <div className="pb-3">
         <div className="mb-2">
@@ -91,7 +95,7 @@ export function BlogPost(props: BlogPostProps) {
           </a>
           <div
             className="mb-1 ml-2 mr-3 inline-block cursor-pointer rounded-full p-1 align-middle transition-all hover:bg-background-dark"
-            onClick={() => props.onSelectPost(props.post)}
+            onClick={() => onSelectPost(post)}
           >
             <LinkIcon size={20} color="#6283c0" />
           </div>
@@ -102,11 +106,11 @@ export function BlogPost(props: BlogPostProps) {
           </div>
         )}
         <div className="text-md mb-1 font-raleway font-bold text-text-2">
-          {formatDate(props.post.date_posted)}
+          {formatDate(post.date_posted)}
         </div>
-        {props.post.length && (
+        {post.length && (
           <div className="text-md font-raleway font-bold text-text-2">
-            {formatLength(props.post.length)}
+            {formatLength(post.length)}
           </div>
         )}
       </div>
@@ -121,8 +125,8 @@ export function BlogPost(props: BlogPostProps) {
         </a>
       )}
       <div className="mb-2 mt-3">
-        {props.post.tags.map((tag) => (
-          <BlogTag key={tag} text={tag} onClickTag={props.onClickTag} />
+        {post.tags.map((tag) => (
+          <BlogTag key={tag} text={tag} onClickTag={onClickTag} />
         ))}
       </div>
     </div>

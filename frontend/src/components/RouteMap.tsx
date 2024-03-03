@@ -6,15 +6,15 @@ interface RouteMapProps {
   routeData: RouteData;
 }
 
-export function RouteMap(props: RouteMapProps) {
+export function RouteMap({ routeData }: RouteMapProps) {
   const map = useMap();
 
   useEffect(() => {
     updateMap();
-  }, [props.routeData]);
+  }, [routeData]);
 
   function updateMap() {
-    let points = props.routeData.points;
+    let points = routeData.points;
     map.fitBounds(points.map((p) => [p.latitude, p.longitude]));
   }
 

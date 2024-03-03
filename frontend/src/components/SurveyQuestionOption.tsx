@@ -11,28 +11,31 @@ interface SurveyQuestionOptionProps {
   questionComplete: boolean;
 }
 
-export function SurveyQuestionOption(props: SurveyQuestionOptionProps) {
-  const letter = String.fromCharCode("A".charCodeAt(0) + props.optionNumber);
-  const isChosen = props.response.isOptionChosen(
-    props.questionNumber,
-    props.optionNumber,
-  );
+export function SurveyQuestionOption({
+  questionNumber,
+  optionText,
+  optionNumber,
+  onOptionClicked,
+  response,
+  updater,
+  questionComplete,
+}: SurveyQuestionOptionProps) {
+  const letter = String.fromCharCode("A".charCodeAt(0) + optionNumber);
+  const isChosen = response.isOptionChosen(questionNumber, optionNumber);
 
   return (
     <div
-      onClick={() =>
-        props.onOptionClicked(props.questionNumber, props.optionNumber)
-      }
+      onClick={() => onOptionClicked(questionNumber, optionNumber)}
       className={cn(
         "px-3 py-1 font-raleway text-accent transition-all",
         isChosen && "bg-background-highlight-light",
         "active:bg-background-highlight-active",
         "cursor-pointer hover:bg-background-highlight hover:text-accent-focus",
-        props.questionComplete && "text-accent-light",
+        questionComplete && "text-accent-light",
       )}
-      key={props.optionNumber}
+      key={optionNumber}
     >
-      {letter}&#41; {props.optionText}
+      {letter}&#41; {optionText}
     </div>
   );
 }

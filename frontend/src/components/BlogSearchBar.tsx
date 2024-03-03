@@ -6,19 +6,23 @@ interface BlogSearchBarProps {
   onClearSearch: () => void;
 }
 
-export function BlogSearchBar(props: BlogSearchBarProps) {
+export function BlogSearchBar({
+  searchText,
+  onUpdateSearch,
+  onClearSearch,
+}: BlogSearchBarProps) {
   return (
     <div className="min-w-[340px]">
       <input
         className="Common-text-field inline-block w-[270px] align-top"
         type="text"
-        value={props.searchText}
-        onChange={props.onUpdateSearch}
+        value={searchText}
+        onChange={onUpdateSearch}
         placeholder="Filter posts"
       />
       <div
         className="Common-button ml-1 inline-block align-top"
-        onClick={props.onClearSearch}
+        onClick={onClearSearch}
       >
         Clear
       </div>
