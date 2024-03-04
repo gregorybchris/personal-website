@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { GET, makeQuery } from "../utilities/requestUtilities";
 
 import { Book } from "../components/Book";
-import { BookTag } from "../components/BookTag";
+import { Tag } from "../components/Tag";
 import { BookData } from "../models/booksModels";
 import { cn } from "../utilities/styleUtilities";
 
@@ -76,9 +76,9 @@ export function BooksPage() {
         </div>
       </div>
 
-      <div className="mt-4 flex justify-center">
+      <div className="mt-4 flex flex-row justify-center space-x-2">
         {allTags.map((tag) => (
-          <BookTag
+          <Tag
             key={tag}
             tag={tag}
             onClick={onTagClick}

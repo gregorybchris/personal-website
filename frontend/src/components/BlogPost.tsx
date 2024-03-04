@@ -4,13 +4,14 @@ import { Link as LinkIcon } from "@phosphor-icons/react";
 import { Post as PostModel } from "../models/blogModels";
 import { formatDate } from "../utilities/datetimeUtilities";
 import { getSearchParams } from "../utilities/requestUtilities";
-import { BlogTag } from "./BlogTag";
+import { Tag } from "./Tag";
 
 interface BlogPostProps {
   post: PostModel;
   videoTime: string;
   onClickTag: (tag: string) => void;
   onSelectPost: (post: PostModel) => void;
+  activeTags: string[];
 }
 
 const YOUTUBE_SOURCE = "YouTube";
@@ -20,6 +21,7 @@ export function BlogPost({
   videoTime,
   onClickTag,
   onSelectPost,
+  activeTags,
 }: BlogPostProps) {
   const [contentLink, setContentLink] = useState<string>("");
   const [thumbnailUrl, setThumbnailUrl] = useState<string>("");
@@ -124,9 +126,14 @@ export function BlogPost({
           />
         </a>
       )}
-      <div className="mb-2 mt-3">
+      <div className="mb-2 mt-3 flex flex-row flex-wrap space-x-1">
         {post.tags.map((tag) => (
-          <BlogTag key={tag} text={tag} onClickTag={onClickTag} />
+          <Tag
+            key={tag}
+            tag={tag}
+            onClick={onClickTag}
+            active={activeTags.includes(tag)}
+          />
         ))}
       </div>
     </div>

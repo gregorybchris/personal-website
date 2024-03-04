@@ -15,6 +15,15 @@ export function BlogPage() {
   const { slug } = useParams();
   let navigate = useNavigate();
 
+  const activeTags = getActiveTags(searchText);
+
+  function getActiveTags(searchText: string) {
+    if (!searchText.startsWith("#")) {
+      return [];
+    }
+    return [searchText.slice(1)];
+  }
+
   useEffect(() => {
     const postsQuery = makeQuery("posts");
     GET(postsQuery).then((queryResult) => {
@@ -120,6 +129,7 @@ export function BlogPage() {
                   onClickTag={onClickTag}
                   onSelectPost={(post) => navigate(`/links/${post.slug}`)}
                   videoTime={getVideoTime()}
+                  activeTags={activeTags}
                 />
               ))
           )}

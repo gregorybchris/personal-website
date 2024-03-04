@@ -1,6 +1,6 @@
 import { BookData } from "../models/booksModels";
 import { cn } from "../utilities/styleUtilities";
-import { BookTag } from "./BookTag";
+import { Tag } from "./Tag";
 
 interface BookProps {
   book: BookData;
@@ -35,9 +35,9 @@ export function Book({ book, activeTags, onTagClick, bookShape }: BookProps) {
             <div className="text-center">{book.author}</div>
           </a>
 
-          <div className="mt-1 flex justify-center">
+          <div className="mt-1 flex flex-row justify-center space-x-1">
             {book.tags.map((tag) => (
-              <BookTag
+              <Tag
                 key={tag}
                 tag={tag}
                 onClick={onTagClick}
