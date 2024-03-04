@@ -1,5 +1,4 @@
 import * as Dialog from "@radix-ui/react-dialog";
-import { match } from "ts-pattern";
 
 import {
   Coffee,
@@ -125,20 +124,18 @@ interface ProjectInfoLinkProps {
 }
 
 function ProjectInfoLink({ text, link, kind }: ProjectInfoLinkProps) {
+  let logo = null;
+  if (kind === "source")
+    logo = <GithubLogo size={25} weight="duotone" color="#6283c0" />;
+  if (kind === "demo")
+    logo = <Play size={25} weight="duotone" color="#6283c0" />;
+  if (kind === "original")
+    logo = <Lightbulb size={25} weight="duotone" color="#6283c0" />;
+
   return (
     <div className="flex flex-row">
       <SimpleLink link={link} className="flex flex-row items-center space-x-2">
-        {match(kind)
-          .with("source", () => (
-            <GithubLogo size={25} weight="duotone" color="#6283c0" />
-          ))
-          .with("demo", () => (
-            <Play size={25} weight="duotone" color="#6283c0" />
-          ))
-          .with("original", () => (
-            <Lightbulb size={25} weight="duotone" color="#6283c0" />
-          ))
-          .exhaustive()}
+        {logo}
 
         <div>{text}</div>
       </SimpleLink>
