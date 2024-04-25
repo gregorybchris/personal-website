@@ -1186,5 +1186,22 @@
       "longitude": -121.347602,
       "formatted": "47/23/25.8/N 121/20/51.4/W"
     }
+  },
+  {
+    "route_id": "f9204aba-754f-4e1a-b2a6-2b22537dcc26",
+    "name": "Rifle Range Road Trail",
+    "slug": "rifle-range-road-trail",
+    "dates": ["2024-04-06"],
+    "miles": 5,
+    "elevation": 1000,
+    "area": "Wildcat Canyon Regional Park",
+    "region": "California",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 37.932355,
+      "longitude": -122.295892,
+      "formatted": "37/55/56.5/N 122/17/45.2/W"
+    }
   }
 ]
