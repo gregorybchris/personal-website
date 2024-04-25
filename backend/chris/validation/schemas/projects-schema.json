@@ -44,6 +44,7 @@
         "source_link": ["#link", "null"],
         "download_link": ["#link", "null"],
         "web_link": ["#link", "null"],
+        "original_link": ["#link", "null"],
         "image_links": {
           "type": "array",
           "elem": "#link"
