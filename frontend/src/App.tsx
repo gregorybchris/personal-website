@@ -19,6 +19,7 @@ import { RecipePage } from "./pages/RecipePage";
 import { RecipesPage } from "./pages/RecipesPage";
 import { RunningRoutesPage } from "./pages/RunningRoutesPage";
 import { SurveysPage } from "./pages/SurveysPage";
+import { TiktoksPage } from "./pages/TiktoksPage";
 import { TvShowsPage } from "./pages/TvShowsPage";
 import { WatermarkPage } from "./pages/WatermarkPage";
 import { YouTubeChannelsPage } from "./pages/YouTubeChannelsPage";
@@ -57,6 +58,7 @@ export function App() {
           <Route path="/hidden/recipes/:slug" element={<RecipePage />} />
           <Route path="/hidden/watermark" element={<WatermarkPage />} />
           <Route path="/hidden/projects" element={<ProjectPreviewsPage />} />
+          <Route path="/hidden/tiktoks" element={<TiktoksPage />} />
 
           <Route path="*" element={<OopsPage />} />
         </Routes>

@@ -10,6 +10,7 @@ class Datasets:
     TV_SHOWS = DatasetInfo("TV Shows", "media/tv-shows.json")
     YOUTUBE_CHANNELS = DatasetInfo("YouTube Channels", "media/youtube-channels.json")
     BOOKS = DatasetInfo("Books", "media/books.json")
+    TIKTOKS = DatasetInfo("Tiktoks", "media/tiktoks.json")
     CYCLING_ROUTES = DatasetInfo("Cycling Routes", "outdoor/cycling-routes.json")
     HIKING_ROUTES = DatasetInfo("Hiking Routes", "outdoor/hiking-routes.json")
     RUNNING_ROUTES = DatasetInfo("Running Routes", "outdoor/running-routes.json")

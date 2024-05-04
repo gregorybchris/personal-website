@@ -51,3 +51,10 @@ export interface Podcast {
   pocket_casts_link: string;
   pocket_casts_id: string;
 }
+
+export interface Tiktok {
+  url: string;
+  tags: string[];
+  creator?: string;
+  favorite: boolean;
+}

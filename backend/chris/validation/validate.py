@@ -14,6 +14,7 @@ def validate_all() -> None:
     validator.register_constraint(MonotoneIncreaseConstraint(), "array", "monotone_inc")
     schema_map = [
         ("books", "media/books.json", "books-schema.json"),
+        ("tiktoks", "media/tiktoks.json", "tiktoks-schema.json"),
         ("courses", "professional/courses.json", "courses-schema.json"),
         ("hiking", "outdoor/hiking-routes.json", "hiking-routes-schema.json"),
         ("jobs", "professional/jobs.json", "jobs-schema.json"),

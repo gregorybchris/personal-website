@@ -84,6 +84,11 @@ export function HiddenPage() {
               Projects
             </div>
           </Link>
+          <Link to="/hidden/tiktoks" className="block font-raleway text-text-1">
+            <div className="inline-block border-b border-background px-2 pt-2 transition-all hover:border-accent">
+              TikToks
+            </div>
+          </Link>
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import logging
 
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
+from pydantic import BaseModel
 
 from chris.app import logging_utilities
 from chris.datasets.datasets import Datasets
@@ -60,3 +61,36 @@ def get_media_youtube() -> JSONResponse:
 @logging_utilities.log_context("get_media_books", tag="api")
 def get_media_books() -> JSONResponse:
     return JSONResponse(fetch_dataset(Datasets.BOOKS))
+
+
+class PostMediaTikToksRequest(BaseModel):
+    query: str
+
+
+@router.post(path="/media/tiktoks")
+@logging_utilities.log_context("post_media_tiktoks", tag="api")
+def post_media_tiktoks(request: PostMediaTikToksRequest) -> JSONResponse:
+    query = request.query
+    tiktoks = fetch_dataset(Datasets.TIKTOKS)
+
+    if query == "":
+        results = [tiktok for tiktok in tiktoks if tiktok["favorite"]]
+        return JSONResponse({"query": query, "results": results})
+
+    query_tokens = query.split(" ")
+
+    scores = []
+    for tiktok in tiktoks:
+        score = 0
+        for token in query_tokens:
+            if token in tiktok["tags"]:
+                score += 1
+        scores.append((tiktok, score))
+    sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True)
+    results = [tiktok for tiktok, score in sorted_scores if score > 0]
+
+    max_results = 10
+    if len(results) > max_results:
+        results = results[:max_results]
+
+    return JSONResponse({"query": request.query, "results": results})

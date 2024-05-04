@@ -1,0 +1,42 @@
+{
+  "type": "array",
+  "elem": "#tiktok",
+  "cons": {
+    "unique": ["@all.url"]
+  },
+  "defs": {
+    "#tiktok": {
+      "type": "object",
+      "attr": {
+        "url": "#link",
+        "tags": {
+          "type": "array",
+          "elem": {
+            "type": "string",
+            "cons": {
+              "format": { "type": "regex", "pattern": "^[a-z0-9'-/]{1,120}$" }
+            }
+          }
+        },
+        "creator": [
+          "null",
+          {
+            "type": "string",
+            "cons": {
+              "format": { "type": "regex", "pattern": "^.{2,120}$" }
+            }
+          }
+        ],
+        "favorite": "boolean"
+      }
+    },
+    "#link": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^http[s]?://" },
+        "min_length": 5,
+        "max_length": 120
+      }
+    }
+  }
+}
