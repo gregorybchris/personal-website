@@ -4,6 +4,7 @@ import { POST, makeQuery } from "../utilities/requestUtilities";
 import { Tag } from "../components/Tag";
 import { TiktoksSearchBar } from "../components/TiktoksSearchBar";
 import { Tiktok as TiktokModel } from "../models/mediaModels";
+import { cn } from "../utilities/styleUtilities";
 
 export function TiktoksPage() {
   const [tiktoks, setTiktoks] = useState<TiktokModel[]>([]);
@@ -51,29 +52,46 @@ export function TiktoksPage() {
           <div className="mt-10 text-center text-text-1">No TikToks found</div>
         )}
         {!loading && tiktoks.length > 0 && (
-          <div className="flex flex-col items-center space-y-8">
-            {tiktoks.map((tiktok, index) => (
-              <div className="flex flex-col items-center space-y-2" key={index}>
-                <video
-                  className="w-full max-w-[90%] rounded-lg md:max-w-72"
-                  src={tiktok.url}
-                  controls
+          <div className="flex flex-col items-center p-5">
+            <div className="hidden grid-cols-4 gap-5 md:visible md:grid">
+              {tiktoks.map((tiktok, index) => (
+                <Tiktok
+                  key={index}
+                  tiktok={tiktok}
+                  className="w-full  max-w-[90%] md:max-w-72"
                 />
-
-                <div className="flex max-w-72 flex-row flex-wrap justify-center space-x-2">
-                  {tiktok.tags.map((tag) => (
-                    <Tag
-                      key={tag}
-                      tag={tag}
-                      active={false}
-                      onClick={() => {}}
-                    />
-                  ))}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <div className="flex flex-col items-center space-y-8 md:hidden">
+              {tiktoks.map((tiktok, index) => (
+                <Tiktok
+                  key={index}
+                  tiktok={tiktok}
+                  className="w-full  max-w-[90%] md:max-w-72"
+                />
+              ))}
+            </div>
           </div>
         )}
+      </div>
+    </div>
+  );
+}
+
+interface TikToksProps {
+  tiktok: TiktokModel;
+  className?: string;
+}
+
+export function Tiktok({ tiktok, className }: TikToksProps) {
+  return (
+    <div className={cn("flex flex-col items-center space-y-2", className)}>
+      <video className="rounded-lg" src={tiktok.url} controls />
+
+      <div className="flex flex-row flex-wrap justify-center space-x-2">
+        {tiktok.tags.map((tag) => (
+          <Tag key={tag} tag={tag} active={false} onClick={() => {}} />
+        ))}
       </div>
     </div>
   );

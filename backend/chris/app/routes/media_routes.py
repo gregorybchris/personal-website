@@ -77,13 +77,14 @@ def post_media_tiktoks(request: PostMediaTikToksRequest) -> JSONResponse:
         results = [tiktok for tiktok in tiktoks if tiktok["favorite"]]
         return JSONResponse({"query": query, "results": results})
 
-    query_tokens = query.split(" ")
+    query_tokens = [token.lower() for token in query.split(" ")]
 
     scores = []
     for tiktok in tiktoks:
+        tags = [tag.lower() for tag in tiktok["tags"]]
         score = 0
         for token in query_tokens:
-            if token in tiktok["tags"]:
+            if token in tags:
                 score += 1
         scores.append((tiktok, score))
     sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True)
