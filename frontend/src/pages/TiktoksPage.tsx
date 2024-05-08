@@ -11,9 +11,9 @@ export function TiktoksPage() {
   const [searchText, setSearchText] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
 
-  function queryTiktoks() {
+  function queryTiktoks(query: string) {
     const tiktoksQuery = makeQuery("media/tiktoks");
-    const requestBody = { query: searchText };
+    const requestBody = { query: query };
     POST(tiktoksQuery, requestBody)
       .then((response) => {
         console.log("Tiktoks response:", response);
@@ -26,8 +26,13 @@ export function TiktoksPage() {
       });
   }
 
+  function updateQuery(query: string) {
+    setSearchText(query);
+    queryTiktoks(query);
+  }
+
   useEffect(() => {
-    queryTiktoks();
+    queryTiktoks(searchText);
   }, []);
 
   return (
@@ -39,9 +44,10 @@ export function TiktoksPage() {
       <div className="flex flex-col space-y-7">
         <div className="flex flex-col items-center pt-10">
           <TiktoksSearchBar
-            onSubmit={() => queryTiktoks()}
-            onUpdateSearch={(event) => setSearchText(event.target.value)}
+            onSubmit={() => queryTiktoks(searchText)}
+            setSearchText={setSearchText}
             searchText={searchText}
+            updateQuery={updateQuery}
           />
         </div>
 
@@ -54,20 +60,22 @@ export function TiktoksPage() {
         {!loading && tiktoks.length > 0 && (
           <div className="flex flex-col items-center p-5">
             <div className="hidden grid-cols-4 gap-5 md:visible md:grid">
-              {tiktoks.map((tiktok, index) => (
+              {tiktoks.map((tiktok) => (
                 <Tiktok
-                  key={index}
+                  key={tiktok.id}
                   tiktok={tiktok}
-                  className="w-full  max-w-[90%] md:max-w-72"
+                  className="w-full max-w-[90%] md:max-w-72"
+                  updateQuery={updateQuery}
                 />
               ))}
             </div>
             <div className="flex flex-col items-center space-y-8 md:hidden">
-              {tiktoks.map((tiktok, index) => (
+              {tiktoks.map((tiktok) => (
                 <Tiktok
-                  key={index}
+                  key={tiktok.id}
                   tiktok={tiktok}
-                  className="w-full  max-w-[90%] md:max-w-72"
+                  className="w-full max-w-[90%] md:max-w-72"
+                  updateQuery={updateQuery}
                 />
               ))}
             </div>
@@ -81,9 +89,12 @@ export function TiktoksPage() {
 interface TikToksProps {
   tiktok: TiktokModel;
   className?: string;
+  updateQuery: (query: string) => void;
 }
 
-export function Tiktok({ tiktok, className }: TikToksProps) {
+export function Tiktok({ tiktok, className, updateQuery }: TikToksProps) {
+  const creator = tiktok.creator;
+
   return (
     <div className={cn("flex flex-col items-center space-y-2", className)}>
       <video className="rounded-lg" src={tiktok.url} controls />
@@ -93,6 +104,18 @@ export function Tiktok({ tiktok, className }: TikToksProps) {
           <Tag key={tag} tag={tag} active={false} onClick={() => {}} />
         ))}
       </div>
+
+      {creator && (
+        <div className="font-raleway text-sm">
+          Creator:{" "}
+          <span
+            className="cursor-pointer transition-all hover:text-accent-focus"
+            onClick={() => updateQuery(creator)}
+          >
+            {creator}
+          </span>
+        </div>
+      )}
     </div>
   );
 }

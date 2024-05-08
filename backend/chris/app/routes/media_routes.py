@@ -1,4 +1,5 @@
 import logging
+from typing import Optional
 
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
@@ -70,6 +71,8 @@ class PostMediaTikToksRequest(BaseModel):
 @router.post(path="/media/tiktoks")
 @logging_utilities.log_context("post_media_tiktoks", tag="api")
 def post_media_tiktoks(request: PostMediaTikToksRequest) -> JSONResponse:
+    max_results = 10
+
     query = request.query
     tiktoks = fetch_dataset(Datasets.TIKTOKS)
 
@@ -77,7 +80,7 @@ def post_media_tiktoks(request: PostMediaTikToksRequest) -> JSONResponse:
         results = [tiktok for tiktok in tiktoks if tiktok["favorite"]]
         return JSONResponse({"query": query, "results": results})
 
-    query_tokens = [token.lower() for token in query.split(" ")]
+    query_tokens = [token.lower() for token in query.lower().split(" ")]
 
     scores = []
     for tiktok in tiktoks:
@@ -86,11 +89,12 @@ def post_media_tiktoks(request: PostMediaTikToksRequest) -> JSONResponse:
         for token in query_tokens:
             if token in tags:
                 score += 1
+        if tiktok["creator"] is not None and tiktok["creator"].lower() == query.lower():
+            score += 10
         scores.append((tiktok, score))
     sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True)
     results = [tiktok for tiktok, score in sorted_scores if score > 0]
 
-    max_results = 10
     if len(results) > max_results:
         results = results[:max_results]
 

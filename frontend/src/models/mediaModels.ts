@@ -53,6 +53,7 @@ export interface Podcast {
 }
 
 export interface Tiktok {
+  id: string;
   url: string;
   tags: string[];
   creator?: string;

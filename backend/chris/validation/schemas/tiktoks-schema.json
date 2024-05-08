@@ -2,12 +2,13 @@
   "type": "array",
   "elem": "#tiktok",
   "cons": {
-    "unique": ["@all.url"]
+    "unique": ["@all.url", "@all.id"]
   },
   "defs": {
     "#tiktok": {
       "type": "object",
       "attr": {
+        "id": "string",
         "url": "#link",
         "tags": {
           "type": "array",
@@ -16,6 +17,9 @@
             "cons": {
               "format": { "type": "regex", "pattern": "^[a-z0-9'-/]{1,120}$" }
             }
+          },
+          "cons": {
+            "unique": ["@all"]
           }
         },
         "creator": [
