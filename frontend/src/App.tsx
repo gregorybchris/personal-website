@@ -58,7 +58,9 @@ export function App() {
           <Route path="/hidden/recipes/:slug" element={<RecipePage />} />
           <Route path="/hidden/watermark" element={<WatermarkPage />} />
           <Route path="/hidden/projects" element={<ProjectPreviewsPage />} />
-          <Route path="/hidden/tiktoks" element={<TiktoksPage />} />
+          <Route path="/hidden/tiktoks" element={<TiktoksPage />}>
+            <Route path=":id" element={<TiktoksPage />} />
+          </Route>
 
           <Route path="*" element={<OopsPage />} />
         </Routes>

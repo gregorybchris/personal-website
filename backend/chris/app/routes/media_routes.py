@@ -66,6 +66,7 @@ def get_media_books() -> JSONResponse:
 
 class PostMediaTikToksRequest(BaseModel):
     query: str
+    id: Optional[str]
 
 
 @router.post(path="/media/tiktoks")
@@ -75,6 +76,10 @@ def post_media_tiktoks(request: PostMediaTikToksRequest) -> JSONResponse:
 
     query = request.query
     tiktoks = fetch_dataset(Datasets.TIKTOKS)
+
+    if request.id is not None:
+        results = [tiktok for tiktok in tiktoks if tiktok["id"] == request.id]
+        return JSONResponse({"query": query, "results": results})
 
     if query == "":
         results = [tiktok for tiktok in tiktoks if tiktok["favorite"]]

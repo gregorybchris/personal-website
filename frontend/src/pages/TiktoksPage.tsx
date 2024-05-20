@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { POST, makeQuery } from "../utilities/requestUtilities";
 
+import { Link as LinkIcon } from "@phosphor-icons/react";
+import { useNavigate, useParams } from "react-router-dom";
 import { Tag } from "../components/Tag";
 import { TiktoksSearchBar } from "../components/TiktoksSearchBar";
 import { Tiktok as TiktokModel } from "../models/mediaModels";
@@ -10,10 +12,12 @@ export function TiktoksPage() {
   const [tiktoks, setTiktoks] = useState<TiktokModel[]>([]);
   const [searchText, setSearchText] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
+  const { id } = useParams();
 
   function queryTiktoks(query: string) {
     const tiktoksQuery = makeQuery("media/tiktoks");
-    const requestBody = { query: query };
+    const currentId = id || null;
+    const requestBody = { query, id: currentId };
     POST(tiktoksQuery, requestBody)
       .then((response) => {
         console.log("Tiktoks response:", response);
@@ -33,7 +37,7 @@ export function TiktoksPage() {
 
   useEffect(() => {
     queryTiktoks(searchText);
-  }, []);
+  }, [id]);
 
   return (
     <div className="bg-background">
@@ -93,6 +97,8 @@ interface TikToksProps {
 }
 
 export function Tiktok({ tiktok, className, updateQuery }: TikToksProps) {
+  let navigate = useNavigate();
+
   const creator = tiktok.creator;
 
   return (
@@ -116,6 +122,13 @@ export function Tiktok({ tiktok, className, updateQuery }: TikToksProps) {
           </span>
         </div>
       )}
+
+      <div
+        className="cursor-pointer rounded-full p-1 transition-all hover:bg-background-highlight"
+        onClick={() => navigate(`/hidden/tiktoks/${tiktok.id}`)}
+      >
+        <LinkIcon size={20} color="#6283c0" />
+      </div>
     </div>
   );
 }
