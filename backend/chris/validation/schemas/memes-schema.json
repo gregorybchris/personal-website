@@ -1,0 +1,49 @@
+{
+  "type": "array",
+  "elem": "#meme",
+  "cons": {
+    "unique": ["@all.url", "@all.id"]
+  },
+  "defs": {
+    "#meme": {
+      "type": "object",
+      "attr": {
+        "id": "string",
+        "url": "#link",
+        "tags": {
+          "type": "array",
+          "elem": {
+            "type": "string",
+            "cons": {
+              "format": { "type": "regex", "pattern": "^[a-z0-9'-/]{1,120}$" }
+            }
+          },
+          "cons": {
+            "unique": ["@all"]
+          }
+        },
+        "favorite": "boolean",
+        "format": {
+          "type": "string",
+          "cons": {
+            "in": ["png", "jpg", "gif", "pdf"]
+          }
+        },
+        "era": {
+          "type": "string",
+          "cons": {
+            "in": ["high-school"]
+          }
+        }
+      }
+    },
+    "#link": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^http[s]?://" },
+        "min_length": 5,
+        "max_length": 120
+      }
+    }
+  }
+}

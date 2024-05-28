@@ -15,6 +15,7 @@ def validate_all() -> None:
     schema_map = [
         ("books", "media/books.json", "books-schema.json"),
         ("tiktoks", "media/tiktoks.json", "tiktoks-schema.json"),
+        ("memes", "media/memes.json", "memes-schema.json"),
         ("courses", "professional/courses.json", "courses-schema.json"),
         ("hiking", "outdoor/hiking-routes.json", "hiking-routes-schema.json"),
         ("jobs", "professional/jobs.json", "jobs-schema.json"),

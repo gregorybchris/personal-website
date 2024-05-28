@@ -104,3 +104,43 @@ def post_media_tiktoks(request: PostMediaTikToksRequest) -> JSONResponse:
         results = results[:max_results]
 
     return JSONResponse({"query": request.query, "results": results})
+
+
+class PostMediaMemesRequest(BaseModel):
+    query: str
+    id: Optional[str]
+
+
+@router.post(path="/media/memes")
+@logging_utilities.log_context("post_media_memes", tag="api")
+def post_media_memes(request: PostMediaMemesRequest) -> JSONResponse:
+    max_results = 10
+
+    query = request.query
+    memes = fetch_dataset(Datasets.MEMES)
+
+    if request.id is not None:
+        results = [meme for meme in memes if meme["id"] == request.id]
+        return JSONResponse({"query": query, "results": results})
+
+    if query == "":
+        results = [meme for meme in memes if meme["favorite"]]
+        return JSONResponse({"query": query, "results": results})
+
+    query_tokens = [token.lower() for token in query.lower().split(" ")]
+
+    scores = []
+    for meme in memes:
+        tags = [tag.lower() for tag in meme["tags"]]
+        score = 0
+        for token in query_tokens:
+            if token in tags:
+                score += 1
+        scores.append((meme, score))
+    sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True)
+    results = [meme for meme, score in sorted_scores if score > 0]
+
+    if len(results) > max_results:
+        results = results[:max_results]
+
+    return JSONResponse({"query": request.query, "results": results})

@@ -9,6 +9,7 @@ import { CodeProjectsPage } from "./pages/CodeProjectsPage";
 import { ContactPage } from "./pages/ContactPage";
 import { HiddenPage } from "./pages/HiddenPage";
 import { HomePage } from "./pages/HomePage";
+import { MemesPage } from "./pages/MemesPage";
 import { MoviesPage } from "./pages/MoviesPage";
 import { MusicPage } from "./pages/MusicPage";
 import { OopsPage } from "./pages/OopsPage";
@@ -60,6 +61,9 @@ export function App() {
           <Route path="/hidden/projects" element={<ProjectPreviewsPage />} />
           <Route path="/hidden/tiktoks" element={<TiktoksPage />}>
             <Route path=":id" element={<TiktoksPage />} />
+          </Route>
+          <Route path="/hidden/memes" element={<MemesPage />}>
+            <Route path=":id" element={<MemesPage />} />
           </Route>
 
           <Route path="*" element={<OopsPage />} />

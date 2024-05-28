@@ -1,18 +1,18 @@
 import "../styles/common.css";
 
-interface TiktoksSearchBarProps {
+interface MediaSearchBarProps {
   searchText: string;
   setSearchText: (searchText: string) => void;
   onSubmit: () => void;
   updateQuery: (query: string) => void;
 }
 
-export function TiktoksSearchBar({
+export function MediaSearchBar({
   searchText,
   setSearchText,
   onSubmit,
   updateQuery,
-}: TiktoksSearchBarProps) {
+}: MediaSearchBarProps) {
   return (
     <div className="min-w-[240px]">
       <input

@@ -59,3 +59,12 @@ export interface Tiktok {
   creator?: string;
   favorite: boolean;
 }
+
+export interface Meme {
+  id: string;
+  url: string;
+  tags: string[];
+  favorite: boolean;
+  format: string;
+  era: string;
+}
