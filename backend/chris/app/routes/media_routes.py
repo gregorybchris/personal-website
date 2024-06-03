@@ -72,7 +72,7 @@ class PostMediaTikToksRequest(BaseModel):
 @router.post(path="/media/tiktoks")
 @logging_utilities.log_context("post_media_tiktoks", tag="api")
 def post_media_tiktoks(request: PostMediaTikToksRequest) -> JSONResponse:
-    max_results = 10
+    max_results = 25
 
     query = request.query
     tiktoks = fetch_dataset(Datasets.TIKTOKS)
@@ -114,7 +114,7 @@ class PostMediaMemesRequest(BaseModel):
 @router.post(path="/media/memes")
 @logging_utilities.log_context("post_media_memes", tag="api")
 def post_media_memes(request: PostMediaMemesRequest) -> JSONResponse:
-    max_results = 10
+    max_results = 25
 
     query = request.query
     memes = fetch_dataset(Datasets.MEMES)
