@@ -5,6 +5,9 @@ from httpx import Client as HttpClient
 
 def get_media_movies_poster(imdb_id: str) -> str:
     api_key = os.getenv("TMDB_API_KEY")
+    if api_key is None:
+        raise ValueError("No TMDB API key found in environment variables")
+
     request_url = f"https://api.themoviedb.org/3/find/{imdb_id}?api_key={api_key}&external_source=imdb_id"
     client = HttpClient()
     response = client.get(request_url)
@@ -20,6 +23,9 @@ def get_media_movies_poster(imdb_id: str) -> str:
 
 def get_media_tv_poster(imdb_id: str) -> str:
     api_key = os.getenv("TMDB_API_KEY")
+    if api_key is None:
+        raise ValueError("No TMDB API key found in environment variables")
+
     request_url = f"https://api.themoviedb.org/3/find/{imdb_id}?api_key={api_key}&external_source=imdb_id"
     client = HttpClient()
     response = client.get(request_url)
