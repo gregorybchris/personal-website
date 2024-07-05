@@ -1,17 +1,5 @@
 [
   {
-    "name": "Halt and Catch Fire",
-    "genre": "drama",
-    "scores": {
-      "plot": 8,
-      "characters": 7,
-      "production": 7,
-      "dialog": 8
-    },
-    "rank": 1,
-    "link": "https://www.imdb.com/title/tt2543312"
-  },
-  {
     "name": "Community",
     "genre": "comedy",
     "scores": {
@@ -20,7 +8,7 @@
       "production": 5,
       "dialog": 9
     },
-    "rank": 2,
+    "rank": 1,
     "link": "https://www.imdb.com/title/tt1439629"
   },
   {
@@ -32,7 +20,7 @@
       "production": 10,
       "dialog": 8
     },
-    "rank": 3,
+    "rank": 2,
     "link": "https://www.imdb.com/title/tt0475784"
   },
   {
@@ -44,8 +32,20 @@
       "production": 7,
       "dialog": 7
     },
-    "rank": 4,
+    "rank": 3,
     "link": "https://www.imdb.com/title/tt0412142"
+  },
+  {
+    "name": "Halt and Catch Fire",
+    "genre": "drama",
+    "scores": {
+      "plot": 8,
+      "characters": 7,
+      "production": 7,
+      "dialog": 8
+    },
+    "rank": 4,
+    "link": "https://www.imdb.com/title/tt2543312"
   },
   {
     "name": "Black Mirror",
@@ -180,6 +180,18 @@
     "link": "https://www.imdb.com/title/tt13911628"
   },
   {
+    "name": "Parks and Recreation",
+    "genre": "comedy",
+    "scores": {
+      "plot": 4,
+      "characters": 9,
+      "production": 5,
+      "dialog": 6
+    },
+    "rank": 16,
+    "link": "https://www.imdb.com/title/tt1266020"
+  },
+  {
     "name": "Portlandia",
     "genre": "comedy",
     "scores": {
@@ -188,7 +200,7 @@
       "production": 2,
       "dialog": 8
     },
-    "rank": 16,
+    "rank": 17,
     "link": "https://www.imdb.com/title/tt1780441"
   },
   {
@@ -200,7 +212,7 @@
       "production": 9,
       "dialog": 8
     },
-    "rank": 17,
+    "rank": 18,
     "link": "https://www.imdb.com/title/tt10048342"
   },
   {
@@ -212,7 +224,7 @@
       "production": 5,
       "dialog": 8
     },
-    "rank": 18,
+    "rank": 19,
     "link": "https://www.imdb.com/title/tt2575988"
   },
   {
@@ -224,7 +236,7 @@
       "production": 7,
       "dialog": 4
     },
-    "rank": 19,
+    "rank": 20,
     "link": "https://www.imdb.com/title/tt7768848"
   }
 ]

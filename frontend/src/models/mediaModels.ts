@@ -9,6 +9,7 @@ export interface TvShow {
   };
   rank: number;
   link: string;
+  poster_url: string;
 }
 
 export interface YouTubeChannel {
@@ -35,6 +36,7 @@ export interface Movie {
   };
   rank: number;
   link: string;
+  poster_url: string;
 }
 
 export interface Podcast {

@@ -8,7 +8,7 @@ from pydantic import BaseModel
 
 from chris.app import logging_utilities
 from chris.datasets.datasets import Datasets
-from chris.datasets.fetch import fetch_dataset
+from chris.datasets.fetch import fetch_dataset_json
 
 logger = getLogger(__name__)
 
@@ -23,13 +23,13 @@ class RequestModel(BaseModel):
 @router.get(path="/surveys")
 @logging_utilities.log_context("get_surveys", tag="api")
 def get_surveys() -> JSONResponse:
-    return JSONResponse(fetch_dataset(Datasets.SURVEYS))
+    return JSONResponse(fetch_dataset_json(Datasets.SURVEYS))
 
 
 @router.post(path="/surveys/{survey_id}")
 @logging_utilities.log_context("post_survey_results", tag="api")
 def post_survey_results(request: RequestModel, survey_id: str) -> JSONResponse:
-    surveys = fetch_dataset(Datasets.SURVEYS)
+    surveys = fetch_dataset_json(Datasets.SURVEYS)
     # TODO: Check for invalid survey ID
     for survey in surveys:
         if survey["survey_id"] == survey_id:
@@ -61,7 +61,7 @@ def get_survey_results() -> JSONResponse:
         for i in range(len(counts[survey_id])):
             for j in range(len(counts[survey_id][0])):
                 counts[survey_id][i][j] += choices_array[i][j]
-    surveys = fetch_dataset(Datasets.SURVEYS)
+    surveys = fetch_dataset_json(Datasets.SURVEYS)
     survey_map = {survey["survey_id"]: survey for survey in surveys}
     return JSONResponse(_results_from_counts(counts, survey_map))
 

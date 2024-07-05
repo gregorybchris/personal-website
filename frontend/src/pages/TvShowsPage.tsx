@@ -39,6 +39,12 @@ export function TvShowsPage() {
                   <SimpleLink link={show.link}>
                     <div className="font-noto font-bold">{show.name}</div>
                   </SimpleLink>
+
+                  <img
+                    src={show.poster_url}
+                    alt={show.name}
+                    className="inline-block w-40 rounded-md pt-2"
+                  />
                 </div>
 
                 <div className="radar-chart mx-auto block h-32 w-32">

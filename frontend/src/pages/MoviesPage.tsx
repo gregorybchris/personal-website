@@ -36,6 +36,12 @@ export function MoviesPage() {
                   <SimpleLink link={movie.link}>
                     <div className="font-noto font-bold">{movie.name}</div>
                   </SimpleLink>
+
+                  <img
+                    src={movie.poster_url}
+                    alt={movie.name}
+                    className="inline-block w-40 rounded-md pt-2"
+                  />
                 </div>
 
                 <div className="radar-chart mx-auto block h-32 w-32">
