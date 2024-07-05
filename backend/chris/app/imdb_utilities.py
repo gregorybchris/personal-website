@@ -1,9 +1,13 @@
+import logging
 import os
 
 from httpx import Client as HttpClient
 
+logger = logging.getLogger(__name__)
+
 
 def get_media_movies_poster(imdb_id: str) -> str:
+    logger.info(f"Getting poster for movie with IMDB ID {imdb_id}")
     api_key = os.getenv("TMDB_API_KEY")
     if api_key is None:
         raise ValueError("No TMDB API key found in environment variables")
@@ -22,6 +26,7 @@ def get_media_movies_poster(imdb_id: str) -> str:
 
 
 def get_media_tv_poster(imdb_id: str) -> str:
+    logger.info(f"Getting poster for TV show with IMDB ID {imdb_id}")
     api_key = os.getenv("TMDB_API_KEY")
     if api_key is None:
         raise ValueError("No TMDB API key found in environment variables")
