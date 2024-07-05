@@ -40,7 +40,7 @@ export function MoviesPage() {
                   <img
                     src={movie.poster_url}
                     alt={movie.name}
-                    className="inline-block w-40 rounded-md pt-2"
+                    className="mt-2 inline-block w-40 rounded-md"
                   />
                 </div>
 

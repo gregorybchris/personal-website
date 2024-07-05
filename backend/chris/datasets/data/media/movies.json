@@ -192,6 +192,18 @@
     "link": "https://www.imdb.com/title/tt0490215"
   },
   {
+    "name": "Whiplash",
+    "genre": "drama",
+    "scores": {
+      "plot": 4,
+      "characters": 7,
+      "production": 7,
+      "dialog": 8
+    },
+    "rank": 17,
+    "link": "https://www.imdb.com/title/tt2582802"
+  },
+  {
     "name": "The Notebook",
     "genre": "romance",
     "scores": {
@@ -200,32 +212,20 @@
       "production": 6,
       "dialog": 5
     },
-    "rank": 17,
+    "rank": 18,
     "link": "https://www.imdb.com/title/tt0332280"
   },
   {
-    "name": "Without Limits",
-    "genre": "historical fiction",
-    "scores": {
-      "plot": 7,
-      "characters": 7,
-      "production": 5,
-      "dialog": 6
-    },
-    "rank": 18,
-    "link": "https://www.imdb.com/title/tt0119934"
-  },
-  {
-    "name": "Forrest Gump",
+    "name": "Call Me by Your Name",
     "genre": "drama",
     "scores": {
-      "plot": 6,
+      "plot": 7,
       "characters": 9,
-      "production": 5,
-      "dialog": 7
+      "production": 10,
+      "dialog": 10
     },
     "rank": 19,
-    "link": "https://www.imdb.com/title/tt0109830"
+    "link": "https://www.imdb.com/title/tt5726616"
   },
   {
     "name": "The Pursuit of Happyness",
@@ -240,6 +240,42 @@
     "link": "https://www.imdb.com/title/tt0454921"
   },
   {
+    "name": "Captain Fantastic",
+    "genre": "drama",
+    "scores": {
+      "plot": 7,
+      "characters": 4,
+      "production": 4,
+      "dialog": 6
+    },
+    "rank": 21,
+    "link": "https://www.imdb.com/title/tt3553976"
+  },
+  {
+    "name": "Spotlight",
+    "genre": "drama",
+    "scores": {
+      "plot": 9,
+      "characters": 6,
+      "production": 6,
+      "dialog": 6
+    },
+    "rank": 22,
+    "link": "https://www.imdb.com/title/tt1895587"
+  },
+  {
+    "name": "Without Limits",
+    "genre": "historical fiction",
+    "scores": {
+      "plot": 7,
+      "characters": 7,
+      "production": 5,
+      "dialog": 6
+    },
+    "rank": 23,
+    "link": "https://www.imdb.com/title/tt0119934"
+  },
+  {
     "name": "Like Crazy",
     "genre": "romance",
     "scores": {
@@ -248,7 +284,7 @@
       "production": 6,
       "dialog": 6
     },
-    "rank": 21,
+    "rank": 24,
     "link": "https://www.imdb.com/title/tt1758692"
   },
   {
@@ -260,7 +296,7 @@
       "production": 7,
       "dialog": 6
     },
-    "rank": 22,
+    "rank": 25,
     "link": "https://www.imdb.com/title/tt3810760"
   }
 ]

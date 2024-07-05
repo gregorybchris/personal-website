@@ -43,7 +43,7 @@ export function TvShowsPage() {
                   <img
                     src={show.poster_url}
                     alt={show.name}
-                    className="inline-block w-40 rounded-md pt-2"
+                    className="mt-2 inline-block w-40 rounded-md"
                   />
                 </div>
 
