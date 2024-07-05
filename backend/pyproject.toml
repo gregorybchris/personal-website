@@ -6,7 +6,6 @@ classifiers = [
   "License :: OSI Approved :: Apache Software License",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12",
 ]
 description = "Personal website SDK"
 keywords = ["personal", "website", "sdk", "python", "tools"]
