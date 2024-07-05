@@ -22,6 +22,7 @@ include = "chris"
 [tool.poetry.dependencies]
 click = "^8.1.7"
 fastapi = "^0.109.2"
+httpx = "^0.26.0"
 jsonvl = "^0.5.0"
 pandas = "^2.2.0"
 pydantic = "^2.6.0"
@@ -34,7 +35,6 @@ cgme = "chris.cli.cli:main"
 [tool.poetry.group.dev.dependencies]
 black = "^24.1.1"
 covcheck = { version = "^0.4.3", extras = ["toml"] }
-httpx = "^0.26.0"
 mypy = "^1.8.0"
 pylint = "^3.0.3"
 pytest = "^8.0.0"
