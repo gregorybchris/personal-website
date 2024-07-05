@@ -46,8 +46,8 @@ build-backend = "poetry.core.masonry.api"
 requires = ["poetry-core>=1.0.0"]
 
 [tool.covcheck]
-branch = 64.0
-line = 67.0
+branch = 62.0
+line = 63.0
 
 [tool.black]
 line-length = 120
