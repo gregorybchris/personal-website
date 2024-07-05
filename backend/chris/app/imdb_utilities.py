@@ -18,6 +18,10 @@ def get_media_movies_poster(imdb_id: str) -> str:
     response.raise_for_status()
     response_json = response.json()
 
+    if "movie_results" not in response_json:
+        logger.error(f"Error response from TMDB API: {response_json}")
+        raise ValueError(f"Error response from TMDB API for IMDB ID {imdb_id}")
+
     for result in response_json["movie_results"]:
         poster_path = result["poster_path"]
         return f"https://image.tmdb.org/t/p/w500{poster_path}"
@@ -36,6 +40,10 @@ def get_media_tv_poster(imdb_id: str) -> str:
     response = client.get(request_url)
     response.raise_for_status()
     response_json = response.json()
+
+    if "tv_results" not in response_json:
+        logger.error(f"Error response from TMDB API: {response_json}")
+        raise ValueError(f"Error response from TMDB API for IMDB ID {imdb_id}")
 
     for result in response_json["tv_results"]:
         poster_path = result["poster_path"]
