@@ -8,6 +8,7 @@ def get_media_movies_poster(imdb_id: str) -> str:
     request_url = f"https://api.themoviedb.org/3/find/{imdb_id}?api_key={api_key}&external_source=imdb_id"
     client = HttpClient()
     response = client.get(request_url)
+    response.raise_for_status()
     response_json = response.json()
 
     for result in response_json["movie_results"]:
@@ -22,6 +23,7 @@ def get_media_tv_poster(imdb_id: str) -> str:
     request_url = f"https://api.themoviedb.org/3/find/{imdb_id}?api_key={api_key}&external_source=imdb_id"
     client = HttpClient()
     response = client.get(request_url)
+    response.raise_for_status()
     response_json = response.json()
 
     for result in response_json["tv_results"]:
