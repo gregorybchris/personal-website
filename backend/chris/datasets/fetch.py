@@ -14,17 +14,15 @@ DATA_DIR = Path(__file__).parent.absolute() / "data"
 def fetch_dataset_json(dataset_info: DatasetInfo) -> Any:
     if dataset_info.dataset_format != DatasetFormat.JSON:
         raise ValueError(f"Unsupported dataset format: {dataset_info.dataset_format}")
-    
+
     dataset_path = DATA_DIR / dataset_info.filepath
-    if dataset_info.dataset_format == DatasetFormat.JSON:
-        with open(dataset_path, "r", encoding="utf-8") as f:
-            return json.load(f)
+    with open(dataset_path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 
 def fetch_dataset_dataframe(dataset_info: DatasetInfo) -> DataFrame:
     if dataset_info.dataset_format != DatasetFormat.CSV:
         raise ValueError(f"Unsupported dataset format: {dataset_info.dataset_format}")
-    
+
     dataset_path = DATA_DIR / dataset_info.filepath
-    if dataset_info.dataset_format == DatasetFormat.CSV:
-        return pd.read_csv(dataset_path)
+    return pd.read_csv(dataset_path)

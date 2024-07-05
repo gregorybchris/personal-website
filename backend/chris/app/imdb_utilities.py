@@ -13,8 +13,9 @@ def get_media_movies_poster(imdb_id: str) -> str:
     for result in response_json["movie_results"]:
         poster_path = result["poster_path"]
         return f"https://image.tmdb.org/t/p/w500{poster_path}"
-    
+
     raise ValueError(f"No entry found for movie with IMDB ID {imdb_id}")
+
 
 def get_media_tv_poster(imdb_id: str) -> str:
     api_key = os.getenv("TMDB_API_KEY")

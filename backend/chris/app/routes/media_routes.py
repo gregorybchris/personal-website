@@ -1,5 +1,4 @@
 import logging
-import os
 from typing import Optional
 
 from fastapi import APIRouter
@@ -158,4 +157,3 @@ def post_media_memes(request: PostMediaMemesRequest) -> JSONResponse:
         results = results[:max_results]
 
     return JSONResponse({"query": request.query, "results": results})
-
