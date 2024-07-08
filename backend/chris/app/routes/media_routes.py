@@ -42,7 +42,11 @@ def get_media_movies() -> JSONResponse:
     for record in dataset_json:
         link = record["link"]
         imdb_id = link.split("/")[-1]
-        record["poster_url"] = get_media_movies_poster(imdb_id)
+        record["poster_url"] = None
+        try:
+            record["poster_url"] = get_media_movies_poster(imdb_id)
+        except ValueError as e:
+            logger.error(f"Error getting poster for movie with IMDB ID {imdb_id}: {e}")
 
     return JSONResponse(dataset_json)
 
@@ -60,7 +64,11 @@ def get_media_tv() -> JSONResponse:
     for record in dataset_json:
         link = record["link"]
         imdb_id = link.split("/")[-1]
-        record["poster_url"] = get_media_tv_poster(imdb_id)
+        record["poster_url"] = None
+        try:
+            record["poster_url"] = get_media_tv_poster(imdb_id)
+        except ValueError as e:
+            logger.error(f"Error getting poster for TV show with IMDB ID {imdb_id}: {e}")
 
     return JSONResponse(dataset_json)
 

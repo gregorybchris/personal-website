@@ -38,13 +38,15 @@ export function TvShowsPage() {
                 <div className="mb-10 w-full text-center">
                   <SimpleLink link={show.link}>
                     <div className="font-noto font-bold">{show.name}</div>
-                  </SimpleLink>
 
-                  <img
-                    src={show.poster_url}
-                    alt={show.name}
-                    className="mt-2 inline-block w-40 rounded-md"
-                  />
+                    {show.poster_url && (
+                      <img
+                        src={show.poster_url}
+                        alt={show.name}
+                        className="mt-2 inline-block w-40 rounded-md"
+                      />
+                    )}
+                  </SimpleLink>
                 </div>
 
                 <div className="radar-chart mx-auto block h-32 w-32">

@@ -35,13 +35,15 @@ export function MoviesPage() {
                 <div className="mb-10 w-full text-center">
                   <SimpleLink link={movie.link}>
                     <div className="font-noto font-bold">{movie.name}</div>
-                  </SimpleLink>
 
-                  <img
-                    src={movie.poster_url}
-                    alt={movie.name}
-                    className="mt-2 inline-block w-40 rounded-md"
-                  />
+                    {movie.poster_url && (
+                      <img
+                        src={movie.poster_url}
+                        alt={movie.name}
+                        className="mt-2 inline-block w-40 rounded-md"
+                      />
+                    )}
+                  </SimpleLink>
                 </div>
 
                 <div className="radar-chart mx-auto block h-32 w-32">

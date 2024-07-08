@@ -37,13 +37,13 @@ export function PodcastsPage() {
                 <div className="mb-10 flex w-full flex-col items-center space-y-3 text-center">
                   <SimpleLink link={podcast.apple_link}>
                     <div className="font-noto font-bold">{podcast.name}</div>
-                  </SimpleLink>
 
-                  <img
-                    src={`https://static.pocketcasts.com/discover/images/webp/480/${podcast.pocket_casts_id}.webp`}
-                    alt={podcast.name}
-                    className="size-40 rounded-md"
-                  />
+                    <img
+                      src={`https://static.pocketcasts.com/discover/images/webp/480/${podcast.pocket_casts_id}.webp`}
+                      alt={podcast.name}
+                      className="mt-2 inline-block w-40 rounded-md"
+                    />
+                  </SimpleLink>
                 </div>
 
                 <div className="radar-chart mx-auto block h-32 w-32">
