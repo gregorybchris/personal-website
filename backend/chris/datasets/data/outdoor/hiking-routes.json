@@ -1203,5 +1203,44 @@
       "longitude": -122.295892,
       "formatted": "37/55/56.5/N 122/17/45.2/W"
     }
+  },
+  {
+    "route_id": "af1bcada-1562-402f-b94a-56446e220e72",
+    "name": "Dirty Harry's Balcony",
+    "slug": "dirty-harrys-balcony",
+    "dates": null,
+    "miles": 4.5,
+    "elevation": 1600,
+    "area": "Snoqualmie Region/Snoqualmie Pass",
+    "region": "PNW",
+    "travel_time": 1,
+    "next": false,
+    "coordinates": null
+  },
+  {
+    "route_id": "77b3892f-6b54-42c7-8b0e-d96fa972c0b9",
+    "name": "Angel's Rest",
+    "slug": "angels-rest",
+    "dates": null,
+    "miles": 4.5,
+    "elevation": 1500,
+    "area": "Columbia River Gorge",
+    "region": "PNW",
+    "travel_time": 3,
+    "next": false,
+    "coordinates": null
+  },
+  {
+    "route_id": "232b68eb-5a9d-4e16-86d4-50767ea94d39",
+    "name": "Multnomah Falls",
+    "slug": "multnomah-falls",
+    "dates": null,
+    "miles": 1.2,
+    "elevation": 100,
+    "area": "Columbia River Gorge",
+    "region": "PNW",
+    "travel_time": 3.5,
+    "next": false,
+    "coordinates": null
   }
 ]
