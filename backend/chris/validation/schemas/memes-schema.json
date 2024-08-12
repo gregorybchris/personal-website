@@ -32,7 +32,7 @@
         "era": {
           "type": "string",
           "cons": {
-            "in": ["high-school"]
+            "in": ["high-school", "college", "hume"]
           }
         }
       }
