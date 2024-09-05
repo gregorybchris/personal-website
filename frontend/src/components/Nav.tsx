@@ -34,9 +34,6 @@ function Nav() {
         </NavLink>
       </div>
       <div className="inline-block">
-        <NavLink to="/links" className={getLinkClassName()}>
-          Links
-        </NavLink>
         <NavLink to="/books" className={getLinkClassName()}>
           Books
         </NavLink>
