@@ -18,17 +18,9 @@ export function HiddenPage() {
             <div className="inline-block pt-2 font-noto text-lg text-text-3 transition-all">
               Media
             </div>
-            <Link to="/hidden/shows" className="block font-raleway text-text-1">
+            <Link to="/hidden/memes" className="block font-raleway text-text-1">
               <div className="inline-block border-b border-background px-2 pt-2 transition-all hover:border-accent">
-                TV Shows
-              </div>
-            </Link>
-            <Link
-              to="/hidden/channels"
-              className="block font-raleway text-text-1"
-            >
-              <div className="inline-block border-b border-background px-2 pt-2 transition-all hover:border-accent">
-                YouTube Channels
+                Memes
               </div>
             </Link>
             <Link
@@ -55,9 +47,17 @@ export function HiddenPage() {
                 TikToks
               </div>
             </Link>
-            <Link to="/hidden/memes" className="block font-raleway text-text-1">
+            <Link to="/hidden/shows" className="block font-raleway text-text-1">
               <div className="inline-block border-b border-background px-2 pt-2 transition-all hover:border-accent">
-                Memes
+                TV Shows
+              </div>
+            </Link>
+            <Link
+              to="/hidden/channels"
+              className="block font-raleway text-text-1"
+            >
+              <div className="inline-block border-b border-background px-2 pt-2 transition-all hover:border-accent">
+                YouTube Channels
               </div>
             </Link>
           </div>
