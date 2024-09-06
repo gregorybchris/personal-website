@@ -1,5 +1,6 @@
 [
   {
+    "id": "2073c8f7-716f-47ed-b747-cf50f65fd314",
     "name": "Community",
     "genre": "comedy",
     "scores": {
@@ -12,6 +13,7 @@
     "link": "https://www.imdb.com/title/tt1439629"
   },
   {
+    "id": "11b4f301-d31b-46db-aaae-cdd659fafc4e",
     "name": "Westworld",
     "genre": "drama",
     "scores": {
@@ -24,6 +26,7 @@
     "link": "https://www.imdb.com/title/tt0475784"
   },
   {
+    "id": "ab2e0a0a-ae47-4c1a-8563-6737b2d6d7cc",
     "name": "House",
     "genre": "drama",
     "scores": {
@@ -36,6 +39,7 @@
     "link": "https://www.imdb.com/title/tt0412142"
   },
   {
+    "id": "325e5bc9-13f4-4eea-a489-75365006e5e7",
     "name": "Halt and Catch Fire",
     "genre": "drama",
     "scores": {
@@ -48,6 +52,7 @@
     "link": "https://www.imdb.com/title/tt2543312"
   },
   {
+    "id": "634c492a-d1d2-4ae3-a37d-e7b7b4af9e74",
     "name": "Black Mirror",
     "genre": "drama",
     "scores": {
@@ -60,6 +65,7 @@
     "link": "https://www.imdb.com/title/tt2085059"
   },
   {
+    "id": "2917c110-7683-4739-9585-36f59a8a6463",
     "name": "Sherlock",
     "genre": "drama",
     "scores": {
@@ -72,6 +78,7 @@
     "link": "https://www.imdb.com/title/tt1475582"
   },
   {
+    "id": "d94a2098-ccc8-4318-ab9d-6da8d664718f",
     "name": "The Bear",
     "genre": "drama",
     "scores": {
@@ -84,6 +91,7 @@
     "link": "https://www.imdb.com/title/tt14452776"
   },
   {
+    "id": "ee80348d-c132-4147-9880-11e336cf922a",
     "name": "The Last of Us",
     "genre": "thriller",
     "scores": {
@@ -96,6 +104,7 @@
     "link": "https://www.imdb.com/title/tt3581920"
   },
   {
+    "id": "0f64cc6d-23f7-41d1-a2f4-f1bab9280b2c",
     "name": "I Think You Should Leave",
     "genre": "comedy",
     "scores": {
@@ -108,6 +117,7 @@
     "link": "https://www.imdb.com/title/tt10050772"
   },
   {
+    "id": "5f8ad48d-4313-4e0a-8255-a9c73c1fae5d",
     "name": "How I Met Your Mother",
     "genre": "sitcom",
     "scores": {
@@ -120,6 +130,7 @@
     "link": "https://www.imdb.com/title/tt0460649"
   },
   {
+    "id": "d439683f-65ca-422e-8712-9a9b97e1095d",
     "name": "Silo",
     "genre": "drama",
     "scores": {
@@ -132,6 +143,7 @@
     "link": "https://www.imdb.com/title/tt14688458"
   },
   {
+    "id": "13f4799d-c427-4f58-a95f-6fc4401976b5",
     "name": "Rick and Morty",
     "genre": "comedy",
     "scores": {
@@ -144,6 +156,7 @@
     "link": "https://www.imdb.com/title/tt2861424"
   },
   {
+    "id": "41a2db4f-8b8b-48bc-b578-34d0586d59ae",
     "name": "Severance",
     "genre": "drama",
     "scores": {
@@ -156,6 +169,7 @@
     "link": "https://www.imdb.com/title/tt11280740"
   },
   {
+    "id": "ffb34205-d06b-4863-bcf1-f043e461837e",
     "name": "Normal People",
     "genre": "drama",
     "scores": {
@@ -168,6 +182,7 @@
     "link": "https://www.imdb.com/title/tt9059760"
   },
   {
+    "id": "3f9acfeb-78db-4ce0-ad81-84a2ea25d3de",
     "name": "Lessons in Chemistry",
     "genre": "drama",
     "scores": {
@@ -180,6 +195,7 @@
     "link": "https://www.imdb.com/title/tt13911628"
   },
   {
+    "id": "ff39acfd-22a4-454d-908e-ab5f9f8fa85a",
     "name": "Parks and Recreation",
     "genre": "comedy",
     "scores": {
@@ -192,6 +208,7 @@
     "link": "https://www.imdb.com/title/tt1266020"
   },
   {
+    "id": "09bb27a3-f726-4042-ae53-a1a350b87c97",
     "name": "Portlandia",
     "genre": "comedy",
     "scores": {
@@ -204,6 +221,7 @@
     "link": "https://www.imdb.com/title/tt1780441"
   },
   {
+    "id": "c80f741f-2c4c-4c32-945c-777bea632eb6",
     "name": "The Queen's Gambit",
     "genre": "drama",
     "scores": {
@@ -216,6 +234,7 @@
     "link": "https://www.imdb.com/title/tt10048342"
   },
   {
+    "id": "159afe84-2f0c-47df-a71f-dfff1a22df4d",
     "name": "Silicon Valley",
     "genre": "comedy",
     "scores": {
@@ -228,6 +247,7 @@
     "link": "https://www.imdb.com/title/tt2575988"
   },
   {
+    "id": "bac03bfe-7712-4f28-ad73-d4fe59c2fa68",
     "name": "Wild Wild Country",
     "genre": "documentary",
     "scores": {

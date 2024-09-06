@@ -6,7 +6,7 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from chris.app import logging_utilities
-from chris.app.imdb_utilities import get_media_movies_poster, get_media_tv_poster
+from chris.app.imdb_utilities import MOVIE_POSTER_CACHE, TV_POSTER_CACHE, get_media_movies_poster, get_media_tv_poster
 from chris.datasets.datasets import Datasets
 from chris.datasets.fetch import fetch_dataset_json
 
@@ -40,9 +40,15 @@ def get_media() -> JSONResponse:
 def get_media_movies() -> JSONResponse:
     dataset_json = fetch_dataset_json(Datasets.MOVIES)
     for record in dataset_json:
+        movie_id = record["id"]
         link = record["link"]
         imdb_id = link.split("/")[-1]
         record["poster_url"] = None
+
+        if movie_id in MOVIE_POSTER_CACHE:
+            record["poster_url"] = MOVIE_POSTER_CACHE[movie_id]
+            continue
+
         try:
             record["poster_url"] = get_media_movies_poster(imdb_id)
         except ValueError as e:
@@ -62,9 +68,15 @@ def get_media_podcasts() -> JSONResponse:
 def get_media_tv() -> JSONResponse:
     dataset_json = fetch_dataset_json(Datasets.TV_SHOWS)
     for record in dataset_json:
+        tv_show_id = record["id"]
         link = record["link"]
         imdb_id = link.split("/")[-1]
         record["poster_url"] = None
+
+        if tv_show_id in TV_POSTER_CACHE:
+            record["poster_url"] = TV_POSTER_CACHE[tv_show_id]
+            continue
+
         try:
             record["poster_url"] = get_media_tv_poster(imdb_id)
         except ValueError as e:

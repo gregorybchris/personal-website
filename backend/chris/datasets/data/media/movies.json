@@ -1,5 +1,6 @@
 [
   {
+    "id": "cdd3c597-3b3d-4f0d-b0fc-8d10907ab66a",
     "name": "Into the Wild",
     "genre": "historical fiction",
     "scores": {
@@ -12,6 +13,7 @@
     "link": "https://www.imdb.com/title/tt0758758"
   },
   {
+    "id": "069b9c53-eaa9-422a-8ce1-17bb407b67f8",
     "name": "Jobs",
     "genre": "historical fiction",
     "scores": {
@@ -24,6 +26,7 @@
     "link": "https://www.imdb.com/title/tt2357129"
   },
   {
+    "id": "52feabf6-f872-4492-a079-12d9d46f6540",
     "name": "The Social Network",
     "genre": "historical fiction",
     "scores": {
@@ -36,6 +39,7 @@
     "link": "https://www.imdb.com/title/tt1285016"
   },
   {
+    "id": "df9b72c7-0f1d-4e37-b84a-cd283acd55db",
     "name": "The Theory of Everything",
     "genre": "historical fiction",
     "scores": {
@@ -48,6 +52,7 @@
     "link": "https://www.imdb.com/title/tt2980516"
   },
   {
+    "id": "440b4e3e-c1e4-43c3-925b-e5eb20cf39b7",
     "name": "21",
     "genre": "historical fiction",
     "scores": {
@@ -60,6 +65,7 @@
     "link": "https://www.imdb.com/title/tt0478087"
   },
   {
+    "id": "bea09d22-8cc1-48f3-8669-fba49d8d82a1",
     "name": "The Imitation Game",
     "genre": "historical fiction",
     "scores": {
@@ -72,6 +78,7 @@
     "link": "https://www.imdb.com/title/tt2084970"
   },
   {
+    "id": "67f7a05d-8a37-4d57-ab4b-e3138f91596a",
     "name": "October Sky",
     "genre": "historical fiction",
     "scores": {
@@ -84,6 +91,7 @@
     "link": "https://www.imdb.com/title/tt0132477"
   },
   {
+    "id": "ef6b8311-87e4-43e7-939c-b6222c1f86c3",
     "name": "Good Will Hunting",
     "genre": "drama",
     "scores": {
@@ -96,6 +104,7 @@
     "link": "https://www.imdb.com/title/tt0119217"
   },
   {
+    "id": "95184be8-93d9-4c5d-a372-d218b5f649e7",
     "name": "Gladiator",
     "genre": "action",
     "scores": {
@@ -108,6 +117,7 @@
     "link": "https://www.imdb.com/title/tt0172495"
   },
   {
+    "id": "faa63924-05d4-43a3-98da-93ba0582d845",
     "name": "A Beautiful Mind",
     "genre": "historical fiction",
     "scores": {
@@ -120,6 +130,7 @@
     "link": "https://www.imdb.com/title/tt0268978"
   },
   {
+    "id": "c7bff94d-dc13-413b-8c0c-9735b1ec55ae",
     "name": "The Prestige",
     "genre": "drama",
     "scores": {
@@ -132,6 +143,7 @@
     "link": "https://www.imdb.com/title/tt0482571"
   },
   {
+    "id": "7b40d536-00aa-4b98-a9eb-9907f3649193",
     "name": "Hidden Figures",
     "genre": "historical fiction",
     "scores": {
@@ -144,6 +156,7 @@
     "link": "https://www.imdb.com/title/tt4846340"
   },
   {
+    "id": "2deb4fab-5720-4b29-9b0c-be148a897549",
     "name": "Dead Poet's Society",
     "genre": "drama",
     "scores": {
@@ -156,6 +169,7 @@
     "link": "https://www.imdb.com/title/tt0097165"
   },
   {
+    "id": "d1c25c43-1a48-4ed3-b701-1905d484fe7e",
     "name": "Anna Karenina",
     "genre": "drama",
     "scores": {
@@ -168,6 +182,7 @@
     "link": "https://www.imdb.com/title/tt1781769"
   },
   {
+    "id": "a8435584-0ea3-4782-a5c3-91fd8daf3e66",
     "name": "Interstellar",
     "genre": "scifi",
     "scores": {
@@ -180,6 +195,7 @@
     "link": "https://www.imdb.com/title/tt0816692"
   },
   {
+    "id": "3660c6fb-2e31-47ff-ac1f-0f1b6b0024c8",
     "name": "Silence",
     "genre": "drama",
     "scores": {
@@ -192,6 +208,7 @@
     "link": "https://www.imdb.com/title/tt0490215"
   },
   {
+    "id": "c0c6ddb2-f9fa-447a-86fe-f11e2e185001",
     "name": "Whiplash",
     "genre": "drama",
     "scores": {
@@ -204,6 +221,7 @@
     "link": "https://www.imdb.com/title/tt2582802"
   },
   {
+    "id": "602cb1fe-46d9-4959-8847-1b5c2fda885f",
     "name": "The Notebook",
     "genre": "romance",
     "scores": {
@@ -216,6 +234,7 @@
     "link": "https://www.imdb.com/title/tt0332280"
   },
   {
+    "id": "958690c0-fc9f-46ef-b264-40e5c4c4641c",
     "name": "Call Me by Your Name",
     "genre": "drama",
     "scores": {
@@ -228,6 +247,7 @@
     "link": "https://www.imdb.com/title/tt5726616"
   },
   {
+    "id": "19666380-00bf-4c46-b727-4d8718b57ec2",
     "name": "The Pursuit of Happyness",
     "genre": "drama",
     "scores": {
@@ -240,6 +260,7 @@
     "link": "https://www.imdb.com/title/tt0454921"
   },
   {
+    "id": "41978292-7202-4a2e-9a9e-2f429d8936d3",
     "name": "Captain Fantastic",
     "genre": "drama",
     "scores": {
@@ -252,6 +273,7 @@
     "link": "https://www.imdb.com/title/tt3553976"
   },
   {
+    "id": "5b72d7db-dd02-448d-a03b-12ab0589fb97",
     "name": "Spotlight",
     "genre": "drama",
     "scores": {
@@ -264,6 +286,7 @@
     "link": "https://www.imdb.com/title/tt1895587"
   },
   {
+    "id": "cf25f785-eb17-4d0f-8c6d-5482e00127e4",
     "name": "Without Limits",
     "genre": "historical fiction",
     "scores": {
@@ -276,6 +299,7 @@
     "link": "https://www.imdb.com/title/tt0119934"
   },
   {
+    "id": "483adc4d-4318-4730-bdbd-186ef3507604",
     "name": "Like Crazy",
     "genre": "romance",
     "scores": {
@@ -288,6 +312,7 @@
     "link": "https://www.imdb.com/title/tt1758692"
   },
   {
+    "id": "0fca9f57-847b-4b6f-81de-fe401b8f434c",
     "name": "Minimalism",
     "genre": "documentary",
     "scores": {
