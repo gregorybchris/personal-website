@@ -24,7 +24,7 @@ Requirements:
 ```bash
 cd backend
 poetry install
-poetry run uvicorn chris.app.app:app --host 0.0.0.0 --port 8000 --reload
+fastapi dev chris/app/app.py --reload
 ```
 
 ### Frontend
