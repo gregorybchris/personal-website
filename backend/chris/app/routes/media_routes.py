@@ -40,13 +40,12 @@ def get_media() -> JSONResponse:
 def get_media_movies() -> JSONResponse:
     dataset_json = fetch_dataset_json(Datasets.MOVIES)
     for record in dataset_json:
-        movie_id = record["id"]
         link = record["link"]
         imdb_id = link.split("/")[-1]
         record["poster_url"] = None
 
-        if movie_id in MOVIE_POSTER_CACHE:
-            record["poster_url"] = MOVIE_POSTER_CACHE[movie_id]
+        if imdb_id in MOVIE_POSTER_CACHE:
+            record["poster_url"] = MOVIE_POSTER_CACHE[imdb_id]
             continue
 
         try:
@@ -68,13 +67,12 @@ def get_media_podcasts() -> JSONResponse:
 def get_media_tv() -> JSONResponse:
     dataset_json = fetch_dataset_json(Datasets.TV_SHOWS)
     for record in dataset_json:
-        tv_show_id = record["id"]
         link = record["link"]
         imdb_id = link.split("/")[-1]
         record["poster_url"] = None
 
-        if tv_show_id in TV_POSTER_CACHE:
-            record["poster_url"] = TV_POSTER_CACHE[tv_show_id]
+        if imdb_id in TV_POSTER_CACHE:
+            record["poster_url"] = TV_POSTER_CACHE[imdb_id]
             continue
 
         try:
