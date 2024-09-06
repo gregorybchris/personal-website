@@ -40,10 +40,10 @@ jobs:
           poetry install
         working-directory: backend
 
-      - name: Run pylint
+      - name: Run ruff check
         run: |
-          poetry run pylint chris --rcfile pyproject.toml
-          poetry run pylint tests --rcfile pyproject.toml
+          poetry run ruff check .
+          poetry run ruff format . --check
         working-directory: backend
 
       - name: Run mypy

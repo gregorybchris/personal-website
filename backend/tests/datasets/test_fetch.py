@@ -23,8 +23,7 @@ class TestFetch:
     ) -> None:
         if dataset_info is None:
             assert dataset is not None
-        else:
-            if dataset_info.dataset_format == DatasetFormat.JSON:
-                assert isinstance(dataset, list)
-            elif dataset_info.dataset_format == DatasetFormat.CSV:
-                assert isinstance(dataset, DataFrame)
+        elif dataset_info.dataset_format == DatasetFormat.JSON:
+            assert isinstance(dataset, list)
+        elif dataset_info.dataset_format == DatasetFormat.CSV:
+            assert isinstance(dataset, DataFrame)

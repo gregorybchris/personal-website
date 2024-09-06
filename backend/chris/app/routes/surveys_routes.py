@@ -40,7 +40,6 @@ def post_survey_results(request: RequestModel, survey_id: str) -> JSONResponse:
                 "created_date": datetime.now(),
                 "response": request,
             }
-            # db.insert_one(document)
 
             return JSONResponse({"message": f'Successfully submitted survey "{survey_name}"'})
     return JSONResponse({"message": f"Survey with ID {survey_id} not found"})
@@ -49,7 +48,6 @@ def post_survey_results(request: RequestModel, survey_id: str) -> JSONResponse:
 @router.get(path="/surveys/results")
 @logging_utilities.log_context("get_survey_results", tag="api")
 def get_survey_results() -> JSONResponse:
-    # result_documents = list(db.find_all())
     result_documents: List[Dict[str, Any]] = []
     counts = {}
     for result_document in result_documents:

@@ -1,7 +1,6 @@
 import pytest
-from pytest import MonkeyPatch
-
 from chris.app.env_setting import EnvSetting
+from pytest import MonkeyPatch
 
 
 class TestSettings:
@@ -20,4 +19,4 @@ class TestSettings:
         monkeypatch.delenv("TEST_VARIABLE", raising=False)
         with pytest.raises(OSError, match="Environment variable TEST_VARIABLE is not set"):
             # pylint: disable=pointless-statement
-            setting.value
+            setting.value  # noqa: B018

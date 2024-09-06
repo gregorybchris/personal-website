@@ -32,11 +32,10 @@ uvicorn = { version = "^0.27.0", extras = ["standard"] }
 cgme = "chris.cli.cli:main"
 
 [tool.poetry.group.dev.dependencies]
-black = "^24.1.1"
 covcheck = { version = "^0.4.3", extras = ["toml"] }
 mypy = "^1.8.0"
-pylint = "^3.0.3"
 pytest = "^8.0.0"
+ruff = "^0.5.0"
 pytest-cov = "^4.1.0"
 semver = "^3.0.2"
 
@@ -48,39 +47,55 @@ requires = ["poetry-core>=1.0.0"]
 branch = 50.0
 line = 50.0
 
-[tool.black]
-line-length = 120
-
-[tool.flake8]
-max-line-length = 120
-
-[tool.isort]
-line_length = 120
-profile = "black"
-src_paths = "*"
-
 [tool.mypy]
 disallow_incomplete_defs = true
 disallow_untyped_calls = true
 disallow_untyped_defs = true
 ignore_missing_imports = true
 
-[tool.pylint.basic]
-good-names = ["f", "i"]
-notes = ["FIXME"]
+[tool.ruff]
+line-length = 120
+src = ["chris"]
 
-[tool.pylint.format]
-max-line-length = 120
-
-[tool.pylint.messages_control]
-disable = [
-  "logging-fstring-interpolation",
-  "missing-function-docstring",
-  "missing-module-docstring",
-  "missing-class-docstring",
-  "wrong-import-order",
-  "too-few-public-methods",
+[tool.ruff.lint]
+ignore = ["D100", "D104", "FIX002", "TD003"]
+select = [
+  "A",
+  "ARG",
+  "B",
+  "BLE",
+  "C4",
+  "E",
+  "EM",
+  "ERA",
+  "F",
+  "FIX",
+  "G",
+  "I",
+  "ICN",
+  "ISC",
+  "LOG",
+  "N",
+  "PL",
+  "PT",
+  "PTH",
+  "PLR",
+  "RET",
+  "RUF",
+  "SIM",
+  "SLF",
+  "T20",
+  "TCH",
+  "TD",
+  "TID",
+  "W",
 ]
 
-[tool.pylint.reports]
-output-format = "colorized"
+[tool.ruff.lint.pycodestyle]
+max-line-length = 120
+
+[tool.ruff.lint.extend-per-file-ignores]
+"**/*.py" = ["G004", "EM101", "EM102", "TD002"]
+"**/tests/**/*.py" = ["SLF", "PLR2004", "PT013"]
+"chris/validation/validate.py" = ["T201"]
+"chris/utilities/generate_uuid.py" = ["T201"]

@@ -1,5 +1,4 @@
 import semver
-
 from chris import __version__
 
 

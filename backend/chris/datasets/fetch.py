@@ -16,7 +16,7 @@ def fetch_dataset_json(dataset_info: DatasetInfo) -> Any:
         raise ValueError(f"Unsupported dataset format: {dataset_info.dataset_format}")
 
     dataset_path = DATA_DIR / dataset_info.filepath
-    with open(dataset_path, "r", encoding="utf-8") as f:
+    with dataset_path.open("r", encoding="utf-8") as f:
         return json.load(f)
 
 

@@ -4,9 +4,8 @@ from jsonvl import Constraint
 
 
 class MonotoneIncreaseConstraint(Constraint):
-
-    def constrain(self, constraint_name: str, data: Any, constraint_param: Any, path: Any) -> None:
-        if len(data) < 2:
+    def constrain(self, constraint_name: str, data: Any, constraint_param: Any, path: Any) -> None:  # noqa: ARG002
+        if len(data) < 2:  # noqa: PLR2004
             return
 
         if isinstance(constraint_param, list):
