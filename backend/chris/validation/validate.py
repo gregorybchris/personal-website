@@ -35,6 +35,6 @@ def validate_all() -> None:
             validator.validate_file(data_filepath, schema_filepath)
         except JsonValidationError as e:
             print(f"Validation failed: {file_name}")
-            print(e)
+            print(f"  {e}")
         else:
             print(f"Validation succeeded: {file_name}")

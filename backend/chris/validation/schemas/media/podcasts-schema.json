@@ -31,7 +31,12 @@
             "consistency": "#score"
           }
         },
-        "rank": "number",
+        "rank": {
+          "type": "number",
+          "cons": {
+            "gte": 1
+          }
+        },
         "apple_link": "#link",
         "pocket_casts_link": "#link",
         "pocket_casts_id": "#uuid"
