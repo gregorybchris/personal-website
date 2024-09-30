@@ -12,34 +12,29 @@ SCHEMAS_DIRPATH = Path(__file__).parent / "schemas"
 def validate_all() -> None:
     validator = Validator()
     validator.register_constraint(MonotoneIncreaseConstraint(), "array", "monotone_inc")
-    schema_map = [
-        # Media
-        ("books", "media/books.json", "books-schema.json"),
-        ("memes", "media/memes.json", "memes-schema.json"),
-        ("movies", "media/movies.json", "movies-schema.json"),
-        ("podcasts", "media/podcasts.json", "podcasts-schema.json"),
-        ("tiktoks", "media/tiktoks.json", "tiktoks-schema.json"),
-        ("tv-shows", "media/tv-shows.json", "tv-shows-schema.json"),
-        ("youtube-channels", "media/youtube-channels.json", "youtube-channels-schema.json"),
-        # Professional
-        ("courses", "professional/courses.json", "courses-schema.json"),
-        ("jobs", "professional/jobs.json", "jobs-schema.json"),
-        # Outdoor
-        ("hiking", "outdoor/hiking-routes.json", "hiking-routes-schema.json"),
-        ("running", "outdoor/running-routes.json", "running-routes-schema.json"),
-        # Projects
-        ("projects", "projects/projects.json", "projects-schema.json"),
-        # Blog
-        ("posts", "blog/posts.json", "posts-schema.json"),
+    schemas = [
+        ("blog", "posts"),
+        ("media", "books"),
+        ("media", "memes"),
+        ("media", "movies"),
+        ("media", "podcasts"),
+        ("media", "tiktoks"),
+        ("media", "tv-shows"),
+        ("media", "youtube-channels"),
+        ("outdoor", "hiking-routes"),
+        ("outdoor", "running-routes"),
+        ("professional", "courses"),
+        ("professional", "jobs"),
+        ("projects", "projects"),
     ]
-    for name, data_filename, schema_filename in schema_map:
-        data_filepath = DATA_DIRPATH / data_filename
-        schema_filepath = SCHEMAS_DIRPATH / schema_filename
+    for folder_name, file_name in schemas:
+        data_filepath = DATA_DIRPATH / folder_name / f"{file_name}.json"
+        schema_filepath = SCHEMAS_DIRPATH / folder_name / f"{file_name}-schema.json"
 
         try:
             validator.validate_file(data_filepath, schema_filepath)
         except JsonValidationError as e:
-            print(f"Validation failed: {name}")
+            print(f"Validation failed: {file_name}")
             print(e)
         else:
-            print(f"Validation succeeded: {name}")
+            print(f"Validation succeeded: {file_name}")
