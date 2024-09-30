@@ -78,7 +78,7 @@
   },
   {
     "route_id": "b35fde4c-8dab-4438-b12a-64d7c72fb4fd",
-    "name": "Fresh Pond",
+    "name": "Fresh Pond (Gantcher)",
     "slug": "fresh-pond-gantcher",
     "distance": 8.16,
     "elevation": 312,
@@ -144,7 +144,7 @@
   },
   {
     "route_id": "0661b519-e326-4672-886c-5d4de38f4eef",
-    "name": "Short Glam",
+    "name": "Short Glam (Ossipee)",
     "slug": "short-glam-ossipee",
     "distance": 3.53,
     "elevation": 230,
@@ -166,7 +166,7 @@
   },
   {
     "route_id": "06bc94cd-23ed-47e1-a802-4b70363b7f87",
-    "name": "Fresh Pond",
+    "name": "Fresh Pond (Ossipee)",
     "slug": "fresh-pond-ossipee",
     "distance": 6.31,
     "elevation": 217,
@@ -254,7 +254,7 @@
   },
   {
     "route_id": "66399132-c27e-4286-aea4-234760412e50",
-    "name": "Short Glam",
+    "name": "Short Glam (Gantcher)",
     "slug": "short-glam-gantcher",
     "distance": 2.44,
     "elevation": 125,

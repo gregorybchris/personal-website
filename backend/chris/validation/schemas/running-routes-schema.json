@@ -1,0 +1,65 @@
+{
+  "type": "array",
+  "elem": "#hike",
+  "cons": {
+    "unique": ["@all.route_id", "@all.name", "@all.slug"]
+  },
+  "defs": {
+    "#hike": {
+      "type": "object",
+      "attr": {
+        "route_id": "#uuid",
+        "name": "string",
+        "slug": "#slug",
+        "distance": "number",
+        "elevation": "number",
+        "route_data_link": "#link",
+        "mapometer_id": "number",
+        "tags": {
+          "type": "array",
+          "elem": "#tag"
+        },
+        "archived": "boolean"
+      }
+    },
+    "#uuid": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^[a-z0-9-]{36}$" }
+      }
+    },
+    "#link": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^http[s]?://" },
+        "min_length": 5,
+        "max_length": 120
+      }
+    },
+    "#slug": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^[a-z0-9-]+$" }
+      }
+    },
+    "#tag": {
+      "type": "string",
+      "cons": {
+        "in": [
+          "Boston",
+          "Tufts",
+          "Gantcher",
+          "Ossipee",
+          "Indianapolis",
+          "Arden",
+          "Butler",
+          "Seattle",
+          "UW",
+          "Capitol Hill",
+          "Wallingford",
+          "Berkeley"
+        ]
+      }
+    }
+  }
+}
