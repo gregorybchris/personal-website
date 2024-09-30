@@ -1,0 +1,62 @@
+{
+  "type": "array",
+  "elem": "#show",
+  "cons": {
+    "unique": ["@all.name", "@all.rank", "@all.apple_link", "@all.pocket_casts_link", "@all.pocket_casts_id"],
+    "monotone_inc": ["@all.rank"]
+  },
+  "defs": {
+    "#show": {
+      "type": "object",
+      "attr": {
+        "name": {
+          "type": "string",
+          "cons": {
+            "min_length": 1,
+            "max_length": 120
+          }
+        },
+        "category": {
+          "type": "string",
+          "cons": {
+            "in": ["general", "stem", "informational", "outdoor", "comedy"]
+          }
+        },
+        "scores": {
+          "type": "object",
+          "attr": {
+            "production": "#score",
+            "personality": "#score",
+            "information": "#score",
+            "consistency": "#score"
+          }
+        },
+        "rank": "number",
+        "apple_link": "#link",
+        "pocket_casts_link": "#link",
+        "pocket_casts_id": "#uuid"
+      }
+    },
+    "#score": {
+      "type": "number",
+      "cons": {
+        "gte": 1,
+        "lte": 10
+      }
+    },
+    "#link": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^http[s]?://" },
+        "min_length": 5,
+        "max_length": 120
+      }
+    },
+    "#uuid": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^[a-z0-9-]{36}$" }
+      }
+    }
+  }
+}
