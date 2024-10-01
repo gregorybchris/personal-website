@@ -7,7 +7,6 @@ export interface TvShow {
     production: number;
     dialog: number;
   };
-  rank: number;
   link: string;
   poster_url?: string;
 }
@@ -21,7 +20,6 @@ export interface YouTubeChannel {
     information: number;
     consistency: number;
   };
-  rank: number;
   link: string;
 }
 
@@ -34,7 +32,6 @@ export interface Movie {
     production: number;
     dialog: number;
   };
-  rank: number;
   link: string;
   poster_url?: string;
 }
@@ -48,7 +45,6 @@ export interface Podcast {
     information: number;
     consistency: number;
   };
-  rank: number;
   apple_link: string;
   pocket_casts_link: string;
   pocket_casts_id: string;

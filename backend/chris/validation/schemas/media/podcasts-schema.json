@@ -2,8 +2,7 @@
   "type": "array",
   "elem": "#show",
   "cons": {
-    "unique": ["@all.name", "@all.rank", "@all.apple_link", "@all.pocket_casts_link", "@all.pocket_casts_id"],
-    "monotone_inc": ["@all.rank"]
+    "unique": ["@all.name", "@all.apple_link", "@all.pocket_casts_link", "@all.pocket_casts_id"]
   },
   "defs": {
     "#show": {
@@ -29,12 +28,6 @@
             "personality": "#score",
             "information": "#score",
             "consistency": "#score"
-          }
-        },
-        "rank": {
-          "type": "number",
-          "cons": {
-            "gte": 1
           }
         },
         "apple_link": "#link",
