@@ -1,9 +1,10 @@
+// import Radar from "react-d3-radar";
 import "../styles/radar.css";
 
 import { useEffect, useState } from "react";
 import { GET, makeQuery } from "../utilities/requestUtilities";
 
-import Radar from "react-d3-radar";
+import { RatingRadar } from "../components/RatingRadar";
 import { Movie } from "../models/mediaModels";
 import { SimpleLink } from "../widgets/SimpleLink";
 
@@ -46,38 +47,7 @@ export function MoviesPage() {
                   </SimpleLink>
                 </div>
 
-                <div className="radar-chart mx-auto block h-32 w-32">
-                  <Radar
-                    className=""
-                    width={100}
-                    height={100}
-                    padding={0}
-                    domainMax={10}
-                    style={{
-                      numRings: 5,
-                    }}
-                    data={{
-                      variables: [
-                        { key: "productionScore", label: "Production" },
-                        { key: "dialogScore", label: "Dialog" },
-                        { key: "charactersScore", label: "Characters" },
-                        { key: "plotScore", label: "Plot" },
-                      ],
-                      sets: [
-                        {
-                          key: "me",
-                          label: "My Scores",
-                          values: {
-                            productionScore: movie.scores.production,
-                            dialogScore: movie.scores.dialog,
-                            charactersScore: movie.scores.characters,
-                            plotScore: movie.scores.plot,
-                          },
-                        },
-                      ],
-                    }}
-                  />
-                </div>
+                <RatingRadar scores={new Map(Object.entries(movie.scores))} />
               </div>
             ))}
           </div>

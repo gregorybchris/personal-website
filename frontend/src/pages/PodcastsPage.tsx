@@ -3,7 +3,7 @@ import "../styles/radar.css";
 import { useEffect, useState } from "react";
 import { GET, makeQuery } from "../utilities/requestUtilities";
 
-import Radar from "react-d3-radar";
+import { RatingRadar } from "../components/RatingRadar";
 import { Podcast } from "../models/mediaModels";
 import { SimpleLink } from "../widgets/SimpleLink";
 
@@ -46,38 +46,7 @@ export function PodcastsPage() {
                   </SimpleLink>
                 </div>
 
-                <div className="radar-chart mx-auto block h-32 w-32">
-                  <Radar
-                    className=""
-                    width={100}
-                    height={100}
-                    padding={0}
-                    domainMax={10}
-                    style={{
-                      numRings: 5,
-                    }}
-                    data={{
-                      variables: [
-                        { key: "productionScore", label: "Production" },
-                        { key: "personalityScore", label: "Personality" },
-                        { key: "informationScore", label: "Information" },
-                        { key: "consistencyScore", label: "Consistency" },
-                      ],
-                      sets: [
-                        {
-                          key: "me",
-                          label: "My Scores",
-                          values: {
-                            productionScore: podcast.scores.production,
-                            personalityScore: podcast.scores.personality,
-                            informationScore: podcast.scores.information,
-                            consistencyScore: podcast.scores.consistency,
-                          },
-                        },
-                      ],
-                    }}
-                  />
-                </div>
+                <RatingRadar scores={new Map(Object.entries(podcast.scores))} />
               </div>
             ))}
           </div>

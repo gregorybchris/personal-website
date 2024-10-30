@@ -46,7 +46,7 @@ export function CodeProjectModal({
             {formatDate(project.date)}
           </Dialog.Description>
 
-          <div className="">
+          <div>
             <Dialog.Description className="text-md mb-5 mt-2 font-raleway text-text-1">
               {project.description}
             </Dialog.Description>
