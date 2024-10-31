@@ -1581,7 +1581,7 @@
     "rating": 3,
     "project_type": "program",
     "controls": null,
-    "description": "Program to dynamically select survey questions based on previous answers using information theory. The ID3 and C4.5 algorithms were used as inspiration for this program, which uses entropy and information gain to compute the feature most likely to be informative in predicting a target variable. This codebase also provides a tabular dataset abstraction that is independent of surveys that can be used to associate feature type and purpose information with columns of a tabular dataset.",
+    "description": "Program to dynamically select survey questions based on previous answers using information theory. The ID3 and C4.5 algorithms were used as inspiration for this program, which use entropy and information gain to compute the feature most likely to help predict a target variable. This codebase also provides a tabular dataset abstraction that is independent of surveys that can be used to associate feature type and purpose information with columns of a tabular dataset.",
     "remarks": null,
     "tags": ["survey", "decision", "tree", "dynamic", "dataset", "question"],
     "source_link": "https://github.com/gregorybchris/surv",
