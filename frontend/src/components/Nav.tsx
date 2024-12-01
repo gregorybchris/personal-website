@@ -27,7 +27,7 @@ function Nav() {
           Code
         </NavLink>
         <NavLink to="/running" className={getLinkClassName()}>
-          Running
+          Runs
         </NavLink>
         <NavLink to="/music" className={getLinkClassName()}>
           Music

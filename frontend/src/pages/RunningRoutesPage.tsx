@@ -71,7 +71,7 @@ export function RunningRoutesPage() {
     <div className="p-8">
       <div className="mx-auto mb-8 w-[100%] p-0 text-center md:w-[80%] md:pb-5">
         <div className="block pb-3 font-noto text-3xl font-bold text-text-1">
-          Runs
+          Running Routes
         </div>
         <div className="mx-auto block w-[80%] py-3 font-raleway text-text-1">
           If you like running and happen to be in a city I've lived in, then
