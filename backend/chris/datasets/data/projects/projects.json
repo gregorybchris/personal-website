@@ -1600,7 +1600,7 @@
     "rating": 6,
     "project_type": "tool",
     "controls": null,
-    "description": "Program to dynamically select survey questions based on previous answers using information theory. The ID3 and C4.5 algorithms were used as inspiration for this program, which uses entropy and information gain to compute the feature most likely to help predict a target variable. This codebase also provides a tabular dataset abstraction that is independent of surveys that can be used to associate feature type and purpose information with columns of a tabular dataset.",
+    "description": "tuxc.org is a website for the Tufts University Cross Country team. The site is a collection of running routes around the Tufts campus, building on the data collected by the TUXC Run Preservation Project of 2020.",
     "remarks": null,
     "tags": ["run", "route", "college", "cross", "country", "team", "boston", "map", "track", "running", "archive"],
     "source_link": "https://github.com/gregorybchris/tuxc",
