@@ -6,7 +6,7 @@ export function HomePage() {
   return (
     <div className="bg-background py-10">
       <div className="mx-auto w-[70%] py-2">
-        <div className="block pb-4 font-noto text-[40px] font-bold text-text-1 ">
+        <div className="block pb-4 font-noto text-[40px] font-bold text-text-1">
           Hey there!
         </div>
         <div className="font-raleway text-lg leading-6 tracking-wide text-text-1">
@@ -22,7 +22,7 @@ export function HomePage() {
             <div className="h-[200px] w-[300px] border-2 border-accent p-5 transition-all hover:border-accent-focus">
               <div className="flex flex-row items-center justify-between">
                 <div className="border-b border-accent font-noto text-lg font-bold text-text-1">
-                  Running
+                  Runs
                 </div>
                 <SneakerMove size={40} weight="light" color="#6283c0" />
               </div>
