@@ -2,9 +2,9 @@ import "../styles/projects.css";
 
 import * as d3 from "d3";
 
+import { MagnifyingGlass } from "@phosphor-icons/react";
 import random, { RNG } from "random";
-import { useEffect, useRef } from "react";
-
+import { useEffect, useRef, useState } from "react";
 import seedrandom from "seedrandom";
 import { Project as ProjectModel } from "../models/projectsModels";
 
@@ -34,7 +34,7 @@ class SimConstants {
 
 class GraphicsConstants {
   static WIDTH = 1000;
-  static HEIGHT = 300;
+  static HEIGHT = 260;
   static PADDING_X = 80;
   static PADDING_Y = 80;
 }
@@ -53,29 +53,41 @@ export function CodeProjectsTimeline({
   const GAME_LOOP_SPF = 1.0 / 65.0;
 
   const canvasRef = useRef<HTMLDivElement>(null);
-  let simRunning = useRef(false);
+  const [searchText, setSearchText] = useState("");
+  const [searchEnabled, setSearchEnabled] = useState(false);
+  const simRunning = useRef(false);
+
+  function projectMatchesSearch(project: ProjectModel): boolean {
+    return project.name.toLowerCase().includes(searchText.toLowerCase());
+  }
 
   useEffect(() => {
     if (currentProject === null) {
       d3.selectAll("circle").classed("selected", false);
       d3.selectAll("circle").classed("deselected", false);
+
+      if (searchEnabled && searchText !== "") {
+        projects.map((project) => {
+          if (!projectMatchesSearch(project)) {
+            d3.select(getProjectSelector(project)).classed("deselected", true);
+          }
+        });
+      }
+    } else {
+      d3.selectAll("circle")
+        .classed("deselected", true)
+        .classed("selected", false);
+
+      d3.select(getProjectSelector(currentProject))
+        .classed("deselected", false)
+        .classed("selected", true);
     }
-  }, [currentProject]);
+  }, [currentProject, searchText]);
 
   useEffect(() => {
     if (projects.length !== 0) {
       startSim();
     }
-
-    if (currentProject !== null) {
-      d3.selectAll("circle")
-        .classed("deselected", true)
-        .classed("selected", false);
-      d3.select(getProjectSelector(currentProject))
-        .classed("deselected", false)
-        .classed("selected", true);
-    }
-
     return () => {
       simRunning.current = false;
     };
@@ -259,37 +271,64 @@ export function CodeProjectsTimeline({
     circles.append("title").text((d) => d.name);
   }
 
-  function getLegend() {
-    const projectTypes = [
-      ProjectTypes.GAME,
-      ProjectTypes.PROGRAM,
-      ProjectTypes.SIMULATION,
-      ProjectTypes.TOOL,
-      ProjectTypes.VISUALIZATION,
-    ];
-    return (
-      <div className="my-5 text-center">
-        {projectTypes.map((projectType, index) => {
-          const projectColor = getProjectColor(projectType);
-          return (
-            <div className="inline-block px-2 md:px-3" key={index}>
-              <div
-                className="mr-1 inline-block h-2.5 w-2.5 rounded-full"
-                style={{ backgroundColor: projectColor }}
-              ></div>
-              <div className="inline-block font-raleway text-xs md:text-sm">
-                {projectType}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    );
-  }
+  const projectTypes = [
+    ProjectTypes.GAME,
+    ProjectTypes.PROGRAM,
+    ProjectTypes.SIMULATION,
+    ProjectTypes.TOOL,
+    ProjectTypes.VISUALIZATION,
+  ];
 
   return (
     <div className="bg-background">
-      {getLegend()}
+      <div className="flex flex-col items-center justify-center gap-5 p-5">
+        <div className="flex flex-row gap-4 md:gap-5">
+          {projectTypes.map((projectType) => {
+            return (
+              <div
+                className="flex flex-row items-center gap-1"
+                key={projectType}
+              >
+                <div
+                  className="h-2.5 w-2.5 rounded-full"
+                  style={{ backgroundColor: getProjectColor(projectType) }}
+                ></div>
+                <div className="font-raleway text-xs md:text-sm">
+                  {projectType}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {!searchEnabled && (
+          <MagnifyingGlass
+            size={24}
+            color="#6283c0"
+            weight="duotone"
+            className="my-2 cursor-pointer"
+            onClick={() => setSearchEnabled(true)}
+          />
+        )}
+        {searchEnabled && (
+          <input
+            className="Common-text-field w-[300px]"
+            type="text"
+            name="searchText"
+            placeholder="Search"
+            autoComplete="off"
+            maxLength={50}
+            required
+            autoFocus
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            onBlur={() => {
+              setSearchText("");
+              setSearchEnabled(false);
+            }}
+          />
+        )}
+      </div>
       <div ref={canvasRef}></div>
     </div>
   );
