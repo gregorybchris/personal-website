@@ -12,6 +12,8 @@ export function CodeProjectsPage() {
   const [currentProject, setCurrentProject] = useState<ProjectModel | null>(
     null,
   );
+  const [searchEnabled, setSearchEnabled] = useState(false);
+  const [searchText, setSearchText] = useState("");
   const { slug } = useParams();
   let navigate = useNavigate();
 
@@ -58,14 +60,42 @@ export function CodeProjectsPage() {
 
   return (
     <div className="bg-background">
-      <div className="mt-8 block text-center font-noto text-2xl font-bold text-text-1 md:text-3xl">
+      <div
+        className="mt-8 block text-center font-noto text-2xl font-bold text-text-1 md:text-3xl"
+        onClick={() => {
+          if (searchEnabled) {
+            setSearchText("");
+          }
+          setSearchEnabled(!searchEnabled);
+        }}
+      >
         Code &amp; Programming Projects
       </div>
+
       <CodeProjectsTimeline
         projects={projects}
         currentProject={currentProject}
         onSelectProject={onSelectProject}
+        searchText={searchText}
       />
+
+      {searchEnabled && (
+        <div className="flex flex-col items-center justify-center gap-5 p-5">
+          <input
+            className="Common-text-field w-[300px]"
+            type="text"
+            name="searchText"
+            placeholder="Search"
+            autoComplete="off"
+            maxLength={50}
+            required
+            autoFocus
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+        </div>
+      )}
+
       {currentProject && (
         <CodeProjectModal
           project={currentProject}

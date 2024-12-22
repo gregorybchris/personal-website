@@ -2,9 +2,8 @@ import "../styles/projects.css";
 
 import * as d3 from "d3";
 
-import { MagnifyingGlass } from "@phosphor-icons/react";
 import random, { RNG } from "random";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import seedrandom from "seedrandom";
 import { Project as ProjectModel } from "../models/projectsModels";
 
@@ -43,18 +42,18 @@ interface CodeProjectsTimelineProps {
   projects: ProjectModel[];
   currentProject: ProjectModel | null;
   onSelectProject: (project: ProjectModel | null) => void;
+  searchText: string;
 }
 
 export function CodeProjectsTimeline({
   projects,
   currentProject,
   onSelectProject,
+  searchText,
 }: CodeProjectsTimelineProps) {
   const GAME_LOOP_SPF = 1.0 / 65.0;
 
   const canvasRef = useRef<HTMLDivElement>(null);
-  const [searchText, setSearchText] = useState("");
-  const [searchEnabled, setSearchEnabled] = useState(false);
   const simRunning = useRef(false);
 
   function projectMatchesSearch(project: ProjectModel): boolean {
@@ -66,7 +65,7 @@ export function CodeProjectsTimeline({
       d3.selectAll("circle").classed("selected", false);
       d3.selectAll("circle").classed("deselected", false);
 
-      if (searchEnabled && searchText !== "") {
+      if (searchText !== "") {
         projects.map((project) => {
           if (!projectMatchesSearch(project)) {
             d3.select(getProjectSelector(project)).classed("deselected", true);
@@ -300,34 +299,6 @@ export function CodeProjectsTimeline({
             );
           })}
         </div>
-
-        {!searchEnabled && (
-          <MagnifyingGlass
-            size={24}
-            color="#6283c0"
-            weight="duotone"
-            className="my-2 cursor-pointer"
-            onClick={() => setSearchEnabled(true)}
-          />
-        )}
-        {searchEnabled && (
-          <input
-            className="Common-text-field w-[300px]"
-            type="text"
-            name="searchText"
-            placeholder="Search"
-            autoComplete="off"
-            maxLength={50}
-            required
-            autoFocus
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-            onBlur={() => {
-              setSearchText("");
-              setSearchEnabled(false);
-            }}
-          />
-        )}
       </div>
       <div ref={canvasRef}></div>
     </div>
