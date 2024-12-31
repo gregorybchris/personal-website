@@ -41,6 +41,14 @@
           "type": "array",
           "elem": "string"
         },
+        "tools": {
+          "type": "array",
+          "elem": "string",
+          "cons": {
+            "min_size": 1,
+            "max_size": 20
+          }
+        },
         "source_link": ["#link", "null"],
         "download_link": ["#link", "null"],
         "web_link": ["#link", "null"],

@@ -39,8 +39,10 @@
     "imdb",
     "jsonvl",
     "LUCB",
+    "Mapbox",
     "mapometer",
     "Monon",
+    "networkx",
     "Noto",
     "ossipee",
     "Ossitery",
@@ -58,6 +60,7 @@
     "unscrambler",
     "vidrank",
     "Wallingford",
+    "yapf",
     "zhed"
   ]
 }
