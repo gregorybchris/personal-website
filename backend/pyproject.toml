@@ -5,7 +5,7 @@ classifiers = [
   "Topic :: Software Development",
   "License :: OSI Approved :: Apache Software License",
   "Programming Language :: Python",
-  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
 ]
 description = "Personal website SDK"
 keywords = ["personal", "website", "sdk", "python", "tools"]
@@ -25,7 +25,7 @@ httpx = "^0.27.2"
 jsonvl = "^0.5.0"
 pandas = "^2.2.2"
 pydantic = "^2.9.0"
-python = ">=3.11"
+python = ">=3.12"
 
 [tool.poetry.scripts]
 cgme = "chris.cli.cli:main"
