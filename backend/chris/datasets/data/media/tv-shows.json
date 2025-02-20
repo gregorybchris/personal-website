@@ -99,6 +99,17 @@
     "link": "https://www.imdb.com/title/tt10050772"
   },
   {
+    "name": "Severance",
+    "genre": "drama",
+    "scores": {
+      "plot": 8,
+      "characters": 8,
+      "production": 8,
+      "dialog": 7
+    },
+    "link": "https://www.imdb.com/title/tt11280740"
+  },
+  {
     "name": "The Bear",
     "genre": "drama",
     "scores": {
@@ -141,17 +152,6 @@
       "dialog": 9
     },
     "link": "https://www.imdb.com/title/tt2861424"
-  },
-  {
-    "name": "Severance",
-    "genre": "drama",
-    "scores": {
-      "plot": 8,
-      "characters": 7,
-      "production": 8,
-      "dialog": 7
-    },
-    "link": "https://www.imdb.com/title/tt11280740"
   },
   {
     "name": "Lessons in Chemistry",
