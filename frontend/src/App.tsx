@@ -66,7 +66,7 @@ export function App() {
           <Route path="/hidden/memes" element={<MemesPage />}>
             <Route path=":id" element={<MemesPage />} />
           </Route>
-          <Route path="/hidden/instagram" element={<InstagramsPage />}>
+          <Route path="/hidden/instagrams" element={<InstagramsPage />}>
             <Route path=":id" element={<InstagramsPage />} />
           </Route>
 
