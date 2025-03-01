@@ -19,11 +19,11 @@ export function HiddenPage() {
               Media
             </div>
             <Link
-              to="/hidden/instagram"
+              to="/hidden/instagrams"
               className="block font-raleway text-text-1"
             >
               <div className="inline-block border-b border-background px-2 pt-2 transition-all hover:border-accent">
-                Instagram
+                Instagrams
               </div>
             </Link>
             <Link to="/hidden/memes" className="block font-raleway text-text-1">
