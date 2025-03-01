@@ -18,6 +18,14 @@ export function HiddenPage() {
             <div className="inline-block pt-2 font-noto text-lg text-text-3 transition-all">
               Media
             </div>
+            <Link
+              to="/hidden/instagram"
+              className="block font-raleway text-text-1"
+            >
+              <div className="inline-block border-b border-background px-2 pt-2 transition-all hover:border-accent">
+                Instagram
+              </div>
+            </Link>
             <Link to="/hidden/memes" className="block font-raleway text-text-1">
               <div className="inline-block border-b border-background px-2 pt-2 transition-all hover:border-accent">
                 Memes

@@ -175,3 +175,45 @@ def post_media_memes(request: PostMediaMemesRequest) -> JSONResponse:
         results = results[:max_results]
 
     return JSONResponse({"query": request.query, "results": results})
+
+
+class PostMediaInstagramsRequest(BaseModel):
+    query: str
+    id: Optional[str]
+
+
+@router.post(path="/media/instagrams")
+@logging_utilities.log_context("post_media_instagrams", tag="api")
+def post_media_instagrams(request: PostMediaInstagramsRequest) -> JSONResponse:
+    max_results = 25
+
+    query = request.query
+    instagrams = fetch_dataset_json(Datasets.INSTAGRAMS)
+
+    if request.id is not None:
+        results = [tiktok for tiktok in instagrams if tiktok["id"] == request.id]
+        return JSONResponse({"query": query, "results": results})
+
+    if query == "":
+        results = [tiktok for tiktok in instagrams if tiktok["favorite"]]
+        return JSONResponse({"query": query, "results": results})
+
+    query_tokens = [token.lower() for token in query.lower().split(" ")]
+
+    scores = []
+    for tiktok in instagrams:
+        tags = [tag.lower() for tag in tiktok["tags"]]
+        score = 0
+        for token in query_tokens:
+            if token in tags:
+                score += 1
+        if tiktok["creator"] is not None and tiktok["creator"].lower() == query.lower():
+            score += 10
+        scores.append((tiktok, score))
+    sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True)
+    results = [tiktok for tiktok, score in sorted_scores if score > 0]
+
+    if len(results) > max_results:
+        results = results[:max_results]
+
+    return JSONResponse({"query": request.query, "results": results})

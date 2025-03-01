@@ -12,6 +12,7 @@ class Datasets:
     BOOKS = DatasetInfo("Books", "media/books.json")
     TIKTOKS = DatasetInfo("Tiktoks", "media/tiktoks.json")
     MEMES = DatasetInfo("Memes", "media/memes.json")
+    INSTAGRAMS = DatasetInfo("Instagrams", "media/instagrams.json")
     CYCLING_ROUTES = DatasetInfo("Cycling Routes", "outdoor/cycling-routes.json")
     HIKING_ROUTES = DatasetInfo("Hiking Routes", "outdoor/hiking-routes.json")
     RUNNING_ROUTES = DatasetInfo("Running Routes", "outdoor/running-routes.json")

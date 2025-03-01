@@ -58,6 +58,14 @@ export interface Tiktok {
   favorite: boolean;
 }
 
+export interface Instagram {
+  id: string;
+  url: string;
+  tags: string[];
+  creator?: string;
+  favorite: boolean;
+}
+
 export interface Meme {
   id: string;
   url: string;
