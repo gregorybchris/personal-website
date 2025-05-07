@@ -1,5 +1,5 @@
 import logging
-from typing import Optional
+from typing import Any, Optional
 
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
@@ -23,6 +23,7 @@ def get_media() -> JSONResponse:
     podcasts = fetch_dataset_json(Datasets.PODCASTS)
     tv_shows = fetch_dataset_json(Datasets.TV_SHOWS)
     youtube_channels = fetch_dataset_json(Datasets.YOUTUBE_CHANNELS)
+    youtube_videos = fetch_dataset_json(Datasets.YOUTUBE_VIDEOS)
 
     return JSONResponse(
         {
@@ -30,7 +31,8 @@ def get_media() -> JSONResponse:
             "movies": movies,
             "podcasts": podcasts,
             "tv": tv_shows,
-            "youtube": youtube_channels,
+            "youtube-channels": youtube_channels,
+            "youtube-videos": youtube_videos,
         }
     )
 
@@ -83,9 +85,9 @@ def get_media_tv() -> JSONResponse:
     return JSONResponse(dataset_json)
 
 
-@router.get(path="/media/youtube")
-@logging_utilities.log_context("get_media_youtube", tag="api")
-def get_media_youtube() -> JSONResponse:
+@router.get(path="/media/youtube_channels")
+@logging_utilities.log_context("get_media_youtube_channels", tag="api")
+def get_media_youtube_channels() -> JSONResponse:
     return JSONResponse(fetch_dataset_json(Datasets.YOUTUBE_CHANNELS))
 
 
@@ -95,125 +97,67 @@ def get_media_books() -> JSONResponse:
     return JSONResponse(fetch_dataset_json(Datasets.BOOKS))
 
 
-class PostMediaTikToksRequest(BaseModel):
+class PostMediaRequest(BaseModel):
     query: str
     id: Optional[str]
 
 
 @router.post(path="/media/tiktoks")
 @logging_utilities.log_context("post_media_tiktoks", tag="api")
-def post_media_tiktoks(request: PostMediaTikToksRequest) -> JSONResponse:
-    max_results = 25
-
-    query = request.query
+def post_media_tiktoks(request: PostMediaRequest) -> JSONResponse:
     tiktoks = fetch_dataset_json(Datasets.TIKTOKS)
-
-    if request.id is not None:
-        results = [tiktok for tiktok in tiktoks if tiktok["id"] == request.id]
-        return JSONResponse({"query": query, "results": results})
-
-    if query == "":
-        results = [tiktok for tiktok in tiktoks if tiktok["favorite"]]
-        return JSONResponse({"query": query, "results": results})
-
-    query_tokens = [token.lower() for token in query.lower().split(" ")]
-
-    scores = []
-    for tiktok in tiktoks:
-        tags = [tag.lower() for tag in tiktok["tags"]]
-        score = 0
-        for token in query_tokens:
-            if token in tags:
-                score += 1
-        if tiktok["creator"] is not None and tiktok["creator"].lower() == query.lower():
-            score += 10
-        scores.append((tiktok, score))
-    sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True)
-    results = [tiktok for tiktok, score in sorted_scores if score > 0]
-
-    if len(results) > max_results:
-        results = results[:max_results]
-
-    return JSONResponse({"query": request.query, "results": results})
-
-
-class PostMediaMemesRequest(BaseModel):
-    query: str
-    id: Optional[str]
+    return media_search(id=request.id, query=request.query, items=tiktoks)
 
 
 @router.post(path="/media/memes")
 @logging_utilities.log_context("post_media_memes", tag="api")
-def post_media_memes(request: PostMediaMemesRequest) -> JSONResponse:
-    max_results = 25
-
-    query = request.query
+def post_media_memes(request: PostMediaRequest) -> JSONResponse:
     memes = fetch_dataset_json(Datasets.MEMES)
-
-    if request.id is not None:
-        results = [meme for meme in memes if meme["id"] == request.id]
-        return JSONResponse({"query": query, "results": results})
-
-    if query == "":
-        results = [meme for meme in memes if meme["favorite"]]
-        return JSONResponse({"query": query, "results": results})
-
-    query_tokens = [token.lower() for token in query.lower().split(" ")]
-
-    scores = []
-    for meme in memes:
-        tags = [tag.lower() for tag in meme["tags"]]
-        score = 0
-        for token in query_tokens:
-            if token in tags:
-                score += 1
-        scores.append((meme, score))
-    sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True)
-    results = [meme for meme, score in sorted_scores if score > 0]
-
-    if len(results) > max_results:
-        results = results[:max_results]
-
-    return JSONResponse({"query": request.query, "results": results})
-
-
-class PostMediaInstagramsRequest(BaseModel):
-    query: str
-    id: Optional[str]
+    return media_search(id=request.id, query=request.query, items=memes)
 
 
 @router.post(path="/media/instagrams")
 @logging_utilities.log_context("post_media_instagrams", tag="api")
-def post_media_instagrams(request: PostMediaInstagramsRequest) -> JSONResponse:
-    max_results = 25
-
-    query = request.query
+def post_media_instagrams(request: PostMediaRequest) -> JSONResponse:
     instagrams = fetch_dataset_json(Datasets.INSTAGRAMS)
+    return media_search(id=request.id, query=request.query, items=instagrams)
 
-    if request.id is not None:
-        results = [tiktok for tiktok in instagrams if tiktok["id"] == request.id]
+
+@router.post(path="/media/youtube_videos")
+@logging_utilities.log_context("post_media_youtube_videos", tag="api")
+def post_media_youtube_videos(request: PostMediaRequest) -> JSONResponse:
+    youtube_videos = fetch_dataset_json(Datasets.YOUTUBE_VIDEOS)
+    return media_search(id=request.id, query=request.query, items=youtube_videos)
+
+
+def media_search(
+    id: Optional[str],  # noqa: A002
+    query: str,
+    items: Any,
+    max_results: int = 25,
+) -> JSONResponse:
+    if id is not None:
+        results = [item for item in items if item["id"] == id]
         return JSONResponse({"query": query, "results": results})
 
     if query == "":
-        results = [tiktok for tiktok in instagrams if tiktok["favorite"]]
+        results = [item for item in items if item["favorite"]]
         return JSONResponse({"query": query, "results": results})
 
     query_tokens = [token.lower() for token in query.lower().split(" ")]
 
     scores = []
-    for tiktok in instagrams:
-        tags = [tag.lower() for tag in tiktok["tags"]]
+    for item in items:
+        tags = [tag.lower() for tag in item["tags"]]
         score = 0
         for token in query_tokens:
             if token in tags:
                 score += 1
-        if tiktok["creator"] is not None and tiktok["creator"].lower() == query.lower():
-            score += 10
-        scores.append((tiktok, score))
+        scores.append((item, score))
     sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True)
-    results = [tiktok for tiktok, score in sorted_scores if score > 0]
+    results = [item for item, score in sorted_scores if score > 0]
 
     if len(results) > max_results:
         results = results[:max_results]
 
-    return JSONResponse({"query": request.query, "results": results})
+    return JSONResponse({"query": query, "results": results})

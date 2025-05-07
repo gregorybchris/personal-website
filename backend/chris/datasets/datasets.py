@@ -9,6 +9,7 @@ class Datasets:
     PODCASTS = DatasetInfo("Podcasts", "media/podcasts.json")
     TV_SHOWS = DatasetInfo("TV Shows", "media/tv-shows.json")
     YOUTUBE_CHANNELS = DatasetInfo("YouTube Channels", "media/youtube-channels.json")
+    YOUTUBE_VIDEOS = DatasetInfo("YouTube Videos", "media/youtube-videos.json")
     BOOKS = DatasetInfo("Books", "media/books.json")
     TIKTOKS = DatasetInfo("Tiktoks", "media/tiktoks.json")
     MEMES = DatasetInfo("Memes", "media/memes.json")

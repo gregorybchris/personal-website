@@ -74,3 +74,11 @@ export interface Meme {
   format: string;
   era: string;
 }
+
+export interface YouTubeVideo {
+  id: string;
+  url: string;
+  tags: string[];
+  creator?: string;
+  favorite: boolean;
+}

@@ -61,11 +61,19 @@ export function HiddenPage() {
               </div>
             </Link>
             <Link
-              to="/hidden/channels"
+              to="/hidden/youtube-channels"
               className="block font-raleway text-text-1"
             >
               <div className="inline-block border-b border-background px-2 pt-2 transition-all hover:border-accent">
                 YouTube Channels
+              </div>
+            </Link>
+            <Link
+              to="/hidden/youtube-videos"
+              className="block font-raleway text-text-1"
+            >
+              <div className="inline-block border-b border-background px-2 pt-2 transition-all hover:border-accent">
+                YouTube Videos
               </div>
             </Link>
           </div>

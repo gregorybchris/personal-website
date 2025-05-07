@@ -25,6 +25,7 @@ import { TiktoksPage } from "./pages/TiktoksPage";
 import { TvShowsPage } from "./pages/TvShowsPage";
 import { WatermarkPage } from "./pages/WatermarkPage";
 import { YouTubeChannelsPage } from "./pages/YouTubeChannelsPage";
+import { YouTubeVideosPage } from "./pages/YouTubeVideosPage";
 
 export function App() {
   return (
@@ -53,7 +54,14 @@ export function App() {
           <Route path="/hidden/places" element={<PlacesPage />} />
           <Route path="/hidden/archive" element={<ArchivePage />} />
           <Route path="/hidden/shows" element={<TvShowsPage />} />
-          <Route path="/hidden/channels" element={<YouTubeChannelsPage />} />
+          <Route
+            path="/hidden/youtube-channels"
+            element={<YouTubeChannelsPage />}
+          />
+          <Route
+            path="/hidden/youtube-videos"
+            element={<YouTubeVideosPage />}
+          />
           <Route path="/hidden/movies" element={<MoviesPage />} />
           <Route path="/hidden/podcasts" element={<PodcastsPage />} />
           <Route path="/hidden/recipes" element={<RecipesPage />} />

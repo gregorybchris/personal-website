@@ -11,7 +11,7 @@ export function YouTubeChannelsPage() {
   const [channels, setChannels] = useState<YouTubeChannel[]>([]);
 
   useEffect(() => {
-    const channelsQuery = makeQuery("media/youtube");
+    const channelsQuery = makeQuery("media/youtube_channels");
     GET(channelsQuery).then((queryResult) => {
       setChannels(queryResult);
     });
