@@ -1,4 +1,5 @@
 import logging
+import random
 from typing import Any, Optional
 
 from fastapi import APIRouter
@@ -143,6 +144,10 @@ def media_search(
     if query == "":
         results = [item for item in items if item["favorite"]]
         return JSONResponse({"query": query, "results": results})
+
+    if query == "!":
+        random_items = random.sample(items, min(len(items), max_results))
+        return JSONResponse({"query": query, "results": random_items})
 
     query_tokens = [token.lower() for token in query.lower().split(" ")]
 
