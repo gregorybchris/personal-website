@@ -113,7 +113,12 @@ export function YouTubeVideo({
 
       <div className="flex flex-row flex-wrap justify-center space-x-2">
         {youtubeVideo.tags.map((tag) => (
-          <Tag key={tag} tag={tag} active={false} onClick={() => {}} />
+          <Tag
+            key={tag}
+            tag={tag}
+            active={false}
+            onClick={() => updateQuery(tag)}
+          />
         ))}
       </div>
 
