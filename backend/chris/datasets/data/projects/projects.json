@@ -1859,5 +1859,63 @@
     "image_links": [],
     "primary_language": "Python",
     "archived": false
+  },
+  {
+    "project_id": "968cd978-1d22-4e94-827d-a38098e15020",
+    "name": "TrueScore",
+    "slug": "truescore",
+    "date": "2025-04-13",
+    "rating": 5,
+    "project_type": "program",
+    "controls": null,
+    "short_description": "Gaussian belief propagation for marketplace optimization.",
+    "description": "TrueScore considers how users rate items in an online marketplace and provides a measure of rater reliability using Gaussian belief propagation. The model jointly learns to estimate item quality and user reliability from data, putting less weight on ratings from users determined to be less reliable. As rater reliability changes, so do item quality estimates, hence the \"propagation\" in Gaussian belief propagation.",
+    "remarks": null,
+    "tags": [
+      "online",
+      "marketplace",
+      "reliability",
+      "trust",
+      "network",
+      "reputation",
+      "rating",
+      "score",
+      "product",
+      "item",
+      "user"
+    ],
+    "tools": ["Python", "uv", "Ruff", "pytest", "Typer", "FastAPI", "SQLModel", "rich"],
+    "source_link": "https://github.com/gregorybchris/truescore",
+    "download_link": null,
+    "web_link": null,
+    "original_link": null,
+    "image_links": ["https://storage.googleapis.com/cgme/projects/images/truescore--loss-curve.png"],
+    "primary_language": "Python",
+    "archived": false
+  },
+  {
+    "project_id": "ae7deb06-81f4-4826-a6ac-91d730b41868",
+    "name": "MNIST NCA",
+    "slug": "mnist-nca",
+    "date": "2025-05-21",
+    "rating": 7,
+    "project_type": "program",
+    "controls": null,
+    "short_description": "Self-classifying MNIST Digits.",
+    "description": "A PyTorch implementation of \"Self-classifying MNIST Digits: Achieving Distributed Coordination with Neural Cellular Automata\" (2020) by Randazzo, Mordvintsev, Niklasson, Levin, and Greydanus.",
+    "remarks": null,
+    "tags": ["self", "classifying", "digits", "mnist", "neural", "cellular", "automata"],
+    "tools": ["Python", "uv", "Ruff", "pytest", "Typer", "PyTorch", "rich", "Pillow", "OpenCV", "matplotlib"],
+    "source_link": "https://github.com/gregorybchris/mnist-nca",
+    "download_link": null,
+    "web_link": null,
+    "original_link": "https://distill.pub/2020/selforg/mnist",
+    "image_links": [
+      "https://storage.googleapis.com/cgme/projects/images/mnist-nca--mutations.gif",
+      "https://storage.googleapis.com/cgme/projects/images/mnist-nca--d5.gif",
+      "https://storage.googleapis.com/cgme/projects/images/mnist-nca--loss-history.png"
+    ],
+    "primary_language": "Python",
+    "archived": false
   }
 ]
