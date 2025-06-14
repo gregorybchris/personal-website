@@ -1679,7 +1679,7 @@
     "description": "Implementation of the artificial evolutionary system described in Douglas Hofstadter's \"Gödel, Escher, Bach\". Strands of bases are translated into sequences of amino acids. Amino acids are mapped to instructions. Instructions are applied to strands to produce new strands. This tangled hierarchy has the potential to enable the evolution of self-replicating enzymes. I implemented this project in Python and then used ChatGPT to convert it into Rust.",
     "remarks": null,
     "tags": ["genetics", "biology", "complexity", "simulation", "life", "hofstadter", "hierarchy", "strange", "loop"],
-    "tools": ["Python", "Poetry", "click", "black", "pylint", "pytest"],
+    "tools": ["Python", "uv", "Typer", "ruff", "pytest", "rich", "GitHub Actions"],
     "source_link": "https://github.com/gregorybchris/typogenetics",
     "download_link": null,
     "web_link": null,
