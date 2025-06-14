@@ -1639,7 +1639,9 @@
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/engineroom--01.jpg",
       "https://storage.googleapis.com/cgme/projects/images/engineroom--02.jpg",
-      "https://storage.googleapis.com/cgme/projects/images/engineroom--03.jpg"
+      "https://storage.googleapis.com/cgme/projects/images/engineroom--03.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/engineroom--04.jpg",
+      "https://storage.googleapis.com/cgme/projects/images/engineroom--optimize.png"
     ],
     "primary_language": "TypeScript",
     "archived": false
@@ -1856,7 +1858,7 @@
     "download_link": null,
     "web_link": null,
     "original_link": null,
-    "image_links": [],
+    "image_links": ["https://storage.googleapis.com/cgme/projects/images/myxa--package.png"],
     "primary_language": "Python",
     "archived": false
   },
