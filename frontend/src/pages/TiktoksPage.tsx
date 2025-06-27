@@ -68,8 +68,8 @@ export function TiktoksPage() {
                 <Tiktok
                   key={tiktok.id}
                   tiktok={tiktok}
-                  className="w-full max-w-[90%] md:max-w-72"
                   updateQuery={updateQuery}
+                  className="w-full max-w-[90%] md:max-w-72"
                 />
               ))}
             </div>
@@ -78,8 +78,8 @@ export function TiktoksPage() {
                 <Tiktok
                   key={tiktok.id}
                   tiktok={tiktok}
-                  className="w-full max-w-[90%] md:max-w-72"
                   updateQuery={updateQuery}
+                  className="w-full max-w-[90%] md:max-w-72"
                 />
               ))}
             </div>
@@ -90,13 +90,13 @@ export function TiktoksPage() {
   );
 }
 
-interface TikToksProps {
+interface TikTokProps {
   tiktok: TiktokModel;
-  className?: string;
   updateQuery: (query: string) => void;
+  className?: string;
 }
 
-export function Tiktok({ tiktok, className, updateQuery }: TikToksProps) {
+export function Tiktok({ tiktok, updateQuery, className }: TikTokProps) {
   let navigate = useNavigate();
 
   const creator = tiktok.creator;

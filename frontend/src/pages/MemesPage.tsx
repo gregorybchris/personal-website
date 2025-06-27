@@ -68,6 +68,7 @@ export function MemesPage() {
                 <Meme
                   key={meme.id}
                   meme={meme}
+                  updateQuery={updateQuery}
                   className="w-full max-w-[90%] md:max-w-72"
                 />
               ))}
@@ -77,6 +78,7 @@ export function MemesPage() {
                 <Meme
                   key={meme.id}
                   meme={meme}
+                  updateQuery={updateQuery}
                   className="w-full max-w-[90%] md:max-w-72"
                 />
               ))}
@@ -90,10 +92,11 @@ export function MemesPage() {
 
 interface MemesProps {
   meme: MemeModel;
+  updateQuery: (query: string) => void;
   className?: string;
 }
 
-export function Meme({ meme, className }: MemesProps) {
+export function Meme({ meme, updateQuery, className }: MemesProps) {
   let navigate = useNavigate();
 
   const isImage = ["gif", "png", "jpg"].includes(meme.format);
@@ -105,7 +108,12 @@ export function Meme({ meme, className }: MemesProps) {
 
       <div className="flex flex-row flex-wrap justify-center space-x-2">
         {meme.tags.map((tag) => (
-          <Tag key={tag} tag={tag} active={false} onClick={() => {}} />
+          <Tag
+            key={tag}
+            tag={tag}
+            active={false}
+            onClick={() => updateQuery(tag)}
+          />
         ))}
       </div>
 

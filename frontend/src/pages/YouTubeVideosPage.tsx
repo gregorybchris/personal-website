@@ -70,8 +70,8 @@ export function YouTubeVideosPage() {
                 <YouTubeVideo
                   key={youtubeVideo.id}
                   youtubeVideo={youtubeVideo}
-                  className="w-full max-w-[90%] md:max-w-72"
                   updateQuery={updateQuery}
+                  className="w-full max-w-[90%] md:max-w-72"
                 />
               ))}
             </div>
@@ -80,8 +80,8 @@ export function YouTubeVideosPage() {
                 <YouTubeVideo
                   key={youtubeVideo.id}
                   youtubeVideo={youtubeVideo}
-                  className="w-full max-w-[90%] md:max-w-72"
                   updateQuery={updateQuery}
+                  className="w-full max-w-[90%] md:max-w-72"
                 />
               ))}
             </div>
@@ -92,17 +92,17 @@ export function YouTubeVideosPage() {
   );
 }
 
-interface YouTubeVideosProps {
+interface YouTubeVideoProps {
   youtubeVideo: YouTubeVideoModel;
-  className?: string;
   updateQuery: (query: string) => void;
+  className?: string;
 }
 
 export function YouTubeVideo({
   youtubeVideo,
-  className,
   updateQuery,
-}: YouTubeVideosProps) {
+  className,
+}: YouTubeVideoProps) {
   let navigate = useNavigate();
 
   const creator = youtubeVideo.creator;

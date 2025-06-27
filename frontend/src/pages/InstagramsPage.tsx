@@ -70,8 +70,8 @@ export function InstagramsPage() {
                 <Instagram
                   key={instagram.id}
                   instagram={instagram}
-                  className="w-full max-w-[90%] md:max-w-72"
                   updateQuery={updateQuery}
+                  className="w-full max-w-[90%] md:max-w-72"
                 />
               ))}
             </div>
@@ -80,8 +80,8 @@ export function InstagramsPage() {
                 <Instagram
                   key={instagram.id}
                   instagram={instagram}
-                  className="w-full max-w-[90%] md:max-w-72"
                   updateQuery={updateQuery}
+                  className="w-full max-w-[90%] md:max-w-72"
                 />
               ))}
             </div>
@@ -92,17 +92,17 @@ export function InstagramsPage() {
   );
 }
 
-interface InstagramsProps {
+interface InstagramProps {
   instagram: InstagramModel;
-  className?: string;
   updateQuery: (query: string) => void;
+  className?: string;
 }
 
 export function Instagram({
   instagram,
-  className,
   updateQuery,
-}: InstagramsProps) {
+  className,
+}: InstagramProps) {
   let navigate = useNavigate();
 
   const creator = instagram.creator;
