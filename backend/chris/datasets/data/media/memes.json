@@ -782,5 +782,13 @@
     "favorite": true,
     "format": "jpg",
     "era": "hume"
+  },
+  {
+    "id": "d501491b-4edf-4c6c-9dab-00a479c270a1.png",
+    "url": "https://storage.googleapis.com/cgme/memes/d501491b-4edf-4c6c-9dab-00a479c270a1.png",
+    "tags": ["goodnight", "moon", "lil", "bitch"],
+    "favorite": true,
+    "format": "png",
+    "era": "college"
   }
 ]
