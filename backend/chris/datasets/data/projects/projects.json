@@ -830,27 +830,6 @@
     "archived": false
   },
   {
-    "project_id": "e89fd7e7-8ebe-47d4-8183-cb5389a4c4a2",
-    "name": "Zhed Solver",
-    "slug": "zhed-solver",
-    "date": "2017-11-01",
-    "rating": 1,
-    "project_type": "program",
-    "controls": null,
-    "short_description": "Solver for the mobile puzzle game Zhed.",
-    "description": "Zhed is a puzzle app for iPhone and Android. The goal, roughly, is to extend bridges in the correct order and direction to reach a goal location. This program is a solver for Zhed levels. The creator of Zhed was so thoughtful about how levels progress. Each level gets just slightly harder and every few levels you're guided to a new insight that helps you solve all levels more efficiently. The game gives you a feeling of discovery that is rare to find in a game with such a simple interface.",
-    "remarks": null,
-    "tags": ["solver", "puzzle"],
-    "tools": ["Haskell"],
-    "source_link": "https://github.com/gregorybchris/solvers",
-    "download_link": null,
-    "web_link": null,
-    "original_link": "https://apps.apple.com/us/app/zhed/id1209524498",
-    "image_links": [],
-    "primary_language": "Haskell",
-    "archived": false
-  },
-  {
     "project_id": "f29f70a5-7f33-4580-b734-097ca1cf8143",
     "name": "Half-Plane",
     "slug": "half-plane",
@@ -1917,6 +1896,27 @@
       "https://storage.googleapis.com/cgme/projects/images/mnist-nca--d5.gif",
       "https://storage.googleapis.com/cgme/projects/images/mnist-nca--loss-history.png"
     ],
+    "primary_language": "Python",
+    "archived": false
+  },
+  {
+    "project_id": "e89fd7e7-8ebe-47d4-8183-cb5389a4c4a2",
+    "name": "Zhed",
+    "slug": "zhed",
+    "date": "2025-07-25",
+    "rating": 2,
+    "project_type": "program",
+    "controls": null,
+    "short_description": "Solver for the mobile puzzle game Zhed.",
+    "description": "Zhed is a puzzle game for iPhone and Android. The object of the game is to determine the correct order of moves to cover a goal location on a grid of tiles. The creator of Zhed was very thoughtful about how levels progress. Each level gets just slightly harder and every few levels you're guided to a new insight that helps you solve all levels more efficiently. The game gives you a feeling of discovery that is rare to find in a game with such a simple interface.",
+    "remarks": null,
+    "tags": ["solver", "puzzle"],
+    "tools": ["Python", "uv", "Ruff", "pytest", "Typer", "rich", "pyyaml", "ThreadPoolExecutor"],
+    "source_link": "https://github.com/gregorybchris/zhed",
+    "download_link": null,
+    "web_link": null,
+    "original_link": "https://play.google.com/store/apps/details?id=com.groundcontrol.zhed",
+    "image_links": ["https://storage.googleapis.com/cgme/projects/images/zhed--benchmark.gif"],
     "primary_language": "Python",
     "archived": false
   }
