@@ -155,7 +155,7 @@
   },
   {
     "name": "Interstellar",
-    "genres": ["scifi"],
+    "genres": ["scifi", "drama"],
     "scores": {
       "plot": 9,
       "characters": 7,

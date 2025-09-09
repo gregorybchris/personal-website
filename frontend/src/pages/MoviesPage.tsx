@@ -4,12 +4,14 @@ import "../styles/radar.css";
 import { useEffect, useState } from "react";
 import { GET, makeQuery } from "../utilities/requestUtilities";
 
+import { Link } from "react-router-dom";
 import { RatingRadar } from "../components/RatingRadar";
+import { Tag } from "../components/Tag";
 import { Movie } from "../models/mediaModels";
-import { SimpleLink } from "../widgets/SimpleLink";
 
 export function MoviesPage() {
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [currentGenre, setCurrentGenre] = useState<string | null>(null);
 
   useEffect(() => {
     const moviesQuery = makeQuery("media/movies");
@@ -17,6 +19,14 @@ export function MoviesPage() {
       setMovies(queryResult);
     });
   }, []);
+
+  function onClickGenre(genre: string) {
+    if (currentGenre === genre) {
+      setCurrentGenre(null);
+    } else {
+      setCurrentGenre(genre);
+    }
+  }
 
   return (
     <div>
@@ -27,29 +37,60 @@ export function MoviesPage() {
         <div className="py-3 font-raleway text-text-1">Some great movies!</div>
       </div>
 
-      {movies.length == 0 && <div>Loading movies...</div>}
+      {movies.length == 0 && (
+        <div className="text-center font-raleway">Loading movies...</div>
+      )}
       {movies.length > 0 && (
         <div className="flex flex-col items-center">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
-            {movies.map((movie) => (
-              <div className="w-[300px] p-6 text-center" key={movie.name}>
-                <div className="mb-10 w-full text-center">
-                  <SimpleLink link={movie.link}>
-                    <div className="font-noto font-bold">{movie.name}</div>
+            {movies
+              .filter(
+                (movie) => !currentGenre || movie.genres.includes(currentGenre),
+              )
+              .map((movie) => (
+                <div
+                  className="flex w-[300px] flex-col gap-1 p-6 text-center"
+                  key={movie.name}
+                >
+                  <Link
+                    to={movie.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-lg px-1 py-4 hover:bg-black/5"
+                  >
+                    <div className="flex flex-col items-center gap-3 text-center">
+                      <div className="font-noto font-bold text-accent">
+                        {movie.name}
+                      </div>
 
-                    {movie.poster_url && (
-                      <img
-                        src={movie.poster_url}
-                        alt={movie.name}
-                        className="mt-2 inline-block w-40 rounded-md"
+                      {movie.poster_url && (
+                        <img
+                          src={movie.poster_url}
+                          alt={movie.name}
+                          className="inline-block w-40 rounded-md"
+                        />
+                      )}
+                    </div>
+                  </Link>
+
+                  <div className="flex flex-row justify-center gap-3">
+                    {movie.genres.map((genre) => (
+                      <Tag
+                        key={genre}
+                        tag={genre}
+                        onClick={onClickGenre}
+                        active={currentGenre === genre}
                       />
-                    )}
-                  </SimpleLink>
-                </div>
+                    ))}
+                  </div>
 
-                <RatingRadar scores={new Map(Object.entries(movie.scores))} />
-              </div>
-            ))}
+                  <div className="mb-6 mt-8">
+                    <RatingRadar
+                      scores={new Map(Object.entries(movie.scores))}
+                    />
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
       )}
