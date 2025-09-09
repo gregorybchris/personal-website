@@ -1,7 +1,7 @@
 [
   {
     "name": "Community",
-    "genre": "comedy",
+    "genres": ["comedy", "sitcom"],
     "scores": {
       "plot": 8,
       "characters": 10,
@@ -12,7 +12,7 @@
   },
   {
     "name": "Westworld",
-    "genre": "drama",
+    "genres": ["drama", "scifi"],
     "scores": {
       "plot": 9,
       "characters": 7,
@@ -23,7 +23,7 @@
   },
   {
     "name": "House",
-    "genre": "drama",
+    "genres": ["drama"],
     "scores": {
       "plot": 9,
       "characters": 9,
@@ -34,7 +34,7 @@
   },
   {
     "name": "Halt and Catch Fire",
-    "genre": "drama",
+    "genres": ["drama"],
     "scores": {
       "plot": 8,
       "characters": 7,
@@ -45,7 +45,7 @@
   },
   {
     "name": "Black Mirror",
-    "genre": "drama",
+    "genres": ["drama", "scifi", "horror"],
     "scores": {
       "plot": 10,
       "characters": 1,
@@ -56,10 +56,10 @@
   },
   {
     "name": "Sherlock",
-    "genre": "drama",
+    "genres": ["drama", "mystery"],
     "scores": {
       "plot": 9,
-      "characters": 5,
+      "characters": 6,
       "production": 8,
       "dialog": 8
     },
@@ -67,7 +67,7 @@
   },
   {
     "name": "Normal People",
-    "genre": "drama",
+    "genres": ["drama", "romance"],
     "scores": {
       "plot": 5,
       "characters": 7,
@@ -78,7 +78,7 @@
   },
   {
     "name": "The Last of Us",
-    "genre": "thriller",
+    "genres": ["action", "drama"],
     "scores": {
       "plot": 8,
       "characters": 8,
@@ -89,7 +89,7 @@
   },
   {
     "name": "I Think You Should Leave",
-    "genre": "comedy",
+    "genres": ["comedy"],
     "scores": {
       "plot": 1,
       "characters": 2,
@@ -100,7 +100,7 @@
   },
   {
     "name": "Severance",
-    "genre": "drama",
+    "genres": ["drama", "comedy"],
     "scores": {
       "plot": 8,
       "characters": 8,
@@ -111,7 +111,7 @@
   },
   {
     "name": "The Bear",
-    "genre": "drama",
+    "genres": ["drama"],
     "scores": {
       "plot": 7,
       "characters": 8,
@@ -122,7 +122,7 @@
   },
   {
     "name": "Silo",
-    "genre": "drama",
+    "genres": ["drama", "scifi"],
     "scores": {
       "plot": 9,
       "characters": 6,
@@ -133,7 +133,7 @@
   },
   {
     "name": "How I Met Your Mother",
-    "genre": "sitcom",
+    "genres": ["sitcom", "comedy"],
     "scores": {
       "plot": 5,
       "characters": 9,
@@ -144,7 +144,7 @@
   },
   {
     "name": "Rick and Morty",
-    "genre": "comedy",
+    "genres": ["comedy"],
     "scores": {
       "plot": 8,
       "characters": 4,
@@ -155,7 +155,7 @@
   },
   {
     "name": "Lessons in Chemistry",
-    "genre": "drama",
+    "genres": ["drama"],
     "scores": {
       "plot": 7,
       "characters": 7,
@@ -166,18 +166,18 @@
   },
   {
     "name": "Parks and Recreation",
-    "genre": "comedy",
+    "genres": ["comedy", "sitcom"],
     "scores": {
       "plot": 4,
       "characters": 9,
       "production": 5,
-      "dialog": 6
+      "dialog": 7
     },
     "link": "https://www.imdb.com/title/tt1266020"
   },
   {
     "name": "Dark",
-    "genre": "drama",
+    "genres": ["drama", "scifi"],
     "scores": {
       "plot": 10,
       "characters": 5,
@@ -188,7 +188,7 @@
   },
   {
     "name": "Portlandia",
-    "genre": "comedy",
+    "genres": ["comedy"],
     "scores": {
       "plot": 3,
       "characters": 2,
@@ -199,7 +199,7 @@
   },
   {
     "name": "The Queen's Gambit",
-    "genre": "drama",
+    "genres": ["drama"],
     "scores": {
       "plot": 6,
       "characters": 7,
@@ -210,7 +210,7 @@
   },
   {
     "name": "Foundation",
-    "genre": "drama",
+    "genres": ["drama", "scifi"],
     "scores": {
       "plot": 8,
       "characters": 5,
@@ -221,7 +221,7 @@
   },
   {
     "name": "Silicon Valley",
-    "genre": "comedy",
+    "genres": ["comedy", "sitcom"],
     "scores": {
       "plot": 7,
       "characters": 8,
@@ -231,8 +231,19 @@
     "link": "https://www.imdb.com/title/tt2575988"
   },
   {
+    "name": "Devs",
+    "genres": ["drama", "scifi"],
+    "scores": {
+      "plot": 8,
+      "characters": 5,
+      "production": 4,
+      "dialog": 6
+    },
+    "link": "https://www.imdb.com/title/tt8134186"
+  },
+  {
     "name": "Peaky Blinders",
-    "genre": "drama",
+    "genres": ["drama"],
     "scores": {
       "plot": 7,
       "characters": 6,
@@ -243,7 +254,7 @@
   },
   {
     "name": "Wild Wild Country",
-    "genre": "documentary",
+    "genres": ["documentary"],
     "scores": {
       "plot": 10,
       "characters": 7,

@@ -1,6 +1,6 @@
 export interface TvShow {
   name: string;
-  genre: string;
+  genres: string[];
   scores: {
     plot: number;
     characters: number;
@@ -25,7 +25,7 @@ export interface YouTubeChannel {
 
 export interface Movie {
   name: string;
-  genre: string;
+  genres: string[];
   scores: {
     plot: number;
     characters: number;

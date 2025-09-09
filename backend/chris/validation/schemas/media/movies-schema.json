@@ -15,10 +15,12 @@
             "max_length": 120
           }
         },
-        "genre": {
-          "type": "string",
+        "genres": {
+          "type": "array",
+          "elem": "#genre",
           "cons": {
-            "in": ["drama", "action", "scifi", "historical fiction", "romance", "documentary"]
+            "min_length": 1,
+            "max_length": 3
           }
         },
         "scores": {
@@ -31,6 +33,23 @@
           }
         },
         "link": "#link"
+      }
+    },
+    "#genre": {
+      "type": "string",
+      "cons": {
+        "in": [
+          "action",
+          "comedy",
+          "documentary",
+          "drama",
+          "historical fiction",
+          "horror",
+          "mystery",
+          "romance",
+          "scifi",
+          "sitcom"
+        ]
       }
     },
     "#score": {
