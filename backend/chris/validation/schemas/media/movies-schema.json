@@ -19,8 +19,8 @@
           "type": "array",
           "elem": "#genre",
           "cons": {
-            "min_length": 1,
-            "max_length": 3
+            "min_size": 1,
+            "max_size": 3
           }
         },
         "scores": {

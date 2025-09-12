@@ -19,8 +19,8 @@
           "type": "array",
           "elem": "#genre",
           "cons": {
-            "min_length": 1,
-            "max_length": 3
+            "min_size": 1,
+            "max_size": 3
           }
         },
         "scores": {
@@ -38,7 +38,18 @@
     "#genre": {
       "type": "string",
       "cons": {
-        "in": ["action", "comedy", "documentary", "drama", "historical fiction", "horror", "romance", "scifi", "sitcom"]
+        "in": [
+          "action",
+          "comedy",
+          "documentary",
+          "drama",
+          "historical fiction",
+          "horror",
+          "mystery",
+          "romance",
+          "scifi",
+          "sitcom"
+        ]
       }
     },
     "#score": {
