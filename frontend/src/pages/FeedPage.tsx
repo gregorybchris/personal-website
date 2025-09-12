@@ -7,10 +7,10 @@ import { GET, getSearchParams, makeQuery } from "../utilities/requestUtilities";
 import { ArrowLeft } from "@phosphor-icons/react";
 import { FeedPost } from "../components/FeedPost";
 import { FeedSearchBar } from "../components/FeedSearchBar";
-import { FeedPost as PostModel } from "../models/feedModels";
+import { FeedPost as FeedPostModel } from "../models/feedModels";
 
 export function FeedPage() {
-  const [posts, setPosts] = useState<PostModel[]>([]);
+  const [posts, setPosts] = useState<FeedPostModel[]>([]);
   const [searchText, setSearchText] = useState<string>("");
   const { slug } = useParams();
   let navigate = useNavigate();
@@ -25,7 +25,7 @@ export function FeedPage() {
   }
 
   useEffect(() => {
-    const postsQuery = makeQuery("posts");
+    const postsQuery = makeQuery("feed/posts");
     GET(postsQuery).then((queryResult) => {
       setPosts(queryResult["posts"].reverse());
     });
@@ -44,7 +44,7 @@ export function FeedPage() {
     }
   }
 
-  function isPostVisible(post: PostModel) {
+  function isPostVisible(post: FeedPostModel) {
     const lowerSearchText = searchText.toLowerCase();
 
     if (post.archived) {

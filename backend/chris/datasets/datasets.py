@@ -3,7 +3,7 @@ from chris.datasets.dataset_info import DatasetInfo
 
 class Datasets:
     PODCAST_EPISODES = DatasetInfo("Podcast Episodes", "feed/podcast-episodes.json")
-    POSTS = DatasetInfo("Posts", "feed/posts.json")
+    FEED_POSTS = DatasetInfo("Feed Posts", "feed/posts.json")
     RECIPES = DatasetInfo("Recipes", "cooking/recipes.json")
     MOVIES = DatasetInfo("Movies", "media/movies.json")
     PODCASTS = DatasetInfo("Podcasts", "media/podcasts.json")

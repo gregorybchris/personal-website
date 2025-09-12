@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 router = APIRouter()
 
 
-@router.get(path="/posts")
-@logging_utilities.log_context("get_posts", tag="api")
-def get_posts() -> JSONResponse:
-    return JSONResponse({"posts": fetch_dataset_json(Datasets.POSTS)})
+@router.get(path="/feed/posts")
+@logging_utilities.log_context("get_feed_posts", tag="api")
+def get_feed_posts() -> JSONResponse:
+    return JSONResponse({"posts": fetch_dataset_json(Datasets.FEED_POSTS)})
