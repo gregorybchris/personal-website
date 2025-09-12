@@ -1,4 +1,4 @@
-import "../styles/blog.css";
+import "../styles/feed.css";
 
 import * as d3 from "d3";
 
@@ -6,7 +6,7 @@ import { GET, makeQuery } from "../utilities/requestUtilities";
 
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { Post as PostModel } from "../models/blogModels";
+import { FeedPost as PostModel } from "../models/feedModels";
 import { range } from "../utilities/arrayUtilities";
 
 interface GraphNode {
@@ -26,7 +26,7 @@ interface GraphData {
   links: GraphLink[];
 }
 
-export function BlogGraph() {
+export function FeedGraph() {
   const ref = useRef<SVGSVGElement>(null);
   let navigate = useNavigate();
 
@@ -147,7 +147,7 @@ export function BlogGraph() {
       .data(nodes)
       .enter()
       .append("circle")
-      .classed("blog-graph-node-circle", true)
+      .classed("feed-graph-node-circle", true)
       .attr("r", (node: GraphNode) => {
         const length = node.post.length;
         if (length === null) {
@@ -186,7 +186,7 @@ export function BlogGraph() {
   }
 
   return (
-    <div className="BlogExplore">
+    <div className="FeedExplore">
       <svg className="mx-auto block h-[600px] w-[95%]" ref={ref}></svg>
     </div>
   );

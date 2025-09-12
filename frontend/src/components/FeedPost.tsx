@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
 import { Link as LinkIcon } from "@phosphor-icons/react";
-import { Post as PostModel } from "../models/blogModels";
+import { FeedPost as PostModel } from "../models/feedModels";
 import { formatDate } from "../utilities/datetimeUtilities";
 import { getSearchParams } from "../utilities/requestUtilities";
 import { Tag } from "./Tag";
 
-interface BlogPostProps {
+interface FeedPostProps {
   post: PostModel;
   videoTime: string;
   onClickTag: (tag: string) => void;
@@ -16,13 +16,13 @@ interface BlogPostProps {
 
 const YOUTUBE_SOURCE = "YouTube";
 
-export function BlogPost({
+export function FeedPost({
   post,
   videoTime,
   onClickTag,
   onSelectPost,
   activeTags,
-}: BlogPostProps) {
+}: FeedPostProps) {
   const [contentLink, setContentLink] = useState<string>("");
   const [thumbnailUrl, setThumbnailUrl] = useState<string>("");
 

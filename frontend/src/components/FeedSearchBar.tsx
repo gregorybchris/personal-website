@@ -1,16 +1,16 @@
 import "../styles/common.css";
 
-interface BlogSearchBarProps {
+interface FeedSearchBarProps {
   searchText: string;
   onUpdateSearch: (e: any) => void;
   onClearSearch: () => void;
 }
 
-export function BlogSearchBar({
+export function FeedSearchBar({
   searchText,
   onUpdateSearch,
   onClearSearch,
-}: BlogSearchBarProps) {
+}: FeedSearchBarProps) {
   return (
     <div className="min-w-[340px]">
       <input

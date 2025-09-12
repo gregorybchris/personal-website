@@ -5,11 +5,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { GET, getSearchParams, makeQuery } from "../utilities/requestUtilities";
 
 import { ArrowLeft } from "@phosphor-icons/react";
-import { BlogPost } from "../components/BlogPost";
-import { BlogSearchBar } from "../components/BlogSearchBar";
-import { Post as PostModel } from "../models/blogModels";
+import { FeedPost } from "../components/FeedPost";
+import { FeedSearchBar } from "../components/FeedSearchBar";
+import { FeedPost as PostModel } from "../models/feedModels";
 
-export function BlogPage() {
+export function FeedPage() {
   const [posts, setPosts] = useState<PostModel[]>([]);
   const [searchText, setSearchText] = useState<string>("");
   const { slug } = useParams();
@@ -84,7 +84,7 @@ export function BlogPage() {
     <div className="bg-background pt-8">
       <div className="mx-auto w-[80%] text-center">
         <div className="mb-5 block font-noto text-3xl font-bold text-text-1">
-          Link Blog
+          Link Feed
         </div>
         {!slug && (
           <div className="mx-auto block w-[80%] pb-5 font-raleway text-text-1">
@@ -109,7 +109,7 @@ export function BlogPage() {
         )}
         {!slug && (
           <div className="ml-10">
-            <BlogSearchBar
+            <FeedSearchBar
               onClearSearch={() => setSearchText("")}
               onUpdateSearch={(event) => setSearchText(event.target.value)}
               searchText={searchText}
@@ -123,7 +123,7 @@ export function BlogPage() {
             posts
               .filter(isPostVisible)
               .map((post) => (
-                <BlogPost
+                <FeedPost
                   key={post.post_id}
                   post={post}
                   onClickTag={onClickTag}

@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { BlogGraph } from "./components/BlogGraph";
+import { FeedGraph } from "./components/FeedGraph";
 import Nav from "./components/Nav";
 import { ArchivePage } from "./pages/ArchivePage";
-import { BlogPage } from "./pages/BlogPage";
 import { BooksPage } from "./pages/BooksPage";
 import { CodeProjectsPage } from "./pages/CodeProjectsPage";
 import { ContactPage } from "./pages/ContactPage";
+import { FeedPage } from "./pages/FeedPage";
 import { HiddenPage } from "./pages/HiddenPage";
 import { HomePage } from "./pages/HomePage";
 import { InstagramsPage } from "./pages/InstagramsPage";
@@ -41,8 +41,8 @@ export function App() {
             <Route path=":slug" element={<RunningRoutesPage />} />
           </Route>
           <Route path="/music" element={<MusicPage />} />
-          <Route path="/links" element={<BlogPage />}>
-            <Route path=":slug" element={<BlogPage />} />
+          <Route path="/links" element={<FeedPage />}>
+            <Route path=":slug" element={<FeedPage />} />
           </Route>
           <Route path="/books" element={<BooksPage />} />
           <Route path="/contact" element={<ContactPage />} />
@@ -50,7 +50,7 @@ export function App() {
           <Route path="/hidden" element={<HiddenPage />} />
           <Route path="/hidden/books" element={<BooksPage />} />
           <Route path="/hidden/surveys" element={<SurveysPage />} />
-          <Route path="/hidden/blog-graph" element={<BlogGraph />} />
+          <Route path="/hidden/feed-graph" element={<FeedGraph />} />
           <Route path="/hidden/places" element={<PlacesPage />} />
           <Route path="/hidden/archive" element={<ArchivePage />} />
           <Route path="/hidden/shows" element={<TvShowsPage />} />
