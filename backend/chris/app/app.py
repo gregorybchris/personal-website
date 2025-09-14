@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from chris.app.routes import (
     archive_routes,
+    blog_routes,
     feed_routes,
     info_routes,
     media_routes,
@@ -26,10 +27,11 @@ ALLOWED_ORIGINS = [
 app = FastAPI()
 
 app.include_router(archive_routes.router)
+app.include_router(blog_routes.router)
+app.include_router(feed_routes.router)
 app.include_router(info_routes.router)
 app.include_router(media_routes.router)
 app.include_router(outdoor_routes.router)
-app.include_router(feed_routes.router)
 app.include_router(professional_routes.router)
 app.include_router(project_routes.router)
 app.include_router(recipe_routes.router)

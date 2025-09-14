@@ -88,6 +88,17 @@ export function HiddenPage() {
 
           <div className="py-2">
             <div className="inline-block pt-2 font-noto text-lg text-text-3 transition-all">
+              Blog
+            </div>
+            <Link to="/blog" className="block font-raleway text-text-1">
+              <div className="inline-block border-b border-background px-2 pt-2 transition-all hover:border-accent">
+                Blog
+              </div>
+            </Link>
+          </div>
+
+          <div className="py-2">
+            <div className="inline-block pt-2 font-noto text-lg text-text-3 transition-all">
               Link Feed
             </div>
             <Link to="/links" className="block font-raleway text-text-1">

@@ -4,6 +4,8 @@ import { FeedGraph } from "./components/FeedGraph";
 import Nav from "./components/Nav";
 import { ArchivePage } from "./pages/ArchivePage";
 import { ArtistsPage } from "./pages/ArtistsPage";
+import { BlogPage } from "./pages/BlogPage";
+import { BlogPostPage } from "./pages/BlogPostPage";
 import { BooksPage } from "./pages/BooksPage";
 import { CodeProjectsPage } from "./pages/CodeProjectsPage";
 import { ContactPage } from "./pages/ContactPage";
@@ -45,6 +47,8 @@ export function App() {
           <Route path="/links" element={<FeedPage />}>
             <Route path=":slug" element={<FeedPage />} />
           </Route>
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/books" element={<BooksPage />} />
           <Route path="/contact" element={<ContactPage />} />
 

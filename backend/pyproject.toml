@@ -26,6 +26,7 @@ jsonvl = "^0.5.0"
 pandas = "^2.2.2"
 pydantic = "^2.9.0"
 python = ">=3.12"
+python-frontmatter = "^1.1.0"
 
 [tool.poetry.scripts]
 cgme = "chris.cli.cli:main"
