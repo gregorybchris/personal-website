@@ -1,5 +1,6 @@
 import "../styles/common.css";
 import "../styles/fonts.css";
+import { formatDate } from "../utilities/datetimeUtilities";
 
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -19,22 +20,25 @@ export function BlogPage() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-4 px-10 font-iowa">
+    <div className="flex flex-col items-start gap-4 px-10 font-iowa">
       <div className="text-3xl font-bold">Blog</div>
-      <div className="text-lg">
-        This is my blog where I write about stuff I'm working on.
-      </div>
-      <div className="flex flex-col">
+
+      <table className="table-auto border-separate border-spacing-y-2">
         {posts.map((post) => (
-          <div
+          <tr
             key={post.slug}
-            className="cursor-pointer text-base hover:text-black/30"
+            className="group cursor-pointer"
             onClick={() => navigate(`/blog/${post.slug}`)}
           >
-            • {post.title}
-          </div>
+            <td className="text-black/50">
+              {formatDate(new Date(post.date).toISOString())}
+            </td>
+            <td className="px-3 decoration-black/20 underline-offset-4 group-hover:underline">
+              {post.title}
+            </td>
+          </tr>
         ))}
-      </div>
+      </table>
     </div>
   );
 }

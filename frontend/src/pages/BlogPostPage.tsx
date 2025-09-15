@@ -40,7 +40,7 @@ export function BlogPostPage() {
           </div>
 
           <button
-            className="text-base hover:text-black/30"
+            className="rounded-md px-2 py-1 transition-all hover:bg-black/5"
             onClick={() => navigate("/blog")}
           >
             Back to blog
