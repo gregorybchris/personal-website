@@ -54,7 +54,7 @@ jobs:
       - name: Run pytest
         shell: bash
         run: |
-          uv run pytest tests -n auto --cov=src --cov-report=html --cov-report=xml --cov-branch --log-cli-level=INFO
+          uv run pytest tests --cov=src --cov-report=html --cov-report=xml --cov-branch --log-cli-level=INFO
         working-directory: backend
 
       - name: Upload coverage HTML
