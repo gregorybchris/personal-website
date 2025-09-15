@@ -19,11 +19,11 @@ While I'm not sure why in the world anyone might want to contribute to my person
 Requirements:
 
 - [Python](https://www.python.org)
-- [Poetry](https://python-poetry.org)
+- [uv](https://docs.astral.sh/uv)
 
 ```bash
 cd backend
-poetry install
+uv sync
 fastapi dev chris/app/app.py --reload
 ```
 

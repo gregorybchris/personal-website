@@ -21,49 +21,55 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Python 3.12 Setup
+      - name: Python 3.13 Setup
         uses: actions/setup-python@v2
         with:
-          python-version: "3.12"
+          python-version: "3.13"
 
-      - name: Install Python dependencies
-        run: |
-          pip install poetry
-          if [ -d /poetryenvs ]; then rm -rf ~/poetryenvs; fi
-          poetry config virtualenvs.path ~/poetryenvs
-          poetry install
-        working-directory: backend
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          version: 0.8.17
+          enable-cache: true
+          cache-local-path: ~/.cache/uv
+          cache-dependency-glob: backend/pyproject.toml
 
-      - name: Run ruff check
+      - name: Install package
+        run: uv sync --all-extras --dev
+
+      - name: Run ruff
+        shell: bash
         run: |
-          poetry run ruff check .
-          poetry run ruff format . --check
+          uv run ruff check .
+          uv run ruff format . --check
         working-directory: backend
 
       - name: Run mypy
+        shell: bash
         run: |
-          poetry run mypy chris --config pyproject.toml
-          poetry run mypy tests --config pyproject.toml
+          uv run mypy src --config pyproject.toml
         working-directory: backend
 
       - name: Run pytest
+        shell: bash
         run: |
-          poetry run pytest tests --cov=chris --cov-report=html --cov-report=xml --cov-branch
+          uv run pytest tests -n auto --cov=src --cov-report=html --cov-report=xml --cov-branch --log-cli-level=INFO
         working-directory: backend
 
-      - name: Upload HTML Coverage
+      - name: Upload coverage HTML
         uses: actions/upload-artifact@v4
         with:
-          name: coverage-html
+          name: unit-coverage-html
           path: backend/htmlcov
 
-      - name: Upload XML Coverage
+      - name: Upload coverage XML
         uses: actions/upload-artifact@v4
         with:
-          name: coverage-xml
+          name: unit-coverage-xml
           path: backend/coverage.xml
 
-      - name: Check Coverage
+      - name: Run covcheck
+        shell: bash
         run: |
-          poetry run covcheck coverage.xml --config pyproject.toml
+          uv run covcheck coverage.xml --config pyproject.toml
         working-directory: backend
