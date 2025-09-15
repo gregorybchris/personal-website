@@ -69,7 +69,7 @@ def _results_from_counts(counts: Dict[str, List[List[int]]], survey_map: Dict[st
     for survey_id, survey_counts in counts.items():
         survey = survey_map[survey_id]
         survey_result_questions = []
-        for question_counts, question in zip(survey_counts, survey["questions"]):
+        for question_counts, question in zip(survey_counts, survey["questions"], strict=False):
             question_counts_sum = sum(question_counts)
             question_frequencies = [c / question_counts_sum for c in question_counts]
             question_result_choices = []
