@@ -1,10 +1,12 @@
+import { Question as QuestionModel } from "../models/surveyModels";
+
 import "../styles/common.css";
+import { cn } from "../utilities/styleUtilities";
 
 import React, { useEffect, useState } from "react";
 import { Response, Survey as SurveyModel } from "../models/surveyModels";
 import { GET, POST, makeQuery } from "../utilities/requestUtilities";
 
-import { SurveyQuestion } from "../components/SurveyQuestion";
 import { STORE } from "../utilities/storageUtilities";
 
 export function SurveysPage() {
@@ -165,6 +167,92 @@ export function SurveysPage() {
         </div>
       </div>
       {getSurveyElement()}
+    </div>
+  );
+}
+
+interface QuestionProps {
+  question: QuestionModel;
+  questionNumber: number;
+  onOptionClicked: (questionNumber: number, optionNumber: number) => void;
+  response: Response;
+  updater: boolean;
+}
+
+function SurveyQuestion({
+  question,
+  questionNumber,
+  onOptionClicked,
+  response,
+  updater,
+}: QuestionProps) {
+  const isComplete = response.isQuestionComplete(questionNumber);
+
+  return (
+    <div className="pb-5 pt-3" key={questionNumber}>
+      <div
+        className={cn(
+          "pb-3 -indent-4 font-raleway text-text-1 transition-all",
+          isComplete && "text-text-4",
+        )}
+      >
+        {questionNumber + 1}
+        {". "}
+        {question.text}
+      </div>
+      <div className="Question-options">
+        {question.options.map((optionText: string, optionNumber: number) => (
+          <SurveyQuestionOption
+            key={optionNumber}
+            questionNumber={questionNumber}
+            optionText={optionText}
+            optionNumber={optionNumber}
+            onOptionClicked={onOptionClicked}
+            response={response}
+            updater={updater}
+            questionComplete={isComplete}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+interface SurveyQuestionOptionProps {
+  questionNumber: number;
+  optionText: string;
+  optionNumber: number;
+  onOptionClicked: (questionNumber: number, optionNumber: number) => void;
+  response: Response;
+  updater: boolean;
+  questionComplete: boolean;
+}
+
+function SurveyQuestionOption({
+  questionNumber,
+  optionText,
+  optionNumber,
+  onOptionClicked,
+  response,
+  updater,
+  questionComplete,
+}: SurveyQuestionOptionProps) {
+  const letter = String.fromCharCode("A".charCodeAt(0) + optionNumber);
+  const isChosen = response.isOptionChosen(questionNumber, optionNumber);
+
+  return (
+    <div
+      onClick={() => onOptionClicked(questionNumber, optionNumber)}
+      className={cn(
+        "px-3 py-1 font-raleway text-accent transition-all",
+        isChosen && "bg-background-highlight-light",
+        "active:bg-background-highlight-active",
+        "cursor-pointer hover:bg-background-highlight hover:text-accent-focus",
+        questionComplete && "text-accent-light",
+      )}
+      key={optionNumber}
+    >
+      {letter}&#41; {optionText}
     </div>
   );
 }

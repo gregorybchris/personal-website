@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { FeedGraph } from "./components/FeedGraph";
 import Nav from "./components/Nav";
 import { ArchivePage } from "./pages/ArchivePage";
 import { ArtistsPage } from "./pages/ArtistsPage";
@@ -9,6 +8,7 @@ import { BlogPostPage } from "./pages/BlogPostPage";
 import { BooksPage } from "./pages/BooksPage";
 import { CodeProjectsPage } from "./pages/CodeProjectsPage";
 import { ContactPage } from "./pages/ContactPage";
+import { FeedGraphPage } from "./pages/FeedGraphPage";
 import { FeedPage } from "./pages/FeedPage";
 import { HiddenPage } from "./pages/HiddenPage";
 import { HomePage } from "./pages/HomePage";
@@ -55,7 +55,7 @@ export function App() {
           <Route path="/hidden" element={<HiddenPage />} />
           <Route path="/hidden/books" element={<BooksPage />} />
           <Route path="/hidden/surveys" element={<SurveysPage />} />
-          <Route path="/hidden/feed-graph" element={<FeedGraph />} />
+          <Route path="/hidden/feed-graph" element={<FeedGraphPage />} />
           <Route path="/hidden/places" element={<PlacesPage />} />
           <Route path="/hidden/archive" element={<ArchivePage />} />
           <Route path="/hidden/shows" element={<TvShowsPage />} />

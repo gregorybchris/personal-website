@@ -26,11 +26,11 @@ interface GraphData {
   links: GraphLink[];
 }
 
-export function FeedGraph() {
+export function FeedGraphPage() {
   const ref = useRef<SVGSVGElement>(null);
   let navigate = useNavigate();
 
-  const postsQuery = makeQuery("posts");
+  const postsQuery = makeQuery("feed/posts");
   GET(postsQuery).then((queryResult) => {
     const allPosts: PostModel[] = queryResult["posts"];
     const posts = allPosts.reverse().filter((post) => !post.archived);

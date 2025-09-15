@@ -1,3 +1,4 @@
+import { useMap } from "react-leaflet";
 import "../styles/common.css";
 
 import { useEffect, useState } from "react";
@@ -6,7 +7,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { RouteData, RunningRoute } from "../models/routesModels";
 import { GET, makeQuery } from "../utilities/requestUtilities";
 
-import { RouteMap } from "../components/RouteMap";
 import { SimpleLink } from "../widgets/SimpleLink";
 
 export function RunningRoutesPage() {
@@ -172,4 +172,23 @@ export function RunningRoutesPage() {
       )}
     </div>
   );
+}
+
+interface RouteMapProps {
+  routeData: RouteData;
+}
+
+function RouteMap({ routeData }: RouteMapProps) {
+  const map = useMap();
+
+  useEffect(() => {
+    updateMap();
+  }, [routeData]);
+
+  function updateMap() {
+    let points = routeData.points;
+    map.fitBounds(points.map((p) => [p.latitude, p.longitude]));
+  }
+
+  return <div></div>;
 }
