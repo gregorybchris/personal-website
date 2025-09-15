@@ -106,5 +106,5 @@ max-line-length = 120
 [tool.ruff.lint.extend-per-file-ignores]
 "**/*.py" = ["G004", "EM101", "EM102", "TD002"]
 "**/tests/**/*.py" = ["SLF", "PLR2004", "PT013"]
-"chris/utilities/generate_uuid.py" = ["T201"]
-"chris/validation/validate.py" = ["T201"]
+"src/chris/utilities/generate_uuid.py" = ["T201"]
+"src/chris/validation/validate.py" = ["T201"]
