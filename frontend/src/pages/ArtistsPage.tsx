@@ -65,7 +65,7 @@ export function ArtistsPage() {
         ))}
       </div>
 
-      <div className="grid w-4/5 grid-cols-1 justify-items-center pt-5 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid w-4/5 grid-cols-1 justify-items-center pt-5 md:grid-cols-4 lg:grid-cols-6">
         {artists
           .filter(
             (artist) =>
@@ -102,7 +102,7 @@ export function ArtistCard({
         <a href={artist.link} target="_blank" className="group">
           <img
             src={`${artist.image_link}?a=${timestamp}`}
-            className="w-[300px] rounded-full border-2 border-background-dark transition-all group-hover:border-accent md:w-[250px]"
+            className="w-[300px] rounded-full border-2 border-background-dark transition-all group-hover:border-accent md:max-w-[220px]"
           />
         </a>
       </div>
