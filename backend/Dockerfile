@@ -33,4 +33,4 @@ ENV PATH="/app/.venv/bin:$PATH"
 EXPOSE 8000
 
 # Run with FastAPI CLI
-CMD ["fastapi", "run", "src/fermata/api/app.py", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["fastapi", "run", "src/chris/app/app.py", "--host", "0.0.0.0", "--port", "8000"]
