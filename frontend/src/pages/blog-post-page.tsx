@@ -4,7 +4,7 @@ import "../styles/common.css";
 import "../styles/fonts.css";
 import { formatDate } from "../utilities/datetime-utilities";
 import { GET, makeQuery } from "../utilities/request-utilities";
-import { BlogPost } from "./BlogPage";
+import { BlogPost } from "./blog-page";
 
 export function BlogPostPage() {
   const [currentPost, setCurrentPost] = useState<BlogPost | null>(null);

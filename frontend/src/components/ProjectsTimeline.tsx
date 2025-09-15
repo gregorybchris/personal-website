@@ -2,7 +2,7 @@ import * as d3 from "d3";
 import random, { RNG } from "random";
 import { useEffect, useRef } from "react";
 import seedrandom from "seedrandom";
-import { Project } from "../pages/ProjectsPage";
+import { Project } from "../pages/projects-page";
 import "../styles/projects.css";
 
 class ProjectTypes {

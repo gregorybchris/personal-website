@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/feed.css";
 import { range } from "../utilities/array-utilities";
 import { GET, makeQuery } from "../utilities/request-utilities";
-import { FeedPost } from "./FeedPage";
+import { FeedPost } from "./feed-page";
 
 interface GraphNode {
   id: string;

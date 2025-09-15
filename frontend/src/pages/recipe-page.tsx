@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { formatDuration } from "../utilities/datetime-utilities";
 import { GET, makeQuery } from "../utilities/request-utilities";
-import { Recipe } from "./RecipesPage";
+import { Recipe } from "./recipes-page";
 
 export function RecipePage() {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
