@@ -1,4 +1,4 @@
-import { cn } from "../utilities/styleUtilities";
+import { cn } from "../utilities/style-utilities";
 
 interface SimpleLink {
   link: string;
@@ -13,7 +13,7 @@ export function SimpleLink({
   children,
   className,
 }: SimpleLink) {
-  const target = sameWindow ?? false ? "_self" : "_blank";
+  const target = (sameWindow ?? false) ? "_self" : "_blank";
   return (
     <a
       className={cn(

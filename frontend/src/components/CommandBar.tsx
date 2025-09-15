@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { XCircle } from "@phosphor-icons/react";
 import { Command } from "cmdk";
 import { useNavigate } from "react-router-dom";
-import { cn } from "../utilities/styleUtilities";
+import { cn } from "../utilities/style-utilities";
 
 export function CommandBar() {
   const [open, setOpen] = useState(false);

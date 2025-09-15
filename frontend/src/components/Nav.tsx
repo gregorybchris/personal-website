@@ -1,7 +1,7 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 import { NavLink } from "react-router-dom";
-import { cn } from "../utilities/styleUtilities";
+import { cn } from "../utilities/style-utilities";
 import { CommandBar } from "./CommandBar";
 
 function Nav() {

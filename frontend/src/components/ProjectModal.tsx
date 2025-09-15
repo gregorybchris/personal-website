@@ -8,7 +8,7 @@ import {
 } from "@phosphor-icons/react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Project } from "../pages/ProjectsPage";
-import { formatDate } from "../utilities/datetimeUtilities";
+import { formatDate } from "../utilities/datetime-utilities";
 import { ActionLink } from "./ActionLink";
 import { SimpleLink } from "./SimpleLink";
 

@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { MediaSearchBar } from "../components/MediaSearchBar";
 import { Tag } from "../components/Tag";
-import { POST, makeQuery } from "../utilities/requestUtilities";
-import { cn } from "../utilities/styleUtilities";
+import { POST, makeQuery } from "../utilities/request-utilities";
+import { cn } from "../utilities/style-utilities";
 
 export interface Instagram {
   id: string;

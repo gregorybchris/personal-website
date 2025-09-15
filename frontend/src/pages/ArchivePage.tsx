@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { GET, makeQuery } from "../utilities/requestUtilities";
+import { GET, makeQuery } from "../utilities/request-utilities";
 
 export interface ArchiveItem {
   version: number;

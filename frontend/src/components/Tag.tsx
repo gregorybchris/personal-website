@@ -1,4 +1,4 @@
-import { cn } from "../utilities/styleUtilities";
+import { cn } from "../utilities/style-utilities";
 
 interface TagProps {
   tag: string;

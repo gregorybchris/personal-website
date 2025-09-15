@@ -3,7 +3,7 @@ import { MapContainer, Polyline, TileLayer, useMap } from "react-leaflet";
 import { useNavigate, useParams } from "react-router-dom";
 import { SimpleLink } from "../components/SimpleLink";
 import "../styles/common.css";
-import { GET, makeQuery } from "../utilities/requestUtilities";
+import { GET, makeQuery } from "../utilities/request-utilities";
 
 export interface RunningRoute {
   route_id: string;

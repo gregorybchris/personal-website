@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ProjectModal } from "../components/ProjectModal";
 import { ProjectsTimeline } from "../components/ProjectsTimeline";
-import { GET, POST, makeQuery } from "../utilities/requestUtilities";
+import { GET, POST, makeQuery } from "../utilities/request-utilities";
 
 export interface Project {
   project_id: string;

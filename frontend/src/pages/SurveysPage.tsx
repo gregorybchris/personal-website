@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../styles/common.css";
-import { range } from "../utilities/arrayUtilities";
-import { GET, POST, makeQuery } from "../utilities/requestUtilities";
-import { STORE } from "../utilities/storageUtilities";
-import { cn } from "../utilities/styleUtilities";
+import { range } from "../utilities/array-utilities";
+import { GET, POST, makeQuery } from "../utilities/request-utilities";
+import { STORE } from "../utilities/storage-utilities";
+import { cn } from "../utilities/style-utilities";
 
 export interface Question {
   question_id: string;

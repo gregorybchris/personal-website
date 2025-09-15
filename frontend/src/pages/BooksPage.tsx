@@ -1,8 +1,8 @@
 import { Books as BooksIcon, SquaresFour } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { Tag } from "../components/Tag";
-import { GET, makeQuery } from "../utilities/requestUtilities";
-import { cn } from "../utilities/styleUtilities";
+import { GET, makeQuery } from "../utilities/request-utilities";
+import { cn } from "../utilities/style-utilities";
 
 export interface BookData {
   isbn: string;

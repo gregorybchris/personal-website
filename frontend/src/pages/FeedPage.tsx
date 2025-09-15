@@ -2,7 +2,11 @@ import { ArrowLeft } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../styles/common.css";
-import { GET, getSearchParams, makeQuery } from "../utilities/requestUtilities";
+import {
+  GET,
+  getSearchParams,
+  makeQuery,
+} from "../utilities/request-utilities";
 
 export interface FeedPost {
   post_id: string;
@@ -158,7 +162,7 @@ export function FeedPage() {
 import { Link as LinkIcon } from "@phosphor-icons/react";
 import { Tag } from "../components/Tag";
 import { FeedPost as PostModel } from "../models/feedModels";
-import { formatDate } from "../utilities/datetimeUtilities";
+import { formatDate } from "../utilities/datetime-utilities";
 
 interface FeedPostCardProps {
   post: PostModel;

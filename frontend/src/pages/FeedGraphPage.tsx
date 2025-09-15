@@ -2,8 +2,8 @@ import * as d3 from "d3";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/feed.css";
-import { range } from "../utilities/arrayUtilities";
-import { GET, makeQuery } from "../utilities/requestUtilities";
+import { range } from "../utilities/array-utilities";
+import { GET, makeQuery } from "../utilities/request-utilities";
 import { FeedPost } from "./FeedPage";
 
 interface GraphNode {

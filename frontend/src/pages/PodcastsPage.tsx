@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { RatingRadar } from "../components/RatingRadar";
 import { SimpleLink } from "../components/SimpleLink";
 import "../styles/radar.css";
-import { GET, makeQuery } from "../utilities/requestUtilities";
+import { GET, makeQuery } from "../utilities/request-utilities";
 
 export interface Podcast {
   name: string;

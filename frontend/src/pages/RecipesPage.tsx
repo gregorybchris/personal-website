@@ -9,8 +9,8 @@ import {
 } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { formatDuration } from "../utilities/datetimeUtilities";
-import { GET, makeQuery } from "../utilities/requestUtilities";
+import { formatDuration } from "../utilities/datetime-utilities";
+import { GET, makeQuery } from "../utilities/request-utilities";
 
 export interface Recipe {
   name: string;

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { RatingRadar } from "../components/RatingRadar";
 import { Tag } from "../components/Tag";
 import "../styles/radar.css";
-import { GET, makeQuery } from "../utilities/requestUtilities";
+import { GET, makeQuery } from "../utilities/request-utilities";
 
 export interface TvShow {
   name: string;

@@ -1,4 +1,4 @@
-import { isDevEnvironment } from "./environmentUtilities";
+import { isDevEnvironment } from "./environment-utilities";
 
 const DEV_BACKEND_ROOT = "http://localhost:8000/";
 const PROD_BACKEND_ROOT = "https://api.chrisgregory.me/";
@@ -50,4 +50,4 @@ const getSearchParams = (url: string = ""): URLSearchParams => {
   return new URLSearchParams(fullUrl.search);
 };
 
-export { makeQuery, makeURL, GET, POST, getSearchParams };
+export { GET, getSearchParams, makeQuery, makeURL, POST };
