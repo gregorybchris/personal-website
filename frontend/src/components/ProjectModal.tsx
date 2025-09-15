@@ -9,8 +9,8 @@ import {
 import * as Dialog from "@radix-ui/react-dialog";
 import { Project } from "../pages/ProjectsPage";
 import { formatDate } from "../utilities/datetimeUtilities";
-import { ActionLink } from "../widgets/ActionLink";
-import { SimpleLink } from "../widgets/SimpleLink";
+import { ActionLink } from "./ActionLink";
+import { SimpleLink } from "./SimpleLink";
 
 interface ProjectModalProps {
   project: Project;
@@ -142,8 +142,8 @@ function ProjectInfoLink({ text, link, kind }: ProjectInfoLinkProps) {
 }
 
 interface DownloadLinkProps {
-  project: ProjectModel;
-  onDownload: (project: ProjectModel) => void;
+  project: Project;
+  onDownload: (project: Project) => void;
 }
 
 function DownloadLink({ project, onDownload }: DownloadLinkProps) {
