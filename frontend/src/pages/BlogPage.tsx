@@ -27,13 +27,13 @@ export function BlogPage() {
         {posts.map((post) => (
           <tr
             key={post.slug}
-            className="group cursor-pointer py-2"
+            className="group cursor-pointer align-top"
             onClick={() => navigate(`/blog/${post.slug}`)}
           >
-            <td className="text-black/50">
+            <td className="whitespace-nowrap py-1.5 text-black/50">
               {formatDate(new Date(post.date).toISOString())}
             </td>
-            <td className="px-3 decoration-black/20 underline-offset-4 group-hover:underline">
+            <td className="text-balance py-1.5 pl-5 decoration-black/20 underline-offset-4 group-hover:underline">
               {post.title}
             </td>
           </tr>

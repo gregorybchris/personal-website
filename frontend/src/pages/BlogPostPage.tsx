@@ -35,8 +35,8 @@ export function BlogPostPage() {
             </div>
           </div>
 
-          <div className="md:text-md text-justify text-lg leading-relaxed">
-            {currentPost.content}
+          <div className="md:text-md text-justify text-lg leading-relaxed text-red-400">
+            Failed to load post content :(
           </div>
 
           <button
