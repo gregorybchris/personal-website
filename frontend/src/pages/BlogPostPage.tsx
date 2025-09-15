@@ -21,13 +21,13 @@ export function BlogPostPage() {
   }, []);
 
   return (
-    <div className="px-5 font-iowa md:px-10 md:py-10">
+    <div className="flex flex-col items-center px-5 font-iowa md:px-10 md:py-10">
       {currentPost === null ? (
         <span className="">Loading post...</span>
       ) : (
-        <div className="flex flex-col items-center gap-6 px-0 md:px-32">
+        <div className="flex flex-col items-center gap-6 px-0 md:max-w-[700px]">
           <div className="flex flex-col items-center gap-1">
-            <div className="text-center text-2xl font-bold md:text-3xl">
+            <div className="text-balance text-center text-2xl font-bold md:max-w-[500px] md:text-3xl">
               {currentPost.title}
             </div>
             <div className="text-sm text-text-2">
