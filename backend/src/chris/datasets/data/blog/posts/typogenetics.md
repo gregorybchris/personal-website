@@ -1,7 +1,7 @@
 ---
-date: 2025-01-01
+date: 2024-01-07
 slug: typogenetics
 title: Reflections on Typogenetics
 topics: []
-archived: true
+archived: false
 ---

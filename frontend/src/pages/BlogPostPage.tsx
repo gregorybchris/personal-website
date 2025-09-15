@@ -26,7 +26,7 @@ export function BlogPostPage() {
         <span className="">Loading post...</span>
       ) : (
         <div className="flex flex-col items-center gap-6 px-0 md:max-w-[700px]">
-          <div className="flex flex-col items-center gap-1">
+          <div className="flex flex-col items-center gap-2">
             <div className="text-balance text-center text-2xl font-bold md:max-w-[500px] md:text-3xl">
               {currentPost.title}
             </div>
@@ -43,7 +43,7 @@ export function BlogPostPage() {
             className="rounded-md px-2 py-1 transition-all hover:bg-black/5"
             onClick={() => navigate("/blog")}
           >
-            Back to blog
+            Back to posts
           </button>
         </div>
       )}

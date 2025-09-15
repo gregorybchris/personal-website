@@ -1,7 +1,7 @@
 ---
-date: 2025-01-01
+date: 2022-04-18
 slug: graph-contraction-search
 title: Using Graph Attention Networks as a Search Heuristic
 topics: []
-archived: true
+archived: false
 ---

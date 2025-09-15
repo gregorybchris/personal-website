@@ -20,14 +20,14 @@ export function BlogPage() {
   }, []);
 
   return (
-    <div className="flex flex-col items-start gap-4 px-10 font-iowa">
+    <div className="flex flex-col items-start gap-4 px-4 font-iowa md:px-10">
       <div className="text-3xl font-bold">Blog</div>
 
-      <table className="table-auto border-separate border-spacing-y-2">
+      <table className="table-auto border-separate border-spacing-y-1">
         {posts.map((post) => (
           <tr
             key={post.slug}
-            className="group cursor-pointer"
+            className="group cursor-pointer py-2"
             onClick={() => navigate(`/blog/${post.slug}`)}
           >
             <td className="text-black/50">
