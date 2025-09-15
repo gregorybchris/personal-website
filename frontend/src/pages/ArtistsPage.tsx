@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Tag } from "../components/Tag";
 import { GET, makeQuery } from "../utilities/requestUtilities";
 
 export interface Artist {
@@ -17,30 +16,13 @@ export interface Artist {
 
 export function ArtistsPage() {
   const [artists, setArtists] = useState<Artist[]>([]);
-  const [activeGenres, setActiveGenres] = useState<string[]>([]);
-  const [allGenres, setAllGenres] = useState<string[]>([]);
 
   useEffect(() => {
     const artistsQuery = makeQuery("media/artists");
     GET(artistsQuery).then((artists: Artist[]) => {
       setArtists(artists);
-      const genresSet = new Set<string>();
-      artists.forEach((artist) => {
-        artist.genres.forEach((genre) => genresSet.add(genre));
-      });
-      setAllGenres(Array.from(genresSet));
     });
   }, []);
-
-  function onGenreClick(genre: string) {
-    let newGenres: string[] = [];
-    if (activeGenres.includes(genre)) {
-      newGenres = activeGenres.filter((activeGenre) => activeGenre !== genre);
-    } else {
-      newGenres = [...activeGenres, genre];
-    }
-    setActiveGenres(newGenres);
-  }
 
   return (
     <div className="grid justify-items-center pt-8 font-raleway">
@@ -53,32 +35,10 @@ export function ArtistsPage() {
         </div>
       </div>
 
-      <div className="mt-4 flex flex-row justify-center space-x-2">
-        {allGenres.map((genre) => (
-          <Tag
-            key={genre}
-            tag={genre}
-            onClick={onGenreClick}
-            active={activeGenres.includes(genre)}
-          />
-        ))}
-      </div>
-
       <div className="grid w-4/5 grid-cols-1 justify-items-center pt-5 md:grid-cols-4 lg:grid-cols-6">
-        {artists
-          .filter(
-            (artist) =>
-              activeGenres.length == 0 ||
-              activeGenres.every((tag) => artist.genres.includes(tag)),
-          )
-          .map((artist) => (
-            <ArtistCard
-              key={artist.name}
-              artist={artist}
-              onGenreClick={onGenreClick}
-              activeGenres={activeGenres}
-            />
-          ))}
+        {artists.map((artist) => (
+          <ArtistCard key={artist.name} artist={artist} />
+        ))}
       </div>
     </div>
   );
@@ -86,14 +46,8 @@ export function ArtistsPage() {
 
 interface ArtistCardProps {
   artist: Artist;
-  onGenreClick: (genre: string) => void;
-  activeGenres: string[];
 }
-export function ArtistCard({
-  artist,
-  onGenreClick,
-  activeGenres,
-}: ArtistCardProps) {
+export function ArtistCard({ artist }: ArtistCardProps) {
   const timestamp = Date.now();
   return (
     <div className="flex flex-col items-center px-2 py-3">
