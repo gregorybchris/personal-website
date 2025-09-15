@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Tag } from "../components/Tag";
 import { GET, makeQuery } from "../utilities/requestUtilities";
-import { cn } from "../utilities/styleUtilities";
 
 export interface Artist {
   name: string;
@@ -97,7 +96,7 @@ export function ArtistCard({
 }: ArtistCardProps) {
   const timestamp = Date.now();
   return (
-    <div className={cn("px-2 py-3")}>
+    <div className="flex flex-col items-center px-2 py-3">
       <div className="mb-2 flex justify-center">
         <a href={artist.link} target="_blank" className="group">
           <img
@@ -107,22 +106,11 @@ export function ArtistCard({
         </a>
       </div>
 
-      <div>
-        <a href={artist.link} target="_blank">
-          <div className="text-center font-bold">{artist.name}</div>
-        </a>
-
-        <div className="mt-1 flex flex-row justify-center space-x-1">
-          {artist.genres.map((genre) => (
-            <Tag
-              key={genre}
-              tag={genre}
-              onClick={onGenreClick}
-              active={activeGenres.includes(genre)}
-            />
-          ))}
+      <a href={artist.link} target="_blank">
+        <div className="max-w-[150px] text-balance text-center font-bold">
+          {artist.name}
         </div>
-      </div>
+      </a>
     </div>
   );
 }
