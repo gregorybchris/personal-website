@@ -1,6 +1,5 @@
-import "../styles/common.css";
-
 import { Link } from "react-router-dom";
+import "../styles/common.css";
 
 export function MusicPage() {
   return (

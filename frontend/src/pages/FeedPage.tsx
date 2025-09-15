@@ -1,14 +1,32 @@
-import "../styles/common.css";
-
+import { ArrowLeft } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import "../styles/common.css";
 import { GET, getSearchParams, makeQuery } from "../utilities/requestUtilities";
 
-import { ArrowLeft } from "@phosphor-icons/react";
-import { FeedPost as FeedPostModel } from "../models/feedModels";
+export interface FeedPost {
+  post_id: string;
+  title: string;
+  slug: string;
+  content_type: string;
+  source: string | null;
+  areas: string[];
+  series: string | null;
+  speaker: string | null;
+  episode_number: number | null;
+  length: string | null;
+  date_created: string | null;
+  date_posted: string;
+  link: string;
+  tags: string[];
+  hook: string | null;
+  summary: string | null;
+  paid: boolean;
+  archived: boolean;
+}
 
 export function FeedPage() {
-  const [posts, setPosts] = useState<FeedPostModel[]>([]);
+  const [posts, setPosts] = useState<FeedPost[]>([]);
   const [searchText, setSearchText] = useState<string>("");
   const { slug } = useParams();
   let navigate = useNavigate();
@@ -42,7 +60,7 @@ export function FeedPage() {
     }
   }
 
-  function isPostVisible(post: FeedPostModel) {
+  function isPostVisible(post: FeedPost) {
     const lowerSearchText = searchText.toLowerCase();
 
     if (post.archived) {
@@ -121,7 +139,7 @@ export function FeedPage() {
             posts
               .filter(isPostVisible)
               .map((post) => (
-                <FeedPost
+                <FeedPostCard
                   key={post.post_id}
                   post={post}
                   onClickTag={onClickTag}
@@ -142,7 +160,7 @@ import { Tag } from "../components/Tag";
 import { FeedPost as PostModel } from "../models/feedModels";
 import { formatDate } from "../utilities/datetimeUtilities";
 
-interface FeedPostProps {
+interface FeedPostCardProps {
   post: PostModel;
   videoTime: string;
   onClickTag: (tag: string) => void;
@@ -152,13 +170,13 @@ interface FeedPostProps {
 
 const YOUTUBE_SOURCE = "YouTube";
 
-function FeedPost({
+function FeedPostCard({
   post,
   videoTime,
   onClickTag,
   onSelectPost,
   activeTags,
-}: FeedPostProps) {
+}: FeedPostCardProps) {
   const [contentLink, setContentLink] = useState<string>("");
   const [thumbnailUrl, setThumbnailUrl] = useState<string>("");
 

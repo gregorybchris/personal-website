@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import { GET, makeQuery } from "../utilities/requestUtilities";
 
-import { ArchiveItem as ArchiveItemModel } from "../models/archiveModels";
+export interface ArchiveItem {
+  version: number;
+  date: string;
+  image_links: string[];
+}
 
 export function ArchivePage() {
-  const [items, setItems] = useState<ArchiveItemModel[]>([]);
+  const [items, setItems] = useState<ArchiveItem[]>([]);
 
   useEffect(() => {
     const query = makeQuery("archive");
@@ -25,18 +29,18 @@ export function ArchivePage() {
       </div>
       <div>
         {items.map((item) => (
-          <ArchiveItem key={item.version} archiveItem={item} />
+          <ArchiveSection key={item.version} archiveItem={item} />
         ))}
       </div>
     </div>
   );
 }
 
-interface ArchiveItemProps {
-  archiveItem: ArchiveItemModel;
+interface ArchiveSectionProps {
+  archiveItem: ArchiveItem;
 }
 
-function ArchiveItem({ archiveItem }: ArchiveItemProps) {
+function ArchiveSection({ archiveItem }: ArchiveSectionProps) {
   const date = new Date(archiveItem.date);
   const year = date.getFullYear();
 

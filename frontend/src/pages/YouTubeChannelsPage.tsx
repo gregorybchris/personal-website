@@ -1,11 +1,20 @@
-import "../styles/radar.css";
-
 import { useEffect, useState } from "react";
-import { GET, makeQuery } from "../utilities/requestUtilities";
-
 import { RatingRadar } from "../components/RatingRadar";
-import { YouTubeChannel } from "../models/mediaModels";
+import "../styles/radar.css";
+import { GET, makeQuery } from "../utilities/requestUtilities";
 import { SimpleLink } from "../widgets/SimpleLink";
+
+export interface YouTubeChannel {
+  name: string;
+  category: string;
+  scores: {
+    production: number;
+    personality: number;
+    information: number;
+    consistency: number;
+  };
+  link: string;
+}
 
 export function YouTubeChannelsPage() {
   const [channels, setChannels] = useState<YouTubeChannel[]>([]);

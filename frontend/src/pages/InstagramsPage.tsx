@@ -1,15 +1,21 @@
-import { useEffect, useState } from "react";
-import { POST, makeQuery } from "../utilities/requestUtilities";
-
 import { Link as LinkIcon } from "@phosphor-icons/react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { MediaSearchBar } from "../components/MediaSearchBar";
 import { Tag } from "../components/Tag";
-import { Instagram as InstagramModel } from "../models/mediaModels";
+import { POST, makeQuery } from "../utilities/requestUtilities";
 import { cn } from "../utilities/styleUtilities";
 
+export interface Instagram {
+  id: string;
+  url: string;
+  tags: string[];
+  creator?: string;
+  favorite: boolean;
+}
+
 export function InstagramsPage() {
-  const [instagrams, setInstagrams] = useState<InstagramModel[]>([]);
+  const [instagrams, setInstagrams] = useState<Instagram[]>([]);
   const [searchText, setSearchText] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
   const { id } = useParams();
@@ -67,7 +73,7 @@ export function InstagramsPage() {
           <div className="flex flex-col items-center p-5">
             <div className="hidden grid-cols-4 gap-5 md:visible md:grid">
               {instagrams.map((instagram) => (
-                <Instagram
+                <InstagramCard
                   key={instagram.id}
                   instagram={instagram}
                   updateQuery={updateQuery}
@@ -77,7 +83,7 @@ export function InstagramsPage() {
             </div>
             <div className="flex flex-col items-center space-y-8 md:hidden">
               {instagrams.map((instagram) => (
-                <Instagram
+                <InstagramCard
                   key={instagram.id}
                   instagram={instagram}
                   updateQuery={updateQuery}
@@ -92,17 +98,17 @@ export function InstagramsPage() {
   );
 }
 
-interface InstagramProps {
-  instagram: InstagramModel;
+interface InstagramCardProps {
+  instagram: Instagram;
   updateQuery: (query: string) => void;
   className?: string;
 }
 
-export function Instagram({
+export function InstagramCard({
   instagram,
   updateQuery,
   className,
-}: InstagramProps) {
+}: InstagramCardProps) {
   let navigate = useNavigate();
 
   const creator = instagram.creator;

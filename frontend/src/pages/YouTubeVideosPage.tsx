@@ -1,15 +1,21 @@
-import { useEffect, useState } from "react";
-import { POST, makeQuery } from "../utilities/requestUtilities";
-
 import { Link as LinkIcon } from "@phosphor-icons/react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { MediaSearchBar } from "../components/MediaSearchBar";
 import { Tag } from "../components/Tag";
-import { YouTubeVideo as YouTubeVideoModel } from "../models/mediaModels";
+import { POST, makeQuery } from "../utilities/requestUtilities";
 import { cn } from "../utilities/styleUtilities";
 
+export interface YouTubeVideo {
+  id: string;
+  url: string;
+  tags: string[];
+  creator?: string;
+  favorite: boolean;
+}
+
 export function YouTubeVideosPage() {
-  const [youtubeVideos, setYouTubeVideos] = useState<YouTubeVideoModel[]>([]);
+  const [youtubeVideos, setYouTubeVideos] = useState<YouTubeVideo[]>([]);
   const [searchText, setSearchText] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
   const { id } = useParams();
@@ -67,7 +73,7 @@ export function YouTubeVideosPage() {
           <div className="flex flex-col items-center p-5">
             <div className="hidden grid-cols-4 gap-5 md:visible md:grid">
               {youtubeVideos.map((youtubeVideo) => (
-                <YouTubeVideo
+                <YouTubeVideoCard
                   key={youtubeVideo.id}
                   youtubeVideo={youtubeVideo}
                   updateQuery={updateQuery}
@@ -77,7 +83,7 @@ export function YouTubeVideosPage() {
             </div>
             <div className="flex flex-col items-center space-y-8 md:hidden">
               {youtubeVideos.map((youtubeVideo) => (
-                <YouTubeVideo
+                <YouTubeVideoCard
                   key={youtubeVideo.id}
                   youtubeVideo={youtubeVideo}
                   updateQuery={updateQuery}
@@ -92,17 +98,17 @@ export function YouTubeVideosPage() {
   );
 }
 
-interface YouTubeVideoProps {
-  youtubeVideo: YouTubeVideoModel;
+interface YouTubeVideoCardProps {
+  youtubeVideo: YouTubeVideo;
   updateQuery: (query: string) => void;
   className?: string;
 }
 
-export function YouTubeVideo({
+export function YouTubeVideoCard({
   youtubeVideo,
   updateQuery,
   className,
-}: YouTubeVideoProps) {
+}: YouTubeVideoCardProps) {
   let navigate = useNavigate();
 
   const creator = youtubeVideo.creator;

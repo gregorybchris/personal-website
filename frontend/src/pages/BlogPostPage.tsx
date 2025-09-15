@@ -1,15 +1,13 @@
-import "../styles/common.css";
-import "../styles/fonts.css";
-
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { GET, makeQuery } from "../utilities/requestUtilities";
-
-import { BlogPost as BlogPostModel } from "../models/blogModels";
+import "../styles/common.css";
+import "../styles/fonts.css";
 import { formatDate } from "../utilities/datetimeUtilities";
+import { GET, makeQuery } from "../utilities/requestUtilities";
+import { BlogPost } from "./BlogPage";
 
 export function BlogPostPage() {
-  const [currentPost, setCurrentPost] = useState<BlogPostModel | null>(null);
+  const [currentPost, setCurrentPost] = useState<BlogPost | null>(null);
   const { slug } = useParams();
   let navigate = useNavigate();
 

@@ -1,15 +1,29 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/common.css";
 import "../styles/fonts.css";
 import { formatDate } from "../utilities/datetimeUtilities";
-
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { GET, makeQuery } from "../utilities/requestUtilities";
 
-import { BlogPost as BlogPostModel } from "../models/blogModels";
+export interface BlogPost {
+  title: string;
+  slug: string;
+  topics: string[];
+  date: string;
+  content: string;
+  archived: boolean;
+}
+
+export interface BlogPostMetadata {
+  title: string;
+  slug: string;
+  topics: string[];
+  date: string;
+  archived: boolean;
+}
 
 export function BlogPage() {
-  const [posts, setPosts] = useState<BlogPostModel[]>([]);
+  const [posts, setPosts] = useState<BlogPost[]>([]);
   let navigate = useNavigate();
 
   useEffect(() => {

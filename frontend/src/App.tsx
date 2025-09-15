@@ -1,12 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 import Nav from "./components/Nav";
 import { ArchivePage } from "./pages/ArchivePage";
 import { ArtistsPage } from "./pages/ArtistsPage";
 import { BlogPage } from "./pages/BlogPage";
 import { BlogPostPage } from "./pages/BlogPostPage";
 import { BooksPage } from "./pages/BooksPage";
-import { CodeProjectsPage } from "./pages/CodeProjectsPage";
 import { ContactPage } from "./pages/ContactPage";
 import { FeedGraphPage } from "./pages/FeedGraphPage";
 import { FeedPage } from "./pages/FeedPage";
@@ -20,6 +18,7 @@ import { OopsPage } from "./pages/OopsPage";
 import { PlacesPage } from "./pages/PlacesPage";
 import { PodcastsPage } from "./pages/PodcastsPage";
 import { ProjectPreviewsPage } from "./pages/ProjectPreviewsPage";
+import { ProjectsPage } from "./pages/ProjectsPage";
 import { RecipePage } from "./pages/RecipePage";
 import { RecipesPage } from "./pages/RecipesPage";
 import { RunningRoutesPage } from "./pages/RunningRoutesPage";
@@ -37,8 +36,8 @@ export function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/code" element={<CodeProjectsPage />}>
-            <Route path=":slug" element={<CodeProjectsPage />} />
+          <Route path="/code" element={<ProjectsPage />}>
+            <Route path=":slug" element={<ProjectsPage />} />
           </Route>
           <Route path="/running" element={<RunningRoutesPage />}>
             <Route path=":slug" element={<RunningRoutesPage />} />

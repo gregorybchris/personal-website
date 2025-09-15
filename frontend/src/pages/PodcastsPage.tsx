@@ -1,11 +1,22 @@
-import "../styles/radar.css";
-
 import { useEffect, useState } from "react";
-import { GET, makeQuery } from "../utilities/requestUtilities";
-
 import { RatingRadar } from "../components/RatingRadar";
-import { Podcast } from "../models/mediaModels";
+import "../styles/radar.css";
+import { GET, makeQuery } from "../utilities/requestUtilities";
 import { SimpleLink } from "../widgets/SimpleLink";
+
+export interface Podcast {
+  name: string;
+  category: string;
+  scores: {
+    production: number;
+    personality: number;
+    information: number;
+    consistency: number;
+  };
+  apple_link: string;
+  pocket_casts_link: string;
+  pocket_casts_id: string;
+}
 
 export function PodcastsPage() {
   const [podcasts, setPodcasts] = useState<Podcast[]>([]);

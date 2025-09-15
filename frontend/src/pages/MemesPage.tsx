@@ -1,15 +1,22 @@
-import { useEffect, useState } from "react";
-import { MediaSearchBar } from "../components/MediaSearchBar";
-import { POST, makeQuery } from "../utilities/requestUtilities";
-
 import { Link as LinkIcon } from "@phosphor-icons/react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { MediaSearchBar } from "../components/MediaSearchBar";
 import { Tag } from "../components/Tag";
-import { Meme as MemeModel } from "../models/mediaModels";
+import { POST, makeQuery } from "../utilities/requestUtilities";
 import { cn } from "../utilities/styleUtilities";
 
+export interface Meme {
+  id: string;
+  url: string;
+  tags: string[];
+  favorite: boolean;
+  format: string;
+  era: string;
+}
+
 export function MemesPage() {
-  const [memes, setMemes] = useState<MemeModel[]>([]);
+  const [memes, setMemes] = useState<Meme[]>([]);
   const [searchText, setSearchText] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
   const { id } = useParams();
@@ -65,7 +72,7 @@ export function MemesPage() {
           <div className="flex flex-col items-center p-5">
             <div className="hidden grid-cols-4 gap-5 md:visible md:grid">
               {memes.map((meme) => (
-                <Meme
+                <MemeCard
                   key={meme.id}
                   meme={meme}
                   updateQuery={updateQuery}
@@ -75,7 +82,7 @@ export function MemesPage() {
             </div>
             <div className="flex flex-col items-center space-y-8 md:hidden">
               {memes.map((meme) => (
-                <Meme
+                <MemeCard
                   key={meme.id}
                   meme={meme}
                   updateQuery={updateQuery}
@@ -90,13 +97,13 @@ export function MemesPage() {
   );
 }
 
-interface MemesProps {
-  meme: MemeModel;
+interface MemeCardProps {
+  meme: Meme;
   updateQuery: (query: string) => void;
   className?: string;
 }
 
-export function Meme({ meme, updateQuery, className }: MemesProps) {
+export function MemeCard({ meme, updateQuery, className }: MemeCardProps) {
   let navigate = useNavigate();
 
   const isImage = ["gif", "png", "jpg"].includes(meme.format);

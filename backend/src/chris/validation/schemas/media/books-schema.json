@@ -38,7 +38,7 @@
         "year_published": "#year",
         "pages": "number",
         "year_read": "#year",
-        "recommendability": {
+        "general_appeal": {
           "type": "number",
           "cons": {
             "gte": 1,

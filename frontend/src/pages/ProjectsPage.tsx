@@ -1,17 +1,32 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { ProjectModal } from "../components/ProjectModal";
+import { ProjectsTimeline } from "../components/ProjectsTimeline";
 import { GET, POST, makeQuery } from "../utilities/requestUtilities";
 
-import { CodeProjectModal } from "../components/CodeProjectModal";
-import { CodeProjectsTimeline } from "../components/CodeProjectsTimeline";
-import { Project as ProjectModel } from "../models/projectsModels";
+export interface Project {
+  project_id: string;
+  name: string;
+  slug: string;
+  date: string;
+  rating: number;
+  project_type: string;
+  controls: string | null;
+  description: string | null;
+  remarks: string | null;
+  source_link: string | null;
+  download_link: string | null;
+  web_link: string | null;
+  original_link: string | null;
+  image_links: string[];
+  primary_language: string;
+  archived: boolean;
+}
 
-export function CodeProjectsPage() {
+export function ProjectsPage() {
   const downloadAnchor = useRef<HTMLAnchorElement>(null);
-  const [projects, setProjects] = useState<ProjectModel[]>([]);
-  const [currentProject, setCurrentProject] = useState<ProjectModel | null>(
-    null,
-  );
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [currentProject, setCurrentProject] = useState<Project | null>(null);
   const [searchEnabled, setSearchEnabled] = useState(false);
   const [searchText, setSearchText] = useState("");
   const { slug } = useParams();
@@ -33,7 +48,7 @@ export function CodeProjectsPage() {
     });
   }, []);
 
-  function onDownload(project: ProjectModel) {
+  function onDownload(project: Project) {
     if (!project.download_link) {
       console.error("No download link exists for project: ", project);
       return;
@@ -49,7 +64,7 @@ export function CodeProjectsPage() {
     POST(makeQuery(`projects/download/${project.project_id}`));
   }
 
-  function onSelectProject(project: ProjectModel | null) {
+  function onSelectProject(project: Project | null) {
     if (project === null) {
       navigate("/code");
     } else {
@@ -72,7 +87,7 @@ export function CodeProjectsPage() {
         Code &amp; Programming Projects
       </div>
 
-      <CodeProjectsTimeline
+      <ProjectsTimeline
         projects={projects}
         currentProject={currentProject}
         onSelectProject={onSelectProject}
@@ -97,13 +112,12 @@ export function CodeProjectsPage() {
       )}
 
       {currentProject && (
-        <CodeProjectModal
+        <ProjectModal
           project={currentProject}
           open={!!currentProject}
           onClose={() => onSelectProject(null)}
           onDownload={onDownload}
         />
-        // <CodeProjectInfo project={currentProject} onDownload={onDownload} />
       )}
       {currentProject?.download_link && (
         <a

@@ -1,15 +1,21 @@
-import { useEffect, useState } from "react";
-import { POST, makeQuery } from "../utilities/requestUtilities";
-
 import { Link as LinkIcon } from "@phosphor-icons/react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { MediaSearchBar } from "../components/MediaSearchBar";
 import { Tag } from "../components/Tag";
-import { Tiktok as TiktokModel } from "../models/mediaModels";
+import { POST, makeQuery } from "../utilities/requestUtilities";
 import { cn } from "../utilities/styleUtilities";
 
+export interface Tiktok {
+  id: string;
+  url: string;
+  tags: string[];
+  creator?: string;
+  favorite: boolean;
+}
+
 export function TiktoksPage() {
-  const [tiktoks, setTiktoks] = useState<TiktokModel[]>([]);
+  const [tiktoks, setTiktoks] = useState<Tiktok[]>([]);
   const [searchText, setSearchText] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
   const { id } = useParams();
@@ -65,7 +71,7 @@ export function TiktoksPage() {
           <div className="flex flex-col items-center p-5">
             <div className="hidden grid-cols-4 gap-5 md:visible md:grid">
               {tiktoks.map((tiktok) => (
-                <Tiktok
+                <TiktokCard
                   key={tiktok.id}
                   tiktok={tiktok}
                   updateQuery={updateQuery}
@@ -75,7 +81,7 @@ export function TiktoksPage() {
             </div>
             <div className="flex flex-col items-center space-y-8 md:hidden">
               {tiktoks.map((tiktok) => (
-                <Tiktok
+                <TiktokCard
                   key={tiktok.id}
                   tiktok={tiktok}
                   updateQuery={updateQuery}
@@ -90,13 +96,17 @@ export function TiktoksPage() {
   );
 }
 
-interface TikTokProps {
-  tiktok: TiktokModel;
+interface TikTokCardProps {
+  tiktok: Tiktok;
   updateQuery: (query: string) => void;
   className?: string;
 }
 
-export function Tiktok({ tiktok, updateQuery, className }: TikTokProps) {
+export function TiktokCard({
+  tiktok,
+  updateQuery,
+  className,
+}: TikTokCardProps) {
   let navigate = useNavigate();
 
   const creator = tiktok.creator;

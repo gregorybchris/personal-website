@@ -1,10 +1,23 @@
 import { Books as BooksIcon, SquaresFour } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
-import { GET, makeQuery } from "../utilities/requestUtilities";
-
 import { Tag } from "../components/Tag";
-import { BookData } from "../models/booksModels";
+import { GET, makeQuery } from "../utilities/requestUtilities";
 import { cn } from "../utilities/styleUtilities";
+
+export interface BookData {
+  isbn: string;
+  title: string;
+  subtitle?: string;
+  author: string;
+  year_read: number;
+  general_appeal: number;
+  tags: string[];
+  goodreads_link: string;
+  image_links: {
+    book: string;
+    square: string;
+  };
+}
 
 export function BooksPage() {
   const [books, setBooks] = useState<BookData[]>([]);
@@ -100,9 +113,7 @@ export function BooksPage() {
               activeTags.length == 0 ||
               activeTags.every((tag) => book.tags.includes(tag)),
           )
-          .sort(
-            (bookA, bookB) => bookB.recommendability - bookA.recommendability,
-          )
+          .sort((bookA, bookB) => bookB.general_appeal - bookA.general_appeal)
           .map((book) => (
             <Book
               key={book.isbn}

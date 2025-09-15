@@ -1,32 +1,30 @@
-import * as Dialog from "@radix-ui/react-dialog";
-
 import {
+  X as CloseIcon,
   Coffee,
   DownloadSimple,
   GithubLogo,
   Lightbulb,
   Play,
 } from "@phosphor-icons/react";
-import { Project, Project as ProjectModel } from "../models/projectsModels";
-
-import { X as CloseIcon } from "@phosphor-icons/react";
+import * as Dialog from "@radix-ui/react-dialog";
+import { Project } from "../pages/ProjectsPage";
 import { formatDate } from "../utilities/datetimeUtilities";
 import { ActionLink } from "../widgets/ActionLink";
 import { SimpleLink } from "../widgets/SimpleLink";
 
-interface CodeProjectModalProps {
+interface ProjectModalProps {
   project: Project;
   open: boolean;
   onDownload: (project: Project) => void;
   onClose: () => void;
 }
 
-export function CodeProjectModal({
+export function ProjectModal({
   project,
   open,
   onClose,
   onDownload,
-}: CodeProjectModalProps) {
+}: ProjectModalProps) {
   function onModalOpenChange(open: boolean) {
     if (!open) {
       onClose();

@@ -1,18 +1,15 @@
-import "../styles/feed.css";
-
 import * as d3 from "d3";
-
-import { GET, makeQuery } from "../utilities/requestUtilities";
-
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { FeedPost as PostModel } from "../models/feedModels";
+import "../styles/feed.css";
 import { range } from "../utilities/arrayUtilities";
+import { GET, makeQuery } from "../utilities/requestUtilities";
+import { FeedPost } from "./FeedPage";
 
 interface GraphNode {
   id: string;
   group: number;
-  post: PostModel;
+  post: FeedPost;
 }
 
 interface GraphLink {
@@ -32,7 +29,7 @@ export function FeedGraphPage() {
 
   const postsQuery = makeQuery("feed/posts");
   GET(postsQuery).then((queryResult) => {
-    const allPosts: PostModel[] = queryResult["posts"];
+    const allPosts: FeedPost[] = queryResult["posts"];
     const posts = allPosts.reverse().filter((post) => !post.archived);
     const data = getData(posts);
     createSimulation(data);
@@ -63,7 +60,7 @@ export function FeedGraphPage() {
       .on("end", dragEnded);
   }
 
-  function getData(posts: PostModel[]): GraphData {
+  function getData(posts: FeedPost[]): GraphData {
     const nodes = [];
     const links = [];
 

@@ -1,6 +1,5 @@
-import "../styles/common.css";
-
 import { NavLink } from "react-router-dom";
+import "../styles/common.css";
 
 export function ContactPage() {
   return (

@@ -1,9 +1,20 @@
 import { useEffect, useState } from "react";
-import { GET, makeQuery } from "../utilities/requestUtilities";
-
 import { Tag } from "../components/Tag";
-import { Artist } from "../models/mediaModels";
+import { GET, makeQuery } from "../utilities/requestUtilities";
 import { cn } from "../utilities/styleUtilities";
+
+export interface Artist {
+  name: string;
+  genres: string[];
+  scores: {
+    musicality: number;
+    production: number;
+    consistency: number;
+    personality: number;
+  };
+  link: string;
+  image_link: string;
+}
 
 export function ArtistsPage() {
   const [artists, setArtists] = useState<Artist[]>([]);

@@ -1,11 +1,9 @@
-import "../styles/projects.css";
-
 import * as d3 from "d3";
-
 import random, { RNG } from "random";
 import { useEffect, useRef } from "react";
 import seedrandom from "seedrandom";
-import { Project as ProjectModel } from "../models/projectsModels";
+import { Project } from "../pages/ProjectsPage";
+import "../styles/projects.css";
 
 class ProjectTypes {
   static GAME = "game";
@@ -38,25 +36,25 @@ class GraphicsConstants {
   static PADDING_Y = 80;
 }
 
-interface CodeProjectsTimelineProps {
-  projects: ProjectModel[];
-  currentProject: ProjectModel | null;
-  onSelectProject: (project: ProjectModel | null) => void;
+interface ProjectsTimelineProps {
+  projects: Project[];
+  currentProject: Project | null;
+  onSelectProject: (project: Project | null) => void;
   searchText: string;
 }
 
-export function CodeProjectsTimeline({
+export function ProjectsTimeline({
   projects,
   currentProject,
   onSelectProject,
   searchText,
-}: CodeProjectsTimelineProps) {
+}: ProjectsTimelineProps) {
   const GAME_LOOP_SPF = 1.0 / 65.0;
 
   const canvasRef = useRef<HTMLDivElement>(null);
   const simRunning = useRef(false);
 
-  function projectMatchesSearch(project: ProjectModel): boolean {
+  function projectMatchesSearch(project: Project): boolean {
     return project.name.toLowerCase().includes(searchText.toLowerCase());
   }
 
@@ -173,7 +171,7 @@ export function CodeProjectsTimeline({
     });
   }
 
-  function getProjectSelector(project: ProjectModel): string {
+  function getProjectSelector(project: Project): string {
     return `#project_${project.project_id}`;
   }
 
@@ -218,7 +216,7 @@ export function CodeProjectsTimeline({
         d3.selectAll("circle").classed("deselected", false);
       });
 
-    const getProjectTimestamp = (project: ProjectModel): number =>
+    const getProjectTimestamp = (project: Project): number =>
       new Date(project.date).getTime();
 
     const minTimestamp: any = d3.min(projects, getProjectTimestamp);

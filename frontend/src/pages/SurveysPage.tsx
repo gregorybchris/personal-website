@@ -1,26 +1,103 @@
-import { Question as QuestionModel } from "../models/surveyModels";
-
+import React, { useEffect, useState } from "react";
 import "../styles/common.css";
+import { range } from "../utilities/arrayUtilities";
+import { GET, POST, makeQuery } from "../utilities/requestUtilities";
+import { STORE } from "../utilities/storageUtilities";
 import { cn } from "../utilities/styleUtilities";
 
-import React, { useEffect, useState } from "react";
-import { Response, Survey as SurveyModel } from "../models/surveyModels";
-import { GET, POST, makeQuery } from "../utilities/requestUtilities";
+export interface Question {
+  question_id: string;
+  text: string;
+  type: string;
+  required: boolean;
+  multiselect: boolean;
+  options: string[];
+  likert: any | null;
+}
 
-import { STORE } from "../utilities/storageUtilities";
+export interface Survey {
+  survey_id: string;
+  name: string;
+  slug: string;
+  date_created: string;
+  questions: Question[];
+  archived: boolean;
+}
+
+export class Response {
+  survey: Survey;
+  choices: boolean[][];
+
+  constructor(survey: Survey, choices: boolean[][]) {
+    this.survey = survey;
+    this.choices = choices;
+  }
+
+  static fromSurvey(survey: Survey) {
+    const choices = survey.questions.map((question) =>
+      question.options.map((_) => false),
+    );
+    return new Response(survey, choices);
+  }
+
+  isSurveyComplete() {
+    const numQuestions = this.survey.questions.length;
+    return range(numQuestions)
+      .map((questionNumber) => {
+        const questionComplete = this.isQuestionComplete(questionNumber);
+        const questionRequired = this.survey.questions[questionNumber].required;
+        return questionComplete && questionRequired;
+      })
+      .every((x) => x);
+  }
+
+  isQuestionComplete(questionNumber: number) {
+    const question = this.survey.questions[questionNumber];
+    const questionChoices = this.choices[questionNumber];
+    if (question.multiselect) {
+      // TODO: Add multiselect logic for question completion
+      return true;
+    } else {
+      return questionChoices.some((x) => x);
+    }
+  }
+
+  isOptionChosen(questionNumber: number, optionNumber: number) {
+    return this.choices[questionNumber][optionNumber];
+  }
+
+  resetQuestion(questionNumber: number) {
+    const numOptions = this.survey.questions[questionNumber].options.length;
+    for (let optionNumber = 0; optionNumber < numOptions; optionNumber++) {
+      this.choices[questionNumber][optionNumber] = false;
+    }
+  }
+
+  updateOptionChoice(
+    questionNumber: number,
+    optionNumber: number,
+    choice: boolean = true,
+  ) {
+    const multiselect = this.survey.questions[questionNumber].multiselect;
+    if (!multiselect) {
+      this.resetQuestion(questionNumber);
+    }
+    this.choices[questionNumber][optionNumber] = choice;
+  }
+}
 
 export function SurveysPage() {
   const COMPLETED_KEY = "completed-surveys";
 
-  const [surveys, setSurveys] = useState<SurveyModel[]>([]);
-  const [current, setCurrent] = useState<SurveyModel | null>(null);
+  const [surveys, setSurveys] = useState<Survey[]>([]);
+  const [current, setCurrent] = useState<Survey | null>(null);
   const [response, setResponse] = useState<Response | null>(null);
   const [feedback, setFeedback] = useState("");
   const [updater, setUpdater] = useState(false);
 
   useEffect(() => {
     const surveysQuery = makeQuery("surveys");
-    GET(surveysQuery).then((surveys: SurveyModel[]) => {
+    GET(surveysQuery).then((surveys: Survey[]) => {
       surveys = surveys.filter((survey) => !survey.archived);
       setSurveys(surveys);
       if (!STORE.contains(COMPLETED_KEY)) {
@@ -36,7 +113,7 @@ export function SurveysPage() {
   function setCurrentSurvey() {
     if (surveys.length > 0) {
       const completedIds: Array<string> = STORE.get(COMPLETED_KEY);
-      let current: SurveyModel | null = null;
+      let current: Survey | null = null;
       for (let i = 0; i < surveys.length; i++) {
         if (!completedIds.includes(surveys[i].survey_id)) {
           current = surveys[i];
@@ -64,7 +141,7 @@ export function SurveysPage() {
     setUpdater((prev) => !prev);
   }
 
-  async function onSurveySubmit(survey: SurveyModel, response: Response) {
+  async function onSurveySubmit(survey: Survey, response: Response) {
     if (response.isSurveyComplete()) {
       const surveyId = survey.survey_id;
       const postSurveyQuery = makeQuery(`surveys/${surveyId}`);
@@ -121,7 +198,7 @@ export function SurveysPage() {
         </div>
         <div className="pb-4 pt-3 text-left">
           {survey.questions.map((question, questionNumber) => (
-            <SurveyQuestion
+            <SurveyQuestionCard
               key={questionNumber}
               question={question}
               questionNumber={questionNumber}
@@ -171,21 +248,21 @@ export function SurveysPage() {
   );
 }
 
-interface QuestionProps {
-  question: QuestionModel;
+interface SurveyQuestionCardProps {
+  question: Question;
   questionNumber: number;
   onOptionClicked: (questionNumber: number, optionNumber: number) => void;
   response: Response;
   updater: boolean;
 }
 
-function SurveyQuestion({
+function SurveyQuestionCard({
   question,
   questionNumber,
   onOptionClicked,
   response,
   updater,
-}: QuestionProps) {
+}: SurveyQuestionCardProps) {
   const isComplete = response.isQuestionComplete(questionNumber);
 
   return (

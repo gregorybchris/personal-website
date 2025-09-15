@@ -1,13 +1,22 @@
-// import Radar from "react-d3-radar";
-import "../styles/radar.css";
-
 import { useEffect, useState } from "react";
-import { GET, makeQuery } from "../utilities/requestUtilities";
-
 import { Link } from "react-router-dom";
 import { RatingRadar } from "../components/RatingRadar";
 import { Tag } from "../components/Tag";
-import { Movie } from "../models/mediaModels";
+import "../styles/radar.css";
+import { GET, makeQuery } from "../utilities/requestUtilities";
+
+export interface Movie {
+  name: string;
+  genres: string[];
+  scores: {
+    plot: number;
+    characters: number;
+    production: number;
+    dialog: number;
+  };
+  link: string;
+  poster_url?: string;
+}
 
 export function MoviesPage() {
   const [movies, setMovies] = useState<Movie[]>([]);
