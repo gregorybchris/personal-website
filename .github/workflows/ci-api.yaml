@@ -36,6 +36,7 @@ jobs:
 
       - name: Install package
         run: uv sync --all-extras --dev
+        working-directory: backend
 
       - name: Run ruff
         shell: bash
