@@ -1,0 +1,314 @@
+[
+  {
+    "name": "Vulfpeck",
+    "genres": [],
+    "scores": {
+      "musicality": 10,
+      "production": 10,
+      "consistency": 10,
+      "performance": 10
+    },
+    "link": "https://open.spotify.com/artist/7pXu47GoqSYRajmBCjxdD6?si=2c6c5e287ddb4545",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/vulfpeck.jpg"
+  },
+  {
+    "name": "alt-J",
+    "genres": [],
+    "scores": {
+      "musicality": 7,
+      "production": 7,
+      "consistency": 10,
+      "performance": 6
+    },
+    "link": "https://open.spotify.com/artist/3XHO7cRUPCLOr6jwp8vsx5?si=38bdcabd8400460b",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/alt-j.jpg"
+  },
+  {
+    "name": "Lawrence",
+    "genres": [],
+    "scores": {
+      "musicality": 8,
+      "production": 9,
+      "consistency": 8,
+      "performance": 7
+    },
+    "link": "https://open.spotify.com/artist/5rwUYLyUq8gBsVaOUcUxpE?si=5272eb60be544682",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/lawrence.jpg"
+  },
+  {
+    "name": "Lizzy McAlpine",
+    "genres": [],
+    "scores": {
+      "musicality": 10,
+      "production": 10,
+      "consistency": 9,
+      "performance": 4
+    },
+    "link": "https://open.spotify.com/artist/1GmsPCcpKgF9OhlNXjOsbS?si=b95c46da06d547af",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/lizzy-mcalpine.jpg"
+  },
+  {
+    "name": "Lake Street Dive",
+    "genres": [],
+    "scores": {
+      "musicality": 9,
+      "production": 8,
+      "consistency": 7,
+      "performance": 8
+    },
+    "link": "https://open.spotify.com/artist/3nuc29fYGlQbIrwh4yrNWd?si=a7989620deca4527",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/lake-street-dive.jpg"
+  },
+  {
+    "name": "boygenius",
+    "genres": [],
+    "scores": {
+      "musicality": 10,
+      "production": 9,
+      "consistency": 9,
+      "performance": 7
+    },
+    "link": "https://open.spotify.com/artist/1hLiboQ98IQWhpKeP9vRFw?si=c555c50c02254224",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/boygenius.jpg"
+  },
+  {
+    "name": "MisterWives",
+    "genres": [],
+    "scores": {
+      "musicality": 7,
+      "production": 8,
+      "consistency": 7,
+      "performance": 8
+    },
+    "link": "https://open.spotify.com/artist/5ivCbtrcD5N4rD337xIb2z?si=abbe35410f9042b1",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/misterwives.jpg"
+  },
+  {
+    "name": "Couch",
+    "genres": [],
+    "scores": {
+      "musicality": 7,
+      "production": 8,
+      "consistency": 8,
+      "performance": 8
+    },
+    "link": "https://open.spotify.com/artist/3nYyLjhw4mYzYfJePsCJYJ?si=dacc33724cc44eea",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/couch.jpg"
+  },
+  {
+    "name": "Trousdale",
+    "genres": [],
+    "scores": {
+      "musicality": 7,
+      "production": 6,
+      "consistency": 8,
+      "performance": 8
+    },
+    "link": "https://open.spotify.com/artist/26DvqLYszG0oIOeelTF5kE?si=07f22264531c4883",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/trousdale.jpg"
+  },
+  {
+    "name": "Melt",
+    "genres": [],
+    "scores": {
+      "musicality": 7,
+      "production": 7,
+      "consistency": 8,
+      "performance": 7
+    },
+    "link": "https://open.spotify.com/artist/0G7KI9I5BApiXc5Sqpyil9?si=b7014015f9564cb1",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/melt.jpg"
+  },
+  {
+    "name": "Ripe",
+    "genres": [],
+    "scores": {
+      "musicality": 8,
+      "production": 8,
+      "consistency": 7,
+      "performance": 7
+    },
+    "link": "https://open.spotify.com/artist/19lQ2rJLlP71FOKESiMNJT?si=4ef6861e35be4b1c",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/ripe.jpg"
+  },
+  {
+    "name": "Sam Burchfield",
+    "genres": [],
+    "scores": {
+      "musicality": 8,
+      "production": 6,
+      "consistency": 7,
+      "performance": 10
+    },
+    "link": "https://open.spotify.com/artist/2S8ft2HNlQ2Ox9ltQZM1A5?si=40e6e15f05b241fa",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/sam-burchfield.jpg"
+  },
+  {
+    "name": "Phoebe Bridgers",
+    "genres": [],
+    "scores": {
+      "musicality": 9,
+      "production": 9,
+      "consistency": 6,
+      "performance": 9
+    },
+    "link": "https://open.spotify.com/artist/1r1uxoy19fzMxunt3ONAkG?si=9cba63eefb714012",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/phoebe-bridgers.jpg"
+  },
+  {
+    "name": "Joey Dosik",
+    "genres": [],
+    "scores": {
+      "musicality": 8,
+      "production": 8,
+      "consistency": 8,
+      "performance": 8
+    },
+    "link": "https://open.spotify.com/artist/3kANxNTLNOhxpOPoCbGq9E?si=69025c751d984efb",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/joey-dosik.jpg"
+  },
+  {
+    "name": "Sammy Rae & The Friends",
+    "genres": [],
+    "scores": {
+      "musicality": 7,
+      "production": 8,
+      "consistency": 6,
+      "performance": 8
+    },
+    "link": "https://open.spotify.com/artist/3lFDsTyYNPQc8WzJExnQWn?si=448d8cd931aa430a",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/sammy-rae-and-the-friends.jpg"
+  },
+  {
+    "name": "The Brook & The Bluff",
+    "genres": [],
+    "scores": {
+      "musicality": 7,
+      "production": 6,
+      "consistency": 7,
+      "performance": 6
+    },
+    "link": "https://open.spotify.com/artist/4dWtsQvuME6tCWFycaTvO7?si=ec669293d5824b1d",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/the-brook-and-the-bluff.jpg"
+  },
+  {
+    "name": "Noah Kahan",
+    "genres": [],
+    "scores": {
+      "musicality": 8,
+      "production": 9,
+      "consistency": 9,
+      "performance": 10
+    },
+    "link": "https://open.spotify.com/artist/2RQXRUsr4IW1f3mKyKsy4B?si=8b4088bf68264195",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/noah-kahan.jpg"
+  },
+  {
+    "name": "Theo Katzman",
+    "genres": [],
+    "scores": {
+      "musicality": 8,
+      "production": 8,
+      "consistency": 8,
+      "performance": 8
+    },
+    "link": "https://open.spotify.com/artist/2a4lU7F8toqKpb5v6Ftqya?si=81dc4ff220e14f21",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/theo-katzman.jpg"
+  },
+  {
+    "name": "Ben Rector",
+    "genres": [],
+    "scores": {
+      "musicality": 7,
+      "production": 7,
+      "consistency": 6,
+      "performance": 9
+    },
+    "link": "https://open.spotify.com/artist/4AapPt7H6bGH4i7chTulpI?si=1ca2831d2abf469c",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/ben-rector.jpg"
+  },
+  {
+    "name": "Wendlo",
+    "genres": [],
+    "scores": {
+      "musicality": 6,
+      "production": 6,
+      "consistency": 5,
+      "performance": 6
+    },
+    "link": "https://open.spotify.com/artist/7Gv2m6LRpBmAheRectfl2E?si=bf2ec6ccf2e84f6f",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/wendlo.jpg"
+  },
+  {
+    "name": "Jacob Collier",
+    "genres": [],
+    "scores": {
+      "musicality": 10,
+      "production": 10,
+      "consistency": 2,
+      "performance": 10
+    },
+    "link": "https://open.spotify.com/artist/0QWrMNukfcVOmgEU0FEDyD?si=33b66118adbe4bff",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/jacob-collier.jpg"
+  },
+  {
+    "name": "Miki Fiki",
+    "genres": [],
+    "scores": {
+      "musicality": 5,
+      "production": 5,
+      "consistency": 6,
+      "performance": 6
+    },
+    "link": "https://open.spotify.com/artist/1O1r2qVtIFqlTJoB4jsJKd?si=86e23985b60049fb",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/miki-fiki.jpg"
+  },
+  {
+    "name": "FINNEAS",
+    "genres": [],
+    "scores": {
+      "musicality": 7,
+      "production": 10,
+      "consistency": 5,
+      "performance": 4
+    },
+    "link": "https://open.spotify.com/artist/37M5pPGs6V1fchFJSgCguX?si=f754d4d3784a4d61",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/finneas.jpg"
+  },
+  {
+    "name": "Sean Angus Watson",
+    "genres": [],
+    "scores": {
+      "musicality": 7,
+      "production": 7,
+      "consistency": 8,
+      "performance": 2
+    },
+    "link": "https://open.spotify.com/artist/2kiSeGQsztzTrVXlIZOoBn?si=4e36ac52bd1a4e8b",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/sean-angus-watson.jpg"
+  },
+  {
+    "name": "Scary Pockets",
+    "genres": [],
+    "scores": {
+      "musicality": 10,
+      "production": 10,
+      "consistency": 6,
+      "performance": 8
+    },
+    "link": "https://open.spotify.com/artist/1e16kiJQtCTveTl7TQnkFN?si=7889e6e000dd47e6",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/scary-pockets.jpg"
+  },
+  {
+    "name": "Cory Wong",
+    "genres": [],
+    "scores": {
+      "musicality": 8,
+      "production": 8,
+      "consistency": 4,
+      "performance": 3
+    },
+    "link": "https://open.spotify.com/artist/6xt9sJmmyYwWkJv8A6ssiU?si=1634f39f859849f0",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/cory-wong.jpg"
+  }
+]

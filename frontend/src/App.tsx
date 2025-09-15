@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { FeedGraph } from "./components/FeedGraph";
 import Nav from "./components/Nav";
 import { ArchivePage } from "./pages/ArchivePage";
+import { ArtistsPage } from "./pages/ArtistsPage";
 import { BooksPage } from "./pages/BooksPage";
 import { CodeProjectsPage } from "./pages/CodeProjectsPage";
 import { ContactPage } from "./pages/ContactPage";
@@ -62,6 +63,7 @@ export function App() {
             path="/hidden/youtube-videos"
             element={<YouTubeVideosPage />}
           />
+          <Route path="/hidden/artists" element={<ArtistsPage />} />
           <Route path="/hidden/movies" element={<MoviesPage />} />
           <Route path="/hidden/podcasts" element={<PodcastsPage />} />
           <Route path="/hidden/recipes" element={<RecipesPage />} />

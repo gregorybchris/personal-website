@@ -82,3 +82,16 @@ export interface YouTubeVideo {
   creator?: string;
   favorite: boolean;
 }
+
+export interface Artist {
+  name: string;
+  genres: string[];
+  scores: {
+    musicality: number;
+    production: number;
+    consistency: number;
+    personality: number;
+  };
+  link: string;
+  image_link: string;
+}

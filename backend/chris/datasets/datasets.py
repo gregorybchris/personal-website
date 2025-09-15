@@ -11,6 +11,7 @@ class Datasets:
     YOUTUBE_CHANNELS = DatasetInfo("YouTube Channels", "media/youtube-channels.json")
     YOUTUBE_VIDEOS = DatasetInfo("YouTube Videos", "media/youtube-videos.json")
     BOOKS = DatasetInfo("Books", "media/books.json")
+    ARTISTS = DatasetInfo("Artists", "media/artists.json")
     TIKTOKS = DatasetInfo("Tiktoks", "media/tiktoks.json")
     MEMES = DatasetInfo("Memes", "media/memes.json")
     INSTAGRAMS = DatasetInfo("Instagrams", "media/instagrams.json")

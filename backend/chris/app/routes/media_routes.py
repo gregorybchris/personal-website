@@ -19,6 +19,7 @@ router = APIRouter()
 @router.get(path="/media")
 @logging_utilities.log_context("get_media", tag="api")
 def get_media() -> JSONResponse:
+    artists = fetch_dataset_json(Datasets.ARTISTS)
     books = fetch_dataset_json(Datasets.BOOKS)
     movies = fetch_dataset_json(Datasets.MOVIES)
     podcasts = fetch_dataset_json(Datasets.PODCASTS)
@@ -28,6 +29,7 @@ def get_media() -> JSONResponse:
 
     return JSONResponse(
         {
+            "artists": artists,
             "books": books,
             "movies": movies,
             "podcasts": podcasts,
@@ -96,6 +98,12 @@ def get_media_youtube_channels() -> JSONResponse:
 @logging_utilities.log_context("get_media_books", tag="api")
 def get_media_books() -> JSONResponse:
     return JSONResponse(fetch_dataset_json(Datasets.BOOKS))
+
+
+@router.get(path="/media/artists")
+@logging_utilities.log_context("get_media_artists", tag="api")
+def get_media_artists() -> JSONResponse:
+    return JSONResponse(fetch_dataset_json(Datasets.ARTISTS))
 
 
 class PostMediaRequest(BaseModel):
