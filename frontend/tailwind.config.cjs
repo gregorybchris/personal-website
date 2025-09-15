@@ -29,6 +29,7 @@ module.exports = {
     fontFamily: {
       noto: "Noto Serif TC",
       raleway: "Raleway",
+      iowa: "Iowa Old Style BT",
     },
   },
   plugins: [],

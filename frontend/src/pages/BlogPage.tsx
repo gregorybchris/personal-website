@@ -1,4 +1,5 @@
 import "../styles/common.css";
+import "../styles/fonts.css";
 
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -19,7 +20,7 @@ export function BlogPage() {
 
   return (
     <div className="flex flex-col gap-4 px-10">
-      <div className="">
+      <div className="font-iowa text-lg">
         This is my blog where I write about stuff I'm working on.
       </div>
       <div className="flex flex-col">
@@ -28,7 +29,7 @@ export function BlogPage() {
           .map((post) => (
             <div
               key={post.slug}
-              className="cursor-pointer text-sm hover:text-black/30"
+              className="cursor-pointer font-iowa text-base hover:text-black/30"
               onClick={() => navigate(`/blog/${post.slug}`)}
             >
               • {post.title}
