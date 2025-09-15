@@ -2,9 +2,9 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 import { NavLink } from "react-router-dom";
 import { cn } from "../utilities/style-utilities";
-import { CommandBar } from "./CommandBar";
+import { CommandBar } from "./command-bar";
 
-function Nav() {
+export function Nav() {
   function getLinkClassName() {
     return (params: { isActive: boolean }) => {
       const { isActive } = params;

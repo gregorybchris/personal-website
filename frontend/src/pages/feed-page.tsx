@@ -160,7 +160,7 @@ export function FeedPage() {
 }
 
 import { Link as LinkIcon } from "@phosphor-icons/react";
-import { Tag } from "../components/Tag";
+import { Tag } from "../components/tag";
 import { FeedPost as PostModel } from "../models/feedModels";
 import { formatDate } from "../utilities/datetime-utilities";
 

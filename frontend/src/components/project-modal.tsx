@@ -9,8 +9,8 @@ import {
 import * as Dialog from "@radix-ui/react-dialog";
 import { Project } from "../pages/projects-page";
 import { formatDate } from "../utilities/datetime-utilities";
-import { ActionLink } from "./ActionLink";
-import { SimpleLink } from "./SimpleLink";
+import { ActionLink } from "./action-link";
+import { SimpleLink } from "./simple-link";
 
 interface ProjectModalProps {
   project: Project;

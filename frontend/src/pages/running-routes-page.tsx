@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { MapContainer, Polyline, TileLayer, useMap } from "react-leaflet";
 import { useNavigate, useParams } from "react-router-dom";
-import { SimpleLink } from "../components/SimpleLink";
+import { SimpleLink } from "../components/simple-link";
 import "../styles/common.css";
 import { GET, makeQuery } from "../utilities/request-utilities";
 

@@ -1,8 +1,8 @@
 import { Link as LinkIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { MediaSearchBar } from "../components/MediaSearchBar";
-import { Tag } from "../components/Tag";
+import { MediaSearchBar } from "../components/media-search-bar";
+import { Tag } from "../components/tag";
 import { POST, makeQuery } from "../utilities/request-utilities";
 import { cn } from "../utilities/style-utilities";
 
