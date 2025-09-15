@@ -1,12 +1,11 @@
 import logging
-from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 
 import frontmatter
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel, TypeAdapter
+from pydantic import BaseModel
 
 from chris.app import logging_utilities
 

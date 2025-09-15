@@ -8,7 +8,10 @@
   "[toml]": { "editor.defaultFormatter": "tamasfe.even-better-toml" },
   "[typescript]": { "editor.formatOnSave": true, "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[typescriptreact]": { "editor.formatOnSave": true, "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "editor.codeActionsOnSave": { "source.organizeImports": "explicit" },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll": "explicit"
+  },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.detectIndentation": true,
   "editor.formatOnSave": true,
@@ -17,7 +20,7 @@
   "eslint.validate": ["javascript", "typescript", "typescriptreact"],
   "mypy-type-checker.args": ["--config-file", "src/backend/pyproject.toml"],
   "prettier.printWidth": 120,
-  "ruff.format.args": ["--config", "src/backend/pyproject.toml"],
+  "ruff.configuration": "src/backend/pyproject.toml",
   "ruff.nativeServer": true,
   "cSpell.words": [
     "bfprt",
