@@ -1,12 +1,12 @@
 from typing import List, Optional, Union
 
 import pytest
+from pandas import DataFrame
+
 from chris.datasets.dataset_format import DatasetFormat
 from chris.datasets.dataset_info import DatasetInfo
 from chris.datasets.datasets import Datasets
 from chris.datasets.fetch import fetch_dataset_json
-from pandas import DataFrame
-
 from tests.utilities import get_public_class_members
 
 

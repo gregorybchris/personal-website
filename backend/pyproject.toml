@@ -91,6 +91,9 @@ max-line-length = 120
 [tool.ruff.lint.pydocstyle]
 convention = "google"
 
+[tool.ruff.lint.isort]
+known-first-party = ["chris"]
+
 [tool.ruff.lint.extend-per-file-ignores]
 "**/*.py" = ["G004", "EM101", "EM102", "TD002"]
 "**/tests/**/*.py" = ["SLF", "PLR2004", "PT013"]
