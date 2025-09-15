@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { GET, makeQuery } from "../utilities/requestUtilities";
 
 import { BlogPost as BlogPostModel } from "../models/blogModels";
+import { formatDate } from "../utilities/datetimeUtilities";
 
 export function BlogPostPage() {
   const [currentPost, setCurrentPost] = useState<BlogPostModel | null>(null);
@@ -20,30 +21,32 @@ export function BlogPostPage() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-4 px-10">
-      <div className="">
-        {currentPost === null ? (
-          <span className="">Loading post...</span>
-        ) : (
-          <div>
-            <div className="mb-4 font-iowa text-3xl font-bold">
+    <div className="px-5 font-iowa md:px-10 md:py-10">
+      {currentPost === null ? (
+        <span className="">Loading post...</span>
+      ) : (
+        <div className="flex flex-col items-center gap-6 px-0 md:px-32">
+          <div className="flex flex-col items-center gap-1">
+            <div className="text-center text-2xl font-bold md:text-3xl">
               {currentPost.title}
             </div>
-            <div className="mb-6 font-iowa text-sm text-text-2">
-              {new Date(currentPost.date).toLocaleDateString()}
-            </div>
-            <div className="font-iowa text-lg leading-relaxed">
-              {currentPost.content}
+            <div className="text-sm text-text-2">
+              {formatDate(new Date(currentPost.date).toISOString())}
             </div>
           </div>
-        )}
-      </div>
-      <button
-        className="self-start font-iowa text-base hover:text-black/30"
-        onClick={() => navigate("/blog")}
-      >
-        Back to blog
-      </button>
+
+          <div className="md:text-md text-justify text-lg leading-relaxed">
+            {currentPost.content}
+          </div>
+
+          <button
+            className="text-base hover:text-black/30"
+            onClick={() => navigate("/blog")}
+          >
+            Back to blog
+          </button>
+        </div>
+      )}
     </div>
   );
 }

@@ -6,3 +6,11 @@ export interface BlogPost {
   content: string;
   archived: boolean;
 }
+
+export interface BlogPostMetadata {
+  title: string;
+  slug: string;
+  topics: string[];
+  date: string;
+  archived: boolean;
+}

@@ -19,22 +19,21 @@ export function BlogPage() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-4 px-10">
-      <div className="font-iowa text-lg">
+    <div className="flex flex-col gap-4 px-10 font-iowa">
+      <div className="text-3xl font-bold">Blog</div>
+      <div className="text-lg">
         This is my blog where I write about stuff I'm working on.
       </div>
       <div className="flex flex-col">
-        {posts
-          .filter((p) => !p.archived)
-          .map((post) => (
-            <div
-              key={post.slug}
-              className="cursor-pointer font-iowa text-base hover:text-black/30"
-              onClick={() => navigate(`/blog/${post.slug}`)}
-            >
-              • {post.title}
-            </div>
-          ))}
+        {posts.map((post) => (
+          <div
+            key={post.slug}
+            className="cursor-pointer text-base hover:text-black/30"
+            onClick={() => navigate(`/blog/${post.slug}`)}
+          >
+            • {post.title}
+          </div>
+        ))}
       </div>
     </div>
   );
