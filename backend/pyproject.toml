@@ -1,20 +1,6 @@
 [project]
-name = "chris"
-version = "1.1.0"
-description = "Personal website backend"
 authors = [
   { name = "Chris Gregory", email = "christopher.b.gregory@gmail.com" },
-]
-requires-python = ">=3.13"
-readme = "README.md"
-license = { file = "LICENSE.txt" }
-keywords = ["personal", "website", "python", "tools"]
-classifiers = [
-  "Intended Audience :: Developers",
-  "Topic :: Software Development",
-  "License :: OSI Approved :: Apache Software License",
-  "Programming Language :: Python",
-  "Programming Language :: Python :: 3.13",
 ]
 dependencies = [
   "click>=8.2.1",
@@ -25,32 +11,30 @@ dependencies = [
   "pydantic>=2.11.9",
   "python-frontmatter>=1.1.0",
 ]
+description = "Personal website backend"
+keywords = ["personal", "website", "python", "tools"]
+license = { file = "LICENSE.txt" }
+name = "chris"
+readme = "README.md"
+requires-python = ">=3.13"
+version = "1.1.0"
+
+[tool.uv]
+dev-dependencies = [
+  "covcheck[toml]>=0.4.3",
+  "mypy>=1.17.1",
+  "pytest-cov>=6.2.1",
+  "pytest>=8.4.1",
+  "ruff>=0.12.8",
+  "semver>=3.0.4",
+]
+package = true
 
 [project.urls]
 Repository = "https://github.com/gregorybchris/personal-website"
 
 [project.scripts]
 cgme = "chris.cli.cli:main"
-
-[dependency-groups]
-dev = [
-  "covcheck[toml]>=0.4.3",
-  "mypy>=1.18.1",
-  "pytest>=8.4.2",
-  "pytest-cov>=7.0.0",
-  "ruff>=0.13.0",
-  "semver>=3.0.4",
-]
-
-[tool.hatch.build.targets.sdist]
-include = ["chris"]
-
-[tool.hatch.build.targets.wheel]
-include = ["chris"]
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
 
 [tool.covcheck]
 branch = 0.0
@@ -61,6 +45,7 @@ disallow_incomplete_defs = true
 disallow_untyped_calls = true
 disallow_untyped_defs = true
 ignore_missing_imports = true
+plugins = ["pydantic.mypy"]
 
 [tool.ruff]
 line-length = 120
@@ -102,6 +87,9 @@ select = [
 
 [tool.ruff.lint.pycodestyle]
 max-line-length = 120
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
 
 [tool.ruff.lint.extend-per-file-ignores]
 "**/*.py" = ["G004", "EM101", "EM102", "TD002"]
