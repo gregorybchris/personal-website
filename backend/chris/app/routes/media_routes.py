@@ -7,7 +7,7 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from chris.app import logging_utilities
-from chris.app.imdb_utilities import MOVIE_POSTER_CACHE, TV_POSTER_CACHE, get_media_movies_poster, get_media_tv_poster
+from chris.app.imdb_utilities import MOVIE_POSTER_CACHE, TV_POSTER_CACHE, get_media_poster
 from chris.datasets.datasets import Datasets
 from chris.datasets.fetch import fetch_dataset_json
 
@@ -52,7 +52,7 @@ def get_media_movies() -> JSONResponse:
             continue
 
         try:
-            record["poster_url"] = get_media_movies_poster(imdb_id)
+            record["poster_url"] = get_media_poster(imdb_id, media_type="movie")
         except ValueError as e:
             logger.error(f"Error getting poster for movie with IMDB ID {imdb_id}: {e}")
 
@@ -79,7 +79,7 @@ def get_media_tv() -> JSONResponse:
             continue
 
         try:
-            record["poster_url"] = get_media_tv_poster(imdb_id)
+            record["poster_url"] = get_media_poster(imdb_id, media_type="tv")
         except ValueError as e:
             logger.error(f"Error getting poster for TV show with IMDB ID {imdb_id}: {e}")
 
