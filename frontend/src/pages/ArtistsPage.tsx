@@ -99,10 +99,10 @@ export function ArtistCard({
   return (
     <div className={cn("px-2 py-3")}>
       <div className="mb-2 flex justify-center">
-        <a href={artist.link} target="_blank">
+        <a href={artist.link} target="_blank" className="group">
           <img
             src={`${artist.image_link}?a=${timestamp}`}
-            className="w-[300px] border-2 border-background-dark transition-all hover:border-accent md:w-[250px]"
+            className="w-[300px] rounded-full border-2 border-background-dark transition-all group-hover:border-accent md:w-[250px]"
           />
         </a>
       </div>
