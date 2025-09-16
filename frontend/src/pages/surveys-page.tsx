@@ -170,7 +170,7 @@ export function SurveysPage() {
   function getSurveyElement() {
     if (surveys.length === 0) {
       return (
-        <div className="mx-auto pt-10 text-center">
+        <div className="pt-10 text-center">
           <div className="text-black/75">Loading surveys...</div>
         </div>
       );
@@ -178,7 +178,7 @@ export function SurveysPage() {
 
     if (current === null || response == null) {
       return (
-        <div className="mx-auto pt-10 text-center">
+        <div className="pt-10 text-center">
           <div className="text-black/75">
             No more surveys to complete
             <span onClick={onClearCompletedCache}>!</span>
@@ -190,12 +190,13 @@ export function SurveysPage() {
     const survey = current;
     const isComplete = response.isSurveyComplete();
     return (
-      <div className="mx-auto w-[80%] py-10 text-center md:w-[50%]">
+      <div className="flex w-[80%] flex-col items-center py-10 md:w-[50%]">
         <div className="w-full text-left">
-          <div className="border-parchment mx-auto block border-b pb-1 text-center font-sanchez text-2xl text-black/75 md:inline md:border-accent md:text-left">
+          <div className="border-b border-parchment pb-1 text-center font-sanchez text-2xl text-black/75 md:inline md:border-accent md:text-left">
             {survey.name}
           </div>
         </div>
+
         <div className="pb-4 pt-3 text-left">
           {survey.questions.map((question, questionNumber) => (
             <SurveyQuestionCard
@@ -207,15 +208,13 @@ export function SurveysPage() {
             />
           ))}
         </div>
-        <div className="w-full pb-10 text-left">
-          <div className="pb-3 text-black/75">
-            Additional information you'd like to provide? (optional)
-          </div>
 
+        <div className="w-full pb-10 text-left">
           <TextArea
             className="h-[80px] w-full"
             value={feedback}
             onChange={onUpdateFeedback}
+            placeholder="Additional information you'd like to provide? (optional)"
           />
         </div>
 
@@ -223,24 +222,21 @@ export function SurveysPage() {
           text="Submit"
           onClick={() => onSurveySubmit(survey, response)}
           enabled={isComplete}
-          className="mx-auto w-[100px]"
         />
       </div>
     );
   }
 
   return (
-    <div>
-      <div className="mx-auto w-[80%] text-center">
-        <div className="mb-5 mt-8 block font-sanchez text-3xl text-black/75">
-          What do you think?
-        </div>
-        <div className="mx-auto block w-[80%] text-black/75">
-          Your responses here are totally anonymous, so take your time and
-          answer honestly. These questions are intended to be fun and
-          thought-provoking. I'll periodically add new surveys, so if you enjoy
-          these, feel free to check back later.
-        </div>
+    <div className="flex flex-col items-center gap-5 pt-5">
+      <div className="font-sanchez text-3xl text-black/75">
+        What do you think?
+      </div>
+      <div className="w-[80%] text-center text-black/75">
+        Your responses here are totally anonymous, so take your time and answer
+        honestly. These questions are intended to be fun and thought-provoking.
+        I'll periodically add new surveys, so if you enjoy these, feel free to
+        check back later.
       </div>
       {getSurveyElement()}
     </div>
@@ -315,7 +311,7 @@ function SurveyQuestionOption({
     <div
       onClick={() => onOptionClicked(questionNumber, optionNumber)}
       className={cn(
-        "hover:text-royal cursor-pointer rounded px-3 py-1 text-accent transition-all hover:bg-black/5",
+        "cursor-pointer rounded px-3 py-1 text-accent transition-all hover:bg-black/5 hover:text-royal",
         isChosen && "bg-black/5 hover:bg-black/10",
         questionComplete && "text-royal/40",
       )}
