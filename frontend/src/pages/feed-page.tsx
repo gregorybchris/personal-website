@@ -31,15 +31,17 @@ export interface FeedPost {
   archived: boolean;
 }
 
+const YOUTUBE_SOURCE = "YouTube";
+
 export function FeedPage() {
   const [posts, setPosts] = useState<FeedPost[]>([]);
   const [searchText, setSearchText] = useState<string>("");
   const { slug } = useParams();
   let navigate = useNavigate();
 
-  const activeTags = getActiveTags(searchText);
+  const selectedTags = getSelectedTags(searchText);
 
-  function getActiveTags(searchText: string) {
+  function getSelectedTags(searchText: string): string[] {
     if (!searchText.startsWith("#")) {
       return [];
     }
@@ -157,7 +159,7 @@ export function FeedPage() {
                   onClickTag={onClickTag}
                   onSelectPost={(post) => navigate(`/links/${post.slug}`)}
                   videoTime={getVideoTime()}
-                  activeTags={activeTags}
+                  selectedTags={selectedTags}
                 />
               ))}
         </div>
@@ -171,17 +173,15 @@ interface FeedPostCardProps {
   videoTime: string;
   onClickTag: (tag: string) => void;
   onSelectPost: (post: FeedPost) => void;
-  activeTags: string[];
+  selectedTags: string[];
 }
-
-const YOUTUBE_SOURCE = "YouTube";
 
 function FeedPostCard({
   post,
   videoTime,
   onClickTag,
   onSelectPost,
-  activeTags,
+  selectedTags,
 }: FeedPostCardProps) {
   const [contentLink, setContentLink] = useState<string>("");
   const [thumbnailUrl, setThumbnailUrl] = useState<string>("");
@@ -292,7 +292,7 @@ function FeedPostCard({
             key={tag}
             tag={tag}
             onClick={onClickTag}
-            active={activeTags.includes(tag)}
+            selected={selectedTags.includes(tag)}
           />
         ))}
       </div>
