@@ -45,12 +45,12 @@ export function BooksPage() {
   }
 
   return (
-    <div className="grid justify-items-center pt-8">
-      <div className="w-4/5">
-        <div className="mb-5 text-center font-sanchez text-3xl text-black/75">
+    <div className="flex flex-col items-center gap-5 px-2 py-8">
+      <div className="flex flex-col items-center gap-2 md:w-4/5">
+        <div className="text-center font-sanchez text-3xl text-black/75">
           Books
         </div>
-        <div className="mx-auto w-[95%] py-3 text-center text-black/75 md:w-[70%]">
+        <div className="mx-auto w-[95%] text-center text-black/75 md:w-[70%]">
           I don't love recommending books because it always feels like assigned
           reading and I never liked assigned reading. But on the off chance
           you're a fan of one of the titles below you might consider picking up
@@ -58,18 +58,19 @@ export function BooksPage() {
         </div>
       </div>
 
-      <div className="mt-4 flex flex-row justify-center space-x-2">
+      <div className="flex flex-row justify-center gap-0.5">
         {allTags.map((tag) => (
           <Tag
             key={tag}
             tag={tag}
             onClick={onTagClick}
             selected={selectedTags.includes(tag)}
+            className="text-xs"
           />
         ))}
       </div>
 
-      <div className="grid w-4/5 grid-cols-1 justify-items-center pt-5 md:grid-cols-4 lg:grid-cols-5">
+      <div className="flex w-full flex-row flex-wrap justify-center gap-y-3 md:w-4/5 md:gap-x-2">
         {books
           .filter(
             (book) =>
@@ -99,32 +100,24 @@ interface BookProps {
 function Book({ book, selectedTags, onTagClick }: BookProps) {
   const timestamp = Date.now();
   return (
-    <div className="px-2 py-3">
-      <div className="mb-2 flex justify-center">
-        <a href={book.goodreads_link} target="_blank">
-          <img
-            src={`${book.image_links.book}?a=${timestamp}`}
-            className="h-[300px] border-2 border-neutral-300 transition-all hover:border-accent md:h-[250px]"
+    <div className="flex flex-col items-center gap-0.5">
+      <a href={book.goodreads_link} target="_blank">
+        <img
+          src={`${book.image_links.book}?a=${timestamp}`}
+          className="h-[210px] border-2 border-neutral-300 transition-all hover:border-accent md:h-[250px]"
+        />
+      </a>
+
+      <div className="flex flex-row flex-wrap items-center gap-0.5">
+        {book.tags.map((tag) => (
+          <Tag
+            key={tag}
+            tag={tag}
+            onClick={onTagClick}
+            selected={selectedTags.includes(tag)}
+            className="text-xs"
           />
-        </a>
-      </div>
-
-      <div>
-        <a href={book.goodreads_link} target="_blank">
-          <div className="text-balance text-center font-bold">{book.title}</div>
-          <div className="text-balance text-center">{book.author}</div>
-        </a>
-
-        <div className="mt-1 flex flex-row justify-center space-x-1">
-          {book.tags.map((tag) => (
-            <Tag
-              key={tag}
-              tag={tag}
-              onClick={onTagClick}
-              selected={selectedTags.includes(tag)}
-            />
-          ))}
-        </div>
+        ))}
       </div>
     </div>
   );
