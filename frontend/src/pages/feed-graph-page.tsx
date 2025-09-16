@@ -168,7 +168,7 @@ export function FeedGraphPage() {
     node.append("title").text((d) => d.id);
 
     node.on("click", (mouseEvent: any, node: any) => {
-      navigate(`/links/${node.post.slug}`);
+      navigate(`/hidden/feed/${node.post.slug}`);
     });
 
     simulation.on("tick", () => {

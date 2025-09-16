@@ -17,7 +17,7 @@ import { MusicPage } from "./pages/music-page";
 import { OopsPage } from "./pages/oops-page";
 import { PlacesPage } from "./pages/places-page";
 import { PodcastsPage } from "./pages/podcasts-page";
-import { ProjectPreviewsPage } from "./pages/project-previews-page";
+import { ProjectLogosPage } from "./pages/project-previews-page";
 import { ProjectsPage } from "./pages/projects-page";
 import { RecipePage } from "./pages/recipe-page";
 import { RecipesPage } from "./pages/recipes-page";
@@ -35,6 +35,7 @@ export function App() {
       <BrowserRouter>
         <Nav />
         <Routes>
+          {/* Main */}
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<ProjectsPage />}>
             <Route path=":slug" element={<ProjectsPage />} />
@@ -43,20 +44,27 @@ export function App() {
             <Route path=":slug" element={<RunningPage />} />
           </Route>
           <Route path="/music" element={<MusicPage />} />
-          <Route path="/links" element={<FeedPage />}>
-            <Route path=":slug" element={<FeedPage />} />
-          </Route>
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/books" element={<BooksPage />} />
           <Route path="/contact" element={<ContactPage />} />
 
+          {/* Hidden */}
           <Route path="/hidden" element={<HiddenPage />} />
-          <Route path="/hidden/books" element={<BooksPage />} />
-          <Route path="/hidden/surveys" element={<SurveysPage />} />
-          <Route path="/hidden/feed-graph" element={<FeedGraphPage />} />
-          <Route path="/hidden/places" element={<PlacesPage />} />
-          <Route path="/hidden/archive" element={<ArchivePage />} />
+
+          {/* Hidden media */}
+          <Route path="/hidden/artists" element={<ArtistsPage />} />
+          <Route path="/hidden/instagrams" element={<InstagramsPage />}>
+            <Route path=":id" element={<InstagramsPage />} />
+          </Route>
+          <Route path="/hidden/memes" element={<MemesPage />}>
+            <Route path=":id" element={<MemesPage />} />
+          </Route>
+          <Route path="/hidden/movies" element={<MoviesPage />} />
+          <Route path="/hidden/podcasts" element={<PodcastsPage />} />
+          <Route path="/hidden/tiktoks" element={<TiktoksPage />}>
+            <Route path=":id" element={<TiktoksPage />} />
+          </Route>
           <Route path="/hidden/shows" element={<TvShowsPage />} />
           <Route
             path="/hidden/youtube-channels"
@@ -66,23 +74,25 @@ export function App() {
             path="/hidden/youtube-videos"
             element={<YouTubeVideosPage />}
           />
-          <Route path="/hidden/artists" element={<ArtistsPage />} />
-          <Route path="/hidden/movies" element={<MoviesPage />} />
-          <Route path="/hidden/podcasts" element={<PodcastsPage />} />
+
+          {/* Hidden feed */}
+          <Route path="/hidden/feed" element={<FeedPage />}>
+            <Route path=":slug" element={<FeedPage />} />
+          </Route>
+          <Route path="/hidden/feed-graph" element={<FeedGraphPage />} />
+
+          {/* Hidden in progress */}
+          <Route path="/hidden/places" element={<PlacesPage />} />
           <Route path="/hidden/recipes" element={<RecipesPage />} />
           <Route path="/hidden/recipes/:slug" element={<RecipePage />} />
+          <Route path="/hidden/project-logos" element={<ProjectLogosPage />} />
           <Route path="/hidden/watermark" element={<WatermarkPage />} />
-          <Route path="/hidden/projects" element={<ProjectPreviewsPage />} />
-          <Route path="/hidden/tiktoks" element={<TiktoksPage />}>
-            <Route path=":id" element={<TiktoksPage />} />
-          </Route>
-          <Route path="/hidden/memes" element={<MemesPage />}>
-            <Route path=":id" element={<MemesPage />} />
-          </Route>
-          <Route path="/hidden/instagrams" element={<InstagramsPage />}>
-            <Route path=":id" element={<InstagramsPage />} />
-          </Route>
 
+          {/* Hidden old */}
+          <Route path="/hidden/archive" element={<ArchivePage />} />
+          <Route path="/hidden/surveys" element={<SurveysPage />} />
+
+          {/* Oops */}
           <Route path="*" element={<OopsPage />} />
         </Routes>
       </BrowserRouter>

@@ -53,7 +53,7 @@ const IMAGE_MAP = new Map([
   ["vidrank", vidrankImage],
 ]);
 
-export function ProjectPreviewsPage() {
+export function ProjectLogosPage() {
   function slugToImage(slug: string) {
     return IMAGE_MAP.get(slug);
   }

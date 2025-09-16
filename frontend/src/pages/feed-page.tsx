@@ -115,16 +115,14 @@ export function FeedPage() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col items-start gap-5">
         {slug && (
           <div
-            className="inline-block cursor-pointer rounded-md px-2 py-1 hover:bg-black/[8%]"
-            onClick={() => navigate("/links")}
+            className="flex cursor-pointer flex-row space-x-2 rounded-md px-2 py-1 hover:bg-black/[8%]"
+            onClick={() => navigate("/hidden/feed")}
           >
-            <div className="flex flex-row space-x-2">
-              <ArrowLeft size={25} color="#6283c0" weight="regular" />
-              <div>Back to all links</div>
-            </div>
+            <ArrowLeft size={25} color="#6283c0" weight="regular" />
+            <div>Back to all links</div>
           </div>
         )}
         {!slug && (
@@ -151,7 +149,7 @@ export function FeedPage() {
                   key={post.post_id}
                   post={post}
                   onClickTag={onClickTag}
-                  onSelectPost={(post) => navigate(`/links/${post.slug}`)}
+                  onSelectPost={(post) => navigate(`/hidden/feed/${post.slug}`)}
                   videoTime={getVideoTime()}
                   selectedTags={selectedTags}
                 />

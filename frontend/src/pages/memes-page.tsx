@@ -68,38 +68,20 @@ export function MemesPage() {
           <div className="mt-10 text-center text-black/75">No memes found</div>
         )}
         {!loading && memes.length > 0 && (
-          <div className="flex flex-col items-center p-5">
-            <div className="hidden grid-cols-4 gap-5 md:visible md:grid">
-              {memes.map((meme) => (
-                <MemeCard
-                  key={meme.id}
-                  meme={meme}
-                  updateQuery={updateQuery}
-                  className="w-full max-w-[90%] md:max-w-72"
-                />
-              ))}
-            </div>
-            <div className="flex flex-col items-center space-y-8 md:hidden">
-              {memes.map((meme) => (
-                <MemeCard
-                  key={meme.id}
-                  meme={meme}
-                  updateQuery={updateQuery}
-                  className="w-full max-w-[90%] md:max-w-72"
-                />
-              ))}
-            </div>
+          <div className="flex flex-row flex-wrap items-start justify-center gap-x-4 gap-y-4">
+            {memes.map((meme) => (
+              <MemeCard
+                key={meme.id}
+                meme={meme}
+                updateQuery={updateQuery}
+                className="w-full max-w-[90%] md:max-w-72"
+              />
+            ))}
           </div>
         )}
       </div>
     </div>
   );
-}
-
-interface MemeCardProps {
-  meme: Meme;
-  updateQuery: (query: string) => void;
-  className?: string;
 }
 
 export function MemeCard({ meme, updateQuery, className }: MemeCardProps) {

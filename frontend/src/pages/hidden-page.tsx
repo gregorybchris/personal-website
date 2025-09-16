@@ -14,114 +14,52 @@ export function HiddenPage() {
       <div className="flex w-[80%] flex-row flex-wrap justify-center gap-16">
         <div className="flex flex-col">
           <div className="font-sanchez text-lg underline">Media</div>
-          <Link to="/hidden/artists" className="text-black/75">
-            <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
-              Artists
-            </div>
-          </Link>
-          <Link to="/hidden/instagrams" className="text-black/75">
-            <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
-              Instagrams
-            </div>
-          </Link>
-          <Link to="/hidden/memes" className="text-black/75">
-            <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
-              Memes
-            </div>
-          </Link>
-          <Link to="/hidden/movies" className="text-black/75">
-            <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
-              Movies
-            </div>
-          </Link>
-          <Link to="/hidden/podcasts" className="text-black/75">
-            <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
-              Podcasts
-            </div>
-          </Link>
-          <Link to="/hidden/tiktoks" className="text-black/75">
-            <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
-              TikToks
-            </div>
-          </Link>
-          <Link to="/hidden/shows" className="text-black/75">
-            <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
-              TV Shows
-            </div>
-          </Link>
-          <Link to="/hidden/youtube-channels" className="text-black/75">
-            <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
-              YouTube Channels
-            </div>
-          </Link>
-          <Link to="/hidden/youtube-videos" className="text-black/75">
-            <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
-              YouTube Videos
-            </div>
-          </Link>
+          <PageLink to="/hidden/artists">Artists</PageLink>
+          <PageLink to="/hidden/instagrams">Instagrams</PageLink>
+          <PageLink to="/hidden/memes">Memes</PageLink>
+          <PageLink to="/hidden/movies">Movies</PageLink>
+          <PageLink to="/hidden/podcasts">Podcasts</PageLink>
+          <PageLink to="/hidden/tiktoks">TikToks</PageLink>
+          <PageLink to="/hidden/shows">TV Shows</PageLink>
+          <PageLink to="/hidden/youtube-channels">YouTube Channels</PageLink>
+          <PageLink to="/hidden/youtube-videos">YouTube Videos</PageLink>
         </div>
 
         <div className="flex flex-col">
           <div className="font-sanchez text-lg underline">Blog</div>
-          <Link to="/blog" className="text-black/75">
-            <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
-              Blog
-            </div>
-          </Link>
+          <PageLink to="/blog">Blog</PageLink>
         </div>
 
         <div className="flex flex-col">
           <div className="font-sanchez text-lg underline">Link Feed</div>
-          <Link to="/links" className="text-black/75">
-            <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
-              Feed
-            </div>
-          </Link>
-          <Link to="/hidden/feed-graph" className="text-black/75">
-            <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
-              Feed Graph
-            </div>
-          </Link>
+          <PageLink to="/hidden/feed">Feed</PageLink>
+          <PageLink to="/hidden/feed-graph">Feed Graph</PageLink>
         </div>
 
         <div className="flex flex-col">
           <div className="font-sanchez text-lg underline">In Progress</div>
-          <Link to="/hidden/places" className="text-black/75">
-            <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
-              Places
-            </div>
-          </Link>
-          <Link to="/hidden/recipes" className="text-black/75">
-            <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
-              Recipes
-            </div>
-          </Link>
-          <Link to="/hidden/watermark" className="text-black/75">
-            <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
-              Site watermark
-            </div>
-          </Link>
-          <Link to="/hidden/projects" className="text-black/75">
-            <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
-              Project logos
-            </div>
-          </Link>
+          <PageLink to="/hidden/places">Places</PageLink>
+          <PageLink to="/hidden/recipes">Recipes</PageLink>
+          <PageLink to="/hidden/watermark">Watermark</PageLink>
+          <PageLink to="/hidden/project-logos">Project logos</PageLink>
         </div>
 
         <div className="flex flex-col">
           <div className="font-sanchez text-lg underline">Old</div>
-          <Link to="/hidden/archive" className="text-black/75">
-            <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
-              Archive
-            </div>
-          </Link>
-          <Link to="/hidden/surveys" className="text-black/75">
-            <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
-              Surveys
-            </div>
-          </Link>
+          <PageLink to="/hidden/archive">Archive</PageLink>
+          <PageLink to="/hidden/surveys">Surveys</PageLink>
         </div>
       </div>
     </div>
+  );
+}
+
+function PageLink({ to, children }: { to: string; children: React.ReactNode }) {
+  return (
+    <Link to={to} className="text-black/75">
+      <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
+        {children}
+      </div>
+    </Link>
   );
 }

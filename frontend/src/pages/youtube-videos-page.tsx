@@ -69,27 +69,15 @@ export function YouTubeVideosPage() {
           </div>
         )}
         {!loading && youtubeVideos.length > 0 && (
-          <div className="flex flex-col items-center p-5">
-            <div className="hidden grid-cols-4 gap-5 md:visible md:grid">
-              {youtubeVideos.map((youtubeVideo) => (
-                <YouTubeVideoCard
-                  key={youtubeVideo.id}
-                  youtubeVideo={youtubeVideo}
-                  updateQuery={updateQuery}
-                  className="w-full max-w-[90%] md:max-w-72"
-                />
-              ))}
-            </div>
-            <div className="flex flex-col items-center space-y-8 md:hidden">
-              {youtubeVideos.map((youtubeVideo) => (
-                <YouTubeVideoCard
-                  key={youtubeVideo.id}
-                  youtubeVideo={youtubeVideo}
-                  updateQuery={updateQuery}
-                  className="w-full max-w-[90%] md:max-w-72"
-                />
-              ))}
-            </div>
+          <div className="flex flex-row flex-wrap items-start justify-center gap-x-4 gap-y-4">
+            {youtubeVideos.map((youtubeVideo) => (
+              <YouTubeVideoCard
+                key={youtubeVideo.id}
+                youtubeVideo={youtubeVideo}
+                updateQuery={updateQuery}
+                className="w-full max-w-[90%] md:max-w-72"
+              />
+            ))}
           </div>
         )}
       </div>
@@ -131,7 +119,7 @@ export function YouTubeVideoCard({
         <div className="text-sm">
           Creator:{" "}
           <span
-            className="hover:text-royal cursor-pointer transition-all"
+            className="cursor-pointer transition-all hover:text-royal"
             onClick={() => updateQuery(creator)}
           >
             {creator}
