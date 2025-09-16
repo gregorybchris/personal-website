@@ -121,7 +121,7 @@ export function YouTubeVideoCard({
           <Tag
             key={tag}
             tag={tag}
-            active={false}
+            selected={false}
             onClick={() => updateQuery(tag)}
           />
         ))}

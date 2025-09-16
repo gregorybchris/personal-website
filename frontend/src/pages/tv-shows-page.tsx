@@ -86,7 +86,7 @@ export function TvShowsPage() {
                         key={genre}
                         tag={genre}
                         onClick={onClickGenre}
-                        active={currentGenre === genre}
+                        selected={currentGenre === genre}
                       />
                     ))}
                   </div>

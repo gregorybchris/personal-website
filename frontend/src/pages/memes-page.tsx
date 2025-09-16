@@ -117,7 +117,7 @@ export function MemeCard({ meme, updateQuery, className }: MemeCardProps) {
           <Tag
             key={tag}
             tag={tag}
-            active={false}
+            selected={false}
             onClick={() => updateQuery(tag)}
           />
         ))}
