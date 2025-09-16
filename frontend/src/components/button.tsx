@@ -7,7 +7,12 @@ interface ButtonProps {
   className?: string;
 }
 
-export function Button({ text, onClick, enabled, className }: ButtonProps) {
+export function Button({
+  text,
+  onClick,
+  enabled = true,
+  className,
+}: ButtonProps) {
   return (
     <div
       onClick={onClick}
