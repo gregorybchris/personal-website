@@ -140,9 +140,14 @@ export function FeedPage() {
           </div>
         )}
         <div className="py-10 pl-10">
-          {posts.length === 0 ? (
+          {posts.length === 0 && (
             <span className="text-black/60">Loading posts...</span>
-          ) : (
+          )}
+          {posts.length > 0 && posts.filter(isPostVisible).length === 0 && (
+            <span className="text-black/60">No posts matched filter</span>
+          )}
+          {posts.length > 0 &&
+            posts.filter(isPostVisible).length > 0 &&
             posts
               .filter(isPostVisible)
               .map((post) => (
@@ -154,8 +159,7 @@ export function FeedPage() {
                   videoTime={getVideoTime()}
                   activeTags={activeTags}
                 />
-              ))
-          )}
+              ))}
         </div>
       </div>
     </div>
