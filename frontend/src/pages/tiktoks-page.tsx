@@ -47,7 +47,7 @@ export function TiktoksPage() {
 
   return (
     <div className="bg-background">
-      <div className="mt-8 block text-center font-noto text-2xl font-bold text-text-1 md:text-3xl">
+      <div className="mt-8 block text-center font-sanchez text-2xl font-bold text-black/75 md:text-3xl">
         TikToks
       </div>
 
@@ -62,10 +62,12 @@ export function TiktoksPage() {
         </div>
 
         {loading && (
-          <div className="mt-10 text-center text-text-1">Loading...</div>
+          <div className="mt-10 text-center text-black/75">Loading...</div>
         )}
         {!loading && tiktoks.length === 0 && (
-          <div className="mt-10 text-center text-text-1">No TikToks found</div>
+          <div className="mt-10 text-center text-black/75">
+            No TikToks found
+          </div>
         )}
         {!loading && tiktoks.length > 0 && (
           <div className="flex flex-col items-center p-5">
@@ -127,7 +129,7 @@ export function TiktokCard({
       </div>
 
       {creator && (
-        <div className="font-raleway text-sm">
+        <div className="text-sm">
           Creator:{" "}
           <span
             className="cursor-pointer transition-all hover:text-accent-focus"

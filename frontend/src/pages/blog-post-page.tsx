@@ -1,3 +1,4 @@
+import { WarningCircle } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../styles/common.css";
@@ -33,8 +34,15 @@ export function BlogPostPage() {
             </div>
           </div>
 
-          <div className="md:text-md text-justify text-lg leading-relaxed text-red-400">
-            Failed to load post content :(
+          <div className="md:text-md shadow-inner-lg flex flex-col items-center gap-3 rounded bg-blue-500/70 px-10 py-5 text-lg font-bold text-white">
+            <WarningCircle size={32} weight="bold" />
+            <div>Down for maintenance, come back in a few days!</div>
+          </div>
+
+          <div className="md:text-md flex flex-col gap-2 px-10 py-4 text-justify text-lg leading-relaxed">
+            {currentPost.content.split("\n").map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
           </div>
 
           <button

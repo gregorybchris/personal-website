@@ -11,7 +11,7 @@ export function ActionLink({ onClick, children, className }: ActionLinkProps) {
     <div
       onClick={onClick}
       className={cn(
-        "cursor-pointer font-raleway text-accent transition-all visited:text-accent hover:text-accent-focus active:text-accent-focus",
+        "cursor-pointer text-accent transition-all visited:text-accent hover:text-accent-focus active:text-accent-focus",
         className,
       )}
     >

@@ -48,7 +48,7 @@ export function MemesPage() {
 
   return (
     <div className="bg-background">
-      <div className="mt-8 block text-center font-noto text-2xl font-bold text-text-1 md:text-3xl">
+      <div className="mt-8 block text-center font-sanchez text-2xl font-bold text-black/75 md:text-3xl">
         Memes
       </div>
 
@@ -63,10 +63,10 @@ export function MemesPage() {
         </div>
 
         {loading && (
-          <div className="mt-10 text-center text-text-1">Loading...</div>
+          <div className="mt-10 text-center text-black/75">Loading...</div>
         )}
         {!loading && memes.length === 0 && (
-          <div className="mt-10 text-center text-text-1">No memes found</div>
+          <div className="mt-10 text-center text-black/75">No memes found</div>
         )}
         {!loading && memes.length > 0 && (
           <div className="flex flex-col items-center p-5">

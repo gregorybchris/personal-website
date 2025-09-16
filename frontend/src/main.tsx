@@ -8,6 +8,7 @@ import "@fontsource/raleway/300.css";
 import "@fontsource/raleway/400.css";
 import "@fontsource/raleway/500.css";
 import "@fontsource/raleway/600.css";
+import "@fontsource/sanchez";
 import "./main.css";
 
 import React from "react";

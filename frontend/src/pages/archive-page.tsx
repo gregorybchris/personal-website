@@ -20,10 +20,10 @@ export function ArchivePage() {
   return (
     <div className="px-3 py-8 md:px-8">
       <div className="mx-auto w-[80%] pb-5 text-center">
-        <div className="block pb-3 font-noto text-3xl font-bold text-text-1">
+        <div className="block pb-3 font-sanchez text-3xl text-black/75">
           Archive
         </div>
-        <div className="mx-auto block w-[80%] py-3 font-raleway text-text-1">
+        <div className="mx-auto block w-[80%] py-3 text-black/75">
           The archive for previous incarnations of this website.
         </div>
       </div>
@@ -46,8 +46,8 @@ function ArchiveSection({ archiveItem }: ArchiveSectionProps) {
 
   return (
     <div>
-      <div className="text-center font-raleway">
-        <div className="font-noto text-xl font-bold text-text-1">
+      <div className="text-center">
+        <div className="font-sanchez text-xl font-bold text-black/75">
           ChrisOffline v{archiveItem.version}
         </div>
         <div className="text-md">{year}</div>

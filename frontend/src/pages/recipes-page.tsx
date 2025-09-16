@@ -81,7 +81,7 @@ export function RecipesPage() {
   return (
     <div className="px-2 py-8 md:px-20">
       <div className="mx-auto w-[90%] pb-5 text-center md:w-[80%]">
-        <div className="block pb-3 font-noto text-3xl font-bold text-text-1">
+        <div className="block pb-3 font-sanchez text-3xl font-bold text-black/75">
           Recipes
         </div>
       </div>
@@ -102,16 +102,14 @@ export function RecipesPage() {
                 </div>
 
                 <div className="w-full text-center">
-                  <div className="mb-2 inline-block border-b border-background-dark font-noto">
+                  <div className="mb-2 inline-block border-b border-background-dark font-sanchez">
                     {recipe.name}
                   </div>
                   <div>
-                    <div className="font-raleway text-xs">
+                    <div className="text-xs">
                       Ready in {formatDuration(recipe.prep_time)}
                     </div>
-                    <div className="font-raleway text-xs">
-                      Serves {recipe.serves}
-                    </div>
+                    <div className="text-xs">Serves {recipe.serves}</div>
                   </div>
                 </div>
               </div>

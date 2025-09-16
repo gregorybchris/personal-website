@@ -290,9 +290,7 @@ export function ProjectsTimeline({
                   className="h-2.5 w-2.5 rounded-full"
                   style={{ backgroundColor: getProjectColor(projectType) }}
                 ></div>
-                <div className="font-raleway text-xs md:text-sm">
-                  {projectType}
-                </div>
+                <div className="text-xs md:text-sm">{projectType}</div>
               </div>
             );
           })}

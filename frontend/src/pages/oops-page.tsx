@@ -2,10 +2,10 @@ export function OopsPage() {
   return (
     <div>
       <div className="mx-auto w-[70%] py-4">
-        <div className="block pb-10 text-center font-noto text-4xl font-bold text-text-1">
+        <div className="block pb-10 text-center font-sanchez text-4xl font-bold text-black/75">
           Oops! :/
         </div>
-        <div className="text-center font-raleway text-lg leading-6 tracking-wide text-text-1">
+        <div className="text-center text-lg leading-6 tracking-wide text-black/75">
           Somehow you've ended up on a page that doesn't exist...
         </div>
       </div>

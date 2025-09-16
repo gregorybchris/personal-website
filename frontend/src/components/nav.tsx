@@ -9,33 +9,34 @@ export function Nav() {
     return (params: { isActive: boolean }) => {
       const { isActive } = params;
       return cn(
-        "font-raleway text-md pt-2 px-2 pb-1 mx-1 mb-2 inline-block text-text-1 transition-all border-b border-transparent hover:text-text-3",
-        isActive && "border-accent",
+        "text-md pt-2 px-2 pb-1 mx-1 mb-2 inline-block text-black/75 transition-all border-b border-transparent hover:text-text-3",
+        isActive && "border-blue-500/80",
       );
     };
   }
 
   return (
-    <div className="bg-background px-6 py-3 text-center md:text-left">
+    <div className="px-6 py-3 text-center md:text-left">
       <CommandBar />
 
       <div className="inline-block">
         <NavLink to="/" className={getLinkClassName()}>
           Home
         </NavLink>
-        <NavLink to="/code" className={getLinkClassName()}>
-          Code
+        <NavLink to="/blog" className={getLinkClassName()}>
+          Blog
+        </NavLink>
+        <NavLink to="/projects" className={getLinkClassName()}>
+          Projects
         </NavLink>
         <NavLink to="/running" className={getLinkClassName()}>
-          Runs
+          Running
+        </NavLink>
+        <NavLink to="/books" className={getLinkClassName()}>
+          Books
         </NavLink>
         <NavLink to="/music" className={getLinkClassName()}>
           Music
-        </NavLink>
-      </div>
-      <div className="inline-block">
-        <NavLink to="/books" className={getLinkClassName()}>
-          Books
         </NavLink>
         <NavLink to="/contact" className={getLinkClassName()}>
           Contact

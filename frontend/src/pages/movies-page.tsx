@@ -40,14 +40,14 @@ export function MoviesPage() {
   return (
     <div>
       <div className="pb-5 text-center">
-        <div className="pb-3 font-noto text-3xl font-bold text-text-1">
+        <div className="pb-3 font-sanchez text-3xl font-bold text-black/75">
           Movies
         </div>
-        <div className="py-3 font-raleway text-text-1">Some great movies!</div>
+        <div className="py-3 text-black/75">Some great movies!</div>
       </div>
 
       {movies.length == 0 && (
-        <div className="text-center font-raleway">Loading movies...</div>
+        <div className="text-center">Loading movies...</div>
       )}
       {movies.length > 0 && (
         <div className="flex flex-col items-center">
@@ -68,7 +68,7 @@ export function MoviesPage() {
                     className="rounded-lg px-1 py-4 hover:bg-black/5"
                   >
                     <div className="flex flex-col items-center gap-3 text-center">
-                      <div className="font-noto font-bold text-accent">
+                      <div className="font-sanchez font-bold text-accent">
                         {movie.name}
                       </div>
 

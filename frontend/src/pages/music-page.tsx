@@ -5,10 +5,10 @@ export function MusicPage() {
   return (
     <div className="p-8">
       <div className="mx-auto w-[90%] pb-2 text-center md:w-[80%]">
-        <div className="block pb-3 font-noto text-3xl font-bold text-text-1">
+        <div className="block pb-3 font-sanchez text-3xl text-black/75">
           Music
         </div>
-        <div className="mx-auto block w-[95%] py-3 font-raleway text-text-1 md:w-[70%]">
+        <div className="mx-auto block w-[95%] py-3 text-black/75 md:w-[70%]">
           Spotify is getting scary good at recommending music. But a song from a
           human being always feels more personal. Even if the music you're into
           is totally different, shoot me a link with my{" "}

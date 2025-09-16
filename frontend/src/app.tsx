@@ -21,7 +21,7 @@ import { ProjectPreviewsPage } from "./pages/project-previews-page";
 import { ProjectsPage } from "./pages/projects-page";
 import { RecipePage } from "./pages/recipe-page";
 import { RecipesPage } from "./pages/recipes-page";
-import { RunningRoutesPage } from "./pages/running-routes-page";
+import { RunningPage } from "./pages/running-page";
 import { SurveysPage } from "./pages/surveys-page";
 import { TiktoksPage } from "./pages/tiktoks-page";
 import { TvShowsPage } from "./pages/tv-shows-page";
@@ -31,16 +31,16 @@ import { YouTubeVideosPage } from "./pages/youtube-videos-page";
 
 export function App() {
   return (
-    <div>
+    <div className="bg-background font-raleway">
       <BrowserRouter>
         <Nav />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/code" element={<ProjectsPage />}>
+          <Route path="/projects" element={<ProjectsPage />}>
             <Route path=":slug" element={<ProjectsPage />} />
           </Route>
-          <Route path="/running" element={<RunningRoutesPage />}>
-            <Route path=":slug" element={<RunningRoutesPage />} />
+          <Route path="/running" element={<RunningPage />}>
+            <Route path=":slug" element={<RunningPage />} />
           </Route>
           <Route path="/music" element={<MusicPage />} />
           <Route path="/links" element={<FeedPage />}>

@@ -66,9 +66,9 @@ export function ProjectsPage() {
 
   function onSelectProject(project: Project | null) {
     if (project === null) {
-      navigate("/code");
+      navigate("/projects");
     } else {
-      navigate(`/code/${project.slug}`);
+      navigate(`/projects/${project.slug}`);
     }
     setCurrentProject(project);
   }
@@ -76,7 +76,7 @@ export function ProjectsPage() {
   return (
     <div className="bg-background">
       <div
-        className="mt-8 block text-center font-noto text-2xl font-bold text-text-1 md:text-3xl"
+        className="mt-8 block text-center font-sanchez text-2xl text-black/75 md:text-3xl"
         onClick={() => {
           if (searchEnabled) {
             setSearchText("");

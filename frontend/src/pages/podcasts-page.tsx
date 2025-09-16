@@ -31,12 +31,10 @@ export function PodcastsPage() {
   return (
     <div>
       <div className="pb-5 text-center">
-        <div className="pb-3 font-noto text-3xl font-bold text-text-1">
+        <div className="pb-3 font-sanchez text-3xl font-bold text-black/75">
           Podcasts
         </div>
-        <div className="py-3 font-raleway text-text-1">
-          Some great podcasts!
-        </div>
+        <div className="py-3 text-black/75">Some great podcasts!</div>
       </div>
 
       {podcasts.length == 0 && <div>Loading podcasts...</div>}
@@ -47,7 +45,7 @@ export function PodcastsPage() {
               <div className="w-[300px] p-6 text-center" key={podcast.name}>
                 <div className="mb-10 flex w-full flex-col items-center space-y-3 text-center">
                   <SimpleLink link={podcast.apple_link}>
-                    <div className="font-noto font-bold">{podcast.name}</div>
+                    <div className="font-sanchez font-bold">{podcast.name}</div>
 
                     <img
                       src={`https://static.pocketcasts.com/discover/images/webp/480/${podcast.pocket_casts_id}.webp`}

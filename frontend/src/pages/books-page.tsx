@@ -48,12 +48,12 @@ export function BooksPage() {
   }
 
   return (
-    <div className="grid justify-items-center pt-8 font-raleway">
+    <div className="grid justify-items-center pt-8">
       <div className="w-4/5">
-        <div className="mb-5 text-center font-noto text-3xl font-bold text-text-1">
+        <div className="mb-5 text-center font-sanchez text-3xl text-black/75">
           Books
         </div>
-        <div className="mx-auto w-[95%] py-3 text-center text-text-1 md:w-[70%]">
+        <div className="mx-auto w-[95%] py-3 text-center text-black/75 md:w-[70%]">
           I don't love recommending books because it always feels like assigned
           reading and I never liked assigned reading. But on the off chance
           you're a fan of one of the titles below you might consider picking up

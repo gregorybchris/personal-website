@@ -170,7 +170,7 @@ export function SurveysPage() {
     if (surveys.length === 0) {
       return (
         <div className="mx-auto pt-10 text-center">
-          <div className="font-raleway text-text-1">Loading surveys...</div>
+          <div className="text-black/75">Loading surveys...</div>
         </div>
       );
     }
@@ -178,7 +178,7 @@ export function SurveysPage() {
     if (current === null || response == null) {
       return (
         <div className="mx-auto pt-10 text-center">
-          <div className="font-raleway text-text-1">
+          <div className="text-black/75">
             No more surveys to complete
             <span onClick={onClearCompletedCache}>!</span>
           </div>
@@ -192,7 +192,7 @@ export function SurveysPage() {
     return (
       <div className="mx-auto w-[80%] py-10 text-center md:w-[50%]">
         <div className="w-full text-left">
-          <div className="mx-auto block border-b border-background pb-1 text-center font-noto text-2xl font-bold text-text-1 md:inline md:border-accent md:text-left">
+          <div className="mx-auto block border-b border-background pb-1 text-center font-sanchez text-2xl font-bold text-black/75 md:inline md:border-accent md:text-left">
             {survey.name}
           </div>
         </div>
@@ -209,7 +209,7 @@ export function SurveysPage() {
           ))}
         </div>
         <div className="w-full pb-10 text-left">
-          <div className="pb-3 font-raleway text-text-1">
+          <div className="pb-3 text-black/75">
             Additional information you'd like to provide? (optional)
           </div>
           <textarea
@@ -233,10 +233,10 @@ export function SurveysPage() {
   return (
     <div className="bg-background">
       <div className="mx-auto w-[80%] text-center">
-        <div className="mb-5 mt-8 block font-noto text-3xl font-bold text-text-1">
+        <div className="mb-5 mt-8 block font-sanchez text-3xl font-bold text-black/75">
           What do you think?
         </div>
-        <div className="mx-auto block w-[80%] font-raleway text-text-1">
+        <div className="mx-auto block w-[80%] text-black/75">
           Your responses here are totally anonymous, so take your time and
           answer honestly. These questions are intended to be fun and
           thought-provoking. I'll periodically add new surveys, so if you enjoy
@@ -269,7 +269,7 @@ function SurveyQuestionCard({
     <div className="pb-5 pt-3" key={questionNumber}>
       <div
         className={cn(
-          "pb-3 -indent-4 font-raleway text-text-1 transition-all",
+          "pb-3 -indent-4 text-black/75 transition-all",
           isComplete && "text-text-4",
         )}
       >
@@ -321,7 +321,7 @@ function SurveyQuestionOption({
     <div
       onClick={() => onOptionClicked(questionNumber, optionNumber)}
       className={cn(
-        "px-3 py-1 font-raleway text-accent transition-all",
+        "px-3 py-1 text-accent transition-all",
         isChosen && "bg-background-highlight-light",
         "active:bg-background-highlight-active",
         "cursor-pointer hover:bg-background-highlight hover:text-accent-focus",

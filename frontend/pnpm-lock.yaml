@@ -18,6 +18,9 @@ importers:
       '@fontsource/raleway':
         specifier: ^5.1.1
         version: 5.1.1
+      '@fontsource/sanchez':
+        specifier: ^5.2.7
+        version: 5.2.7
       '@phosphor-icons/react':
         specifier: ^2.1.7
         version: 2.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -345,6 +348,9 @@ packages:
 
   '@fontsource/raleway@5.1.1':
     resolution: {integrity: sha512-gCLRJLqdUYI7BDSzvoMFOSNvS4NXUIqSdzQ7PTEqoQDHWLTcoA0xhXgljivmVbJ2ziJq1NZO7tYpDLMlIFe66g==}
+
+  '@fontsource/sanchez@5.2.7':
+    resolution: {integrity: sha512-4j8FN1SARDAfv8VyOXpRdnnXPrgtg3Tsr7xlgOwixw0oHhBU9HbpvLWb+4Zwmr5lXhUHQT7hQyyXmQFGJBCumA==}
 
   '@isaacs/cliui@8.0.2':
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -1892,6 +1898,8 @@ snapshots:
   '@fontsource/noto-serif-tc@5.1.2': {}
 
   '@fontsource/raleway@5.1.1': {}
+
+  '@fontsource/sanchez@5.2.7': {}
 
   '@isaacs/cliui@8.0.2':
     dependencies:

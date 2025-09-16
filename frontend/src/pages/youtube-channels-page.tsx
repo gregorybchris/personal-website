@@ -29,12 +29,10 @@ export function YouTubeChannelsPage() {
   return (
     <div>
       <div className="pb-5 text-center">
-        <div className="pb-3 font-noto text-3xl font-bold text-text-1">
+        <div className="pb-3 font-sanchez text-3xl font-bold text-black/75">
           YouTube Channels
         </div>
-        <div className="py-3 font-raleway text-text-1">
-          Some great YouTube channels!
-        </div>
+        <div className="py-3 text-black/75">Some great YouTube channels!</div>
       </div>
 
       {channels.length == 0 && <div>Loading channels...</div>}
@@ -45,7 +43,7 @@ export function YouTubeChannelsPage() {
               <div className="w-[300px] p-6 text-center" key={channel.name}>
                 <div className="mb-10 w-full text-center">
                   <SimpleLink link={channel.link}>
-                    <div className="font-noto font-bold">{channel.name}</div>
+                    <div className="font-sanchez font-bold">{channel.name}</div>
                   </SimpleLink>
                 </div>
 

@@ -40,16 +40,14 @@ export function TvShowsPage() {
   return (
     <div>
       <div className="pb-5 text-center">
-        <div className="pb-3 font-noto text-3xl font-bold text-text-1">
+        <div className="pb-3 font-sanchez text-3xl font-bold text-black/75">
           TV Shows
         </div>
-        <div className="py-3 font-raleway text-text-1">
-          Some great TV shows!
-        </div>
+        <div className="py-3 text-black/75">Some great TV shows!</div>
       </div>
 
       {shows.length == 0 && (
-        <div className="text-center font-raleway">Loading TV shows...</div>
+        <div className="text-center">Loading TV shows...</div>
       )}
       {shows.length > 0 && (
         <div className="flex flex-col items-center">
@@ -70,7 +68,7 @@ export function TvShowsPage() {
                     className="rounded-lg px-1 py-4 hover:bg-background-highlight"
                   >
                     <div className="flex flex-col items-center gap-3 text-center">
-                      <div className="font-noto font-bold text-accent">
+                      <div className="font-sanchez font-bold text-accent">
                         {show.name}
                       </div>
 

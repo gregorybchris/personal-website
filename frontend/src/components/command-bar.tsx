@@ -65,13 +65,13 @@ export function CommandBar() {
       <div
         className={cn(
           "flex max-h-[400px] w-[400px] flex-col justify-center overflow-hidden",
-          "rounded-lg bg-background px-3 pb-3 text-center shadow-[0_0_200px_30px_rgba(0,0,0,0.2)]",
+          "rounded-lg px-3 pb-3 text-center shadow-[0_0_200px_30px_rgba(0,0,0,0.2)]",
         )}
       >
         <div className="flex flex-row items-center justify-between">
           <Command.Input
             placeholder="Search for a page..."
-            className="mb-2 bg-transparent px-4 py-5 font-raleway font-bold text-text-1 outline-none"
+            className="mb-2 bg-transparent px-4 py-5 font-bold text-black/75 outline-none"
           />
 
           <div
@@ -85,9 +85,7 @@ export function CommandBar() {
         <div className="h-full w-full border-l-2 border-r-2 border-accent p-5">
           <Command.List>
             <Command.Empty>
-              <div className="font-raleway font-bold text-text-2">
-                No results found
-              </div>
+              <div className="font-bold text-text-2">No results found</div>
             </Command.Empty>
 
             {pages.map((page, i) => (
@@ -99,7 +97,7 @@ export function CommandBar() {
                   navigate(page.route);
                 }}
                 className={cn(
-                  "cursor-pointer rounded-md py-1 font-raleway font-bold",
+                  "cursor-pointer rounded-md py-1 font-bold",
                   "transition-all aria-selected:bg-background-dark aria-selected:text-accent",
                 )}
               >

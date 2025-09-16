@@ -44,32 +44,30 @@ export function RecipePage() {
         className="mb-4 inline-block cursor-pointer rounded-md px-2 py-1 hover:bg-background-dark"
         onClick={() => navigate("/hidden/recipes")}
       >
-        <div className="flex flex-row space-x-2 font-raleway">
+        <div className="flex flex-row space-x-2">
           <ArrowLeft size={25} color="#6283c0" weight="regular" />
           <div>Back to recipes</div>
         </div>
       </div>
 
-      {recipe === undefined && (
-        <div className="font-raleway">Recipe not found</div>
-      )}
+      {recipe === undefined && <div>Recipe not found</div>}
 
       {recipe !== undefined && (
         <div className="w-[95%] md:w-[80%]">
           <a href={recipe.bigoven_link} target="_blank">
-            <div className="inline-block border-b border-accent font-noto text-3xl">
+            <div className="inline-block border-b border-accent font-sanchez text-3xl">
               {recipe.name}
             </div>
           </a>
 
           <div className="flex flex-row space-x-6 py-7">
-            <div className="flex flex-row space-x-2 font-raleway">
+            <div className="flex flex-row space-x-2">
               <div>
                 <ClockCountdown size={25} color="#6283c0" weight="regular" />
               </div>
               <div>Ready in {formatDuration(recipe.prep_time)}</div>
             </div>
-            <div className="flex flex-row space-x-2 font-raleway">
+            <div className="flex flex-row space-x-2">
               <div>
                 <Users size={25} color="#6283c0" weight="regular" />
               </div>
@@ -79,16 +77,16 @@ export function RecipePage() {
 
           <div className="relative mb-8 border-l-2 border-accent pb-3 pl-8">
             <div className="absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent bg-background"></div>
-            <div className="pb-3 font-noto text-xl">Notes</div>
-            <div className="font-raleway text-sm leading-6">
+            <div className="pb-3 font-sanchez text-xl">Notes</div>
+            <div className="text-sm leading-6">
               {recipe.notes || "No notes available"}
             </div>
           </div>
 
           <div className="relative mb-8 border-l-2 border-accent pb-3 pl-8">
             <div className="absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent bg-background"></div>
-            <div className="pb-3 font-noto text-xl">Ingredients</div>
-            <div className="font-raleway text-sm">
+            <div className="pb-3 font-sanchez text-xl">Ingredients</div>
+            <div className="text-sm">
               {recipe.ingredients.length === 0 &&
                 "No ingredients included in this recipe"}
 
@@ -116,8 +114,8 @@ export function RecipePage() {
 
           <div className="relative mb-8 border-l-2 border-accent pb-3 pl-8">
             <div className="absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent bg-background"></div>
-            <div className="pb-3 font-noto text-xl">Instructions</div>
-            <div className="font-raleway text-sm leading-6">
+            <div className="pb-3 font-sanchez text-xl">Instructions</div>
+            <div className="text-sm leading-6">
               {recipe.instructions || "Nothing to see here"}
             </div>
           </div>
@@ -125,13 +123,13 @@ export function RecipePage() {
           <div className="flex flex-row items-center space-x-3">
             <div
               onClick={() => alert("Coming soon!")}
-              className="cursor-pointer border-2 border-accent px-3 py-1 font-raleway font-bold transition-all hover:border-accent-focus hover:bg-background-dark"
+              className="cursor-pointer border-2 border-accent px-3 py-1 font-bold transition-all hover:border-accent-focus hover:bg-background-dark"
             >
               <div>Step by step</div>
             </div>
             <div
               onClick={() => alert("Coming soon!")}
-              className="cursor-pointer border-2 border-accent px-3 py-1 font-raleway font-bold transition-all hover:border-accent-focus hover:bg-background-dark"
+              className="cursor-pointer border-2 border-accent px-3 py-1 font-bold transition-all hover:border-accent-focus hover:bg-background-dark"
             >
               <div>Adjust serving size</div>
             </div>

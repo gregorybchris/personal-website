@@ -26,7 +26,7 @@ export interface RouteDataPoint {
   elevation: number;
 }
 
-export function RunningRoutesPage() {
+export function RunningPage() {
   const [routes, setRoutes] = useState<RunningRoute[]>([]);
   const [currentRoute, setCurrentRoute] = useState<RunningRoute | null>(null);
   const [currentRouteData, setCurrentRouteData] = useState<RouteData | null>(
@@ -87,10 +87,10 @@ export function RunningRoutesPage() {
   return (
     <div className="p-8">
       <div className="mx-auto mb-8 w-[100%] p-0 text-center md:w-[80%] md:pb-5">
-        <div className="block pb-3 font-noto text-3xl font-bold text-text-1">
+        <div className="block pb-3 font-sanchez text-3xl text-neutral-700">
           Running Routes
         </div>
-        <div className="mx-auto block w-[80%] py-3 font-raleway text-text-1">
+        <div className="mx-auto block w-[80%] py-3">
           If you like running and happen to be in a city I've lived in, then
           this page is for you. Shout out to my favorite route mapping website,
           the tried and true{" "}
@@ -102,8 +102,8 @@ export function RunningRoutesPage() {
       </div>
 
       <div className="inline-block h-[500px] w-[100%] overflow-y-scroll text-center align-top md:w-[50%]">
-        <table className="Common-table border-l-2 border-accent pl-4">
-          <thead className="Common-table-header sticky top-0 bg-background font-noto font-bold">
+        <table className="Common-table border-l-2 border-accent pl-4 font-raleway">
+          <thead className="Common-table-header sticky top-0 bg-background font-bold">
             <tr className="Common-table-row">
               <td className="Common-table-cell">
                 <span className="Common-table-header-cell-text">Route</span>
@@ -119,7 +119,7 @@ export function RunningRoutesPage() {
               </td>
             </tr>
           </thead>
-          <tbody className="Common-table-body RunningRoutes-routes-table-body font-raleway">
+          <tbody className="Common-table-body RunningRoutes-routes-table-body">
             {routes.map((route, routeNumber) => (
               <tr className="Common-table-row" key={routeNumber}>
                 <td
@@ -150,7 +150,7 @@ export function RunningRoutesPage() {
       </div>
       {currentRoute && currentRouteData && (
         <div className="block w-full px-4 align-top md:mx-auto md:inline-block md:w-[50%]">
-          <div className="inline border-b border-accent pb-1 font-noto text-lg font-bold">
+          <div className="inline border-b border-accent pb-1 text-lg font-bold">
             {currentRoute?.name}
           </div>
           <div className="mt-5 h-[450px] w-full shadow-[0_0_6px_2px_rgba(0,0,0,0.3)]">
@@ -180,7 +180,7 @@ export function RunningRoutesPage() {
               </MapContainer>
             )}
             {!mapBoxToken && (
-              <div className="text-md px-4 py-5 font-noto font-bold text-text-1">
+              <div className="text-md px-4 py-5 font-sanchez font-bold text-black/75">
                 Failed to load MapBox data
               </div>
             )}

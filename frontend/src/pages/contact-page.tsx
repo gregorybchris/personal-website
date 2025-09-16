@@ -3,12 +3,12 @@ import "../styles/common.css";
 
 export function ContactPage() {
   return (
-    <div className="bg-background p-8">
+    <div className="p-8">
       <div className="mx-auto w-[80%] text-center">
-        <div className="mb-5 block font-noto text-3xl font-bold text-text-1">
+        <div className="mb-5 block font-sanchez text-3xl text-black/75">
           Fill out this form to send me a message
         </div>
-        <div className="mx-auto block w-[80%] font-raleway text-text-1">
+        <div className="mx-auto block w-[80%] text-black/75">
           Looking forward to hearing from you!
         </div>
       </div>

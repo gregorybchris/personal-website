@@ -34,8 +34,8 @@ export function BlogPage() {
   }, []);
 
   return (
-    <div className="flex flex-col items-start gap-4 px-4 font-iowa md:px-10">
-      <div className="text-3xl font-bold">Blog</div>
+    <div className="flex flex-col items-center gap-4 px-4 py-10 font-iowa md:px-10">
+      <div className="font-sanchez text-3xl">Blog</div>
 
       <table className="table-auto border-separate border-spacing-y-1">
         {posts.map((post) => (
@@ -44,10 +44,10 @@ export function BlogPage() {
             className="group cursor-pointer align-top"
             onClick={() => navigate(`/blog/${post.slug}`)}
           >
-            <td className="whitespace-nowrap py-1.5 text-black/50">
+            <td className="whitespace-nowrap py-1.5 text-black/40">
               {formatDate(new Date(post.date).toISOString())}
             </td>
-            <td className="text-balance py-1.5 pl-5 decoration-black/20 underline-offset-4 group-hover:underline">
+            <td className="text-balance py-1.5 pl-5 decoration-blue-500/50 underline-offset-4 group-hover:underline">
               {post.title}
             </td>
           </tr>

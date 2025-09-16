@@ -101,13 +101,13 @@ export function FeedPage() {
   }
 
   return (
-    <div className="bg-background pt-8">
+    <div className="pt-8">
       <div className="mx-auto w-[80%] text-center">
-        <div className="mb-5 block font-noto text-3xl font-bold text-text-1">
+        <div className="mb-5 block font-sanchez text-3xl font-bold text-black/75">
           Link Feed
         </div>
         {!slug && (
-          <div className="mx-auto block w-[80%] pb-5 font-raleway text-text-1">
+          <div className="mx-auto block w-[80%] pb-5 text-black/75">
             Topics range from art to neuroscience and philosophy to physics. I
             try to reserve posts here for videos and articles that made me think
             differently. Stuff that meets that standard tends to be a bit
@@ -121,7 +121,7 @@ export function FeedPage() {
             className="mb-4 ml-10 inline-block cursor-pointer rounded-md px-2 py-1 hover:bg-background-dark"
             onClick={() => navigate("/links")}
           >
-            <div className="flex flex-row space-x-2 font-raleway">
+            <div className="flex flex-row space-x-2">
               <ArrowLeft size={25} color="#6283c0" weight="regular" />
               <div>Back to all links</div>
             </div>
@@ -138,7 +138,7 @@ export function FeedPage() {
         )}
         <div className="py-10 pl-10">
           {posts.length === 0 ? (
-            <span className="font-raleway text-text-2">Loading posts...</span>
+            <span className="text-text-2">Loading posts...</span>
           ) : (
             posts
               .filter(isPostVisible)
@@ -249,7 +249,7 @@ function FeedPostCard({
       <div className="pb-3">
         <div className="mb-2">
           <a href={contentLink} target="_blank" rel="noopener noreferrer">
-            <div className="inline-block font-noto text-xl font-bold text-text-1">
+            <div className="inline-block font-sanchez text-xl font-bold text-black/75">
               {title}
             </div>
           </a>
@@ -261,15 +261,15 @@ function FeedPostCard({
           </div>
         </div>
         {seriesName && (
-          <div className="text-md mb-1 inline-block font-raleway font-bold text-text-2">
+          <div className="text-md mb-1 inline-block font-bold text-text-2">
             {seriesDetails}
           </div>
         )}
-        <div className="text-md mb-1 font-raleway font-bold text-text-2">
+        <div className="text-md mb-1 font-bold text-text-2">
           {formatDate(post.date_posted)}
         </div>
         {post.length && (
-          <div className="text-md font-raleway font-bold text-text-2">
+          <div className="text-md font-bold text-text-2">
             {formatLength(post.length)}
           </div>
         )}
