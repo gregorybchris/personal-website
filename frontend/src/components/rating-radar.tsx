@@ -18,7 +18,8 @@ export function RatingRadar({ scores }: RatingRadarProps) {
   console.log("values", values);
 
   return (
-    <div className="radar-chart size-32">
+    // Note: this margin is needed because otherwise the radar chart is cut off
+    <div className="radar-chart mb-6 mt-8 size-32">
       <Radar
         width={100}
         height={100}

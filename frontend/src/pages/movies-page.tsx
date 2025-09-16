@@ -49,34 +49,34 @@ export function MoviesPage() {
       )}
       {movies.length > 0 && (
         <div className="flex flex-col items-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+          <div className="flex flex-row flex-wrap justify-center gap-x-1 gap-y-8">
             {movies
               .filter(
                 (movie) => !currentGenre || movie.genres.includes(currentGenre),
               )
               .map((movie) => (
                 <div
-                  className="flex w-[300px] flex-col items-center gap-1 p-6"
+                  className="flex w-[260px] flex-col items-center gap-1"
                   key={movie.name}
                 >
                   <Link
                     to={movie.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-lg px-1 py-4 hover:bg-black/5"
+                    className="rounded-lg px-1 py-2 hover:bg-black/5"
                   >
                     <div className="flex flex-col items-center gap-3 text-center">
-                      <div className="font-sanchez font-bold text-accent">
-                        {movie.name}
-                      </div>
-
                       {movie.poster_url && (
                         <img
                           src={movie.poster_url}
                           alt={movie.name}
-                          className="inline-block w-40 rounded-md"
+                          className="inline-block w-full rounded-md"
                         />
                       )}
+
+                      <div className="font-sanchez font-bold text-accent">
+                        {movie.name}
+                      </div>
                     </div>
                   </Link>
 
@@ -91,11 +91,7 @@ export function MoviesPage() {
                     ))}
                   </div>
 
-                  <div className="mb-6 mt-8">
-                    <RatingRadar
-                      scores={new Map(Object.entries(movie.scores))}
-                    />
-                  </div>
+                  <RatingRadar scores={new Map(Object.entries(movie.scores))} />
                 </div>
               ))}
           </div>
