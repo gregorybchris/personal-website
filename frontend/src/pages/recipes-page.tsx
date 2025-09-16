@@ -94,7 +94,7 @@ export function RecipesPage() {
             !recipe.archived && (
               <div
                 key={recipe.name}
-                className="relative mx-4 my-3 flex h-[130px] w-[240px] cursor-pointer flex-row items-center border-2 border-accent text-center transition-all hover:border-accent-focus"
+                className="hover:border-royal relative mx-4 my-3 flex h-[130px] w-[240px] cursor-pointer flex-row items-center border-2 border-accent text-center transition-all"
                 onClick={() => navigate(`/hidden/recipes/${recipe.slug}`)}
               >
                 <div className="absolute -left-3 -top-3 rounded-full bg-accent p-2">
@@ -102,7 +102,7 @@ export function RecipesPage() {
                 </div>
 
                 <div className="w-full text-center">
-                  <div className="mb-2 inline-block border-b border-background-dark font-sanchez">
+                  <div className="mb-2 inline-block border-b border-black/15 font-sanchez">
                     {recipe.name}
                   </div>
                   <div>

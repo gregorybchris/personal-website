@@ -55,7 +55,7 @@ export function ArtistCard({ artist }: ArtistCardProps) {
         <a href={artist.link} target="_blank" className="group">
           <img
             src={`${artist.image_link}?a=${timestamp}`}
-            className="w-[300px] rounded-full border-2 border-background-dark transition-all group-hover:border-accent md:max-w-[220px]"
+            className="w-[300px] rounded-full border-2 border-neutral-300 transition-all group-hover:border-accent md:max-w-[220px]"
           />
         </a>
       </div>

@@ -1,6 +1,7 @@
 import { ArrowLeft, ClockCountdown, Users } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { Button } from "../components/button";
 import { formatDuration } from "../utilities/datetime-utilities";
 import { GET, makeQuery } from "../utilities/request-utilities";
 import { Recipe } from "./recipes-page";
@@ -41,7 +42,7 @@ export function RecipePage() {
   return (
     <div className="px-16 pb-10 pt-3">
       <div
-        className="mb-4 inline-block cursor-pointer rounded-md px-2 py-1 hover:bg-background-dark"
+        className="mb-4 inline-block cursor-pointer rounded-md px-2 py-1 hover:bg-black/[8%]"
         onClick={() => navigate("/hidden/recipes")}
       >
         <div className="flex flex-row space-x-2">
@@ -76,7 +77,7 @@ export function RecipePage() {
           </div>
 
           <div className="relative mb-8 border-l-2 border-accent pb-3 pl-8">
-            <div className="absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent bg-background"></div>
+            <div className="bg-parchment absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent"></div>
             <div className="pb-3 font-sanchez text-xl">Notes</div>
             <div className="text-sm leading-6">
               {recipe.notes || "No notes available"}
@@ -84,7 +85,7 @@ export function RecipePage() {
           </div>
 
           <div className="relative mb-8 border-l-2 border-accent pb-3 pl-8">
-            <div className="absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent bg-background"></div>
+            <div className="bg-parchment absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent"></div>
             <div className="pb-3 font-sanchez text-xl">Ingredients</div>
             <div className="text-sm">
               {recipe.ingredients.length === 0 &&
@@ -98,7 +99,7 @@ export function RecipePage() {
                   </div>
                   <div className="flex-none">
                     {!!ingredient.amount && (
-                      <div className="inline-block h-9 w-9 rounded-full bg-accent pt-2 text-center font-bold text-background">
+                      <div className="text-parchment inline-block h-9 w-9 rounded-full bg-accent pt-2 text-center font-bold">
                         {convertFraction(ingredient.amount)}
                       </div>
                     )}
@@ -113,7 +114,7 @@ export function RecipePage() {
           </div>
 
           <div className="relative mb-8 border-l-2 border-accent pb-3 pl-8">
-            <div className="absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent bg-background"></div>
+            <div className="bg-parchment absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent"></div>
             <div className="pb-3 font-sanchez text-xl">Instructions</div>
             <div className="text-sm leading-6">
               {recipe.instructions || "Nothing to see here"}
@@ -121,18 +122,11 @@ export function RecipePage() {
           </div>
 
           <div className="flex flex-row items-center space-x-3">
-            <div
+            <Button onClick={() => alert("Coming soon!")} text="Step by step" />
+            <Button
               onClick={() => alert("Coming soon!")}
-              className="cursor-pointer border-2 border-accent px-3 py-1 font-bold transition-all hover:border-accent-focus hover:bg-background-dark"
-            >
-              <div>Step by step</div>
-            </div>
-            <div
-              onClick={() => alert("Coming soon!")}
-              className="cursor-pointer border-2 border-accent px-3 py-1 font-bold transition-all hover:border-accent-focus hover:bg-background-dark"
-            >
-              <div>Adjust serving size</div>
-            </div>
+              text="Adjust serving size"
+            />
           </div>
         </div>
       )}

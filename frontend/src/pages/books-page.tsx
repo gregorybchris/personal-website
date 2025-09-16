@@ -1,8 +1,6 @@
-import { Books as BooksIcon, SquaresFour } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { Tag } from "../components/tag";
 import { GET, makeQuery } from "../utilities/request-utilities";
-import { cn } from "../utilities/style-utilities";
 
 export interface BookData {
   isbn: string;
@@ -21,8 +19,7 @@ export interface BookData {
 
 export function BooksPage() {
   const [books, setBooks] = useState<BookData[]>([]);
-  const [bookShape, setBookShape] = useState<string>("book");
-  const [activeTags, setActiveTags] = useState<string[]>([]);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [allTags, setAllTags] = useState<string[]>([]);
 
   useEffect(() => {
@@ -39,12 +36,12 @@ export function BooksPage() {
 
   function onTagClick(tag: string) {
     let newTags: string[] = [];
-    if (activeTags.includes(tag)) {
-      newTags = activeTags.filter((activeTag) => activeTag !== tag);
+    if (selectedTags.includes(tag)) {
+      newTags = selectedTags.filter((selectedTag) => selectedTag !== tag);
     } else {
-      newTags = [...activeTags, tag];
+      newTags = [...selectedTags, tag];
     }
-    setActiveTags(newTags);
+    setSelectedTags(newTags);
   }
 
   return (
@@ -61,57 +58,23 @@ export function BooksPage() {
         </div>
       </div>
 
-      <div className="mt-2 flex flex-row justify-between gap-2">
-        <div
-          className={cn(
-            "cursor-pointer border-2 border-accent transition-all hover:border-accent-focus",
-            bookShape == "book" && "bg-accent",
-          )}
-          onClick={() => setBookShape("book")}
-        >
-          <BooksIcon
-            size={32}
-            color={bookShape == "book" ? "white" : "black"}
-          />
-        </div>
-        <div
-          className={cn(
-            "cursor-pointer border-2 border-accent transition-all hover:border-accent-focus",
-            bookShape == "square" && "bg-accent",
-          )}
-          onClick={() => setBookShape("square")}
-        >
-          <SquaresFour
-            size={32}
-            color={bookShape == "square" ? "white" : "black"}
-          />
-        </div>
-      </div>
-
       <div className="mt-4 flex flex-row justify-center space-x-2">
         {allTags.map((tag) => (
           <Tag
             key={tag}
             tag={tag}
             onClick={onTagClick}
-            active={activeTags.includes(tag)}
+            selected={selectedTags.includes(tag)}
           />
         ))}
       </div>
 
-      <div
-        className={cn(
-          "grid w-4/5 justify-items-center pt-5",
-          bookShape == "square"
-            ? "grid-cols-1 md:grid-cols-3 lg:grid-cols-4"
-            : "grid-cols-1 md:grid-cols-4 lg:grid-cols-5",
-        )}
-      >
+      <div className="grid w-4/5 grid-cols-1 justify-items-center pt-5 md:grid-cols-4 lg:grid-cols-5">
         {books
           .filter(
             (book) =>
-              activeTags.length == 0 ||
-              activeTags.every((tag) => book.tags.includes(tag)),
+              selectedTags.length == 0 ||
+              selectedTags.every((tag) => book.tags.includes(tag)),
           )
           .sort((bookA, bookB) => bookB.general_appeal - bookA.general_appeal)
           .map((book) => (
@@ -119,8 +82,7 @@ export function BooksPage() {
               key={book.isbn}
               book={book}
               onTagClick={onTagClick}
-              activeTags={activeTags}
-              bookShape={bookShape}
+              selectedTags={selectedTags}
             />
           ))}
       </div>
@@ -130,49 +92,40 @@ export function BooksPage() {
 
 interface BookProps {
   book: BookData;
-  activeTags: string[];
+  selectedTags: string[];
   onTagClick: (tag: string) => void;
-  bookShape: string;
 }
 
-function Book({ book, activeTags, onTagClick, bookShape }: BookProps) {
-  const imageLinks = book.image_links;
-  const isSquare = bookShape == "square";
-  const imageLink = isSquare ? imageLinks.square : imageLinks.book;
+function Book({ book, selectedTags, onTagClick }: BookProps) {
   const timestamp = Date.now();
   return (
-    <div className={cn("px-2", isSquare ? "py-0" : "py-3")}>
+    <div className="px-2 py-3">
       <div className="mb-2 flex justify-center">
         <a href={book.goodreads_link} target="_blank">
           <img
-            src={`${imageLink}?a=${timestamp}`}
-            className={cn(
-              "border-2 border-background-dark transition-all hover:border-accent",
-              isSquare ? "h-[300px] md:h-[200px]" : "h-[300px] md:h-[250px]",
-            )}
+            src={`${book.image_links.book}?a=${timestamp}`}
+            className="h-[300px] border-2 border-neutral-300 transition-all hover:border-accent md:h-[250px]"
           />
         </a>
       </div>
 
-      {bookShape == "book" && (
-        <div>
-          <a href={book.goodreads_link} target="_blank">
-            <div className="text-center font-bold">{book.title}</div>
-            <div className="text-center">{book.author}</div>
-          </a>
+      <div>
+        <a href={book.goodreads_link} target="_blank">
+          <div className="text-balance text-center font-bold">{book.title}</div>
+          <div className="text-balance text-center">{book.author}</div>
+        </a>
 
-          <div className="mt-1 flex flex-row justify-center space-x-1">
-            {book.tags.map((tag) => (
-              <Tag
-                key={tag}
-                tag={tag}
-                onClick={onTagClick}
-                active={activeTags.includes(tag)}
-              />
-            ))}
-          </div>
+        <div className="mt-1 flex flex-row justify-center space-x-1">
+          {book.tags.map((tag) => (
+            <Tag
+              key={tag}
+              tag={tag}
+              onClick={onTagClick}
+              selected={selectedTags.includes(tag)}
+            />
+          ))}
         </div>
-      )}
+      </div>
     </div>
   );
 }

@@ -12,9 +12,6 @@ importers:
 
   .:
     dependencies:
-      '@fontsource/noto-serif-tc':
-        specifier: ^5.1.2
-        version: 5.1.2
       '@fontsource/raleway':
         specifier: ^5.1.1
         version: 5.1.1
@@ -342,9 +339,6 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
-
-  '@fontsource/noto-serif-tc@5.1.2':
-    resolution: {integrity: sha512-Qqzo7gTgsS9FsunizOsNILRvCKV+DixgphSlH9NvC+/kgu/YQtWXlcpujBVg7YuFri/M7PI6oZ1b0uC+85Wvqw==}
 
   '@fontsource/raleway@5.1.1':
     resolution: {integrity: sha512-gCLRJLqdUYI7BDSzvoMFOSNvS4NXUIqSdzQ7PTEqoQDHWLTcoA0xhXgljivmVbJ2ziJq1NZO7tYpDLMlIFe66g==}
@@ -1894,8 +1888,6 @@ snapshots:
 
   '@esbuild/win32-x64@0.21.5':
     optional: true
-
-  '@fontsource/noto-serif-tc@5.1.2': {}
 
   '@fontsource/raleway@5.1.1': {}
 

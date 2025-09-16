@@ -277,7 +277,7 @@ export function ProjectsTimeline({
   ];
 
   return (
-    <div className="bg-background">
+    <div>
       <div className="flex flex-col items-center justify-center gap-5 p-5">
         <div className="flex flex-row gap-4 md:gap-5">
           {projectTypes.map((projectType) => {

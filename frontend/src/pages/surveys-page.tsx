@@ -192,7 +192,7 @@ export function SurveysPage() {
     return (
       <div className="mx-auto w-[80%] py-10 text-center md:w-[50%]">
         <div className="w-full text-left">
-          <div className="mx-auto block border-b border-background pb-1 text-center font-sanchez text-2xl text-black/75 md:inline md:border-accent md:text-left">
+          <div className="border-parchment mx-auto block border-b pb-1 text-center font-sanchez text-2xl text-black/75 md:inline md:border-accent md:text-left">
             {survey.name}
           </div>
         </div>
@@ -204,7 +204,6 @@ export function SurveysPage() {
               questionNumber={questionNumber}
               onOptionClicked={onOptionClicked}
               response={response}
-              updater={updater}
             />
           ))}
         </div>
@@ -229,7 +228,7 @@ export function SurveysPage() {
   }
 
   return (
-    <div className="bg-background">
+    <div>
       <div className="mx-auto w-[80%] text-center">
         <div className="mb-5 mt-8 block font-sanchez text-3xl text-black/75">
           What do you think?
@@ -251,7 +250,6 @@ interface SurveyQuestionCardProps {
   questionNumber: number;
   onOptionClicked: (questionNumber: number, optionNumber: number) => void;
   response: Response;
-  updater: boolean;
 }
 
 function SurveyQuestionCard({
@@ -259,7 +257,6 @@ function SurveyQuestionCard({
   questionNumber,
   onOptionClicked,
   response,
-  updater,
 }: SurveyQuestionCardProps) {
   const isComplete = response.isQuestionComplete(questionNumber);
 
@@ -268,7 +265,7 @@ function SurveyQuestionCard({
       <div
         className={cn(
           "pb-3 -indent-4 text-black/75 transition-all",
-          isComplete && "text-text-4",
+          isComplete && "text-black/30",
         )}
       >
         {questionNumber + 1}
@@ -284,7 +281,6 @@ function SurveyQuestionCard({
             optionNumber={optionNumber}
             onOptionClicked={onOptionClicked}
             response={response}
-            updater={updater}
             questionComplete={isComplete}
           />
         ))}
@@ -299,7 +295,6 @@ interface SurveyQuestionOptionProps {
   optionNumber: number;
   onOptionClicked: (questionNumber: number, optionNumber: number) => void;
   response: Response;
-  updater: boolean;
   questionComplete: boolean;
 }
 
@@ -309,7 +304,6 @@ function SurveyQuestionOption({
   optionNumber,
   onOptionClicked,
   response,
-  updater,
   questionComplete,
 }: SurveyQuestionOptionProps) {
   const letter = String.fromCharCode("A".charCodeAt(0) + optionNumber);
@@ -319,11 +313,9 @@ function SurveyQuestionOption({
     <div
       onClick={() => onOptionClicked(questionNumber, optionNumber)}
       className={cn(
-        "rounded px-3 py-1 text-accent transition-all",
-        isChosen && "bg-background-highlight-light",
-        "active:bg-background-highlight-active",
-        "cursor-pointer hover:bg-background-highlight hover:text-accent-focus",
-        questionComplete && "text-accent-light",
+        "hover:text-royal cursor-pointer rounded px-3 py-1 text-accent transition-all hover:bg-black/5",
+        isChosen && "bg-black/5 hover:bg-black/10",
+        questionComplete && "text-royal/40",
       )}
       key={optionNumber}
     >

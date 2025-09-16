@@ -1,4 +1,4 @@
-import { WarningCircle } from "@phosphor-icons/react";
+import { ArrowLeft, WarningCircle } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../styles/fonts.css";
@@ -28,7 +28,7 @@ export function BlogPostPage() {
             <div className="text-balance text-center text-2xl font-bold md:max-w-[500px] md:text-3xl">
               {currentPost.title}
             </div>
-            <div className="text-sm text-text-2">
+            <div className="text-sm text-black/50">
               {formatDate(new Date(currentPost.date).toISOString())}
             </div>
           </div>
@@ -45,10 +45,11 @@ export function BlogPostPage() {
           </div>
 
           <button
-            className="rounded-md px-2 py-1 text-lg text-black transition-all hover:bg-black/5"
+            className="flex flex-row items-center gap-2 rounded-md px-2 py-1 text-lg text-black transition-all hover:bg-black/5"
             onClick={() => navigate("/blog")}
           >
-            Back to posts
+            <ArrowLeft size={25} color="#6283c0" weight="regular" />
+            <div>Back to posts</div>
           </button>
         </div>
       )}

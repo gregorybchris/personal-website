@@ -68,7 +68,7 @@ export function CommandBar() {
     >
       <div
         className={cn(
-          "flex w-[400px] flex-col justify-center overflow-hidden bg-background",
+          "bg-parchment flex w-[400px] flex-col justify-center overflow-hidden",
           "rounded-lg px-3 py-3 text-center shadow-[0_0_200px_30px_rgba(0,0,0,0.2)]",
         )}
       >
@@ -89,7 +89,7 @@ export function CommandBar() {
         <div className="h-full w-full border-t-2 border-blue-500/60 px-1 py-3">
           <Command.List>
             <Command.Empty>
-              <div className="text-text-2">No results found</div>
+              <div className="text-black/75">No results found</div>
             </Command.Empty>
 
             {pages.map((page, i) => (

@@ -31,7 +31,7 @@ import { YouTubeVideosPage } from "./pages/youtube-videos-page";
 
 export function App() {
   return (
-    <div className="bg-background font-raleway">
+    <div className="bg-parchment font-raleway">
       <BrowserRouter>
         <Nav />
         <Routes>

@@ -107,7 +107,7 @@ interface ProjectImageProps {
 function ProjectImage({ url }: ProjectImageProps) {
   return (
     <img
-      className="m-1 max-h-[270px] max-w-[90%] border-2 border-background-dark"
+      className="m-1 max-h-[270px] max-w-[90%] border-2 border-neutral-300"
       src={url}
       key={url}
       alt="Project screenshot"

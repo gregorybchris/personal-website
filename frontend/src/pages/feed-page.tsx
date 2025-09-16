@@ -120,7 +120,7 @@ export function FeedPage() {
       <div className="pt-5">
         {slug && (
           <div
-            className="mb-4 ml-10 inline-block cursor-pointer rounded-md px-2 py-1 hover:bg-background-dark"
+            className="mb-4 ml-10 inline-block cursor-pointer rounded-md px-2 py-1 hover:bg-black/[8%]"
             onClick={() => navigate("/links")}
           >
             <div className="flex flex-row space-x-2">
@@ -141,7 +141,7 @@ export function FeedPage() {
         )}
         <div className="py-10 pl-10">
           {posts.length === 0 ? (
-            <span className="text-text-2">Loading posts...</span>
+            <span className="text-black/60">Loading posts...</span>
           ) : (
             posts
               .filter(isPostVisible)
@@ -252,22 +252,24 @@ function FeedPostCard({
             </div>
           </a>
           <div
-            className="mb-1 ml-2 mr-3 inline-block cursor-pointer rounded-full p-1 align-middle transition-all hover:bg-background-dark"
+            className="mb-1 ml-2 mr-3 inline-block cursor-pointer rounded-full p-1 align-middle transition-all hover:bg-black/[8%]"
             onClick={() => onSelectPost(post)}
           >
             <LinkIcon size={20} color="#6283c0" />
           </div>
         </div>
         {seriesName && (
-          <div className="text-md mb-1 inline-block text-text-2">
+          <div className="text-md mb-1 inline-block text-black/60">
             {seriesDetails}
           </div>
         )}
-        <div className="text-md mb-1 text-text-2">
+        <div className="text-md mb-1 text-black/60">
           {formatDate(post.date_posted)}
         </div>
         {post.length && (
-          <div className="text-md text-text-2">{formatLength(post.length)}</div>
+          <div className="text-md text-black/60">
+            {formatLength(post.length)}
+          </div>
         )}
       </div>
       {thumbnailUrl && (

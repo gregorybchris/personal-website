@@ -9,7 +9,7 @@ export function Nav() {
     return (params: { isActive: boolean }) => {
       const { isActive } = params;
       return cn(
-        "text-md pt-2 px-2 pb-1 mx-1 mb-2 inline-block text-black/75 transition-all border-b border-transparent hover:text-text-3",
+        "text-md pt-2 px-2 pb-1 mx-1 mb-2 inline-block text-black/75 transition-all border-b border-transparent",
         isActive && "border-blue-500/80",
       );
     };

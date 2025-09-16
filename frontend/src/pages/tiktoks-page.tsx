@@ -46,7 +46,7 @@ export function TiktoksPage() {
   }, [id]);
 
   return (
-    <div className="bg-background">
+    <div>
       <div className="mt-8 block text-center font-sanchez text-2xl text-black/75 md:text-3xl">
         TikToks
       </div>
@@ -131,7 +131,7 @@ export function TiktokCard({
         <div className="text-sm">
           Creator:{" "}
           <span
-            className="cursor-pointer transition-all hover:text-accent-focus"
+            className="hover:text-royal cursor-pointer transition-all"
             onClick={() => updateQuery(creator)}
           >
             {creator}

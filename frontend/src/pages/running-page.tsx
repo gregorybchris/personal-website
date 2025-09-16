@@ -103,7 +103,7 @@ export function RunningPage() {
 
       <div className="inline-block h-[500px] w-[100%] overflow-y-scroll text-center align-top md:w-[50%]">
         <table className="Running-table border-l-2 border-accent pl-4 font-raleway">
-          <thead className="Running-table-header sticky top-0 bg-background font-bold">
+          <thead className="Running-table-header bg-parchment sticky top-0 font-bold">
             <tr className="Running-table-row">
               <td className="Running-table-cell">
                 <span className="Running-table-header-cell-text">Route</span>
@@ -125,7 +125,7 @@ export function RunningPage() {
             {routes.map((route, routeNumber) => (
               <tr className="Running-table-row" key={routeNumber}>
                 <td
-                  className="Running-table-cell cursor-pointer text-accent hover:text-accent-focus"
+                  className="Running-table-cell hover:text-royal cursor-pointer text-accent"
                   onClick={() => onSelectRoute(route)}
                 >
                   {route.name}
