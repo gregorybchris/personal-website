@@ -176,7 +176,7 @@ export function SurveysPage() {
       );
     }
 
-    if (current === null || response == null) {
+    if (current === null || response === null) {
       return (
         <div className="pt-10 text-center">
           <div className="text-black/75">

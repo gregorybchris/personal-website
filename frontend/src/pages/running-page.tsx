@@ -49,10 +49,10 @@ export function RunningPage() {
   }, []);
 
   useEffect(() => {
-    if (routes.length == 0) return;
+    if (routes.length === 0) return;
 
     if (slug) {
-      const match = routes.find((route) => route.slug == slug);
+      const match = routes.find((route) => route.slug === slug);
       onSelectRoute(match || routes[0]);
     } else {
       onSelectRoute(routes[0], false);

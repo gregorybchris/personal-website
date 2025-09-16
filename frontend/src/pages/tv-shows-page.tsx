@@ -44,7 +44,7 @@ export function TvShowsPage() {
         <div className="py-3 text-black/75">Some great TV shows!</div>
       </div>
 
-      {shows.length == 0 && (
+      {shows.length === 0 && (
         <div className="text-center">Loading TV shows...</div>
       )}
       {shows.length > 0 && (

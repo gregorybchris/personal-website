@@ -44,7 +44,7 @@ export function MoviesPage() {
         <div className="py-3 text-black/75">Some great movies!</div>
       </div>
 
-      {movies.length == 0 && (
+      {movies.length === 0 && (
         <div className="text-center">Loading movies...</div>
       )}
       {movies.length > 0 && (

@@ -35,7 +35,7 @@ export function PodcastsPage() {
         <div className="py-3 text-black/75">Some great podcasts!</div>
       </div>
 
-      {podcasts.length == 0 && <div>Loading podcasts...</div>}
+      {podcasts.length === 0 && <div>Loading podcasts...</div>}
       {podcasts.length > 0 && (
         <div className="flex flex-col items-center">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">

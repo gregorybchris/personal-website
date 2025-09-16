@@ -74,7 +74,7 @@ export function BooksPage() {
         {books
           .filter(
             (book) =>
-              selectedTags.length == 0 ||
+              selectedTags.length === 0 ||
               selectedTags.every((tag) => book.tags.includes(tag)),
           )
           .sort((bookA, bookB) => bookB.general_appeal - bookA.general_appeal)

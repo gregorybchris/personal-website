@@ -19,21 +19,21 @@ export function RecipePage() {
   }, []);
 
   function convertFraction(n: number) {
-    if (n == 0.125) return <span>1/8</span>;
-    if (n == 0.25) return <span>&frac14;</span>;
-    if (n == 0.333) return <span>1/3</span>;
-    if (n == 0.5) return <span>&frac12;</span>;
-    if (n == 0.666) return <span>2/3</span>;
-    if (n == 0.75) return <span>&frac34;</span>;
-    if (n == 1.25) return <span>1&frac14;</span>;
-    if (n == 1.333) return <span>1 1/3</span>;
-    if (n == 1.5) return <span>1&frac12;</span>;
-    if (n == 1.666) return <span>1 2/3</span>;
-    if (n == 1.75) return <span>1&frac34;</span>;
-    if (n == 2.25) return <span>2&frac14;</span>;
-    if (n == 2.5) return <span>2&frac12;</span>;
-    if (n == 2.75) return <span>2&frac34;</span>;
-    if (n == 3.333) return <span>3.33</span>;
+    if (n === 0.125) return <span>1/8</span>;
+    if (n === 0.25) return <span>&frac14;</span>;
+    if (n === 0.333) return <span>1/3</span>;
+    if (n === 0.5) return <span>&frac12;</span>;
+    if (n === 0.666) return <span>2/3</span>;
+    if (n === 0.75) return <span>&frac34;</span>;
+    if (n === 1.25) return <span>1&frac14;</span>;
+    if (n === 1.333) return <span>1 1/3</span>;
+    if (n === 1.5) return <span>1&frac12;</span>;
+    if (n === 1.666) return <span>1 2/3</span>;
+    if (n === 1.75) return <span>1&frac34;</span>;
+    if (n === 2.25) return <span>2&frac14;</span>;
+    if (n === 2.5) return <span>2&frac12;</span>;
+    if (n === 2.75) return <span>2&frac34;</span>;
+    if (n === 3.333) return <span>3.33</span>;
     return `${n}`;
   }
 
