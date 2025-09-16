@@ -96,98 +96,117 @@ export function RunningPage() {
       </div>
 
       <div className="flex w-full flex-row flex-wrap">
-        <div className="inline-block h-[500px] w-[100%] overflow-y-scroll text-center align-top md:w-[50%]">
-          <table className="Running-table border-l-2 border-accent pl-4 font-raleway">
-            <thead className="Running-table-header sticky top-0 bg-parchment font-bold">
-              <tr className="Running-table-row">
-                <td className="Running-table-cell">
-                  <span className="Running-table-header-cell-text">Route</span>
-                </td>
-                <td className="Running-table-cell">
-                  <span className="Running-table-header-cell-text">
-                    Distance
-                  </span>
-                </td>
-                <td className="Running-table-cell">
-                  <span className="Running-table-header-cell-text">
-                    Elevation
-                  </span>
-                </td>
-                <td className="Running-table-cell">
-                  <span className="Running-table-header-cell-text">City</span>
-                </td>
-              </tr>
-            </thead>
-            <tbody className="Running-table-body RunningRoutes-routes-table-body">
-              {routes.map((route, routeNumber) => (
-                <tr className="Running-table-row" key={routeNumber}>
-                  <td
-                    className="Running-table-cell cursor-pointer text-accent hover:text-royal"
-                    onClick={() => onSelectRoute(route)}
-                  >
-                    {route.name}
-                  </td>
-                  <td
-                    className="Running-table-cell"
-                    title={`${(route.distance * 1.609344).toFixed(1)} km`}
-                  >
-                    {route.distance} mi
-                  </td>
-                  <td
-                    className="Running-table-cell"
-                    title={`${(route.elevation * 0.3048).toFixed(0)} m`}
-                  >
-                    {route.elevation} ft
-                  </td>
-                  <td className="Running-table-cell RunningRoutes-tag">
-                    {route.tags[0]}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
         {currentRoute && currentRouteData && (
-          <div className="block w-full px-4 align-top md:mx-auto md:inline-block md:w-[50%]">
-            <div className="inline border-b border-accent pb-1 text-lg font-bold">
-              {currentRoute?.name}
-            </div>
-            <div className="mt-5 h-[450px] w-full shadow-[0_0_6px_2px_rgba(0,0,0,0.3)]">
-              {mapBoxToken && (
-                <MapContainer
-                  className="!z-[10] h-full w-full"
-                  center={[51.505, -0.09]}
-                  zoom={13}
-                  scrollWheelZoom={true}
-                >
-                  <RouteMap routeData={currentRouteData} />
-                  <TileLayer
-                    url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
-                    id="mapbox/streets-v11"
-                    attribution=""
-                    maxZoom={18}
-                    tileSize={512}
-                    zoomOffset={-1}
-                    accessToken={mapBoxToken}
-                  />
-                  <Polyline
-                    positions={currentRouteData.points.map((p) => [
-                      p.latitude,
-                      p.longitude,
-                    ])}
-                  />
-                </MapContainer>
-              )}
-              {!mapBoxToken && (
-                <div className="text-md px-4 py-5 font-sanchez font-bold text-black/75">
-                  Failed to load MapBox data
-                </div>
-              )}
-            </div>
+          <RouteMapCard
+            routeData={currentRouteData}
+            route={currentRoute}
+            mapBoxToken={mapBoxToken}
+          />
+        )}
+        <RoutesTable routes={routes} onSelectRoute={onSelectRoute} />
+      </div>
+    </div>
+  );
+}
+
+interface RouteMapCardProps {
+  route: RunningRoute;
+  routeData: RouteData;
+  mapBoxToken: string;
+}
+
+function RouteMapCard({ route, routeData, mapBoxToken }: RouteMapCardProps) {
+  return (
+    <div className="block w-full px-4 align-top md:mx-auto md:inline-block md:w-[50%]">
+      <div className="inline border-b border-accent pb-1 text-lg font-bold">
+        {route.name}
+      </div>
+      <div className="mt-5 h-[450px] w-full shadow-[0_0_6px_2px_rgba(0,0,0,0.3)]">
+        {mapBoxToken && (
+          <MapContainer
+            className="!z-[10] h-full w-full"
+            center={[51.505, -0.09]}
+            zoom={13}
+            scrollWheelZoom={true}
+          >
+            <RouteMap routeData={routeData} />
+            <TileLayer
+              url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
+              id="mapbox/streets-v11"
+              attribution=""
+              maxZoom={18}
+              tileSize={512}
+              zoomOffset={-1}
+              accessToken={mapBoxToken}
+            />
+            <Polyline
+              positions={routeData.points.map((p) => [p.latitude, p.longitude])}
+            />
+          </MapContainer>
+        )}
+        {!mapBoxToken && (
+          <div className="text-md px-4 py-5 font-sanchez font-bold text-black/75">
+            Failed to load MapBox data
           </div>
         )}
       </div>
+    </div>
+  );
+}
+
+interface RoutesTableProps {
+  routes: RunningRoute[];
+  onSelectRoute: (route: RunningRoute) => void;
+}
+
+function RoutesTable({ routes, onSelectRoute }: RoutesTableProps) {
+  return (
+    <div className="mt-8 inline-block h-[500px] w-[100%] overflow-y-scroll text-center align-top md:w-[50%]">
+      <table className="Running-table border-l-2 border-accent pl-4 font-raleway">
+        <thead className="Running-table-header sticky top-0 bg-parchment font-bold">
+          <tr className="Running-table-row">
+            <td className="Running-table-cell">
+              <span className="Running-table-header-cell-text">Route</span>
+            </td>
+            <td className="Running-table-cell">
+              <span className="Running-table-header-cell-text">Distance</span>
+            </td>
+            <td className="Running-table-cell">
+              <span className="Running-table-header-cell-text">Elevation</span>
+            </td>
+            <td className="Running-table-cell">
+              <span className="Running-table-header-cell-text">City</span>
+            </td>
+          </tr>
+        </thead>
+        <tbody className="Running-table-body RunningRoutes-routes-table-body">
+          {routes.map((route, routeNumber) => (
+            <tr className="Running-table-row" key={routeNumber}>
+              <td
+                className="Running-table-cell cursor-pointer text-accent hover:text-royal"
+                onClick={() => onSelectRoute(route)}
+              >
+                {route.name}
+              </td>
+              <td
+                className="Running-table-cell"
+                title={`${(route.distance * 1.609344).toFixed(1)} km`}
+              >
+                {route.distance} mi
+              </td>
+              <td
+                className="Running-table-cell"
+                title={`${(route.elevation * 0.3048).toFixed(0)} m`}
+              >
+                {route.elevation} ft
+              </td>
+              <td className="Running-table-cell RunningRoutes-tag">
+                {route.tags[0]}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
