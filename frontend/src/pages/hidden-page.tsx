@@ -14,47 +14,47 @@ export function HiddenPage() {
       <div className="flex w-[80%] flex-row flex-wrap justify-center gap-16">
         <div className="flex flex-col">
           <div className="font-sanchez text-lg underline">Media</div>
-          <Link to="/hidden/artists" className="block text-black/75">
+          <Link to="/hidden/artists" className="text-black/75">
             <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
               Artists
             </div>
           </Link>
-          <Link to="/hidden/instagrams" className="block text-black/75">
+          <Link to="/hidden/instagrams" className="text-black/75">
             <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
               Instagrams
             </div>
           </Link>
-          <Link to="/hidden/memes" className="block text-black/75">
+          <Link to="/hidden/memes" className="text-black/75">
             <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
               Memes
             </div>
           </Link>
-          <Link to="/hidden/movies" className="block text-black/75">
+          <Link to="/hidden/movies" className="text-black/75">
             <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
               Movies
             </div>
           </Link>
-          <Link to="/hidden/podcasts" className="block text-black/75">
+          <Link to="/hidden/podcasts" className="text-black/75">
             <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
               Podcasts
             </div>
           </Link>
-          <Link to="/hidden/tiktoks" className="block text-black/75">
+          <Link to="/hidden/tiktoks" className="text-black/75">
             <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
               TikToks
             </div>
           </Link>
-          <Link to="/hidden/shows" className="block text-black/75">
+          <Link to="/hidden/shows" className="text-black/75">
             <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
               TV Shows
             </div>
           </Link>
-          <Link to="/hidden/youtube-channels" className="block text-black/75">
+          <Link to="/hidden/youtube-channels" className="text-black/75">
             <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
               YouTube Channels
             </div>
           </Link>
-          <Link to="/hidden/youtube-videos" className="block text-black/75">
+          <Link to="/hidden/youtube-videos" className="text-black/75">
             <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
               YouTube Videos
             </div>
@@ -63,7 +63,7 @@ export function HiddenPage() {
 
         <div className="flex flex-col">
           <div className="font-sanchez text-lg underline">Blog</div>
-          <Link to="/blog" className="block text-black/75">
+          <Link to="/blog" className="text-black/75">
             <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
               Blog
             </div>
@@ -72,12 +72,12 @@ export function HiddenPage() {
 
         <div className="flex flex-col">
           <div className="font-sanchez text-lg underline">Link Feed</div>
-          <Link to="/links" className="block text-black/75">
+          <Link to="/links" className="text-black/75">
             <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
               Feed
             </div>
           </Link>
-          <Link to="/hidden/feed-graph" className="block text-black/75">
+          <Link to="/hidden/feed-graph" className="text-black/75">
             <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
               Feed Graph
             </div>
@@ -86,22 +86,22 @@ export function HiddenPage() {
 
         <div className="flex flex-col">
           <div className="font-sanchez text-lg underline">In Progress</div>
-          <Link to="/hidden/places" className="block text-black/75">
+          <Link to="/hidden/places" className="text-black/75">
             <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
               Places
             </div>
           </Link>
-          <Link to="/hidden/recipes" className="block text-black/75">
+          <Link to="/hidden/recipes" className="text-black/75">
             <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
               Recipes
             </div>
           </Link>
-          <Link to="/hidden/watermark" className="block text-black/75">
+          <Link to="/hidden/watermark" className="text-black/75">
             <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
               Site watermark
             </div>
           </Link>
-          <Link to="/hidden/projects" className="block text-black/75">
+          <Link to="/hidden/projects" className="text-black/75">
             <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
               Project logos
             </div>
@@ -110,12 +110,12 @@ export function HiddenPage() {
 
         <div className="flex flex-col">
           <div className="font-sanchez text-lg underline">Old</div>
-          <Link to="/hidden/archive" className="block text-black/75">
+          <Link to="/hidden/archive" className="text-black/75">
             <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
               Archive
             </div>
           </Link>
-          <Link to="/hidden/surveys" className="block text-black/75">
+          <Link to="/hidden/surveys" className="text-black/75">
             <div className="py-1 text-sm decoration-blue-500/60 underline-offset-4 hover:underline">
               Surveys
             </div>
