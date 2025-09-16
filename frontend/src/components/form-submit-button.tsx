@@ -8,7 +8,7 @@ interface FormSubmitButtonProps {
 
 export function FormSubmitButton({
   text,
-  enabled,
+  enabled = true,
   className,
 }: FormSubmitButtonProps) {
   return (
