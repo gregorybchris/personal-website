@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { SimplePageLink } from "../components/simple-page-link";
 import "../styles/common.css";
 
 export function MusicPage() {
@@ -12,10 +12,7 @@ export function MusicPage() {
           Spotify is getting scary good at recommending music. But a song from a
           human being always feels more personal. Even if the music you're into
           is totally different, shoot me a link with my{" "}
-          <Link className="Common-simple-link" to="/contact">
-            Contact
-          </Link>{" "}
-          page!
+          <SimplePageLink to="/contact">Contact</SimplePageLink> page!
         </div>
       </div>
 

@@ -3,15 +3,18 @@ import { cn } from "../utilities/style-utilities";
 interface ButtonProps {
   text: string;
   onClick?: () => void;
+  enabled?: boolean;
   className?: string;
 }
 
-export function Button({ text, onClick, className }: ButtonProps) {
+export function Button({ text, onClick, enabled, className }: ButtonProps) {
   return (
     <div
       onClick={onClick}
       className={cn(
-        "box-border border-2 border-[#6283c0] bg-transparent px-[15px] py-2 align-top text-[14px] font-bold text-[#646464] transition duration-200 hover:cursor-pointer hover:bg-[#e6e6e0] active:bg-[#d6d6d1] disabled:border-[#acb5c4] disabled:bg-[#e6e6e0] disabled:text-[#b9b9b9] disabled:hover:cursor-default disabled:hover:bg-[#e6e6e0] disabled:hover:text-[#b9b9b9]",
+        "box-border border-2 border-[#6283c0] bg-transparent px-[15px] py-2 align-top text-[14px] font-bold text-[#646464] transition duration-200 hover:cursor-pointer hover:bg-[#e6e6e0] active:bg-[#d6d6d1]",
+        !enabled &&
+          "border-[#acb5c4] bg-[#e6e6e0] text-[#b9b9b9] hover:cursor-default hover:bg-[#e6e6e0] hover:text-[#b9b9b9]",
         className,
       )}
     >

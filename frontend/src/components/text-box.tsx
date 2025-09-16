@@ -6,6 +6,7 @@ interface TextBoxProps {
   placeholder?: string;
   autoComplete?: boolean;
   maxLength?: number;
+  autoFocus?: boolean;
   className?: string;
 }
 
@@ -15,6 +16,7 @@ export function TextBox({
   placeholder,
   autoComplete = true,
   maxLength,
+  autoFocus = false,
   className,
 }: TextBoxProps) {
   const autoCompleteValue = autoComplete ? "on" : "off";
@@ -31,6 +33,7 @@ export function TextBox({
       placeholder={placeholder}
       autoComplete={autoCompleteValue}
       maxLength={maxLength}
+      autoFocus={autoFocus}
     />
   );
 }

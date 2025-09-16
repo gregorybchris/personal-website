@@ -9,6 +9,7 @@ interface TextInputProps {
   autoComplete?: boolean;
   maxLength?: number;
   required?: boolean;
+  autoFocus?: boolean;
   className?: string;
 }
 
@@ -19,6 +20,7 @@ export function FormTextInput({
   autoComplete = true,
   maxLength,
   required = false,
+  autoFocus = false,
   className,
 }: TextInputProps) {
   const autoCompleteValue = autoComplete ? "on" : "off";
@@ -35,6 +37,7 @@ export function FormTextInput({
       autoComplete={autoCompleteValue}
       maxLength={maxLength}
       required={required}
+      autoFocus={autoFocus}
     />
   );
 }

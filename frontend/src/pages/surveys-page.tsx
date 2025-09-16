@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Button } from "../components/button";
 import { TextArea } from "../components/text-area";
 import "../styles/common.css";
 import { range } from "../utilities/array-utilities";
@@ -189,7 +190,6 @@ export function SurveysPage() {
 
     const survey = current;
     const isComplete = response.isSurveyComplete();
-    const buttonDisabledClass = isComplete ? "" : "disabled";
     return (
       <div className="mx-auto w-[80%] py-10 text-center md:w-[50%]">
         <div className="w-full text-left">
@@ -220,12 +220,11 @@ export function SurveysPage() {
             onChange={onUpdateFeedback}
           />
         </div>
-        <div
-          className={`Common-button mx-auto inline-block ${buttonDisabledClass}`}
+        <Button
+          text="Submit"
           onClick={() => onSurveySubmit(survey, response)}
-        >
-          Submit Opinion
-        </div>
+          enabled={isComplete}
+        />
       </div>
     );
   }

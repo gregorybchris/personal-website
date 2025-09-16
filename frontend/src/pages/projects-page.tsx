@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ProjectModal } from "../components/project-modal";
 import { ProjectsTimeline } from "../components/projects-timeline";
+import { SearchBar } from "../components/search-bar";
 import { GET, POST, makeQuery } from "../utilities/request-utilities";
 
 export interface Project {
@@ -96,17 +97,10 @@ export function ProjectsPage() {
 
       {searchEnabled && (
         <div className="flex flex-col items-center justify-center gap-5 p-5">
-          <input
-            className="Common-text-field w-[300px]"
-            type="text"
-            name="searchText"
-            placeholder="Search"
-            autoComplete="off"
-            maxLength={50}
-            required
-            autoFocus
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
+          <SearchBar
+            text={searchText}
+            setText={setSearchText}
+            autoFocus={true}
           />
         </div>
       )}

@@ -7,6 +7,7 @@ interface SearchBarProps {
   text: string;
   setText: (text: string) => void;
   onSubmit?: (text: string) => void;
+  autoFocus?: boolean;
   className?: string;
 }
 
@@ -15,6 +16,7 @@ export function SearchBar({
   text,
   setText,
   onSubmit,
+  autoFocus,
   className,
 }: SearchBarProps) {
   const placeholderText = placeholder ?? "Search";
@@ -32,6 +34,7 @@ export function SearchBar({
         value={text}
         onChange={(text) => setText(text)}
         placeholder={placeholderText}
+        autoFocus={autoFocus}
         className="w-full"
       />
 

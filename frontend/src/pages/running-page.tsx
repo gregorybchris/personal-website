@@ -123,7 +123,7 @@ export function RunningPage() {
             {routes.map((route, routeNumber) => (
               <tr className="Common-table-row" key={routeNumber}>
                 <td
-                  className="Common-table-cell Common-simple-link"
+                  className="Common-table-cell cursor-pointer text-accent hover:text-accent-focus"
                   onClick={() => onSelectRoute(route)}
                 >
                   {route.name}
