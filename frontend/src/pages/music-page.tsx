@@ -15,7 +15,7 @@ export function MusicPage() {
         </div>
       </div>
 
-      <div className="mx-auto mt-3 w-[95%] max-w-[500px]">
+      <div className="w-full max-w-[600px]">
         <iframe
           title="latest-music"
           className="w-full"

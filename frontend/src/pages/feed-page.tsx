@@ -32,8 +32,6 @@ export interface FeedPost {
   archived: boolean;
 }
 
-const YOUTUBE_SOURCE = "YouTube";
-
 export function FeedPage() {
   const [posts, setPosts] = useState<FeedPost[]>([]);
   const [searchText, setSearchText] = useState<string>("");
@@ -137,7 +135,7 @@ export function FeedPage() {
             className="w-[400px]"
           />
         )}
-        <div className="">
+        <div className="flex flex-col gap-4">
           {posts.length === 0 && (
             <span className="text-black/60">Loading posts...</span>
           )}
@@ -187,7 +185,7 @@ function FeedPostCard({
     const postLinkParams = getSearchParams(postLink);
 
     if (!thumbnailUrl) {
-      if (post.source === YOUTUBE_SOURCE) {
+      if (post.source === "YouTube") {
         const idParam = postLinkParams.get("v");
         setThumbnailUrl(
           `https://img.youtube.com/vi/${idParam}/maxresdefault.jpg`,
@@ -241,48 +239,39 @@ function FeedPostCard({
 
   return (
     <div
-      className="mb-10 max-w-[90%] border-l-2 border-accent py-3 pl-8"
+      className="flex max-w-[600px] flex-col items-start gap-3 border-l-2 border-accent px-6 py-1"
       id={post.post_id}
     >
-      <div className="pb-3">
-        <div className="mb-2">
-          <a href={contentLink} target="_blank" rel="noopener noreferrer">
-            <div className="inline-block font-sanchez text-xl text-black/75">
-              {title}
-            </div>
-          </a>
-          <div
-            className="mb-1 ml-2 mr-3 inline-block cursor-pointer rounded-full p-1 align-middle transition-all hover:bg-black/[8%]"
-            onClick={() => onSelectPost(post)}
-          >
-            <LinkIcon size={20} color="#6283c0" />
-          </div>
-        </div>
-        {seriesName && (
-          <div className="text-md mb-1 inline-block text-black/60">
-            {seriesDetails}
-          </div>
-        )}
-        <div className="text-md mb-1 text-black/60">
-          {formatDate(post.date_posted)}
-        </div>
-        {post.length && (
-          <div className="text-md text-black/60">
-            {formatLength(post.length)}
-          </div>
-        )}
-      </div>
-      {thumbnailUrl && (
+      <div className="flex flex-col gap-1 px-2">
         <a href={contentLink} target="_blank" rel="noopener noreferrer">
-          <img
-            className="w-[250px] rounded-md shadow-[0_0_6px_2px_rgba(0,0,0,0.3)]"
-            src={thumbnailUrl}
-            alt="Post thumbnail"
-            onLoad={onThumbnailLoad}
-          />
+          <div className="font-sanchez text-xl text-black/75">{title}</div>
         </a>
+
+        <div className="flex flex-col gap-0.5 text-sm">
+          {seriesName && <div className="text-black/60">{seriesDetails}</div>}
+
+          <div className="text-black/60">{formatDate(post.date_posted)}</div>
+
+          {post.length && (
+            <div className="text-black/60">{formatLength(post.length)}</div>
+          )}
+        </div>
+      </div>
+
+      {thumbnailUrl && (
+        <div className="px-2">
+          <a href={contentLink} target="_blank" rel="noopener noreferrer">
+            <img
+              className="w-[250px] rounded-md shadow-[0_0_6px_2px_rgba(0,0,0,0.3)]"
+              src={thumbnailUrl}
+              alt="Post thumbnail"
+              onLoad={onThumbnailLoad}
+            />
+          </a>
+        </div>
       )}
-      <div className="mb-2 mt-3 flex flex-row flex-wrap space-x-1">
+
+      <div className="flex flex-row flex-wrap gap-0.5">
         {post.tags.map((tag) => (
           <Tag
             key={tag}
@@ -292,6 +281,14 @@ function FeedPostCard({
             className="text-sm"
           />
         ))}
+      </div>
+
+      <div
+        className="flex cursor-pointer flex-row items-center gap-2 rounded px-2 py-1 transition-all hover:bg-black/[8%]"
+        onClick={() => onSelectPost(post)}
+      >
+        <LinkIcon size={16} color="#6283c0" />{" "}
+        <div className="text-sm">Link</div>
       </div>
     </div>
   );

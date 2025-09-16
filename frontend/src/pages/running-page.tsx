@@ -117,7 +117,7 @@ interface RouteMapCardProps {
 
 function RouteMapCard({ route, routeData, mapBoxToken }: RouteMapCardProps) {
   return (
-    <div className="block w-full px-4 align-top md:mx-auto md:inline-block md:w-[50%]">
+    <div className="block w-full px-4 align-top md:inline-block md:w-[50%]">
       <div className="inline border-b border-accent pb-1 text-lg font-bold">
         {route.name}
       </div>
