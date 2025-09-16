@@ -1,7 +1,7 @@
 import { Link as LinkIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { MediaSearchBar } from "../components/media-search-bar";
+import { SearchBar } from "../components/search-bar";
 import { Tag } from "../components/tag";
 import { POST, makeQuery } from "../utilities/request-utilities";
 import { cn } from "../utilities/style-utilities";
@@ -20,7 +20,7 @@ export function YouTubeVideosPage() {
   const [loading, setLoading] = useState<boolean>(true);
   const { id } = useParams();
 
-  function queryYouTubeVideos(query: string) {
+  function runQuery(query: string) {
     const youtubeVideosQuery = makeQuery("media/youtube_videos");
     const currentId = id || null;
     const requestBody = { query, id: currentId };
@@ -38,11 +38,11 @@ export function YouTubeVideosPage() {
 
   function updateQuery(query: string) {
     setSearchText(query);
-    queryYouTubeVideos(query);
+    runQuery(query);
   }
 
   useEffect(() => {
-    queryYouTubeVideos(searchText);
+    runQuery(searchText);
   }, [id]);
 
   return (
@@ -53,11 +53,10 @@ export function YouTubeVideosPage() {
 
       <div className="flex flex-col space-y-7">
         <div className="flex flex-col items-center pt-10">
-          <MediaSearchBar
-            onSubmit={() => queryYouTubeVideos(searchText)}
-            setSearchText={setSearchText}
-            searchText={searchText}
-            updateQuery={updateQuery}
+          <SearchBar
+            onSubmit={(text) => runQuery(text)}
+            text={searchText}
+            setText={setSearchText}
           />
         </div>
 

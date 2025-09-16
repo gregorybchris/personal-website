@@ -1,6 +1,7 @@
 import { ArrowLeft, Link as LinkIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { SearchBar } from "../components/search-bar";
 import { Tag } from "../components/tag";
 import "../styles/common.css";
 import { formatDate } from "../utilities/datetime-utilities";
@@ -131,10 +132,11 @@ export function FeedPage() {
         )}
         {!slug && (
           <div className="ml-10">
-            <FeedSearchBar
-              onClearSearch={() => setSearchText("")}
-              onUpdateSearch={(event) => setSearchText(event.target.value)}
-              searchText={searchText}
+            <SearchBar
+              placeholder="Filter posts"
+              text={searchText}
+              setText={setSearchText}
+              className="w-[400px]"
             />
           </div>
         )}
@@ -288,38 +290,6 @@ function FeedPostCard({
             active={activeTags.includes(tag)}
           />
         ))}
-      </div>
-    </div>
-  );
-}
-
-import "../styles/common.css";
-
-interface FeedSearchBarProps {
-  searchText: string;
-  onUpdateSearch: (e: any) => void;
-  onClearSearch: () => void;
-}
-
-function FeedSearchBar({
-  searchText,
-  onUpdateSearch,
-  onClearSearch,
-}: FeedSearchBarProps) {
-  return (
-    <div className="min-w-[340px]">
-      <input
-        className="Common-text-field inline-block w-[270px] align-top"
-        type="text"
-        value={searchText}
-        onChange={onUpdateSearch}
-        placeholder="Filter posts"
-      />
-      <div
-        className="Common-button ml-1 inline-block align-top"
-        onClick={onClearSearch}
-      >
-        Clear
       </div>
     </div>
   );

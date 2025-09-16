@@ -1,7 +1,7 @@
 import { Link as LinkIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { MediaSearchBar } from "../components/media-search-bar";
+import { SearchBar } from "../components/search-bar";
 import { Tag } from "../components/tag";
 import { POST, makeQuery } from "../utilities/request-utilities";
 import { cn } from "../utilities/style-utilities";
@@ -21,7 +21,7 @@ export function MemesPage() {
   const [loading, setLoading] = useState<boolean>(true);
   const { id } = useParams();
 
-  function queryMemes(query: string) {
+  function runQuery(query: string) {
     const memesQuery = makeQuery("media/memes");
     const currentId = id || null;
     const requestBody = { query, id: currentId };
@@ -39,11 +39,11 @@ export function MemesPage() {
 
   function updateQuery(query: string) {
     setSearchText(query);
-    queryMemes(query);
+    runQuery(query);
   }
 
   useEffect(() => {
-    queryMemes(searchText);
+    runQuery(searchText);
   }, [id]);
 
   return (
@@ -54,11 +54,10 @@ export function MemesPage() {
 
       <div className="flex flex-col space-y-7">
         <div className="flex flex-col items-center pt-10">
-          <MediaSearchBar
-            onSubmit={() => queryMemes(searchText)}
-            setSearchText={setSearchText}
-            searchText={searchText}
-            updateQuery={updateQuery}
+          <SearchBar
+            onSubmit={(text) => runQuery(text)}
+            text={searchText}
+            setText={setSearchText}
           />
         </div>
 
