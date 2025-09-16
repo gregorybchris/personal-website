@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { SearchBar } from "../components/search-bar";
 import { Tag } from "../components/tag";
-import "../styles/common.css";
 import { formatDate } from "../utilities/datetime-utilities";
 import {
   GET,

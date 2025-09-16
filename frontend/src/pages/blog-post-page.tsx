@@ -1,7 +1,6 @@
 import { WarningCircle } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import "../styles/common.css";
 import "../styles/fonts.css";
 import { formatDate } from "../utilities/datetime-utilities";
 import { GET, makeQuery } from "../utilities/request-utilities";

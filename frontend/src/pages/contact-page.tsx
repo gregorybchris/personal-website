@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import { FormSubmitButton } from "../components/form-submit-button";
 import { FormTextAreaInput } from "../components/form-text-area-input";
 import { FormTextInput } from "../components/form-text-input";
-import "../styles/common.css";
 
 export function ContactPage() {
   return (

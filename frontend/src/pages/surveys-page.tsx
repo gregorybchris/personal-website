@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "../components/button";
 import { TextArea } from "../components/text-area";
-import "../styles/common.css";
 import { range } from "../utilities/array-utilities";
 import { GET, POST, makeQuery } from "../utilities/request-utilities";
 import { STORE } from "../utilities/storage-utilities";

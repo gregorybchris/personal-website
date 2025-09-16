@@ -1,0 +1,21 @@
+.Running-table {
+  display: inline-block;
+  text-align: left;
+}
+
+.Running-table-header {
+  color: #3c3c3c;
+}
+
+.Running-table-header > .Running-table-cell {
+  padding-bottom: 5px;
+}
+
+.Running-table-header > .Running-table-header-cell-text {
+  border-bottom: 1px solid #6283c0;
+}
+
+.Running-table-cell {
+  padding: 4px 7px;
+  padding: 0px 8px;
+}

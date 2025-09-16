@@ -1,5 +1,4 @@
 import { SimplePageLink } from "../components/simple-page-link";
-import "../styles/common.css";
 
 export function MusicPage() {
   return (

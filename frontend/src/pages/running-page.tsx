@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { MapContainer, Polyline, TileLayer, useMap } from "react-leaflet";
 import { useNavigate, useParams } from "react-router-dom";
 import { SimpleLink } from "../components/simple-link";
-import "../styles/common.css";
+import "../styles/running.css";
 import { GET, makeQuery } from "../utilities/request-utilities";
 
 export interface RunningRoute {
@@ -102,45 +102,47 @@ export function RunningPage() {
       </div>
 
       <div className="inline-block h-[500px] w-[100%] overflow-y-scroll text-center align-top md:w-[50%]">
-        <table className="Common-table border-l-2 border-accent pl-4 font-raleway">
-          <thead className="Common-table-header sticky top-0 bg-background font-bold">
-            <tr className="Common-table-row">
-              <td className="Common-table-cell">
-                <span className="Common-table-header-cell-text">Route</span>
+        <table className="Running-table border-l-2 border-accent pl-4 font-raleway">
+          <thead className="Running-table-header sticky top-0 bg-background font-bold">
+            <tr className="Running-table-row">
+              <td className="Running-table-cell">
+                <span className="Running-table-header-cell-text">Route</span>
               </td>
-              <td className="Common-table-cell">
-                <span className="Common-table-header-cell-text">Distance</span>
+              <td className="Running-table-cell">
+                <span className="Running-table-header-cell-text">Distance</span>
               </td>
-              <td className="Common-table-cell">
-                <span className="Common-table-header-cell-text">Elevation</span>
+              <td className="Running-table-cell">
+                <span className="Running-table-header-cell-text">
+                  Elevation
+                </span>
               </td>
-              <td className="Common-table-cell">
-                <span className="Common-table-header-cell-text">City</span>
+              <td className="Running-table-cell">
+                <span className="Running-table-header-cell-text">City</span>
               </td>
             </tr>
           </thead>
-          <tbody className="Common-table-body RunningRoutes-routes-table-body">
+          <tbody className="Running-table-body RunningRoutes-routes-table-body">
             {routes.map((route, routeNumber) => (
-              <tr className="Common-table-row" key={routeNumber}>
+              <tr className="Running-table-row" key={routeNumber}>
                 <td
-                  className="Common-table-cell cursor-pointer text-accent hover:text-accent-focus"
+                  className="Running-table-cell cursor-pointer text-accent hover:text-accent-focus"
                   onClick={() => onSelectRoute(route)}
                 >
                   {route.name}
                 </td>
                 <td
-                  className="Common-table-cell"
+                  className="Running-table-cell"
                   title={`${(route.distance * 1.609344).toFixed(1)} km`}
                 >
                   {route.distance} mi
                 </td>
                 <td
-                  className="Common-table-cell"
+                  className="Running-table-cell"
                   title={`${(route.elevation * 0.3048).toFixed(0)} m`}
                 >
                   {route.elevation} ft
                 </td>
-                <td className="Common-table-cell RunningRoutes-tag">
+                <td className="Running-table-cell RunningRoutes-tag">
                   {route.tags[0]}
                 </td>
               </tr>

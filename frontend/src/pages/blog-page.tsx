@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/common.css";
 import "../styles/fonts.css";
 import { formatDate } from "../utilities/datetime-utilities";
 import { GET, makeQuery } from "../utilities/request-utilities";
