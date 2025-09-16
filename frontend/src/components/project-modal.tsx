@@ -35,7 +35,7 @@ export function ProjectModal({
     <Dialog.Root open={open} onOpenChange={onModalOpenChange}>
       <Dialog.Portal>
         <Dialog.Overlay className="data-[state=open]:animate-overlayShow fixed inset-0" />
-        <Dialog.Content className="data-[state=open]:animate-contentShow fixed left-[50%] top-[50%] block h-[90vh] max-h-[90vh] w-[90vw] max-w-[90vw] translate-x-[-50%] translate-y-[-50%] overflow-auto rounded-lg bg-white p-10 shadow-lg md:w-[60vw]">
+        <Dialog.Content className="data-[state=open]:animate-contentShow fixed left-[50%] top-[50%] h-[90vh] max-h-[90vh] w-[90vw] max-w-[90vw] translate-x-[-50%] translate-y-[-50%] overflow-auto rounded-lg bg-white p-10 shadow-lg md:w-[60vw]">
           <Dialog.Title className="font-sanchez text-2xl text-black/75">
             {project.name}
           </Dialog.Title>

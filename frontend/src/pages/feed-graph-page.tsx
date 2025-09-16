@@ -182,9 +182,5 @@ export function FeedGraphPage() {
     });
   }
 
-  return (
-    <div className="FeedExplore">
-      <svg className="mx-auto block h-[600px] w-[95%]" ref={ref}></svg>
-    </div>
-  );
+  return <svg className="h-[600px] w-[95%]" ref={ref}></svg>;
 }

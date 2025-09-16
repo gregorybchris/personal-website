@@ -40,7 +40,10 @@ export function PodcastsPage() {
         <div className="flex flex-col items-center">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
             {podcasts.map((podcast) => (
-              <div className="w-[300px] p-6 text-center" key={podcast.name}>
+              <div
+                className="flex w-[300px] flex-col items-center p-6"
+                key={podcast.name}
+              >
                 <div className="mb-10 flex w-full flex-col items-center space-y-3 text-center">
                   <SimpleLink link={podcast.apple_link}>
                     <div className="font-sanchez font-bold">{podcast.name}</div>

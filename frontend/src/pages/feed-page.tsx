@@ -1,6 +1,7 @@
 import { ArrowLeft, Link as LinkIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { PageTitle } from "../components/page-title";
 import { SearchBar } from "../components/search-bar";
 import { Tag } from "../components/tag";
 import { formatDate } from "../utilities/datetime-utilities";
@@ -105,24 +106,21 @@ export function FeedPage() {
   }
 
   return (
-    <div className="pt-8">
-      <div className="mx-auto w-[80%] text-center">
-        <div className="mb-5 block font-sanchez text-3xl text-black/75">
-          Link Feed
+    <div className="flex flex-col items-center gap-10 px-5 py-8">
+      <div className="flex flex-col items-center gap-4 md:w-4/5">
+        <PageTitle>Link Feed</PageTitle>
+
+        <div className="text-center text-black/75 md:w-[70%]">
+          Topics range from art to neuroscience and philosophy to physics. I try
+          to reserve posts here for videos and articles that made me think
+          differently. Stuff that meets that standard tends to be a bit longer.
         </div>
-        {!slug && (
-          <div className="mx-auto block w-[80%] pb-5 text-black/75">
-            Topics range from art to neuroscience and philosophy to physics. I
-            try to reserve posts here for videos and articles that made me think
-            differently. Stuff that meets that standard tends to be a bit
-            longer.
-          </div>
-        )}
       </div>
-      <div className="pt-5">
+
+      <div className="flex flex-col gap-5">
         {slug && (
           <div
-            className="mb-4 ml-10 inline-block cursor-pointer rounded-md px-2 py-1 hover:bg-black/[8%]"
+            className="inline-block cursor-pointer rounded-md px-2 py-1 hover:bg-black/[8%]"
             onClick={() => navigate("/links")}
           >
             <div className="flex flex-row space-x-2">
@@ -132,16 +130,14 @@ export function FeedPage() {
           </div>
         )}
         {!slug && (
-          <div className="ml-10">
-            <SearchBar
-              placeholder="Filter posts"
-              text={searchText}
-              setText={setSearchText}
-              className="w-[400px]"
-            />
-          </div>
+          <SearchBar
+            placeholder="Filter posts"
+            text={searchText}
+            setText={setSearchText}
+            className="w-[400px]"
+          />
         )}
-        <div className="py-10 pl-10">
+        <div className="">
           {posts.length === 0 && (
             <span className="text-black/60">Loading posts...</span>
           )}
@@ -293,6 +289,7 @@ function FeedPostCard({
             tag={tag}
             onClick={onClickTag}
             selected={selectedTags.includes(tag)}
+            className="text-sm"
           />
         ))}
       </div>

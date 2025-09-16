@@ -18,7 +18,7 @@ export function RatingRadar({ scores }: RatingRadarProps) {
   console.log("values", values);
 
   return (
-    <div className="radar-chart mx-auto block h-32 w-32">
+    <div className="radar-chart size-32">
       <Radar
         width={100}
         height={100}

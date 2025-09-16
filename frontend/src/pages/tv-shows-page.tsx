@@ -56,7 +56,7 @@ export function TvShowsPage() {
               )
               .map((show) => (
                 <div
-                  className="flex w-[300px] flex-col gap-1 p-6 text-center"
+                  className="flex w-[300px] flex-col items-center gap-1 p-6"
                   key={show.name}
                 >
                   <Link

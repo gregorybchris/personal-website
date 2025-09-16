@@ -77,7 +77,7 @@ export function RecipePage() {
           </div>
 
           <div className="relative mb-8 border-l-2 border-accent pb-3 pl-8">
-            <div className="bg-parchment absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent"></div>
+            <div className="absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent bg-parchment"></div>
             <div className="pb-3 font-sanchez text-xl">Notes</div>
             <div className="text-sm leading-6">
               {recipe.notes || "No notes available"}
@@ -85,7 +85,7 @@ export function RecipePage() {
           </div>
 
           <div className="relative mb-8 border-l-2 border-accent pb-3 pl-8">
-            <div className="bg-parchment absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent"></div>
+            <div className="absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent bg-parchment"></div>
             <div className="pb-3 font-sanchez text-xl">Ingredients</div>
             <div className="text-sm">
               {recipe.ingredients.length === 0 &&
@@ -99,7 +99,7 @@ export function RecipePage() {
                   </div>
                   <div className="flex-none">
                     {!!ingredient.amount && (
-                      <div className="text-parchment inline-block h-9 w-9 rounded-full bg-accent pt-2 text-center font-bold">
+                      <div className="inline-block h-9 w-9 rounded-full bg-accent pt-2 text-center font-bold text-parchment">
                         {convertFraction(ingredient.amount)}
                       </div>
                     )}
@@ -114,7 +114,7 @@ export function RecipePage() {
           </div>
 
           <div className="relative mb-8 border-l-2 border-accent pb-3 pl-8">
-            <div className="bg-parchment absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent"></div>
+            <div className="absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent bg-parchment"></div>
             <div className="pb-3 font-sanchez text-xl">Instructions</div>
             <div className="text-sm leading-6">
               {recipe.instructions || "Nothing to see here"}

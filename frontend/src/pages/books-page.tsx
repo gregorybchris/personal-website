@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { PageTitle } from "../components/page-title";
 import { Tag } from "../components/tag";
 import { GET, makeQuery } from "../utilities/request-utilities";
 
@@ -45,12 +46,11 @@ export function BooksPage() {
   }
 
   return (
-    <div className="flex flex-col items-center gap-5 px-2 py-8">
-      <div className="flex flex-col items-center gap-2 md:w-4/5">
-        <div className="text-center font-sanchez text-3xl text-black/75">
-          Books
-        </div>
-        <div className="mx-auto w-[95%] text-center text-black/75 md:w-[70%]">
+    <div className="flex flex-col items-center gap-10 px-4 py-8">
+      <div className="flex flex-col items-center gap-4 md:w-4/5">
+        <PageTitle>Books</PageTitle>
+
+        <div className="text-center text-black/75 md:w-[70%]">
           I don't love recommending books because it always feels like assigned
           reading and I never liked assigned reading. But on the off chance
           you're a fan of one of the titles below you might consider picking up

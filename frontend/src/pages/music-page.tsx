@@ -1,13 +1,13 @@
+import { PageTitle } from "../components/page-title";
 import { SimplePageLink } from "../components/simple-page-link";
 
 export function MusicPage() {
   return (
-    <div className="p-8">
-      <div className="mx-auto w-[90%] pb-2 text-center md:w-[80%]">
-        <div className="block pb-3 font-sanchez text-3xl text-black/75">
-          Music
-        </div>
-        <div className="mx-auto block w-[95%] py-3 text-black/75 md:w-[70%]">
+    <div className="flex flex-col items-center gap-10 px-4 py-8">
+      <div className="flex flex-col items-center gap-4 md:w-4/5">
+        <PageTitle>Music</PageTitle>
+
+        <div className="text-center text-black/75 md:w-[70%]">
           Spotify is getting scary good at recommending music. But a song from a
           human being always feels more personal. Even if the music you're into
           is totally different, shoot me a link with my{" "}

@@ -2,15 +2,17 @@ import { NavLink } from "react-router-dom";
 import { FormSubmitButton } from "../components/form-submit-button";
 import { FormTextAreaInput } from "../components/form-text-area-input";
 import { FormTextInput } from "../components/form-text-input";
+import { PageTitle } from "../components/page-title";
 
 export function ContactPage() {
   return (
-    <div className="flex flex-col items-center gap-12 p-8">
-      <div className="flex w-[80%] flex-col items-center gap-4 text-center">
-        <div className="font-sanchez text-3xl text-black/75">
+    <div className="flex flex-col items-center gap-10 px-4 py-8">
+      <div className="flex flex-col items-center gap-4 md:w-4/5">
+        <PageTitle className="text-balance">
           Fill out this form to send me a message
-        </div>
-        <div className="text-black/75">
+        </PageTitle>
+
+        <div className="text-center text-black/75 md:w-[70%]">
           Looking forward to hearing from you!
         </div>
       </div>

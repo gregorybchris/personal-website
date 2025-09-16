@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { PageTitle } from "../components/page-title";
 import { GET, makeQuery } from "../utilities/request-utilities";
 
 export interface Artist {
@@ -25,15 +26,8 @@ export function ArtistsPage() {
   }, []);
 
   return (
-    <div className="grid justify-items-center pt-8">
-      <div className="w-4/5">
-        <div className="mb-5 text-center font-sanchez text-3xl text-black/75">
-          Artists
-        </div>
-        <div className="mx-auto w-[95%] py-3 text-center text-black/75 md:w-[70%]">
-          Some musical artists I like!
-        </div>
-      </div>
+    <div className="flex flex-col items-center justify-items-center gap-5 px-2">
+      <PageTitle>Artists</PageTitle>
 
       <div className="grid w-4/5 grid-cols-1 justify-items-center pt-5 md:grid-cols-4 lg:grid-cols-6">
         {artists.map((artist) => (
@@ -47,6 +41,7 @@ export function ArtistsPage() {
 interface ArtistCardProps {
   artist: Artist;
 }
+
 export function ArtistCard({ artist }: ArtistCardProps) {
   const timestamp = Date.now();
   return (

@@ -9,6 +9,7 @@ import {
 } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { PageTitle } from "../components/page-title";
 import { formatDuration } from "../utilities/datetime-utilities";
 import { GET, makeQuery } from "../utilities/request-utilities";
 
@@ -79,14 +80,10 @@ export function RecipesPage() {
   }
 
   return (
-    <div className="px-2 py-8 md:px-20">
-      <div className="mx-auto w-[90%] pb-5 text-center md:w-[80%]">
-        <div className="block pb-3 font-sanchez text-3xl text-black/75">
-          Recipes
-        </div>
-      </div>
+    <div className="flex flex-col items-center gap-8 px-2 py-8">
+      <PageTitle>Recipes</PageTitle>
 
-      <div className="flex flex-row flex-wrap justify-center">
+      <div className="flex flex-row flex-wrap justify-center md:w-[80%]">
         {recipes.map((recipe) => {
           const icon = getIcon(recipe.food_type);
 
@@ -94,7 +91,7 @@ export function RecipesPage() {
             !recipe.archived && (
               <div
                 key={recipe.name}
-                className="hover:border-royal relative mx-4 my-3 flex h-[130px] w-[240px] cursor-pointer flex-row items-center border-2 border-accent text-center transition-all"
+                className="relative mx-4 my-3 flex h-[130px] w-[240px] cursor-pointer flex-row items-center border-2 border-accent text-center transition-all hover:border-royal"
                 onClick={() => navigate(`/hidden/recipes/${recipe.slug}`)}
               >
                 <div className="absolute -left-3 -top-3 rounded-full bg-accent p-2">

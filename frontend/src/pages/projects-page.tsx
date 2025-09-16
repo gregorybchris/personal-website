@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { PageTitle } from "../components/page-title";
 import { ProjectModal } from "../components/project-modal";
 import { ProjectsTimeline } from "../components/projects-timeline";
 import { SearchBar } from "../components/search-bar";
@@ -75,9 +76,8 @@ export function ProjectsPage() {
   }
 
   return (
-    <div>
+    <div className="py-8">
       <div
-        className="mt-8 block text-center font-sanchez text-2xl text-black/75 md:text-3xl"
         onClick={() => {
           if (searchEnabled) {
             setSearchText("");
@@ -85,7 +85,7 @@ export function ProjectsPage() {
           setSearchEnabled(!searchEnabled);
         }}
       >
-        Code &amp; Programming Projects
+        <PageTitle>Code &amp; Programming Projects</PageTitle>
       </div>
 
       <ProjectsTimeline

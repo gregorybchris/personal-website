@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Button } from "../components/button";
+import { PageTitle } from "../components/page-title";
 import { GET, makeQuery } from "../utilities/request-utilities";
 
 export interface ArchiveItem {
@@ -18,16 +20,10 @@ export function ArchivePage() {
   }, []);
 
   return (
-    <div className="px-3 py-8 md:px-8">
-      <div className="mx-auto w-[80%] pb-5 text-center">
-        <div className="block pb-3 font-sanchez text-3xl text-black/75">
-          Archive
-        </div>
-        <div className="mx-auto block w-[80%] py-3 text-black/75">
-          The archive for previous incarnations of this website.
-        </div>
-      </div>
-      <div>
+    <div className="flex flex-col items-center gap-8 px-3 py-8 md:px-8">
+      <PageTitle>Archive</PageTitle>
+
+      <div className="flex w-full flex-col items-center gap-8">
         {items.map((item) => (
           <ArchiveSection key={item.version} archiveItem={item} />
         ))}
@@ -41,27 +37,35 @@ interface ArchiveSectionProps {
 }
 
 function ArchiveSection({ archiveItem }: ArchiveSectionProps) {
+  const [expanded, setExpanded] = useState(false);
+
   const date = new Date(archiveItem.date);
   const year = date.getFullYear();
 
   return (
-    <div>
-      <div className="text-center">
-        <div className="font-sanchez text-xl text-black/75">
-          ChrisOffline v{archiveItem.version}
+    <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-row items-center gap-6">
+        <div className="font-sanchez text-lg text-black/75">
+          ChrisOffline v{archiveItem.version} ({year})
         </div>
-        <div className="text-md">{year}</div>
+        <Button
+          text={expanded ? "Collapse" : "Expand"}
+          onClick={() => setExpanded(!expanded)}
+        />
       </div>
-      <div className="text-center">
-        {archiveItem.image_links.map((imageUrl) => (
-          <img
-            className="mx-auto my-5 block w-[90%] shadow-[0_0_6px_2px_rgba(0,0,0,0.3)] md:w-[70%]"
-            src={imageUrl}
-            key={imageUrl}
-            alt="Archive screenshot"
-          />
-        ))}
-      </div>
+
+      {expanded && (
+        <div className="flex w-full flex-row flex-wrap justify-center gap-4">
+          {archiveItem.image_links.map((imageUrl) => (
+            <img
+              className="w-full shadow-[0_0_6px_2px_rgba(0,0,0,0.3)] md:w-[500px]"
+              src={imageUrl}
+              key={imageUrl}
+              alt="Archive screenshot"
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
