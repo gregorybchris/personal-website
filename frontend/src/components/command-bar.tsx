@@ -34,6 +34,10 @@ export function CommandBar() {
       route: "/",
     },
     {
+      name: "Blog",
+      route: "/blog",
+    },
+    {
       name: "Projects",
       route: "/projects",
     },
@@ -42,12 +46,12 @@ export function CommandBar() {
       route: "/running",
     },
     {
-      name: "Music",
-      route: "/music",
-    },
-    {
       name: "Books",
       route: "/books",
+    },
+    {
+      name: "Music",
+      route: "/music",
     },
     {
       name: "Contact",
@@ -60,29 +64,29 @@ export function CommandBar() {
       open={open}
       onOpenChange={setOpen}
       label="Command Bar"
-      className="absolute top-0 z-[15] flex h-full w-full justify-center px-10 py-10 font-raleway md:py-24"
+      className="absolute top-0 z-[15] flex w-full justify-center px-10 py-10 font-raleway md:py-24"
     >
       <div
         className={cn(
-          "flex max-h-[400px] w-[400px] flex-col justify-center overflow-hidden bg-background",
-          "rounded-lg px-3 pb-3 text-center shadow-[0_0_200px_30px_rgba(0,0,0,0.2)]",
+          "flex w-[400px] flex-col justify-center overflow-hidden bg-background",
+          "rounded-lg px-3 py-3 text-center shadow-[0_0_200px_30px_rgba(0,0,0,0.2)]",
         )}
       >
         <div className="flex flex-row items-center justify-between">
           <Command.Input
             placeholder="Search for a page..."
-            className="mb-2 bg-transparent px-4 py-5 text-black/75 outline-none"
+            className="w-full bg-transparent px-3 py-3 text-black/75 outline-none"
           />
 
           <div
-            className="mr-2 cursor-pointer rounded-full p-1 transition-all hover:bg-background-dark"
+            className="cursor-pointer rounded-full p-1 transition-all hover:bg-black/[8%]"
             onClick={toggleOpen}
           >
             <XCircle size={26} color="#6283c0" weight="regular" />
           </div>
         </div>
 
-        <div className="h-full w-full border-l-2 border-r-2 border-accent p-5">
+        <div className="h-full w-full border-t-2 border-blue-500/60 px-1 py-3">
           <Command.List>
             <Command.Empty>
               <div className="text-text-2">No results found</div>
@@ -97,8 +101,8 @@ export function CommandBar() {
                   navigate(page.route);
                 }}
                 className={cn(
-                  "cursor-pointer rounded-md py-1",
-                  "transition-all aria-selected:bg-background-dark aria-selected:text-accent",
+                  "cursor-pointer rounded py-1",
+                  "transition-all aria-selected:bg-black/[8%] aria-selected:text-blue-500",
                 )}
               >
                 {page.name}
