@@ -81,7 +81,7 @@ export function RecipesPage() {
   return (
     <div className="px-2 py-8 md:px-20">
       <div className="mx-auto w-[90%] pb-5 text-center md:w-[80%]">
-        <div className="block pb-3 font-sanchez text-3xl font-bold text-black/75">
+        <div className="block pb-3 font-sanchez text-3xl text-black/75">
           Recipes
         </div>
       </div>

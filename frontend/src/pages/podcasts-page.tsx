@@ -31,9 +31,7 @@ export function PodcastsPage() {
   return (
     <div>
       <div className="pb-5 text-center">
-        <div className="pb-3 font-sanchez text-3xl font-bold text-black/75">
-          Podcasts
-        </div>
+        <div className="pb-3 font-sanchez text-3xl text-black/75">Podcasts</div>
         <div className="py-3 text-black/75">Some great podcasts!</div>
       </div>
 

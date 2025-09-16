@@ -1,4 +1,6 @@
 import "../styles/common.css";
+import { Button } from "./button";
+import { TextBox } from "./text-box";
 
 interface MediaSearchBarProps {
   searchText: string;
@@ -14,26 +16,17 @@ export function MediaSearchBar({
   updateQuery,
 }: MediaSearchBarProps) {
   return (
-    <div className="min-w-[240px]">
-      <input
-        className="Common-text-field inline-block w-[200px] align-top"
-        type="text"
+    <div className="flex flex-row gap-1">
+      <TextBox
+        className="w-[200px]"
         value={searchText}
-        onChange={(event) => setSearchText(event.target.value)}
+        onChange={(text) => setSearchText(text)}
         placeholder="Query"
       />
-      <div
-        className="Common-button ml-1 inline-block align-top"
-        onClick={onSubmit}
-      >
-        Search
-      </div>
-      <div
-        className="Common-button ml-1 inline-block align-top"
-        onClick={() => updateQuery("")}
-      >
-        Clear
-      </div>
+
+      <Button text="Search" onClick={onSubmit} />
+
+      <Button text="Clear" onClick={() => updateQuery("")} />
     </div>
   );
 }

@@ -34,8 +34,8 @@ export function CommandBar() {
       route: "/",
     },
     {
-      name: "Code",
-      route: "/Code",
+      name: "Projects",
+      route: "/projects",
     },
     {
       name: "Running",
@@ -60,18 +60,18 @@ export function CommandBar() {
       open={open}
       onOpenChange={setOpen}
       label="Command Bar"
-      className="absolute top-0 z-[15] flex h-full w-full justify-center px-10 py-10 md:py-24"
+      className="absolute top-0 z-[15] flex h-full w-full justify-center px-10 py-10 font-raleway md:py-24"
     >
       <div
         className={cn(
-          "flex max-h-[400px] w-[400px] flex-col justify-center overflow-hidden",
+          "flex max-h-[400px] w-[400px] flex-col justify-center overflow-hidden bg-background",
           "rounded-lg px-3 pb-3 text-center shadow-[0_0_200px_30px_rgba(0,0,0,0.2)]",
         )}
       >
         <div className="flex flex-row items-center justify-between">
           <Command.Input
             placeholder="Search for a page..."
-            className="mb-2 bg-transparent px-4 py-5 font-bold text-black/75 outline-none"
+            className="mb-2 bg-transparent px-4 py-5 text-black/75 outline-none"
           />
 
           <div
@@ -85,7 +85,7 @@ export function CommandBar() {
         <div className="h-full w-full border-l-2 border-r-2 border-accent p-5">
           <Command.List>
             <Command.Empty>
-              <div className="font-bold text-text-2">No results found</div>
+              <div className="text-text-2">No results found</div>
             </Command.Empty>
 
             {pages.map((page, i) => (
@@ -97,7 +97,7 @@ export function CommandBar() {
                   navigate(page.route);
                 }}
                 className={cn(
-                  "cursor-pointer rounded-md py-1 font-bold",
+                  "cursor-pointer rounded-md py-1",
                   "transition-all aria-selected:bg-background-dark aria-selected:text-accent",
                 )}
               >

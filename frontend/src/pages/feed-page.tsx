@@ -1,7 +1,9 @@
-import { ArrowLeft } from "@phosphor-icons/react";
+import { ArrowLeft, Link as LinkIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { Tag } from "../components/tag";
 import "../styles/common.css";
+import { formatDate } from "../utilities/datetime-utilities";
 import {
   GET,
   getSearchParams,
@@ -103,7 +105,7 @@ export function FeedPage() {
   return (
     <div className="pt-8">
       <div className="mx-auto w-[80%] text-center">
-        <div className="mb-5 block font-sanchez text-3xl font-bold text-black/75">
+        <div className="mb-5 block font-sanchez text-3xl text-black/75">
           Link Feed
         </div>
         {!slug && (
@@ -159,16 +161,11 @@ export function FeedPage() {
   );
 }
 
-import { Link as LinkIcon } from "@phosphor-icons/react";
-import { Tag } from "../components/tag";
-import { FeedPost as PostModel } from "../models/feedModels";
-import { formatDate } from "../utilities/datetime-utilities";
-
 interface FeedPostCardProps {
-  post: PostModel;
+  post: FeedPost;
   videoTime: string;
   onClickTag: (tag: string) => void;
-  onSelectPost: (post: PostModel) => void;
+  onSelectPost: (post: FeedPost) => void;
   activeTags: string[];
 }
 
@@ -249,7 +246,7 @@ function FeedPostCard({
       <div className="pb-3">
         <div className="mb-2">
           <a href={contentLink} target="_blank" rel="noopener noreferrer">
-            <div className="inline-block font-sanchez text-xl font-bold text-black/75">
+            <div className="inline-block font-sanchez text-xl text-black/75">
               {title}
             </div>
           </a>
@@ -261,17 +258,15 @@ function FeedPostCard({
           </div>
         </div>
         {seriesName && (
-          <div className="text-md mb-1 inline-block font-bold text-text-2">
+          <div className="text-md mb-1 inline-block text-text-2">
             {seriesDetails}
           </div>
         )}
-        <div className="text-md mb-1 font-bold text-text-2">
+        <div className="text-md mb-1 text-text-2">
           {formatDate(post.date_posted)}
         </div>
         {post.length && (
-          <div className="text-md font-bold text-text-2">
-            {formatLength(post.length)}
-          </div>
+          <div className="text-md text-text-2">{formatLength(post.length)}</div>
         )}
       </div>
       {thumbnailUrl && (

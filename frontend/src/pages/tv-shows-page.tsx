@@ -40,9 +40,7 @@ export function TvShowsPage() {
   return (
     <div>
       <div className="pb-5 text-center">
-        <div className="pb-3 font-sanchez text-3xl font-bold text-black/75">
-          TV Shows
-        </div>
+        <div className="pb-3 font-sanchez text-3xl text-black/75">TV Shows</div>
         <div className="py-3 text-black/75">Some great TV shows!</div>
       </div>
 

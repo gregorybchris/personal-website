@@ -27,7 +27,7 @@ export function ArtistsPage() {
   return (
     <div className="grid justify-items-center pt-8">
       <div className="w-4/5">
-        <div className="mb-5 text-center font-sanchez text-3xl font-bold text-black/75">
+        <div className="mb-5 text-center font-sanchez text-3xl text-black/75">
           Artists
         </div>
         <div className="mx-auto w-[95%] py-3 text-center text-black/75 md:w-[70%]">
@@ -61,7 +61,7 @@ export function ArtistCard({ artist }: ArtistCardProps) {
       </div>
 
       <a href={artist.link} target="_blank">
-        <div className="max-w-[150px] text-balance text-center font-bold">
+        <div className="max-w-[150px] text-balance text-center">
           {artist.name}
         </div>
       </a>

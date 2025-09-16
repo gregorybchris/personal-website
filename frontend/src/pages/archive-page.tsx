@@ -47,7 +47,7 @@ function ArchiveSection({ archiveItem }: ArchiveSectionProps) {
   return (
     <div>
       <div className="text-center">
-        <div className="font-sanchez text-xl font-bold text-black/75">
+        <div className="font-sanchez text-xl text-black/75">
           ChrisOffline v{archiveItem.version}
         </div>
         <div className="text-md">{year}</div>

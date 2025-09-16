@@ -1,52 +1,57 @@
 import { NavLink } from "react-router-dom";
+import { FormSubmitButton } from "../components/form-submit-button";
+import { FormTextAreaInput } from "../components/form-text-area-input";
+import { FormTextInput } from "../components/form-text-input";
 import "../styles/common.css";
 
 export function ContactPage() {
   return (
-    <div className="p-8">
-      <div className="mx-auto w-[80%] text-center">
-        <div className="mb-5 block font-sanchez text-3xl text-black/75">
+    <div className="flex flex-col items-center gap-12 p-8">
+      <div className="flex w-[80%] flex-col items-center gap-4 text-center">
+        <div className="font-sanchez text-3xl text-black/75">
           Fill out this form to send me a message
         </div>
-        <div className="mx-auto block w-[80%] text-black/75">
+        <div className="text-black/75">
           Looking forward to hearing from you!
         </div>
       </div>
-      <div className="mx-auto mt-[50px] w-[90%] max-w-[500px]">
-        <form action="https://formspree.io/f/xdopgdnk" method="POST">
-          <input
-            className="Common-text-field mx-auto mt-3 block w-[95%]"
-            type="text"
-            name="name"
-            placeholder="Name"
-            autoComplete="off"
-            maxLength={50}
-            required
-          />
-          <input
-            className="Common-text-field mx-auto mt-3 block w-[95%]"
-            type="email"
-            name="_replyto"
-            placeholder="Email"
-            autoComplete="off"
-            maxLength={50}
-            required
-          />
 
-          <textarea
-            className="Common-text-field mx-auto mt-3 block h-[150px] w-[95%] resize-none"
-            name="message"
-            placeholder="Message"
-            maxLength={500}
-            required
-          />
-          <input
-            className="Common-button mx-auto my-3 block px-8 py-2"
-            type="submit"
-            value="Send"
-          />
+      <div className="w-[90%] max-w-[500px]">
+        <form action="https://formspree.io/f/xdopgdnk" method="POST">
+          <div className="flex flex-col items-center gap-3">
+            <FormTextInput
+              type="text"
+              name="name"
+              placeholder="Name"
+              autoComplete={false}
+              maxLength={50}
+              required={true}
+              className="w-[95%]"
+            />
+
+            <FormTextInput
+              type="email"
+              name="_replyto"
+              placeholder="Email"
+              autoComplete={false}
+              maxLength={50}
+              required={true}
+              className="w-[95%]"
+            />
+
+            <FormTextAreaInput
+              name="message"
+              placeholder="Message"
+              maxLength={500}
+              required={true}
+              className="h-[150px] w-[95%]"
+            />
+
+            <FormSubmitButton text="Send" />
+          </div>
         </form>
       </div>
+
       <NavLink to="/hidden">
         <div className="absolute right-5 top-5 h-10 w-10 cursor-pointer rounded-full bg-transparent"></div>
       </NavLink>

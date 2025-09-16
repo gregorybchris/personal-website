@@ -2,7 +2,7 @@ export function PlacesPage() {
   return (
     <div className="p-8">
       <div className="mx-auto w-[80%] pb-5 text-center">
-        <div className="block pb-3 font-sanchez text-3xl font-bold text-black/75">
+        <div className="block pb-3 font-sanchez text-3xl text-black/75">
           Places
         </div>
         <div className="mx-auto block w-[80%] py-3 text-black/75">

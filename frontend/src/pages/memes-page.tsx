@@ -48,7 +48,7 @@ export function MemesPage() {
 
   return (
     <div className="bg-background">
-      <div className="mt-8 block text-center font-sanchez text-2xl font-bold text-black/75 md:text-3xl">
+      <div className="mt-8 block text-center font-sanchez text-2xl text-black/75 md:text-3xl">
         Memes
       </div>
 

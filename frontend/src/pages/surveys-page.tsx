@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { TextArea } from "../components/text-area";
 import "../styles/common.css";
 import { range } from "../utilities/array-utilities";
 import { GET, POST, makeQuery } from "../utilities/request-utilities";
@@ -162,8 +163,8 @@ export function SurveysPage() {
     setCurrentSurvey();
   }
 
-  function onUpdateFeedback(event: React.ChangeEvent<HTMLTextAreaElement>) {
-    setFeedback(event.target.value);
+  function onUpdateFeedback(text: string) {
+    setFeedback(text);
   }
 
   function getSurveyElement() {
@@ -192,7 +193,7 @@ export function SurveysPage() {
     return (
       <div className="mx-auto w-[80%] py-10 text-center md:w-[50%]">
         <div className="w-full text-left">
-          <div className="mx-auto block border-b border-background pb-1 text-center font-sanchez text-2xl font-bold text-black/75 md:inline md:border-accent md:text-left">
+          <div className="mx-auto block border-b border-background pb-1 text-center font-sanchez text-2xl text-black/75 md:inline md:border-accent md:text-left">
             {survey.name}
           </div>
         </div>
@@ -212,12 +213,11 @@ export function SurveysPage() {
           <div className="pb-3 text-black/75">
             Additional information you'd like to provide? (optional)
           </div>
-          <textarea
-            className="Common-text-field h-[80px] w-full"
-            name="feedback"
+
+          <TextArea
+            className="h-[80px] w-full"
             value={feedback}
             onChange={onUpdateFeedback}
-            placeholder=""
           />
         </div>
         <div
@@ -233,7 +233,7 @@ export function SurveysPage() {
   return (
     <div className="bg-background">
       <div className="mx-auto w-[80%] text-center">
-        <div className="mb-5 mt-8 block font-sanchez text-3xl font-bold text-black/75">
+        <div className="mb-5 mt-8 block font-sanchez text-3xl text-black/75">
           What do you think?
         </div>
         <div className="mx-auto block w-[80%] text-black/75">
@@ -321,7 +321,7 @@ function SurveyQuestionOption({
     <div
       onClick={() => onOptionClicked(questionNumber, optionNumber)}
       className={cn(
-        "px-3 py-1 text-accent transition-all",
+        "rounded px-3 py-1 text-accent transition-all",
         isChosen && "bg-background-highlight-light",
         "active:bg-background-highlight-active",
         "cursor-pointer hover:bg-background-highlight hover:text-accent-focus",
