@@ -63,7 +63,7 @@ export function TvShowsPage() {
                     to={show.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-lg px-1 py-4 hover:bg-background-highlight"
+                    className="rounded-lg px-1 py-4 hover:bg-black/5"
                   >
                     <div className="flex flex-col items-center gap-3 text-center">
                       <div className="font-sanchez font-bold text-accent">

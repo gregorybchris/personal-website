@@ -90,7 +90,7 @@ export function ProjectModal({
           </div>
 
           <Dialog.Close asChild>
-            <button className="absolute right-5 top-5 flex size-10 items-center justify-center rounded-full outline-none transition-all hover:bg-background-highlight">
+            <button className="absolute right-5 top-5 flex size-10 items-center justify-center rounded-full outline-none transition-all hover:bg-black/5">
               <CloseIcon />
             </button>
           </Dialog.Close>

@@ -124,7 +124,7 @@ export function MemeCard({ meme, updateQuery, className }: MemeCardProps) {
       </div>
 
       <div
-        className="cursor-pointer rounded-full p-1 transition-all hover:bg-background-highlight"
+        className="cursor-pointer rounded-full p-1 transition-all hover:bg-black/5"
         onClick={() => navigate(`/hidden/memes/${meme.id}`)}
       >
         <LinkIcon size={20} color="#6283c0" />
