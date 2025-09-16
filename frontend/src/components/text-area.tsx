@@ -22,7 +22,7 @@ export function TextArea({
   return (
     <textarea
       className={cn(
-        "box-border border-2 border-[#6283c0] bg-transparent px-[10px] py-2 align-top text-[14px] font-bold text-[#646464] outline-none transition duration-500 placeholder:text-[#646464] placeholder:transition placeholder:duration-500 focus:bg-[#e6e6e0] focus:caret-[#757d8b] focus:placeholder:text-[#646464]",
+        "box-border border-2 border-[#6283c0] bg-transparent px-[10px] py-2 align-top text-[14px] font-bold text-[#646464] outline-none transition-all placeholder:text-[#646464] placeholder:transition placeholder:duration-500 focus:bg-[#e6e6e0] focus:caret-[#757d8b] focus:placeholder:text-[#646464]",
         className,
       )}
       onChange={(e) => onChange && onChange(e.target.value)}

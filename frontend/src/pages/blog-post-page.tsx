@@ -33,7 +33,7 @@ export function BlogPostPage() {
             </div>
           </div>
 
-          <div className="md:text-md shadow-inner-lg flex flex-col items-center gap-3 rounded bg-blue-500/70 px-10 py-5 text-lg font-bold text-white">
+          <div className="md:text-md shadow-inner-lg flex flex-col items-center gap-3 text-balance rounded bg-blue-500/70 px-10 py-5 text-center text-lg font-bold text-white">
             <WarningCircle size={32} weight="bold" />
             <div>Down for maintenance, come back in a few days!</div>
           </div>
@@ -44,13 +44,13 @@ export function BlogPostPage() {
             ))}
           </div>
 
-          <button
-            className="flex flex-row items-center gap-2 rounded-md px-2 py-1 text-lg text-black transition-all hover:bg-black/5"
+          <div
+            className="flex cursor-pointer flex-row items-center gap-2 rounded-md px-2 py-1 text-lg text-black transition-all hover:bg-black/5"
             onClick={() => navigate("/blog")}
           >
             <ArrowLeft size={25} color="#6283c0" weight="regular" />
             <div>Back to posts</div>
-          </button>
+          </div>
         </div>
       )}
     </div>

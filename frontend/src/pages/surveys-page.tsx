@@ -218,10 +218,12 @@ export function SurveysPage() {
             onChange={onUpdateFeedback}
           />
         </div>
+
         <Button
           text="Submit"
           onClick={() => onSurveySubmit(survey, response)}
           enabled={isComplete}
+          className="mx-auto w-[100px]"
         />
       </div>
     );

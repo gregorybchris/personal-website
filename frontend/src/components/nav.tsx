@@ -23,9 +23,9 @@ export function Nav() {
         <NavLink to="/" className={getLinkClassName()}>
           Home
         </NavLink>
-        <NavLink to="/blog" className={getLinkClassName()}>
+        {/* <NavLink to="/blog" className={getLinkClassName()}>
           Blog
-        </NavLink>
+        </NavLink> */}
         <NavLink to="/projects" className={getLinkClassName()}>
           Projects
         </NavLink>
