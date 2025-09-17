@@ -8,31 +8,32 @@ archived: false
 
 In graph theory, an _edge contraction_ is an operation where two adjacent vertices are merged into one and their shared edge is deleted.
 
-<figure>
+<!-- <figure>
   <img src="https://storage.googleapis.com/cgme/projects/images/contraction--03.jpg" width="300">
   <figcaption><strong>Figure 1: </strong>Edge contraction &mdash; The new vertex's neighbors are the union of the neighbors from the original two vertices.</figcaption>
-</figure>
+</figure> -->
 
 On colored graphs, a similar operation exists called a _vertex contraction_. Edges connecting adjacent vertices are contracted if adjacent vertices share the same color as the contracted vertex.
 
-<figure>
+<!-- <figure>
   <img src="https://storage.googleapis.com/cgme/projects/images/contraction--03.jpg" width="300">
   <figcaption><strong>Figure 2: </strong>Vertex contraction &mdash; The contacted vertex inherits neighbors from all adjacent vertices of the same color.</figcaption>
-</figure>
+</figure> -->
 
 Given a fully-connected colored graph, we can apply vertex contractions iteratively until only a single vertex remains. What good does that do us? For one, it lets us solve [fun puzzle games](https://apps.apple.com/us/app/kami/id710724007). But it's also the foundation of an interesting applied graph theory problem described more below.
 
-<figure>
+<!-- <figure>
   <img src="https://storage.googleapis.com/cgme/projects/images/contraction--03.jpg" width="300">
   <figcaption><strong>Figure 3: </strong>Iterated vertex contraction</figcaption>
 </figure>
+ -->
 
 As a small aside, we're basically using a flood fill algorithm, but on colored graphs, rather than pixels. Actually, flood filling pixels is a special case of colored graph contraction where the graph is constrained to a 2D lattice structure.
 
-<figure>
+<!-- <figure>
   <img src="https://storage.googleapis.com/cgme/projects/images/contraction--03.jpg" width="300">
   <figcaption><strong>Figure 4: </strong>Pixel flood fill</figcaption>
-</figure>
+</figure> -->
 
 ## Setting our objective
 
@@ -74,10 +75,10 @@ A final linear layer maps the graph embedding to the predicted value, which esti
 
 We train with MSE loss and also calculate an accuracy score by rounding the model prediction to the nearest integer number of contractions. Training was done on a single consumer-grade GPU.
 
-<figure>
+<!-- <figure>
   <img src="https://storage.googleapis.com/cgme/projects/images/contraction--04.jpg" width="300">
   <figcaption><strong>Figure 5: </strong>Training curve &mdash; The model shows above random chance performance on predicting the number of contractions needed for a given graph.</figcaption>
-</figure>
+</figure> -->
 
 While model training was successful, the model inference time in practice is slow enough to negate the benefits of the deep learning heuristic. To be useful the model would have to rule out unlikely candidate solutions faster than the latency of evaluating those candidates. That said, only very small graphs were used in evaluation, so more work is needed to see if at larger graph sizes the deep learning heuristic really does win out.
 
