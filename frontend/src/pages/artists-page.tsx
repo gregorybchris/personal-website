@@ -45,8 +45,8 @@ interface ArtistCardProps {
 export function ArtistCard({ artist }: ArtistCardProps) {
   const timestamp = Date.now();
   return (
-    <div className="flex flex-col items-center px-2 py-3">
-      <div className="mb-2 flex justify-center">
+    <div className="flex flex-col items-center gap-2 px-2 py-3">
+      <div className="flex justify-center">
         <a href={artist.link} target="_blank" className="group">
           <img
             src={`${artist.image_link}?a=${timestamp}`}

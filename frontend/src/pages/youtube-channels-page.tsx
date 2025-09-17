@@ -38,10 +38,10 @@ export function YouTubeChannelsPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
             {channels.map((channel) => (
               <div
-                className="flex w-[300px] flex-col items-center p-6"
+                className="flex w-[300px] flex-col items-center gap-2 p-6"
                 key={channel.name}
               >
-                <div className="mb-10 w-full text-center">
+                <div className="w-full text-center">
                   <SimpleLink link={channel.link}>
                     <div className="font-sanchez font-bold">{channel.name}</div>
                   </SimpleLink>
