@@ -117,7 +117,7 @@ interface RouteMapCardProps {
 
 function RouteMapCard({ route, routeData, mapBoxToken }: RouteMapCardProps) {
   return (
-    <div className="flex w-full flex-col gap-2 px-4 md:w-[50%]">
+    <div className="flex w-full flex-col gap-2 px-4 md:w-[max(40%,550px)]">
       <div className="font-sanchez text-lg underline decoration-blue-500/60 underline-offset-4">
         {route.name}
       </div>
@@ -180,7 +180,7 @@ function RoutesTable({ routes, onSelectRoute }: RoutesTableProps) {
             </td>
           </tr>
         </thead>
-        <tbody className="Running-table-body RunningRoutes-routes-table-body">
+        <tbody className="Running-table-body RunningRoutes-routes-table-body text-xs md:text-sm">
           {routes.map((route, routeNumber) => (
             <tr className="Running-table-row" key={routeNumber}>
               <td
