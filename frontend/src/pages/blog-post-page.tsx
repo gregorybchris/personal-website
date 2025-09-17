@@ -1,5 +1,6 @@
-import { ArrowLeft, WarningCircle } from "@phosphor-icons/react";
+import { ArrowLeft } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
 import { useNavigate, useParams } from "react-router-dom";
 import "../styles/fonts.css";
 import { formatDate } from "../utilities/datetime-utilities";
@@ -18,6 +19,18 @@ export function BlogPostPage() {
     });
   }, []);
 
+  const markdown = `
+# Hello, React Markdown!
+
+This is some **bold text** and this is *italic*.
+
+- Item 1
+- Item 2
+- Item 3
+
+[Click here](https://reactjs.org) to visit React.
+`;
+
   return (
     <div className="flex flex-col items-center px-5 font-iowa md:px-10 md:py-10">
       {currentPost === null ? (
@@ -33,10 +46,12 @@ export function BlogPostPage() {
             </div>
           </div>
 
-          <div className="md:text-md shadow-inner-lg flex flex-col items-center gap-3 text-balance rounded bg-blue-500/70 px-10 py-5 text-center text-lg font-bold text-white">
+          {/* <div className="md:text-md shadow-inner-lg flex flex-col items-center gap-3 text-balance rounded bg-blue-500/70 px-10 py-5 text-center text-lg font-bold text-white">
             <WarningCircle size={32} weight="bold" />
             <div>Down for maintenance, come back in a few days!</div>
-          </div>
+          </div> */}
+
+          <ReactMarkdown>{markdown}</ReactMarkdown>
 
           <div className="md:text-md flex flex-col gap-2 px-10 py-4 text-justify text-lg leading-relaxed">
             {currentPost.content.split("\n").map((paragraph, index) => (

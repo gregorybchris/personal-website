@@ -202,33 +202,27 @@ function RoutesTable({ routes, onSelectRoute }: RoutesTableProps) {
               key={routeNumber}
               onClick={() => onSelectRoute(route)}
             >
-              <td className="Running-table-cell text-accent group-hover:text-royal">
+              <td className="Running-table-cell text-sky group-hover:text-royal">
                 {route.name}
               </td>
               <td
                 className="Running-table-cell"
                 title={`${(route.distance * 1.609344).toFixed(1)} km`}
               >
-                <span className="group-hover:text-accent">
+                <span className="group-hover:text-sky">
                   {formatDistance(route.distance)}
                 </span>{" "}
-                <span className="text-black/30 group-hover:text-accent">
-                  mi
-                </span>
+                <span className="group-hover:text-sky text-black/30">mi</span>
               </td>
               <td
                 className="Running-table-cell"
                 title={`${(route.elevation * 0.3048).toFixed(0)} m`}
               >
-                <span className="group-hover:text-accent">
-                  {route.elevation}
-                </span>{" "}
-                <span className="text-black/30 group-hover:text-accent">
-                  ft
-                </span>
+                <span className="group-hover:text-sky">{route.elevation}</span>{" "}
+                <span className="group-hover:text-sky text-black/30">ft</span>
               </td>
               <td className="Running-table-cell RunningRoutes-tag">
-                <span className="group-hover:text-accent">{route.city}</span>
+                <span className="group-hover:text-sky">{route.city}</span>
               </td>
             </tr>
           ))}

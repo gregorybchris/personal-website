@@ -78,7 +78,7 @@ export function ProjectModal({
 
             {project.image_links.length > 0 && (
               <>
-                <div className="w-full border-b border-accent"></div>
+                <div className="border-sky w-full border-b"></div>
 
                 <div className="flex flex-wrap">
                   {project.image_links.map((imageLink, i) => (

@@ -12,7 +12,7 @@ export function Tag({ tag, selected, onClick, className }: TagProps) {
     <div
       onClick={() => onClick(tag)}
       className={cn(
-        "cursor-pointer rounded-md px-2 py-1 text-sm text-accent transition-all hover:bg-black/5 hover:text-royal",
+        "text-sky cursor-pointer rounded-md px-2 py-1 text-sm transition-all hover:bg-black/5 hover:text-royal",
         selected && "bg-black/5 hover:bg-black/10",
         className,
       )}
