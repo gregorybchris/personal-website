@@ -40,16 +40,16 @@ export function ProjectModal({
             {project.name}
           </Dialog.Title>
 
-          <div className="font-raleway">
-            <Dialog.Description className="text-md mb-5 mt-2 text-black/75">
+          <div className="flex flex-col items-start gap-5 font-raleway">
+            <Dialog.Description className="text-md text-black/75">
               {formatDate(project.date)}
             </Dialog.Description>
 
-            <Dialog.Description className="text-md mb-5 mt-2 text-black/75">
+            <Dialog.Description className="text-md text-black/75">
               {project.description}
             </Dialog.Description>
 
-            <div className="flex flex-col space-y-2">
+            <div className="flex flex-col gap-y-2">
               {project.download_link && (
                 <DownloadLink project={project} onDownload={onDownload} />
               )}
@@ -78,7 +78,7 @@ export function ProjectModal({
 
             {project.image_links.length > 0 && (
               <>
-                <div className="my-5 border-b border-accent"></div>
+                <div className="w-full border-b border-accent"></div>
 
                 <div className="flex flex-wrap">
                   {project.image_links.map((imageLink, i) => (
@@ -132,7 +132,7 @@ function ProjectInfoLink({ text, link, kind }: ProjectInfoLinkProps) {
 
   return (
     <div className="flex flex-row">
-      <SimpleLink link={link} className="flex flex-row items-center space-x-2">
+      <SimpleLink link={link} className="flex flex-row items-center gap-x-2">
         {logo}
 
         <div>{text}</div>
@@ -153,7 +153,7 @@ function DownloadLink({ project, onDownload }: DownloadLinkProps) {
     <div className="flex flex-row">
       <ActionLink
         onClick={() => onDownload(project)}
-        className="flex flex-row items-center space-x-2"
+        className="flex flex-row items-center gap-x-2"
       >
         {isJava ? (
           <Coffee size={25} weight="duotone" color="#6283c0" />

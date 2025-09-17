@@ -45,7 +45,7 @@ export function RecipePage() {
         className="mb-4 inline-block cursor-pointer rounded-md px-2 py-1 hover:bg-black/[8%]"
         onClick={() => navigate("/hidden/recipes")}
       >
-        <div className="flex flex-row space-x-2">
+        <div className="flex flex-row gap-x-2">
           <ArrowLeft size={25} color="#6283c0" weight="regular" />
           <div>Back to recipes</div>
         </div>
@@ -61,14 +61,14 @@ export function RecipePage() {
             </div>
           </a>
 
-          <div className="flex flex-row space-x-6 py-7">
-            <div className="flex flex-row space-x-2">
+          <div className="flex flex-row gap-x-6 py-7">
+            <div className="flex flex-row gap-x-2">
               <div>
                 <ClockCountdown size={25} color="#6283c0" weight="regular" />
               </div>
               <div>Ready in {formatDuration(recipe.prep_time)}</div>
             </div>
-            <div className="flex flex-row space-x-2">
+            <div className="flex flex-row gap-x-2">
               <div>
                 <Users size={25} color="#6283c0" weight="regular" />
               </div>
@@ -97,13 +97,13 @@ export function RecipePage() {
                     <div className="flex-none">{ingredient.name}</div>
                     <div className="mx-3 h-1 w-full border-b border-dotted border-accent"></div>
                   </div>
-                  <div className="flex-none">
+                  <div className="flex flex-none flex-row items-center gap-2">
                     {!!ingredient.amount && (
                       <div className="inline-block h-9 w-9 rounded-full bg-accent pt-2 text-center font-bold text-parchment">
                         {convertFraction(ingredient.amount)}
                       </div>
                     )}
-                    <span className="ml-2">
+                    <span>
                       {ingredient.units || ""}{" "}
                       {!!ingredient.notes ? ` (${ingredient.notes})` : ""}
                     </span>
@@ -121,7 +121,7 @@ export function RecipePage() {
             </div>
           </div>
 
-          <div className="flex flex-row items-center space-x-3">
+          <div className="flex flex-row items-center gap-x-3">
             <Button onClick={() => alert("Coming soon!")} text="Step by step" />
             <Button
               onClick={() => alert("Coming soon!")}

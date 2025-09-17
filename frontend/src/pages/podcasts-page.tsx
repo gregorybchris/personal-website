@@ -44,7 +44,7 @@ export function PodcastsPage() {
                 className="flex w-[300px] flex-col items-center p-6"
                 key={podcast.name}
               >
-                <div className="mb-10 flex w-full flex-col items-center space-y-3 text-center">
+                <div className="mb-10 flex w-full flex-col items-center gap-y-3 text-center">
                   <SimpleLink link={podcast.apple_link}>
                     <div className="font-sanchez font-bold">{podcast.name}</div>
 

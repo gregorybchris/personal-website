@@ -52,7 +52,7 @@ export function MemesPage() {
         Memes
       </div>
 
-      <div className="flex flex-col space-y-7">
+      <div className="flex flex-col gap-y-7">
         <div className="flex flex-col items-center pt-10">
           <SearchBar
             onSubmit={(text) => runQuery(text)}
@@ -90,11 +90,11 @@ export function MemeCard({ meme, updateQuery, className }: MemeCardProps) {
   const isImage = ["gif", "png", "jpg"].includes(meme.format);
 
   return (
-    <div className={cn("flex flex-col items-center space-y-2", className)}>
+    <div className={cn("flex flex-col items-center gap-y-2", className)}>
       {isImage && <img className="rounded-lg" src={meme.url} />}
       {!isImage && <div>No preview available</div>}
 
-      <div className="flex flex-row flex-wrap justify-center space-x-2">
+      <div className="flex flex-row flex-wrap justify-center gap-x-2">
         {meme.tags.map((tag) => (
           <Tag
             key={tag}

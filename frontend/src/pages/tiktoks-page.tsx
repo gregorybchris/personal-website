@@ -51,7 +51,7 @@ export function TiktoksPage() {
         TikToks
       </div>
 
-      <div className="flex flex-col space-y-7">
+      <div className="flex flex-col gap-y-7">
         <div className="flex flex-col items-center pt-10">
           <SearchBar
             onSubmit={(text) => runQuery(text)}
@@ -101,10 +101,10 @@ export function TiktokCard({
   const creator = tiktok.creator;
 
   return (
-    <div className={cn("flex flex-col items-center space-y-2", className)}>
+    <div className={cn("flex flex-col items-center gap-y-2", className)}>
       <video className="rounded-lg" src={tiktok.url} controls />
 
-      <div className="flex flex-row flex-wrap justify-center space-x-2">
+      <div className="flex flex-row flex-wrap justify-center gap-x-2">
         {tiktok.tags.map((tag) => (
           <Tag
             key={tag}

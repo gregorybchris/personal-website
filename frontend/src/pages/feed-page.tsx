@@ -118,7 +118,7 @@ export function FeedPage() {
       <div className="flex flex-col items-start gap-5">
         {slug && (
           <div
-            className="flex cursor-pointer flex-row space-x-2 rounded-md px-2 py-1 hover:bg-black/[8%]"
+            className="flex cursor-pointer flex-row gap-x-2 rounded-md px-2 py-1 hover:bg-black/[8%]"
             onClick={() => navigate("/hidden/feed")}
           >
             <ArrowLeft size={25} color="#6283c0" weight="regular" />
