@@ -87,11 +87,11 @@ export class Response {
   }
 }
 
-export function SurveysPage() {
-  const COMPLETED_KEY = "completed-surveys";
+const COMPLETED_KEY = "completed-surveys";
 
+export function SurveysPage() {
   const [surveys, setSurveys] = useState<Survey[]>([]);
-  const [current, setCurrent] = useState<Survey | null>(null);
+  const [currentSurvey, setCurrentSurvey] = useState<Survey | null>(null);
   const [response, setResponse] = useState<Response | null>(null);
   const [feedback, setFeedback] = useState("");
   const [updater, setUpdater] = useState(false);
@@ -108,10 +108,10 @@ export function SurveysPage() {
   }, []);
 
   useEffect(() => {
-    setCurrentSurvey();
+    updateCurrentSurvey();
   }, [surveys]);
 
-  function setCurrentSurvey() {
+  function updateCurrentSurvey() {
     if (surveys.length > 0) {
       const completedIds: Array<string> = STORE.get(COMPLETED_KEY);
       let current: Survey | null = null;
@@ -122,17 +122,83 @@ export function SurveysPage() {
       }
 
       if (current === null) {
-        setCurrent(null);
+        setCurrentSurvey(null);
         setResponse(null);
         setFeedback("");
       } else {
-        setCurrent(current);
+        setCurrentSurvey(current);
         setResponse(Response.fromSurvey(current));
         setFeedback("");
       }
     }
   }
 
+  function onClearCompletedCache() {
+    STORE.set(COMPLETED_KEY, [], true);
+    updateCurrentSurvey();
+  }
+
+  return (
+    <div className="flex flex-col items-center gap-5 pt-5">
+      <div className="font-sanchez text-3xl text-black/75">
+        What do you think?
+      </div>
+      <div className="w-[80%] text-center text-black/75">
+        Your responses here are totally anonymous, so take your time and answer
+        honestly. These questions are intended to be fun and thought-provoking.
+        I'll periodically add new surveys, so if you enjoy these, feel free to
+        check back later.
+      </div>
+
+      {surveys.length === 0 && (
+        <div className="pt-10 text-center">
+          <div className="text-black/75">Loading surveys...</div>
+        </div>
+      )}
+
+      {surveys.length > 0 && (currentSurvey === null || response === null) && (
+        <div className="pt-10 text-center">
+          <div className="text-black/75">
+            No more surveys to complete
+            <span onClick={onClearCompletedCache}>!</span>
+          </div>
+        </div>
+      )}
+
+      {surveys.length > 0 && currentSurvey !== null && response !== null && (
+        <SurveyCard
+          currentSurvey={currentSurvey}
+          response={response}
+          setResponse={setResponse}
+          feedback={feedback}
+          setFeedback={setFeedback}
+          setUpdater={setUpdater}
+          updateCurrentSurvey={updateCurrentSurvey}
+        />
+      )}
+    </div>
+  );
+}
+
+interface SurveyCardProps {
+  currentSurvey: Survey;
+  response: Response;
+  feedback: string;
+  setResponse: (response: Response | null) => void;
+  setFeedback: (text: string) => void;
+  setUpdater: (uf: (prev: boolean) => boolean) => void;
+  updateCurrentSurvey: () => void;
+}
+
+function SurveyCard({
+  currentSurvey,
+  response,
+  feedback,
+  setResponse,
+  setFeedback,
+  setUpdater,
+  updateCurrentSurvey,
+}: SurveyCardProps) {
   function onOptionClicked(question: number, option: number) {
     if (response !== null) {
       const chosen = response.isOptionChosen(question, option);
@@ -154,106 +220,64 @@ export function SurveysPage() {
       const completedIds = STORE.get(COMPLETED_KEY);
       completedIds.push(surveyId);
       STORE.set(COMPLETED_KEY, completedIds, true);
-      setCurrentSurvey();
+      updateCurrentSurvey();
     }
-  }
-
-  function onClearCompletedCache() {
-    STORE.set(COMPLETED_KEY, [], true);
-    setCurrentSurvey();
   }
 
   function onUpdateFeedback(text: string) {
     setFeedback(text);
   }
 
-  function getSurveyElement() {
-    if (surveys.length === 0) {
-      return (
-        <div className="pt-10 text-center">
-          <div className="text-black/75">Loading surveys...</div>
-        </div>
-      );
-    }
+  const isComplete = response.isSurveyComplete();
+  return (
+    <div className="flex w-[80%] flex-col items-center gap-5 py-10 md:w-[50%]">
+      <div className="font-sanchez text-2xl text-black/75 underline decoration-blue-500/60 underline-offset-4">
+        {currentSurvey.name}
+      </div>
 
-    if (current === null || response === null) {
-      return (
-        <div className="pt-10 text-center">
-          <div className="text-black/75">
-            No more surveys to complete
-            <span onClick={onClearCompletedCache}>!</span>
-          </div>
-        </div>
-      );
-    }
-
-    const survey = current;
-    const isComplete = response.isSurveyComplete();
-    return (
-      <div className="flex w-[80%] flex-col items-center gap-5 py-10 md:w-[50%]">
-        <div className="font-sanchez text-2xl text-black/75 underline decoration-blue-500/60 underline-offset-4">
-          {survey.name}
-        </div>
-
-        <div className="flex flex-col gap-5 text-left">
-          {survey.questions.map((question, questionNumber) => (
-            <SurveyQuestionCard
-              key={questionNumber}
-              question={question}
-              questionNumber={questionNumber}
-              onOptionClicked={onOptionClicked}
-              response={response}
-            />
-          ))}
-        </div>
-
-        <div className="w-full text-left">
-          <TextArea
-            className="h-[80px] w-full"
-            value={feedback}
-            onChange={onUpdateFeedback}
-            placeholder="Additional information you'd like to provide? (optional)"
+      <div className="flex flex-col gap-5 text-left">
+        {currentSurvey.questions.map((question, questionNumber) => (
+          <QuestionCard
+            key={questionNumber}
+            question={question}
+            questionNumber={questionNumber}
+            onOptionClicked={onOptionClicked}
+            response={response}
           />
-        </div>
+        ))}
+      </div>
 
-        <Button
-          text="Submit"
-          onClick={() => onSurveySubmit(survey, response)}
-          enabled={isComplete}
+      <div className="w-full text-left">
+        <TextArea
+          className="h-[80px] w-full"
+          value={feedback}
+          onChange={onUpdateFeedback}
+          placeholder="Additional information you'd like to provide? (optional)"
         />
       </div>
-    );
-  }
 
-  return (
-    <div className="flex flex-col items-center gap-5 pt-5">
-      <div className="font-sanchez text-3xl text-black/75">
-        What do you think?
-      </div>
-      <div className="w-[80%] text-center text-black/75">
-        Your responses here are totally anonymous, so take your time and answer
-        honestly. These questions are intended to be fun and thought-provoking.
-        I'll periodically add new surveys, so if you enjoy these, feel free to
-        check back later.
-      </div>
-      {getSurveyElement()}
+      <Button
+        text="Submit"
+        onClick={() => onSurveySubmit(currentSurvey, response)}
+        enabled={isComplete}
+      />
     </div>
   );
 }
 
-interface SurveyQuestionCardProps {
+interface QuestionCardProps {
   question: Question;
   questionNumber: number;
   onOptionClicked: (questionNumber: number, optionNumber: number) => void;
   response: Response;
 }
 
-function SurveyQuestionCard({
+function QuestionCard({
   question,
   questionNumber,
   onOptionClicked,
   response,
-}: SurveyQuestionCardProps) {
+}: QuestionCardProps) {
   const isComplete = response.isQuestionComplete(questionNumber);
 
   return (
@@ -271,7 +295,7 @@ function SurveyQuestionCard({
 
       <div className="flex flex-col gap-0.5">
         {question.options.map((optionText: string, optionNumber: number) => (
-          <SurveyQuestionOption
+          <OptionCard
             key={optionNumber}
             questionNumber={questionNumber}
             optionText={optionText}
@@ -286,7 +310,7 @@ function SurveyQuestionCard({
   );
 }
 
-interface SurveyQuestionOptionProps {
+interface OptionCardProps {
   questionNumber: number;
   optionText: string;
   optionNumber: number;
@@ -295,14 +319,14 @@ interface SurveyQuestionOptionProps {
   questionComplete: boolean;
 }
 
-function SurveyQuestionOption({
+function OptionCard({
   questionNumber,
   optionText,
   optionNumber,
   onOptionClicked,
   response,
   questionComplete,
-}: SurveyQuestionOptionProps) {
+}: OptionCardProps) {
   const letter = String.fromCharCode("A".charCodeAt(0) + optionNumber);
   const isChosen = response.isOptionChosen(questionNumber, optionNumber);
 
