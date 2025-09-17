@@ -1,6 +1,7 @@
 import { Link as LinkIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { PageTitle } from "../components/page-title";
 import { SearchBar } from "../components/search-bar";
 import { Tag } from "../components/tag";
 import { POST, makeQuery } from "../utilities/request-utilities";
@@ -47,41 +48,41 @@ export function MemesPage() {
   }, [id]);
 
   return (
-    <div>
-      <div className="mt-8 block text-center font-sanchez text-2xl text-black/75 md:text-3xl">
-        Memes
-      </div>
+    <div className="flex flex-col items-center gap-10 px-4 py-8">
+      <PageTitle>Memes</PageTitle>
 
-      <div className="flex flex-col gap-y-7">
-        <div className="flex flex-col items-center pt-10">
-          <SearchBar
-            onSubmit={(text) => runQuery(text)}
-            text={searchText}
-            setText={setSearchText}
-          />
+      <SearchBar
+        onSubmit={(text) => runQuery(text)}
+        text={searchText}
+        setText={setSearchText}
+      />
+
+      {loading && <div className="text-center text-black/75">Loading...</div>}
+
+      {!loading && memes.length === 0 && (
+        <div className="text-center text-black/75">No memes found</div>
+      )}
+
+      {!loading && memes.length > 0 && (
+        <div className="flex flex-row flex-wrap items-start justify-center gap-x-4 gap-y-4">
+          {memes.map((meme) => (
+            <MemeCard
+              key={meme.id}
+              meme={meme}
+              updateQuery={updateQuery}
+              className="w-full max-w-[90%] md:max-w-72"
+            />
+          ))}
         </div>
-
-        {loading && (
-          <div className="mt-10 text-center text-black/75">Loading...</div>
-        )}
-        {!loading && memes.length === 0 && (
-          <div className="mt-10 text-center text-black/75">No memes found</div>
-        )}
-        {!loading && memes.length > 0 && (
-          <div className="flex flex-row flex-wrap items-start justify-center gap-x-4 gap-y-4">
-            {memes.map((meme) => (
-              <MemeCard
-                key={meme.id}
-                meme={meme}
-                updateQuery={updateQuery}
-                className="w-full max-w-[90%] md:max-w-72"
-              />
-            ))}
-          </div>
-        )}
-      </div>
+      )}
     </div>
   );
+}
+
+interface MemeCardProps {
+  meme: Meme;
+  updateQuery: (query: string) => void;
+  className?: string;
 }
 
 export function MemeCard({ meme, updateQuery, className }: MemeCardProps) {
