@@ -47,21 +47,81 @@ Let's consider some tricks and see if we can't speed up this solver a bit.
 
 Let's start with the intuition that we want to go from n vertices to 1 vertex as quickly as possible. So the more edge contractions per turn the better. Vertices that have more neighbors will have a higher chance of reducing future work. Let's try using vertex degree as a heuristic to prioritize vertices that are more likely to lead to large contractions!
 
-[todo: add table showing time to solve with and without vertex degree heuristic]
+```python
+def iter_nodes_by_degree(G: nx.Graph, nodes: Iterable[str]) -> Iterator[str]:
+    scores = [(node, len(G[node])) for node in nodes]
+    for node, _ in sorted(scores, key=lambda x: -x[1]):
+        yield node
+```
+
+<!-- [todo: add table showing time to solve with and without vertex degree heuristic] -->
 
 A very similar optimization is to look at which color we choose for each contraction. Choosing a color that is more common among the neighbors of the contracted vertex will lead to larger contractions. So let's try prioritizing colors by their frequency among the neighbors of the contracted vertex.
 
-[todo: add table showing time to solve with and without color frequency heuristic]
+```python
+def get_neighbor_colors_by_freq(G: nx.Graph, node: str) -> Iterator[str]:
+    frequencies = {}
+    for child_node in G[node]:
+        color = G.nodes[child_node]["color"]
+        if color not in frequencies:
+            frequencies[color] = 0
+        frequencies[color] += 1
+
+    for node, _ in sorted(frequencies.items(), key=lambda x: -x[1]):
+        yield node
+```
+
+<!-- [todo: add table showing time to solve with and without color frequency heuristic] -->
 
 A less intuitive heuristic comes from solving a lot of these by hand. If you can pick vertices that are close to the center of the graph, then you can accumulate many edges in a fairly central vertex. The flood fill radiates outward to the rest of the graph. If we prioritize vertices by their centrality we can chop the problem roughly twice as quickly in some cases compared to stating with vertices on the periphery of the graph.
 
-[todo: add table showing time to solve with and without centrality heuristic]
+```python
+def iter_nodes_by_centrality(G: nx.Graph, nodes: Iterable[str], power: int = 2) -> Iterator[str]:
+    scores = {}
+    queue = Queue()
+    for node in nodes:
+        scores[node] = 0
+        visited = set()
+        queue.put((node, 0))
+        while not queue.empty():
+            current_node, distance = queue.get()
+            if current_node not in visited:
+                scores[node] += distance**power
+                visited.add(current_node)
+                for child_node in G[current_node]:
+                    queue.put((child_node, distance + 1))
+
+    for node, _ in sorted(scores.items(), key=lambda x: x[1]):
+        yield node
+```
+
+<!-- [todo: add table showing time to solve with and without centrality heuristic] -->
 
 ## Markov constraints
 
 One potentially novel<sup id="fnref:fn2"><a href="#fn:fn2">[2]</a></sup> finding of this project is that a contraction is a local operation that at most affects the adjacency lists of second-degree neighbors of the contracted vertex. Therefore, two contractions not in the degree two neighborhood of each other are causally independent. Put another way, the ordering of two non-local operations is always arbitrary and there is a Markov boundary around the degree two neighborhood of each vertex.
 
 It's this finding that leads us to only consider candidate vertices in the degree two neighborhood of the last contracted vertex. This greatly decreases the width of the search tree for sparse enough graphs. Empirically this improves search performance significantly on planar graphs.
+
+```python
+def iter_markov_blanket(G: nx.Graph, node: str) -> Iterator[str]:
+    markov_blanket = set()
+
+    markov_blanket.add(node)
+    yield node
+
+    for child_node in G[node]:
+        if child_node not in markov_blanket:
+            markov_blanket.add(child_node)
+            yield child_node
+
+        for grandchild_node in G[child_node]:
+            if grandchild_node not in markov_blanket:
+                markov_blanket.add(grandchild_node)
+                yield grandchild_node
+```
+
+<!-- [todo: add table showing time to solve with and without Markov constraint] -->
 
 ## Deep learning approach
 
