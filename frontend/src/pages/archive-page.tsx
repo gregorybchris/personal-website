@@ -51,6 +51,7 @@ function ArchiveSection({ archiveItem }: ArchiveSectionProps) {
         <Button
           text={expanded ? "Collapse" : "Expand"}
           onClick={() => setExpanded(!expanded)}
+          className="py-1"
         />
       </div>
 
@@ -58,7 +59,7 @@ function ArchiveSection({ archiveItem }: ArchiveSectionProps) {
         <div className="flex w-full flex-row flex-wrap justify-center gap-4">
           {archiveItem.image_links.map((imageUrl) => (
             <img
-              className="w-full shadow-[0_0_6px_2px_rgba(0,0,0,0.3)] md:w-[500px]"
+              className="w-full border-2 border-neutral-300 md:w-[500px]"
               src={imageUrl}
               key={imageUrl}
               alt="Archive screenshot"
