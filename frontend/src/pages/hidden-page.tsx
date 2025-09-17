@@ -13,7 +13,7 @@ export function HiddenPage() {
 
       <div className="flex w-[80%] flex-row flex-wrap justify-center gap-16">
         <div className="flex flex-col">
-          <div className="font-sanchez text-lg underline">Media</div>
+          <SectionHeader>Media</SectionHeader>
           <PageLink to="/hidden/artists">Artists</PageLink>
           <PageLink to="/hidden/instagrams">Instagrams</PageLink>
           <PageLink to="/hidden/memes">Memes</PageLink>
@@ -26,18 +26,18 @@ export function HiddenPage() {
         </div>
 
         <div className="flex flex-col">
-          <div className="font-sanchez text-lg underline">Blog</div>
+          <SectionHeader>Blog</SectionHeader>
           <PageLink to="/blog">Blog</PageLink>
         </div>
 
         <div className="flex flex-col">
-          <div className="font-sanchez text-lg underline">Link Feed</div>
+          <SectionHeader>Link Feed</SectionHeader>
           <PageLink to="/hidden/feed">Feed</PageLink>
           <PageLink to="/hidden/feed-graph">Feed Graph</PageLink>
         </div>
 
         <div className="flex flex-col">
-          <div className="font-sanchez text-lg underline">In Progress</div>
+          <SectionHeader>In Progress</SectionHeader>
           <PageLink to="/hidden/places">Places</PageLink>
           <PageLink to="/hidden/recipes">Recipes</PageLink>
           <PageLink to="/hidden/watermark">Watermark</PageLink>
@@ -45,7 +45,7 @@ export function HiddenPage() {
         </div>
 
         <div className="flex flex-col">
-          <div className="font-sanchez text-lg underline">Old</div>
+          <SectionHeader>Old</SectionHeader>
           <PageLink to="/hidden/archive">Archive</PageLink>
           <PageLink to="/hidden/surveys">Surveys</PageLink>
         </div>
@@ -61,5 +61,13 @@ function PageLink({ to, children }: { to: string; children: React.ReactNode }) {
         {children}
       </div>
     </Link>
+  );
+}
+
+function SectionHeader({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="font-sanchez text-lg underline underline-offset-4">
+      {children}
+    </div>
   );
 }

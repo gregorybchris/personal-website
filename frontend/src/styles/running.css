@@ -1,5 +1,4 @@
 .Running-table {
-  display: inline-block;
   text-align: left;
 }
 
@@ -9,10 +8,6 @@
 
 .Running-table-header > .Running-table-cell {
   padding-bottom: 5px;
-}
-
-.Running-table-header > .Running-table-header-cell-text {
-  border-bottom: 1px solid #6283c0;
 }
 
 .Running-table-cell {

@@ -85,17 +85,17 @@ export function RunningPage() {
   }
 
   return (
-    <div className="flex flex-col items-center gap-10 px-4 py-8">
+    <div className="flex flex-col items-center gap-8 px-4 py-8">
       <div className="flex flex-col items-center gap-4 md:w-4/5">
         <PageTitle>Running Routes</PageTitle>
 
         <div className="text-center text-black/75 md:w-[70%]">
-          If you like running and happen to be in a city I've lived in, then
-          this page is for you.
+          This page is for you if you like running and happen to be in a city
+          where I've lived.
         </div>
       </div>
 
-      <div className="flex w-full flex-row flex-wrap">
+      <div className="flex w-full flex-row flex-wrap justify-center">
         {currentRoute && currentRouteData && (
           <RouteMapCard
             routeData={currentRouteData}
@@ -117,11 +117,12 @@ interface RouteMapCardProps {
 
 function RouteMapCard({ route, routeData, mapBoxToken }: RouteMapCardProps) {
   return (
-    <div className="block w-full px-4 align-top md:inline-block md:w-[50%]">
-      <div className="inline border-b border-accent pb-1 text-lg font-bold">
+    <div className="flex w-full flex-col gap-2 px-4 md:w-[50%]">
+      <div className="font-sanchez text-lg underline decoration-blue-500/60 underline-offset-4">
         {route.name}
       </div>
-      <div className="mt-5 h-[450px] w-full shadow-[0_0_6px_2px_rgba(0,0,0,0.3)]">
+
+      <div className="h-[450px] w-full border-2 border-neutral-300">
         {mapBoxToken && (
           <MapContainer
             className="!z-[10] h-full w-full"
@@ -161,21 +162,21 @@ interface RoutesTableProps {
 
 function RoutesTable({ routes, onSelectRoute }: RoutesTableProps) {
   return (
-    <div className="mt-8 inline-block h-[500px] w-[100%] overflow-y-scroll text-center align-top md:w-[50%]">
-      <table className="Running-table border-l-2 border-accent pl-4 font-raleway">
-        <thead className="Running-table-header sticky top-0 bg-parchment font-bold">
+    <div className="h-[470px] overflow-y-scroll">
+      <table className="Running-table font-raleway">
+        <thead className="Running-table-header sticky top-0 bg-parchment font-sanchez text-lg">
           <tr className="Running-table-row">
-            <td className="Running-table-cell">
-              <span className="Running-table-header-cell-text">Route</span>
+            <td className="Running-table-cell underline decoration-blue-500/60 underline-offset-4">
+              Route
             </td>
-            <td className="Running-table-cell">
-              <span className="Running-table-header-cell-text">Distance</span>
+            <td className="Running-table-cell underline decoration-blue-500/60 underline-offset-4">
+              Distance
             </td>
-            <td className="Running-table-cell">
-              <span className="Running-table-header-cell-text">Elevation</span>
+            <td className="Running-table-cell underline decoration-blue-500/60 underline-offset-4">
+              Elevation
             </td>
-            <td className="Running-table-cell">
-              <span className="Running-table-header-cell-text">City</span>
+            <td className="Running-table-cell underline decoration-blue-500/60 underline-offset-4">
+              City
             </td>
           </tr>
         </thead>
