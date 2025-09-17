@@ -9,8 +9,8 @@ export function Nav() {
     return (params: { isActive: boolean }) => {
       const { isActive } = params;
       return cn(
-        "text-md pt-2 px-2 pb-1 mx-1 mb-2 inline-block text-black/75 transition-all border-b border-transparent",
-        isActive && "border-blue-500/80",
+        "text-md px-2 py-1 text-black/75 transition-all border-b",
+        isActive ? "border-blue-500/80" : "border-transparent",
       );
     };
   }
@@ -19,7 +19,7 @@ export function Nav() {
     <div className="px-6 py-3 text-center md:text-left">
       <CommandBar />
 
-      <div className="inline-block">
+      <div className="flex flex-row items-center gap-1">
         <NavLink to="/" className={getLinkClassName()}>
           Home
         </NavLink>
