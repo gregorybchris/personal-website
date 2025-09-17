@@ -59,7 +59,7 @@ def iter_nodes_by_degree(G: nx.Graph, nodes: Iterable[str]) -> Iterator[str]:
 A very similar optimization is to look at which color we choose for each contraction. Choosing a color that is more common among the neighbors of the contracted vertex will lead to larger contractions. So let's try prioritizing colors by their frequency among the neighbors of the contracted vertex.
 
 ```python
-def get_neighbor_colors_by_freq(G: nx.Graph, node: str) -> Iterator[str]:
+def iter_neighbor_colors_by_freq(G: nx.Graph, node: str) -> Iterator[str]:
     frequencies = {}
     for child_node in G[node]:
         color = G.nodes[child_node]["color"]
@@ -81,11 +81,14 @@ def iter_nodes_by_centrality(G: nx.Graph, nodes: Iterable[str], power: int = 2) 
     queue = Queue()
     for node in nodes:
         scores[node] = 0
+
+        # Run a BFS to sum distances to all other nodes
         visited = set()
         queue.put((node, 0))
         while not queue.empty():
             current_node, distance = queue.get()
             if current_node not in visited:
+                # Use d^n to penalize distant nodes more heavily
                 scores[node] += distance**power
                 visited.add(current_node)
                 for child_node in G[current_node]:

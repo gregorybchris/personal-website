@@ -33,18 +33,18 @@ export function BlogPage() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-4 px-4 py-10 font-iowa md:px-10">
+    <div className="flex flex-col items-center gap-4 px-6 py-10 font-iowa md:px-10">
       <div className="font-sanchez text-3xl">Blog</div>
 
-      <table className="table-auto border-separate border-spacing-x-8 border-spacing-y-1">
-        <tbody>
+      <table className="max-w-[1000px] table-auto border-collapse">
+        <tbody className="w-full">
           {posts.map((post) => (
             <tr
               key={post.slug}
               className="group cursor-pointer align-top"
               onClick={() => navigate(`/blog/${post.slug}`)}
             >
-              <td className="text-balance py-1.5 decoration-blue-500/60 underline-offset-4 group-hover:underline">
+              <td className="text-balance py-1.5 pr-6 decoration-blue-500/60 underline-offset-4 group-hover:underline">
                 {post.title}
               </td>
               <td className="whitespace-nowrap py-1.5 text-right text-black/50">
