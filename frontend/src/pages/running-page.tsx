@@ -13,6 +13,7 @@ export interface RunningRoute {
   elevation: number;
   route_data_link: string;
   mapometer_id: number;
+  city: string;
   tags: string[];
 }
 
@@ -24,6 +25,14 @@ export interface RouteDataPoint {
   latitude: number;
   longitude: number;
   elevation: number;
+}
+
+function formatDistance(n: number) {
+  const distStr = n.toFixed(1);
+  if (distStr.endsWith(".0")) {
+    return distStr.slice(0, -2);
+  }
+  return distStr;
 }
 
 export function RunningPage() {
@@ -71,9 +80,12 @@ export function RunningPage() {
   }
 
   function routeCompare(routeA: RunningRoute, routeB: RunningRoute) {
-    const [cityA, cityB] = [routeA.tags[0], routeB.tags[0]];
+    const [cityA, cityB] = [routeA.city, routeB.city];
     const [distanceA, distanceB] = [routeA.distance, routeB.distance];
-    const cityCompare = cityA < cityB ? -1 : cityA > cityB ? 1 : 0;
+    const cityOrder = ["Seattle", "Boston", "Indy", "Berkeley"];
+    const cityAIndex = cityOrder.indexOf(cityA);
+    const cityBIndex = cityOrder.indexOf(cityB);
+    const cityCompare = cityAIndex - cityBIndex;
     const distanceCompare =
       distanceA < distanceB ? -1 : distanceA > distanceB ? 1 : 0;
 
@@ -118,8 +130,11 @@ interface RouteMapCardProps {
 function RouteMapCard({ route, routeData, mapBoxToken }: RouteMapCardProps) {
   return (
     <div className="flex w-full flex-col gap-2 px-4 md:w-[max(40%,550px)]">
-      <div className="font-sanchez text-lg underline decoration-blue-500/60 underline-offset-4">
-        {route.name}
+      <div className="flex flex-row items-baseline justify-between font-sanchez text-lg">
+        <div className="underline decoration-blue-500/60 underline-offset-4">
+          {route.name}
+        </div>
+        <div>{formatDistance(route.distance)} mi</div>
       </div>
 
       <div className="h-[450px] w-full border-2 border-neutral-300">
@@ -163,7 +178,7 @@ interface RoutesTableProps {
 function RoutesTable({ routes, onSelectRoute }: RoutesTableProps) {
   return (
     <div className="h-[470px] overflow-y-scroll">
-      <table className="Running-table font-raleway">
+      <table className="Running-table border-separate border-spacing-y-1 font-raleway">
         <thead className="Running-table-header sticky top-0 bg-parchment font-sanchez text-lg">
           <tr className="Running-table-row">
             <td className="Running-table-cell underline decoration-blue-500/60 underline-offset-4">
@@ -182,27 +197,38 @@ function RoutesTable({ routes, onSelectRoute }: RoutesTableProps) {
         </thead>
         <tbody className="Running-table-body RunningRoutes-routes-table-body text-xs md:text-sm">
           {routes.map((route, routeNumber) => (
-            <tr className="Running-table-row" key={routeNumber}>
-              <td
-                className="Running-table-cell cursor-pointer text-accent hover:text-royal"
-                onClick={() => onSelectRoute(route)}
-              >
+            <tr
+              className="Running-table-row group cursor-pointer"
+              key={routeNumber}
+              onClick={() => onSelectRoute(route)}
+            >
+              <td className="Running-table-cell text-accent group-hover:text-royal">
                 {route.name}
               </td>
               <td
                 className="Running-table-cell"
                 title={`${(route.distance * 1.609344).toFixed(1)} km`}
               >
-                {route.distance} mi
+                <span className="group-hover:text-accent">
+                  {formatDistance(route.distance)}
+                </span>{" "}
+                <span className="text-black/30 group-hover:text-accent">
+                  mi
+                </span>
               </td>
               <td
                 className="Running-table-cell"
                 title={`${(route.elevation * 0.3048).toFixed(0)} m`}
               >
-                {route.elevation} ft
+                <span className="group-hover:text-accent">
+                  {route.elevation}
+                </span>{" "}
+                <span className="text-black/30 group-hover:text-accent">
+                  ft
+                </span>
               </td>
               <td className="Running-table-cell RunningRoutes-tag">
-                {route.tags[0]}
+                <span className="group-hover:text-accent">{route.city}</span>
               </td>
             </tr>
           ))}
