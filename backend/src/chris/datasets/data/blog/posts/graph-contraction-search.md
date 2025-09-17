@@ -37,7 +37,7 @@ As a small aside, we're basically using a flood fill algorithm, but on colored g
 
 ## Setting our objective
 
-Let's minimize the number of contractions needed to fully contract a graph. Our solution will be the shortest sequence of `(vertex, color)` pairs that leave a single vertex when applied to a graph. The order in which vertices are contracted matters, so the number of possible contraction sequences grows exponentially with the number of vertices. For arbitrary graphs, finding the optimal contraction sequence is NP-hard <sup id="fnref:fn1"><a href="#fn:fn1">[1]</a></sup>.
+Let's minimize the number of contractions needed to fully contract a graph. Our solution will be the shortest sequence of `(vertex, color)` pairs that leave a single vertex when applied to a graph. The order in which vertices are contracted matters, so the number of possible contraction sequences grows exponentially with the number of vertices. For arbitrary graphs, finding the optimal contraction sequence seems to be NP-hard <sup id="fnref:fn1"><a href="#fn:fn1">[1]</a></sup>.
 
 The naïve, brute force approach is fairly obvious &mdash; select a vertex, select a color of one of its neighbors (different from its own color), contract the vertex with that color, and repeat until only one vertex remains. Do this for all possible selections to minimize the sequence length.
 
