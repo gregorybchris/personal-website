@@ -3,7 +3,6 @@ import {
   Circuitry,
   Envelope,
   MusicNotes,
-  NotePencil,
   SneakerMove,
 } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
@@ -18,9 +17,9 @@ export function HomePage() {
       <div className="flex w-full flex-col items-center">
         <div className="flex flex-row items-center gap-5 py-4 md:gap-20">
           <div className="flex flex-col flex-wrap items-start gap-5">
-            <PageLink to="/blog" name="Blog">
+            {/* <PageLink to="/blog" name="Blog">
               <NotePencil size={24} weight="duotone" color="#6283c0" />
-            </PageLink>
+            </PageLink> */}
             <PageLink to="/projects" name="Projects">
               <Circuitry size={24} weight="duotone" color="#6283c0" />
             </PageLink>

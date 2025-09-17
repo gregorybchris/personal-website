@@ -95,7 +95,7 @@ export function RunningPage() {
         </div>
       </div>
 
-      <div className="flex w-full flex-row flex-wrap justify-center">
+      <div className="flex w-full flex-row flex-wrap justify-center gap-5">
         {currentRoute && currentRouteData && (
           <RouteMapCard
             routeData={currentRouteData}
