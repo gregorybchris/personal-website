@@ -39,7 +39,7 @@
 }
 
 #blog a {
-  color: #676767;
+  color: #909090;
   transition: color 500ms;
   text-decoration: 1.5px underline #d0d0d0;
 }
@@ -48,21 +48,11 @@
   color: #2d2d2d;
 }
 
-#blog blockquote {
-  border-left: 3px solid #d0d0d0;
-  margin-left: 1rem;
-  padding-left: 1rem;
-  font-style: italic;
-  padding: 0.5rem 1rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 #blog img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1rem;
+  margin-top: 2rem;
   margin-bottom: 0.5rem;
   max-width: 100%;
   height: auto;
@@ -73,4 +63,26 @@
   color: #555;
   text-align: center;
   margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  text-wrap: balance;
+}
+
+#blog p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#blog blockquote {
+  border-left: 3px solid #d0d0d0;
+  margin-left: 1rem;
+  padding-left: 1rem;
+  font-style: italic;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#blog blockquote p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
