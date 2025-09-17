@@ -1,7 +1,7 @@
-import { ArrowLeft } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { MarkdownRenderer } from "../components/markdown-renderer";
+import "../styles/blog.css";
 import "../styles/fonts.css";
 import { formatDate } from "../utilities/datetime-utilities";
 import { GET, makeQuery } from "../utilities/request-utilities";
@@ -10,7 +10,6 @@ import { BlogPost } from "./blog-page";
 export function BlogPostPage() {
   const [currentPost, setCurrentPost] = useState<BlogPost | null>(null);
   const { slug } = useParams();
-  let navigate = useNavigate();
 
   useEffect(() => {
     const query = makeQuery(`blog/posts/${slug}`);
@@ -19,25 +18,16 @@ export function BlogPostPage() {
     });
   }, []);
 
-  const markdown = `
-# Hello, React Markdown!
-
-This is some **bold text** and this is *italic*.
-
-- Item 1
-- Item 2
-- Item 3
-
-[Click here](https://reactjs.org) to visit React.
-`;
-
   return (
-    <div className="flex flex-col items-center px-5 font-iowa md:px-10 md:py-10">
+    <div
+      id="blog"
+      className="flex flex-col items-center px-7 py-6 font-iowa md:px-10 md:py-10"
+    >
       {currentPost === null ? (
         <span className="">Loading post...</span>
       ) : (
-        <div className="flex flex-col items-center gap-6 px-0 md:max-w-[700px]">
-          <div className="flex flex-col items-center gap-2">
+        <div className="flex w-full flex-col items-center gap-6 px-0">
+          <div className="flex flex-col items-center gap-2 md:max-w-[700px]">
             <div className="text-balance text-center text-2xl font-bold md:max-w-[500px] md:text-3xl">
               {currentPost.title}
             </div>
@@ -46,25 +36,8 @@ This is some **bold text** and this is *italic*.
             </div>
           </div>
 
-          {/* <div className="md:text-md shadow-inner-lg flex flex-col items-center gap-3 text-balance rounded bg-blue-500/70 px-10 py-5 text-center text-lg font-bold text-white">
-            <WarningCircle size={32} weight="bold" />
-            <div>Down for maintenance, come back in a few days!</div>
-          </div> */}
-
-          <ReactMarkdown>{markdown}</ReactMarkdown>
-
-          <div className="md:text-md flex flex-col gap-2 px-10 py-4 text-justify text-lg leading-relaxed">
-            {currentPost.content.split("\n").map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
-          </div>
-
-          <div
-            className="flex cursor-pointer flex-row items-center gap-2 rounded-md px-2 py-1 text-lg text-black transition-all hover:bg-black/5"
-            onClick={() => navigate("/blog")}
-          >
-            <ArrowLeft size={25} color="#6283c0" weight="regular" />
-            <div>Back to posts</div>
+          <div className="w-[100%] leading-relaxed md:w-[60%]">
+            <MarkdownRenderer>{currentPost.content}</MarkdownRenderer>
           </div>
         </div>
       )}
