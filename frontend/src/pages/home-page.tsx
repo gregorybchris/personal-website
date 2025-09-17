@@ -3,6 +3,7 @@ import {
   Circuitry,
   Envelope,
   MusicNotes,
+  NotePencil,
   SneakerMove,
 } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
@@ -17,47 +18,24 @@ export function HomePage() {
       <div className="flex w-full flex-col items-center">
         <div className="flex flex-row items-center gap-5 py-4 md:gap-20">
           <div className="flex flex-col flex-wrap items-start gap-5">
-            {/* <Link to="/blog">
-              <div className="flex flex-row items-center gap-3 rounded px-2 py-1 transition-all hover:bg-black/[8%] md:pl-3 md:pr-4">
-                <NotePencil size={24} weight="duotone" color="#6283c0" />
-                <div className="font-sanchez text-sm md:text-lg">Blog</div>
-              </div>
-            </Link> */}
-
-            <Link to="/projects">
-              <div className="flex flex-row items-center gap-3 rounded px-2 py-1 transition-all hover:bg-black/[8%] md:pl-3 md:pr-4">
-                <Circuitry size={24} weight="duotone" color="#6283c0" />
-                <div className="font-sanchez text-sm md:text-lg">Projects</div>
-              </div>
-            </Link>
-
-            <Link to="/running">
-              <div className="flex flex-row items-center gap-3 rounded px-2 py-1 transition-all hover:bg-black/[8%] md:pl-3 md:pr-4">
-                <SneakerMove size={24} weight="duotone" color="#6283c0" />
-                <div className="font-sanchez text-sm md:text-lg">Running</div>
-              </div>
-            </Link>
-
-            <Link to="/books">
-              <div className="flex flex-row items-center gap-3 rounded px-2 py-1 transition-all hover:bg-black/[8%] md:pl-3 md:pr-4">
-                <Books size={24} weight="duotone" color="#6283c0" />
-                <div className="font-sanchez text-sm md:text-lg">Books</div>
-              </div>
-            </Link>
-
-            <Link to="/music">
-              <div className="flex flex-row items-center gap-3 rounded px-2 py-1 transition-all hover:bg-black/[8%] md:pl-3 md:pr-4">
-                <MusicNotes size={24} weight="duotone" color="#6283c0" />
-                <div className="font-sanchez text-sm md:text-lg">Music</div>
-              </div>
-            </Link>
-
-            <Link to="/contact">
-              <div className="flex flex-row items-center gap-3 rounded px-2 py-1 transition-all hover:bg-black/[8%] md:pl-3 md:pr-4">
-                <Envelope size={24} weight="duotone" color="#6283c0" />
-                <div className="font-sanchez text-sm md:text-lg">Contact</div>
-              </div>
-            </Link>
+            <PageLink to="/blog" name="Blog">
+              <NotePencil size={24} weight="duotone" color="#6283c0" />
+            </PageLink>
+            <PageLink to="/projects" name="Projects">
+              <Circuitry size={24} weight="duotone" color="#6283c0" />
+            </PageLink>
+            <PageLink to="/running" name="Running">
+              <SneakerMove size={24} weight="duotone" color="#6283c0" />
+            </PageLink>
+            <PageLink to="/books" name="Books">
+              <Books size={24} weight="duotone" color="#6283c0" />
+            </PageLink>
+            <PageLink to="/music" name="Music">
+              <MusicNotes size={24} weight="duotone" color="#6283c0" />
+            </PageLink>
+            <PageLink to="/contact" name="Contact">
+              <Envelope size={24} weight="duotone" color="#6283c0" />
+            </PageLink>
           </div>
 
           <img
@@ -68,5 +46,22 @@ export function HomePage() {
         </div>
       </div>
     </div>
+  );
+}
+
+interface PageLinkProps {
+  to: string;
+  name: React.ReactNode;
+  children: React.ReactNode;
+}
+
+function PageLink({ to, name, children }: PageLinkProps) {
+  return (
+    <Link to={to}>
+      <div className="flex flex-row items-center gap-3 rounded px-2 py-1 transition-all hover:bg-black/[8%] md:pl-3 md:pr-4">
+        {children}
+        <div className="font-sanchez text-sm md:text-lg">{name}</div>
+      </div>
+    </Link>
   );
 }

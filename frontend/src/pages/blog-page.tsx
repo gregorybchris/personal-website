@@ -37,20 +37,22 @@ export function BlogPage() {
       <div className="font-sanchez text-3xl">Blog</div>
 
       <table className="table-auto border-separate border-spacing-y-1">
-        {posts.map((post) => (
-          <tr
-            key={post.slug}
-            className="group cursor-pointer align-top"
-            onClick={() => navigate(`/blog/${post.slug}`)}
-          >
-            <td className="whitespace-nowrap py-1.5 text-black/50">
-              {formatDate(new Date(post.date).toISOString())}
-            </td>
-            <td className="text-balance py-1.5 pl-5 decoration-blue-500/60 underline-offset-4 group-hover:underline">
-              {post.title}
-            </td>
-          </tr>
-        ))}
+        <tbody>
+          {posts.map((post) => (
+            <tr
+              key={post.slug}
+              className="group cursor-pointer align-top"
+              onClick={() => navigate(`/blog/${post.slug}`)}
+            >
+              <td className="whitespace-nowrap py-1.5 text-black/50">
+                {formatDate(new Date(post.date).toISOString())}
+              </td>
+              <td className="text-balance py-1.5 pl-5 decoration-blue-500/60 underline-offset-4 group-hover:underline">
+                {post.title}
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );
