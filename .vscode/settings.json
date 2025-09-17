@@ -65,5 +65,8 @@
     "Wallingford",
     "yapf",
     "zhed"
-  ]
+  ],
+  "search.exclude": {
+    "content/**": true
+  }
 }
