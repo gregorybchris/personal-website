@@ -190,14 +190,12 @@ export function SurveysPage() {
     const survey = current;
     const isComplete = response.isSurveyComplete();
     return (
-      <div className="flex w-[80%] flex-col items-center py-10 md:w-[50%]">
-        <div className="w-full text-left">
-          <div className="border-b border-parchment pb-1 text-center font-sanchez text-2xl text-black/75 md:inline md:border-accent md:text-left">
-            {survey.name}
-          </div>
+      <div className="flex w-[80%] flex-col items-center gap-5 py-10 md:w-[50%]">
+        <div className="font-sanchez text-2xl text-black/75 underline decoration-blue-500/60 underline-offset-4">
+          {survey.name}
         </div>
 
-        <div className="pb-4 pt-3 text-left">
+        <div className="flex flex-col gap-5 text-left">
           {survey.questions.map((question, questionNumber) => (
             <SurveyQuestionCard
               key={questionNumber}
@@ -209,7 +207,7 @@ export function SurveysPage() {
           ))}
         </div>
 
-        <div className="w-full pb-10 text-left">
+        <div className="w-full text-left">
           <TextArea
             className="h-[80px] w-full"
             value={feedback}
@@ -259,10 +257,10 @@ function SurveyQuestionCard({
   const isComplete = response.isQuestionComplete(questionNumber);
 
   return (
-    <div className="pb-5 pt-3" key={questionNumber}>
+    <div className="flex flex-col gap-1" key={questionNumber}>
       <div
         className={cn(
-          "pb-3 -indent-4 text-black/75 transition-all",
+          "-indent-4 text-black/75 transition-all",
           isComplete && "text-black/30",
         )}
       >
@@ -270,7 +268,8 @@ function SurveyQuestionCard({
         {". "}
         {question.text}
       </div>
-      <div className="Question-options">
+
+      <div className="flex flex-col gap-0.5">
         {question.options.map((optionText: string, optionNumber: number) => (
           <SurveyQuestionOption
             key={optionNumber}
@@ -311,7 +310,7 @@ function SurveyQuestionOption({
     <div
       onClick={() => onOptionClicked(questionNumber, optionNumber)}
       className={cn(
-        "cursor-pointer rounded px-3 py-1 text-accent transition-all hover:bg-black/5 hover:text-royal",
+        "cursor-pointer rounded px-3 py-0.5 text-accent transition-all hover:bg-black/5 hover:text-royal",
         isChosen && "bg-black/5 hover:bg-black/10",
         questionComplete && "text-royal/40",
       )}

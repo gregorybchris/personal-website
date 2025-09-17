@@ -69,7 +69,7 @@ export function MoviesPage() {
                         <img
                           src={movie.poster_url}
                           alt={movie.name}
-                          className="inline-block w-full rounded-md"
+                          className="w-full rounded-md"
                         />
                       )}
 

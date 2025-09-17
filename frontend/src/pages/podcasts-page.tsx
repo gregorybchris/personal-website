@@ -50,7 +50,7 @@ export function PodcastsPage() {
                     <img
                       src={`https://static.pocketcasts.com/discover/images/webp/480/${podcast.pocket_casts_id}.webp`}
                       alt={podcast.name}
-                      className="inline-block w-full rounded-md"
+                      className="w-full rounded-md"
                     />
                   </div>
                 </SimpleLink>

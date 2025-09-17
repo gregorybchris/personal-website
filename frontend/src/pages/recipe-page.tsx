@@ -40,9 +40,9 @@ export function RecipePage() {
   const recipe = recipes.find((r) => r.slug === slug);
 
   return (
-    <div className="px-16 pb-10 pt-3">
+    <div className="flex w-full flex-col items-start gap-4 px-6 py-8 pt-3 md:px-16">
       <div
-        className="mb-4 inline-block cursor-pointer rounded-md px-2 py-1 hover:bg-black/[8%]"
+        className="cursor-pointer rounded-md px-2 py-1 hover:bg-black/[8%]"
         onClick={() => navigate("/hidden/recipes")}
       >
         <div className="flex flex-row gap-x-2">
@@ -54,14 +54,14 @@ export function RecipePage() {
       {recipe === undefined && <div>Recipe not found</div>}
 
       {recipe !== undefined && (
-        <div className="w-[95%] md:w-[80%]">
+        <div className="flex w-[95%] flex-col items-start gap-6 md:w-[80%]">
           <a href={recipe.bigoven_link} target="_blank">
-            <div className="inline-block border-b border-accent font-sanchez text-3xl">
+            <div className="border-b border-accent font-sanchez text-3xl">
               {recipe.name}
             </div>
           </a>
 
-          <div className="flex flex-row gap-x-6 py-7">
+          <div className="flex flex-row gap-x-6">
             <div className="flex flex-row gap-x-2">
               <div>
                 <ClockCountdown size={25} color="#6283c0" weight="regular" />
@@ -76,17 +76,15 @@ export function RecipePage() {
             </div>
           </div>
 
-          <div className="relative mb-8 border-l-2 border-accent pb-3 pl-8">
-            <div className="absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent bg-parchment"></div>
-            <div className="pb-3 font-sanchez text-xl">Notes</div>
+          <div className="border-l-2 border-accent px-4 md:px-8">
+            <div className="font-sanchez text-xl">Notes</div>
             <div className="text-sm leading-6">
               {recipe.notes || "No notes available"}
             </div>
           </div>
 
-          <div className="relative mb-8 border-l-2 border-accent pb-3 pl-8">
-            <div className="absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent bg-parchment"></div>
-            <div className="pb-3 font-sanchez text-xl">Ingredients</div>
+          <div className="border-l-2 border-accent px-4 md:px-8">
+            <div className="font-sanchez text-xl">Ingredients</div>
             <div className="text-sm">
               {recipe.ingredients.length === 0 &&
                 "No ingredients included in this recipe"}
@@ -96,26 +94,25 @@ export function RecipePage() {
                   <div className="flex w-[400px] flex-row items-center">
                     <div className="flex-none">{ingredient.name}</div>
                     <div className="mx-3 h-1 w-full border-b border-dotted border-accent"></div>
-                  </div>
-                  <div className="flex flex-none flex-row items-center gap-2">
-                    {!!ingredient.amount && (
-                      <div className="inline-block h-9 w-9 rounded-full bg-accent pt-2 text-center font-bold text-parchment">
-                        {convertFraction(ingredient.amount)}
-                      </div>
-                    )}
-                    <span>
-                      {ingredient.units || ""}{" "}
-                      {!!ingredient.notes ? ` (${ingredient.notes})` : ""}
-                    </span>
+                    <div className="flex flex-none flex-row items-center gap-2">
+                      {ingredient.amount !== undefined && (
+                        <div className="h-9 w-9 rounded-full bg-accent pt-2 text-center font-bold text-parchment">
+                          {convertFraction(ingredient.amount)}
+                        </div>
+                      )}
+                      <span>
+                        {ingredient.units || ""}{" "}
+                        {!!ingredient.notes ? ` (${ingredient.notes})` : ""}
+                      </span>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="relative mb-8 border-l-2 border-accent pb-3 pl-8">
-            <div className="absolute -left-3 top-0 h-6 w-6 rounded-full border-2 border-accent bg-parchment"></div>
-            <div className="pb-3 font-sanchez text-xl">Instructions</div>
+          <div className="border-l-2 border-accent px-4 md:px-8">
+            <div className="font-sanchez text-xl">Instructions</div>
             <div className="text-sm leading-6">
               {recipe.instructions || "Nothing to see here"}
             </div>

@@ -69,7 +69,7 @@ export function TvShowsPage() {
                         <img
                           src={show.poster_url}
                           alt={show.name}
-                          className="inline-block w-full rounded-md"
+                          className="w-full rounded-md"
                         />
                       )}
 

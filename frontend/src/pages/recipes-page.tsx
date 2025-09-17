@@ -5,7 +5,9 @@ import {
   FishSimple,
   ForkKnife,
   Knife,
+  Person,
   Shrimp,
+  Timer,
 } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -98,15 +100,20 @@ export function RecipesPage() {
                   {icon}
                 </div>
 
-                <div className="w-full text-center">
-                  <div className="mb-2 inline-block border-b border-black/15 font-sanchez">
+                <div className="flex w-full flex-col items-center gap-2 text-center">
+                  <div className="font-sanchez underline decoration-blue-500/60 underline-offset-4">
                     {recipe.name}
                   </div>
-                  <div>
-                    <div className="text-xs">
-                      Ready in {formatDuration(recipe.prep_time)}
+
+                  <div className="flex flex-col items-center gap-1 text-xs">
+                    <div className="flex flex-row items-center gap-1">
+                      <Timer size={14} color="#6283c0" weight="duotone" />
+                      <div>Ready in {formatDuration(recipe.prep_time)}</div>
                     </div>
-                    <div className="text-xs">Serves {recipe.serves}</div>
+                    <div className="flex flex-row items-center gap-1">
+                      <Person size={14} color="#6283c0" weight="duotone" />
+                      <div>Serves {recipe.serves}</div>
+                    </div>
                   </div>
                 </div>
               </div>

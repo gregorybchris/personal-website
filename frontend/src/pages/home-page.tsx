@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 
 export function HomePage() {
   return (
-    <div className="flex flex-col items-center gap-8 px-[30px] py-4 md:px-[130px] md:py-10 lg:px-[200px]">
-      <div className="flex w-full flex-col items-center py-2 pb-4 font-sanchez text-[40px] text-black/70">
+    <div className="flex h-full flex-col items-center justify-center gap-8 px-[30px] py-12 md:px-[130px] md:py-16 lg:px-[200px]">
+      <div className="flex w-full flex-col items-center font-sanchez text-[40px] text-black/70">
         Hey there!
       </div>
 
