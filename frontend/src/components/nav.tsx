@@ -1,8 +1,5 @@
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
 import { cn } from "../utilities/style-utilities";
-import { CommandBar } from "./command-bar";
 
 export function Nav() {
   function getLinkClassName() {
@@ -17,8 +14,6 @@ export function Nav() {
 
   return (
     <div className="px-6 py-3 text-center md:text-left">
-      <CommandBar />
-
       <div className="flex flex-row items-center gap-1">
         <NavLink to="/" className={getLinkClassName()}>
           Home

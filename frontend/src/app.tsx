@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { CommandBar } from "./components/command-bar";
 import { Nav } from "./components/nav";
 import { ArchivePage } from "./pages/archive-page";
 import { ArtistsPage } from "./pages/artists-page";
@@ -45,6 +46,7 @@ function Layout() {
   return (
     <div>
       <>
+        <CommandBar />
         {location.pathname !== "/" && <Nav />}
 
         <Routes>
