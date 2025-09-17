@@ -38,6 +38,18 @@ export function CommandBar() {
       route: "/blog",
     },
     {
+      name: "Books",
+      route: "/books",
+    },
+    {
+      name: "Contact",
+      route: "/contact",
+    },
+    {
+      name: "Music",
+      route: "/music",
+    },
+    {
       name: "Projects",
       route: "/projects",
     },
@@ -45,19 +57,7 @@ export function CommandBar() {
       name: "Running",
       route: "/running",
     },
-    {
-      name: "Books",
-      route: "/books",
-    },
-    {
-      name: "Music",
-      route: "/music",
-    },
-    {
-      name: "Contact",
-      route: "/contact",
-    },
-  ];
+  ].sort((a, b) => a.name.localeCompare(b.name));
 
   return (
     <Command.Dialog
@@ -68,8 +68,8 @@ export function CommandBar() {
     >
       <div
         className={cn(
-          "bg-parchment flex w-[400px] flex-col justify-center overflow-hidden",
-          "rounded-lg px-3 py-3 text-center shadow-[0_0_200px_30px_rgba(0,0,0,0.2)]",
+          "flex w-[400px] flex-col justify-center overflow-hidden bg-parchment",
+          "rounded-lg px-3 py-1 text-center shadow-[0_0_200px_30px_rgba(0,0,0,0.2)]",
         )}
       >
         <div className="flex flex-row items-center justify-between">
