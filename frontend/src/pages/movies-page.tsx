@@ -38,10 +38,9 @@ export function MoviesPage() {
   }
 
   return (
-    <div>
-      <div className="pb-5 text-center">
-        <div className="pb-3 font-sanchez text-3xl text-black/75">Movies</div>
-        <div className="py-3 text-black/75">Some great movies!</div>
+    <div className="flex flex-col items-center justify-items-center gap-5 px-2">
+      <div className="text-center font-sanchez text-3xl text-black/75">
+        Movies
       </div>
 
       {movies.length === 0 && (

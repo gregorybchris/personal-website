@@ -29,32 +29,31 @@ export function PodcastsPage() {
   }, []);
 
   return (
-    <div>
-      <div className="pb-5 text-center">
-        <div className="pb-3 font-sanchez text-3xl text-black/75">Podcasts</div>
-        <div className="py-3 text-black/75">Some great podcasts!</div>
+    <div className="flex flex-col items-center justify-items-center gap-5 px-2">
+      <div className="text-center font-sanchez text-3xl text-black/75">
+        Podcasts
       </div>
 
       {podcasts.length === 0 && <div>Loading podcasts...</div>}
       {podcasts.length > 0 && (
         <div className="flex flex-col items-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+          <div className="flex flex-row flex-wrap justify-center gap-6">
             {podcasts.map((podcast) => (
               <div
-                className="flex w-[300px] flex-col items-center p-6"
+                className="flex w-[260px] flex-col items-center gap-3"
                 key={podcast.name}
               >
-                <div className="mb-10 flex w-full flex-col items-center gap-y-3 text-center">
-                  <SimpleLink link={podcast.apple_link}>
+                <SimpleLink link={podcast.apple_link}>
+                  <div className="flex w-full flex-col items-center gap-2 text-center">
                     <div className="font-sanchez font-bold">{podcast.name}</div>
 
                     <img
                       src={`https://static.pocketcasts.com/discover/images/webp/480/${podcast.pocket_casts_id}.webp`}
                       alt={podcast.name}
-                      className="mt-2 inline-block w-40 rounded-md"
+                      className="inline-block w-full rounded-md"
                     />
-                  </SimpleLink>
-                </div>
+                  </div>
+                </SimpleLink>
 
                 <RatingRadar scores={new Map(Object.entries(podcast.scores))} />
               </div>
