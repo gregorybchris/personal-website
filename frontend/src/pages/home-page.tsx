@@ -9,13 +9,13 @@ import { Link } from "react-router-dom";
 
 export function HomePage() {
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-8 px-[30px] py-12 md:px-[130px] md:py-16 lg:px-[200px]">
+    <div className="flex h-screen w-screen flex-col items-center justify-center gap-8">
       <div className="flex w-full flex-col items-center font-sanchez text-[40px] text-black/70">
         Hey there!
       </div>
 
       <div className="flex w-full flex-col items-center">
-        <div className="flex flex-row items-center gap-5 py-4 md:gap-16">
+        <div className="flex flex-row items-center gap-5 py-4 md:gap-20">
           <div className="flex flex-col flex-wrap items-start gap-5">
             {/* <Link to="/blog">
               <div className="flex flex-row items-center gap-3 rounded px-2 py-1 transition-all hover:bg-black/[8%] md:pl-3 md:pr-4">
@@ -61,7 +61,7 @@ export function HomePage() {
           </div>
 
           <img
-            className="w-[200px] rounded-full md:w-[300px]"
+            className="w-[200px] rounded-full md:w-[350px]"
             alt="Profile"
             src="https://storage.googleapis.com/cgme/bio/profiles/mountains-profile-2.jpg"
           />

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Nav } from "./components/nav";
 import { ArchivePage } from "./pages/archive-page";
 import { ArtistsPage } from "./pages/artists-page";
@@ -33,7 +33,20 @@ export function App() {
   return (
     <div className="bg-parchment font-raleway">
       <BrowserRouter>
-        <Nav />
+        <Layout />
+      </BrowserRouter>
+    </div>
+  );
+}
+
+function Layout() {
+  const location = useLocation();
+
+  return (
+    <div>
+      <>
+        {location.pathname !== "/" && <Nav />}
+
         <Routes>
           {/* Main */}
           <Route path="/" element={<HomePage />} />
@@ -95,7 +108,7 @@ export function App() {
           {/* Oops */}
           <Route path="*" element={<OopsPage />} />
         </Routes>
-      </BrowserRouter>
+      </>
     </div>
   );
 }
