@@ -155,7 +155,7 @@ Another avenue for exploration is the architecture of the model. A few architect
 
 <div id="fn:fn1">
   <a href="#fnref:fn1">[1]</a>
-  <span>I haven't proven NP-hardness myself, but it feels true, doesn't it?</span>
+  <span>I haven't proven NP-hardness myself, but it feels NP-hard, doesn't it?</span>
 </div>
 
 <div id="fn:fn2">
