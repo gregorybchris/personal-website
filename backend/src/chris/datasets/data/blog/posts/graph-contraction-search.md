@@ -6,46 +6,60 @@ topics: []
 archived: false
 ---
 
-In graph theory, an _edge contraction_ is an operation where two adjacent vertices are merged into one and their shared edge is deleted.
+In graph theory, an <strong>edge contraction</strong> is an operation where two adjacent vertices are merged into one and their shared edge is deleted.
 
-<!-- <figure>
-  <img src="https://storage.googleapis.com/cgme/projects/images/contraction--03.jpg" width="300">
-  <figcaption><strong>Figure 1: </strong>Edge contraction &mdash; The new vertex's neighbors are the union of the neighbors from the original two vertices.</figcaption>
-</figure> -->
+<figure>
+  <video width="300" autoplay muted loop playsinline>
+    <source src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/edge-contraction.mp4?cache=1" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption>
+    <strong>Figure 1: </strong>
+    Edge contraction &mdash; The new vertex's neighbors are the union of the neighbors from the original two vertices.
+  </figcaption>
+</figure>
 
-On colored graphs, a similar operation exists called a _vertex contraction_. Edges connecting adjacent vertices are contracted if adjacent vertices share the same color as the contracted vertex.
+On colored graphs, another operation exists that we'll call a <strong>vertex contraction</strong>. Edges around a vertex are contracted if the adjacent vertices are the same color.
 
-<!-- <figure>
-  <img src="https://storage.googleapis.com/cgme/projects/images/contraction--03.jpg" width="300">
-  <figcaption><strong>Figure 2: </strong>Vertex contraction &mdash; The contacted vertex inherits neighbors from all adjacent vertices of the same color.</figcaption>
-</figure> -->
+<figure>
+  <video width="300" autoplay muted loop playsinline>
+    <source src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/vertex-contraction.mp4?cache=1" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption>
+    <strong>Figure 2: </strong>
+    Vertex contraction &mdash; The contacted vertex inherits neighbors from all adjacent vertices of the same color.
+  </figcaption>
+</figure>
 
 Given a fully-connected colored graph, we can apply vertex contractions iteratively until only a single vertex remains. What good does that do us? For one, it lets us solve [fun puzzle games](https://apps.apple.com/us/app/kami/id710724007). But it's also the foundation of an interesting applied graph theory problem described more below.
 
-<!-- <figure>
-  <img src="https://storage.googleapis.com/cgme/projects/images/contraction--03.jpg" width="300">
-  <figcaption><strong>Figure 3: </strong>Iterated vertex contraction</figcaption>
+<figure>
+  <video width="300" autoplay muted loop playsinline>
+    <source src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/iterated-contraction.mp4?cache=2" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption>
+    <strong>Figure 3: </strong>
+    Iterated vertex contraction &mdash; Each turn we select a vertex to change color and then apply a vertex contraction to it.
+  </figcaption>
 </figure>
- -->
 
-As a small aside, we're basically using a flood fill algorithm, but on colored graphs, rather than pixels. Actually, flood filling pixels is a special case of colored graph contraction where the graph is constrained to a 2D lattice structure.
-
-<!-- <figure>
-  <img src="https://storage.googleapis.com/cgme/projects/images/contraction--03.jpg" width="300">
-  <figcaption><strong>Figure 4: </strong>Pixel flood fill</figcaption>
-</figure> -->
+> As a small aside, we're basically using a flood fill algorithm, but on colored graphs, rather than pixels. Actually, flood filling pixels is a special case of colored graph contraction where the graph is constrained to a 2D lattice structure.
 
 ## Setting our objective
 
-Let's minimize the number of contractions needed to fully contract a graph. Our solution will be the shortest sequence of `(vertex, color)` pairs that leave a single vertex when applied to a graph. The order in which vertices are contracted matters, so the number of possible contraction sequences grows exponentially with the number of vertices. For arbitrary graphs, finding the optimal contraction sequence seems to be NP-hard <sup id="fnref:fn1"><a href="#fn:fn1">[1]</a></sup>.
+Our goal is to minimize the number of steps needed to fully contract a graph to a single vertex. Specifically, the solution will be the shortest sequence of `(vertex, color)` pairs that leave a single vertex when applied to a graph. To apply a pair we first change the vertex's color, then we apply a contraction at that vertex.
+
+The order in which vertices are contracted matters, so the number of possible contraction sequences grows exponentially with the number of vertices. For arbitrary graphs, finding the optimal contraction sequence seems to be NP-hard <sup id="fnref:fn1"><a href="#fn:fn1">[1]</a></sup>.
 
 The naïve, brute force approach is fairly obvious &mdash; select a vertex, select a color of one of its neighbors (different from its own color), contract the vertex with that color, and repeat until only one vertex remains. Do this for all possible selections to minimize the sequence length.
 
 ## Adding common sense heuristics
 
-Let's consider some tricks and see if we can't speed up this solver a bit.
+Let's consider some tricks and see if we can speed up this solver a bit.
 
-Let's start with the intuition that we want to go from n vertices to 1 vertex as quickly as possible. So the more edge contractions per turn the better. Vertices that have more neighbors will have a higher chance of reducing future work. Let's try using vertex degree as a heuristic to prioritize vertices that are more likely to lead to large contractions!
+We'll start with an easy one &mdash; in order to quickly go from many edges to no edges we should pick contractions that remove many edges. Vertices with more neighbors have a good chance of resulting in large contractions. Let's try using vertex degree as a heuristic!
 
 ```python
 def iter_nodes_by_degree(G: nx.Graph, nodes: Iterable[str]) -> Iterator[str]:
@@ -56,7 +70,7 @@ def iter_nodes_by_degree(G: nx.Graph, nodes: Iterable[str]) -> Iterator[str]:
 
 <!-- [todo: add table showing time to solve with and without vertex degree heuristic] -->
 
-A very similar optimization is to look at which color we choose for each contraction. Choosing a color that is more common among the neighbors of the contracted vertex will lead to larger contractions. So let's try prioritizing colors by their frequency among the neighbors of the contracted vertex.
+Now, how do we pick which color to contract? Similarly to our vertex degree heuristic, we want to choose a color that maximizes edges/vertices contracted. For a given vertex, we'll pick the color that appears most frequently among its neighbors.
 
 ```python
 def iter_neighbor_colors_by_freq(G: nx.Graph, node: str) -> Iterator[str]:
@@ -73,7 +87,9 @@ def iter_neighbor_colors_by_freq(G: nx.Graph, node: str) -> Iterator[str]:
 
 <!-- [todo: add table showing time to solve with and without color frequency heuristic] -->
 
-A less intuitive heuristic comes from solving a lot of these by hand. If you can pick vertices that are close to the center of the graph, then you can accumulate many edges in a fairly central vertex. The flood fill radiates outward to the rest of the graph. If we prioritize vertices by their centrality we can chop the problem roughly twice as quickly in some cases compared to stating with vertices on the periphery of the graph.
+These last two heuristics were pretty greedy. They work well, but tend to fail when there are high degree vertices on the periphery of the graph. If we pick those first, we may end up with a large number of small contractions later on.
+
+If we can pick vertices that are close to the "center" of the graph, rather than the periphery, then our contractions radiate outward and our number of steps is on the order of the radius of the graph, rather than the diameter. We can measure centrality by summing distances from each vertex to all other vertices. The vertex with the lowest sum of distances is the most central.
 
 ```python
 def iter_nodes_by_centrality(G: nx.Graph, nodes: Iterable[str], power: int = 2) -> Iterator[str]:
