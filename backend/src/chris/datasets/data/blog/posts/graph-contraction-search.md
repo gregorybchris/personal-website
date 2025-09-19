@@ -23,7 +23,7 @@ On colored graphs, another operation exists that we'll call a <strong>vertex con
 
 <figure>
   <video width="300" autoplay muted loop playsinline>
-    <source src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/vertex-contraction.mp4?cache=1" type="video/mp4">
+    <source src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/vertex-contraction.mp4?cache=2" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
@@ -36,7 +36,7 @@ Given a fully-connected colored graph, we can apply vertex contractions iterativ
 
 <figure>
   <video width="300" autoplay muted loop playsinline>
-    <source src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/iterated-contraction.mp4?cache=2" type="video/mp4">
+    <source src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/iterated-contraction.mp4?cache=3" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
