@@ -32,7 +32,7 @@ On colored graphs, another operation exists that we'll call a <strong>vertex con
   </figcaption>
 </figure>
 
-Given a fully-connected colored graph, we can apply vertex contractions iteratively until only a single vertex remains. What good does that do us? For one, it lets us solve [fun puzzle games](https://apps.apple.com/us/app/kami/id710724007). But it's also the foundation of an interesting applied graph theory problem described more below.
+Given a fully-connected colored graph, we can <strong>apply vertex contractions iteratively</strong> until only a single vertex remains. What good does that do us? For one, it lets us solve [fun puzzle games](https://apps.apple.com/us/app/kami/id710724007). But it's also the foundation of an interesting applied graph theory problem described more below.
 
 <figure>
   <video width="300" autoplay muted loop playsinline>
@@ -47,6 +47,8 @@ Given a fully-connected colored graph, we can apply vertex contractions iterativ
 
 > As a small aside, we're basically using a flood fill algorithm, but on colored graphs, rather than pixels. Actually, flood filling pixels is a special case of colored graph contraction where the graph is constrained to a 2D lattice structure.
 
+<!-- [todo: add a visualization of pixels being flood filled] -->
+
 ## Setting our objective
 
 Our goal is to minimize the number of steps needed to fully contract a graph to a single vertex. Specifically, the solution will be the shortest sequence of `(vertex, color)` pairs that leave a single vertex when applied to a graph. To apply a pair we first change the vertex's color, then we apply a contraction at that vertex.
@@ -57,9 +59,9 @@ The naïve, brute force approach is fairly obvious &mdash; select a vertex, sele
 
 ## Adding common sense heuristics
 
-Let's consider some tricks and see if we can speed up this solver a bit.
+The brute force approach is way too slow, so let's come up with some tricks to speed up this solver a bit.
 
-We'll start with an easy one &mdash; in order to quickly go from many edges to no edges we should pick contractions that remove many edges. Vertices with more neighbors have a good chance of resulting in large contractions. Let's try using vertex degree as a heuristic!
+The first heuristic is pretty intuitive &mdash; to get from many edges (in the initial graph) to no edges (in a graph with one vertex) we should pick contractions that remove many edges. Vertices with more neighbors have a good chance of resulting in large contractions. Let's try using <i>vertex degree</i> as a heuristic!
 
 ```python
 def iter_nodes_by_degree(G: nx.Graph, nodes: Iterable[str]) -> Iterator[str]:
@@ -70,7 +72,7 @@ def iter_nodes_by_degree(G: nx.Graph, nodes: Iterable[str]) -> Iterator[str]:
 
 <!-- [todo: add table showing time to solve with and without vertex degree heuristic] -->
 
-Now, how do we pick which color to contract? Similarly to our vertex degree heuristic, we want to choose a color that maximizes edges/vertices contracted. For a given vertex, we'll pick the color that appears most frequently among its neighbors.
+Now, how do we pick which color to contract? Similarly to our vertex degree heuristic, we want to choose a color that maximizes edges/vertices contracted. For a given vertex, we'll pick the <i>color that appears most frequently</i> among its neighbors.
 
 ```python
 def iter_neighbor_colors_by_freq(G: nx.Graph, node: str) -> Iterator[str]:
@@ -89,7 +91,7 @@ def iter_neighbor_colors_by_freq(G: nx.Graph, node: str) -> Iterator[str]:
 
 These last two heuristics were pretty greedy. They work well, but tend to fail when there are high degree vertices on the periphery of the graph. If we pick those first, we may end up with a large number of small contractions later on.
 
-If we can pick vertices that are close to the "center" of the graph, rather than the periphery, then our contractions radiate outward and our number of steps is on the order of the radius of the graph, rather than the diameter. We can measure centrality by summing distances from each vertex to all other vertices. The vertex with the lowest sum of distances is the most central.
+If we can pick vertices that are close to the "center" of the graph, rather than the periphery, then our contractions radiate outward and our number of steps is on the order of the radius of the graph, rather than the diameter. We can measure <i>vertex centrality</i> by summing distances from each vertex to all other vertices. The vertex with the lowest sum of distances is the most central.
 
 ```python
 def iter_nodes_by_centrality(G: nx.Graph, nodes: Iterable[str], power: int = 2) -> Iterator[str]:
@@ -116,11 +118,25 @@ def iter_nodes_by_centrality(G: nx.Graph, nodes: Iterable[str], power: int = 2) 
 
 <!-- [todo: add table showing time to solve with and without centrality heuristic] -->
 
+We can implement a beam search that will prioritize more promising trajectories through the search tree. (implementation not shown here)
+
+<!-- [todo: add a link to beam search] -->
+
 ## Markov constraints
 
-One potentially novel<sup id="fnref:fn2"><a href="#fn:fn2">[2]</a></sup> finding of this project is that a contraction is a local operation that at most affects the adjacency lists of second-degree neighbors of the contracted vertex. Therefore, two contractions not in the degree two neighborhood of each other are causally independent. Put another way, the ordering of two non-local operations is always arbitrary and there is a Markov boundary around the degree two neighborhood of each vertex.
+The ordering heuristics of vertex degree, color frequency, and centrality don't actually reduce the total search space. They just increase the probability that we find a solution earlier in our search. What, if anything, can we do to actually reduce the search space? (and thus decrease our worst case search time)
 
-It's this finding that leads us to only consider candidate vertices in the degree two neighborhood of the last contracted vertex. This greatly decreases the width of the search tree for sparse enough graphs. Empirically this improves search performance significantly on planar graphs.
+First, it helps to notice that a contraction is a pretty local operation. If you pay attention to just the edges of the graph, you'll notice that edges outside of second-degree neighbors of the contracted vertex are unaffected by the contraction.
+
+<!-- [todo: add a dotted line around the degree two neighborhood, show a contraction going in and out] -->
+
+<strong>Inside this second degree neighborhood the ordering of contractions is important, but outside of it the ordering is arbitrary.</strong>
+
+If two contractions are conditionally independent then we've been double-counting potential solutions. For example, if you contracted vertices in the order [1, 2, 3, 4] and 2 and 3 were independent, then you could have also contracted them in the order [1, 3, 2, 4] and gotten the same result. So we can skip one of those branches of the search tree.
+
+> As an aside, I like to think of this boundary as a [Markov blanket](https://en.wikipedia.org/wiki/Markov_blanket). Vertices in the graph are represented as variables in a probabilistic graphical model.
+
+This is a big finding!<sup id="fnref:fn2"><a href="#fn:fn2">[2]</a> If we only consider candidate vertices in the degree two neighborhood of the last contracted vertex, we greatly decrease the width of the search tree for sparse enough graphs. Empirically this improves search performance significantly on planar graphs.
 
 ```python
 def iter_markov_blanket(G: nx.Graph, node: str) -> Iterator[str]:
@@ -176,5 +192,5 @@ Another avenue for exploration is the architecture of the model. A few architect
 
 <div id="fn:fn2">
   <a href="#fnref:fn2">[2]</a>
-  <span>While this proof is fairly elementary, a cursory literature review did not turn up prior work on this topic, so as far as I know this is a novel proof.</span>
+  <span>While this optimization is fairly elementary, a cursory literature review did not turn up prior work on this topic, so as far as I know this is a novel approach.</span>
 </div>
