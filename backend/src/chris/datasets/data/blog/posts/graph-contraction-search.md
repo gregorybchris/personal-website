@@ -45,7 +45,7 @@ Given a fully-connected colored graph, we can <strong>apply vertex contractions 
   </figcaption>
 </figure>
 
-> As a small aside, we're basically using a flood fill algorithm, but on colored graphs, rather than pixels. Actually, flood filling pixels is a special case of colored graph contraction where the graph is constrained to a 2D lattice structure.
+> It may be useful to think of this as a flood-fill algorithm. In an image, each region of continuous pixels of the same color gets an associated vertex in the graph. If two regions of pixels are touching then there's an edge between their corresponding graph vertices. To fill all pixels with the same color we perform iterated vertex contractions until there is a single graph vertex.
 
 <!-- [todo: add a visualization of pixels being flood filled] -->
 
@@ -118,9 +118,7 @@ def iter_nodes_by_centrality(G: nx.Graph, nodes: Iterable[str], power: int = 2) 
 
 <!-- [todo: add table showing time to solve with and without centrality heuristic] -->
 
-We can implement a beam search that will prioritize more promising trajectories through the search tree. (implementation not shown here)
-
-<!-- [todo: add a link to beam search] -->
+We can implement a [best-first search](https://en.wikipedia.org/wiki/Best-first_search) or [beam search](https://en.wikipedia.org/wiki/Beam_search) that will prioritize more promising trajectories through the search tree. (implementation not shown here)
 
 ## Markov constraints
 
