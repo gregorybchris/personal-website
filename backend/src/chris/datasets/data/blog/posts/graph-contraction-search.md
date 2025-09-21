@@ -32,7 +32,7 @@ On colored graphs, another operation exists that we'll call a <strong>vertex con
   </figcaption>
 </figure>
 
-Given a fully-connected colored graph, we can <strong>apply vertex contractions iteratively</strong> until only a single vertex remains. What good does that do us? For one, it lets us solve [fun puzzle games](https://apps.apple.com/us/app/kami/id710724007). But it's also the foundation of an interesting applied graph theory problem described more below.
+Given a fully-connected colored graph, we can <strong>apply vertex contractions iteratively</strong> until only a single vertex remains.
 
 <figure>
   <video width="300" autoplay muted loop playsinline>
@@ -45,19 +45,35 @@ Given a fully-connected colored graph, we can <strong>apply vertex contractions 
   </figcaption>
 </figure>
 
-> It may be useful to think of this as a flood-fill algorithm. In an image, each region of continuous pixels of the same color gets an associated vertex in the graph. If two regions of pixels are touching then there's an edge between their corresponding graph vertices. To fill all pixels with the same color we perform iterated vertex contractions until there is a single graph vertex.
+## Motivation
 
-<!-- [todo: add a visualization of pixels being flood filled] -->
+Are vertex contractions useful to us? Sure they are! We can use them to solve a particularly fun puzzle game called Kami<sup id="fnref:fn1"><a href="#fn:fn1">[1]</a></sup>.
 
-## Setting our objective
+In Kami, we attempt to flood-fill all pixels with the same color in as few moves as possible.
+In an image, each region of continuous pixels of the same color gets an associated vertex in the graph. If two regions of pixels are touching then there's an edge between their corresponding graph vertices. To fill all pixels with the same color we perform iterated vertex contractions until there is a single graph vertex.
+
+In the example below, the pixels have the same connectivity as the graph in Figure 3.
+
+<figure>
+  <video width="300" autoplay muted loop playsinline>
+    <source src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/flood-fill.mp4?cache=2" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption>
+    <strong>Figure 4: </strong>
+    Flood fill &mdash; Each wave of flood filling pixels corresponds to a single vertex contraction in the corresponding graph.
+  </figcaption>
+</figure>
+
+## Specifying the objective
 
 Our goal is to minimize the number of steps needed to fully contract a graph to a single vertex. Specifically, the solution will be the shortest sequence of `(vertex, color)` pairs that leave a single vertex when applied to a graph. To apply a pair we first change the vertex's color, then we apply a contraction at that vertex.
 
-The order in which vertices are contracted matters, so the number of possible contraction sequences grows exponentially with the number of vertices. For arbitrary graphs, finding the optimal contraction sequence seems to be NP-hard <sup id="fnref:fn1"><a href="#fn:fn1">[1]</a></sup>.
+The naïve, brute force approach is fairly obvious &mdash; select a vertex at random, select a color of one of its neighbors (different from its own color), contract the vertex with that color, and repeat until only one vertex remains. Do this for all possible selections and track the solution with the minimum sequence length.
 
-The naïve, brute force approach is fairly obvious &mdash; select a vertex, select a color of one of its neighbors (different from its own color), contract the vertex with that color, and repeat until only one vertex remains. Do this for all possible selections to minimize the sequence length.
+> You may notice that the order in which vertices are contracted matters, so the number of possible contraction sequences grows exponentially with the number of vertices.
 
-## Adding common sense heuristics
+## Common sense heuristics
 
 The brute force approach is way too slow, so let's come up with some tricks to speed up this solver a bit.
 
@@ -122,19 +138,17 @@ We can implement a [best-first search](https://en.wikipedia.org/wiki/Best-first_
 
 ## Markov constraints
 
-The ordering heuristics of vertex degree, color frequency, and centrality don't actually reduce the total search space. They just increase the probability that we find a solution earlier in our search. What, if anything, can we do to actually reduce the search space? (and thus decrease our worst case search time)
+The ordering heuristics of vertex degree, color frequency, and centrality don't actually reduce the total search space. They just increase the probability that we find a solution earlier in our search. What can we do to actually reduce the search space? (and thus decrease our worst case search time)
 
 First, it helps to notice that a contraction is a pretty local operation. If you pay attention to just the edges of the graph, you'll notice that edges outside of second-degree neighbors of the contracted vertex are unaffected by the contraction.
 
 <!-- [todo: add a dotted line around the degree two neighborhood, show a contraction going in and out] -->
 
-<strong>Inside this second degree neighborhood the ordering of contractions is important, but outside of it the ordering is arbitrary.</strong>
+This is a big finding!<sup id="fnref:fn2"><a href="#fn:fn2">[2]</a></sup> Inside this second degree neighborhood the ordering of contractions is important, but outside of it the ordering is arbitrary. Up to this point we've been wasting time computing many equivalent solutions.
 
-If two contractions are conditionally independent then we've been double-counting potential solutions. For example, if you contracted vertices in the order [1, 2, 3, 4] and 2 and 3 were independent, then you could have also contracted them in the order [1, 3, 2, 4] and gotten the same result. So we can skip one of those branches of the search tree.
+Let's resolve our double-counting and <strong>only consider candidate vertices in the degree two neighborhood of the last contracted vertex</strong>. By doing this we greatly decrease the width of the search tree for sparse enough graphs.
 
-> As an aside, I like to think of this boundary as a [Markov blanket](https://en.wikipedia.org/wiki/Markov_blanket). Vertices in the graph are represented as variables in a probabilistic graphical model.
-
-This is a big finding!<sup id="fnref:fn2"><a href="#fn:fn2">[2]</a> If we only consider candidate vertices in the degree two neighborhood of the last contracted vertex, we greatly decrease the width of the search tree for sparse enough graphs. Empirically this improves search performance significantly on planar graphs.
+> As an aside, I like to think of this boundary as a [Markov blanket](https://en.wikipedia.org/wiki/Markov_blanket). Vertices in the graph are represented as variables in a probabilistic graphical model. Vertices with non-overlapping neighborhoods are conditionally independent.
 
 ```python
 def iter_markov_blanket(G: nx.Graph, node: str) -> Iterator[str]:
@@ -153,6 +167,8 @@ def iter_markov_blanket(G: nx.Graph, node: str) -> Iterator[str]:
                 markov_blanket.add(grandchild_node)
                 yield grandchild_node
 ```
+
+Empirically this improves search performance significantly on planar graphs.
 
 <!-- [todo: add table showing time to solve with and without Markov constraint] -->
 
@@ -183,12 +199,14 @@ Another avenue for exploration is the architecture of the model. A few architect
 
 ## Footnotes
 
-<div id="fn:fn1">
-  <a href="#fnref:fn1">[1]</a>
-  <span>I haven't proven NP-hardness myself, but it feels NP-hard, doesn't it?</span>
-</div>
+<div id="footnotes">
+  <div id="fn:fn1">
+    <a href="#fnref:fn1">[1]</a>
+    <span>Kami is available in both <a href="https://apps.apple.com/us/app/kami/id710724007" target="_blank">iOS</a> and <a href="https://play.google.com/store/apps/details?id=com.stateofplaygames.kami2&hl=en-US" target="_blank">Android</a> app stores.</span>
+  </div>
 
-<div id="fn:fn2">
-  <a href="#fnref:fn2">[2]</a>
-  <span>While this optimization is fairly elementary, a cursory literature review did not turn up prior work on this topic, so as far as I know this is a novel approach.</span>
+  <div id="fn:fn2">
+    <a href="#fnref:fn2">[2]</a>
+    <span>While this optimization is fairly elementary, a cursory literature review did not turn up prior work on this topic, so as far as I know this is a novel approach.</span>
+  </div>
 </div>
