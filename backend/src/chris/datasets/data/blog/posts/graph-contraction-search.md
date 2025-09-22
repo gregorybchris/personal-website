@@ -91,8 +91,6 @@ def iter_nodes_by_degree(G: nx.Graph, nodes: Iterable[str]) -> Iterator[str]:
         yield node
 ```
 
-<!-- [todo: add table showing time to solve with and without vertex degree heuristic] -->
-
 Now, how do we pick which color to contract? Similarly to our vertex degree heuristic, we want to choose a color that maximizes edges/vertices contracted. For a given vertex, we'll pick the <i>color that appears most frequently</i> among its neighbors.
 
 ```python
@@ -107,8 +105,6 @@ def iter_neighbor_colors_by_freq(G: nx.Graph, node: str) -> Iterator[str]:
     for node, _ in sorted(frequencies.items(), key=lambda x: -x[1]):
         yield node
 ```
-
-<!-- [todo: add table showing time to solve with and without color frequency heuristic] -->
 
 These last two heuristics were pretty greedy. They work well, but tend to fail when there are high degree vertices on the periphery of the graph. If we pick those first, we may end up with a large number of small contractions later on.
 
@@ -137,8 +133,6 @@ def iter_nodes_by_centrality(G: nx.Graph, nodes: Iterable[str], power: int = 2) 
         yield node
 ```
 
-<!-- [todo: add table showing time to solve with and without centrality heuristic] -->
-
 We can implement a [best-first search](https://en.wikipedia.org/wiki/Best-first_search) or [beam search](https://en.wikipedia.org/wiki/Beam_search) that will prioritize more promising trajectories through the search tree. (implementation not shown here)
 
 ## Locality constraints
@@ -162,7 +156,7 @@ This is a big finding!<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a
 
 Let's resolve our double-counting and <strong>only consider candidate vertices in the second degree neighborhood of the last contracted vertex</strong>. By doing this we can greatly decrease the width of the search tree.
 
-> As an aside, I like to think of this boundary as a [Markov blanket](https://en.wikipedia.org/wiki/Markov_blanket). Vertices in the graph are represented as variables in a probabilistic graphical model. Vertices with non-overlapping neighborhoods are conditionally independent.
+> As an aside, I like to think of this boundary as a [Markov blanket](https://en.wikipedia.org/wiki/Markov_blanket). Vertices in the graph are represented as variables in a probabilistic graphical model. Vertices outside of each other's neighborhoods are conditionally independent.
 
 ```python
 def iter_markov_blanket(G: nx.Graph, node: str) -> Iterator[str]:
@@ -184,8 +178,6 @@ def iter_markov_blanket(G: nx.Graph, node: str) -> Iterator[str]:
 
 Empirically this improves search performance significantly, especially on planar graphs, where the number of vertices in a second degree neighborhood tends to be small compared to the total number of vertices.
 
-<!-- [todo: add table showing time to solve with and without Markov constraint] -->
-
 ## Deep learning approach
 
 Ordering heuristics and locality constraints can speed up the search considerably, but for very large graphs with many vertices and many colors, search can <i>still</i> be intractable for a computer to solve. Despite this combinatorial explosion, humans are able to solve large puzzles fairly quickly with a mix of visual intuition and very shallow backtracking. This performance gap between very fast computers and very intuitive humans informs our next approach &mdash; maybe we can train a deep learning system to intuit which partial solutions are the most promising.
@@ -196,14 +188,16 @@ First we can embed the graph using a graph convolutional network (GCNConv from [
 
 > Graph attention layers have not seemed to provide an advantage over simple graph convolutions, however more data may be needed to see a benefit. The training dataset was limited to the levels provided in the Kami app.
 
-In practice, including global max pooling and dropout improve training stability and leads to faster convergence. A ReLU non-linearity is used between GCN layers. A final linear layer maps the graph embedding to a single scalar output. This output is interpreted as an estimate of the minimum number of contractions needed to fully contract the graph.
+In practice, including dropout and global max pooling improve training stability and lead to faster convergence. We use a ReLU non-linearity between GCN layers and a final linear layer maps the graph embedding to a single scalar output. This output is interpreted as an estimate of the minimum number of contractions needed to fully contract the graph.
 
 <figure id="figure6">
   <img src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/architecture.png?cache=3" width="340">
   <figcaption><strong>Figure 6: </strong>Architecture &mdash; The model has a simple architecture of two GCN layers and a linear layer, separated by a ReLU, dropout, and global max pooling.</figcaption>
 </figure>
 
-Our model's estimate is used as a search heuristic, replacing vertex degree, color frequency, and centrality. Each step in the tree search we embed all candidate graphs, estimate how close they are to being solved, and rank the candidates by most promising to least.
+> Experiments showed global max pooling performed better than global mean pooling. GCNConv layers outperformed GATConv and SAGEConv.
+
+Our model's estimate can be used as a search heuristic, replacing vertex degree, color frequency, and centrality. Each step in the tree search we embed all candidate graphs, estimate how close they are to being solved, and rank the candidates by most promising to least.
 
 We train with MSE loss and also calculate an accuracy score by rounding the model prediction to the nearest integer number of contractions.
 
@@ -212,29 +206,32 @@ We train with MSE loss and also calculate an accuracy score by rounding the mode
   <figcaption><strong>Figure 7: </strong>Training curve &mdash; The model shows above random chance performance on predicting the number of contractions needed for a given graph.</figcaption>
 </figure>
 
-While model training was successful, unfortunately model inference latency is high enough to negate the benefits of the learned heuristic. To be useful, the model would have to rule out unlikely subtrees faster than the cost of evaluating those candidates. That said, only very small graphs were used in evaluation, so more work is needed to see if at larger graph sizes the deep learning heuristic wins out.
+While the model trains successfully, unfortunately model inference latency is high enough to negate the benefits of the learned heuristic. To be useful, the model would have to rule out unlikely subtrees faster than the cost of evaluating those candidates. Perhaps with larger graphs the deep learning heuristic might win out.
 
 ## Dataset
 
-As mentioned previously, the training data for this project was collected from the Kami app. To convert screenshots of levels into graphs, a few image processing steps were needed:
+As mentioned previously, the training data for this project was collected from the Kami app. As you can imagine, manually encoding levels as graphs would be a tedious process. To convert screenshots of levels into graphs automatically, we can use a simple image processing pipeline:
 
 1. Extract 3x3 patches from the image in a lattice pattern.
 2. Use K-means clustering for denoising to identify which patches have which colors.
 3. Simplify the graph by contracting edges between vertices of the same color.
 
-The target number of moves for each level was manually entered.
+For train-test splitting, even-numbered levels were used for training and odd-numbered levels were used for testing. Since the structure of graphs increases in complexity as levels get harder, this split ensures that the model has seen all different types of graphs during training.
 
-During graph embedding, the color of each vertex is one-hot encoded and used as a node feature.
+It's also worth noting that the one-hot encoded color of each vertex is used as a node feature during graph embedding. It's these vectors that are convolved in the GCN layers.
 
-For train-test splitting, even-numbered levels were used for training and odd-numbered levels were used for testing. Since the structure of graphs increases in complexity as the level number increases, this split ensures that the test set is in-distribution after model training.
+## Conclusion
 
-## Future work
+There's so much more to explore with this problem! Here are some ideas for future directions:
 
-All training data for this project came from levels directly from the [Kami app](https://apps.apple.com/us/app/kami/id710724007). These levels are hand-designed and therefore have a certain structure that may not generalize to arbitrary graphs. Future work could include generating synthetic training data by randomly generating graphs of varying size and topology.
+- Generate synthetic training data
+- Apply data augmentations
+- Try more modern GNN architectures
+- Test the model on larger graphs
+- Experiment with different activation functions
+- Tune the learning rate
 
-Another avenue for exploration is the architecture of the model. A few architectures were attempted, but followup investigations could include...
-
-<!-- [todo: add more follow-ups] -->
+Thanks for reading to the end of my first blog post! If you enjoyed it, please consider sharing it with a friend or saying hello via my <a href="/contact">contact page</a>.
 
 ## Footnotes
 
