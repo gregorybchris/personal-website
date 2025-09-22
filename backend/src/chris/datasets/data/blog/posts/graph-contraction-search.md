@@ -8,7 +8,7 @@ archived: false
 
 In graph theory, an <strong>edge contraction</strong> is an operation where two adjacent vertices are merged into one and their shared edge is deleted.
 
-<figure>
+<figure id="figure1">
   <video width="300" autoplay muted loop playsinline>
     <source src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/edge-contraction.mp4?cache=1" type="video/mp4">
     Your browser does not support the video tag.
@@ -21,7 +21,7 @@ In graph theory, an <strong>edge contraction</strong> is an operation where two 
 
 On colored graphs, another operation exists that we'll call a <strong>vertex contraction</strong>. Edges around a vertex are contracted if the adjacent vertices are the same color.
 
-<figure>
+<figure id="figure2">
   <video width="300" autoplay muted loop playsinline>
     <source src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/vertex-contraction.mp4?cache=2" type="video/mp4">
     Your browser does not support the video tag.
@@ -34,7 +34,7 @@ On colored graphs, another operation exists that we'll call a <strong>vertex con
 
 Given a fully-connected colored graph, we can <strong>apply vertex contractions iteratively</strong> until only a single vertex remains.
 
-<figure>
+<figure id="figure3">
   <video width="300" autoplay muted loop playsinline>
     <source src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/iterated-contraction.mp4?cache=3" type="video/mp4">
     Your browser does not support the video tag.
@@ -47,20 +47,15 @@ Given a fully-connected colored graph, we can <strong>apply vertex contractions 
 
 ## Motivation
 
-Are vertex contractions useful to us? Sure they are! We can use them to solve a particularly fun puzzle game called Kami<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup>.
+Are vertex contractions useful to us? Sure they are! We can use them to solve a particularly fun puzzle game called Kami<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup>. In Kami, we're presented with a screen of pixels grouped into colored regions. We attempt to flood-fill all pixels with the same color in an allotted number of moves.
 
-In Kami, we attempt to flood-fill all pixels with the same color in as few moves as possible. Each turn
+To solve a Kami puzzle we set up a correspondence between colored regions of pixels &harr; vertices in a graph:
 
-We can transform a picture into a colored graph as follows:
-
-- Each region of continuous pixels of the same color gets an associated vertex in the graph.
+- Each region of contiguous pixels of the same color gets an associated vertex in the graph.
 - If two regions of pixels are touching then there's an edge between their corresponding graph vertices.
+- A move in Kami corresponds to a vertex contraction in the graph.
 
-To fill all pixels with the same color we perform iterated vertex contractions until there is a single graph vertex.
-
-In the example below, the pixels have the same connectivity as the graph in Figure 3.
-
-<figure>
+<figure id="figure4">
   <video width="300" autoplay muted loop playsinline>
     <source src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/flood-fill.mp4?cache=3" type="video/mp4">
     Your browser does not support the video tag.
@@ -71,11 +66,15 @@ In the example below, the pixels have the same connectivity as the graph in Figu
   </figcaption>
 </figure>
 
+In the example above, the pixels have the same connectivity as the graph in <a href="#figure3">Figure 3</a>.
+
+To fill all pixels with the same color we perform iterated vertex contractions until there is a single graph vertex.
+
 ## Specifying the objective
 
-Our goal is to minimize the number of steps needed to fully contract a graph to a single vertex. Specifically, the solution will be the shortest sequence of `(vertex, color)` pairs that leave a single vertex when applied to a graph. To apply a pair we first change the vertex's color, then we apply a contraction at that vertex.
+Our goal is to find a sequence of contractions that fully contracts the graph and has a length no greater than our target number of moves. A contraction is defined by the vertex being contracted and the color it's being assigned, so a puzzle solution will be a sequence of `(vertex, color)` pairs.
 
-The naïve, brute force approach is fairly obvious &mdash; select a vertex at random, select a color of one of its neighbors (different from its own color), contract the vertex with that color, and repeat until only one vertex remains. Do this for all possible selections and track the solution with the minimum sequence length.
+The naïve, brute force approach is a simple tree traversal &mdash; select a vertex at random, select a color of one of its neighbors (different from its own color), contract the vertex with that color, and repeat until only one vertex remains. Do this for all possible vertices/colors and return when a solution is found with the desired length.
 
 > You may notice that the order in which vertices are contracted matters, so the number of possible contraction sequences grows exponentially with the number of vertices.
 
@@ -148,7 +147,7 @@ The ordering heuristics of vertex degree, color frequency, and centrality don't 
 
 First, it helps to notice that a contraction is a pretty local operation. If you pay attention to just the edges of the graph, you'll notice that edges outside of second degree neighbors of the contracted vertex are always unaffected by the contraction.
 
-<figure>
+<figure id="figure5">
   <video width="300" autoplay muted loop playsinline>
     <source src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/markov-blanket.mp4?cache=3" type="video/mp4">
     Your browser does not support the video tag.
@@ -193,28 +192,41 @@ Ordering heuristics and locality constraints can speed up the search considerabl
 
 We'll train a model to <strong>estimate the number of moves needed to fully contract a graph</strong>. Then we can prioritize trajectories through the search space that are the most likely to converge quickly.
 
-First we can embed the graph using a graph convolutional network (e.g. GCNConv from [PyTorch Geometric](https://pytorch-geometric.readthedocs.io)). The GCN architecture allows us to train on graphs of arbitrary shape and size. In practice, including global max pooling and dropout improve training stability and leads to faster convergence. A ReLU non-linearity is used between GCN layers.
+First we can embed the graph using a graph convolutional network (GCNConv from [PyTorch Geometric](https://pytorch-geometric.readthedocs.io)). The GCN architecture allows us to train on graphs of arbitrary shape and size.
 
 > Graph attention layers have not seemed to provide an advantage over simple graph convolutions, however more data may be needed to see a benefit. The training dataset was limited to the levels provided in the Kami app.
 
-After embedding the graph and applying global max pooling, a final linear layer pro to the predicted value, which estimates the minimum number of contractions needed to fully contract the graph. This estimate is used as a search heuristic, replacing centrality and vertex degree. Each iteration of the model-based beam search we embed all candidate graphs, estimate their likelihood of requiring few contractions, and use those estimates to rank candidates.
+In practice, including global max pooling and dropout improve training stability and leads to faster convergence. A ReLU non-linearity is used between GCN layers. A final linear layer maps the graph embedding to a single scalar output. This output is interpreted as an estimate of the minimum number of contractions needed to fully contract the graph.
 
-<!-- [todo: add an architecture diagram] -->
+<figure id="figure6">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/architecture.png?cache=3" width="340">
+  <figcaption><strong>Figure 6: </strong>Architecture &mdash; The model has a simple architecture of two GCN layers and a linear layer, separated by a ReLU, dropout, and global max pooling.</figcaption>
+</figure>
 
-We train with MSE loss and also calculate an accuracy score by rounding the model prediction to the nearest integer number of contractions. Training was done on a single consumer-grade GPU.
+Our model's estimate is used as a search heuristic, replacing vertex degree, color frequency, and centrality. Each step in the tree search we embed all candidate graphs, estimate how close they are to being solved, and rank the candidates by most promising to least.
 
-<!-- <figure>
-  <img src="https://storage.googleapis.com/cgme/projects/images/contraction--04.jpg" width="300">
-  <figcaption><strong>Figure 5: </strong>Training curve &mdash; The model shows above random chance performance on predicting the number of contractions needed for a given graph.</figcaption>
-</figure> -->
+We train with MSE loss and also calculate an accuracy score by rounding the model prediction to the nearest integer number of contractions.
 
-While model training was successful, the model inference time in practice is slow enough to negate the benefits of the deep learning heuristic. To be useful the model would have to rule out unlikely candidate solutions faster than the latency of evaluating those candidates. That said, only very small graphs were used in evaluation, so more work is needed to see if at larger graph sizes the deep learning heuristic really does win out.
+<figure id="figure7">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/loss-curve.png?cache=4" width="340">
+  <figcaption><strong>Figure 7: </strong>Training curve &mdash; The model shows above random chance performance on predicting the number of contractions needed for a given graph.</figcaption>
+</figure>
+
+While model training was successful, unfortunately model inference latency is high enough to negate the benefits of the learned heuristic. To be useful, the model would have to rule out unlikely subtrees faster than the cost of evaluating those candidates. That said, only very small graphs were used in evaluation, so more work is needed to see if at larger graph sizes the deep learning heuristic wins out.
 
 ## Dataset
 
-As mentioned previously, the training data for this project was collected from the Kami app. To convert screenshots of levels into graphs, a few image processing steps were needed. First, patches of the image were sampled corresponding to triangles that are known to be solid colors. Then K-means clustering was used to identify which samples have which colors.
+As mentioned previously, the training data for this project was collected from the Kami app. To convert screenshots of levels into graphs, a few image processing steps were needed:
 
-Use k-means
+1. Extract 3x3 patches from the image in a lattice pattern.
+2. Use K-means clustering for denoising to identify which patches have which colors.
+3. Simplify the graph by contracting edges between vertices of the same color.
+
+The target number of moves for each level was manually entered.
+
+During graph embedding, the color of each vertex is one-hot encoded and used as a node feature.
+
+For train-test splitting, even-numbered levels were used for training and odd-numbered levels were used for testing. Since the structure of graphs increases in complexity as the level number increases, this split ensures that the test set is in-distribution after model training.
 
 ## Future work
 
