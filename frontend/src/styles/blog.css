@@ -41,8 +41,13 @@
 
 #blog a {
   color: #909090;
-  transition: color 500ms;
+  transition: color 700ms;
   text-decoration: 1.5px underline #d0d0d0;
+}
+
+#blog a.fn,
+#blog a.fnref {
+  text-decoration: none;
 }
 
 #blog a:hover {
@@ -94,6 +99,7 @@
   padding: 0.5rem 1rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 #blog blockquote p {

@@ -47,16 +47,22 @@ Given a fully-connected colored graph, we can <strong>apply vertex contractions 
 
 ## Motivation
 
-Are vertex contractions useful to us? Sure they are! We can use them to solve a particularly fun puzzle game called Kami<sup id="fnref:fn1"><a href="#fn:fn1">[1]</a></sup>.
+Are vertex contractions useful to us? Sure they are! We can use them to solve a particularly fun puzzle game called Kami<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup>.
 
-In Kami, we attempt to flood-fill all pixels with the same color in as few moves as possible.
-In an image, each region of continuous pixels of the same color gets an associated vertex in the graph. If two regions of pixels are touching then there's an edge between their corresponding graph vertices. To fill all pixels with the same color we perform iterated vertex contractions until there is a single graph vertex.
+In Kami, we attempt to flood-fill all pixels with the same color in as few moves as possible. Each turn
+
+We can transform a picture into a colored graph as follows:
+
+- Each region of continuous pixels of the same color gets an associated vertex in the graph.
+- If two regions of pixels are touching then there's an edge between their corresponding graph vertices.
+
+To fill all pixels with the same color we perform iterated vertex contractions until there is a single graph vertex.
 
 In the example below, the pixels have the same connectivity as the graph in Figure 3.
 
 <figure>
   <video width="300" autoplay muted loop playsinline>
-    <source src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/flood-fill.mp4?cache=2" type="video/mp4">
+    <source src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/flood-fill.mp4?cache=3" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
@@ -73,7 +79,7 @@ The naïve, brute force approach is fairly obvious &mdash; select a vertex at ra
 
 > You may notice that the order in which vertices are contracted matters, so the number of possible contraction sequences grows exponentially with the number of vertices.
 
-## Common sense heuristics
+## Ordering heuristics
 
 The brute force approach is way too slow, so let's come up with some tricks to speed up this solver a bit.
 
@@ -136,17 +142,26 @@ def iter_nodes_by_centrality(G: nx.Graph, nodes: Iterable[str], power: int = 2) 
 
 We can implement a [best-first search](https://en.wikipedia.org/wiki/Best-first_search) or [beam search](https://en.wikipedia.org/wiki/Beam_search) that will prioritize more promising trajectories through the search tree. (implementation not shown here)
 
-## Markov constraints
+## Locality constraints
 
 The ordering heuristics of vertex degree, color frequency, and centrality don't actually reduce the total search space. They just increase the probability that we find a solution earlier in our search. What can we do to actually reduce the search space? (and thus decrease our worst case search time)
 
-First, it helps to notice that a contraction is a pretty local operation. If you pay attention to just the edges of the graph, you'll notice that edges outside of second-degree neighbors of the contracted vertex are unaffected by the contraction.
+First, it helps to notice that a contraction is a pretty local operation. If you pay attention to just the edges of the graph, you'll notice that edges outside of second degree neighbors of the contracted vertex are always unaffected by the contraction.
 
-<!-- [todo: add a dotted line around the degree two neighborhood, show a contraction going in and out] -->
+<figure>
+  <video width="300" autoplay muted loop playsinline>
+    <source src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/markov-blanket.mp4?cache=3" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption>
+    <strong>Figure 5: </strong>
+    Contraction locality &mdash; Edges crossing the boundary between second and third degree neighbors do not move. Vertices outside the boundary are unchanged by contraction.
+  </figcaption>
+</figure>
 
-This is a big finding!<sup id="fnref:fn2"><a href="#fn:fn2">[2]</a></sup> Inside this second degree neighborhood the ordering of contractions is important, but outside of it the ordering is arbitrary. Up to this point we've been wasting time computing many equivalent solutions.
+This is a big finding!<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup> If we contract two vertices that are far enough apart in the graph, then the order in which we contract them is completely arbitrary. Up to this point we've been wasting time computing <i>many</i> equivalent solutions.
 
-Let's resolve our double-counting and <strong>only consider candidate vertices in the degree two neighborhood of the last contracted vertex</strong>. By doing this we greatly decrease the width of the search tree for sparse enough graphs.
+Let's resolve our double-counting and <strong>only consider candidate vertices in the second degree neighborhood of the last contracted vertex</strong>. By doing this we can greatly decrease the width of the search tree.
 
 > As an aside, I like to think of this boundary as a [Markov blanket](https://en.wikipedia.org/wiki/Markov_blanket). Vertices in the graph are represented as variables in a probabilistic graphical model. Vertices with non-overlapping neighborhoods are conditionally independent.
 
@@ -168,19 +183,23 @@ def iter_markov_blanket(G: nx.Graph, node: str) -> Iterator[str]:
                 yield grandchild_node
 ```
 
-Empirically this improves search performance significantly on planar graphs.
+Empirically this improves search performance significantly, especially on planar graphs, where the number of vertices in a second degree neighborhood tends to be small compared to the total number of vertices.
 
 <!-- [todo: add table showing time to solve with and without Markov constraint] -->
 
 ## Deep learning approach
 
-Hand-crafted ordering heuristics can speed up the search considerably. However, for very large graphs with many vertices and many colors brute force search quickly becomes intractable. Despite this combinatorial explosion, humans are able to solve large puzzles fairly quickly with a mix of visual intuition and very shallow backtracking.
+Ordering heuristics and locality constraints can speed up the search considerably, but for very large graphs with many vertices and many colors, search can <i>still</i> be intractable for a computer to solve. Despite this combinatorial explosion, humans are able to solve large puzzles fairly quickly with a mix of visual intuition and very shallow backtracking. This performance gap between very fast computers and very intuitive humans informs our next approach &mdash; maybe we can train a deep learning system to intuit which partial solutions are the most promising.
 
-So there's a gap in performance between our very fast computer and a very intuitive human. This gap informs the hypothesis that a deep learning approach may yield better heuristics than we can create by hand.
+We'll train a model to <strong>estimate the number of moves needed to fully contract a graph</strong>. Then we can prioritize trajectories through the search space that are the most likely to converge quickly.
 
-To guide search, we can first embed the graph using a graph convolutional network (e.g. GCNConv from [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/)). This architecture allows us to train on graphs of arbitrary shape and size. In practice, I've found global max pooling improves training stability and leads to faster convergence. Graph attention layers did not seem to provide an advantage over simple graph convolutions, however more data may be needed to see a benefit.
+First we can embed the graph using a graph convolutional network (e.g. GCNConv from [PyTorch Geometric](https://pytorch-geometric.readthedocs.io)). The GCN architecture allows us to train on graphs of arbitrary shape and size. In practice, including global max pooling and dropout improve training stability and leads to faster convergence. A ReLU non-linearity is used between GCN layers.
 
-A final linear layer maps the graph embedding to the predicted value, which estimates the minimum number of contractions needed to fully contract the graph. This estimate is used as a search heuristic, replacing centrality and vertex degree. Each iteration of the model-based beam search we embed all candidate graphs, estimate their likelihood of requiring few contractions, and use those estimates to rank candidates.
+> Graph attention layers have not seemed to provide an advantage over simple graph convolutions, however more data may be needed to see a benefit. The training dataset was limited to the levels provided in the Kami app.
+
+After embedding the graph and applying global max pooling, a final linear layer pro to the predicted value, which estimates the minimum number of contractions needed to fully contract the graph. This estimate is used as a search heuristic, replacing centrality and vertex degree. Each iteration of the model-based beam search we embed all candidate graphs, estimate their likelihood of requiring few contractions, and use those estimates to rank candidates.
+
+<!-- [todo: add an architecture diagram] -->
 
 We train with MSE loss and also calculate an accuracy score by rounding the model prediction to the nearest integer number of contractions. Training was done on a single consumer-grade GPU.
 
@@ -191,22 +210,30 @@ We train with MSE loss and also calculate an accuracy score by rounding the mode
 
 While model training was successful, the model inference time in practice is slow enough to negate the benefits of the deep learning heuristic. To be useful the model would have to rule out unlikely candidate solutions faster than the latency of evaluating those candidates. That said, only very small graphs were used in evaluation, so more work is needed to see if at larger graph sizes the deep learning heuristic really does win out.
 
+## Dataset
+
+As mentioned previously, the training data for this project was collected from the Kami app. To convert screenshots of levels into graphs, a few image processing steps were needed. First, patches of the image were sampled corresponding to triangles that are known to be solid colors. Then K-means clustering was used to identify which samples have which colors.
+
+Use k-means
+
 ## Future work
 
 All training data for this project came from levels directly from the [Kami app](https://apps.apple.com/us/app/kami/id710724007). These levels are hand-designed and therefore have a certain structure that may not generalize to arbitrary graphs. Future work could include generating synthetic training data by randomly generating graphs of varying size and topology.
 
-Another avenue for exploration is the architecture of the model. A few architectures were attempted, but followup investigations could include adding additional linear layers with non-linearities, adding dropout, etc.
+Another avenue for exploration is the architecture of the model. A few architectures were attempted, but followup investigations could include...
+
+<!-- [todo: add more follow-ups] -->
 
 ## Footnotes
 
 <div id="footnotes">
   <div id="fn:fn1">
-    <a href="#fnref:fn1">[1]</a>
+    <a class="fn" href="#fnref:fn1">[1]</a>
     <span>Kami is available in both <a href="https://apps.apple.com/us/app/kami/id710724007" target="_blank">iOS</a> and <a href="https://play.google.com/store/apps/details?id=com.stateofplaygames.kami2&hl=en-US" target="_blank">Android</a> app stores.</span>
   </div>
 
   <div id="fn:fn2">
-    <a href="#fnref:fn2">[2]</a>
+    <a class="fn" href="#fnref:fn2">[2]</a>
     <span>While this optimization is fairly elementary, a cursory literature review did not turn up prior work on this topic, so as far as I know this is a novel approach.</span>
   </div>
 </div>
