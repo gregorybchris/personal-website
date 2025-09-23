@@ -17,7 +17,6 @@ router = APIRouter()
 class BlogPost(BaseModel):
     title: str
     slug: str
-    topics: list[str]
     date: datetime
     content: str
     archived: bool
@@ -26,7 +25,6 @@ class BlogPost(BaseModel):
 class BlogPostMetadata(BaseModel):
     title: str
     slug: str
-    topics: list[str]
     date: datetime
     archived: bool
 
@@ -52,7 +50,6 @@ def post_to_metadata(post: BlogPost) -> BlogPostMetadata:
     return BlogPostMetadata(
         title=post.title,
         slug=post.slug,
-        topics=post.topics,
         date=post.date,
         archived=post.archived,
     )

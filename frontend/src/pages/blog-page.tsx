@@ -7,7 +7,6 @@ import { GET, makeQuery } from "../utilities/request-utilities";
 export interface BlogPost {
   title: string;
   slug: string;
-  topics: string[];
   date: string;
   content: string;
   archived: boolean;
@@ -16,7 +15,6 @@ export interface BlogPost {
 export interface BlogPostMetadata {
   title: string;
   slug: string;
-  topics: string[];
   date: string;
   archived: boolean;
 }
