@@ -9,7 +9,7 @@ export function PageTitle({ children, className }: PageTitleProps) {
   return (
     <div
       className={cn(
-        "text-center font-sanchez text-3xl text-black/75",
+        "font-sanchez text-center text-3xl text-black/75",
         className,
       )}
     >

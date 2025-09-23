@@ -54,7 +54,7 @@ export function ContactPage() {
       </div>
 
       <NavLink to="/hidden">
-        <div className="absolute right-5 top-5 h-10 w-10 cursor-pointer rounded-full bg-transparent"></div>
+        <div className="absolute top-5 right-5 h-10 w-10 cursor-pointer rounded-full bg-transparent"></div>
       </NavLink>
     </div>
   );

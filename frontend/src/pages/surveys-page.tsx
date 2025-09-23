@@ -334,7 +334,7 @@ function OptionCard({
     <div
       onClick={() => onOptionClicked(questionNumber, optionNumber)}
       className={cn(
-        "cursor-pointer rounded px-3 py-0.5 text-sky transition-all hover:bg-black/5 hover:text-royal",
+        "text-sky hover:text-royal cursor-pointer rounded px-3 py-0.5 transition-all hover:bg-black/5",
         isChosen && "bg-black/5 hover:bg-black/10",
         questionComplete && "text-royal/40",
       )}

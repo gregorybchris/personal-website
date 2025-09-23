@@ -17,7 +17,7 @@ export function SimpleLink({
   return (
     <a
       className={cn(
-        "cursor-pointer text-sky transition-all visited:text-sky hover:text-royal",
+        "text-sky visited:text-sky hover:text-royal cursor-pointer transition-all",
         className,
       )}
       href={link}

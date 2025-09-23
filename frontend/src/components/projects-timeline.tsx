@@ -298,7 +298,7 @@ export function ProjectsTimeline({
       </div>
       <div
         ref={canvasRef}
-        className="translate-y-[540%] -rotate-90 scale-[3.4] transform-gpu md:translate-y-0 md:rotate-0 md:scale-100"
+        className="translate-y-[540%] scale-[3.4] -rotate-90 transform-gpu md:translate-y-0 md:scale-100 md:rotate-0"
       ></div>
     </div>
   );

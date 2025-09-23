@@ -28,7 +28,7 @@ export function YouTubeChannelsPage() {
 
   return (
     <div className="flex flex-col items-center justify-items-center gap-5 px-2">
-      <div className="text-center font-sanchez text-3xl text-black/75">
+      <div className="font-sanchez text-center text-3xl text-black/75">
         YouTube Channels
       </div>
 

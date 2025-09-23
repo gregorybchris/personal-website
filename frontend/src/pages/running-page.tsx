@@ -130,7 +130,7 @@ interface RouteMapCardProps {
 function RouteMapCard({ route, routeData, mapBoxToken }: RouteMapCardProps) {
   return (
     <div className="flex w-full flex-col gap-2 px-4 md:w-[max(40%,550px)]">
-      <div className="flex flex-row items-baseline justify-between font-sanchez text-lg">
+      <div className="font-sanchez flex flex-row items-baseline justify-between text-lg">
         <div className="underline decoration-blue-500/60 underline-offset-4">
           {route.name}
         </div>
@@ -162,7 +162,7 @@ function RouteMapCard({ route, routeData, mapBoxToken }: RouteMapCardProps) {
           </MapContainer>
         )}
         {!mapBoxToken && (
-          <div className="text-md px-4 py-5 font-sanchez font-bold text-black/75">
+          <div className="text-md font-sanchez px-4 py-5 font-bold text-black/75">
             Failed to load MapBox data
           </div>
         )}
@@ -179,8 +179,8 @@ interface RoutesTableProps {
 function RoutesTable({ routes, onSelectRoute }: RoutesTableProps) {
   return (
     <div className="h-[470px] overflow-y-scroll">
-      <table className="Running-table border-separate border-spacing-y-1 font-raleway">
-        <thead className="Running-table-header sticky top-0 bg-parchment font-sanchez text-lg">
+      <table className="Running-table font-raleway border-separate border-spacing-y-1">
+        <thead className="Running-table-header bg-parchment font-sanchez sticky top-0 text-lg">
           <tr className="Running-table-row">
             <td className="Running-table-cell underline decoration-blue-500/60 underline-offset-4">
               Route
@@ -213,14 +213,14 @@ function RoutesTable({ routes, onSelectRoute }: RoutesTableProps) {
                 <span className="group-hover:text-sky">
                   {formatDistance(route.distance)}
                 </span>{" "}
-                <span className="text-black/30 group-hover:text-sky">mi</span>
+                <span className="group-hover:text-sky text-black/30">mi</span>
               </td>
               <td
                 className="Running-table-cell"
                 title={`${(route.elevation * 0.3048).toFixed(0)} m`}
               >
                 <span className="group-hover:text-sky">{route.elevation}</span>{" "}
-                <span className="text-black/30 group-hover:text-sky">ft</span>
+                <span className="group-hover:text-sky text-black/30">ft</span>
               </td>
               <td className="Running-table-cell RunningRoutes-tag">
                 <span className="group-hover:text-sky">{route.city}</span>

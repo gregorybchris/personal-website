@@ -39,7 +39,7 @@ export function TvShowsPage() {
 
   return (
     <div className="flex flex-col items-center justify-items-center gap-5 px-2">
-      <div className="text-center font-sanchez text-3xl text-black/75">
+      <div className="font-sanchez text-center text-3xl text-black/75">
         TV Shows
       </div>
 
@@ -73,7 +73,7 @@ export function TvShowsPage() {
                         />
                       )}
 
-                      <div className="font-sanchez font-bold text-sky">
+                      <div className="font-sanchez text-sky font-bold">
                         {show.name}
                       </div>
                     </div>
