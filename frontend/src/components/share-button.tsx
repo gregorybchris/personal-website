@@ -1,10 +1,13 @@
 import { ExportIcon } from "@phosphor-icons/react";
+import { isMobileDevice } from "../utilities/device-utilities";
+import { cn } from "../utilities/style-utilities";
 
 interface ShareButtonProps {
   url: string;
   text: string;
   shareTitle?: string;
   shareText?: string;
+  className?: string;
 }
 
 export default function ShareButton({
@@ -12,6 +15,7 @@ export default function ShareButton({
   text,
   shareTitle,
   shareText,
+  className,
 }: ShareButtonProps) {
   const onClick = async () => {
     if (navigator.share) {
@@ -25,10 +29,18 @@ export default function ShareButton({
     }
   };
 
+  const canShare = isMobileDevice() && !!navigator.share;
+  if (!canShare) {
+    return null;
+  }
+
   return (
     <div
       onClick={onClick}
-      className="flex cursor-pointer flex-row items-center gap-2 rounded-md px-3 py-1 hover:bg-black/5"
+      className={cn(
+        "flex cursor-pointer flex-row items-center gap-2 rounded-md px-3 py-1 hover:bg-black/5",
+        className,
+      )}
     >
       <ExportIcon size={20} weight="duotone" color="#6283c0" />
       <span className="text-md">{text}</span>
