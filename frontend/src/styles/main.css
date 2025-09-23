@@ -1,6 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-parchment: #f5f5f0;
+  --color-sky: #6283c0;
+  --color-royal: #1f43b6;
+  --font-raleway: "Raleway", sans-serif;
+  --font-iowa: "Iowa Old Style BT", serif;
+  --font-sanchez: "Sanchez", serif;
+}
 
 body {
   margin: 0;
