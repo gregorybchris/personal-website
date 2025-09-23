@@ -22,14 +22,14 @@ export function BlogPostPage() {
   return (
     <div
       id="blog"
-      className="flex flex-col items-center px-7 py-6 font-iowa md:px-10 md:py-10"
+      className="font-iowa flex flex-col items-center px-7 py-6 md:px-10 md:py-10"
     >
       {currentPost === null ? (
         <span className="">Loading post...</span>
       ) : (
         <div className="flex w-full flex-col items-center gap-6 px-0">
           <div className="flex flex-col items-center gap-2 md:max-w-[700px]">
-            <div className="text-balance text-center text-2xl font-bold md:max-w-[500px] md:text-3xl">
+            <div className="text-center text-2xl font-bold text-balance md:max-w-[500px] md:text-3xl">
               {currentPost.title}
             </div>
             <div className="text-sm text-black/50">
@@ -41,7 +41,8 @@ export function BlogPostPage() {
             <MarkdownRenderer>{currentPost.content}</MarkdownRenderer>
           </div>
 
-          <ShareButton url={window.location.href.replace(/\n/g, "")} />
+          {/* Use pathname instead of href to exclude hash fragment and/or query params */}
+          <ShareButton url={window.location.pathname} />
         </div>
       )}
     </div>
