@@ -1,4 +1,8 @@
-import { ArrowLeft, ClockCountdown, Users } from "@phosphor-icons/react";
+import {
+  ArrowLeftIcon,
+  ClockCountdownIcon,
+  UsersIcon,
+} from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "../components/button";
@@ -46,7 +50,7 @@ export function RecipePage() {
         onClick={() => navigate("/hidden/recipes")}
       >
         <div className="flex flex-row gap-x-2">
-          <ArrowLeft size={25} color="#6283c0" weight="regular" />
+          <ArrowLeftIcon size={25} color="#6283c0" weight="regular" />
           <div>Back to recipes</div>
         </div>
       </div>
@@ -56,7 +60,7 @@ export function RecipePage() {
       {recipe !== undefined && (
         <div className="flex w-[95%] flex-col items-start gap-6 md:w-[80%]">
           <a href={recipe.bigoven_link} target="_blank">
-            <div className="border-b border-sky font-sanchez text-3xl">
+            <div className="border-sky font-sanchez border-b text-3xl">
               {recipe.name}
             </div>
           </a>
@@ -64,26 +68,30 @@ export function RecipePage() {
           <div className="flex flex-row gap-x-6">
             <div className="flex flex-row gap-x-2">
               <div>
-                <ClockCountdown size={25} color="#6283c0" weight="regular" />
+                <ClockCountdownIcon
+                  size={25}
+                  color="#6283c0"
+                  weight="regular"
+                />
               </div>
               <div>Ready in {formatDuration(recipe.prep_time)}</div>
             </div>
             <div className="flex flex-row gap-x-2">
               <div>
-                <Users size={25} color="#6283c0" weight="regular" />
+                <UsersIcon size={25} color="#6283c0" weight="regular" />
               </div>
               <div>{recipe.serves} servings</div>
             </div>
           </div>
 
-          <div className="border-l-2 border-sky px-4 md:px-8">
+          <div className="border-sky border-l-2 px-4 md:px-8">
             <div className="font-sanchez text-xl">Notes</div>
             <div className="text-sm leading-6">
               {recipe.notes || "No notes available"}
             </div>
           </div>
 
-          <div className="border-l-2 border-sky px-4 md:px-8">
+          <div className="border-sky border-l-2 px-4 md:px-8">
             <div className="font-sanchez text-xl">Ingredients</div>
             <div className="text-sm">
               {recipe.ingredients.length === 0 &&
@@ -93,10 +101,10 @@ export function RecipePage() {
                 <div className="flex flex-row py-1" key={ingredient.name}>
                   <div className="flex w-[400px] flex-row items-center">
                     <div className="flex-none">{ingredient.name}</div>
-                    <div className="mx-3 h-1 w-full border-b border-dotted border-sky"></div>
+                    <div className="border-sky mx-3 h-1 w-full border-b border-dotted"></div>
                     <div className="flex flex-none flex-row items-center gap-2">
                       {ingredient.amount !== undefined && (
-                        <div className="h-9 w-9 rounded-full bg-sky pt-2 text-center font-bold text-parchment">
+                        <div className="bg-sky text-parchment h-9 w-9 rounded-full pt-2 text-center font-bold">
                           {convertFraction(ingredient.amount)}
                         </div>
                       )}
@@ -111,7 +119,7 @@ export function RecipePage() {
             </div>
           </div>
 
-          <div className="border-l-2 border-sky px-4 md:px-8">
+          <div className="border-sky border-l-2 px-4 md:px-8">
             <div className="font-sanchez text-xl">Instructions</div>
             <div className="text-sm leading-6">
               {recipe.instructions || "Nothing to see here"}

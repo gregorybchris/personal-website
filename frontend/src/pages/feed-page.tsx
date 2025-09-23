@@ -1,4 +1,4 @@
-import { ArrowLeft, Link as LinkIcon } from "@phosphor-icons/react";
+import { ArrowLeftIcon, LinkIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { PageTitle } from "../components/page-title";
@@ -121,7 +121,7 @@ export function FeedPage() {
             className="flex cursor-pointer flex-row gap-x-2 rounded-md px-2 py-1 hover:bg-black/[8%]"
             onClick={() => navigate("/hidden/feed")}
           >
-            <ArrowLeft size={25} color="#6283c0" weight="regular" />
+            <ArrowLeftIcon size={25} color="#6283c0" weight="regular" />
             <div>Back to all links</div>
           </div>
         )}
@@ -237,7 +237,7 @@ function FeedPostCard({
 
   return (
     <div
-      className="flex max-w-[600px] flex-col items-start gap-3 border-l-2 border-sky px-6 py-1"
+      className="border-sky flex max-w-[600px] flex-col items-start gap-3 border-l-2 px-6 py-1"
       id={post.post_id}
     >
       <div className="flex flex-col gap-1 px-2">

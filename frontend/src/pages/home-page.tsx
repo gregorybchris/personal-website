@@ -1,16 +1,16 @@
 import {
-  Books,
-  Circuitry,
-  Envelope,
-  MusicNotes,
-  SneakerMove,
+  BooksIcon,
+  CircuitryIcon,
+  EnvelopeIcon,
+  MusicNotesIcon,
+  SneakerMoveIcon,
 } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 
 export function HomePage() {
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center gap-8">
-      <div className="flex w-full flex-col items-center font-sanchez text-[40px] text-black/70">
+      <div className="font-sanchez flex w-full flex-col items-center text-[40px] text-black/70">
         Hey there!
       </div>
 
@@ -21,19 +21,19 @@ export function HomePage() {
               <NotePencil size={24} weight="duotone" color="#6283c0" />
             </PageLink> */}
             <PageLink to="/projects" name="Projects">
-              <Circuitry size={24} weight="duotone" color="#6283c0" />
+              <CircuitryIcon size={24} weight="duotone" color="#6283c0" />
             </PageLink>
             <PageLink to="/running" name="Running">
-              <SneakerMove size={24} weight="duotone" color="#6283c0" />
+              <SneakerMoveIcon size={24} weight="duotone" color="#6283c0" />
             </PageLink>
             <PageLink to="/books" name="Books">
-              <Books size={24} weight="duotone" color="#6283c0" />
+              <BooksIcon size={24} weight="duotone" color="#6283c0" />
             </PageLink>
             <PageLink to="/music" name="Music">
-              <MusicNotes size={24} weight="duotone" color="#6283c0" />
+              <MusicNotesIcon size={24} weight="duotone" color="#6283c0" />
             </PageLink>
             <PageLink to="/contact" name="Contact">
-              <Envelope size={24} weight="duotone" color="#6283c0" />
+              <EnvelopeIcon size={24} weight="duotone" color="#6283c0" />
             </PageLink>
           </div>
 
@@ -57,7 +57,7 @@ interface PageLinkProps {
 function PageLink({ to, name, children }: PageLinkProps) {
   return (
     <Link to={to}>
-      <div className="flex flex-row items-center gap-3 rounded px-2 py-1 transition-all hover:bg-black/[8%] md:pl-3 md:pr-4">
+      <div className="flex flex-row items-center gap-3 rounded px-2 py-1 transition-all hover:bg-black/[8%] md:pr-4 md:pl-3">
         {children}
         <div className="font-sanchez text-sm md:text-lg">{name}</div>
       </div>

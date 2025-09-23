@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { XCircle } from "@phosphor-icons/react";
+import { XCircleIcon } from "@phosphor-icons/react";
 import { Command } from "cmdk";
 import { useNavigate } from "react-router-dom";
 import { cn } from "../utilities/style-utilities";
@@ -64,11 +64,11 @@ export function CommandBar() {
       open={open}
       onOpenChange={setOpen}
       label="Command Bar"
-      className="absolute top-0 z-[15] flex w-full justify-center px-10 py-10 font-raleway md:py-24"
+      className="font-raleway absolute top-0 z-[15] flex w-full justify-center px-10 py-10 md:py-24"
     >
       <div
         className={cn(
-          "flex w-[400px] flex-col justify-center overflow-hidden bg-parchment",
+          "bg-parchment flex w-[400px] flex-col justify-center overflow-hidden",
           "rounded-lg px-3 py-1 text-center shadow-[0_0_200px_30px_rgba(0,0,0,0.2)]",
         )}
       >
@@ -82,7 +82,7 @@ export function CommandBar() {
             className="cursor-pointer rounded-full p-1 transition-all hover:bg-black/[8%]"
             onClick={toggleOpen}
           >
-            <XCircle size={26} color="#6283c0" weight="regular" />
+            <XCircleIcon size={26} color="#6283c0" weight="regular" />
           </div>
         </div>
 

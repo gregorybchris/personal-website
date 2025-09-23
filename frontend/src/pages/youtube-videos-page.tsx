@@ -1,4 +1,4 @@
-import { Link as LinkIcon } from "@phosphor-icons/react";
+import { LinkIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { PageTitle } from "../components/page-title";
@@ -111,7 +111,7 @@ export function YouTubeVideoCard({
         <div className="text-sm">
           Creator:{" "}
           <span
-            className="cursor-pointer transition-all hover:text-royal"
+            className="hover:text-royal cursor-pointer transition-all"
             onClick={() => updateQuery(creator)}
           >
             {creator}

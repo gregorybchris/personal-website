@@ -1,4 +1,4 @@
-import { Link as LinkIcon } from "@phosphor-icons/react";
+import { LinkIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { PageTitle } from "../components/page-title";

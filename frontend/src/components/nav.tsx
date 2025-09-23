@@ -1,10 +1,10 @@
 import {
-  Books,
-  Circuitry,
-  Envelope,
-  House,
-  MusicNotes,
-  SneakerMove,
+  BooksIcon,
+  CircuitryIcon,
+  EnvelopeIcon,
+  HouseIcon,
+  MusicNotesIcon,
+  SneakerMoveIcon,
 } from "@phosphor-icons/react";
 import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
 import { cn } from "../utilities/style-utilities";
@@ -22,25 +22,25 @@ export function Nav() {
   return (
     <div className="flex flex-row flex-wrap justify-center gap-1 px-6 py-4 md:justify-start">
       <NavPageLink to="/" name="Home">
-        <House size={iconSize} weight="duotone" color="#6283c0" />
+        <HouseIcon size={iconSize} weight="duotone" color="#6283c0" />
       </NavPageLink>
       {/* <NavPageLink to="/blog" name="Blog">
         <NotePencil size={iconSize} weight="duotone" color="#6283c0" />
       </NavPageLink> */}
       <NavPageLink to="/projects" name="Projects">
-        <Circuitry size={iconSize} weight="duotone" color="#6283c0" />
+        <CircuitryIcon size={iconSize} weight="duotone" color="#6283c0" />
       </NavPageLink>
       <NavPageLink to="/running" name="Running">
-        <SneakerMove size={iconSize} weight="duotone" color="#6283c0" />
+        <SneakerMoveIcon size={iconSize} weight="duotone" color="#6283c0" />
       </NavPageLink>
       <NavPageLink to="/books" name="Books">
-        <Books size={iconSize} weight="duotone" color="#6283c0" />
+        <BooksIcon size={iconSize} weight="duotone" color="#6283c0" />
       </NavPageLink>
       <NavPageLink to="/music" name="Music">
-        <MusicNotes size={iconSize} weight="duotone" color="#6283c0" />
+        <MusicNotesIcon size={iconSize} weight="duotone" color="#6283c0" />
       </NavPageLink>
       <NavPageLink to="/contact" name="Contact">
-        <Envelope size={iconSize} weight="duotone" color="#6283c0" />
+        <EnvelopeIcon size={iconSize} weight="duotone" color="#6283c0" />
       </NavPageLink>
     </div>
   );

@@ -1,10 +1,10 @@
 import {
-  X as CloseIcon,
-  Coffee,
-  DownloadSimple,
-  GithubLogo,
-  Lightbulb,
-  Play,
+  CoffeeIcon,
+  DownloadSimpleIcon,
+  GithubLogoIcon,
+  LightbulbIcon,
+  PlayIcon,
+  XIcon,
 } from "@phosphor-icons/react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Project } from "../pages/projects-page";
@@ -35,12 +35,12 @@ export function ProjectModal({
     <Dialog.Root open={open} onOpenChange={onModalOpenChange}>
       <Dialog.Portal>
         <Dialog.Overlay className="data-[state=open]:animate-overlayShow fixed inset-0" />
-        <Dialog.Content className="data-[state=open]:animate-contentShow fixed left-[50%] top-[50%] h-[90vh] max-h-[90vh] w-[90vw] max-w-[90vw] translate-x-[-50%] translate-y-[-50%] overflow-auto rounded-lg bg-white p-10 shadow-lg md:w-[60vw]">
+        <Dialog.Content className="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] h-[90vh] max-h-[90vh] w-[90vw] max-w-[90vw] translate-x-[-50%] translate-y-[-50%] overflow-auto rounded-lg bg-white p-10 shadow-lg md:w-[60vw]">
           <Dialog.Title className="font-sanchez text-2xl text-black/75">
             {project.name}
           </Dialog.Title>
 
-          <div className="flex flex-col items-start gap-5 font-raleway">
+          <div className="font-raleway flex flex-col items-start gap-5">
             <Dialog.Description className="text-md text-black/75">
               {formatDate(project.date)}
             </Dialog.Description>
@@ -78,7 +78,7 @@ export function ProjectModal({
 
             {project.image_links.length > 0 && (
               <>
-                <div className="w-full border-b border-sky"></div>
+                <div className="border-sky w-full border-b"></div>
 
                 <div className="flex flex-wrap">
                   {project.image_links.map((imageLink, i) => (
@@ -90,8 +90,8 @@ export function ProjectModal({
           </div>
 
           <Dialog.Close asChild>
-            <button className="absolute right-5 top-5 flex size-10 items-center justify-center rounded-full outline-none transition-all hover:bg-black/5">
-              <CloseIcon />
+            <button className="absolute top-5 right-5 flex size-10 items-center justify-center rounded-full transition-all outline-none hover:bg-black/5">
+              <XIcon />
             </button>
           </Dialog.Close>
         </Dialog.Content>
@@ -124,11 +124,11 @@ interface ProjectInfoLinkProps {
 function ProjectInfoLink({ text, link, kind }: ProjectInfoLinkProps) {
   let logo = null;
   if (kind === "source")
-    logo = <GithubLogo size={25} weight="duotone" color="#6283c0" />;
+    logo = <GithubLogoIcon size={25} weight="duotone" color="#6283c0" />;
   if (kind === "demo")
-    logo = <Play size={25} weight="duotone" color="#6283c0" />;
+    logo = <PlayIcon size={25} weight="duotone" color="#6283c0" />;
   if (kind === "original")
-    logo = <Lightbulb size={25} weight="duotone" color="#6283c0" />;
+    logo = <LightbulbIcon size={25} weight="duotone" color="#6283c0" />;
 
   return (
     <div className="flex flex-row">
@@ -156,9 +156,9 @@ function DownloadLink({ project, onDownload }: DownloadLinkProps) {
         className="flex flex-row items-center gap-x-2"
       >
         {isJava ? (
-          <Coffee size={25} weight="duotone" color="#6283c0" />
+          <CoffeeIcon size={25} weight="duotone" color="#6283c0" />
         ) : (
-          <DownloadSimple size={25} weight="duotone" color="#6283c0" />
+          <DownloadSimpleIcon size={25} weight="duotone" color="#6283c0" />
         )}
         <div>{text}</div>
       </ActionLink>

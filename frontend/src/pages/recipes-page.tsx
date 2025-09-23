@@ -1,13 +1,13 @@
 import {
-  BowlFood,
-  Cookie,
-  CookingPot,
-  FishSimple,
-  ForkKnife,
-  Knife,
-  Person,
-  Shrimp,
-  Timer,
+  BowlFoodIcon,
+  CookieIcon,
+  CookingPotIcon,
+  FishSimpleIcon,
+  ForkKnifeIcon,
+  KnifeIcon,
+  PersonIcon,
+  ShrimpIcon,
+  TimerIcon,
 } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -63,21 +63,21 @@ export function RecipesPage() {
   function getIcon(foodType: FoodType) {
     switch (foodType) {
       case "shrimp":
-        return <Shrimp size={30} color="#f5f5f0" weight="regular" />;
+        return <ShrimpIcon size={30} color="#f5f5f0" weight="regular" />;
       case "cookie":
-        return <Cookie size={30} color="#f5f5f0" weight="regular" />;
+        return <CookieIcon size={30} color="#f5f5f0" weight="regular" />;
       case "fork-knife":
-        return <ForkKnife size={30} color="#f5f5f0" weight="regular" />;
+        return <ForkKnifeIcon size={30} color="#f5f5f0" weight="regular" />;
       case "knife":
-        return <Knife size={30} color="#f5f5f0" weight="regular" />;
+        return <KnifeIcon size={30} color="#f5f5f0" weight="regular" />;
       case "baked":
-        return <CookingPot size={30} color="#f5f5f0" weight="regular" />;
+        return <CookingPotIcon size={30} color="#f5f5f0" weight="regular" />;
       case "bowl":
-        return <BowlFood size={30} color="#f5f5f0" weight="regular" />;
+        return <BowlFoodIcon size={30} color="#f5f5f0" weight="regular" />;
       case "fish":
-        return <FishSimple size={30} color="#f5f5f0" weight="regular" />;
+        return <FishSimpleIcon size={30} color="#f5f5f0" weight="regular" />;
       default:
-        return <ForkKnife size={30} color="#f5f5f0" weight="regular" />;
+        return <ForkKnifeIcon size={30} color="#f5f5f0" weight="regular" />;
     }
   }
 
@@ -93,10 +93,10 @@ export function RecipesPage() {
             !recipe.archived && (
               <div
                 key={recipe.name}
-                className="relative mx-4 my-3 flex h-[130px] w-[240px] cursor-pointer flex-row items-center border-2 border-sky text-center transition-all hover:border-royal"
+                className="border-sky hover:border-royal relative mx-4 my-3 flex h-[130px] w-[240px] cursor-pointer flex-row items-center border-2 text-center transition-all"
                 onClick={() => navigate(`/hidden/recipes/${recipe.slug}`)}
               >
-                <div className="absolute -left-3 -top-3 rounded-full bg-sky p-2">
+                <div className="bg-sky absolute -top-3 -left-3 rounded-full p-2">
                   {icon}
                 </div>
 
@@ -107,11 +107,11 @@ export function RecipesPage() {
 
                   <div className="flex flex-col items-center gap-1 text-xs">
                     <div className="flex flex-row items-center gap-1">
-                      <Timer size={14} color="#6283c0" weight="duotone" />
+                      <TimerIcon size={14} color="#6283c0" weight="duotone" />
                       <div>Ready in {formatDuration(recipe.prep_time)}</div>
                     </div>
                     <div className="flex flex-row items-center gap-1">
-                      <Person size={14} color="#6283c0" weight="duotone" />
+                      <PersonIcon size={14} color="#6283c0" weight="duotone" />
                       <div>Serves {recipe.serves}</div>
                     </div>
                   </div>
