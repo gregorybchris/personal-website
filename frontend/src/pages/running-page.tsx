@@ -140,6 +140,7 @@ function RouteMapCard({ route, routeData, mapBoxToken }: RouteMapCardProps) {
       <div className="h-[450px] w-full border-2 border-neutral-300">
         {mapBoxToken && (
           <MapContainer
+            key={route.route_id}
             className="!z-[10] h-full w-full"
             center={[51.505, -0.09]}
             zoom={13}
@@ -212,14 +213,14 @@ function RoutesTable({ routes, onSelectRoute }: RoutesTableProps) {
                 <span className="group-hover:text-sky">
                   {formatDistance(route.distance)}
                 </span>{" "}
-                <span className="group-hover:text-sky text-black/30">mi</span>
+                <span className="text-black/30 group-hover:text-sky">mi</span>
               </td>
               <td
                 className="Running-table-cell"
                 title={`${(route.elevation * 0.3048).toFixed(0)} m`}
               >
                 <span className="group-hover:text-sky">{route.elevation}</span>{" "}
-                <span className="group-hover:text-sky text-black/30">ft</span>
+                <span className="text-black/30 group-hover:text-sky">ft</span>
               </td>
               <td className="Running-table-cell RunningRoutes-tag">
                 <span className="group-hover:text-sky">{route.city}</span>
@@ -248,5 +249,5 @@ function RouteMap({ routeData }: RouteMapProps) {
     map.fitBounds(points.map((p) => [p.latitude, p.longitude]));
   }
 
-  return <div></div>;
+  return null;
 }

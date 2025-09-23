@@ -20,12 +20,12 @@
     "leaflet": "^1.9.4",
     "luxon": "^3.5.0",
     "random": "^5.1.1",
-    "react": "^18.3.1",
+    "react": "^19.1.1",
     "react-d3-radar": "1.0.0-rc6",
-    "react-dom": "^18.3.1",
-    "react-leaflet": "^4.2.1",
+    "react-dom": "^19.1.1",
+    "react-leaflet": "^5.0.0",
     "react-markdown": "^10.1.0",
-    "react-router-dom": "^6.28.1",
+    "react-router-dom": "^7.9.1",
     "react-syntax-highlighter": "^15.6.6",
     "rehype-katex": "^7.0.1",
     "rehype-raw": "^7.0.0",
@@ -38,24 +38,18 @@
     "@types/d3": "^7.4.3",
     "@types/leaflet": "^1.9.15",
     "@types/luxon": "^3.4.2",
-    "@types/react": "^18.3.18",
-    "@types/react-dom": "^18.3.5",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
     "@types/react-router-dom": "^5.3.3",
     "@types/react-syntax-highlighter": "^15.5.13",
     "@types/seedrandom": "^3.0.8",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react": "^5.0.3",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2",
-    "vite": "^5.4.11"
-  },
-  "pnpm": {
-    "overrides": {
-      "d3-color@<3.1.0": ">=3.1.0",
-      "vite@>=3.0.0 <=3.2.7": ">=3.2.8"
-    }
+    "vite": "^7.1.7"
   }
 }
