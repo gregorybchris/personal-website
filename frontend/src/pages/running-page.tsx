@@ -41,16 +41,10 @@ export function RunningPage() {
   const [currentRouteData, setCurrentRouteData] = useState<RouteData | null>(
     null,
   );
-  const [mapBoxToken, setMapBoxToken] = useState("");
   const { slug } = useParams();
   let navigate = useNavigate();
 
   useEffect(() => {
-    const token = import.meta.env.VITE_MAPBOX_TOKEN;
-    if (token) {
-      setMapBoxToken(token);
-    }
-
     const routesQuery = makeQuery("outdoor/running");
     GET(routesQuery).then((routes: RunningRoute[]) => {
       setRoutes(routes.sort(routeCompare));
@@ -109,11 +103,7 @@ export function RunningPage() {
 
       <div className="flex w-full flex-row flex-wrap justify-center gap-5">
         {currentRoute && currentRouteData && (
-          <RouteMapCard
-            routeData={currentRouteData}
-            route={currentRoute}
-            mapBoxToken={mapBoxToken}
-          />
+          <RouteMapCard routeData={currentRouteData} route={currentRoute} />
         )}
         <RoutesTable routes={routes} onSelectRoute={onSelectRoute} />
       </div>
@@ -124,10 +114,11 @@ export function RunningPage() {
 interface RouteMapCardProps {
   route: RunningRoute;
   routeData: RouteData;
-  mapBoxToken: string;
 }
 
-function RouteMapCard({ route, routeData, mapBoxToken }: RouteMapCardProps) {
+function RouteMapCard({ route, routeData }: RouteMapCardProps) {
+  const mapBoxToken = import.meta.env.VITE_MAPBOX_TOKEN;
+
   return (
     <div className="flex w-full flex-col gap-2 px-4 md:w-[max(40%,550px)]">
       <div className="font-sanchez flex flex-row items-baseline justify-between text-lg">
@@ -138,34 +129,26 @@ function RouteMapCard({ route, routeData, mapBoxToken }: RouteMapCardProps) {
       </div>
 
       <div className="h-[450px] w-full border-2 border-neutral-300">
-        {mapBoxToken && (
-          <MapContainer
-            key={route.route_id}
-            className="!z-[10] h-full w-full"
-            center={[51.505, -0.09]}
-            zoom={13}
-            scrollWheelZoom={true}
-          >
-            <RouteMap routeData={routeData} />
-            <TileLayer
-              url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
-              id="mapbox/streets-v11"
-              attribution=""
-              maxZoom={18}
-              tileSize={512}
-              zoomOffset={-1}
-              accessToken={mapBoxToken}
-            />
-            <Polyline
-              positions={routeData.points.map((p) => [p.latitude, p.longitude])}
-            />
-          </MapContainer>
-        )}
-        {!mapBoxToken && (
-          <div className="text-md font-sanchez px-4 py-5 font-bold text-black/75">
-            Failed to load MapBox data
-          </div>
-        )}
+        <MapContainer
+          key={route.route_id}
+          className="!z-[10] h-full w-full"
+          center={[51.505, -0.09]}
+          zoom={13}
+          scrollWheelZoom={true}
+        >
+          <RouteMap routeData={routeData} />
+          <TileLayer
+            url={`https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${mapBoxToken}`}
+            id="mapbox/streets-v11"
+            attribution=""
+            maxZoom={18}
+            tileSize={512}
+            zoomOffset={-1}
+          />
+          <Polyline
+            positions={routeData.points.map((p) => [p.latitude, p.longitude])}
+          />
+        </MapContainer>
       </div>
     </div>
   );
