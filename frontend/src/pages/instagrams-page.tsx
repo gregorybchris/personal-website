@@ -27,7 +27,6 @@ export function InstagramsPage() {
     const requestBody = { query, id: currentId };
     POST(instagramsQuery, requestBody)
       .then((response) => {
-        console.log("Instagrams response:", response);
         setInstagrams(response.results);
         setLoading(false);
       })

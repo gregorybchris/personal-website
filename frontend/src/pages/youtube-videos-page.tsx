@@ -27,7 +27,6 @@ export function YouTubeVideosPage() {
     const requestBody = { query, id: currentId };
     POST(youtubeVideosQuery, requestBody)
       .then((response) => {
-        console.log("YouTube videos response:", response);
         setYouTubeVideos(response.results);
         setLoading(false);
       })

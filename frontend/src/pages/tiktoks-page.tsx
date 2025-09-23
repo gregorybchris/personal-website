@@ -27,7 +27,6 @@ export function TiktoksPage() {
     const requestBody = { query, id: currentId };
     POST(tiktoksQuery, requestBody)
       .then((response) => {
-        console.log("Tiktoks response:", response);
         setTiktoks(response.results);
         setLoading(false);
       })

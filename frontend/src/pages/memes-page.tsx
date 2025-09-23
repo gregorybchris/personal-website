@@ -28,7 +28,6 @@ export function MemesPage() {
     const requestBody = { query, id: currentId };
     POST(memesQuery, requestBody)
       .then((response) => {
-        console.log("Memes response:", response);
         setMemes(response.results);
         setLoading(false);
       })
