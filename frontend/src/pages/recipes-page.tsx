@@ -93,10 +93,10 @@ export function RecipesPage() {
             !recipe.archived && (
               <div
                 key={recipe.name}
-                className="border-sky relative mx-4 my-3 flex h-[130px] w-[240px] cursor-pointer flex-row items-center border-2 text-center transition-all hover:border-royal"
+                className="relative mx-4 my-3 flex h-[130px] w-[240px] cursor-pointer flex-row items-center border-2 border-sky text-center transition-all hover:border-royal"
                 onClick={() => navigate(`/hidden/recipes/${recipe.slug}`)}
               >
-                <div className="bg-sky absolute -left-3 -top-3 rounded-full p-2">
+                <div className="absolute -left-3 -top-3 rounded-full bg-sky p-2">
                   {icon}
                 </div>
 

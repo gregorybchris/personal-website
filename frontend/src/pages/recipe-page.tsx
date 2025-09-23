@@ -56,7 +56,7 @@ export function RecipePage() {
       {recipe !== undefined && (
         <div className="flex w-[95%] flex-col items-start gap-6 md:w-[80%]">
           <a href={recipe.bigoven_link} target="_blank">
-            <div className="border-sky border-b font-sanchez text-3xl">
+            <div className="border-b border-sky font-sanchez text-3xl">
               {recipe.name}
             </div>
           </a>
@@ -76,14 +76,14 @@ export function RecipePage() {
             </div>
           </div>
 
-          <div className="border-sky border-l-2 px-4 md:px-8">
+          <div className="border-l-2 border-sky px-4 md:px-8">
             <div className="font-sanchez text-xl">Notes</div>
             <div className="text-sm leading-6">
               {recipe.notes || "No notes available"}
             </div>
           </div>
 
-          <div className="border-sky border-l-2 px-4 md:px-8">
+          <div className="border-l-2 border-sky px-4 md:px-8">
             <div className="font-sanchez text-xl">Ingredients</div>
             <div className="text-sm">
               {recipe.ingredients.length === 0 &&
@@ -93,10 +93,10 @@ export function RecipePage() {
                 <div className="flex flex-row py-1" key={ingredient.name}>
                   <div className="flex w-[400px] flex-row items-center">
                     <div className="flex-none">{ingredient.name}</div>
-                    <div className="border-sky mx-3 h-1 w-full border-b border-dotted"></div>
+                    <div className="mx-3 h-1 w-full border-b border-dotted border-sky"></div>
                     <div className="flex flex-none flex-row items-center gap-2">
                       {ingredient.amount !== undefined && (
-                        <div className="bg-sky h-9 w-9 rounded-full pt-2 text-center font-bold text-parchment">
+                        <div className="h-9 w-9 rounded-full bg-sky pt-2 text-center font-bold text-parchment">
                           {convertFraction(ingredient.amount)}
                         </div>
                       )}
@@ -111,7 +111,7 @@ export function RecipePage() {
             </div>
           </div>
 
-          <div className="border-sky border-l-2 px-4 md:px-8">
+          <div className="border-l-2 border-sky px-4 md:px-8">
             <div className="font-sanchez text-xl">Instructions</div>
             <div className="text-sm leading-6">
               {recipe.instructions || "Nothing to see here"}

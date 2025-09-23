@@ -237,7 +237,7 @@ function FeedPostCard({
 
   return (
     <div
-      className="border-sky flex max-w-[600px] flex-col items-start gap-3 border-l-2 px-6 py-1"
+      className="flex max-w-[600px] flex-col items-start gap-3 border-l-2 border-sky px-6 py-1"
       id={post.post_id}
     >
       <div className="flex flex-col gap-1 px-2">

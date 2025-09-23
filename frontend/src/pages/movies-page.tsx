@@ -73,7 +73,7 @@ export function MoviesPage() {
                         />
                       )}
 
-                      <div className="text-sky font-sanchez font-bold">
+                      <div className="font-sanchez font-bold text-sky">
                         {movie.name}
                       </div>
                     </div>

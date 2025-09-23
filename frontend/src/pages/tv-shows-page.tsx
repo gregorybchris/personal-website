@@ -73,7 +73,7 @@ export function TvShowsPage() {
                         />
                       )}
 
-                      <div className="text-sky font-sanchez font-bold">
+                      <div className="font-sanchez font-bold text-sky">
                         {show.name}
                       </div>
                     </div>

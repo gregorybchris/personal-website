@@ -11,7 +11,7 @@ export function ActionLink({ onClick, children, className }: ActionLinkProps) {
     <div
       onClick={onClick}
       className={cn(
-        "text-sky visited:text-sky cursor-pointer transition-all hover:text-royal",
+        "cursor-pointer text-sky transition-all visited:text-sky hover:text-royal",
         className,
       )}
     >
