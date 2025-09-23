@@ -1,4 +1,4 @@
-import { Export } from "@phosphor-icons/react";
+import { ExportIcon } from "@phosphor-icons/react";
 
 interface ShareButtonProps {
   url: string;
@@ -22,9 +22,9 @@ export default function ShareButton({ url, title, text }: ShareButtonProps) {
   return (
     <div
       onClick={onClick}
-      className="flex cursor-pointer flex-row items-center gap-2 rounded-md bg-parchment px-3 py-1 hover:bg-black/5"
+      className="bg-parchment flex cursor-pointer flex-row items-center gap-2 rounded-md px-3 py-1 hover:bg-black/5"
     >
-      <Export size={20} weight="duotone" color="#6283c0" />
+      <ExportIcon size={20} weight="duotone" color="#6283c0" />
       <span className="text-md font-medium">Share</span>
     </div>
   );
