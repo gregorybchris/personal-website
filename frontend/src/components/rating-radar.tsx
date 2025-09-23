@@ -13,17 +13,14 @@ export function RatingRadar({ scores }: RatingRadarProps) {
   const variables = Array.from(scores.keys()).map((key) => {
     return { key: key, label: toTitleCase(key) };
   });
-  console.log("variables", variables);
   const values = Object.fromEntries(scores);
-  console.log("values", values);
 
   return (
-    // Note: this margin is needed because otherwise the radar chart is cut off
-    <div className="radar-chart mx-12 my-7 size-32">
+    <div className="radar-chart">
       <Radar
-        width={100}
-        height={100}
-        padding={0}
+        width={200}
+        height={150}
+        padding={18}
         domainMax={10}
         style={{
           numRings: 5,
