@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MarkdownRenderer } from "../components/markdown-renderer";
+import ShareButton from "../components/share-button";
 import "../styles/blog.css";
 import "../styles/fonts.css";
 import { formatDate } from "../utilities/datetime-utilities";
@@ -39,6 +40,8 @@ export function BlogPostPage() {
           <div className="w-[100%] pb-6 text-justify leading-relaxed md:w-[50%]">
             <MarkdownRenderer>{currentPost.content}</MarkdownRenderer>
           </div>
+
+          <ShareButton url={window.location.href.replace(/\n/g, "")} />
         </div>
       )}
     </div>
