@@ -72,9 +72,9 @@ To fill all pixels with the same color we perform iterated vertex contractions u
 
 ## Specifying the objective
 
-Our goal is to find a sequence of contractions that fully contracts the graph and has a length no greater than our target number of moves. A contraction is defined by the vertex being contracted and the color it's being assigned, so a puzzle solution will be a sequence of `(vertex, color)` pairs.
+Our goal is to find a sequence of contractions that fully contracts the graph within the specified number of moves. A contraction is defined by the vertex being contracted and the color it's being assigned, so a puzzle solution will be a sequence of `(vertex, color)` pairs.
 
-The naïve, brute force approach is a simple tree traversal &mdash; select a vertex at random, select a color of one of its neighbors (different from its own color), contract the vertex with that color, and repeat until only one vertex remains. Do this for all possible vertices/colors and return when a solution is found with the desired length.
+The naïve, brute force approach is a simple tree traversal &mdash; select a vertex at random, select a color of one of its neighbors (different from its own color), contract the vertex with that color, and repeat until only one vertex remains. Do this for all possible vertices/colors and terminate when a solution is found with the desired length.
 
 > You may notice that the order in which vertices are contracted matters, so the number of possible contraction sequences grows exponentially with the number of vertices.
 
