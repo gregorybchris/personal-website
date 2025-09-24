@@ -38,6 +38,14 @@
   text-align: left;
 }
 
+#blog h3 {
+  font-size: 1.25rem;
+  font-style: italic;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
 #blog .katex-html {
   display: none;
 }
