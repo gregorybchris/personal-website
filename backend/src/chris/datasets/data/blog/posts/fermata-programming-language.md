@@ -37,8 +37,10 @@ After a few years of jotting down little ideas here and there, I finally sat dow
 ## Better tooling
 
 - A better package manager that auto-upgrades and checks for semver compatibility
-- A built-in testing framework
+- A built-in testing framework where tests link back to the code they test
 - A built-in linter
 - A built-in formatter
 - A built-in type checker
-- A built-in documentation generator from standardized docstrings
+- A built-in docs generator from standardized docstrings
+- An IDE that integrates with linter, docs generator, tests, and package manager
+- A solution for reactive notebooks, built into the IDE
