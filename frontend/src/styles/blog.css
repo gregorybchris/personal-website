@@ -11,6 +11,7 @@
 #blog code {
   color: #dc5039;
   text-decoration: none;
+  font-family: "Geist Mono Variable", serif;
 }
 
 #blog pre {
@@ -139,4 +140,8 @@
   font-weight: bold;
   color: white;
   border-right: 1px solid #5979b5;
+}
+
+#blog .snip {
+  font-family: "Geist Mono Variable", monospace;
 }

@@ -1,3 +1,4 @@
+import "@fontsource-variable/geist-mono";
 import "@fontsource/raleway";
 import "@fontsource/raleway/300.css";
 import "@fontsource/raleway/400.css";
