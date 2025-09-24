@@ -1,7 +1,10 @@
 import { CopyIcon } from "@phosphor-icons/react";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import py from "react-syntax-highlighter/dist/esm/languages/hljs/python";
+import atomOneLight from "react-syntax-highlighter/dist/esm/styles/hljs/atom-one-light";
 import { toast } from "sonner";
+
+SyntaxHighlighter.registerLanguage("python", py);
 
 interface CodeBlockProps {
   language: string;
