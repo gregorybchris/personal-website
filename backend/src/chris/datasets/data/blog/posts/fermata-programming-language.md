@@ -17,4 +17,28 @@ All of these factors co-evolve and culminate in these artifacts, these frankenst
 
 I started working on a project to flesh out my "perfect language", knowing full well that no language could be perfect for solving every problem I have, let alone every problem. Despite the task being impossible, I was curious to see what it would be like to build a language with a splash of experimental/innovative, but a focus on being familiar, intuitive, and inoffensive.
 
-After a few years of jotting down little ideas here and there, I finally sat down and coded up the first prototype of the Fermata programming language. You can try it out in your browser at <a href="[https://fermata-ide](https://fermata-ide.vercel.app/)" target="_blank">fermata-ide.vercel.app</a>.
+After a few years of jotting down little ideas here and there, I finally sat down and coded up the first prototype of the Fermata programming language. You can try it out in your browser at <a href="https://fermata-ide.vercel.app" target="_blank">fermata-ide.vercel.app</a>.
+
+## Key features
+
+- Syntax that feels like Python or TypeScript so that it feels familiar to most programmers
+- Reducing the amount of special characters so it's easy to type - no brackets, no colons, letters for boolean operators, etc.
+- Tags to create TypeScript-like types without imports (as with enums)
+- Modern pattern matching
+- Built-in type hints
+- Traits like Rust rather than inheritance or interfaces
+- Algebraic data types
+- First-class iterators
+- First-class async/await
+- Lambdas with arrow notation
+- Pipelines
+- Monadic error handling
+
+## Better tooling
+
+- A better package manager that auto-upgrades and checks for semver compatibility
+- A built-in testing framework
+- A built-in linter
+- A built-in formatter
+- A built-in type checker
+- A built-in documentation generator from standardized docstrings
