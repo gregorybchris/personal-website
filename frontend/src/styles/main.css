@@ -2,6 +2,8 @@
 
 @theme {
   --color-parchment: #f5f5f0;
+  --color-dark-parchment: #eaeae3;
+  --color-darker-parchment: #dbdbd6;
   --color-sky: #6283c0;
   --color-royal: #1f43b6;
   --font-raleway: "Raleway", sans-serif;

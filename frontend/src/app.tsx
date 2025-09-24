@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { Toaster } from "sonner";
 import { CommandBar } from "./components/command-bar";
 import { Nav } from "./components/nav";
 import { ArchivePage } from "./pages/archive-page";
@@ -46,6 +47,12 @@ function Layout() {
   return (
     <div>
       <>
+        <Toaster
+          theme="light"
+          toastOptions={{
+            className: "font-raleway",
+          }}
+        />
         <CommandBar />
         {location.pathname !== "/" && <Nav />}
 

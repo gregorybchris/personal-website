@@ -20,8 +20,8 @@
 
 #blog pre div {
   border-radius: 0.375rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 #blog pre code {

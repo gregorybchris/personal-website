@@ -1,12 +1,11 @@
 import ReactMarkdown from "react-markdown";
-import { atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import rehypeKatex from "rehype-katex";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
-
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import python from "react-syntax-highlighter/dist/esm/languages/hljs/python";
+import { CodeBlock } from "./code-block";
 
 SyntaxHighlighter.registerLanguage("python", python);
 
@@ -23,21 +22,9 @@ export function MarkdownRenderer({ children }: MarkdownRendererProps) {
         code({ node, inline, className = "", children, ...props }: any) {
           const match = /language-(\w+)/.exec(className);
           return !inline && match ? (
-            <SyntaxHighlighter
-              style={atomOneLight}
-              language={match[1]}
-              PreTag="div"
-              customStyle={{
-                paddingTop: "1.5rem",
-                paddingBottom: "1.5rem",
-                paddingLeft: "1.5rem",
-                paddingRight: "1.5rem",
-                backgroundColor: "#eaeae3",
-              }}
-              {...props}
-            >
-              {String(children).replace(/\n$/, "")}
-            </SyntaxHighlighter>
+            <CodeBlock language={match[1]}>
+              {String(children)}
+            </CodeBlock>
           ) : (
             <code className={className} {...props}>
               {children}
