@@ -13,7 +13,7 @@ Typogenetics (or "typographical genetics") is a toy model of biological genetics
 
 In the real genetics of life on Earth, our DNA is made of four molecules called nucleobases: Cytosine (C), Thymine (T), Guanine (G), and Adenine (A). All the information for how to build a person, a peanut, or a parrot is encoded in a long and winding sequence of these four bases.
 
-Hofstadter is exploring this genetic code can be interpreted to build proteins, which in turn assemble new strands of DNA. This "strange loop", as he would call it,
+In his book, Hofstadter explores what he calls a "strange loop" &mdash; how is it that this genetic code can be interpreted to build complex machines called proteins, which have the power assemble more strands of DNA?
 
 ### Larger codon size
 
