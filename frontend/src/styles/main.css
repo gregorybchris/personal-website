@@ -24,10 +24,10 @@ body {
 
 ::selection {
   background: #6283c0;
-  color: white;
+  color: #cad0dc;
 }
 
 ::-moz-selection {
   background: #6283c0;
-  color: white;
+  color: #cad0dc;
 }
