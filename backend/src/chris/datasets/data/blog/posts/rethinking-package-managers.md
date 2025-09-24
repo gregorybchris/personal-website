@@ -13,4 +13,8 @@ As someone who couldn't live without types, this is a pretty compelling idea to 
 
 This podcast got me thinking that if the package manager knows the types of members, we can enforce that breaking changes introduce major version bumps. You can also gain more confidence that minor version upgrades won't break you (of course no type-system can guarantee this). Also, if the package manager knows which members are being imported from dependencies, then it can help you safely auto-upgrade to newer versions of your dependencies. Even if you're upgrading across a major version, if your code doesn't use any members that have breaking changes, then you should be able to upgrade safely. Even cooler, if you can define a type-safe rewrite rule for a breaking change, then the package manager could even automatically rewrite your code to be compatible with the new version!
 
+## Conclusion
+
 There's a ton we can do if we rethink the package manager to be more aware of types.
+
+The full source code for this project is available on <a href="https://github.com/gregorybchris/myxa" target="_blank">GitHub</a>.
