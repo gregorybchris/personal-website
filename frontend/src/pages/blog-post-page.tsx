@@ -1,4 +1,4 @@
-import { NotePencilIcon } from "@phosphor-icons/react";
+import { ArrowLeftIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { MarkdownRenderer } from "../components/markdown-renderer";
@@ -48,7 +48,7 @@ export function BlogPostPage() {
               className="flex cursor-pointer flex-row items-center gap-2 rounded-md px-3 py-1 hover:bg-black/5"
               onClick={() => navigate("/blog")}
             >
-              <NotePencilIcon size={20} weight="duotone" color="#6283c0" />
+              <ArrowLeftIcon size={20} weight="fill" color="#6283c0" />
               <span className="text-md">Back to posts</span>
             </div>
 
