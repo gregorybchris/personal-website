@@ -232,6 +232,8 @@ There's so much more to explore with this problem! Here are some ideas for futur
 
 Thanks for reading to the end of my first blog post! If you enjoyed it, please consider sharing it with a friend or saying hello via my <a href="/contact">contact page</a>.
 
+The full source code for this project is available on <a href="https://github.com/gregorybchris/contraction" target="_blank">GitHub</a>.
+
 ## Footnotes
 
 <div id="footnotes">
