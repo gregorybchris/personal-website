@@ -43,13 +43,12 @@ interface ArtistCardProps {
 }
 
 export function ArtistCard({ artist }: ArtistCardProps) {
-  const timestamp = Date.now();
   return (
     <div className="flex flex-col items-center gap-2 px-2 py-3">
       <div className="flex justify-center">
         <a href={artist.link} target="_blank" className="group">
           <img
-            src={`${artist.image_link}?a=${timestamp}`}
+            src={`${artist.image_link}?cache=1`}
             className="group-hover:border-sky w-[300px] rounded-full border-2 border-neutral-300 transition-all md:max-w-[220px]"
           />
         </a>

@@ -98,12 +98,11 @@ interface BookProps {
 }
 
 function Book({ book, selectedTags, onTagClick }: BookProps) {
-  const timestamp = Date.now();
   return (
     <div className="flex flex-col items-center gap-0.5">
       <a href={book.goodreads_link} target="_blank">
         <img
-          src={`${book.image_links.book}?a=${timestamp}`}
+          src={`${book.image_links.book}?cache=1`}
           className="hover:border-sky h-[210px] border-2 border-neutral-300 transition-all md:h-[250px]"
         />
       </a>
