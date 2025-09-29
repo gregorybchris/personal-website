@@ -67,7 +67,7 @@ To solve a Kami puzzle we set up a correspondence between colored regions of pix
 
 In the example above, the pixels have the same connectivity as the graph in <a href="#figure3">Figure 3</a>.
 
-To fill all pixels with the same color we perform iterated vertex contractions until there is a single graph vertex.
+To fill all pixels with the same color, we perform iterated vertex contractions until there is a single graph vertex.
 
 ## Specifying the objective
 
