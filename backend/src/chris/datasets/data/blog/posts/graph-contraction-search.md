@@ -101,8 +101,8 @@ def iter_neighbor_colors_by_freq(G: nx.Graph, node: str) -> Iterator[str]:
             frequencies[color] = 0
         frequencies[color] += 1
 
-    for node, _ in sorted(frequencies.items(), key=lambda x: -x[1]):
-        yield node
+    for color, _ in sorted(frequencies.items(), key=lambda x: -x[1]):
+        yield color
 ```
 
 These last two heuristics were pretty greedy. They work well, but tend to fail when there are high degree vertices on the periphery of the graph. If we pick those first, we may end up with a large number of small contractions later on.
