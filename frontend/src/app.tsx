@@ -27,7 +27,6 @@ import { RunningPage } from "./pages/running-page";
 import { SurveysPage } from "./pages/surveys-page";
 import { TiktoksPage } from "./pages/tiktoks-page";
 import { TvShowsPage } from "./pages/tv-shows-page";
-import { WatermarkPage } from "./pages/watermark-page";
 import { YouTubeChannelsPage } from "./pages/youtube-channels-page";
 import { YouTubeVideosPage } from "./pages/youtube-videos-page";
 
@@ -108,7 +107,6 @@ function Layout() {
           <Route path="/hidden/recipes" element={<RecipesPage />} />
           <Route path="/hidden/recipes/:slug" element={<RecipePage />} />
           <Route path="/hidden/project-logos" element={<ProjectLogosPage />} />
-          <Route path="/hidden/watermark" element={<WatermarkPage />} />
 
           {/* Hidden old */}
           <Route path="/hidden/archive" element={<ArchivePage />} />

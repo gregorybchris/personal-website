@@ -40,7 +40,6 @@ export function HiddenPage() {
           <SectionHeader>In Progress</SectionHeader>
           <PageLink to="/hidden/places">Places</PageLink>
           <PageLink to="/hidden/recipes">Recipes</PageLink>
-          <PageLink to="/hidden/watermark">Watermark</PageLink>
           <PageLink to="/hidden/project-logos">Project logos</PageLink>
         </div>
 

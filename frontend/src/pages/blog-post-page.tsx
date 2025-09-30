@@ -2,6 +2,7 @@ import { ArrowLeftIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { IconButton } from "../components/icon-button";
+import { Loader } from "../components/loader";
 import { MarkdownRenderer } from "../components/markdown-renderer";
 import ShareButton from "../components/share-button";
 import "../styles/blog.css";
@@ -23,14 +24,17 @@ export function BlogPostPage() {
   }, []);
 
   return (
-    <div
-      id="blog"
-      className="font-iowa flex flex-col items-center px-7 py-6 md:px-10 md:py-10"
-    >
+    <div className="font-iowa flex flex-col items-center px-7 py-6 md:px-10 md:py-10">
       {currentPost === null ? (
-        <span className="">Loading post...</span>
+        <div className="flex flex-col items-center gap-4">
+          <span className="">Loading post...</span>
+          <Loader />
+        </div>
       ) : (
-        <div className="flex w-full flex-col items-center gap-6 px-0 pb-4">
+        <div
+          id="blog"
+          className="flex w-full flex-col items-center gap-6 px-0 pb-4"
+        >
           <div className="flex flex-col items-center gap-2 md:max-w-[700px]">
             <div className="text-center text-2xl font-bold text-balance md:max-w-[500px] md:text-3xl">
               {currentPost.title}
