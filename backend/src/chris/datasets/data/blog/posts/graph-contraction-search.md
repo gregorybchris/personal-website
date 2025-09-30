@@ -219,18 +219,20 @@ As mentioned previously, the training data for this project was collected from t
 
 For train-test splitting, even-numbered levels were used for training and odd-numbered levels were used for testing. Since the structure of graphs increases in complexity as levels get harder, this split ensures that the model has seen all different types of graphs during training.
 
+Because each contraction yields a new graph, the training dataset is augmented by including all intermediate graphs along the solution path. This increases the size of the training dataset and also ensures the dataset has a fairly balanced distribution of labels.
+
 It's also worth noting that the one-hot encoded color of each vertex is used as a node feature during graph embedding. It's these vectors that are convolved in the GCN layers.
 
-## Conclusion
+## Wrapping up
 
-There's so much more to explore with this problem! Here are some ideas for future directions:
+We've explored several classical optimizations to iterated vertex contraction and we've seen that we can successfully learn heuristics to tame the combinatorial search space. I wouldn't bet on this solution outperforming practiced humans, but it certainly blows the naïve approach out of the water and this research path is far from exhausted! Here are some ideas for future directions:
 
-- Generate synthetic training data
-- Apply data augmentations
+- Generate synthetic training data with random graphs
+- Apply data augmentations on known planar graphs
 - Try more modern GNN architectures
-- Test the model on larger graphs
 - Experiment with different activation functions
-- Tune the learning rate
+- Tune the learning rate schedule
+- Balance inference latency as part of the beam search
 
 Thanks for reading to the end of my first blog post! If you enjoyed it, please consider sharing it with a friend or saying hello via my <a href="/contact">contact page</a>.
 
