@@ -1,19 +1,11 @@
 ---
 date: 2024-01-07
-slug: typogenetics
+slug: reflections-on-typogenetics
 title: Reflections on Typogenetics
 archived: false
 ---
 
-If you found this post, you may be familiar with Douglas Hofstadter's <strong>Typogenetics</strong> as described in his book <i>Gödel, Escher, Bach: An Eternal Golden Braid</i> (1979). Just in case you're not I'll give a brief recap.
-
-## Overview of Typogenetics
-
-Typogenetics (or &ldquo;typographical genetics&rdquo;) is a toy model of biological genetics. It boils real biology down to a small set of concepts and rules to make the core principles of genetics more intuitive.
-
-In the real genetics of life on Earth, our DNA is made of four molecules called nucleobases: Adenine (A), Cytosine (C), Guanine (G), and Thymine (T). All the information for how to build a person, a peanut, or a parrot is encoded in a long and winding sequence of these four bases.
-
-In his book, Hofstadter explores what he calls a &ldquo;strange loop&rdquo; &mdash; how is it that this genetic code can be interpreted to build complex machines called proteins, which have the power assemble more strands of DNA?
+This post is a part 2 to [Visualizing Typogenetics](/blog/visualizing-typogenetics). In that post I gave a full specification of Douglas Hofstadter's toy model of genetics called <strong>Typogenetics</strong>. This post will make more sense if you start there. In this post I want to explore some extensions of the specification and offer some potential analogies to other complex systems.
 
 ### Larger codon size
 
@@ -45,7 +37,7 @@ Inspired in part by Axelrod's experiments with agents playing the iterated priso
 
 <!-- TODO: cite this correctly in the footnotes -->
 
-```
+```txt
 Nowak, M., May, R. Evolutionary games and spatial chaos. Nature 359, 826–829 (1992). https://doi.org/10.1038/359826a0
 ```
 
@@ -75,55 +67,3 @@ Informed by Andreas Wagner's research, you could model the space of enzymes. A g
 - [Arrival of the Fittest Amazon](https://www.amazon.com/Arrival-Fittest-How-Nature-Innovates/dp/1617230219)
 - [Pipes demo](https://1j01.github.io/pipes)
 - [History of the Windows 3D Pipes screensaver](https://devblogs.microsoft.com/oldnewthing/20240611-00/?p=109881)
-
-## Appendix
-
-| ins                           | action                                         |
-| ----------------------------- | ---------------------------------------------- |
-| <span class="snip">cut</span> | cut strand(s)                                  |
-| <span class="snip">del</span> | delete a base from strand                      |
-| <span class="snip">swi</span> | switch enzyme to other strand                  |
-| <span class="snip">mvr</span> | move one unit to the right                     |
-| <span class="snip">mvl</span> | move one unit to the left                      |
-| <span class="snip">cop</span> | turn on Copy mode                              |
-| <span class="snip">off</span> | turn off Copy mode                             |
-| <span class="snip">ina</span> | insert A to the right of this unit             |
-| <span class="snip">inc</span> | insert C to the right of this unit             |
-| <span class="snip">ing</span> | insert G to the right of this unit             |
-| <span class="snip">int</span> | insert T to the right of this unit             |
-| <span class="snip">rpy</span> | search for the nearest pyrimidine to the right |
-| <span class="snip">rpu</span> | search for the nearest purine to the right     |
-| <span class="snip">lpy</span> | search for the nearest pyrimidine to the left  |
-| <span class="snip">lpu</span> | search for the nearest purine to the left      |
-
-|     | A                             | C                             | G                             | T                             |
-| --- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- |
-| A   |                               | <span class="snip">cut</span> | <span class="snip">del</span> | <span class="snip">swi</span> |
-| C   | <span class="snip">mvr</span> | <span class="snip">mvl</span> | <span class="snip">cop</span> | <span class="snip">off</span> |
-| G   | <span class="snip">ina</span> | <span class="snip">inc</span> | <span class="snip">ing</span> | <span class="snip">int</span> |
-| T   | <span class="snip">rpy</span> | <span class="snip">rpu</span> | <span class="snip">lpy</span> | <span class="snip">lpu</span> |
-
-| ins                           | dir |
-| ----------------------------- | --- |
-| <span class="snip">cut</span> | s   |
-| <span class="snip">del</span> | s   |
-| <span class="snip">swi</span> | r   |
-| <span class="snip">mvr</span> | s   |
-| <span class="snip">mvl</span> | s   |
-| <span class="snip">cop</span> | r   |
-| <span class="snip">off</span> | l   |
-| <span class="snip">ina</span> | s   |
-| <span class="snip">inc</span> | r   |
-| <span class="snip">ing</span> | r   |
-| <span class="snip">int</span> | l   |
-| <span class="snip">rpy</span> | r   |
-| <span class="snip">rpu</span> | l   |
-| <span class="snip">lpy</span> | l   |
-| <span class="snip">lpu</span> | l   |
-
-| first | last | base |
-| ----- | ---- | ---- |
-| R     | R    | A    |
-| R     | U    | C    |
-| R     | D    | G    |
-| R     | L    | T    |
