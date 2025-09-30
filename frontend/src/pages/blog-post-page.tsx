@@ -1,6 +1,7 @@
 import { ArrowLeftIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { IconButton } from "../components/icon-button";
 import { MarkdownRenderer } from "../components/markdown-renderer";
 import ShareButton from "../components/share-button";
 import "../styles/blog.css";
@@ -44,15 +45,12 @@ export function BlogPostPage() {
           </div>
 
           <div className="flex flex-row items-center gap-4 py-2">
-            <div
-              className="flex cursor-pointer flex-row items-center gap-2 rounded-md px-3 py-1 hover:bg-black/5"
-              onClick={() => navigate("/blog")}
-            >
-              <ArrowLeftIcon size={20} weight="fill" color="#6283c0" />
+            <IconButton onClick={() => navigate("/blog")}>
+              <ArrowLeftIcon size={20} weight="duotone" color="#6283c0" />
               <span className="text-md">Back to posts</span>
-            </div>
+            </IconButton>
 
-            {/* Use pathname instead of href to exclude hash fragment and/or query params */}
+            {/* NOTE: Using pathname instead of href to exclude hash fragment and/or query params */}
             <ShareButton text="Share post" url={window.location.pathname} />
           </div>
         </div>

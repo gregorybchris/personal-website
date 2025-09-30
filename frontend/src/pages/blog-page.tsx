@@ -40,7 +40,10 @@ export function BlogPage() {
             <tr
               key={post.slug}
               className="group cursor-pointer align-top"
-              onClick={() => navigate(`/blog/${post.slug}`)}
+              onClick={(event) => {
+                event.preventDefault();
+                navigate(`/blog/${post.slug}`);
+              }}
             >
               <td className="py-1.5 pr-6 text-balance decoration-blue-500/60 underline-offset-4 group-hover:underline">
                 {post.title}

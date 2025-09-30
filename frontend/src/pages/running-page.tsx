@@ -184,7 +184,10 @@ function RoutesTable({ routes, onSelectRoute }: RoutesTableProps) {
             <tr
               className="Running-table-row group cursor-pointer"
               key={routeNumber}
-              onClick={() => onSelectRoute(route)}
+              onClick={(event) => {
+                event.preventDefault();
+                onSelectRoute(route);
+              }}
             >
               <td className="Running-table-cell text-sky group-hover:text-royal">
                 {route.name}

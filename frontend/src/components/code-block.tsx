@@ -28,7 +28,7 @@ export function CodeBlock({ language, children }: CodeBlockProps) {
     <div className="group relative">
       <button
         onClick={onClick}
-        className="hover:bg-darker-parchment/80 bg-dark-parchment/60 absolute top-5 right-3 cursor-pointer items-center rounded p-1 opacity-0 transition-all group-hover:opacity-100"
+        className="hover:bg-darker-parchment/80 bg-dark-parchment/60 absolute top-5 right-3 cursor-pointer items-center rounded p-1 opacity-0 transition-all duration-300 group-hover:opacity-100"
         title="Copy code"
       >
         <CopyIcon size={18} weight="duotone" color="#555" />
