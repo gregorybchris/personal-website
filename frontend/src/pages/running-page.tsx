@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MapContainer, Polyline, TileLayer, useMap } from "react-leaflet";
 import { useNavigate, useParams } from "react-router-dom";
+import { Loader } from "../components/loader";
 import { PageTitle } from "../components/page-title";
 import "../styles/running.css";
 import { GET, makeQuery } from "../utilities/request-utilities";
@@ -101,12 +102,14 @@ export function RunningPage() {
         </div>
       </div>
 
-      <div className="flex w-full flex-row flex-wrap justify-center gap-5">
-        {currentRoute && currentRouteData && (
+      {currentRoute && currentRouteData ? (
+        <div className="flex w-full flex-row flex-wrap justify-center gap-5">
           <RouteMapCard routeData={currentRouteData} route={currentRoute} />
-        )}
-        <RoutesTable routes={routes} onSelectRoute={onSelectRoute} />
-      </div>
+          <RoutesTable routes={routes} onSelectRoute={onSelectRoute} />
+        </div>
+      ) : (
+        <Loader>Loading routes...</Loader>
+      )}
     </div>
   );
 }

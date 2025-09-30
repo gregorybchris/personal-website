@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { Loader } from "../components/loader";
 import { PageTitle } from "../components/page-title";
 import { ProjectModal } from "../components/project-modal";
 import { ProjectsTimeline } from "../components/projects-timeline";
@@ -88,12 +89,16 @@ export function ProjectsPage() {
         <PageTitle>Code &amp; Programming Projects</PageTitle>
       </div>
 
-      <ProjectsTimeline
-        projects={projects}
-        currentProject={currentProject}
-        onSelectProject={onSelectProject}
-        searchText={searchText}
-      />
+      {projects.length === 0 ? (
+        <Loader className="mt-8">Loading projects...</Loader>
+      ) : (
+        <ProjectsTimeline
+          projects={projects}
+          currentProject={currentProject}
+          onSelectProject={onSelectProject}
+          searchText={searchText}
+        />
+      )}
 
       {searchEnabled && (
         <div className="flex flex-col items-center justify-center gap-5 p-5">

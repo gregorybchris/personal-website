@@ -15,7 +15,12 @@ export function Loader({
   className,
 }: LoaderProps) {
   return (
-    <div className={cn("flex flex-col items-center gap-4", className)}>
+    <div
+      className={cn(
+        "flex flex-col items-center gap-4 text-black/75",
+        className,
+      )}
+    >
       {children}
       <img
         src={logo}

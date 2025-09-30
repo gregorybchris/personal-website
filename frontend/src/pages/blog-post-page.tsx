@@ -26,10 +26,7 @@ export function BlogPostPage() {
   return (
     <div className="font-iowa flex flex-col items-center px-7 py-6 md:px-10 md:py-10">
       {currentPost === null ? (
-        <div className="flex flex-col items-center gap-4">
-          <span className="">Loading post...</span>
-          <Loader />
-        </div>
+        <Loader>Loading post...</Loader>
       ) : (
         <div
           id="blog"

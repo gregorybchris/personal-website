@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Loader } from "../components/loader";
 import { PageTitle } from "../components/page-title";
 import { Tag } from "../components/tag";
 import { GET, makeQuery } from "../utilities/request-utilities";
@@ -58,35 +59,43 @@ export function BooksPage() {
         </div>
       </div>
 
-      <div className="flex flex-row justify-center gap-0.5">
-        {allTags.map((tag) => (
-          <Tag
-            key={tag}
-            tag={tag}
-            onClick={onTagClick}
-            selected={selectedTags.includes(tag)}
-            className="text-xs"
-          />
-        ))}
-      </div>
+      {books.length === 0 ? (
+        <Loader>Loading books...</Loader>
+      ) : (
+        <div>
+          <div className="flex flex-row justify-center gap-0.5">
+            {allTags.map((tag) => (
+              <Tag
+                key={tag}
+                tag={tag}
+                onClick={onTagClick}
+                selected={selectedTags.includes(tag)}
+                className="text-xs"
+              />
+            ))}
+          </div>
 
-      <div className="flex w-full flex-row flex-wrap justify-center gap-y-3 md:w-4/5 md:gap-x-2">
-        {books
-          .filter(
-            (book) =>
-              selectedTags.length === 0 ||
-              selectedTags.every((tag) => book.tags.includes(tag)),
-          )
-          .sort((bookA, bookB) => bookB.general_appeal - bookA.general_appeal)
-          .map((book) => (
-            <Book
-              key={book.isbn}
-              book={book}
-              onTagClick={onTagClick}
-              selectedTags={selectedTags}
-            />
-          ))}
-      </div>
+          <div className="flex w-full flex-row flex-wrap justify-center gap-y-3 md:w-4/5 md:gap-x-2">
+            {books
+              .filter(
+                (book) =>
+                  selectedTags.length === 0 ||
+                  selectedTags.every((tag) => book.tags.includes(tag)),
+              )
+              .sort(
+                (bookA, bookB) => bookB.general_appeal - bookA.general_appeal,
+              )
+              .map((book) => (
+                <Book
+                  key={book.isbn}
+                  book={book}
+                  onTagClick={onTagClick}
+                  selectedTags={selectedTags}
+                />
+              ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
