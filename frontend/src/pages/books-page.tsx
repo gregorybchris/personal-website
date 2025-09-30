@@ -62,7 +62,7 @@ export function BooksPage() {
       {books.length === 0 ? (
         <Loader>Loading books...</Loader>
       ) : (
-        <div>
+        <>
           <div className="flex flex-row justify-center gap-0.5">
             {allTags.map((tag) => (
               <Tag
@@ -94,7 +94,7 @@ export function BooksPage() {
                 />
               ))}
           </div>
-        </div>
+        </>
       )}
     </div>
   );
