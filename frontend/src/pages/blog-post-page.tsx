@@ -41,7 +41,7 @@ export function BlogPostPage() {
             </div>
           </div>
 
-          <div className="w-[100%] text-justify leading-relaxed md:w-[50%]">
+          <div className="w-[100%] text-justify leading-relaxed md:w-[50%] md:min-w-[550px]">
             <MarkdownRenderer>{currentPost.content}</MarkdownRenderer>
           </div>
 
