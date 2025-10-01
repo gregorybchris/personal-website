@@ -48,12 +48,6 @@ Given a fully-connected colored graph, we can <strong>apply vertex contractions 
 
 Are vertex contractions useful to us? Sure they are! We can use them to solve a particularly fun puzzle game called Kami<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup>. In Kami, we're presented with a screen of pixels grouped into colored regions. We attempt to flood-fill all pixels with the same color in an allotted number of moves.
 
-To solve a Kami puzzle we set up a correspondence between colored regions of pixels &harr; vertices in a graph:
-
-- Each region of contiguous pixels of the same color gets an associated vertex in the graph.
-- If two regions of pixels are touching then there's an edge between their corresponding graph vertices.
-- A move in Kami corresponds to a vertex contraction in the graph.
-
 <figure id="figure4">
   <video width="300" autoplay muted loop playsinline>
     <source src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/flood-fill.mp4?cache=3" type="video/mp4">
@@ -65,9 +59,15 @@ To solve a Kami puzzle we set up a correspondence between colored regions of pix
   </figcaption>
 </figure>
 
-In the example above, the pixels have the same connectivity as the graph in <a href="#figure3">Figure 3</a>.
+To solve a Kami puzzle we set up a correspondence between colored regions of pixels &harr; vertices in a graph:
 
-To fill all pixels with the same color, we perform iterated vertex contractions until there is a single graph vertex.
+- Each region of contiguous pixels of the same color gets an associated vertex in the graph.
+- If two regions of pixels are touching then there's an edge between their corresponding graph vertices.
+- A move in Kami corresponds to a vertex contraction in the graph.
+
+Maybe you noticed, the pixels in <a href="#figure4">Figure 4</a> have the same connectivity as the graph in <a href="#figure3">Figure 3</a>.
+
+To fill all pixels with the same color, we perform iterated vertex contractions until there is a single graph vertex. The vertices we contract in the graph tell us which regions of pixels we should flood fill.
 
 ## Specifying the objective
 
