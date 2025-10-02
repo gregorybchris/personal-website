@@ -15,6 +15,7 @@
         "elevation": "number",
         "route_data_link": "#link",
         "mapometer_id": "number",
+        "city": "string",
         "tags": {
           "type": "array",
           "elem": "#tag"
