@@ -15,7 +15,8 @@
       "longitude": -121.611222,
       "formatted": "46/53/16.9/N 121/36/40.4/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "e8bc254d-3bd9-47a9-8f98-a4908d2e38ac",
@@ -33,7 +34,8 @@
       "longitude": -121.573944,
       "formatted": "47/48/31.6/N 121/34/26.2/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "664c8def-ccb0-4c54-90ca-7ffa2a92a711",
@@ -51,7 +53,8 @@
       "longitude": -122.211472,
       "formatted": "46/06/29.8/N 122/12/41.3/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "9973b356-c2a1-4674-b4ca-02ea8d5e6360",
@@ -69,7 +72,8 @@
       "longitude": -122.075583,
       "formatted": "45/35/22.2/N 122/04/32.1/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "b77e1aa3-4e8b-4323-a39b-70f37bbe0d17",
@@ -87,7 +91,8 @@
       "longitude": -122.021972,
       "formatted": "47/29/59.5/N 122/01/19.1/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "871b5e50-1750-49e4-b2ee-fb1a0b46d942",
@@ -105,7 +110,8 @@
       "longitude": -121.809111,
       "formatted": "43/58/52.7/N 121/48/32.8/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "9b267022-ba01-4335-8fea-d41b3b91b498",
@@ -123,7 +129,8 @@
       "longitude": -123.498667,
       "formatted": "47/58/09.7/N 123/29/55.2/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "44c9b858-6309-470f-aa8e-efccca1df918",
@@ -141,7 +148,8 @@
       "longitude": -123.935083,
       "formatted": "47/51/38.4/N 123/56/06.3/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "ae7b54ac-cd0e-4a50-ba09-88cf5b29a439",
@@ -159,7 +167,8 @@
       "longitude": -124.651194,
       "formatted": "47/56/30.0/N 124/39/04.3/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "0a06bc75-8fdd-4829-80c1-0db8d5435d21",
@@ -177,7 +186,8 @@
       "longitude": -121.683833,
       "formatted": "48/51/15.3/N 121/41/01.8/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "61fe54aa-cdb9-4cd5-9f56-a00ff81fed7a",
@@ -195,7 +205,8 @@
       "longitude": -121.723194,
       "formatted": "47/29/17.4/N 121/43/23.5/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "0335979a-60d8-4f2f-b7d6-133fd7de5c8a",
@@ -213,7 +224,8 @@
       "longitude": -121.735833,
       "formatted": "46/47/07.5/N 121/44/09.0/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "b40a254e-3748-4533-90d6-3a544469955f",
@@ -231,7 +243,8 @@
       "longitude": -121.673306,
       "formatted": "47/28/00.7/N 121/40/23.9/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "d41847f4-906f-4c76-a411-016ecd1bb49a",
@@ -249,7 +262,8 @@
       "longitude": -121.155472,
       "formatted": "47/42/30.1/N 121/09/19.7/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "148fdabb-cfc1-4a56-959b-7362a0e760df",
@@ -267,7 +281,8 @@
       "longitude": -121.303917,
       "formatted": "47/38/05.3/N 121/18/14.1/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "cd41ed39-9359-4f58-80da-e3c6bd0642be",
@@ -285,7 +300,8 @@
       "longitude": -121.264389,
       "formatted": "47/40/43.1/N 121/15/51.8/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "263be3fa-db24-4dc3-b2bc-4586bfdb37e9",
@@ -303,7 +319,8 @@
       "longitude": -121.814833,
       "formatted": "48/04/13.1/N 121/48/53.4/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "9c09133d-0a52-4c10-ac28-2ecd6bdf2a46",
@@ -321,7 +338,8 @@
       "longitude": -121.771833,
       "formatted": "47/26/07.2/N 121/46/18.6/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "8af0f919-26d8-4d20-ac6c-b96e1e0d2ddb",
@@ -339,7 +357,8 @@
       "longitude": -121.773917,
       "formatted": "48/04/58.6/N 121/46/26.1/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "d9039140-3d8a-46ce-b0a4-9dae4cf3318e",
@@ -357,7 +376,8 @@
       "longitude": -120.937056,
       "formatted": "47/26/12.1/N 120/56/13.4/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "b45c0a8c-097a-4cc9-8945-268dfabb58d3",
@@ -375,7 +395,8 @@
       "longitude": -121.645222,
       "formatted": "48/53/51.6/N 121/38/42.8/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "4de8fb8f-5aa9-42b2-901b-2f34a68773b9",
@@ -393,7 +414,8 @@
       "longitude": -122.083278,
       "formatted": "42/58/47.1/N 122/04/59.8/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "da724c45-7003-411e-b7df-c3523c235390",
@@ -411,7 +433,8 @@
       "longitude": -120.709722,
       "formatted": "47/32/38.8/N 120/42/35.0/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "36312608-71b7-4f19-bb65-be59fbf55fe5",
@@ -429,7 +452,8 @@
       "longitude": -121.583361,
       "formatted": "47/25/28.9/N 121/35/00.1/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "d6d63fa8-d903-4015-b379-e30f3cbd9e48",
@@ -447,7 +471,8 @@
       "longitude": -68.191778,
       "formatted": "44/18/59.7/N 68/11/30.4/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "d089cbb6-3aab-4ca9-8241-ce75c744f8f8",
@@ -465,7 +490,8 @@
       "longitude": -72.087167,
       "formatted": "42/50/41.5/N 72/05/13.8/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "0ac79a1f-18fb-4968-8e61-5554fad40f55",
@@ -483,7 +509,8 @@
       "longitude": 13.889861,
       "formatted": "46/17/33.5/N 13/53/23.5/E"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "12fa6876-479e-412d-ae23-98e3b6d88015",
@@ -501,7 +528,8 @@
       "longitude": -122.383747,
       "formatted": "37/54/59.3/N 122/23/01.5/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "9202449d-a3d2-4450-8c5b-c9198430cf38",
@@ -519,7 +547,8 @@
       "longitude": -122.244096,
       "formatted": "37/51/45.7/N 122/14/38.8/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "c429f27c-62dd-4a22-841f-aea78dafde01",
@@ -537,7 +566,8 @@
       "longitude": -122.60982,
       "formatted": "37/57/33.1/N 122/36/35.4/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "1b7ce392-7c44-4d5b-a01f-41b912e0a0b0",
@@ -555,7 +585,8 @@
       "longitude": -122.264182,
       "formatted": "37/54/30.1/N 122/15/51.1/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "9de2c9d2-bd4b-4cc1-be1e-db179ad9705c",
@@ -573,7 +604,8 @@
       "longitude": -119.611093,
       "formatted": "37/30/05.7/N 119/36/39.9/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "d8a08b17-78cb-47e1-8b6d-f475fee78a41",
@@ -591,7 +623,8 @@
       "longitude": -119.557871,
       "formatted": "37/43/58.3/N 119/33/28.3/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "a1d84bc0-7896-4cd8-8c00-0810f7099e99",
@@ -609,7 +642,8 @@
       "longitude": -119.560354,
       "formatted": "37/44/21.8/N 119/33/37.3/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "19bef72d-d1b6-45dd-8943-fe617eda6c18",
@@ -627,7 +661,8 @@
       "longitude": -122.65116,
       "formatted": "48/24/59.7/N 122/39/04.2/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "f6f6f9c2-0c66-4b94-9d4c-e3233321fa52",
@@ -645,7 +680,8 @@
       "longitude": -121.555787,
       "formatted": "48/45/00.9/N 121/33/20.8/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "a0d942dd-b2ab-4312-ac55-00c66fdd1d9f",
@@ -663,7 +699,8 @@
       "longitude": -149.115759,
       "formatted": "61/01/42.0/N 149/06/56.7/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "e9d60d18-d8aa-4e20-9bdc-2f3fd4a8451f",
@@ -681,7 +718,8 @@
       "longitude": -149.102286,
       "formatted": "60/58/17.9/N 149/06/08.2/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "fc04a2f2-6fa1-40bd-86dc-0c813a1b7222",
@@ -699,7 +737,8 @@
       "longitude": -149.630853,
       "formatted": "60/11/18.5/N 149/37/51.1/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "5fd2382d-8383-4559-bd00-815bfd35a2c2",
@@ -717,7 +756,8 @@
       "longitude": -149.202753,
       "formatted": "61/48/14.6/N 149/12/09.9/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "ce5445ea-cef4-42cb-99bf-9526039b108d",
@@ -735,7 +775,8 @@
       "longitude": -121.735833,
       "formatted": "46/47/07.5/N 121/44/09.0/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "37a22efd-62c6-4cd7-b45a-b9c5bc6d589b",
@@ -753,7 +794,8 @@
       "longitude": -122.202561,
       "formatted": "37/54/47.0/N 122/12/09.2/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "f3b73629-617e-4030-91ce-db4c97223ac2",
@@ -771,7 +813,8 @@
       "longitude": -159.6486261,
       "formatted": "22/08/29.0/N 159/38/55.1/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "f8c6c2ef-f670-478a-bfad-26c9ffcfc29e",
@@ -789,7 +832,8 @@
       "longitude": -159.582563,
       "formatted": "22/13/13.3/N 159/34/57.2/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "fbb5b998-505c-45a0-9805-657630b57631",
@@ -803,7 +847,8 @@
     "travel_time": 1.5,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "909bcab6-838c-43b3-bb3c-8ce7cdb2c2e9",
@@ -817,7 +862,8 @@
     "travel_time": 2.5,
     "next": true,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "ad361616-a16c-43ce-ad39-aad64e1a26f5",
@@ -831,7 +877,8 @@
     "travel_time": 3.0,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "2419e8d9-67fb-4077-a7d5-27860c7435a8",
@@ -845,7 +892,8 @@
     "travel_time": 2.5,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "6ee11f21-f4b3-4541-a2a6-677afe856049",
@@ -859,7 +907,8 @@
     "travel_time": 1.0,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "09362756-a8f8-46e8-b73e-509e8450f282",
@@ -873,7 +922,8 @@
     "travel_time": 3.0,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "0a072f97-c8eb-467c-bf9a-509773f86750",
@@ -887,7 +937,8 @@
     "travel_time": 2.5,
     "next": true,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "e5935a10-ea56-4077-b455-e43e769f4200",
@@ -901,7 +952,8 @@
     "travel_time": 3.0,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "fe7b3ec7-bb94-4d86-bffc-e3bb57889b9c",
@@ -915,7 +967,8 @@
     "travel_time": 2.5,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "a892e6cb-5b6b-48fb-a35c-05fa99f89acc",
@@ -929,7 +982,8 @@
     "travel_time": 2.0,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "864c7a15-b906-4859-be79-0bfb6a725d04",
@@ -943,7 +997,8 @@
     "travel_time": 2.5,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "21791700-a777-4fdb-81ff-1ba85df73572",
@@ -957,7 +1012,8 @@
     "travel_time": 3.0,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "d176f7d3-4e35-4271-a652-dbc848938846",
@@ -971,7 +1027,8 @@
     "travel_time": 2.5,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "d97419bc-254f-4f7c-8768-207bbb99527f",
@@ -985,7 +1042,8 @@
     "travel_time": 2.0,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "c9dde852-245a-4e62-a620-1076af4d8586",
@@ -999,7 +1057,8 @@
     "travel_time": 1.0,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "9fd59743-9c6a-4817-af3c-dd4c074eee71",
@@ -1013,7 +1072,8 @@
     "travel_time": 3.0,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "daa2f435-c7b5-40fa-8967-8cdfa2c51d92",
@@ -1027,7 +1087,8 @@
     "travel_time": 1.5,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "a8e5f87c-fbf1-401c-8664-582f6fec5ea9",
@@ -1041,7 +1102,8 @@
     "travel_time": 3.0,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "d5795fc9-968c-4edc-98ac-cb8fcc8817e5",
@@ -1055,7 +1117,8 @@
     "travel_time": 2.5,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "a2d1bf45-5a0f-4e1a-8653-16f06a99b5b8",
@@ -1069,7 +1132,8 @@
     "travel_time": 2.0,
     "next": true,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "b6f9ff2c-50ce-4cd8-b2fd-6ad14f55d022",
@@ -1083,7 +1147,8 @@
     "travel_time": 2.0,
     "next": true,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "1617f8e8-aedb-4742-8153-7553c6734dba",
@@ -1097,7 +1162,8 @@
     "travel_time": 2.5,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "dc3a4c1e-f9af-4627-ae27-ab7826afeabe",
@@ -1111,7 +1177,8 @@
     "travel_time": null,
     "next": true,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "5a9b6dfa-405f-44f2-89ea-90b0e6d48a89",
@@ -1125,7 +1192,8 @@
     "travel_time": 3.0,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "acd0af08-934f-4b62-84db-7b5c7f869ceb",
@@ -1139,7 +1207,8 @@
     "travel_time": 1.5,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "aaa9aa74-529f-4099-ac50-a02f1db44d4e",
@@ -1157,7 +1226,8 @@
       "longitude": -121.49103,
       "formatted": "48/03/15.4/N 121/29/27.7/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "36519c33-c5f2-49bc-94fb-e4e6eaedab9f",
@@ -1175,7 +1245,8 @@
       "longitude": -123.569046,
       "formatted": "47/34/23.4/N 123/34/08.6/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "960c5660-ad9e-44ad-9aee-a83cf5d8ea1d",
@@ -1193,7 +1264,11 @@
       "longitude": -122.355324,
       "formatted": "37/59/29.4/N 122/21/19.2/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/point-pinole--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/point-pinole--02.jpg"
+    ]
   },
   {
     "route_id": "b4fab547-93c6-4521-95cf-c24ba2b26cac",
@@ -1211,7 +1286,11 @@
       "longitude": -122.433308,
       "formatted": "48/36/30.7/N 122/25/59.9/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/oyster-dome--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/oyster-dome--02.jpg"
+    ]
   },
   {
     "route_id": "bdcd21bd-1e88-4989-b59c-be0df1f16067",
@@ -1229,7 +1308,12 @@
       "longitude": -121.662679,
       "formatted": "48/56/35.9/N 121/39/45.6/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/yellow-aster-butte--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/yellow-aster-butte--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/yellow-aster-butte--03.jpg"
+    ]
   },
   {
     "route_id": "3d626693-0b52-42f3-82e5-6b5568942935",
@@ -1247,7 +1331,13 @@
       "longitude": -121.347602,
       "formatted": "47/23/25.8/N 121/20/51.4/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/rampart-lakes--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/rampart-lakes--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/rampart-lakes--03.jpg",
+      "https://storage.googleapis.com/cgme/hiking/rampart-lakes--04.jpg"
+    ]
   },
   {
     "route_id": "f9204aba-754f-4e1a-b2a6-2b22537dcc26",
@@ -1265,7 +1355,11 @@
       "longitude": -122.295892,
       "formatted": "37/55/56.5/N 122/17/45.2/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/rifle-range-road-trail--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/rifle-range-road-trail--02.jpg"
+    ]
   },
   {
     "route_id": "af1bcada-1562-402f-b94a-56446e220e72",
@@ -1279,7 +1373,8 @@
     "travel_time": 1,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "77b3892f-6b54-42c7-8b0e-d96fa972c0b9",
@@ -1293,7 +1388,8 @@
     "travel_time": 3,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "232b68eb-5a9d-4e16-86d4-50767ea94d39",
@@ -1307,7 +1403,8 @@
     "travel_time": 3.5,
     "next": false,
     "coordinates": null,
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "b754201c-aa24-4fa2-902b-9d8aee2c2109",
@@ -1325,7 +1422,13 @@
       "longitude": -1.948344,
       "formatted": "50/38/33.5/N 1/56/54.0/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/old-harry-rocks--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/old-harry-rocks--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/old-harry-rocks--03.jpg",
+      "https://storage.googleapis.com/cgme/hiking/old-harry-rocks--04.jpg"
+    ]
   },
   {
     "route_id": "e6900abc-54e8-4316-8110-f891a2f0c79f",
@@ -1343,7 +1446,8 @@
       "longitude": -117.129723,
       "formatted": "32/56/18.2/N 117/07/47.0/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": []
   },
   {
     "route_id": "9f1117f6-b366-4a60-a9dd-550c397c2fe6",
@@ -1361,7 +1465,35 @@
       "longitude": -122.535498,
       "formatted": "37/51/40.3/N 122/32/07.8/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/tennessee-cove--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/tennessee-cove--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/tennessee-cove--03.jpg"
+    ]
+  },
+  {
+    "route_id": "7ee65859-f880-48a7-b48b-c66860ec48ce",
+    "name": "Sentinel Dome",
+    "slug": "sentinel-dome",
+    "dates": ["2025-08-30"],
+    "miles": 5,
+    "elevation": 1000,
+    "area": "Yosemite Wilderness",
+    "region": "California",
+    "travel_time": null,
+    "next": false,
+    "coordinates": {
+      "latitude": 37.712453,
+      "longitude": -119.586323,
+      "formatted": "37/42/44.8/N 119/35/10.8/W"
+    },
+    "archived": false,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/sentinel-dome--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/sentinel-dome--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/sentinel-dome--03.jpg"
+    ]
   },
   {
     "route_id": "7e291369-cd8a-4136-8776-3657ae781938",
@@ -1379,7 +1511,11 @@
       "longitude": -120.820554,
       "formatted": "47/31/41.9/N 120/49/14.0/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/colchuck-lake--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/colchuck-lake--02.jpg"
+    ]
   },
   {
     "route_id": "b3390f05-bb72-4fea-a838-56afb7f03125",
@@ -1397,7 +1533,12 @@
       "longitude": -105.556633,
       "formatted": "40/16/20.1/N 105/33/23.9/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/chasm-lake--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/chasm-lake--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/chasm-lake--03.jpg"
+    ]
   },
   {
     "route_id": "2375f932-a4c2-451f-bcb8-8fcc92447605",
@@ -1415,6 +1556,14 @@
       "longitude": -115.380009,
       "formatted": "50/51/32.4/N 115/22/48.0/W"
     },
-    "archived": false
+    "archived": false,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/nub-peak-loop--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/nub-peak-loop--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/nub-peak-loop--03.jpg",
+      "https://storage.googleapis.com/cgme/hiking/nub-peak-loop--04.jpg",
+      "https://storage.googleapis.com/cgme/hiking/nub-peak-loop--05.jpg",
+      "https://storage.googleapis.com/cgme/hiking/nub-peak-loop--06.jpg"
+    ]
   }
 ]

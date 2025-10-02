@@ -23,6 +23,7 @@ export interface HikingRoute {
     formatted: string;
   } | null;
   archived: boolean;
+  image_links: string[];
 }
 
 function formatDistance(n: number) {
@@ -71,33 +72,42 @@ export function HikingPage() {
             .map((route) => (
               <div
                 key={route.route_id}
-                className="flex flex-col gap-2 rounded bg-white p-4 shadow"
+                className="group flex flex-col overflow-clip rounded-lg border-b border-neutral-200 bg-white md:flex-row"
               >
-                <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-                  <div className="font-sanchez text-xl text-balance">
-                    {route.name}
+                {route.image_links.length > 0 && (
+                  <img
+                    src={route.image_links[0]}
+                    alt={route.name}
+                    className="h-48 w-full object-cover md:h-40 md:w-40 md:flex-shrink-0"
+                  />
+                )}
+
+                <div className="flex flex-1 flex-col gap-2 p-4">
+                  <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+                    <div className="font-sanchez text-xl text-balance">
+                      {route.name}
+                    </div>
+
+                    <div className="flex flex-row gap-3">
+                      {route.dates.map((date) => (
+                        <div className="text-sm text-black/75">
+                          {new Date(date).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
+                          })}
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="flex flex-row gap-3">
-                    {route.dates.map((date) => (
-                      <div className="text-sm text-black/75">
-                        {new Date(date).toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                        })}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-2 text-sm text-black/75 md:flex-row md:items-center md:justify-between md:gap-4">
-                  <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
-                    <div className="flex flex-row items-center gap-4">
+                  <div className="flex flex-col gap-2 text-sm text-black/75 md:flex-row md:items-start md:justify-between md:gap-4">
+                    <div className="flex flex-col gap-2">
                       <div className="flex flex-row items-center gap-2">
                         <RulerIcon size={16} weight="duotone" color="#6283c0" />
                         {formatDistance(route.miles)} mi
                       </div>
+
                       <div className="flex flex-row items-center gap-2">
                         <MountainsIcon
                           size={16}
@@ -108,34 +118,34 @@ export function HikingPage() {
                           ? `${route.elevation.toLocaleString()} ft`
                           : ""}
                       </div>
+
+                      <div className="flex flex-row items-center gap-2">
+                        <MapTrifoldIcon
+                          size={16}
+                          weight="duotone"
+                          color="#6283c0"
+                        />
+                        {route.area} | {route.region}
+                      </div>
                     </div>
 
-                    <div className="flex flex-row items-center gap-2">
-                      <MapTrifoldIcon
-                        size={16}
-                        weight="duotone"
-                        color="#6283c0"
-                      />
-                      {route.area} | {route.region}
-                    </div>
+                    {route.coordinates && (
+                      <div className="flex flex-row items-center gap-2 text-sm text-black/75 opacity-0 transition-all group-hover:opacity-100">
+                        <SignpostIcon
+                          size={16}
+                          weight="duotone"
+                          color="#6283c0"
+                        />
+                        <SimpleLink
+                          link={`https://www.google.com/maps/search/?api=1&query=${route.coordinates.latitude},${route.coordinates.longitude}`}
+                          sameWindow={false}
+                          className="text-sm"
+                        >
+                          Trailhead
+                        </SimpleLink>
+                      </div>
+                    )}
                   </div>
-
-                  {route.coordinates && (
-                    <div className="flex flex-row items-center gap-2 text-sm text-black/75">
-                      <SignpostIcon
-                        size={16}
-                        weight="duotone"
-                        color="#6283c0"
-                      />
-                      <SimpleLink
-                        link={`https://www.google.com/maps/search/?api=1&query=${route.coordinates.latitude},${route.coordinates.longitude}`}
-                        sameWindow={false}
-                        className="text-sm"
-                      >
-                        Trailhead
-                      </SimpleLink>
-                    </div>
-                  )}
                 </div>
               </div>
             ))}
