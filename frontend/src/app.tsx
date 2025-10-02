@@ -91,10 +91,9 @@ function Layout() {
             path="/hidden/youtube-channels"
             element={<YouTubeChannelsPage />}
           />
-          <Route
-            path="/hidden/youtube-videos"
-            element={<YouTubeVideosPage />}
-          />
+          <Route path="/hidden/youtube-videos" element={<YouTubeVideosPage />}>
+            <Route path=":id" element={<YouTubeVideosPage />} />
+          </Route>
 
           {/* Hidden feed */}
           <Route path="/hidden/feed" element={<FeedPage />}>

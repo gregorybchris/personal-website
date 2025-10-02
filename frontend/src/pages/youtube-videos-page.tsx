@@ -47,13 +47,17 @@ export function YouTubeVideosPage() {
 
   return (
     <div className="flex flex-col items-center gap-10 px-4 py-8">
-      <PageTitle>YouTube Videos</PageTitle>
+      {!id && (
+        <>
+          <PageTitle>YouTube Videos</PageTitle>
 
-      <SearchBar
-        onSubmit={(text) => runQuery(text)}
-        text={searchText}
-        setText={setSearchText}
-      />
+          <SearchBar
+            onSubmit={(text) => runQuery(text)}
+            text={searchText}
+            setText={setSearchText}
+          />
+        </>
+      )}
 
       {loading && <div className="text-center text-black/75">Loading...</div>}
 
@@ -121,7 +125,7 @@ export function YouTubeVideoCard({
 
       <div
         className="cursor-pointer rounded-full p-1 transition-all hover:bg-black/5"
-        onClick={() => navigate(`/hidden/youtubeVideos/${youtubeVideo.id}`)}
+        onClick={() => navigate(`/hidden/youtube-videos/${youtubeVideo.id}`)}
       >
         <LinkIcon size={20} color="#6283c0" />
       </div>

@@ -48,13 +48,17 @@ export function MemesPage() {
 
   return (
     <div className="flex flex-col items-center gap-10 px-4 py-8">
-      <PageTitle>Memes</PageTitle>
+      {!id && (
+        <>
+          <PageTitle>Memes</PageTitle>
 
-      <SearchBar
-        onSubmit={(text) => runQuery(text)}
-        text={searchText}
-        setText={setSearchText}
-      />
+          <SearchBar
+            onSubmit={(text) => runQuery(text)}
+            text={searchText}
+            setText={setSearchText}
+          />
+        </>
+      )}
 
       {loading && <div className="text-center text-black/75">Loading...</div>}
 
