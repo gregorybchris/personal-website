@@ -36,11 +36,10 @@ export function SearchBar({
         placeholder={placeholderText}
         autoFocus={autoFocus}
         className="w-full"
+        onClear={onClear}
       />
 
       {onSubmit && <Button text="Search" onClick={() => onSubmit(text)} />}
-
-      <Button text="Clear" onClick={onClear} />
     </div>
   );
 }
