@@ -78,31 +78,39 @@ export function HikingPage() {
                     {route.name}
                   </div>
 
-                  <div className="text-sm text-black/75">
-                    {new Date(route.dates[0]).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    })}
+                  <div className="flex flex-row gap-3">
+                    {route.dates.map((date) => (
+                      <div className="text-sm text-black/75">
+                        {new Date(date).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        })}
+                      </div>
+                    ))}
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between md:gap-4">
+                <div className="flex flex-col gap-2 text-sm text-black/75 md:flex-row md:items-center md:justify-between md:gap-4">
                   <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
-                    <div className="flex flex-row items-center gap-2 text-sm text-black/75">
-                      <RulerIcon size={16} weight="duotone" color="#6283c0" />
-                      {formatDistance(route.miles)} mi
-                      <MountainsIcon
-                        size={16}
-                        weight="duotone"
-                        color="#6283c0"
-                      />
-                      {route.elevation !== null
-                        ? `${route.elevation.toLocaleString()} ft`
-                        : ""}
+                    <div className="flex flex-row items-center gap-4">
+                      <div className="flex flex-row items-center gap-2">
+                        <RulerIcon size={16} weight="duotone" color="#6283c0" />
+                        {formatDistance(route.miles)} mi
+                      </div>
+                      <div className="flex flex-row items-center gap-2">
+                        <MountainsIcon
+                          size={16}
+                          weight="duotone"
+                          color="#6283c0"
+                        />
+                        {route.elevation !== null
+                          ? `${route.elevation.toLocaleString()} ft`
+                          : ""}
+                      </div>
                     </div>
 
-                    <div className="flex flex-row items-center gap-2 text-sm text-black/75">
+                    <div className="flex flex-row items-center gap-2">
                       <MapTrifoldIcon
                         size={16}
                         weight="duotone"
@@ -124,7 +132,7 @@ export function HikingPage() {
                         sameWindow={false}
                         className="text-sm"
                       >
-                        View Trailhead
+                        Trailhead
                       </SimpleLink>
                     </div>
                   )}
