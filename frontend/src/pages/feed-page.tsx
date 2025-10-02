@@ -116,7 +116,7 @@ export function FeedPage() {
         </div>
       </div>
 
-      <div className="flex flex-col items-start gap-5">
+      <div className="flex flex-col items-center gap-5">
         {slug && (
           <div
             className="flex cursor-pointer flex-row gap-x-2 rounded-md px-2 py-1 hover:bg-black/[8%]"
@@ -126,6 +126,7 @@ export function FeedPage() {
             <div>Back to all links</div>
           </div>
         )}
+
         {!slug && (
           <SearchBar
             placeholder="Filter posts"
@@ -134,6 +135,7 @@ export function FeedPage() {
             className="w-[400px]"
           />
         )}
+
         <div className="flex flex-col gap-4">
           {posts.length === 0 && (
             <span className="text-black/60">Loading posts...</span>
