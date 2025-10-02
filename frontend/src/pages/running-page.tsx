@@ -16,6 +16,7 @@ export interface RunningRoute {
   mapometer_id: number;
   city: string;
   tags: string[];
+  archived: boolean;
 }
 
 export interface RouteData {
@@ -48,7 +49,7 @@ export function RunningPage() {
   useEffect(() => {
     const routesQuery = makeQuery("outdoor/running");
     GET(routesQuery).then((routes: RunningRoute[]) => {
-      setRoutes(routes.sort(routeCompare));
+      setRoutes(routes.sort(routeCompare).filter((r) => !r.archived));
     });
   }, []);
 

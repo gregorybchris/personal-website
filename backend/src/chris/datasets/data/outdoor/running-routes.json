@@ -85,8 +85,8 @@
   },
   {
     "route_id": "b35fde4c-8dab-4438-b12a-64d7c72fb4fd",
-    "name": "Fresh Pond (Gantcher)",
-    "slug": "fresh-pond-gantcher",
+    "name": "Fresh Pond",
+    "slug": "fresh-pond",
     "distance": 8.16,
     "elevation": 312,
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/fresh-pond-gantcher.json",
@@ -165,7 +165,7 @@
     "mapometer_id": 4335590,
     "city": "Boston",
     "tags": ["Tufts", "Ossipee"],
-    "archived": false
+    "archived": true
   },
   {
     "route_id": "9ee5234c-0b7f-4faf-8c73-32c5404b85f1",
@@ -189,7 +189,7 @@
     "mapometer_id": 4346456,
     "city": "Boston",
     "tags": ["Tufts", "Ossipee"],
-    "archived": false
+    "archived": true
   },
   {
     "route_id": "3ccc7933-4b26-49d7-8030-1a61f784e352",
@@ -201,7 +201,7 @@
     "mapometer_id": 4357555,
     "city": "Boston",
     "tags": ["Tufts", "Ossipee"],
-    "archived": false
+    "archived": true
   },
   {
     "route_id": "245f836e-2996-4d5a-af48-ae03ae94db47",
@@ -249,7 +249,7 @@
     "mapometer_id": 4380541,
     "city": "Boston",
     "tags": ["Tufts", "Ossipee"],
-    "archived": false
+    "archived": true
   },
   {
     "route_id": "afba7ced-352f-442c-8f74-0d1b4712f2a8",
@@ -277,8 +277,8 @@
   },
   {
     "route_id": "66399132-c27e-4286-aea4-234760412e50",
-    "name": "Short Glam (Gantcher)",
-    "slug": "short-glam-gantcher",
+    "name": "Short Glam",
+    "slug": "short-glam",
     "distance": 2.44,
     "elevation": 125,
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/short-glam-gantcher.json",
@@ -445,8 +445,8 @@
   },
   {
     "route_id": "16b8aaca-e1b1-44ff-afd9-782318312f4d",
-    "name": "Interlaken - UW",
-    "slug": "interlaken-uw",
+    "name": "Interlaken",
+    "slug": "interlaken",
     "distance": 4.6,
     "elevation": 420,
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/interlaken-uw.json",
@@ -525,7 +525,7 @@
     "mapometer_id": 4851982,
     "city": "Seattle",
     "tags": ["Capitol Hill"],
-    "archived": false
+    "archived": true
   },
   {
     "route_id": "7c4923c5-aae8-4386-af6e-de3a2f9612c0",
@@ -573,7 +573,7 @@
     "mapometer_id": 5187805,
     "city": "Seattle",
     "tags": ["Wallingford"],
-    "archived": false
+    "archived": true
   },
   {
     "route_id": "42719453-66cc-431a-b12d-b8fac4f526be",
