@@ -1,6 +1,7 @@
 import { ArrowLeftIcon, LinkIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { IconButton } from "../components/icon-button";
 import { PageTitle } from "../components/page-title";
 import { SearchBar } from "../components/search-bar";
 import { Tag } from "../components/tag";
@@ -242,7 +243,9 @@ function FeedPostCard({
     >
       <div className="flex flex-col gap-1 px-2">
         <a href={contentLink} target="_blank" rel="noopener noreferrer">
-          <div className="font-sanchez text-xl text-black/75">{title}</div>
+          <div className="font-sanchez text-xl text-balance text-black/75">
+            {title}
+          </div>
         </a>
 
         <div className="flex flex-col gap-0.5 text-sm">
@@ -260,7 +263,7 @@ function FeedPostCard({
         <div className="px-2">
           <a href={contentLink} target="_blank" rel="noopener noreferrer">
             <img
-              className="w-[250px] rounded-md shadow-[0_0_6px_2px_rgba(0,0,0,0.3)]"
+              className="w-[250px] rounded-md shadow-lg"
               src={thumbnailUrl}
               alt="Post thumbnail"
               onLoad={onThumbnailLoad}
@@ -276,18 +279,15 @@ function FeedPostCard({
             tag={tag}
             onClick={onClickTag}
             selected={selectedTags.includes(tag)}
-            className="text-sm"
+            className="text-xs"
           />
         ))}
       </div>
 
-      <div
-        className="flex cursor-pointer flex-row items-center gap-2 rounded px-2 py-1 transition-all hover:bg-black/[8%]"
-        onClick={() => onSelectPost(post)}
-      >
+      <IconButton>
         <LinkIcon size={16} color="#6283c0" />{" "}
         <div className="text-sm">Link</div>
-      </div>
+      </IconButton>
     </div>
   );
 }
