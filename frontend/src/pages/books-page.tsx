@@ -75,7 +75,7 @@ export function BooksPage() {
             ))}
           </div>
 
-          <div className="flex w-full flex-row flex-wrap justify-center gap-y-3 md:w-4/5 md:gap-x-2">
+          <div className="flex w-full flex-row flex-wrap justify-center gap-y-4 md:w-4/5 md:gap-x-2">
             {books
               .filter(
                 (book) =>
@@ -108,7 +108,7 @@ interface BookProps {
 
 function Book({ book, selectedTags, onTagClick }: BookProps) {
   return (
-    <div className="flex flex-col items-center gap-0.5">
+    <div className="flex flex-col items-center gap-1">
       <a href={book.goodreads_link} target="_blank">
         <img
           src={`${book.image_links.book}?cache=1`}
