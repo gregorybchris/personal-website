@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { cn } from "../utilities/style-utilities";
 import { Button } from "./button";
 import { TextBox } from "./text-box";
@@ -19,6 +20,19 @@ export function SearchBar({
   autoFocus,
   className,
 }: SearchBarProps) {
+  useEffect(() => {
+    function handleKeyPress(event: KeyboardEvent) {
+      if (event.key === "Enter" && onSubmit) {
+        onSubmit(text);
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyPress);
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [text, onSubmit]);
+
   const placeholderText = placeholder ?? "Search";
 
   function onClear() {
