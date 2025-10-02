@@ -41,6 +41,7 @@ export function HiddenPage() {
           <PageLink to="/hidden/places">Places</PageLink>
           <PageLink to="/hidden/recipes">Recipes</PageLink>
           <PageLink to="/hidden/project-logos">Project logos</PageLink>
+          <PageLink to="/hidden/hiking">Hiking</PageLink>
         </div>
 
         <div className="flex flex-col">

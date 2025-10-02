@@ -11,6 +11,7 @@ import { ContactPage } from "./pages/contact-page";
 import { FeedGraphPage } from "./pages/feed-graph-page";
 import { FeedPage } from "./pages/feed-page";
 import { HiddenPage } from "./pages/hidden-page";
+import { HikingPage } from "./pages/hiking-page";
 import { HomePage } from "./pages/home-page";
 import { InstagramsPage } from "./pages/instagrams-page";
 import { MemesPage } from "./pages/memes-page";
@@ -106,6 +107,7 @@ function Layout() {
           <Route path="/hidden/recipes" element={<RecipesPage />} />
           <Route path="/hidden/recipes/:slug" element={<RecipePage />} />
           <Route path="/hidden/project-logos" element={<ProjectLogosPage />} />
+          <Route path="/hidden/hiking" element={<HikingPage />} />
 
           {/* Hidden old */}
           <Route path="/hidden/archive" element={<ArchivePage />} />

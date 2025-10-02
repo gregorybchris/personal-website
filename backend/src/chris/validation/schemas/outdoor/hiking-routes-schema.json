@@ -11,14 +11,15 @@
         "route_id": "#uuid",
         "name": "string",
         "slug": "#slug",
-        "dates": ["null", "#datelist"],
+        "dates": "#datelist",
         "miles": "number",
         "elevation": ["null", "number"],
         "area": "string",
         "region": "string",
         "travel_time": ["null", "number"],
         "next": "boolean",
-        "coordinates": ["null", "#coords"]
+        "coordinates": ["null", "#coords"],
+        "archived": "boolean"
       }
     },
     "#uuid": {
