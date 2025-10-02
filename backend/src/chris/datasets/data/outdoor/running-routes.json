@@ -517,8 +517,8 @@
   },
   {
     "route_id": "e12f0651-308c-4e56-9190-f568165fa908",
-    "name": "Interlaken",
-    "slug": "interlaken-cap-hill",
+    "name": "Interlaken (Capitol Hill)",
+    "slug": "interlaken-capitol-hill",
     "distance": 4.52,
     "elevation": 531,
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/interlaken-cap-hill.json",
@@ -565,7 +565,7 @@
   },
   {
     "route_id": "2a52aa11-2aba-4d65-9ba7-27993c30875c",
-    "name": "Interlaken - Wallingford",
+    "name": "Interlaken (Wallingford)",
     "slug": "interlaken-wallingford",
     "distance": 6.71,
     "elevation": 551,
