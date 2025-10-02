@@ -284,7 +284,7 @@ function FeedPostCard({
         ))}
       </div>
 
-      <IconButton>
+      <IconButton onClick={() => onSelectPost(post)}>
         <LinkIcon size={16} color="#6283c0" />{" "}
         <div className="text-sm">Link</div>
       </IconButton>
