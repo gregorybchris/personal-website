@@ -141,7 +141,7 @@ export function HikingPage() {
                                 "flex-none",
                                 i < (route.stars ?? 0)
                                   ? "opacity-100"
-                                  : "opacity-20",
+                                  : "opacity-40",
                               )}
                             />
                           ))}
