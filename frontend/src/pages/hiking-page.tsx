@@ -1,4 +1,6 @@
 import {
+  CaretLeftIcon,
+  CaretRightIcon,
   MapTrifoldIcon,
   RulerIcon,
   SignpostIcon,
@@ -43,7 +45,10 @@ function formatDistance(n: number) {
 
 export function HikingPage() {
   const [routes, setRoutes] = useState<HikingRoute[]>([]);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<{
+    images: string[];
+    index: number;
+  } | null>(null);
 
   useEffect(() => {
     const routesQuery = makeQuery("outdoor/hiking");
@@ -76,12 +81,44 @@ export function HikingPage() {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
           onClick={() => setSelectedImage(null)}
         >
+          {selectedImage.images.length > 1 && (
+            <button
+              className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage({
+                  ...selectedImage,
+                  index:
+                    (selectedImage.index - 1 + selectedImage.images.length) %
+                    selectedImage.images.length,
+                });
+              }}
+            >
+              <CaretLeftIcon size={32} weight="bold" />
+            </button>
+          )}
+
           <img
-            src={selectedImage}
+            src={selectedImage.images[selectedImage.index]}
             alt="Expanded view"
             className="max-h-[90vh] max-w-[90vw] object-contain"
             onClick={(e) => e.stopPropagation()}
           />
+
+          {selectedImage.images.length > 1 && (
+            <button
+              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage({
+                  ...selectedImage,
+                  index: (selectedImage.index + 1) % selectedImage.images.length,
+                });
+              }}
+            >
+              <CaretRightIcon size={32} weight="bold" />
+            </button>
+          )}
         </div>
       )}
 
@@ -103,7 +140,12 @@ export function HikingPage() {
                     src={route.image_links[0]}
                     alt={route.name}
                     className="h-48 w-full cursor-pointer object-cover md:h-[190px] md:w-[190px] md:flex-shrink-0"
-                    onClick={() => setSelectedImage(route.image_links[0])}
+                    onClick={() =>
+                      setSelectedImage({
+                        images: route.image_links,
+                        index: 0,
+                      })
+                    }
                   />
                 )}
 
