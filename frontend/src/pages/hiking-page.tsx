@@ -5,7 +5,7 @@ import {
   StarIcon,
 } from "@phosphor-icons/react";
 import { MountainsIcon } from "@phosphor-icons/react/dist/ssr";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ImageModal } from "../components/image-modal";
 import { Loader } from "../components/loader";
 import { PageTitle } from "../components/page-title";
@@ -80,9 +80,7 @@ export function HikingPage() {
           images={selectedImage.images}
           currentIndex={selectedImage.index}
           onClose={() => setSelectedImage(null)}
-          onNavigate={(index) =>
-            setSelectedImage({ ...selectedImage, index })
-          }
+          onNavigate={(index) => setSelectedImage({ ...selectedImage, index })}
         />
       )}
 
@@ -100,7 +98,7 @@ export function HikingPage() {
                 className="group flex flex-col overflow-clip rounded-lg border-b border-neutral-200 bg-white md:flex-row"
               >
                 {route.image_links.length > 0 && (
-                  <img
+                  <LazyImage
                     src={route.image_links[0]}
                     alt={route.name}
                     className="h-48 w-full cursor-pointer object-cover md:h-[190px] md:w-[190px] md:flex-shrink-0"
@@ -209,5 +207,47 @@ export function HikingPage() {
         </div>
       )}
     </div>
+  );
+}
+
+interface LazyImageProps {
+  src: string;
+  alt: string;
+  className: string;
+  onClick: () => void;
+}
+
+function LazyImage({ src, alt, className, onClick }: LazyImageProps) {
+  const [isVisible, setIsVisible] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: "100px" },
+    );
+
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <img
+      ref={imgRef}
+      src={isVisible ? src : undefined}
+      alt={alt}
+      className={className}
+      onClick={onClick}
+    />
   );
 }
