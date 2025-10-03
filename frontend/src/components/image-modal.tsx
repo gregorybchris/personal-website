@@ -4,6 +4,7 @@ import { useEffect } from "react";
 interface ImageModalProps {
   images: string[];
   currentIndex: number;
+  name?: string;
   onClose: () => void;
   onNavigate: (index: number) => void;
 }
@@ -11,6 +12,7 @@ interface ImageModalProps {
 export function ImageModal({
   images,
   currentIndex,
+  name,
   onClose,
   onNavigate,
 }: ImageModalProps) {
@@ -44,6 +46,12 @@ export function ImageModal({
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
       onClick={onClose}
     >
+      {name && (
+        <div className="absolute top-4 left-4 rounded-full bg-black/60 px-4 py-2 text-sm font-medium text-white">
+          {name}
+        </div>
+      )}
+
       <button
         className="absolute top-4 right-4 cursor-pointer rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20"
         onClick={(e) => {
@@ -63,12 +71,19 @@ export function ImageModal({
         </button>
       )}
 
-      <img
-        src={images[currentIndex]}
-        alt="Expanded view"
-        className="max-h-[90vh] max-w-[90vw] rounded-3xl object-contain"
-        onClick={(e) => e.stopPropagation()}
-      />
+      <div className="relative">
+        <img
+          src={images[currentIndex]}
+          alt="Expanded view"
+          className="max-h-[90vh] max-w-[90vw] rounded-3xl object-contain"
+          onClick={(e) => e.stopPropagation()}
+        />
+        {images.length > 1 && (
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-black/60 px-3 py-1 text-sm text-white">
+            {currentIndex + 1} / {images.length}
+          </div>
+        )}
+      </div>
 
       {images.length > 1 && (
         <button

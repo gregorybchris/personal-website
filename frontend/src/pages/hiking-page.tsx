@@ -48,6 +48,7 @@ export function HikingPage() {
   const [selectedImage, setSelectedImage] = useState<{
     images: string[];
     index: number;
+    routeName: string;
   } | null>(null);
 
   useEffect(() => {
@@ -80,6 +81,7 @@ export function HikingPage() {
         <ImageModal
           images={selectedImage.images}
           currentIndex={selectedImage.index}
+          name={selectedImage.routeName}
           onClose={() => setSelectedImage(null)}
           onNavigate={(index) => setSelectedImage({ ...selectedImage, index })}
         />
@@ -105,6 +107,7 @@ export function HikingPage() {
                       setSelectedImage({
                         images: route.image_links,
                         index: 0,
+                        routeName: route.name,
                       })
                     }
                   >
