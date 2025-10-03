@@ -465,7 +465,11 @@
     },
     "stars": 4,
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/summerland-trail--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/summerland-trail--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/summerland-trail--03.jpg"
+    ]
   },
   {
     "route_id": "e8bc254d-3bd9-47a9-8f98-a4908d2e38ac",
@@ -510,7 +514,7 @@
     },
     "stars": 4,
     "archived": false,
-    "image_links": []
+    "image_links": ["https://storage.googleapis.com/cgme/hiking/ape-caves--01.jpg"]
   },
   {
     "route_id": "9973b356-c2a1-4674-b4ca-02ea8d5e6360",
@@ -522,7 +526,7 @@
     "area": "Columbia River Gorge",
     "region": "PNW",
     "travel_time": null,
-    "notes": "Sara Wiltberger, her friends",
+    "notes": "Maddi Baum, Sara Wiltberger, her friends (Jasmine Fermandez and Marquel Love)",
     "coordinates": {
       "latitude": 45.5895,
       "longitude": -122.075583,
@@ -530,7 +534,7 @@
     },
     "stars": 3,
     "archived": false,
-    "image_links": []
+    "image_links": ["https://storage.googleapis.com/cgme/hiking/oneonta-gorge--01.jpg"]
   },
   {
     "route_id": "b77e1aa3-4e8b-4323-a39b-70f37bbe0d17",
