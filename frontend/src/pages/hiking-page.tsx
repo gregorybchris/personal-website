@@ -1,4 +1,5 @@
 import {
+  ImageIcon,
   MapTrifoldIcon,
   RulerIcon,
   SignpostIcon,
@@ -98,17 +99,28 @@ export function HikingPage() {
                 className="group flex flex-col overflow-clip rounded-lg border-b border-neutral-200 bg-white md:flex-row"
               >
                 {route.image_links.length > 0 && (
-                  <LazyImage
-                    src={route.image_links[0]}
-                    alt={route.name}
-                    className="h-48 w-full cursor-pointer object-cover md:h-[190px] md:w-[190px] md:flex-shrink-0"
+                  <div
+                    className="group/image relative h-48 w-full cursor-pointer md:h-[190px] md:w-[190px] md:flex-shrink-0"
                     onClick={() =>
                       setSelectedImage({
                         images: route.image_links,
                         index: 0,
                       })
                     }
-                  />
+                  >
+                    <LazyImage
+                      src={route.image_links[0]}
+                      alt={route.name}
+                      className="h-full w-full object-cover"
+                      onClick={() => {}}
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-200 group-hover/image:opacity-100">
+                      <div className="flex items-center gap-2 text-white">
+                        <ImageIcon size={20} weight="bold" />
+                        <span className="text-sm font-medium">More photos</span>
+                      </div>
+                    </div>
+                  </div>
                 )}
 
                 <div className="flex flex-1 flex-col gap-2 px-6 py-4">
