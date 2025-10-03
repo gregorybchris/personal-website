@@ -1,10 +1,16 @@
-import { MapTrifoldIcon, RulerIcon, SignpostIcon } from "@phosphor-icons/react";
+import {
+  MapTrifoldIcon,
+  RulerIcon,
+  SignpostIcon,
+  StarIcon,
+} from "@phosphor-icons/react";
 import { MountainsIcon } from "@phosphor-icons/react/dist/ssr";
 import { useEffect, useState } from "react";
 import { Loader } from "../components/loader";
 import { PageTitle } from "../components/page-title";
 import { SimpleLink } from "../components/simple-link";
 import { GET, makeQuery } from "../utilities/request-utilities";
+import { cn } from "../utilities/style-utilities";
 
 export interface HikingRoute {
   route_id: string;
@@ -16,12 +22,12 @@ export interface HikingRoute {
   area: string;
   region: string;
   travel_time: string | null;
-  next: boolean;
   coordinates: {
     latitude: number;
     longitude: number;
     formatted: string;
   } | null;
+  stars: number | null;
   archived: boolean;
   image_links: string[];
 }
@@ -68,7 +74,9 @@ export function HikingPage() {
       ) : (
         <div className="flex w-full flex-col gap-3 md:w-4/5">
           {routes
-            .filter((route) => route.dates.length > 0 && !route.archived)
+            .filter(
+              (route) => route.dates.length > 0 && route.image_links.length > 0,
+            )
             .map((route) => (
               <div
                 key={route.route_id}
@@ -78,11 +86,11 @@ export function HikingPage() {
                   <img
                     src={route.image_links[0]}
                     alt={route.name}
-                    className="h-48 w-full object-cover md:h-40 md:w-40 md:flex-shrink-0"
+                    className="h-48 w-full object-cover md:h-[190px] md:w-[190px] md:flex-shrink-0"
                   />
                 )}
 
-                <div className="flex flex-1 flex-col gap-2 p-4">
+                <div className="flex flex-1 flex-col gap-2 px-6 py-4">
                   <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
                     <div className="font-sanchez text-xl text-balance">
                       {route.name}
@@ -103,8 +111,32 @@ export function HikingPage() {
 
                   <div className="flex flex-col gap-2 text-sm text-black/75 md:flex-row md:items-start md:justify-between md:gap-4">
                     <div className="flex flex-col gap-2">
+                      <div className="flex flex-row pb-1">
+                        {route.stars !== null &&
+                          route.stars > 0 &&
+                          Array.from({ length: 5 }).map((_, i) => (
+                            <StarIcon
+                              key={i}
+                              size={16}
+                              weight="duotone"
+                              color="#6283c0"
+                              className={cn(
+                                "flex-none",
+                                i < (route.stars ?? 0)
+                                  ? "opacity-100"
+                                  : "opacity-20",
+                              )}
+                            />
+                          ))}
+                      </div>
+
                       <div className="flex flex-row items-center gap-2">
-                        <RulerIcon size={16} weight="duotone" color="#6283c0" />
+                        <RulerIcon
+                          size={16}
+                          weight="duotone"
+                          color="#6283c0"
+                          className="flex-none"
+                        />
                         {formatDistance(route.miles)} mi
                       </div>
 
@@ -113,6 +145,7 @@ export function HikingPage() {
                           size={16}
                           weight="duotone"
                           color="#6283c0"
+                          className="flex-none"
                         />
                         {route.elevation !== null
                           ? `${route.elevation.toLocaleString()} ft`
@@ -124,6 +157,7 @@ export function HikingPage() {
                           size={16}
                           weight="duotone"
                           color="#6283c0"
+                          className="flex-none"
                         />
                         {route.area} | {route.region}
                       </div>
