@@ -1,6 +1,4 @@
 import {
-  CaretLeftIcon,
-  CaretRightIcon,
   MapTrifoldIcon,
   RulerIcon,
   SignpostIcon,
@@ -8,6 +6,7 @@ import {
 } from "@phosphor-icons/react";
 import { MountainsIcon } from "@phosphor-icons/react/dist/ssr";
 import { useEffect, useState } from "react";
+import { ImageModal } from "../components/image-modal";
 import { Loader } from "../components/loader";
 import { PageTitle } from "../components/page-title";
 import { SimpleLink } from "../components/simple-link";
@@ -77,49 +76,14 @@ export function HikingPage() {
       </div>
 
       {selectedImage && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
-          onClick={() => setSelectedImage(null)}
-        >
-          {selectedImage.images.length > 1 && (
-            <button
-              className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20"
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedImage({
-                  ...selectedImage,
-                  index:
-                    (selectedImage.index - 1 + selectedImage.images.length) %
-                    selectedImage.images.length,
-                });
-              }}
-            >
-              <CaretLeftIcon size={32} weight="bold" />
-            </button>
-          )}
-
-          <img
-            src={selectedImage.images[selectedImage.index]}
-            alt="Expanded view"
-            className="max-h-[90vh] max-w-[90vw] object-contain"
-            onClick={(e) => e.stopPropagation()}
-          />
-
-          {selectedImage.images.length > 1 && (
-            <button
-              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20"
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedImage({
-                  ...selectedImage,
-                  index: (selectedImage.index + 1) % selectedImage.images.length,
-                });
-              }}
-            >
-              <CaretRightIcon size={32} weight="bold" />
-            </button>
-          )}
-        </div>
+        <ImageModal
+          images={selectedImage.images}
+          currentIndex={selectedImage.index}
+          onClose={() => setSelectedImage(null)}
+          onNavigate={(index) =>
+            setSelectedImage({ ...selectedImage, index })
+          }
+        />
       )}
 
       {routes.length === 0 ? (
