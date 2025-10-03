@@ -22,6 +22,7 @@ export interface HikingRoute {
   area: string;
   region: string;
   travel_time: string | null;
+  notes: string | null;
   coordinates: {
     latitude: number;
     longitude: number;
@@ -42,6 +43,7 @@ function formatDistance(n: number) {
 
 export function HikingPage() {
   const [routes, setRoutes] = useState<HikingRoute[]>([]);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
     const routesQuery = makeQuery("outdoor/hiking");
@@ -69,6 +71,20 @@ export function HikingPage() {
         </div>
       </div>
 
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <img
+            src={selectedImage}
+            alt="Expanded view"
+            className="max-h-[90vh] max-w-[90vw] object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+
       {routes.length === 0 ? (
         <Loader>Loading routes...</Loader>
       ) : (
@@ -86,7 +102,8 @@ export function HikingPage() {
                   <img
                     src={route.image_links[0]}
                     alt={route.name}
-                    className="h-48 w-full object-cover md:h-[190px] md:w-[190px] md:flex-shrink-0"
+                    className="h-48 w-full cursor-pointer object-cover md:h-[190px] md:w-[190px] md:flex-shrink-0"
+                    onClick={() => setSelectedImage(route.image_links[0])}
                   />
                 )}
 

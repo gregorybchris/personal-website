@@ -9,6 +9,7 @@
     "area": "Columbia River Gorge",
     "region": "PNW",
     "travel_time": 3,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -24,6 +25,7 @@
     "area": "Snoqualmie Region/North Bend Area",
     "region": "PNW",
     "travel_time": 1.5,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -39,6 +41,7 @@
     "area": "South Cascades/Goat Rocks",
     "region": "PNW",
     "travel_time": 1.0,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -54,6 +57,7 @@
     "area": "South Cascades/Mount Adams Area",
     "region": "PNW",
     "travel_time": 2.5,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -69,6 +73,7 @@
     "area": "Central Cascades/Stevens Pass",
     "region": "PNW",
     "travel_time": 2.0,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -84,6 +89,7 @@
     "area": "North Cascades/North Cascades Highway",
     "region": "PNW",
     "travel_time": 3.0,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -99,6 +105,7 @@
     "area": "North Cascades/North Cascades Highway",
     "region": "PNW",
     "travel_time": 2.5,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -114,6 +121,7 @@
     "area": "Snoqualmie Region/Snoqualmie Pass",
     "region": "PNW",
     "travel_time": 1,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -129,6 +137,7 @@
     "area": "Mount Rainier Area",
     "region": "PNW",
     "travel_time": 2.5,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -144,6 +153,7 @@
     "area": "North Cascades/Mount Baker Area",
     "region": "PNW",
     "travel_time": 3.0,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -159,6 +169,7 @@
     "area": "South Cascades/Mount St. Helens",
     "region": "PNW",
     "travel_time": 3.0,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -174,6 +185,7 @@
     "area": "Olympic Peninsula/Northern Coast",
     "region": "PNW",
     "travel_time": 3.0,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -189,6 +201,7 @@
     "area": "North Cascades/Pasayten",
     "region": "PNW",
     "travel_time": 3.0,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -204,6 +217,7 @@
     "area": "North Cascades/Mountain Loop Highway",
     "region": "PNW",
     "travel_time": 1.5,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -219,6 +233,7 @@
     "area": "Snoqualmie Region/Teanaway",
     "region": "PNW",
     "travel_time": 2.5,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -234,6 +249,7 @@
     "area": "Central Cascades/Stevens Pass",
     "region": "PNW",
     "travel_time": 2.0,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -249,6 +265,7 @@
     "area": "Central Cascades/Steven's Pass",
     "region": "PNW",
     "travel_time": 2.5,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -264,6 +281,7 @@
     "area": "North Cascades/Mountain Loop Highway",
     "region": "PNW",
     "travel_time": 1.0,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -279,6 +297,7 @@
     "area": "Okanogan-Wenatchee National Forest",
     "region": "PNW",
     "travel_time": null,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -294,6 +313,7 @@
     "area": "Olympic Peninsula/Hood Canal",
     "region": "PNW",
     "travel_time": 2.5,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -309,6 +329,7 @@
     "area": "North Cascades/Mountain Loop Highway",
     "region": "PNW",
     "travel_time": 1.5,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -324,6 +345,7 @@
     "area": "Olympic Peninsula/Northern Coast",
     "region": "PNW",
     "travel_time": 3.0,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -339,6 +361,7 @@
     "area": "Columbia River Gorge",
     "region": "PNW",
     "travel_time": 3.5,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -354,6 +377,7 @@
     "area": "Snoqualmie Region/Teanaway",
     "region": "PNW",
     "travel_time": 2.5,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -369,6 +393,7 @@
     "area": "North Cascades/Mount Baker Area",
     "region": "PNW",
     "travel_time": 2.5,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -384,6 +409,7 @@
     "area": "Mount Rainier Area",
     "region": "PNW",
     "travel_time": 2.0,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -399,6 +425,7 @@
     "area": "South Cascades/Mount St. Helens",
     "region": "PNW",
     "travel_time": 3.0,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -414,6 +441,7 @@
     "area": "Central Cascades/Steven's Pass",
     "region": "PNW",
     "travel_time": 2.0,
+    "notes": null,
     "coordinates": null,
     "stars": null,
     "archived": false,
@@ -429,6 +457,7 @@
     "area": "Mount Rainier Area",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Jason, Linda",
     "coordinates": {
       "latitude": 46.888028,
       "longitude": -121.611222,
@@ -448,6 +477,7 @@
     "area": "Central Cascades/Steven's Pass",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Interns (2017), Janet on Gold Bar anniversary trip (2020)",
     "coordinates": {
       "latitude": 47.808778,
       "longitude": -121.573944,
@@ -472,6 +502,7 @@
     "area": "South Cascades/Mount St. Helens",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Anne, Reed, Emily",
     "coordinates": {
       "latitude": 46.108278,
       "longitude": -122.211472,
@@ -491,6 +522,7 @@
     "area": "Columbia River Gorge",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Sara Wiltberger, her friends",
     "coordinates": {
       "latitude": 45.5895,
       "longitude": -122.075583,
@@ -510,6 +542,7 @@
     "area": "Issaquah Alps/Tiger Mountain",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Katelynn",
     "coordinates": {
       "latitude": 47.499861,
       "longitude": -122.021972,
@@ -529,6 +562,7 @@
     "area": "Acadia National Park - Maine",
     "region": "New England",
     "travel_time": null,
+    "notes": "Janet",
     "coordinates": {
       "latitude": 44.316583,
       "longitude": -68.191778,
@@ -548,6 +582,7 @@
     "area": "New Hampshire",
     "region": "New England",
     "travel_time": null,
+    "notes": "Rory Buckman, Dylan Jones, Hiroto Watanabe, Julia Noble, Rhemi Toth, Matt McDermott",
     "coordinates": {
       "latitude": 42.844861,
       "longitude": -72.087167,
@@ -555,7 +590,10 @@
     },
     "stars": 3,
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/monadnock--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/monadnock--02.jpg"
+    ]
   },
   {
     "route_id": "871b5e50-1750-49e4-b2ee-fb1a0b46d942",
@@ -567,6 +605,7 @@
     "area": "Mt. Hood National Forest",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Jason",
     "coordinates": {
       "latitude": 43.981306,
       "longitude": -121.809111,
@@ -574,7 +613,17 @@
     },
     "stars": 5,
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/elk-to-olallie--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/elk-to-olallie--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/elk-to-olallie--03.jpg",
+      "https://storage.googleapis.com/cgme/hiking/elk-to-olallie--04.jpg",
+      "https://storage.googleapis.com/cgme/hiking/elk-to-olallie--05.jpg",
+      "https://storage.googleapis.com/cgme/hiking/elk-to-olallie--06.jpg",
+      "https://storage.googleapis.com/cgme/hiking/elk-to-olallie--07.jpg",
+      "https://storage.googleapis.com/cgme/hiking/elk-to-olallie--08.jpg",
+      "https://storage.googleapis.com/cgme/hiking/elk-to-olallie--09.jpg"
+    ]
   },
   {
     "route_id": "9de2c9d2-bd4b-4cc1-be1e-db179ad9705c",
@@ -586,6 +635,7 @@
     "area": "Yosemite",
     "region": "California",
     "travel_time": 2.5,
+    "notes": "Janet, Alex, Mom",
     "coordinates": {
       "latitude": 37.501574,
       "longitude": -119.611093,
@@ -610,6 +660,7 @@
     "area": "Yosemite",
     "region": "California",
     "travel_time": 2.5,
+    "notes": "Janet, Alex, Mom",
     "coordinates": {
       "latitude": 37.732859,
       "longitude": -119.557871,
@@ -617,18 +668,19 @@
     },
     "stars": 5,
     "archived": false,
-    "image_links": []
+    "image_links": ["https://storage.googleapis.com/cgme/hiking/half-dome--01.jpg"]
   },
   {
     "route_id": "9b267022-ba01-4335-8fea-d41b3b91b498",
     "name": "Klahhane Ridge",
     "slug": "klahhane-ridge",
-    "dates": ["2018-07-17"],
+    "dates": ["2018-07-17", "2022-08-10"],
     "miles": 8,
     "elevation": 1700,
     "area": "Olympic Peninsula/Northern Coast",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Dad and Alex",
     "coordinates": {
       "latitude": 47.969361,
       "longitude": -123.498667,
@@ -636,7 +688,13 @@
     },
     "stars": 4,
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/klahhane-ridge--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/klahhane-ridge--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/klahhane-ridge--03.jpg",
+      "https://storage.googleapis.com/cgme/hiking/klahhane-ridge--04.jpg",
+      "https://storage.googleapis.com/cgme/hiking/klahhane-ridge--05.jpg"
+    ]
   },
 
   {
@@ -649,6 +707,7 @@
     "area": "Olympic Peninsula/Pacific Coast",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Dad and Alex",
     "coordinates": {
       "latitude": 47.860667,
       "longitude": -123.935083,
@@ -656,7 +715,11 @@
     },
     "stars": 4,
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/hoh-river-trail--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/hoh-river-trail--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/hoh-river-trail--03.jpg"
+    ]
   },
   {
     "route_id": "ae7b54ac-cd0e-4a50-ba09-88cf5b29a439",
@@ -668,6 +731,7 @@
     "area": "Olympic Peninsula/Pacific Coast",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Dad and Alex",
     "coordinates": {
       "latitude": 47.941667,
       "longitude": -124.651194,
@@ -675,7 +739,11 @@
     },
     "stars": 3,
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/hole-in-the-wall--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/hole-in-the-wall--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/hole-in-the-wall--03.jpg"
+    ]
   },
   {
     "route_id": "0a06bc75-8fdd-4829-80c1-0db8d5435d21",
@@ -687,6 +755,7 @@
     "area": "North Cascades/Mount Baker Area",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Alone",
     "coordinates": {
       "latitude": 48.85425,
       "longitude": -121.683833,
@@ -712,6 +781,7 @@
     "area": "Snoqualmie Region/North Bend Area",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Janet",
     "coordinates": {
       "latitude": 47.488167,
       "longitude": -121.723194,
@@ -731,6 +801,7 @@
     "area": "Mount Rainier Area",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Albert Yerman, Noah Duchan, Adi Agarwal, Dan Latta-Lin (2019); Albert Yerman (2021)",
     "coordinates": {
       "latitude": 46.785417,
       "longitude": -121.735833,
@@ -754,6 +825,7 @@
     "area": "Lake Bled - Slovenia",
     "region": "Eastern Europe",
     "travel_time": null,
+    "notes": "Janet",
     "coordinates": {
       "latitude": 46.292639,
       "longitude": 13.889861,
@@ -779,6 +851,7 @@
     "area": "Snoqualmie Region/North Bend Area",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Jason, Edwin",
     "coordinates": {
       "latitude": 47.466861,
       "longitude": -121.673306,
@@ -801,6 +874,7 @@
     "area": "Central Cascades/Steven's Pass",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Dad",
     "coordinates": {
       "latitude": 47.708361,
       "longitude": -121.155472,
@@ -823,6 +897,7 @@
     "area": "Central Cascades/Steven's Pass",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Dad",
     "coordinates": {
       "latitude": 47.634806,
       "longitude": -121.303917,
@@ -842,6 +917,7 @@
     "area": "Central Cascades/Steven's Pass",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Nick, Rob",
     "coordinates": {
       "latitude": 47.678639,
       "longitude": -121.264389,
@@ -861,6 +937,7 @@
     "area": "North Cascades/Mountain Loop Highway",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Janet",
     "coordinates": {
       "latitude": 48.070306,
       "longitude": -121.814833,
@@ -880,6 +957,7 @@
     "area": "Snoqualmie Region/North Bend Area",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Yuki",
     "coordinates": {
       "latitude": 47.435333,
       "longitude": -121.771833,
@@ -899,6 +977,7 @@
     "area": "Yosemite",
     "region": "California",
     "travel_time": 2.5,
+    "notes": "Mom, Alex, Janet, (Shianne?)",
     "coordinates": {
       "latitude": 37.739386,
       "longitude": -119.560354,
@@ -918,6 +997,7 @@
     "area": "North Cascades/Mountain Loop Highway",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Alone",
     "coordinates": {
       "latitude": 48.082944,
       "longitude": -121.773917,
@@ -941,6 +1021,7 @@
     "area": "Snoqualmie Region/Teanaway",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Janet, Hannah Hong, (Gloria?)",
     "coordinates": {
       "latitude": 47.436694,
       "longitude": -120.937056,
@@ -948,7 +1029,12 @@
     },
     "stars": 3,
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/longs-pass--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/longs-pass--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/longs-pass--03.jpg",
+      "https://storage.googleapis.com/cgme/hiking/longs-pass--04.jpg"
+    ]
   },
   {
     "route_id": "b45c0a8c-097a-4cc9-8945-268dfabb58d3",
@@ -960,6 +1046,7 @@
     "area": "North Cascades/Mount Baker Area",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Janet. Very steep one where I felt the burn.",
     "coordinates": {
       "latitude": 48.897667,
       "longitude": -121.645222,
@@ -984,6 +1071,7 @@
     "area": "Crater Lake National Park",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Anne, Reed, Alex, Kenter, Emily, Sawyer",
     "coordinates": {
       "latitude": 42.97975,
       "longitude": -122.083278,
@@ -1006,6 +1094,7 @@
     "area": "Enchantments",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Janet, Hannah, Gloria, Connor Kreutz (2020); Albert, Noah (2021)",
     "coordinates": {
       "latitude": 47.544111,
       "longitude": -120.709722,
@@ -1030,6 +1119,7 @@
     "area": "Snoqualmie Region/Snoqualmie Pass",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Janet",
     "coordinates": {
       "latitude": 47.424694,
       "longitude": -121.583361,
@@ -1052,6 +1142,7 @@
     "area": "Richmond",
     "region": "California",
     "travel_time": null,
+    "notes": null,
     "coordinates": {
       "latitude": 37.916471,
       "longitude": -122.383747,
@@ -1071,6 +1162,7 @@
     "area": "Berkeley",
     "region": "California",
     "travel_time": null,
+    "notes": null,
     "coordinates": {
       "latitude": 37.862699,
       "longitude": -122.244096,
@@ -1090,6 +1182,7 @@
     "area": "Berkeley",
     "region": "California",
     "travel_time": null,
+    "notes": null,
     "coordinates": {
       "latitude": 37.908369,
       "longitude": -122.264182,
@@ -1109,6 +1202,7 @@
     "area": "Marin",
     "region": "California",
     "travel_time": null,
+    "notes": null,
     "coordinates": {
       "latitude": 37.959202,
       "longitude": -122.60982,
@@ -1128,6 +1222,7 @@
     "area": "Deception Pass",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Janet",
     "coordinates": {
       "latitude": 48.416584,
       "longitude": -122.65116,
@@ -1147,6 +1242,7 @@
     "area": "North Cascades/Mount Baker Area",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Camping with Jason",
     "coordinates": {
       "latitude": 48.75026,
       "longitude": -121.555787,
@@ -1171,6 +1267,7 @@
     "area": "Anchorage",
     "region": "Alaska",
     "travel_time": null,
+    "notes": "Janet",
     "coordinates": {
       "latitude": 61.028335,
       "longitude": -149.115759,
@@ -1195,6 +1292,7 @@
     "area": "Anchorage",
     "region": "Alaska",
     "travel_time": null,
+    "notes": "Janet",
     "coordinates": {
       "latitude": 60.971632,
       "longitude": -149.102286,
@@ -1217,6 +1315,7 @@
     "area": "Kenai Fjords National Park",
     "region": "Alaska",
     "travel_time": null,
+    "notes": "Janet",
     "coordinates": {
       "latitude": 60.188483,
       "longitude": -149.630853,
@@ -1242,6 +1341,7 @@
     "area": "Palmer",
     "region": "Alaska",
     "travel_time": null,
+    "notes": "Janet",
     "coordinates": {
       "latitude": 61.804057,
       "longitude": -149.202753,
@@ -1265,6 +1365,7 @@
     "area": "Mount Rainier Area",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Janet",
     "coordinates": {
       "latitude": 46.785417,
       "longitude": -121.735833,
@@ -1288,6 +1389,7 @@
     "area": "Berkeley",
     "region": "California",
     "travel_time": null,
+    "notes": null,
     "coordinates": {
       "latitude": 37.913055,
       "longitude": -122.202561,
@@ -1307,6 +1409,7 @@
     "area": "Ku'ia Natural Area Reserve",
     "region": "Kaua'i, Hawai'i",
     "travel_time": null,
+    "notes": "The one with the red canyon and view of the coast.",
     "coordinates": {
       "latitude": 22.141398,
       "longitude": -159.6486261,
@@ -1329,6 +1432,7 @@
     "area": "Na Pali Coast State Wilderness Park",
     "region": "Kaua'i, Hawai'i",
     "travel_time": null,
+    "notes": "The pouring rain one with the flooding beach.",
     "coordinates": {
       "latitude": 22.220358,
       "longitude": -159.582563,
@@ -1352,6 +1456,7 @@
     "area": "North Cascades/Mountain Loop Highway",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Janet, Jon",
     "coordinates": {
       "latitude": 48.054285,
       "longitude": -121.49103,
@@ -1374,6 +1479,7 @@
     "area": "Olympic Peninsula/Pacific Coast",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Backpacking with Jason",
     "coordinates": {
       "latitude": 47.573165,
       "longitude": -123.569046,
@@ -1399,6 +1505,7 @@
     "area": "Richmond",
     "region": "California",
     "travel_time": null,
+    "notes": "Lots of eucalyptus trees, pier overlooking water.",
     "coordinates": {
       "latitude": 37.991487,
       "longitude": -122.355324,
@@ -1421,6 +1528,7 @@
     "area": "Puget Sound And Islands/Bellingham Area",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Janet, Tom DePalma, Mandy Weeks, Angelo Massaro",
     "coordinates": {
       "latitude": 48.608517,
       "longitude": -122.433308,
@@ -1443,6 +1551,7 @@
     "area": "North Cascades/Mount Baker Area",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Janet, Taylor Wurts",
     "coordinates": {
       "latitude": 48.943309,
       "longitude": -121.662679,
@@ -1466,6 +1575,7 @@
     "area": "Snoqualmie Region/Snoqualmie Pass",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Janet, Michael Tappel, his ex, his old roommate.",
     "coordinates": {
       "latitude": 47.390511,
       "longitude": -121.347602,
@@ -1490,6 +1600,7 @@
     "area": "Wildcat Canyon Regional Park",
     "region": "California",
     "travel_time": null,
+    "notes": null,
     "coordinates": {
       "latitude": 37.932355,
       "longitude": -122.295892,
@@ -1512,6 +1623,7 @@
     "area": "Dorset AONB",
     "region": "England",
     "travel_time": null,
+    "notes": "Janet",
     "coordinates": {
       "latitude": 50.642627,
       "longitude": -1.948344,
@@ -1536,6 +1648,7 @@
     "area": "San Diego",
     "region": "California",
     "travel_time": null,
+    "notes": "Ran once with TUXC, felt like Temple Run; MLE team from Hume (2024)",
     "coordinates": {
       "latitude": 32.938387,
       "longitude": -117.129723,
@@ -1555,6 +1668,7 @@
     "area": "Marin Headlands (GGNRA)",
     "region": "California",
     "travel_time": null,
+    "notes": "Mom",
     "coordinates": {
       "latitude": 37.861184,
       "longitude": -122.535498,
@@ -1578,6 +1692,7 @@
     "area": "Yosemite Wilderness",
     "region": "California",
     "travel_time": null,
+    "notes": "Janet, Alex, Shianne, Anne, Reed, Mom",
     "coordinates": {
       "latitude": 37.712453,
       "longitude": -119.586323,
@@ -1601,6 +1716,7 @@
     "area": "Central Cascades/Leavenworth Area",
     "region": "PNW",
     "travel_time": null,
+    "notes": "Evan Carlson, Jori, Brian Kitano, Will Merrill",
     "coordinates": {
       "latitude": 47.528299,
       "longitude": -120.820554,
@@ -1623,6 +1739,7 @@
     "area": "Rocky Mountain National Park",
     "region": "Colorado",
     "travel_time": null,
+    "notes": "Reed, Alex, Kenter",
     "coordinates": {
       "latitude": 40.272241,
       "longitude": -105.556633,
@@ -1646,6 +1763,7 @@
     "area": "Banff National Park",
     "region": "Canada",
     "travel_time": null,
+    "notes": "Jason, Edwin",
     "coordinates": {
       "latitude": 50.859002,
       "longitude": -115.380009,

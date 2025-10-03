@@ -17,9 +17,23 @@
         "area": "string",
         "region": "string",
         "travel_time": ["null", "number"],
-        "next": "boolean",
+        "notes": ["null", "string"],
         "coordinates": ["null", "#coords"],
-        "archived": "boolean"
+        "stars": [
+          "null",
+          {
+            "type": "number",
+            "cons": {
+              "gt": 0,
+              "lte": 5
+            }
+          }
+        ],
+        "archived": "boolean",
+        "image_links": {
+          "type": "array",
+          "elem": "#link"
+        }
       }
     },
     "#uuid": {
@@ -61,6 +75,14 @@
             }
           }
         }
+      }
+    },
+    "#link": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^http[s]?://" },
+        "min_length": 5,
+        "max_length": 120
       }
     }
   }
