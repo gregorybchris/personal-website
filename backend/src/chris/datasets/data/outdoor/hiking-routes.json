@@ -22,7 +22,7 @@
     "route_id": "e8bc254d-3bd9-47a9-8f98-a4908d2e38ac",
     "name": "Lake Serene",
     "slug": "lake-serene",
-    "dates": ["2017-06-18"],
+    "dates": ["2017-06-18", "2020-08-09"],
     "miles": 8,
     "elevation": 2000,
     "area": "Central Cascades/Steven's Pass",
@@ -35,7 +35,12 @@
       "formatted": "47/48/31.6/N 121/34/26.2/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/lake-serene--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/lake-serene--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/lake-serene--03.jpg",
+      "https://storage.googleapis.com/cgme/hiking/lake-serene--04.jpg"
+    ]
   },
   {
     "route_id": "664c8def-ccb0-4c54-90ca-7ffa2a92a711",
@@ -187,7 +192,13 @@
       "formatted": "48/51/15.3/N 121/41/01.8/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/chain-lakes-loop--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/chain-lakes-loop--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/chain-lakes-loop--03.jpg",
+      "https://storage.googleapis.com/cgme/hiking/chain-lakes-loop--04.jpg",
+      "https://storage.googleapis.com/cgme/hiking/chain-lakes-loop--05.jpg"
+    ]
   },
   {
     "route_id": "61fe54aa-cdb9-4cd5-9f56-a00ff81fed7a",
@@ -225,12 +236,16 @@
       "formatted": "46/47/07.5/N 121/44/09.0/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/camp-muir--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/camp-muir--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/camp-muir--03.jpg"
+    ]
   },
   {
     "route_id": "b40a254e-3748-4533-90d6-3a544469955f",
     "name": "Mailbox Peak",
-    "slug": "mailbox",
+    "slug": "mailbox-peak",
     "dates": ["2019-07-06"],
     "miles": 10,
     "elevation": 4000,
@@ -244,7 +259,10 @@
       "formatted": "47/28/00.7/N 121/40/23.9/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/mailbox-peak--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/mailbox-peak--02.jpg"
+    ]
   },
   {
     "route_id": "d41847f4-906f-4c76-a411-016ecd1bb49a",
@@ -263,7 +281,10 @@
       "formatted": "47/42/30.1/N 121/09/19.7/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/surprise-lake--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/surprise-lake--02.jpg"
+    ]
   },
   {
     "route_id": "148fdabb-cfc1-4a56-959b-7362a0e760df",
@@ -358,7 +379,11 @@
       "formatted": "48/04/58.6/N 121/46/26.1/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/heather-lake--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/heather-lake--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/heather-lake--03.jpg"
+    ]
   },
   {
     "route_id": "d9039140-3d8a-46ce-b0a4-9dae4cf3318e",
@@ -396,7 +421,12 @@
       "formatted": "48/53/51.6/N 121/38/42.8/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/goat-mountain--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/goat-mountain--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/goat-mountain--03.jpg",
+      "https://storage.googleapis.com/cgme/hiking/goat-mountain--04.jpg"
+    ]
   },
   {
     "route_id": "4de8fb8f-5aa9-42b2-901b-2f34a68773b9",
@@ -415,7 +445,10 @@
       "formatted": "42/58/47.1/N 122/04/59.8/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/cleetwood-cove-trail-crater-lake--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/cleetwood-cove-trail-crater-lake--02.jpg"
+    ]
   },
   {
     "route_id": "da724c45-7003-411e-b7df-c3523c235390",
@@ -434,7 +467,12 @@
       "formatted": "47/32/38.8/N 120/42/35.0/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/snow-lake--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/snow-lake--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/snow-lake--03.jpg",
+      "https://storage.googleapis.com/cgme/hiking/snow-lake--04.jpg"
+    ]
   },
   {
     "route_id": "36312608-71b7-4f19-bb65-be59fbf55fe5",
@@ -453,7 +491,10 @@
       "formatted": "47/25/28.9/N 121/35/00.1/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/mason-lake--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/mason-lake--02.jpg"
+    ]
   },
   {
     "route_id": "d6d63fa8-d903-4015-b379-e30f3cbd9e48",
@@ -510,7 +551,13 @@
       "formatted": "46/17/33.5/N 13/53/23.5/E"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/mostnica-gorge--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/mostnica-gorge--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/mostnica-gorge--03.jpg",
+      "https://storage.googleapis.com/cgme/hiking/mostnica-gorge--04.jpg",
+      "https://storage.googleapis.com/cgme/hiking/mostnica-gorge--05.jpg"
+    ]
   },
   {
     "route_id": "12fa6876-479e-412d-ae23-98e3b6d88015",
@@ -605,7 +652,12 @@
       "formatted": "37/30/05.7/N 119/36/39.9/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/mariposa-grove--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/mariposa-grove--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/mariposa-grove--03.jpg",
+      "https://storage.googleapis.com/cgme/hiking/mariposa-grove--04.jpg"
+    ]
   },
   {
     "route_id": "d8a08b17-78cb-47e1-8b6d-f475fee78a41",
@@ -643,7 +695,7 @@
       "formatted": "37/44/21.8/N 119/33/37.3/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": ["https://storage.googleapis.com/cgme/hiking/mirror-lake--01.jpg"]
   },
   {
     "route_id": "19bef72d-d1b6-45dd-8943-fe617eda6c18",
@@ -662,7 +714,7 @@
       "formatted": "48/24/59.7/N 122/39/04.2/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": ["https://storage.googleapis.com/cgme/hiking/lighthouse-point-trail--01.jpg"]
   },
   {
     "route_id": "f6f6f9c2-0c66-4b94-9d4c-e3233321fa52",
@@ -681,7 +733,12 @@
       "formatted": "48/45/00.9/N 121/33/20.8/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/baker-lake-trail--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/baker-lake-trail--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/baker-lake-trail--03.jpg",
+      "https://storage.googleapis.com/cgme/hiking/baker-lake-trail--04.jpg"
+    ]
   },
   {
     "route_id": "a0d942dd-b2ab-4312-ac55-00c66fdd1d9f",
@@ -700,7 +757,12 @@
       "formatted": "61/01/42.0/N 149/06/56.7/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/crow-pass-trail--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/crow-pass-trail--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/crow-pass-trail--03.jpg",
+      "https://storage.googleapis.com/cgme/hiking/crow-pass-trail--04.jpg"
+    ]
   },
   {
     "route_id": "e9d60d18-d8aa-4e20-9bdc-2f3fd4a8451f",
@@ -719,7 +781,10 @@
       "formatted": "60/58/17.9/N 149/06/08.2/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/mount-alyeska--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/mount-alyeska--02.jpg"
+    ]
   },
   {
     "route_id": "fc04a2f2-6fa1-40bd-86dc-0c813a1b7222",
@@ -738,7 +803,13 @@
       "formatted": "60/11/18.5/N 149/37/51.1/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/harding-ice-field-trail--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/harding-ice-field-trail--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/harding-ice-field-trail--03.jpg",
+      "https://storage.googleapis.com/cgme/hiking/harding-ice-field-trail--04.jpg",
+      "https://storage.googleapis.com/cgme/hiking/harding-ice-field-trail--05.jpg"
+    ]
   },
   {
     "route_id": "5fd2382d-8383-4559-bd00-815bfd35a2c2",
@@ -776,7 +847,11 @@
       "formatted": "46/47/07.5/N 121/44/09.0/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/skyline-loop--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/skyline-loop--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/skyline-loop--03.jpg"
+    ]
   },
   {
     "route_id": "37a22efd-62c6-4cd7-b45a-b9c5bc6d589b",
@@ -814,7 +889,10 @@
       "formatted": "22/08/29.0/N 159/38/55.1/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/awaawapuhi-nualolo--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/awaawapuhi-nualolo--02.jpg"
+    ]
   },
   {
     "route_id": "f8c6c2ef-f670-478a-bfad-26c9ffcfc29e",
@@ -833,7 +911,11 @@
       "formatted": "22/13/13.3/N 159/34/57.2/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/kalalau-trail--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/kalalau-trail--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/kalalau-trail--03.jpg"
+    ]
   },
   {
     "route_id": "fbb5b998-505c-45a0-9805-657630b57631",
@@ -1227,7 +1309,10 @@
       "formatted": "48/03/15.4/N 121/29/27.7/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/mount-dickerman--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/mount-dickerman--02.jpg"
+    ]
   },
   {
     "route_id": "36519c33-c5f2-49bc-94fb-e4e6eaedab9f",
@@ -1246,7 +1331,13 @@
       "formatted": "47/34/23.4/N 123/34/08.6/W"
     },
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/enchanted-valley-oneil--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/enchanted-valley-oneil--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/enchanted-valley-oneil--03.jpg",
+      "https://storage.googleapis.com/cgme/hiking/enchanted-valley-oneil--04.jpg",
+      "https://storage.googleapis.com/cgme/hiking/enchanted-valley-oneil--05.jpg"
+    ]
   },
   {
     "route_id": "960c5660-ad9e-44ad-9aee-a83cf5d8ea1d",
