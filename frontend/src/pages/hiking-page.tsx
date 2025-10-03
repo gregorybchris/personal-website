@@ -130,7 +130,7 @@ export function HikingPage() {
                     </div>
 
                     {route.coordinates && (
-                      <div className="flex flex-row items-center gap-2 text-sm text-black/75 opacity-0 transition-all group-hover:opacity-100">
+                      <div className="flex flex-row items-center gap-2 text-sm text-black/75 transition-all group-hover:opacity-100 md:opacity-0">
                         <SignpostIcon
                           size={16}
                           weight="duotone"
