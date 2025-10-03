@@ -526,7 +526,7 @@
     "area": "Columbia River Gorge",
     "region": "PNW",
     "travel_time": null,
-    "notes": "Maddi Baum, Sara Wiltberger, her friends (Jasmine Fermandez and Marquel Love)",
+    "notes": "Maddi Baum, Sara Wiltberger, her friends (Jasmine Fernandez and Marquel Love)",
     "coordinates": {
       "latitude": 45.5895,
       "longitude": -122.075583,
@@ -1385,8 +1385,8 @@
   },
   {
     "route_id": "37a22efd-62c6-4cd7-b45a-b9c5bc6d589b",
-    "name": "Briones Resevoir Loop",
-    "slug": "briones-resevoir-loop",
+    "name": "Briones Reservoir Loop",
+    "slug": "briones-reservoir-loop",
     "dates": ["2022-01-08"],
     "miles": 3,
     "elevation": 450,
@@ -1720,7 +1720,7 @@
     "area": "Central Cascades/Leavenworth Area",
     "region": "PNW",
     "travel_time": null,
-    "notes": "Evan Carlson, Jori, Brian Kitano, Will Merrill",
+    "notes": "Evan Carlson, Jorie, Brian Kitano, Will Merrill",
     "coordinates": {
       "latitude": 47.528299,
       "longitude": -120.820554,

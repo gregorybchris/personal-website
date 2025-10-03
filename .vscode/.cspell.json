@@ -1,0 +1,27 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "dictionaries": ["people", "hikes", "running", "projects", "other"],
+  "dictionaryDefinitions": [
+    {
+      "name": "people",
+      "path": "./dictionaries/people.txt"
+    },
+    {
+      "name": "hikes",
+      "path": "./dictionaries/hikes.txt"
+    },
+    {
+      "name": "running",
+      "path": "./dictionaries/running.txt"
+    },
+    {
+      "name": "projects",
+      "path": "./dictionaries/projects.txt"
+    },
+    {
+      "name": "other",
+      "path": "./dictionaries/other.txt"
+    }
+  ]
+}
