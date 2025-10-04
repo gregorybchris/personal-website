@@ -69,13 +69,7 @@ export function HikingPage() {
 
   return (
     <div className="flex flex-col items-center gap-8 px-4 py-8">
-      <div className="flex flex-col items-center gap-4 md:w-4/5">
-        <PageTitle>Hiking Routes</PageTitle>
-
-        <div className="text-center text-black/75 md:w-[70%]">
-          Some hikes I've done!
-        </div>
-      </div>
+      <PageTitle>Hiking Routes</PageTitle>
 
       {selectedImage && (
         <ImageModal
