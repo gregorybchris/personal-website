@@ -54,8 +54,11 @@ export function BlogPostPage() {
               {formatDate(new Date(currentPost.date).toISOString())}
             </div>
             {currentPost.reading_time !== null && (
-              <div className="text-sm text-black/50">
-                ({currentPost.reading_time} min read)
+              <div
+                className="text-sm text-black/50"
+                title="Estimated using Brysbaert, M. (2019)"
+              >
+                [{currentPost.reading_time} min read]
               </div>
             )}
           </div>
