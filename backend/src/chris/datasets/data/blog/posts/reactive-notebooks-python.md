@@ -1,6 +1,6 @@
 ---
 date: 2023-03-25
-slug: reactive-notebooks-to-python
+slug: reactive-notebooks-python
 title: Bringing Reactive Notebooks to Python
 archived: false
 ---
