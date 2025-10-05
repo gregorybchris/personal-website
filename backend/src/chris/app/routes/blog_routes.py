@@ -6,7 +6,7 @@ from typing import Iterator
 import frontmatter
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from chris.app import logging_utilities
 
@@ -20,7 +20,6 @@ class BlogPostPreview(BaseModel):
     slug: str
     date: datetime
     reading_time: int = None
-    archived: bool
 
 
 class BlogPost(BaseModel):
@@ -28,7 +27,7 @@ class BlogPost(BaseModel):
     slug: str
     date: datetime
     content: str
-    archived: bool
+    archived: bool = Field(exclude=True)
     reading_time: int = None
 
     def __init__(self, **data):
@@ -41,7 +40,6 @@ class BlogPost(BaseModel):
             slug=self.slug,
             date=self.date,
             reading_time=self.reading_time,
-            archived=self.archived,
         )
 
 
