@@ -7,9 +7,9 @@ archived: false
 
 Aren't <a href="https://jupyter.org" target="_blank">Jupyter</a> notebooks great??<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup> It takes only a couple clicks/keystrokes to create a new cell, write some code, and run it. There's no creating a new file, naming the file, writing an entrypoint/main function, or switching to a terminal window to run the code. Unlike standard scripts, notebooks also allow you to embed markdown, plots, and other media directly so you can tell a story with your code.
 
-One of the most powerful features of the notebook paradigm is that you can swap in and out bits of functionality just be running cells in a different order. This is incredible for exploration and prototyping, but with this great flexibility comes a serious drawback. Since there's no well-defined execution order for cells, your notebook can easily get into a state where running the cells in order produces errors.
+One of the most powerful features of the notebook paradigm is that you can swap in and out bits of functionality just be running cells in a different order. This is incredible for exploration and prototyping, but with this great flexibility comes a serious drawback: Since there's no well-defined execution order for cells, your notebook can easily get into a state where running the cells top to bottom produces errors.
 
-The notebook may have some very useful plots embedded in it, but if someone else can't reproduce those plots by re-running the notebook, then the notebook isn't very useful to them. To earn the honor of being dubbed a data "scientist", reproducibility should be pretty important.
+The notebook may have some very useful plots embedded in it, but if someone else can't reproduce those plots by re-running the notebook, then the notebook isn't very useful to them. Notebooks are often used by data "scientists" and real science demands reproducibility. Wouldn't it be great if our coding environment made it easy to achieve that high bar?
 
 ## Observable
 
