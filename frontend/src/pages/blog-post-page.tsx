@@ -8,7 +8,7 @@ import ShareButton from "../components/share-button";
 import "../styles/blog.css";
 import "../styles/fonts.css";
 import { formatDate } from "../utilities/datetime-utilities";
-import { GET, makeQuery } from "../utilities/request-utilities";
+import { makeQuery } from "../utilities/request-utilities";
 import { BlogPost } from "./blog-page";
 
 export function BlogPostPage() {
@@ -18,10 +18,17 @@ export function BlogPostPage() {
 
   useEffect(() => {
     const query = makeQuery(`blog/posts/${slug}`);
-    GET(query).then((responseJson) => {
-      setCurrentPost(responseJson);
-    });
-  }, []);
+    fetch(query)
+      .then((response) => {
+        if (!response.ok) {
+          navigate("/blog");
+        }
+        return response.json();
+      })
+      .then((responseJson) => {
+        setCurrentPost(responseJson);
+      });
+  }, [slug]);
 
   return (
     <div className="font-iowa flex flex-col items-center px-7 py-6 md:px-10 md:py-10">
