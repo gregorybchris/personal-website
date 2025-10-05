@@ -77,6 +77,10 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+#blog img.no-bg {
+  box-shadow: none;
+}
+
 #blog video {
   border-radius: 0.375rem;
   display: block;
