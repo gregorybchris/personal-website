@@ -167,6 +167,6 @@ The full source code for this project is available on <a href="https://github.co
 <div id="footnotes">
   <div id="fn:fn1">
     <a class="fn" href="#fnref:fn1">[1]</a>
-    <span>I hear emacs/vim power users protesting already... but I do think the Jupyter notebook can be great if you're prototyping in Python and aren't allergic to the computer mouse.</span>
+    <span>I hear emacs/vim power users protesting already. Sure, notebooks aren't for everyone, but if you're prototyping in Python and aren't allergic to the computer mouse they're worth a shot.</span>
   </div>
 </div>
