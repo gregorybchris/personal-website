@@ -5,33 +5,157 @@ title: Bringing Reactive Notebooks to Python
 archived: false
 ---
 
-Aren't <a href="https://jupyter.org" target="_blank">Jupyter</a> notebooks great? It takes so few keystrokes/clicks to create a new cell, write some code, and run it. You don't need to create a new file, name the file, write an entrypoint for the code, maybe switch to a terminal to run the code, etc. And the user interface makes it much easier than the IPython REPL for the average user.
+Aren't <a href="https://jupyter.org" target="_blank">Jupyter</a> notebooks great??<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup> It takes only a couple clicks/keystrokes to create a new cell, write some code, and run it. There's no creating a new file, naming the file, writing an entrypoint/main function, or switching to a terminal window to run the code. Unlike standard scripts, notebooks also allow you to embed markdown, plots, and other media directly so you can tell a story with your code.
 
-And notebooks let you restructure your code so easily! Swapping in and out bits of functionality is possible just by running cells in a different order.
+One of the most powerful features of the notebook paradigm is that you can swap in and out bits of functionality just be running cells in a different order. This is incredible for exploration and prototyping, but with this great flexibility comes a serious drawback. Since there's no well-defined execution order for cells, your notebook can easily get into a state where running the cells in order produces errors.
 
-There lies one of the most confusing parts of the notebook workflow, however... by the time you've got something working the order of cell execution often doesn't match the order of the cells in the notebook. This always slightly bothered me. Shouldn't there be a way to encode the execution order into the notebook itself?
+The notebook may have some very useful plots embedded in it, but if someone else can't reproduce those plots by re-running the notebook, then the notebook isn't very useful to them. To earn the honor of being dubbed a data "scientist", reproducibility should be pretty important.
 
 ## Observable
 
-<a href="https://observablehq.com" target="_blank">Observable</a> is a platform for writing notebooks in JavaScript. It was created by Mike Bostock, the creator of D3.js, and has a strong focus on interactivity and reactivity. When one cell executes, the output of that cell will automatically propagate to all cells that depend on it.
+Enter <a href="https://observablehq.com" target="_blank">Observable</a>. Observable is a platform for writing JavaScript notebooks. It was made by <a href="https://bost.ocks.org/mike" target="_blank">Mike Bostock</a>, the creator of the popular data visualization library D3.js.
 
-After playing around with Observable I realized immediately that this was the notebook experience I wanted for Python.
+Observable's key innovation is bringing reactivity to notebooks &mdash; execution of one cell can trigger execution of others. In Observable, each cell defines a single value that other cells can depend on. When a cell executes, the output of that cell automatically propagates to all cells that depend on it. Running a cell requires its parents to have run first, but because the dependency graph is explicitly defined, the notebook can run parent cells for you, avoiding errors.
 
 ## Cado
 
-After few years of stewing on this idea of the reactive Python notebook I decided to build it myself. At the core of the project is a graph of cell dependencies. Unlike Jupyter notebooks, I wanted Cado to explicitly track these dependencies, which would give it the power to restrict you from getting your notebook into funky states, but also help you work more quickly by refreshing the state of cells immediately for you.
+After a few years of being sent (what I would consider) "broken" Jupyter notebooks and stewing on how cool Observable is, I decided to build <a href="https://github.com/gregorybchris/cado" target="_blank">Cado</a>, bringing the reactive notebook paradigm to Python.
 
-I wanted to be able to detect cycles in the dependency graph of cells and enforce that the graph is a directed acyclic graph (DAG).
+Over the next couple sections I'll go through some of the implementation decisions I made when building Cado.
 
-- If you clear a cell all descendants are cleared
-- If you run a cell and its output changes all descendants are updated
-- Cells specify their outputs and inputs
-- Cells can only have one output
-- Only one cell can produce a given output
-- You can create multiple notebooks
-- You can change a cell's type to markdown
-- You can reorder cells easily by dragging and dropping
+### Python exec and locals
+
+Python exposes runtime access to its own interpreter. You can define some code as a string and execute it with the built-in `exec` function.
+
+```py
+from contextlib import redirect_stderr, redirect_stdout
+from io import StringIO
+from typing import Any, Mapping
+
+source = """
+product = "IPython"
+author = "Fernando Perez"
+print(f"{product} was started in {year} by {author}.")
+"""
+
+exec_globals: dict[str, Any] = {
+    "year": 2001,
+}
+
+exec_stdout = StringIO()
+exec_stderr = StringIO()
+exec_locals: Mapping[str, Any] = {}
+
+with redirect_stdout(exec_stdout), redirect_stderr(exec_stderr):
+    exec(source, exec_globals, exec_locals)
+
+print("stdout:", exec_stdout.getvalue().rstrip())
+print("stderr:", exec_stderr.getvalue().rstrip())
+print("locals:", exec_locals)
+```
+
+This code outputs:
+
+```bash
+stdout: IPython was started in 2001 by Fernando Perez.
+stderr:
+locals: {'product': 'IPython', 'author': 'Fernando Perez'}
+```
+
+This allows us to execute a cell and capture its output, errors, and any variables it defines.
+
+> It's worth noting that `exec` has full access to your Python environment, so be careful when executing untrusted code.
+
+### Enforcing the DAG
+
+To ensure the notebook stays in a reproducible state, we enforce that the dependencies between cells form a directed acyclic graph (DAG) and that inputs and outputs of cells are well-defined.
+
+Our cell model is pretty simple. Each cell has a unique ID, a list of input names, and a single output name.
+
+```py
+from dataclasses import dataclass
+
+
+@dataclass
+class Cell:
+    id: str
+    input_names: list[str]
+    output_name: str
+```
+
+Next, we can build a graph representation of the cell dependencies by mapping output names to cell IDs and building up a dictionary that maps each cell to its parents/dependencies.
+
+```py
+Graph = dict[str, list[str]]
+
+
+def build_graph(cells: list[Cell]) -> Graph:
+    output_to_id = {}
+    for cell in cells:
+        if cell.output_name in output_to_id:
+            raise ValueError(f"Output {cell.output_name} produced by multiple cells")
+        output_to_id[cell.output_name] = cell.id
+
+    graph = {}
+    for cell in cells:
+        for input_name in cell.input_names:
+            if input_name not in output_to_id:
+                raise ValueError(f"Input {input_name} is not an output of any cell")
+        graph[cell.id] = [output_to_id[name] for name in cell.input_names]
+    return graph
+```
+
+Note, that while building this graph, we also validate a few important invariants of our notebook:
+
+1. each output name is produced by exactly one cell
+2. each input name is produced by at least one cell
+
+Finally, we can implement a depth-first search (DFS) to detect cycles in the graph.
+
+```py
+def detect_cycles(graph: Graph) -> None:
+    checked = set()
+    path = []
+
+    def visit(node: str):
+        if node in path:
+            cycle_repr = " -> ".join([*path, node])
+            raise ValueError(f"Cycle detected in dependencies: {cycle_repr}")
+        if node in checked:
+            return
+        path.append(node)
+        for neighbor in graph.get(node, []):
+            visit(neighbor)
+        path.remove(node)
+        checked.add(node)
+
+    for node in graph:
+        visit(node)
+```
+
+With these pieces in place, whenever a user runs a cell, clears a cell, or updates a cell's inputs or output, we can rebuild the graph and check for cycles to ensure the notebook remains in a valid state.
+
+### Caching execution results
+
+To avoid re-executing cells unnecessarily, we cache the results of cell executions. A cell only needs to be re-executed if one of its inputs has changed since the last time it was run.
 
 ## Notebooks as scripts
 
-A related drawback of using Jupyter notebooks in production is that they don't interoperate well with the rest of your Python codebase. You can't call into a notebook easily from a script, so once a notebook is written there's always a need to manually convert it to a script or a module in a package.
+By defining the execution graph explicitly, we can convert a notebook into a standard Python script. By prefixing each local variable defined in each cell with the cell ID, we can ensure that there are no naming collisions between cells. We can then order the cells topologically and concatenate their source code together to form a single script. (implementation not shown here)
+
+While I do think it's a bit gross to prefix variable names like this, especially if a user gets access to cell IDs, which really should be opaque, this does open up the possibility of combining the power of the notebook paradigm with the maintainability and testability of standard Python source code.
+
+## Wrapping up
+
+I hope someday the reactive notebook paradigm gains traction, if not as a default, at least as a setting that you can opt into. It does take some manual effort to define inputs and outputs, but with the right user interface to reduce friction, the benefits of automatic dependency propagation could outweigh the costs of specifying cell dependencies.
+
+The full source code for this project is available on <a href="https://github.com/gregorybchris/cado" target="_blank">GitHub</a>.
+
+## Footnotes
+
+<div id="footnotes">
+  <div id="fn:fn1">
+    <a class="fn" href="#fnref:fn1">[1]</a>
+    <span>I hear emacs/vim power users protesting already... but I do think the Jupyter notebook can be great if you're prototyping in Python and aren't allergic to the computer mouse.</span>
+  </div>
+</div>
