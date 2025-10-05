@@ -14,6 +14,7 @@ export interface BlogPost {
   title: string;
   slug: string;
   date: string;
+  reading_time: number | null;
   content: string;
 }
 
@@ -52,6 +53,11 @@ export function BlogPostPage() {
             <div className="text-sm text-black/50">
               {formatDate(new Date(currentPost.date).toISOString())}
             </div>
+            {currentPost.reading_time !== null && (
+              <div className="text-sm text-black/50">
+                ({currentPost.reading_time} min read)
+              </div>
+            )}
           </div>
 
           <div className="w-[100%] text-justify leading-relaxed md:w-[50%] md:min-w-[550px]">

@@ -1,6 +1,7 @@
 import logging
 from datetime import datetime
 from pathlib import Path
+from typing import Iterator
 
 import frontmatter
 from fastapi import APIRouter
@@ -14,19 +15,46 @@ logger = logging.getLogger(__name__)
 router = APIRouter()
 
 
+class BlogPostPreview(BaseModel):
+    title: str
+    slug: str
+    date: datetime
+    reading_time: int = None
+    archived: bool
+
+
 class BlogPost(BaseModel):
     title: str
     slug: str
     date: datetime
     content: str
     archived: bool
+    reading_time: int = None
+
+    def __init__(self, **data):
+        super().__init__(**data)
+        self.reading_time = content_to_reading_time(self.content)
+
+    def to_preview(self) -> BlogPostPreview:
+        return BlogPostPreview(
+            title=self.title,
+            slug=self.slug,
+            date=self.date,
+            reading_time=self.reading_time,
+            archived=self.archived,
+        )
 
 
-class BlogPostMetadata(BaseModel):
-    title: str
-    slug: str
-    date: datetime
-    archived: bool
+def content_to_reading_time(content: str) -> int:
+    # Brysbaert, M. (2019) - English non-fiction reading speed
+    # wpm = 238 * (4.6  / avg letters per word)
+    words = content.split()
+    n_words = len(words)
+    n_letters = sum(len(word) for word in words)
+    avg_letters_per_word = n_letters / n_words if n_words > 0 else 0
+    wpm = 238 * (4.6 / avg_letters_per_word)
+    reading_time_minutes = n_words / wpm if wpm > 0 else 0
+    return max(1, round(reading_time_minutes))
 
 
 def load_post(filepath: Path) -> BlogPost:
@@ -35,43 +63,28 @@ def load_post(filepath: Path) -> BlogPost:
     return BlogPost(**fm_post_dict)
 
 
-def load_posts() -> list[BlogPost]:
+def iter_posts() -> Iterator[BlogPost]:
     posts_dirpath = Path(__file__).parent.parent.parent / "datasets" / "data" / "blog" / "posts"
-    posts: list[BlogPost] = []
     for filepath in posts_dirpath.glob("*.md"):
         post = load_post(filepath)
-        if post.archived:
-            continue
-        posts.append(post)
-    return posts
-
-
-def post_to_metadata(post: BlogPost) -> BlogPostMetadata:
-    return BlogPostMetadata(
-        title=post.title,
-        slug=post.slug,
-        date=post.date,
-        archived=post.archived,
-    )
+        if not post.archived:
+            yield post
 
 
 @router.get(path="/blog/posts")
 @logging_utilities.log_context("get_blog_posts", tag="api")
 def get_blog_posts() -> JSONResponse:
-    posts = load_posts()
-    post_metadata = [post_to_metadata(post) for post in posts]
-    sorted_post_metadata = sorted(post_metadata, key=lambda post: post.date, reverse=True)
-    posts_json = [post.model_dump(mode="json") for post in sorted_post_metadata]
+    previews = [post.to_preview() for post in iter_posts()]
+    sorted_previews = sorted(previews, key=lambda post: post.date, reverse=True)
+    posts_json = [post.model_dump(mode="json") for post in sorted_previews]
     return JSONResponse(posts_json)
 
 
 @router.get(path="/blog/posts/{slug}")
 @logging_utilities.log_context("get_blog_post", tag="api")
 def get_blog_post(slug: str) -> JSONResponse:
-    posts = load_posts()
-    matching_posts = [post for post in posts if post.slug == slug]
-    if not matching_posts:
-        return JSONResponse({"error": "Post not found"}, status_code=404)
-    post = matching_posts[0]
-    post_json = post.model_dump(mode="json")
-    return JSONResponse(post_json)
+    for post in iter_posts():
+        if post.slug == slug:
+            post_json = post.model_dump(mode="json")
+            return JSONResponse(post_json)
+    return JSONResponse({"error": "Post not found"}, status_code=404)
