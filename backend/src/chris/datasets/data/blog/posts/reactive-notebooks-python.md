@@ -150,6 +150,8 @@ If you know a cell is impure, you can mark it so that it always re-executes when
 
 I built the backend for Cado in Python as a <a href="https://fastapi.tiangolo.com" target="_blank">FastAPI</a> app. Every action you can perform in the notebook UI corresponds to a WebSocket message sent to the backend. The backend processes the message, updates the notebook state, and sends back any necessary updates to the frontend.
 
+Similarly to Jupyter, the Cado server also serves the notebook UI. By running one Python process, the web frontend spins up and connects to the backend WebSocket automatically.
+
 ## Notebooks as scripts
 
 By defining the execution graph explicitly, we can convert a notebook into a standard Python script. By prefixing each local variable defined in each cell with the cell ID, we can ensure that there are no naming collisions between cells. We can then order the cells topologically and concatenate their source code together to form a single script. (implementation not shown here)
