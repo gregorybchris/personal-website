@@ -75,7 +75,6 @@ Our cell model is pretty simple. Each cell has a unique ID, a list of input name
 ```py
 from dataclasses import dataclass
 
-
 @dataclass
 class Cell:
     id: str
@@ -87,7 +86,6 @@ Next, we can build a graph representation of the cell dependencies by mapping ou
 
 ```py
 Graph = dict[str, list[str]]
-
 
 def build_graph(cells: list[Cell]) -> Graph:
     output_to_id = {}
@@ -107,8 +105,8 @@ def build_graph(cells: list[Cell]) -> Graph:
 
 Note, that while building this graph, we also validate a few important invariants of our notebook:
 
-1. each output name is produced by exactly one cell
-2. each input name is produced by at least one cell
+1. Each output name is produced by exactly one cell
+2. Each input name corresponds to an output of some cell
 
 Finally, we can implement a depth-first search (DFS) to detect cycles in the graph.
 
@@ -138,6 +136,14 @@ With these pieces in place, whenever a user runs a cell, clears a cell, or updat
 ### Caching execution results
 
 To avoid re-executing cells unnecessarily, we cache the results of cell executions. A cell only needs to be re-executed if one of its inputs has changed since the last time it was run.
+
+Of course, this assumes that each cell is a pure function of its inputs, which may not always be the case. For example, if a cell reads from a file or makes a network request, it may produce different outputs even if its inputs haven't changed. In these cases, the user can manually force a re-execution of the cell.
+
+If you know a cell is impure, you can mark it so that it always re-executes when any of its descendants are run. This can be inefficient, but since we cache execution results, impure cell updates only cascade if the impure cell's output does not match the output from the last execution.
+
+### Language server
+
+I built the backend for Cado in Python as a <a href="https://fastapi.tiangolo.com" target="_blank">FastAPI</a> app. Every action you can perform in the notebook UI corresponds to a WebSocket message sent to the backend. The backend processes the message, updates the notebook state, and sends back any necessary updates to the frontend.
 
 ## Notebooks as scripts
 
