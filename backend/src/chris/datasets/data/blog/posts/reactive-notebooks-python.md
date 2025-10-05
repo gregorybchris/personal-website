@@ -32,7 +32,7 @@ Over the next couple sections I'll go through some of the implementation decisio
 
 Python exposes runtime access to its own interpreter. You can define some code as a string and execute it with the built-in `exec` function.
 
-```py
+```python
 from contextlib import redirect_stderr, redirect_stdout
 from io import StringIO
 from typing import Any, Mapping
@@ -77,7 +77,7 @@ To ensure the notebook stays in a reproducible state, we enforce that the depend
 
 Our cell model is pretty simple. Each cell has a unique ID, a list of input names, and a single output name.
 
-```py
+```python
 from dataclasses import dataclass
 
 @dataclass
@@ -89,7 +89,7 @@ class Cell:
 
 Next, we can build a graph representation of the cell dependencies by mapping output names to cell IDs and building up a dictionary that maps each cell to its parents/dependencies.
 
-```py
+```python
 Graph = dict[str, list[str]]
 
 def build_graph(cells: list[Cell]) -> Graph:
@@ -115,7 +115,7 @@ Note, that while building this graph, we also validate a few important invariant
 
 Finally, we can implement a depth-first search (DFS) to detect cycles in the graph.
 
-```py
+```python
 def detect_cycles(graph: Graph) -> None:
     checked = set()
     path = []
