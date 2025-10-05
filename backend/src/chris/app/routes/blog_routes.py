@@ -50,7 +50,7 @@ def content_to_reading_time(content: str) -> int:
     n_words = len(words)
     n_letters = sum(len(word) for word in words)
     avg_letters_per_word = n_letters / n_words if n_words > 0 else 0
-    wpm = 238 * (4.6 / avg_letters_per_word)
+    wpm = 238 * (4.6 / avg_letters_per_word) if avg_letters_per_word > 0 else 0
     reading_time_minutes = n_words / wpm if wpm > 0 else 0
     return max(1, round(reading_time_minutes))
 
