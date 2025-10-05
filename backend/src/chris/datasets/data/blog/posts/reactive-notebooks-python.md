@@ -23,7 +23,7 @@ After a few years of being sent (what I would consider) "broken" Jupyter noteboo
 
 <figure id="figure1">
   <img src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/cado-icon.png?cache=0" width="200" class="no-bg">
-  <figcaption>Cado &mdash; The app has a mascot named Avo.</figcaption>
+  <figcaption>Naturally, the app has a mascot named Avo.</figcaption>
 </figure>
 
 Over the next couple sections I'll go through some of the implementation decisions I made when building Cado.
