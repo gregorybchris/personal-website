@@ -43,7 +43,7 @@ export function SearchBar({
   }
 
   return (
-    <div className={cn("flex w-[400px] flex-row gap-1", className)}>
+    <div className={cn("flex flex-row gap-1", className)}>
       <TextBox
         value={text}
         onChange={(text) => setText(text)}

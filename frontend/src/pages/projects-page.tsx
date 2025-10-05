@@ -106,6 +106,7 @@ export function ProjectsPage() {
             text={searchText}
             setText={setSearchText}
             autoFocus={true}
+            className="w-[90%] max-w-[400px]"
           />
         </div>
       )}

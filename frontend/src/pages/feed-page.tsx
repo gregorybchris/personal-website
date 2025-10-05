@@ -132,7 +132,7 @@ export function FeedPage() {
             placeholder="Filter posts"
             text={searchText}
             setText={setSearchText}
-            className="w-[400px]"
+            className="w-[90%] max-w-[400px]"
           />
         )}
 

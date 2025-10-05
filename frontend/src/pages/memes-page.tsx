@@ -56,6 +56,7 @@ export function MemesPage() {
             onSubmit={(text) => runQuery(text)}
             text={searchText}
             setText={setSearchText}
+            className="w-[90%] max-w-[400px]"
           />
         </>
       )}
