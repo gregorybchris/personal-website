@@ -30,7 +30,7 @@ Over the next couple sections I'll go through some of the implementation decisio
 
 ### Python exec and locals
 
-Python exposes runtime access to its own interpreter. You can define some code as a string and execute it with the built-in `exec` function.
+First, we need a way to run cells. Fortunately, Python exposes runtime access to its own interpreter. You can define some code as a string and execute it with the built-in `exec` function.
 
 ```python
 from contextlib import redirect_stderr, redirect_stdout
@@ -73,7 +73,7 @@ This allows us to execute a cell and capture its output, errors, and any variabl
 
 ### Enforcing the DAG
 
-To ensure the notebook stays in a reproducible state, we enforce that the dependencies between cells form a directed acyclic graph (DAG) and that inputs and outputs of cells are well-defined.
+Next, we need a way to ensure the notebook stays in a reproducible state. We enforce that the dependencies between cells form a directed acyclic graph (DAG) and that inputs and outputs of cells are well-defined.
 
 Our cell model is pretty simple. Each cell has a unique ID, a list of input names, and a single output name.
 
@@ -144,7 +144,7 @@ To avoid re-executing cells unnecessarily, we cache the results of cell executio
 
 Of course, this assumes that each cell is a pure function of its inputs, which may not always be the case. For example, if a cell reads from a file or makes a network request, it may produce different outputs even if its inputs haven't changed. In these cases, the user can manually force a re-execution of the cell.
 
-If you know a cell is impure, you can mark it so that it always re-executes when any of its descendants are run. This can be inefficient, but since we cache execution results, impure cell updates only cascade if the impure cell's output does not match the output from the last execution.
+If you know a cell is impure, you can mark it so that it always re-executes when any of its descendants are run. This could lead to the impure cell running quite frequently, but since we cache execution results, impure cell updates only cascade if the impure cell's output does not match the output from the last execution.
 
 ### Language server
 
