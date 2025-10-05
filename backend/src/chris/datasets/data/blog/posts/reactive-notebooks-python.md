@@ -152,17 +152,22 @@ I built the backend for Cado in Python as a <a href="https://fastapi.tiangolo.co
 
 Similarly to Jupyter, the Cado server also serves the notebook UI. By running one Python process, the web frontend spins up and connects to the backend WebSocket automatically.
 
-## Notebooks as scripts
-
-By defining the execution graph explicitly, we can convert a notebook into a standard Python script. By prefixing each local variable defined in each cell with the cell ID, we can ensure that there are no naming collisions between cells. We can then order the cells topologically and concatenate their source code together to form a single script. (implementation not shown here)
-
-While I do think it's a bit gross to prefix variable names like this, especially if a user gets access to cell IDs, which really should be opaque, this does open up the possibility of combining the power of the notebook paradigm with the maintainability and testability of standard Python source code.
+<figure id="figure2">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/demo.gif?cache=0" width="80%">
+  <figcaption>Reactive cell model UX</figcaption>
+</figure>
 
 ## Wrapping up
 
 I hope someday the reactive notebook paradigm gains traction, if not as a default, at least as a setting that you can opt into. It does take some manual effort to define inputs and outputs, but with the right user interface to reduce friction, the benefits of automatic dependency propagation could outweigh the costs of specifying cell dependencies.
 
 The full source code for this project is available on <a href="https://github.com/gregorybchris/cado" target="_blank">GitHub</a>.
+
+## Postscript: Notebooks as scripts
+
+Defining the execution graph explicitly makes it possible to convert a notebook into a standard Python script. First, we prefix local variables in each cell with the cell ID, which ensures that there are no naming collisions between cells. We can then run a topological sort on the cells and concatenate their source code together to form a single script. (implementation not shown here)
+
+I do think it's a bit gross to prefix variable names like this, especially since it leaks cell IDs to the user, which really should be opaque. However, this does open up the possibility of combining the usability of the notebook paradigm with the maintainability and testability of standard Python source code.
 
 ## Footnotes
 
