@@ -5,7 +5,11 @@ title: Reflections on Typogenetics
 archived: false
 ---
 
-This post is a part 2 to [Visualizing Typogenetics](/blog/visualizing-typogenetics). In that post I gave a full specification of Douglas Hofstadter's toy model of genetics called <strong>Typogenetics</strong>. This post will make more sense if you start there. In this post I want to explore some extensions of the specification and offer some potential analogies to other complex systems.
+This post is a part 2 to [Visualizing Typogenetics](/blog/visualizing-typogenetics). If you're unfamiliar with Douglas Hofstadter's Typogenetics or need a refresher, I'd recommend you start there.
+
+In this post I'll offer some potential ways to extend Hofstadter's system and explore some loose connections to other areas that are analogous or related to Typogenetics.
+
+## Extensions
 
 ### Larger codon size
 
@@ -19,11 +23,17 @@ In real biology we have pyrimidines and purines. I would be curious to add a thi
 
 The instruction set of 15 amino acids that Hofstadter gives us is certainly not the simplest possible instruction set, though there's something very beautiful about it being as reduced as it is. One does wonder how powerful strand rewriting could be with a few more instructions. I also wonder if the conditional rules that come in the box are a bit too complex, even. We currently can scan left/right until reaching a pyrimidine/purine. These are are conditionals, but not as simple as "if purine, move left one unit". Perhaps conditionals that simple could facilitate the evolution of more stable enzymes even if the enzymes need to be longer to do anything useful.
 
+## Connections
+
 ### Turing completeness
 
 While I have not found anything definitive about whether Typogenetics is Turing complete, I would not be surprised if it were proven to be Turing incomplete. While there is certainly the ability to write to a tape, the lack of a set of states for the machine to be in is a bit worrying. Endowing an enzyme with a small finite state machine could be an interesting way to increase its representational power.
 
 [Turing completeness](https://en.wikipedia.org/wiki/Turing_completeness)
+
+### Sequence to sequence modeling
+
+Would it be possible to train a transformer to apply an enzyme to a strand?
 
 ### Parallelism
 
@@ -47,17 +57,17 @@ Nowak & May (1992) showed that even with memoryless (pure) cooperators and defec
 
 More generally, Nowak, May, and others extended the model to probabilistic updating, irregular spatial lattices, and asynchronous updating, and found that the essential outcome — polymorphic coexistence of C and D over a range of payoff parameters — is robust.
 
-In particular, in “Spatial Games and the Maintenance of Cooperation”, Nowak et al. argue that spatial interactions are sufficient (i.e. without memory, reciprocity, or sophisticated strategies) to maintain a mixture of cooperators and defectors across a wide parameter range.
+In particular, in &ldquo;Spatial Games and the Maintenance of Cooperation&rdquo;, Nowak et al. argue that spatial interactions are sufficient (i.e. without memory, reciprocity, or sophisticated strategies) to maintain a mixture of cooperators and defectors across a wide parameter range.
 
-Thus, the result is not that “Tit-for-Tat beats all others” under spatial constraints per se, but that spatial structure fundamentally alters which strategies can persist and how cooperation can be sustained even without complex memory.
+Thus, the result is not that &ldquo;Tit-for-Tat beats all others&rdquo; under spatial constraints per se, but that spatial structure fundamentally alters which strategies can persist and how cooperation can be sustained even without complex memory.
 
 ### Tuning
 
 Many find it incredible that the John Horton Conway's Game of Life can produce and maintain so much complexity with such simple rules. I believe I remember Conway reacting to this impression in an interview once, saying something about how it's really not that incredible at all, given that the rules of the game were specifically selected in order to elicit that exact behavior of complexity and sustained complexity. I'm not sure if by that he meant that the rules were mathematically derived to produce the desired behavior or that the rules were tuned semi-blindly until the desired behavior emerged. Regardless, it has always intrigued me that if complex/interesting behavior does not initially emerge from a fairly complicated system, perhaps complex behaviors might emerge after fine-tuning parameters of that complicated system. Is there a way to parameterize the instructions of Typogenetics in such a way that they become tunable? Is there a metric we can optimize toward once we do have tunable instructions? If there's no good metric for complexity, what metric is worth optimizing?
 
-[Conway interview](https://youtu.be/R9Plq-D1gEk?si=-uQe6GJrdUg9m6eh&t=290)
+In an [interview](https://youtu.be/R9Plq-D1gEk?si=-uQe6GJrdUg9m6eh&t=290) with the Numberphile YouTube channel, Conway explains that the rules of the Game of Life were discovered through a process of trial and error.
 
-> It was different for quite a long time. We tinkered with these rules and finally came up with the ones I said. And they really seemed to have very nice properties. Namely didn't seem to be able to predict what would happen. And in the end we succeeded in proving essentially anything could happen. These things could do any kind of computation you wanted to do.
+> &ldquo;[The Game of Life] was different for quite a long time. We tinkered with these rules and finally came up with the ones I said. And they really seemed to have very nice properties. Namely [we] didn't seem to be able to predict what would happen. And in the end we succeeded in proving essentially anything could happen. These things could do any kind of computation you wanted to do.&rdquo; &mdash; John Horton Conway
 
 ### Genotype Networks
 
