@@ -13,9 +13,9 @@ The notebook may have some very useful plots embedded in it, but if someone else
 
 ## Observable
 
-Enter <a href="https://observablehq.com" target="_blank">Observable</a>. Observable is a platform for writing JavaScript notebooks. It was made by <a href="https://bost.ocks.org/mike" target="_blank">Mike Bostock</a>, the creator of the popular data visualization library D3.js.
+Enter <a href="https://observablehq.com" target="_blank">Observable</a>, a platform for writing JavaScript notebooks, made by <a href="https://bost.ocks.org/mike" target="_blank">Mike Bostock</a>, the creator of the popular data visualization library D3.js.
 
-Observable's key innovation is bringing reactivity to notebooks &mdash; execution of one cell can trigger execution of others. In Observable, each cell defines a single value that other cells can depend on. When a cell executes, the output of that cell automatically propagates to all cells that depend on it. Running a cell requires its parents to have run first, but because the dependency graph is explicitly defined, the notebook can run parent cells for you, avoiding errors.
+Observable's key innovation is bringing reactivity to notebooks &mdash; execution of one cell can trigger execution of others. In Observable, each cell registers a variable that other cells can depend on. When a cell executes, the output of that cell automatically propagates to all cells that depend on it. Running a cell requires its parents to have run first, but because the dependency graph is explicitly defined, the notebook can run parent cells for you.
 
 ## Cado
 
