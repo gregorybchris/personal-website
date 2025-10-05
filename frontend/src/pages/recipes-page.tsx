@@ -63,21 +63,21 @@ export function RecipesPage() {
   function getIcon(foodType: FoodType) {
     switch (foodType) {
       case "shrimp":
-        return <ShrimpIcon size={30} color="#f5f5f0" weight="regular" />;
+        return <ShrimpIcon size={30} color="#f5f5f0" />;
       case "cookie":
-        return <CookieIcon size={30} color="#f5f5f0" weight="regular" />;
+        return <CookieIcon size={30} color="#f5f5f0" />;
       case "fork-knife":
-        return <ForkKnifeIcon size={30} color="#f5f5f0" weight="regular" />;
+        return <ForkKnifeIcon size={30} color="#f5f5f0" />;
       case "knife":
-        return <KnifeIcon size={30} color="#f5f5f0" weight="regular" />;
+        return <KnifeIcon size={30} color="#f5f5f0" />;
       case "baked":
-        return <CookingPotIcon size={30} color="#f5f5f0" weight="regular" />;
+        return <CookingPotIcon size={30} color="#f5f5f0" />;
       case "bowl":
-        return <BowlFoodIcon size={30} color="#f5f5f0" weight="regular" />;
+        return <BowlFoodIcon size={30} color="#f5f5f0" />;
       case "fish":
-        return <FishSimpleIcon size={30} color="#f5f5f0" weight="regular" />;
+        return <FishSimpleIcon size={30} color="#f5f5f0" />;
       default:
-        return <ForkKnifeIcon size={30} color="#f5f5f0" weight="regular" />;
+        return <ForkKnifeIcon size={30} color="#f5f5f0" />;
     }
   }
 

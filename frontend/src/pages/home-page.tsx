@@ -57,7 +57,7 @@ interface PageLinkProps {
 function PageLink({ to, name, children }: PageLinkProps) {
   return (
     <Link to={to}>
-      <div className="flex flex-row items-center gap-3 rounded px-2 py-1 transition-all hover:bg-black/[8%] md:pr-4 md:pl-3">
+      <div className="flex flex-row items-center gap-3 rounded px-2 py-1 transition-all hover:bg-black/8 md:pr-4 md:pl-3">
         {children}
         <div className="font-sanchez text-sm md:text-lg">{name}</div>
       </div>

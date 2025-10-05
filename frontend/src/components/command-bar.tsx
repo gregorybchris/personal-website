@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { XCircleIcon } from "@phosphor-icons/react";
+import { XIcon } from "@phosphor-icons/react";
 import { Command } from "cmdk";
 import { useNavigate } from "react-router-dom";
 import { cn } from "../utilities/style-utilities";
@@ -79,14 +79,14 @@ export function CommandBar() {
           />
 
           <div
-            className="cursor-pointer rounded-full p-1 transition-all hover:bg-black/[8%]"
+            className="flex size-8 cursor-pointer flex-row items-center justify-center rounded-full transition-all hover:bg-black/5"
             onClick={toggleOpen}
           >
-            <XCircleIcon size={26} color="#6283c0" weight="regular" />
+            <XIcon color="#444" />
           </div>
         </div>
 
-        <div className="h-full w-full border-t-2 border-blue-500/60 px-1 py-3">
+        <div className="h-full w-full border-t-2 border-black/10 px-1 py-3">
           <Command.List>
             <Command.Empty>
               <div className="text-black/75">No results found</div>
@@ -100,10 +100,7 @@ export function CommandBar() {
                   setOpen(false);
                   navigate(page.route);
                 }}
-                className={cn(
-                  "cursor-pointer rounded py-1",
-                  "transition-all aria-selected:bg-black/[8%] aria-selected:text-blue-500",
-                )}
+                className="font-sanchez aria-selected:text-sky cursor-pointer rounded py-1 transition-all aria-selected:bg-black/5"
               >
                 {page.name}
               </Command.Item>

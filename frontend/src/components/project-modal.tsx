@@ -90,8 +90,8 @@ export function ProjectModal({
           </div>
 
           <Dialog.Close asChild>
-            <button className="absolute top-5 right-5 flex size-10 items-center justify-center rounded-full transition-all outline-none hover:bg-black/5">
-              <XIcon />
+            <button className="absolute top-5 right-5 flex size-8 cursor-pointer items-center justify-center rounded-full transition-all outline-none hover:bg-black/5">
+              <XIcon color="#444" />
             </button>
           </Dialog.Close>
         </Dialog.Content>

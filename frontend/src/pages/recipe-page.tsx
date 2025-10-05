@@ -46,11 +46,11 @@ export function RecipePage() {
   return (
     <div className="flex w-full flex-col items-start gap-4 px-6 py-8 pt-3 md:px-16">
       <div
-        className="cursor-pointer rounded-md px-2 py-1 hover:bg-black/[8%]"
+        className="cursor-pointer rounded-md px-2 py-1 hover:bg-black/8"
         onClick={() => navigate("/hidden/recipes")}
       >
         <div className="flex flex-row gap-x-2">
-          <ArrowLeftIcon size={25} color="#6283c0" weight="regular" />
+          <ArrowLeftIcon size={25} color="#6283c0" />
           <div>Back to recipes</div>
         </div>
       </div>
@@ -68,17 +68,13 @@ export function RecipePage() {
           <div className="flex flex-row gap-x-6">
             <div className="flex flex-row gap-x-2">
               <div>
-                <ClockCountdownIcon
-                  size={25}
-                  color="#6283c0"
-                  weight="regular"
-                />
+                <ClockCountdownIcon size={25} color="#6283c0" />
               </div>
               <div>Ready in {formatDuration(recipe.prep_time)}</div>
             </div>
             <div className="flex flex-row gap-x-2">
               <div>
-                <UsersIcon size={25} color="#6283c0" weight="regular" />
+                <UsersIcon size={25} color="#6283c0" />
               </div>
               <div>{recipe.serves} servings</div>
             </div>

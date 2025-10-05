@@ -119,10 +119,10 @@ export function FeedPage() {
       <div className="flex flex-col items-center gap-5">
         {slug && (
           <div
-            className="flex cursor-pointer flex-row gap-x-2 rounded-md px-2 py-1 hover:bg-black/[8%]"
+            className="flex cursor-pointer flex-row gap-x-2 rounded-md px-2 py-1 hover:bg-black/8"
             onClick={() => navigate("/hidden/feed")}
           >
-            <ArrowLeftIcon size={25} color="#6283c0" weight="regular" />
+            <ArrowLeftIcon size={25} color="#6283c0" />
             <div>Back to all links</div>
           </div>
         )}
