@@ -9,7 +9,13 @@ import "../styles/blog.css";
 import "../styles/fonts.css";
 import { formatDate } from "../utilities/datetime-utilities";
 import { makeQuery } from "../utilities/request-utilities";
-import { BlogPost } from "./blog-page";
+
+export interface BlogPost {
+  title: string;
+  slug: string;
+  date: string;
+  content: string;
+}
 
 export function BlogPostPage() {
   const [currentPost, setCurrentPost] = useState<BlogPost | null>(null);

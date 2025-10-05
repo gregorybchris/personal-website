@@ -5,6 +5,7 @@ goodreads
 imdb
 Mapbox
 mapometer
+metadatas
 networkx
 Noto
 Pipfile
