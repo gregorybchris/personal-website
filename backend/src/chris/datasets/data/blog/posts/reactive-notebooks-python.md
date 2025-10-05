@@ -153,11 +153,11 @@ I built the backend for Cado in Python as a <a href="https://fastapi.tiangolo.co
 Similarly to Jupyter, the Cado server also serves the notebook UI. By running one Python process, the web frontend spins up and connects to the backend WebSocket automatically.
 
 <figure id="figure2">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/demo.gif?cache=0" width="80%">
-  <figcaption>Reactive cell model UX</figcaption>
+  <img src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/demo.gif?cache=0" width="90%">
+  <figcaption>Cado notebook UI</figcaption>
 </figure>
 
-> For a bit of fun, I made cells draggable with <a href="https://www.framer.com/motion" target="_blank">Framer Motion</a>. You can see this in the GIF above if you wait long enough &#128512;
+> Cells in Cado are draggable (using <a href="https://www.framer.com/motion" target="_blank">Framer Motion</a>), something I always thought Jupyter notebooks should support.
 
 ## Wrapping up
 
