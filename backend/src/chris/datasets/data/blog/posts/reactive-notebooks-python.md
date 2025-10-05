@@ -157,6 +157,8 @@ Similarly to Jupyter, the Cado server also serves the notebook UI. By running on
   <figcaption>Reactive cell model UX</figcaption>
 </figure>
 
+> For a bit of fun, I made cells draggable with <a href="https://www.framer.com/motion" target="_blank">Framer Motion</a>. You can see this in the GIF above if you wait long enough &#128512;
+
 ## Wrapping up
 
 I hope someday the reactive notebook paradigm gains traction, if not as a default, at least as a setting that you can opt into. It does take some manual effort to define inputs and outputs, but with the right user interface to reduce friction, the benefits of automatic dependency propagation could outweigh the costs of specifying cell dependencies.
@@ -174,6 +176,6 @@ I do think it's a bit gross to prefix variable names like this, especially since
 <div id="footnotes">
   <div id="fn:fn1">
     <a class="fn" href="#fnref:fn1">[1]</a>
-    <span>I hear emacs/vim power users protesting already. Sure, notebooks aren't for everyone, but if you're prototyping in Python and aren't allergic to the computer mouse they're worth a shot.</span>
+    <span>I hear emacs/vim power users protesting already. Sure, notebooks aren't for everyone, but if you're prototyping in Python and aren't allergic to the computer mouse they're worth a shot!</span>
   </div>
 </div>
