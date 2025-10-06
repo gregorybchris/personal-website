@@ -9,17 +9,17 @@ archived: false
 
 One of the most powerful features of the notebook paradigm is that you can swap in and out bits of functionality just be running cells in a different order. This is incredible for exploration and prototyping, but with this great flexibility comes a serious drawback: Since there's no well-defined execution order for cells, your notebook can easily get into a state where running the cells top to bottom produces errors.
 
-The notebook may have some very useful plots embedded in it, but if someone else can't reproduce those plots by re-running the notebook, then the notebook isn't very useful to them. Notebooks are often used by data "scientists" and real science demands reproducibility. Wouldn't it be great if our coding environment made it easy to achieve that high bar?
+The notebook may have some very useful plots embedded in it, but if someone else can't reproduce those plots by re-running the notebook, then the notebook isn't very useful to them. Notebooks are often used by data scientists and science demands reproducibility. Wouldn't it be great if our coding environment made it easy to achieve that high bar?
 
 ## Observable
 
-Enter <a href="https://observablehq.com" target="_blank">Observable</a>, a platform for writing JavaScript notebooks, made by <a href="https://bost.ocks.org/mike" target="_blank">Mike Bostock</a>, the creator of the popular data visualization library D3.js.
+Enter <a href="https://observablehq.com" target="_blank">Observable</a>, a platform for writing JavaScript notebooks, made by <a href="https://bost.ocks.org/mike" target="_blank">Mike Bostock</a>, the creator of the popular data visualization library <a href="https://d3js.org" target="_blank">D3.js</a>.
 
 Observable's key innovation is bringing reactivity to notebooks &mdash; execution of one cell can trigger execution of others. In Observable, each cell registers a variable that other cells can depend on. When a cell executes, the output of that cell automatically propagates to all cells that depend on it. Running a cell requires its parents to have run first, but because the dependency graph is explicitly defined, the notebook can run parent cells for you.
 
 ## Cado
 
-After a few years of being sent (what I would consider) "broken" Jupyter notebooks and stewing on how cool Observable is, I decided to build <a href="https://github.com/gregorybchris/cado" target="_blank">Cado</a>, bringing the reactive notebook paradigm to Python.
+After a few years of being a full time Python developer, wishing I could use Observable, wishing my notebooks were smarter, I decided to build <a href="https://github.com/gregorybchris/cado" target="_blank">Cado</a>, bringing the reactive notebook paradigm to Python.
 
 <figure id="figure0">
   <img src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/cado-icon.png?cache=0" width="200" className="no-shadow">
@@ -75,7 +75,7 @@ This allows us to execute a cell and capture its output, errors, and any variabl
 
 Next, we need a way to ensure the notebook stays in a reproducible state. We enforce that the dependencies between cells form a directed acyclic graph (DAG) and that inputs and outputs of cells are well-defined.
 
-Our cell model is pretty simple. Each cell has a unique ID, a list of input names, and a single output name.
+Our cell model is pretty simple. Each cell has a unique ID, a list of input variables, and a single output variable.
 
 ```python
 from dataclasses import dataclass
@@ -83,8 +83,8 @@ from dataclasses import dataclass
 @dataclass
 class Cell:
     id: str
-    input_names: list[str]
-    output_name: str
+    input_vars: list[str]
+    output_var: str
 ```
 
 Next, we can build a graph representation of the cell dependencies.
@@ -93,27 +93,27 @@ Next, we can build a graph representation of the cell dependencies.
 Graph = dict[str, list[str]]
 
 def build_graph(cells: list[Cell]) -> Graph:
-    # Map output names to cell IDs
+    # Map output vars to cell IDs
     output_to_id = {}
     for cell in cells:
-        if cell.output_name in output_to_id:
-            raise ValueError(f"Output {cell.output_name} produced by multiple cells")
-        output_to_id[cell.output_name] = cell.id
+        if cell.output_var in output_to_id:
+            raise ValueError(f"Output {cell.output_var} produced by multiple cells")
+        output_to_id[cell.output_var] = cell.id
 
     # Build graph mapping cell IDs to IDs those cells depend on
     graph = {}
     for cell in cells:
-        for input_name in cell.input_names:
-            if input_name not in output_to_id:
-                raise ValueError(f"Input {input_name} is not an output of any cell")
-        graph[cell.id] = [output_to_id[name] for name in cell.input_names]
+        for input_var in cell.input_vars:
+            if input_var not in output_to_id:
+                raise ValueError(f"Input {input_var} is not an output of any cell")
+        graph[cell.id] = [output_to_id[var] for var in cell.input_vars]
     return graph
 ```
 
 While building this graph, we also validate a few important invariants of our notebook:
 
-1. Each output name is produced by exactly one cell
-2. Each input name corresponds to an output of some cell
+1. Each output variable is produced by exactly one cell
+2. Each input variable corresponds to an output of some cell
 
 Finally, we can implement a depth-first search (DFS) to detect cycles in the graph.
 
@@ -138,15 +138,15 @@ def detect_cycles(graph: Graph) -> None:
         visit(node)
 ```
 
-With these pieces in place, whenever a user runs a cell, clears a cell, or updates a cell's inputs or output, we can rebuild the graph and check for cycles to ensure the notebook remains in a valid state. Maintaining this DAG is pretty valuable!<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup>
+With these pieces in place, whenever a user interacts with the notebook, we can use the dependency graph to determine how other cells should react. Maintaining this DAG is pretty valuable!<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup>
 
 ### Caching execution results
 
-To avoid re-executing cells unnecessarily, we cache the results of cell executions. A cell only needs to be re-executed if one of its inputs has changed since the last time it was run.
+If we built Cado with just the pieces we've discussed so far, then a single cell's execution would propagate updates through the whole notebook (all connected cells). So to avoid re-executing cells unnecessarily, we can cache the results of cell executions. A cell only needs to be re-executed if one of its inputs has changed since the last time it was run.
 
-Of course, this assumes that each cell is a pure function of its inputs, which may not always be the case. For example, if a cell reads from a file or makes a network request, it may produce different outputs even if its inputs haven't changed. In these cases, the user can manually force a re-execution of the cell.
+What if a cell is not a pure function of its inputs? For example, if a cell reads from a file on disk or makes a network request via some API, it may produce different outputs even if its inputs haven't changed. In these cases, the user can manually force a re-execution of the impure cell or mark the cell as impure, which will cause it to always re-execute when any of its descendants are run. The impure cell update only cascades if the new output differs from the cached output.
 
-If you know a cell is impure, you can mark it so that it always re-executes when any of its descendants are run. This could lead to the impure cell running quite frequently, but since we cache execution results, impure cell updates only cascade if the impure cell's output does not match the output from the last execution.
+The cost of equality checks on cached outputs is the main source of complexity in Cado's implementation. For objects with imprecise equality semantics, more work is needed to let users define what equality means for each output variable.
 
 ### Web interface
 
@@ -203,7 +203,7 @@ Similarly to Jupyter, the Cado server also serves the user interface. By running
   </video>
   <figcaption>
     <strong>Figure 5: </strong>
-    Cells cannot rely on input names that aren't outputs of other cells.
+    Cells cannot rely on input variables that aren't outputs of other cells.
   </figcaption>
 </figure>
 
@@ -214,7 +214,7 @@ Similarly to Jupyter, the Cado server also serves the user interface. By running
   </video>
   <figcaption>
     <strong>Figure 6: </strong>
-    Output names must be unique across all cells.
+    Output variables must be unique across all cells.
   </figcaption>
 </figure>
 
