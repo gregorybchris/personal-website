@@ -5,6 +5,7 @@ import { IconButton } from "../components/icon-button";
 import { Loader } from "../components/loader";
 import { MarkdownRenderer } from "../components/markdown-renderer";
 import ShareButton from "../components/share-button";
+import { useMetaTags } from "../hooks/use-meta-tags";
 import "../styles/blog.css";
 import "../styles/fonts.css";
 import { formatDate } from "../utilities/datetime-utilities";
@@ -36,6 +37,11 @@ export function BlogPostPage() {
         setCurrentPost(responseJson);
       });
   }, [slug]);
+
+  useMetaTags({
+    title: currentPost?.title,
+    url: window.location.href,
+  });
 
   useEffect(() => {
     const DELAY = 2000;
