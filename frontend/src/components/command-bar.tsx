@@ -69,13 +69,13 @@ export function CommandBar() {
       <div
         className={cn(
           "bg-parchment flex w-[400px] flex-col justify-center overflow-hidden",
-          "rounded-lg px-3 py-1 text-center shadow-[0_0_200px_30px_rgba(0,0,0,0.2)]",
+          "rounded-lg text-center shadow-[0_0_200px_30px_rgba(0,0,0,0.2)]",
         )}
       >
-        <div className="flex flex-row items-center justify-between">
+        <div className="flex flex-row items-center justify-between pr-3 pl-6">
           <Command.Input
             placeholder="Search for a page..."
-            className="w-full bg-transparent px-3 py-3 text-black/75 outline-none"
+            className="w-full bg-transparent py-4 text-black/75 outline-none"
           />
 
           <div
@@ -86,7 +86,9 @@ export function CommandBar() {
           </div>
         </div>
 
-        <div className="h-full w-full border-t border-black/8 px-1 py-3">
+        <div className="h-full w-full border-t border-black/8"></div>
+
+        <div className="h-full w-full px-6 py-3">
           <Command.List>
             <Command.Empty>
               <div className="text-black/75">No results found</div>
