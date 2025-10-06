@@ -15,14 +15,20 @@ export function HiddenPage() {
         <div className="flex flex-col">
           <SectionHeader>Media</SectionHeader>
           <PageLink to="/hidden/artists">Artists</PageLink>
+          <div className="w-4 border-1 border-black/10"></div>
+
           <PageLink to="/hidden/instagrams">Instagrams</PageLink>
-          <PageLink to="/hidden/memes">Memes</PageLink>
-          <PageLink to="/hidden/movies">Movies</PageLink>
-          <PageLink to="/hidden/podcasts">Podcasts</PageLink>
           <PageLink to="/hidden/tiktoks">TikToks</PageLink>
-          <PageLink to="/hidden/shows">TV Shows</PageLink>
-          <PageLink to="/hidden/youtube-channels">YouTube Channels</PageLink>
           <PageLink to="/hidden/youtube-videos">YouTube Videos</PageLink>
+          <PageLink to="/hidden/memes">Memes</PageLink>
+          <div className="w-4 border-1 border-black/10"></div>
+
+          <PageLink to="/hidden/movies">Movies</PageLink>
+          <PageLink to="/hidden/shows">TV Shows</PageLink>
+          <div className="w-4 border-1 border-black/10"></div>
+
+          <PageLink to="/hidden/youtube-channels">YouTube Channels</PageLink>
+          <PageLink to="/hidden/podcasts">Podcasts</PageLink>
         </div>
 
         <div className="flex flex-col">
@@ -39,8 +45,7 @@ export function HiddenPage() {
         <div className="flex flex-col">
           <SectionHeader>In Progress</SectionHeader>
           <PageLink to="/hidden/places">Places</PageLink>
-          <PageLink to="/hidden/recipes">Recipes</PageLink>
-          <PageLink to="/hidden/project-logos">Project logos</PageLink>
+          <PageLink to="/hidden/project-logos">Project Logos</PageLink>
           <PageLink to="/hidden/hiking">Hiking</PageLink>
         </div>
 
@@ -48,6 +53,7 @@ export function HiddenPage() {
           <SectionHeader>Old</SectionHeader>
           <PageLink to="/hidden/archive">Archive</PageLink>
           <PageLink to="/hidden/surveys">Surveys</PageLink>
+          <PageLink to="/hidden/recipes">Recipes</PageLink>
         </div>
       </div>
     </div>
