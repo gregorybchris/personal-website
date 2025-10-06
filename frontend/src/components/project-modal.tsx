@@ -34,66 +34,71 @@ export function ProjectModal({
   return (
     <Dialog.Root open={open} onOpenChange={onModalOpenChange}>
       <Dialog.Portal>
-        <Dialog.Overlay className="data-[state=open]:animate-overlayShow fixed inset-0" />
-        <Dialog.Content className="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] h-[90vh] max-h-[90vh] w-[90vw] max-w-[90vw] translate-x-[-50%] translate-y-[-50%] overflow-auto rounded-lg bg-white p-10 shadow-lg md:w-[60vw]">
-          <Dialog.Title className="font-sanchez text-2xl text-black/75">
-            {project.name}
-          </Dialog.Title>
+        <Dialog.Overlay className="data-[state=open]:animate-overlayShow fixed inset-0 bg-black/60" />
+        <Dialog.Content className="data-[state=open]:animate-contentShow bg-parchment fixed top-[50%] left-[50%] h-[90vh] max-h-[90vh] w-[90vw] max-w-[90vw] translate-x-[-50%] translate-y-[-50%] overflow-auto rounded-lg shadow-lg md:w-[60vw]">
+          <div className="font-raleway text-md flex flex-col gap-3 py-10">
+            <div className="text-md flex flex-col gap-3 px-10">
+              <Dialog.Title className="flex flex-col gap-0.5">
+                <div className="font-sanchez text-2xl text-black/75">
+                  {project.name}
+                </div>
+                <div className="text-sm text-black/45">
+                  {formatDate(project.date)}
+                </div>
+              </Dialog.Title>
 
-          <div className="font-raleway flex flex-col items-start gap-5">
-            <Dialog.Description className="text-md text-black/75">
-              {formatDate(project.date)}
-            </Dialog.Description>
+              <div className="flex flex-col gap-5">
+                <Dialog.Description className="text-black/75">
+                  {project.description}
+                </Dialog.Description>
 
-            <Dialog.Description className="text-md text-black/75">
-              {project.description}
-            </Dialog.Description>
-
-            <div className="flex flex-col gap-y-2">
-              {project.download_link && (
-                <DownloadLink project={project} onDownload={onDownload} />
-              )}
-              {project.web_link && (
-                <ProjectInfoLink
-                  text="Try it!"
-                  link={project.web_link}
-                  kind="demo"
-                />
-              )}
-              {project.source_link && (
-                <ProjectInfoLink
-                  text="Source code"
-                  link={project.source_link}
-                  kind="source"
-                />
-              )}
-              {project.original_link && (
-                <ProjectInfoLink
-                  text="Original"
-                  link={project.original_link}
-                  kind="original"
-                />
-              )}
+                <div className="flex flex-col gap-y-1">
+                  {project.download_link && (
+                    <DownloadLink project={project} onDownload={onDownload} />
+                  )}
+                  {project.web_link && (
+                    <ProjectInfoLink
+                      text="Try it!"
+                      link={project.web_link}
+                      kind="demo"
+                    />
+                  )}
+                  {project.source_link && (
+                    <ProjectInfoLink
+                      text="Source code"
+                      link={project.source_link}
+                      kind="source"
+                    />
+                  )}
+                  {project.original_link && (
+                    <ProjectInfoLink
+                      text="Original"
+                      link={project.original_link}
+                      kind="original"
+                    />
+                  )}
+                </div>
+              </div>
             </div>
 
             {project.image_links.length > 0 && (
               <>
-                <div className="border-sky w-full border-b"></div>
+                <div className="my-3 w-full border-b border-black/8"></div>
 
-                <div className="flex flex-wrap">
+                <div className="flex flex-row flex-wrap gap-3 px-10">
                   {project.image_links.map((imageLink, i) => (
                     <ProjectImage key={i} url={imageLink} />
                   ))}
                 </div>
               </>
             )}
-          </div>
 
-          <Dialog.Close asChild>
-            <button className="absolute top-5 right-5 flex size-8 cursor-pointer items-center justify-center rounded-full transition-all outline-none hover:bg-black/5">
-              <XIcon color="#444" />
-            </button>
-          </Dialog.Close>
+            <Dialog.Close asChild>
+              <button className="absolute top-5 right-5 flex size-8 cursor-pointer items-center justify-center rounded-full transition-all outline-none hover:bg-black/5">
+                <XIcon color="#444" />
+              </button>
+            </Dialog.Close>
+          </div>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
@@ -107,9 +112,8 @@ interface ProjectImageProps {
 function ProjectImage({ url }: ProjectImageProps) {
   return (
     <img
-      className="m-1 max-h-[270px] max-w-[90%] border-2 border-neutral-300"
-      src={url}
-      key={url}
+      className="max-h-[270px] max-w-[90%] rounded-md shadow-md"
+      src={`${url}?cache=4`}
       alt="Project screenshot"
     />
   );
@@ -124,18 +128,17 @@ interface ProjectInfoLinkProps {
 function ProjectInfoLink({ text, link, kind }: ProjectInfoLinkProps) {
   let logo = null;
   if (kind === "source")
-    logo = <GithubLogoIcon size={25} weight="duotone" color="#6283c0" />;
+    logo = <GithubLogoIcon size={20} weight="duotone" color="#6283c0" />;
   if (kind === "demo")
-    logo = <PlayIcon size={25} weight="duotone" color="#6283c0" />;
+    logo = <PlayIcon size={20} weight="duotone" color="#6283c0" />;
   if (kind === "original")
-    logo = <LightbulbIcon size={25} weight="duotone" color="#6283c0" />;
+    logo = <LightbulbIcon size={20} weight="duotone" color="#6283c0" />;
 
   return (
     <div className="flex flex-row">
       <SimpleLink link={link} className="flex flex-row items-center gap-x-2">
-        {logo}
-
-        <div>{text}</div>
+        <div>{logo}</div>
+        <span>{text}</span>
       </SimpleLink>
     </div>
   );
@@ -156,9 +159,9 @@ function DownloadLink({ project, onDownload }: DownloadLinkProps) {
         className="flex flex-row items-center gap-x-2"
       >
         {isJava ? (
-          <CoffeeIcon size={25} weight="duotone" color="#6283c0" />
+          <CoffeeIcon size={20} weight="duotone" color="#6283c0" />
         ) : (
-          <DownloadSimpleIcon size={25} weight="duotone" color="#6283c0" />
+          <DownloadSimpleIcon size={20} weight="duotone" color="#6283c0" />
         )}
         <div>{text}</div>
       </ActionLink>

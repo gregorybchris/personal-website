@@ -115,7 +115,7 @@ function Book({ book, selectedTags, onTagClick }: BookProps) {
       <a href={book.goodreads_link} target="_blank">
         <img
           src={`${book.image_links.book}?cache=2`}
-          className="h-[210px] rounded-lg shadow-md md:h-[250px]"
+          className="hover:border-sky/60 h-[210px] rounded-lg border-4 border-white/60 shadow-md transition-all md:h-[250px]"
         />
       </a>
 

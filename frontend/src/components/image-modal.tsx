@@ -62,7 +62,7 @@ export function ImageModal({
         <XIcon size={32} weight="bold" />
       </button>
 
-{images.length > 1 && (
+      {images.length > 1 && (
         <button
           className="absolute top-1/2 left-4 z-10 -translate-y-1/2 cursor-pointer rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20"
           onClick={handlePrevious}

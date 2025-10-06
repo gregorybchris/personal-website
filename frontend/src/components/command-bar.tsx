@@ -86,7 +86,7 @@ export function CommandBar() {
           </div>
         </div>
 
-        <div className="h-full w-full border-t-2 border-black/10 px-1 py-3">
+        <div className="h-full w-full border-t border-black/8 px-1 py-3">
           <Command.List>
             <Command.Empty>
               <div className="text-black/75">No results found</div>
