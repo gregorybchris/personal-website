@@ -124,7 +124,7 @@ function RouteMapCard({ route, routeData }: RouteMapCardProps) {
   const mapBoxToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
   return (
-    <div className="flex w-full flex-col gap-2 px-4 py-1 md:w-[max(40%,550px)]">
+    <div className="flex w-full flex-col gap-1 px-4 py-1 md:w-[max(40%,550px)]">
       <div className="font-sanchez flex flex-row items-baseline justify-between text-lg">
         <div className="underline decoration-blue-500/60 underline-offset-4">
           {route.name}
@@ -135,7 +135,7 @@ function RouteMapCard({ route, routeData }: RouteMapCardProps) {
         </div>
       </div>
 
-      <div className="h-[450px] w-full overflow-clip rounded-xl shadow-md">
+      <div className="h-[450px] w-full overflow-clip rounded-xl border-4 border-white/60 shadow-md">
         <MapContainer
           key={route.route_id}
           className="!z-[10] h-full w-full"
