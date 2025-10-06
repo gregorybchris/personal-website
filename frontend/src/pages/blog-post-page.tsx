@@ -39,13 +39,25 @@ export function BlogPostPage() {
 
   useEffect(() => {
     const DELAY = 2000;
-    document.querySelectorAll(".delayed-loop").forEach((video) => {
-      video.addEventListener("ended", () => {
+    document.querySelectorAll(".delayed-loop").forEach((element) => {
+      const video = element as HTMLVideoElement;
+
+      // Ensure video can play inline on mobile
+      video.playsInline = true;
+
+      const handleEnded = () => {
         setTimeout(() => {
           video.currentTime = 0;
-          video.play();
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(() => {
+              // Play was prevented, likely due to user interaction requirements
+            });
+          }
         }, DELAY);
-      });
+      };
+
+      video.addEventListener("ended", handleEnded);
     });
   }, [currentPost]);
 
