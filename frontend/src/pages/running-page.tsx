@@ -124,15 +124,18 @@ function RouteMapCard({ route, routeData }: RouteMapCardProps) {
   const mapBoxToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
   return (
-    <div className="flex w-full flex-col gap-2 px-4 md:w-[max(40%,550px)]">
+    <div className="flex w-full flex-col gap-2 px-4 py-1 md:w-[max(40%,550px)]">
       <div className="font-sanchez flex flex-row items-baseline justify-between text-lg">
         <div className="underline decoration-blue-500/60 underline-offset-4">
           {route.name}
         </div>
-        <div>{formatDistance(route.distance)} mi</div>
+        <div title={`${(route.distance * 1.609344).toFixed(1)} km`}>
+          {formatDistance(route.distance)}{" "}
+          <span className="text-black/30">mi</span>
+        </div>
       </div>
 
-      <div className="h-[450px] w-full border-2 border-neutral-300">
+      <div className="h-[450px] w-full overflow-clip rounded-xl shadow-md">
         <MapContainer
           key={route.route_id}
           className="!z-[10] h-full w-full"

@@ -63,19 +63,22 @@ export function BooksPage() {
         <Loader>Loading books...</Loader>
       ) : (
         <>
-          <div className="flex flex-row justify-center gap-0.5">
-            {allTags.map((tag) => (
-              <Tag
-                key={tag}
-                tag={tag}
-                onClick={onTagClick}
-                selected={selectedTags.includes(tag)}
-                className="text-xs"
-              />
-            ))}
+          <div className="flex flex-col items-center gap-1">
+            <div className="text-sm text-black/75">Filter by tag</div>
+            <div className="flex flex-row justify-center gap-0.5">
+              {allTags.map((tag) => (
+                <Tag
+                  key={tag}
+                  tag={tag}
+                  onClick={onTagClick}
+                  selected={selectedTags.includes(tag)}
+                  className="text-xs"
+                />
+              ))}
+            </div>
           </div>
 
-          <div className="flex w-full flex-row flex-wrap justify-center gap-y-4 md:w-4/5 md:gap-x-2">
+          <div className="flex w-full flex-row flex-wrap justify-center gap-x-2 gap-y-5 md:w-4/5 md:gap-x-4">
             {books
               .filter(
                 (book) =>
@@ -108,11 +111,11 @@ interface BookProps {
 
 function Book({ book, selectedTags, onTagClick }: BookProps) {
   return (
-    <div className="flex flex-col items-center gap-1">
+    <div className="flex flex-col items-center gap-2">
       <a href={book.goodreads_link} target="_blank">
         <img
-          src={`${book.image_links.book}?cache=1`}
-          className="hover:border-sky h-[210px] border-2 border-neutral-300 transition-all md:h-[250px]"
+          src={`${book.image_links.book}?cache=2`}
+          className="h-[210px] rounded-lg shadow-md md:h-[250px]"
         />
       </a>
 
