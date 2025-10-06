@@ -236,14 +236,14 @@ The full source code for this project is available on <a href="https://github.co
 ## Footnotes
 
 <div id="footnotes">
-  <div id="fn:fn1">
+  <div id="fn:fn1" class="footnote">
     <a class="fn" href="#fnref:fn1">[1]</a>
-    <span>I hear emacs/vim power users protesting already. Sure, notebooks aren't for everyone, but if you're prototyping in Python and aren't allergic to the computer mouse they're worth a shot!</span>
+    <span>I hear emacs/vim power users protesting already... Sure, notebooks aren't for everyone, but if you're prototyping in Python and aren't allergic to the computer mouse they're worth a shot!</span>
   </div>
 </div>
 
 <div id="footnotes">
-  <div id="fn:fn2">
+  <div id="fn:fn2" class="footnote">
     <a class="fn" href="#fnref:fn2">[2]</a>
     <span>Another cool thing you can do with this DAG is safely convert a notebook to a script. You can prefix local variables in each cell with the cell ID, topologically sort the cells with the DAG, then concatenate the cell contents. You're guaranteed a working script that you can fold into your Python codebase as a module.</span>
   </div>

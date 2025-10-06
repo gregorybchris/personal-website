@@ -56,6 +56,12 @@
   text-decoration: 1.5px underline #d0d0d0;
 }
 
+#blog .footnote {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+}
+
 #blog a.fn,
 #blog a.fnref {
   text-decoration: none;

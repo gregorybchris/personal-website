@@ -241,12 +241,12 @@ The full source code for this project is available on <a href="https://github.co
 ## Footnotes
 
 <div id="footnotes">
-  <div id="fn:fn1">
+  <div id="fn:fn1" class="footnote">
     <a class="fn" href="#fnref:fn1">[1]</a>
     <span>Kami is available in both <a href="https://apps.apple.com/us/app/kami/id710724007" target="_blank">iOS</a> and <a href="https://play.google.com/store/apps/details?id=com.stateofplaygames.kami2&hl=en-US" target="_blank">Android</a> app stores.</span>
   </div>
 
-  <div id="fn:fn2">
+  <div id="fn:fn2" class="footnote">
     <a class="fn" href="#fnref:fn2">[2]</a>
     <span>While this optimization is fairly elementary, a cursory literature review did not turn up prior work on this topic, so as far as I know this is a novel approach.</span>
   </div>
