@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Toaster } from "sonner";
 import { CommandBar } from "./components/command-bar";
 import { Nav } from "./components/nav";
+import { useRouteMetaTags } from "./hooks/use-meta-tags";
 import { ArchivePage } from "./pages/archive-page";
 import { ArtistsPage } from "./pages/artists-page";
 import { BlogPage } from "./pages/blog-page";
@@ -43,6 +44,7 @@ export function App() {
 
 function Layout() {
   const location = useLocation();
+  useRouteMetaTags();
 
   return (
     <div>

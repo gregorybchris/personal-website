@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 interface MetaTagsOptions {
   title?: string;
@@ -38,4 +39,32 @@ export function useMetaTags(options: MetaTagsOptions) {
       updateMetaTag("twitter:url", "http://chrisgregory.me");
     };
   }, [options.title, options.url]);
+}
+
+// Route-based meta tags configuration
+const ROUTE_META_TAGS: Record<string, string> = {
+  "/blog": "Blog - Chris Gregory",
+  "/projects": "Projects - Chris Gregory",
+  "/running": "Running - Chris Gregory",
+  "/music": "Music - Chris Gregory",
+  "/books": "Books - Chris Gregory",
+  "/contact": "Contact - Chris Gregory",
+};
+
+export function useRouteMetaTags() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const pathname = location.pathname;
+    const title = ROUTE_META_TAGS[pathname];
+
+    if (title) {
+      document.title = title;
+      updateMetaTag("og:title", title);
+      updateMetaTag("twitter:title", title);
+    }
+
+    updateMetaTag("og:url", window.location.href);
+    updateMetaTag("twitter:url", window.location.href);
+  }, [location.pathname]);
 }

@@ -3,7 +3,6 @@ import { MapContainer, Polyline, TileLayer, useMap } from "react-leaflet";
 import { useNavigate, useParams } from "react-router-dom";
 import { Loader } from "../components/loader";
 import { PageTitle } from "../components/page-title";
-import { useMetaTags } from "../hooks/use-meta-tags";
 import "../styles/running.css";
 import { GET, makeQuery } from "../utilities/request-utilities";
 
@@ -46,11 +45,6 @@ export function RunningPage() {
   );
   const { slug } = useParams();
   let navigate = useNavigate();
-
-  useMetaTags({
-    title: "Running - Chris Gregory",
-    url: window.location.href,
-  });
 
   useEffect(() => {
     const routesQuery = makeQuery("outdoor/running");

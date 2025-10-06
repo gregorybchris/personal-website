@@ -3,14 +3,8 @@ import { FormSubmitButton } from "../components/form-submit-button";
 import { FormTextAreaInput } from "../components/form-text-area-input";
 import { FormTextInput } from "../components/form-text-input";
 import { PageTitle } from "../components/page-title";
-import { useMetaTags } from "../hooks/use-meta-tags";
 
 export function ContactPage() {
-  useMetaTags({
-    title: "Contact - Chris Gregory",
-    url: window.location.href,
-  });
-
   return (
     <div className="flex flex-col items-center gap-10 px-4 py-8">
       <div className="flex flex-col items-center gap-4 md:w-4/5">
