@@ -136,7 +136,7 @@ def detect_cycles(graph: Graph) -> None:
         visit(node)
 ```
 
-With these pieces in place, whenever a user runs a cell, clears a cell, or updates a cell's inputs or output, we can rebuild the graph and check for cycles to ensure the notebook remains in a valid state.
+With these pieces in place, whenever a user runs a cell, clears a cell, or updates a cell's inputs or output, we can rebuild the graph and check for cycles to ensure the notebook remains in a valid state. Maintaining this DAG is pretty valuable!<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup>
 
 ### Caching execution results
 
@@ -239,5 +239,12 @@ The full source code for this project is available on <a href="https://github.co
   <div id="fn:fn1">
     <a class="fn" href="#fnref:fn1">[1]</a>
     <span>I hear emacs/vim power users protesting already. Sure, notebooks aren't for everyone, but if you're prototyping in Python and aren't allergic to the computer mouse they're worth a shot!</span>
+  </div>
+</div>
+
+<div id="footnotes">
+  <div id="fn:fn2">
+    <a class="fn" href="#fnref:fn2">[2]</a>
+    <span>Another cool thing you can do with this DAG is safely convert a notebook to a script. You can prefix local variables in each cell with the cell ID, topologically sort the cells with the DAG, then concatenate the cell contents. You're guaranteed a working script that you can fold into your Python codebase as a module.</span>
   </div>
 </div>
