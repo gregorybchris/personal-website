@@ -134,12 +134,14 @@ export function FeedGraphPage() {
       .selectAll("line")
       .data(links)
       .join("line")
+      .classed("feed-graph-edge-line", true)
       .attr("stroke-width", (d) => Math.sqrt(d.value));
 
     const scale = d3.scaleOrdinal(d3.schemeCategory10);
     const color = (node: GraphNode) => scale(`${node.group}`);
 
     const node = svg
+      .append("g")
       .selectAll("circle")
       .data(nodes)
       .enter()
