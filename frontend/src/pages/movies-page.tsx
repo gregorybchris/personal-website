@@ -48,7 +48,7 @@ export function MoviesPage() {
       )}
       {movies.length > 0 && (
         <div className="flex flex-col items-center">
-          <div className="flex flex-row flex-wrap justify-center gap-x-1 gap-y-8">
+          <div className="flex flex-row flex-wrap justify-center gap-x-1 gap-y-10">
             {movies
               .filter(
                 (movie) => !currentGenre || movie.genres.includes(currentGenre),
@@ -64,19 +64,13 @@ export function MoviesPage() {
                     rel="noopener noreferrer"
                     className="rounded-lg px-1 py-2 hover:bg-black/5"
                   >
-                    <div className="flex flex-col items-center gap-3 text-center">
-                      {movie.poster_url && (
-                        <img
-                          src={movie.poster_url}
-                          alt={movie.name}
-                          className="w-full rounded-md"
-                        />
-                      )}
-
-                      <div className="font-sanchez text-sky font-bold">
-                        {movie.name}
-                      </div>
-                    </div>
+                    {movie.poster_url && (
+                      <img
+                        src={movie.poster_url}
+                        alt={movie.name}
+                        className="w-full rounded-md"
+                      />
+                    )}
                   </Link>
 
                   <div className="flex flex-row justify-center gap-3">

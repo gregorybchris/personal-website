@@ -48,7 +48,7 @@ export function TvShowsPage() {
       )}
       {shows.length > 0 && (
         <div className="flex flex-col items-center">
-          <div className="flex flex-row flex-wrap justify-center gap-x-1 gap-y-8">
+          <div className="flex flex-row flex-wrap justify-center gap-x-1 gap-y-10">
             {shows
               .filter(
                 (show) => !currentGenre || show.genres.includes(currentGenre),
@@ -64,19 +64,13 @@ export function TvShowsPage() {
                     rel="noopener noreferrer"
                     className="rounded-lg px-1 py-2 hover:bg-black/5"
                   >
-                    <div className="flex flex-col items-center gap-3 text-center">
-                      {show.poster_url && (
-                        <img
-                          src={show.poster_url}
-                          alt={show.name}
-                          className="w-full rounded-md"
-                        />
-                      )}
-
-                      <div className="font-sanchez text-sky font-bold">
-                        {show.name}
-                      </div>
-                    </div>
+                    {show.poster_url && (
+                      <img
+                        src={show.poster_url}
+                        alt={show.name}
+                        className="w-full rounded-md"
+                      />
+                    )}
                   </Link>
 
                   <div className="flex flex-row justify-center gap-3">

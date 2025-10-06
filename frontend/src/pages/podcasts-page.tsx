@@ -37,22 +37,21 @@ export function PodcastsPage() {
       {podcasts.length === 0 && <div>Loading podcasts...</div>}
       {podcasts.length > 0 && (
         <div className="flex flex-col items-center">
-          <div className="flex flex-row flex-wrap justify-center gap-6">
+          <div className="flex flex-row flex-wrap justify-center gap-x-6 gap-y-10">
             {podcasts.map((podcast) => (
               <div
                 className="flex w-[260px] flex-col items-center gap-3"
                 key={podcast.name}
               >
-                <SimpleLink link={podcast.apple_link}>
-                  <div className="flex w-full flex-col items-center gap-2 text-center">
-                    <div className="font-sanchez font-bold">{podcast.name}</div>
-
-                    <img
-                      src={`https://static.pocketcasts.com/discover/images/webp/480/${podcast.pocket_casts_id}.webp`}
-                      alt={podcast.name}
-                      className="w-full rounded-md"
-                    />
-                  </div>
+                <SimpleLink
+                  link={podcast.apple_link}
+                  className="rounded-lg px-1 py-2 hover:bg-black/5"
+                >
+                  <img
+                    src={`https://static.pocketcasts.com/discover/images/webp/480/${podcast.pocket_casts_id}.webp`}
+                    alt={podcast.name}
+                    className="w-full rounded-md"
+                  />
                 </SimpleLink>
 
                 <RatingRadar scores={new Map(Object.entries(podcast.scores))} />
