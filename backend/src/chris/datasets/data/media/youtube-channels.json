@@ -8,7 +8,8 @@
       "information": 10,
       "consistency": 10
     },
-    "link": "https://www.youtube.com/@veritasium"
+    "link": "https://www.youtube.com/@veritasium",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/veritasium.jpg"
   },
   {
     "name": "Numberphile",
@@ -19,7 +20,8 @@
       "information": 10,
       "consistency": 8
     },
-    "link": "https://www.youtube.com/@numberphile"
+    "link": "https://www.youtube.com/@numberphile",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/numberphile.jpg"
   },
   {
     "name": "3Blue1Brown",
@@ -30,7 +32,8 @@
       "information": 10,
       "consistency": 10
     },
-    "link": "https://www.youtube.com/@3blue1brown"
+    "link": "https://www.youtube.com/@3blue1brown",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/3-blue-1-brown.jpg"
   },
   {
     "name": "Steve Mould",
@@ -41,7 +44,8 @@
       "information": 10,
       "consistency": 9
     },
-    "link": "https://www.youtube.com/@SteveMould"
+    "link": "https://www.youtube.com/@SteveMould",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/steve-mould.jpg"
   },
   {
     "name": "minutephysics",
@@ -52,7 +56,8 @@
       "information": 9,
       "consistency": 7
     },
-    "link": "https://www.youtube.com/@minutephysics"
+    "link": "https://www.youtube.com/@minutephysics",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/minutephysics.jpg"
   },
   {
     "name": "SmarterEveryDay",
@@ -63,7 +68,8 @@
       "information": 8,
       "consistency": 7
     },
-    "link": "https://www.youtube.com/@smartereveryday"
+    "link": "https://www.youtube.com/@smartereveryday",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/smarter-every-day.jpg"
   },
   {
     "name": "Yannic Kilcher",
@@ -74,7 +80,8 @@
       "information": 9,
       "consistency": 8
     },
-    "link": "https://www.youtube.com/@yannickilcher"
+    "link": "https://www.youtube.com/@yannickilcher",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/yannic-kilcher.jp"
   },
   {
     "name": "My Self Reliance",
@@ -85,7 +92,8 @@
       "information": 7,
       "consistency": 6
     },
-    "link": "https://www.youtube.com/@myselfreliance"
+    "link": "https://www.youtube.com/@myselfreliance",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/my-self-reliance.jpg"
   },
   {
     "name": "Sampson Boat Co",
@@ -96,7 +104,8 @@
       "information": 8,
       "consistency": 6
     },
-    "link": "https://www.youtube.com/@sampsonboatco"
+    "link": "https://www.youtube.com/@sampsonboatco",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/sampson-boat-co.jpg"
   },
   {
     "name": "The Royal Institution",
@@ -107,7 +116,8 @@
       "information": 9,
       "consistency": 5
     },
-    "link": "https://www.youtube.com/@theroyalinstitution"
+    "link": "https://www.youtube.com/@theroyalinstitution",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/the-royal-institution.jpg"
   },
   {
     "name": "Sixty Symbols",
@@ -118,7 +128,8 @@
       "information": 8,
       "consistency": 5
     },
-    "link": "https://www.youtube.com/@sixtysymbols"
+    "link": "https://www.youtube.com/@sixtysymbols",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/sixty-symbols.jpg"
   },
   {
     "name": "Practical Engineering",
@@ -129,7 +140,8 @@
       "information": 7,
       "consistency": 8
     },
-    "link": "https://www.youtube.com/@practicalengineeringchannel"
+    "link": "https://www.youtube.com/@practicalengineeringchannel",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/practical-engineering.jpg"
   },
   {
     "name": "Two Minute Papers",
@@ -140,7 +152,8 @@
       "information": 6,
       "consistency": 5
     },
-    "link": "https://www.youtube.com/@twominutepapers"
+    "link": "https://www.youtube.com/@twominutepapers",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/two-minute-papers.jpg"
   },
   {
     "name": "Computerphile",
@@ -151,7 +164,8 @@
       "information": 5,
       "consistency": 4
     },
-    "link": "https://www.youtube.com/@computerphile"
+    "link": "https://www.youtube.com/@computerphile",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/computerphile.jpg"
   },
   {
     "name": "Chris Salomone",
@@ -162,7 +176,8 @@
       "information": 5,
       "consistency": 6
     },
-    "link": "https://www.youtube.com/@foureyes.furniture"
+    "link": "https://www.youtube.com/@foureyes.furniture",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/chris-salomone.jpg"
   },
   {
     "name": "Josh Turner Guitar",
@@ -173,7 +188,8 @@
       "information": 1,
       "consistency": 8
     },
-    "link": "https://www.youtube.com/@joshturnerguitar"
+    "link": "https://www.youtube.com/@joshturnerguitar",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/josh-turner-guitar.jpg"
   },
   {
     "name": "Sean Angus Watson",
@@ -184,7 +200,8 @@
       "information": 1,
       "consistency": 7
     },
-    "link": "https://www.youtube.com/@seananguswatson"
+    "link": "https://www.youtube.com/@seananguswatson",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/sean-angus-watson.jpg"
   },
   {
     "name": "Food Wishes",
@@ -195,7 +212,8 @@
       "information": 8,
       "consistency": 7
     },
-    "link": "https://www.youtube.com/@foodwishes"
+    "link": "https://www.youtube.com/@foodwishes",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/food-wishes.jpg"
   },
   {
     "name": "Simone Giertz",
@@ -206,7 +224,8 @@
       "information": 7,
       "consistency": 9
     },
-    "link": "https://www.youtube.com/@simonegiertz"
+    "link": "https://www.youtube.com/@simonegiertz",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/simone-giertz.jpg"
   },
   {
     "name": "NileRed",
@@ -217,6 +236,7 @@
       "information": 9,
       "consistency": 7
     },
-    "link": "https://www.youtube.com/@nilered"
+    "link": "https://www.youtube.com/@nilered",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/nile-red.jpg"
   }
 ]
