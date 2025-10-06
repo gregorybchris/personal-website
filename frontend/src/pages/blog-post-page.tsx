@@ -37,6 +37,18 @@ export function BlogPostPage() {
       });
   }, [slug]);
 
+  useEffect(() => {
+    const DELAY = 2000;
+    document.querySelectorAll(".delayed-loop").forEach((video) => {
+      video.addEventListener("ended", () => {
+        setTimeout(() => {
+          video.currentTime = 0;
+          video.play();
+        }, DELAY);
+      });
+    });
+  }, [currentPost]);
+
   return (
     <div className="font-iowa flex flex-col items-center px-7 py-6 md:px-10 md:py-10">
       {currentPost === null ? (

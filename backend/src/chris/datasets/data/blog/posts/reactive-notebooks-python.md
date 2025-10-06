@@ -21,7 +21,7 @@ Observable's key innovation is bringing reactivity to notebooks &mdash; executio
 
 After a few years of being sent (what I would consider) "broken" Jupyter notebooks and stewing on how cool Observable is, I decided to build <a href="https://github.com/gregorybchris/cado" target="_blank">Cado</a>, bringing the reactive notebook paradigm to Python.
 
-<figure id="figure1">
+<figure id="figure0">
   <img src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/cado-icon.png?cache=0" width="200" class="no-bg">
   <figcaption>Naturally, the app has a mascot named Avo.</figcaption>
 </figure>
@@ -150,26 +150,92 @@ If you know a cell is impure, you can mark it so that it always re-executes when
 
 I built the backend for Cado in Python as a <a href="https://fastapi.tiangolo.com" target="_blank">FastAPI</a> app. Every action you can perform in the notebook UI corresponds to a WebSocket message sent to the backend. The backend processes the message, updates the notebook state, and sends back any necessary updates to the frontend.
 
-Similarly to Jupyter, the Cado server also serves the notebook UI. By running one Python process, the web frontend spins up and connects to the backend WebSocket automatically.
+### Web interface
 
-<figure id="figure2">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/demo.gif?cache=0" width="90%">
-  <figcaption>Cado notebook UI</figcaption>
+Similarly to Jupyter, the Cado server also serves the user interface. By running the `cado up` command, a single Python process serves the WebSocket API as well as the frontend, which connects to the socket automatically.
+
+<figure id="figure1">
+  <video className="delayed-loop" width="90%" autoplay muted playsinline>
+    <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/parent-updates-propagate-to-children.mov?cache=1" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption>
+    <strong>Figure 1: </strong>
+    Parents propagate updates to their children automatically.
+  </figcaption>
 </figure>
 
-> Cells in Cado are draggable (using <a href="https://www.framer.com/motion" target="_blank">Framer Motion</a>), something I always thought Jupyter notebooks should support.
+<figure id="figure2">
+  <video className="delayed-loop" width="90%" autoplay muted playsinline>
+    <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/children-use-cached-parent-outputs.mov?cache=1" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption>
+    <strong>Figure 2: </strong>
+    Children use cached parent outputs if they're available rather than re-executing parents.
+  </figcaption>
+</figure>
+
+<figure id="figure3">
+  <video className="delayed-loop" width="90%" autoplay muted playsinline>
+    <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/running-children-runs-uncached-parents.mov?cache=1" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption>
+    <strong>Figure 3: </strong>
+    If a parent's output is not cached, running a child will run the parent first.
+  </figcaption>
+</figure>
+
+<figure id="figure4">
+  <video className="delayed-loop" width="90%" autoplay muted playsinline>
+  <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/cycle-detected-error.mov?cache=1" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption>
+    <strong>Figure 4: </strong>
+    Cycles are automatically detected.
+  </figcaption>
+</figure>
+
+<figure id="figure5">
+  <video className="delayed-loop" width="90%" autoplay muted playsinline>
+  <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/unknown-input-name-error.mov?cache=1" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption>
+    <strong>Figure 5: </strong>
+    Cells cannot rely on input names that aren't outputs of other cells.
+  </figcaption>
+</figure>
+
+<figure id="figure6">
+  <video className="delayed-loop" width="90%" autoplay muted playsinline>
+  <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/duplicate-output-names-error.mov?cache=1" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption>
+    <strong>Figure 6: </strong>
+    Output names must be unique across all cells.
+  </figcaption>
+</figure>
+
+<figure id="figure7">
+  <video className="delayed-loop" width="90%" autoplay muted playsinline>
+  <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/drag-cells-to-reorder.mov?cache=1" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption>
+    <strong>Figure 7: </strong>
+    Cells are draggable (using <a href="https://www.framer.com/motion" target="_blank">Framer Motion</a>), something I always thought Jupyter notebooks should support.
+  </figcaption>
+</figure>
 
 ## Wrapping up
 
-I hope someday the reactive notebook paradigm gains traction, if not as a default, at least as a setting that you can opt into. It does take some manual effort to define inputs and outputs, but with the right user interface to reduce friction, the benefits of automatic dependency propagation could outweigh the costs of specifying cell dependencies.
+I hope someday the reactive notebook paradigm gains traction, if not as a default, perhaps as an opt-in setting. With the right user interface design, the benefits of reactivity could far outweigh the added complexity and by taking out page out of Observable's book we can make data science more reproducible.
 
 The full source code for this project is available on <a href="https://github.com/gregorybchris/cado" target="_blank">GitHub</a>.
-
-## Postscript: Notebooks as scripts
-
-Defining the execution graph explicitly makes it possible to convert a notebook into a standard Python script. First, we prefix local variables in each cell with the cell ID, which ensures that there are no naming collisions between cells. We can then run a topological sort on the cells and concatenate their source code together to form a single script. (implementation not shown here)
-
-I do think it's a bit gross to prefix variable names like this, especially since it leaks cell IDs to the user, which really should be opaque. However, this does open up the possibility of combining the usability of the notebook paradigm with the maintainability and testability of standard Python source code.
 
 ## Footnotes
 
