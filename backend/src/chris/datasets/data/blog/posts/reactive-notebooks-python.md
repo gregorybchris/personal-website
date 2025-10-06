@@ -22,7 +22,7 @@ Observable's key innovation is bringing reactivity to notebooks &mdash; executio
 After a few years of being sent (what I would consider) "broken" Jupyter notebooks and stewing on how cool Observable is, I decided to build <a href="https://github.com/gregorybchris/cado" target="_blank">Cado</a>, bringing the reactive notebook paradigm to Python.
 
 <figure id="figure0">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/cado-icon.png?cache=0" width="200" class="no-bg">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/cado-icon.png?cache=0" width="200" className="no-shadow">
   <figcaption>Naturally, the app has a mascot named Avo.</figcaption>
 </figure>
 
@@ -146,16 +146,12 @@ Of course, this assumes that each cell is a pure function of its inputs, which m
 
 If you know a cell is impure, you can mark it so that it always re-executes when any of its descendants are run. This could lead to the impure cell running quite frequently, but since we cache execution results, impure cell updates only cascade if the impure cell's output does not match the output from the last execution.
 
-### Language server
-
-I built the backend for Cado in Python as a <a href="https://fastapi.tiangolo.com" target="_blank">FastAPI</a> app. Every action you can perform in the notebook UI corresponds to a WebSocket message sent to the backend. The backend processes the message, updates the notebook state, and sends back any necessary updates to the frontend.
-
 ### Web interface
 
-Similarly to Jupyter, the Cado server also serves the user interface. By running the `cado up` command, a single Python process serves the WebSocket API as well as the frontend, which connects to the socket automatically.
+Similarly to Jupyter, the Cado server also serves the user interface. By running the `cado up` command, a single Python process serves the <a href="https://fastapi.tiangolo.com" target="_blank">FastAPI</a> WebSocket API as well as the <a href="https://react.dev" target="_blank">React</a> frontend, which connects to the socket automatically.
 
 <figure id="figure1">
-  <video className="delayed-loop" width="90%" autoplay muted playsinline>
+  <video className="delayed-loop" autoplay muted playsinline>
     <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/parent-updates-propagate-to-children.mov?cache=1" type="video/mp4">
     Your browser does not support the video tag.
   </video>
@@ -166,7 +162,7 @@ Similarly to Jupyter, the Cado server also serves the user interface. By running
 </figure>
 
 <figure id="figure2">
-  <video className="delayed-loop" width="90%" autoplay muted playsinline>
+  <video className="delayed-loop" autoplay muted playsinline>
     <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/children-use-cached-parent-outputs.mov?cache=1" type="video/mp4">
     Your browser does not support the video tag.
   </video>
@@ -177,7 +173,7 @@ Similarly to Jupyter, the Cado server also serves the user interface. By running
 </figure>
 
 <figure id="figure3">
-  <video className="delayed-loop" width="90%" autoplay muted playsinline>
+  <video className="delayed-loop" autoplay muted playsinline>
     <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/running-children-runs-uncached-parents.mov?cache=1" type="video/mp4">
     Your browser does not support the video tag.
   </video>
@@ -188,7 +184,7 @@ Similarly to Jupyter, the Cado server also serves the user interface. By running
 </figure>
 
 <figure id="figure4">
-  <video className="delayed-loop" width="90%" autoplay muted playsinline>
+  <video className="delayed-loop" autoplay muted playsinline>
   <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/cycle-detected-error.mov?cache=1" type="video/mp4">
     Your browser does not support the video tag.
   </video>
@@ -199,7 +195,7 @@ Similarly to Jupyter, the Cado server also serves the user interface. By running
 </figure>
 
 <figure id="figure5">
-  <video className="delayed-loop" width="90%" autoplay muted playsinline>
+  <video className="delayed-loop" autoplay muted playsinline>
   <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/unknown-input-name-error.mov?cache=1" type="video/mp4">
     Your browser does not support the video tag.
   </video>
@@ -210,7 +206,7 @@ Similarly to Jupyter, the Cado server also serves the user interface. By running
 </figure>
 
 <figure id="figure6">
-  <video className="delayed-loop" width="90%" autoplay muted playsinline>
+  <video className="delayed-loop" autoplay muted playsinline>
   <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/duplicate-output-names-error.mov?cache=1" type="video/mp4">
     Your browser does not support the video tag.
   </video>
@@ -221,7 +217,7 @@ Similarly to Jupyter, the Cado server also serves the user interface. By running
 </figure>
 
 <figure id="figure7">
-  <video className="delayed-loop" width="90%" autoplay muted playsinline>
+  <video className="delayed-loop" autoplay muted playsinline>
   <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/drag-cells-to-reorder.mov?cache=1" type="video/mp4">
     Your browser does not support the video tag.
   </video>
