@@ -51,11 +51,10 @@ export function BooksPage() {
       <div className="flex flex-col items-center gap-4 md:w-4/5">
         <PageTitle>Books</PageTitle>
 
-        <div className="text-center text-black/75 md:w-[70%]">
-          I don't love recommending books because it always feels like assigned
-          reading and I never liked assigned reading. But on the off chance
-          you're a fan of one of the titles below you might consider picking up
-          another, totally unassigned.
+        <div className="text-center text-balance text-black/75 md:w-[70%]">
+          If you're already a fan of one of the books on my shelf, then you
+          might consider trying another. On the other hand, if your literary
+          tastes are totally different, that's okay too!
         </div>
       </div>
 

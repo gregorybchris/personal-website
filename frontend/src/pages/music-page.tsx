@@ -7,10 +7,10 @@ export function MusicPage() {
       <div className="flex flex-col items-center gap-4 md:w-4/5">
         <PageTitle>Music</PageTitle>
 
-        <div className="text-center text-black/75 md:w-[70%]">
-          Spotify is getting scary good at recommending music. But a song from a
-          human being always feels more personal. Even if the music you're into
-          is totally different, shoot me a link with my{" "}
+        <div className="text-center text-balance text-black/75 md:w-[70%]">
+          Spotify is getting scary good at recommending music, but I think a
+          song from a human being always feels more personal. Even if the music
+          you're into is totally different, shoot me a link with my{" "}
           <SimplePageLink to="/contact">Contact</SimplePageLink> page!
         </div>
       </div>

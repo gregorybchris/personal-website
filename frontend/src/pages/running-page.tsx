@@ -97,7 +97,7 @@ export function RunningPage() {
       <div className="flex flex-col items-center gap-4 md:w-4/5">
         <PageTitle>Running Routes</PageTitle>
 
-        <div className="text-center text-black/75 md:w-[70%]">
+        <div className="text-center text-balance text-black/75 md:w-[70%]">
           This page is for you if you like running and happen to be in a city
           where I've lived.
         </div>
