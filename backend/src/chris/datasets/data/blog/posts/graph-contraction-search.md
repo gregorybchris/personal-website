@@ -238,6 +238,17 @@ Thanks for reading to the end of my first blog post! If you enjoyed it, please c
 
 The full source code for this project is available on <a href="https://github.com/gregorybchris/contraction" target="_blank">GitHub</a>.
 
+This post can be cited as:
+
+```bibtex
+@misc{gregory_contraction_2022,
+  author = {Christopher B. Gregory},
+  title = {Using Graph Neural Networks as a Search Heuristic},
+  year = {2022},
+  howpublished = {\url{https://www.chrisgregory.me/blog/graph-contraction-search}},
+}
+```
+
 ## Footnotes
 
 <div id="footnotes">
