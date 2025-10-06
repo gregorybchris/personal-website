@@ -87,18 +87,20 @@ class Cell:
     output_name: str
 ```
 
-Next, we can build a graph representation of the cell dependencies by mapping output names to cell IDs and building up a dictionary that maps each cell to its parents/dependencies.
+Next, we can build a graph representation of the cell dependencies.
 
 ```python
 Graph = dict[str, list[str]]
 
 def build_graph(cells: list[Cell]) -> Graph:
+    # Map output names to cell IDs
     output_to_id = {}
     for cell in cells:
         if cell.output_name in output_to_id:
             raise ValueError(f"Output {cell.output_name} produced by multiple cells")
         output_to_id[cell.output_name] = cell.id
 
+    # Build graph mapping cell IDs to IDs those cells depend on
     graph = {}
     for cell in cells:
         for input_name in cell.input_names:
@@ -108,7 +110,7 @@ def build_graph(cells: list[Cell]) -> Graph:
     return graph
 ```
 
-Note, that while building this graph, we also validate a few important invariants of our notebook:
+While building this graph, we also validate a few important invariants of our notebook:
 
 1. Each output name is produced by exactly one cell
 2. Each input name corresponds to an output of some cell
@@ -117,8 +119,8 @@ Finally, we can implement a depth-first search (DFS) to detect cycles in the gra
 
 ```python
 def detect_cycles(graph: Graph) -> None:
-    checked = set()
-    path = []
+    checked = set() # Nodes we have verified are not part of a cycle
+    path = [] # Current path in the DFS
 
     def visit(node: str):
         if node in path:
@@ -157,7 +159,7 @@ Similarly to Jupyter, the Cado server also serves the user interface. By running
   </video>
   <figcaption>
     <strong>Figure 1: </strong>
-    Parents propagate updates to their children automatically.
+    Updates propagate from cells to cells that depend on them.
   </figcaption>
 </figure>
 
@@ -168,7 +170,7 @@ Similarly to Jupyter, the Cado server also serves the user interface. By running
   </video>
   <figcaption>
     <strong>Figure 2: </strong>
-    Children use cached parent outputs if they're available rather than re-executing parents.
+    Cells use cached outputs from dependencies rather than re-executing their dependencies.
   </figcaption>
 </figure>
 
@@ -179,7 +181,7 @@ Similarly to Jupyter, the Cado server also serves the user interface. By running
   </video>
   <figcaption>
     <strong>Figure 3: </strong>
-    If a parent's output is not cached, running a child will run the parent first.
+      Running a cell triggers execution of all dependencies that don't have cached outputs.
   </figcaption>
 </figure>
 
