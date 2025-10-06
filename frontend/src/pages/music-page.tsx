@@ -1,7 +1,13 @@
 import { PageTitle } from "../components/page-title";
 import { SimplePageLink } from "../components/simple-page-link";
+import { useMetaTags } from "../hooks/use-meta-tags";
 
 export function MusicPage() {
+  useMetaTags({
+    title: "Music - Chris Gregory",
+    url: window.location.href,
+  });
+
   return (
     <div className="flex flex-col items-center gap-10 px-4 py-8">
       <div className="flex flex-col items-center gap-4 md:w-4/5">

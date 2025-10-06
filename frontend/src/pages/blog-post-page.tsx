@@ -57,7 +57,7 @@ export function BlogPostPage() {
           const playPromise = video.play();
           if (playPromise !== undefined) {
             playPromise.catch(() => {
-              // Play was prevented, likely due to user interaction requirements
+              // Intentionally left empty to handle the error and allow play to continue on mobile
             });
           }
         }, DELAY);
@@ -104,7 +104,11 @@ export function BlogPostPage() {
             </IconButton>
 
             {/* NOTE: Using pathname instead of href to exclude hash fragment and/or query params */}
-            <ShareButton text="Share post" url={window.location.pathname} />
+            <ShareButton
+              text="Share post"
+              url={window.location.pathname}
+              shareTitle={currentPost.title}
+            />
           </div>
         </div>
       )}

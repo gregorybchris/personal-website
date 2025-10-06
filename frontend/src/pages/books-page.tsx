@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Loader } from "../components/loader";
 import { PageTitle } from "../components/page-title";
 import { Tag } from "../components/tag";
+import { useMetaTags } from "../hooks/use-meta-tags";
 import { GET, makeQuery } from "../utilities/request-utilities";
 
 export interface BookData {
@@ -23,6 +24,11 @@ export function BooksPage() {
   const [books, setBooks] = useState<BookData[]>([]);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [allTags, setAllTags] = useState<string[]>([]);
+
+  useMetaTags({
+    title: "Books - Chris Gregory",
+    url: window.location.href,
+  });
 
   useEffect(() => {
     const booksQuery = makeQuery("media/books");

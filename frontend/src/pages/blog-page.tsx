@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "../components/loader";
+import { useMetaTags } from "../hooks/use-meta-tags";
 import "../styles/fonts.css";
 import { formatDate } from "../utilities/datetime-utilities";
 import { GET, makeQuery } from "../utilities/request-utilities";
@@ -15,6 +16,11 @@ export interface BlogPostPreview {
 export function BlogPage() {
   const [previews, setPreviews] = useState<BlogPostPreview[]>([]);
   let navigate = useNavigate();
+
+  useMetaTags({
+    title: "Blog - Chris Gregory",
+    url: window.location.href,
+  });
 
   useEffect(() => {
     const postsQuery = makeQuery("blog/posts");

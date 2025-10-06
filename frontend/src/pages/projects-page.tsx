@@ -5,6 +5,7 @@ import { PageTitle } from "../components/page-title";
 import { ProjectModal } from "../components/project-modal";
 import { ProjectsTimeline } from "../components/projects-timeline";
 import { SearchBar } from "../components/search-bar";
+import { useMetaTags } from "../hooks/use-meta-tags";
 import { GET, POST, makeQuery } from "../utilities/request-utilities";
 
 export interface Project {
@@ -34,6 +35,11 @@ export function ProjectsPage() {
   const [searchText, setSearchText] = useState("");
   const { slug } = useParams();
   let navigate = useNavigate();
+
+  useMetaTags({
+    title: "Projects - Chris Gregory",
+    url: window.location.href,
+  });
 
   useEffect(() => {
     const projectsQuery = makeQuery("projects");
