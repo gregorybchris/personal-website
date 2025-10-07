@@ -1,0 +1,11 @@
+/* Prevent Chrome HDR tone mapping on images */
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+@media (dynamic-range: high) {
+  img {
+    image-rendering: auto;
+    filter: contrast(0.9) brightness(0.95);
+  }
+}

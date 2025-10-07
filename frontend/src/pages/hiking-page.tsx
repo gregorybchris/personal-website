@@ -11,6 +11,7 @@ import { ImageModal } from "../components/image-modal";
 import { Loader } from "../components/loader";
 import { PageTitle } from "../components/page-title";
 import { SimpleLink } from "../components/simple-link";
+import "../styles/hiking.css";
 import { GET, makeQuery } from "../utilities/request-utilities";
 import { cn } from "../utilities/style-utilities";
 
