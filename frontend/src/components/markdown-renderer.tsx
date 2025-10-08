@@ -8,6 +8,7 @@ import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import remarkSmartypants from "remark-smartypants";
+import remarkToc from "remark-toc";
 import { toast } from "sonner";
 import { CodeBlock } from "./code-block";
 
@@ -63,7 +64,12 @@ type MarkdownRendererProps = {
 export function MarkdownRenderer({ children }: MarkdownRendererProps) {
   return (
     <ReactMarkdown
-      remarkPlugins={[remarkMath, remarkGfm, remarkSmartypants]}
+      remarkPlugins={[
+        remarkMath,
+        remarkGfm,
+        remarkSmartypants,
+        [remarkToc, { heading: "contents|table of contents" }],
+      ]}
       rehypePlugins={[rehypeKatex, rehypeRaw]}
       components={{
         h2({ children, ...props }) {
