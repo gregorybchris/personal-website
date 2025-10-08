@@ -7,6 +7,7 @@ import rehypeKatex from "rehype-katex";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+import remarkSmartypants from "remark-smartypants";
 import { toast } from "sonner";
 import { CodeBlock } from "./code-block";
 
@@ -62,7 +63,7 @@ type MarkdownRendererProps = {
 export function MarkdownRenderer({ children }: MarkdownRendererProps) {
   return (
     <ReactMarkdown
-      remarkPlugins={[remarkMath, remarkGfm]}
+      remarkPlugins={[remarkMath, remarkGfm, remarkSmartypants]}
       rehypePlugins={[rehypeKatex, rehypeRaw]}
       components={{
         h2({ children, ...props }) {

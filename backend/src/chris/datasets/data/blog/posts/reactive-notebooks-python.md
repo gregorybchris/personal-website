@@ -5,7 +5,7 @@ title: Bringing Reactive Notebooks to Python
 archived: false
 ---
 
-<a href="https://jupyter.org" target="_blank">Jupyter notebooks</a> are pretty great.<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup> It takes only a couple clicks/keystrokes to create a new cell, write some code, and run it. There's no creating a new file, naming the file, writing an entrypoint/main function, or switching to a terminal window to run the code. Unlike standard scripts, notebooks also allow you to embed markdown, plots, and other media directly so you can tell a story with your code.
+<a href="https://jupyter.org" target="_blank">Jupyter notebooks</a> are pretty neat.<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup> It takes only a couple clicks/keystrokes to create a new cell, write some code, and run it. You can skip creating a new file, naming the file, writing an entrypoint/main function, and switching to a terminal window to run the code. Unlike standard scripts, notebooks also allow you to embed markdown, plots, and other media directly so you can tell a story with your code.
 
 One of the most powerful features of the notebook paradigm is that you can swap in and out bits of functionality just be running cells in a different order. This is incredible for exploration and prototyping, but with this great flexibility comes a serious drawback: Since there's no well-defined execution order for cells, your notebook can easily get into a state where running the cells top to bottom produces errors.
 
@@ -15,7 +15,7 @@ The notebook may have some very useful plots embedded in it, but if someone else
 
 Enter <a href="https://observablehq.com" target="_blank">Observable</a>, a platform for writing JavaScript notebooks, made by <a href="https://bost.ocks.org/mike" target="_blank">Mike Bostock</a>, the creator of the popular data visualization library <a href="https://d3js.org" target="_blank">D3.js</a>.
 
-Observable's key innovation is bringing reactivity to notebooks &mdash; execution of one cell can trigger execution of others. In Observable, each cell registers a variable that other cells can depend on. When a cell executes, the output of that cell automatically propagates to all cells that depend on it. Running a cell requires its parents to have run first, but because the dependency graph is explicitly defined, the notebook can run parent cells for you.
+Observable's key innovation is bringing reactivity to notebooks -- execution of one cell can trigger execution of others. In Observable, each cell registers a variable that other cells can depend on. When a cell executes, the output of that cell automatically propagates to all cells that depend on it. Running a cell requires its parents to have run first, but because the dependency graph is explicitly defined, the notebook can run parent cells for you.
 
 ## Cado
 

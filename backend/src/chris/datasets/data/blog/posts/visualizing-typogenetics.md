@@ -9,11 +9,11 @@ If you found this post, you may be familiar with Douglas Hofstadter's <strong>Ty
 
 ## Overview of Typogenetics
 
-Typogenetics (or &ldquo;typographical genetics&rdquo;) is a toy model of biological genetics. It boils real biology down to a small set of concepts and rules to make the core principles of genetics more intuitive.
+Typogenetics (or "typographical genetics") is a toy model of biological genetics. It boils real biology down to a small set of concepts and rules to make the core principles of genetics more intuitive.
 
 In the real genetics of life on Earth, our DNA is made of four molecules called nucleobases: Adenine (A), Cytosine (C), Guanine (G), and Thymine (T). All the information for how to build a person, a peanut, or a parrot is encoded in a long and winding sequence of these four bases.
 
-In his book, Hofstadter explores what he calls a &ldquo;strange loop&rdquo; &mdash; how is it that this genetic code can be interpreted to build complex machines called proteins, which have the power assemble more strands of DNA?
+In his book, Hofstadter explores what he calls a "strange loop" -- how is it that this genetic code can be interpreted to build complex machines called proteins, which have the power assemble more strands of DNA?
 
 ## Spec
 

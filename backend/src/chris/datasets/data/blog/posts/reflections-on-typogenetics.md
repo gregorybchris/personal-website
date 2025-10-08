@@ -57,9 +57,9 @@ Nowak & May (1992) showed that even with memoryless (pure) cooperators and defec
 
 More generally, Nowak, May, and others extended the model to probabilistic updating, irregular spatial lattices, and asynchronous updating, and found that the essential outcome — polymorphic coexistence of C and D over a range of payoff parameters — is robust.
 
-In particular, in &ldquo;Spatial Games and the Maintenance of Cooperation&rdquo;, Nowak et al. argue that spatial interactions are sufficient (i.e. without memory, reciprocity, or sophisticated strategies) to maintain a mixture of cooperators and defectors across a wide parameter range.
+In particular, in "Spatial Games and the Maintenance of Cooperation", Nowak et al. argue that spatial interactions are sufficient (i.e. without memory, reciprocity, or sophisticated strategies) to maintain a mixture of cooperators and defectors across a wide parameter range.
 
-Thus, the result is not that &ldquo;Tit-for-Tat beats all others&rdquo; under spatial constraints per se, but that spatial structure fundamentally alters which strategies can persist and how cooperation can be sustained even without complex memory.
+Thus, the result is not that "Tit-for-Tat beats all others" under spatial constraints per se, but that spatial structure fundamentally alters which strategies can persist and how cooperation can be sustained even without complex memory.
 
 ### Tuning
 
@@ -67,7 +67,7 @@ Many find it incredible that the John Horton Conway's Game of Life can produce a
 
 In an [interview](https://youtu.be/R9Plq-D1gEk?si=-uQe6GJrdUg9m6eh&t=290) with the Numberphile YouTube channel, Conway explains that the rules of the Game of Life were discovered through a process of trial and error.
 
-> &ldquo;[The Game of Life] was different for quite a long time. We tinkered with these rules and finally came up with the ones I said. And they really seemed to have very nice properties. Namely [we] didn't seem to be able to predict what would happen. And in the end we succeeded in proving essentially anything could happen. These things could do any kind of computation you wanted to do.&rdquo; &mdash; John Horton Conway
+> "[The Game of Life] was different for quite a long time. We tinkered with these rules and finally came up with the ones I said. And they really seemed to have very nice properties. Namely [we] didn't seem to be able to predict what would happen. And in the end we succeeded in proving essentially anything could happen. These things could do any kind of computation you wanted to do." -- John Horton Conway
 
 ### Genotype Networks
 

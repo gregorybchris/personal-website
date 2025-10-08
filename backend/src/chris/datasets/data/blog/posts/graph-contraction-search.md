@@ -14,7 +14,7 @@ In graph theory, an <strong>edge contraction</strong> is an operation where two 
   </video>
   <figcaption>
     <strong>Figure 1: </strong>
-    Edge contraction &mdash; The new vertex's neighbors are the union of the neighbors from the original two vertices.
+    Edge contraction -- The new vertex's neighbors are the union of the neighbors from the original two vertices.
   </figcaption>
 </figure>
 
@@ -27,7 +27,7 @@ On colored graphs, another operation exists that we'll call a <strong>vertex con
   </video>
   <figcaption>
     <strong>Figure 2: </strong>
-    Vertex contraction &mdash; The contacted vertex inherits neighbors from all adjacent vertices of the same color.
+    Vertex contraction -- The contacted vertex inherits neighbors from all adjacent vertices of the same color.
   </figcaption>
 </figure>
 
@@ -40,7 +40,7 @@ Given a fully-connected colored graph, we can <strong>apply vertex contractions 
   </video>
   <figcaption>
     <strong>Figure 3: </strong>
-    Iterated vertex contraction &mdash; Each turn we select a vertex to change color and then apply a vertex contraction to it.
+    Iterated vertex contraction -- Each turn we select a vertex to change color and then apply a vertex contraction to it.
   </figcaption>
 </figure>
 
@@ -55,7 +55,7 @@ Are vertex contractions useful to us? Sure they are! We can use them to solve a 
   </video>
   <figcaption>
     <strong>Figure 4: </strong>
-    Flood fill &mdash; Each wave of flood filling pixels corresponds to a single vertex contraction in the corresponding graph.
+    Flood fill -- Each wave of flood filling pixels corresponds to a single vertex contraction in the corresponding graph.
   </figcaption>
 </figure>
 
@@ -73,7 +73,7 @@ To fill all pixels with the same color, we perform iterated vertex contractions 
 
 Our goal is to find a sequence of contractions that fully contracts the graph within the specified number of moves. A contraction is defined by the vertex being contracted and the color it's being assigned, so a puzzle solution will be a sequence of `(vertex, color)` pairs.
 
-The naïve, brute force approach is a simple tree traversal &mdash; select a vertex at random, select a color of one of its neighbors (different from its own color), contract the vertex with that color, and repeat until only one vertex remains. Do this for all possible vertices/colors and terminate when a solution is found with the desired length.
+The naïve, brute force approach is a simple tree traversal -- select a vertex at random, select a color of one of its neighbors (different from its own color), contract the vertex with that color, and repeat until only one vertex remains. Do this for all possible vertices/colors and terminate when a solution is found with the desired length.
 
 > You may notice that the order in which vertices are contracted matters, so the number of possible contraction sequences grows exponentially with the number of vertices.
 
@@ -81,7 +81,7 @@ The naïve, brute force approach is a simple tree traversal &mdash; select a ver
 
 The brute force approach is way too slow, so let's come up with some tricks to speed up this solver a bit.
 
-The first heuristic is pretty intuitive &mdash; to get from many edges (in the initial graph) to no edges (in a graph with one vertex) we should pick contractions that remove many edges. Vertices with more neighbors have a good chance of resulting in large contractions. Let's try using <i>vertex degree</i> as a heuristic!
+The first heuristic is pretty intuitive -- to get from many edges (in the initial graph) to no edges (in a graph with one vertex) we should pick contractions that remove many edges. Vertices with more neighbors have a good chance of resulting in large contractions. Let's try using <i>vertex degree</i> as a heuristic!
 
 ```python
 def iter_nodes_by_degree(G: nx.Graph, nodes: Iterable[str]) -> Iterator[str]:
@@ -107,7 +107,7 @@ def iter_neighbor_colors_by_freq(G: nx.Graph, node: str) -> Iterator[str]:
 
 These last two heuristics were pretty greedy. They work well, but tend to fail when there are high degree vertices on the periphery of the graph. If we pick those first, we may end up with a large number of small contractions later on.
 
-If we can pick vertices that are close to the &ldquo;center&rdquo; of the graph, rather than the periphery, then our contractions radiate outward and our number of steps is on the order of the radius of the graph, rather than the diameter.
+If we can pick vertices that are close to the "center" of the graph, rather than the periphery, then our contractions radiate outward and our number of steps is on the order of the radius of the graph, rather than the diameter.
 
 We can measure <i>vertex centrality</i> by summing distances from each vertex to all other vertices. The vertex with the lowest sum of distances is the most central.
 
@@ -149,7 +149,7 @@ First, it helps to notice that a contraction is a pretty local operation. If you
   </video>
   <figcaption>
     <strong>Figure 5: </strong>
-    Contraction locality &mdash; Edges crossing the boundary between second and third degree neighbors do not move. Vertices outside the boundary are unchanged by contraction.
+    Contraction locality -- Edges crossing the boundary between second and third degree neighbors do not move. Vertices outside the boundary are unchanged by contraction.
   </figcaption>
 </figure>
 
@@ -181,7 +181,7 @@ Empirically this improves search performance significantly, especially on planar
 
 ## Deep learning approach
 
-Ordering heuristics and locality constraints can speed up the search considerably, but for very large graphs with many vertices and many colors, search can <i>still</i> be intractable for a computer to solve. Despite this combinatorial explosion, humans are able to solve large puzzles fairly quickly with a mix of visual intuition and very shallow backtracking. This performance gap between very fast computers and very intuitive humans informs our next approach &mdash; maybe we can train a deep learning system to intuit which partial solutions are the most promising.
+Ordering heuristics and locality constraints can speed up the search considerably, but for very large graphs with many vertices and many colors, search can <i>still</i> be intractable for a computer to solve. Despite this combinatorial explosion, humans are able to solve large puzzles fairly quickly with a mix of visual intuition and very shallow backtracking. This performance gap between very fast computers and very intuitive humans informs our next approach -- maybe we can train a deep learning system to intuit which partial solutions are the most promising.
 
 We'll train a model to <strong>estimate the number of moves needed to fully contract a graph</strong>. Then we can prioritize trajectories through the search space that are the most likely to converge quickly.
 
@@ -193,7 +193,7 @@ In practice, including dropout and global max pooling improve training stability
 
 <figure id="figure6">
   <img src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/architecture.png?cache=4" width="340">
-  <figcaption><strong>Figure 6: </strong>Architecture &mdash; The model has a simple architecture of two GCN layers and a linear layer, separated by a ReLU, dropout, and global max pooling.</figcaption>
+  <figcaption><strong>Figure 6: </strong>Architecture -- The model has a simple architecture of two GCN layers and a linear layer, separated by a ReLU, dropout, and global max pooling.</figcaption>
 </figure>
 
 > Experiments showed global max pooling performed better than global mean pooling. GCNConv layers outperformed GATConv and SAGEConv.
@@ -204,7 +204,7 @@ We train with MSE loss and also calculate an accuracy score by rounding the mode
 
 <figure id="figure7">
   <img src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/loss-curve.png?cache=5" width="340">
-  <figcaption><strong>Figure 7: </strong>Training curve &mdash; The model shows above random chance performance on predicting the number of contractions needed for a given graph.</figcaption>
+  <figcaption><strong>Figure 7: </strong>Training curve -- The model shows above random chance performance on predicting the number of contractions needed for a given graph.</figcaption>
 </figure>
 
 While the model trains successfully, unfortunately model inference latency is high enough to negate the benefits of the learned heuristic. To be useful, the model would have to rule out unlikely subtrees faster than the cost of evaluating those candidates. Perhaps with larger graphs the deep learning heuristic might win out.

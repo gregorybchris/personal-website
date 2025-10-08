@@ -5,7 +5,7 @@ title: Evolutionary Algorithms for Optimization in Sports
 archived: false
 ---
 
-I don't expect most readers will be very familiar with the sport of rowing. Maybe you have a vague idea of eight people in a boat, all facing the same direction, oars in hand, paddling in sync? Perhaps also you imagine a smaller person facing the rest yelling "stroke! stroke! stroke!" Well, that's all just about right &mdash; except for the "stroke! stroke! stroke!" part. That would just be annoying.
+I don't expect most readers will be very familiar with the sport of rowing. Maybe you have a vague idea of eight people in a boat, all facing the same direction, oars in hand, paddling in sync? Perhaps also you imagine a smaller person facing the rest yelling "stroke! stroke! stroke!" Well, that's all just about right -- except for the "stroke! stroke! stroke!" part. That would just be annoying.
 
 A few years after moving to Seattle, I joined a <a href="https://lakeunioncrew.com" target="_blank">local rowing club</a>. And not long after that I saw a perfect opportunity to tarnish a pure and meditative outdoor activity with technology.
 
@@ -13,7 +13,7 @@ A few years after moving to Seattle, I joined a <a href="https://lakeunioncrew.c
 
 A group of 20 or so amateur rowers show up to practice each evening along with one or two coaches. Within 5-10 minutes at the beginning of practice, the coaches scramble to figure out which of the club's boats to use as well as which seats in which boats each rower in attendance should occupy.
 
-For various reasons, these lineups cannot be determined ahead of time &mdash; for one, these rowers are adults who value the flexibility to show up when they can.
+For various reasons, these lineups cannot be determined ahead of time -- for one, these rowers are adults who value the flexibility to show up when they can.
 
 Many factors and constraints go into determining lineups.
 
@@ -31,7 +31,7 @@ Once we know all the different configurations of boat sizes that match the numbe
 
 ## Genetic algorithm
 
-The cat's out of the bag from the title. We're going to solve this with a genetic algorithm. The basic idea is to maintain a population of candidate solutions &mdash; we'll call them <strong>agents</strong> &mdash; evaluate their fitness, select the fittest individuals to be parents, and then produce a new generation of agents through crossover and mutation.
+The cat's out of the bag from the title. We're going to solve this with a genetic algorithm. The basic idea is to maintain a population of candidate solutions -- we'll call them <strong>agents</strong> -- evaluate their fitness, select the fittest individuals to be parents, and then produce a new generation of agents through crossover and mutation.
 
 ### Fitness function
 
