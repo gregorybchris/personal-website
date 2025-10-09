@@ -43,6 +43,7 @@ export function RunningPage() {
   const [currentRouteData, setCurrentRouteData] = useState<RouteData | null>(
     null,
   );
+  const [showRoutesTable, setShowRoutesTable] = useState(false);
   const { slug } = useParams();
   let navigate = useNavigate();
 
@@ -73,6 +74,7 @@ export function RunningPage() {
     const routeData = await GET(routeDataUrl);
     setCurrentRoute(route);
     setCurrentRouteData(routeData);
+    setShowRoutesTable(false);
   }
 
   function routeCompare(routeA: RunningRoute, routeB: RunningRoute) {
@@ -105,8 +107,14 @@ export function RunningPage() {
 
       {currentRoute && currentRouteData ? (
         <div className="flex w-full flex-row flex-wrap justify-center gap-5">
-          <RouteMapCard routeData={currentRouteData} route={currentRoute} />
-          <RoutesTable routes={routes} onSelectRoute={onSelectRoute} />
+          <RouteMapCard
+            routeData={currentRouteData}
+            route={currentRoute}
+            showRoutesTable={showRoutesTable}
+            setShowRoutesTable={setShowRoutesTable}
+            routes={routes}
+            onSelectRoute={onSelectRoute}
+          />
         </div>
       ) : (
         <Loader>Loading routes...</Loader>
@@ -118,16 +126,35 @@ export function RunningPage() {
 interface RouteMapCardProps {
   route: RunningRoute;
   routeData: RouteData;
+  showRoutesTable: boolean;
+  setShowRoutesTable: (show: boolean) => void;
+  routes: RunningRoute[];
+  onSelectRoute: (route: RunningRoute) => void;
 }
 
-function RouteMapCard({ route, routeData }: RouteMapCardProps) {
+function RouteMapCard({
+  route,
+  routeData,
+  showRoutesTable,
+  setShowRoutesTable,
+  routes,
+  onSelectRoute,
+}: RouteMapCardProps) {
   const mapBoxToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
   return (
-    <div className="flex w-full flex-col gap-1 px-4 py-1 md:w-[max(40%,550px)]">
+    <div className="flex w-full flex-col gap-1 px-4 py-1 md:w-[max(50%,950px)]">
       <div className="font-sanchez flex flex-row items-baseline justify-between text-lg">
-        <div className="underline decoration-blue-500/60 underline-offset-4">
-          {route.name}
+        <div className="flex items-baseline gap-3">
+          <div className="underline decoration-blue-500/60 underline-offset-4">
+            {route.name}
+          </div>
+          <button
+            onClick={() => setShowRoutesTable(!showRoutesTable)}
+            className="cursor-pointer rounded-full bg-black/8 px-3 py-0.5 text-sm text-black transition-all duration-200 hover:bg-black/15"
+          >
+            {showRoutesTable ? "hide routes" : "more routes"}
+          </button>
         </div>
         <div title={`${(route.distance * 1.609344).toFixed(1)} km`}>
           {formatDistance(route.distance)}{" "}
@@ -135,7 +162,7 @@ function RouteMapCard({ route, routeData }: RouteMapCardProps) {
         </div>
       </div>
 
-      <div className="h-[450px] w-full overflow-clip rounded-xl border-4 border-white/60 shadow-md">
+      <div className="relative h-[450px] w-full overflow-clip rounded-xl border-4 border-white/60 shadow-md">
         <MapContainer
           key={route.route_id}
           className="!z-[10] h-full w-full"
@@ -156,6 +183,20 @@ function RouteMapCard({ route, routeData }: RouteMapCardProps) {
             positions={routeData.points.map((p) => [p.latitude, p.longitude])}
           />
         </MapContainer>
+
+        {showRoutesTable && (
+          <div
+            className="absolute inset-0 z-[1000] flex items-center justify-center bg-white/50 backdrop-blur-sm"
+            onClick={() => setShowRoutesTable(false)}
+          >
+            <div
+              className="h-[90%] max-w-[90%] overflow-hidden rounded-xl bg-white px-4 py-4 shadow-lg"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <RoutesTable routes={routes} onSelectRoute={onSelectRoute} />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -168,9 +209,9 @@ interface RoutesTableProps {
 
 function RoutesTable({ routes, onSelectRoute }: RoutesTableProps) {
   return (
-    <div className="h-[470px] overflow-y-scroll">
+    <div className="h-full overflow-y-scroll">
       <table className="Running-table font-raleway border-separate border-spacing-y-1">
-        <thead className="Running-table-header bg-parchment font-sanchez sticky top-0 text-lg">
+        <thead className="Running-table-header font-sanchez sticky top-0 bg-white text-lg">
           <tr className="Running-table-row">
             <td className="Running-table-cell underline decoration-blue-500/60 underline-offset-4">
               Route
@@ -178,7 +219,7 @@ function RoutesTable({ routes, onSelectRoute }: RoutesTableProps) {
             <td className="Running-table-cell underline decoration-blue-500/60 underline-offset-4">
               Distance
             </td>
-            <td className="Running-table-cell underline decoration-blue-500/60 underline-offset-4">
+            <td className="Running-table-cell hidden underline decoration-blue-500/60 underline-offset-4 md:table-cell">
               Elevation
             </td>
             <td className="Running-table-cell underline decoration-blue-500/60 underline-offset-4">
@@ -186,7 +227,7 @@ function RoutesTable({ routes, onSelectRoute }: RoutesTableProps) {
             </td>
           </tr>
         </thead>
-        <tbody className="Running-table-body RunningRoutes-routes-table-body text-xs md:text-sm">
+        <tbody className="Running-table-body text-xs md:text-sm">
           {routes.map((route, routeNumber) => (
             <tr
               className="Running-table-row group cursor-pointer"
@@ -209,13 +250,13 @@ function RoutesTable({ routes, onSelectRoute }: RoutesTableProps) {
                 <span className="group-hover:text-sky text-black/30">mi</span>
               </td>
               <td
-                className="Running-table-cell"
+                className="Running-table-cell hidden md:table-cell"
                 title={`${(route.elevation * 0.3048).toFixed(0)} m`}
               >
                 <span className="group-hover:text-sky">{route.elevation}</span>{" "}
                 <span className="group-hover:text-sky text-black/30">ft</span>
               </td>
-              <td className="Running-table-cell RunningRoutes-tag">
+              <td className="Running-table-cell">
                 <span className="group-hover:text-sky">{route.city}</span>
               </td>
             </tr>
