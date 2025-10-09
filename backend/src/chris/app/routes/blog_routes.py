@@ -1,11 +1,13 @@
 import logging
 from datetime import datetime
 from pathlib import Path
-from typing import Iterator
+from typing import Any, Iterator, Optional
+from xml.dom import minidom
+from xml.etree.ElementTree import Element, SubElement, tostring
 
 import frontmatter
 from fastapi import APIRouter
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, Response
 from pydantic import BaseModel, Field
 
 from chris.app import logging_utilities
@@ -19,7 +21,7 @@ class BlogPostPreview(BaseModel):
     title: str
     slug: str
     date: datetime
-    reading_time: int = None
+    reading_time: Optional[int] = None
 
 
 class BlogPost(BaseModel):
@@ -28,9 +30,9 @@ class BlogPost(BaseModel):
     date: datetime
     content: str
     archived: bool = Field(exclude=True)
-    reading_time: int = None
+    reading_time: Optional[int] = None
 
-    def __init__(self, **data):
+    def __init__(self, **data: Any):
         super().__init__(**data)
         self.reading_time = content_to_reading_time(self.content)
 
@@ -86,3 +88,43 @@ def get_blog_post(slug: str) -> JSONResponse:
             post_json = post.model_dump(mode="json")
             return JSONResponse(post_json)
     return JSONResponse({"error": "Post not found"}, status_code=404)
+
+
+@router.get(path="/feed.rss")
+@logging_utilities.log_context("get_blog_feed", tag="api")
+def get_blog_feed() -> Response:
+    title = "Chris Gregory Blog"
+    link = "https://chrisgregory.me"
+    description = "Latest posts from Chris Gregory"
+
+    rss_content = generate_rss(
+        posts=list(iter_posts()),
+        title=title,
+        link=link,
+        description=description,
+    )
+    return Response(content=rss_content, media_type="application/rss+xml")
+
+
+def generate_rss(
+    posts: list[BlogPost],
+    title: str,
+    link: str,
+    description: str,
+) -> str:
+    rss = Element("rss", version="2.0")
+    channel = SubElement(rss, "channel")
+
+    SubElement(channel, "title").text = title
+    SubElement(channel, "link").text = link
+    SubElement(channel, "description").text = description
+    SubElement(channel, "lastBuildDate").text = datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S +0000")
+
+    for post in posts:
+        url = f"{link}/blog/posts/{post.slug}"
+        item = SubElement(channel, "item")
+        SubElement(item, "title").text = post.title
+        SubElement(item, "link").text = url
+        SubElement(item, "pubDate").text = post.date.strftime("%a, %d %b %Y %H:%M:%S +0000")
+
+    return minidom.parseString(tostring(rss)).toprettyxml(indent="  ")
