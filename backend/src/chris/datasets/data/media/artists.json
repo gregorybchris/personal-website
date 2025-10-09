@@ -156,6 +156,18 @@
     "image_link": "https://storage.googleapis.com/cgme/music/artists/phoebe-bridgers.jpg"
   },
   {
+    "name": "Olivia Dean",
+    "genres": [],
+    "scores": {
+      "musicality": 6,
+      "production": 9,
+      "consistency": 7,
+      "performance": 9
+    },
+    "link": "https://open.spotify.com/artist/00x1fYSGhdqScXBRpSj3DW?si=829074d477794e59",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/olivia-dean.jpg"
+  },
+  {
     "name": "Joey Dosik",
     "genres": [],
     "scores": {
@@ -190,6 +202,18 @@
     },
     "link": "https://open.spotify.com/artist/4dWtsQvuME6tCWFycaTvO7?si=ec669293d5824b1d",
     "image_link": "https://storage.googleapis.com/cgme/music/artists/the-brook-and-the-bluff.jpg"
+  },
+  {
+    "name": "Joy Oladokun",
+    "genres": [],
+    "scores": {
+      "musicality": 7,
+      "production": 7,
+      "consistency": 7,
+      "performance": 8
+    },
+    "link": "https://open.spotify.com/artist/7rrTqtOUOwva4sgTx9C9F9?si=e8dc3c2ea9574fea",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/joy-oladokun.jpg"
   },
   {
     "name": "Noah Kahan",
