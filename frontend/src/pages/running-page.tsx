@@ -147,7 +147,7 @@ function RouteMapCard({
     <div className="flex w-full flex-col gap-1 px-4 py-1 md:w-[max(50%,950px)]">
       <div className="font-sanchez flex flex-row items-center justify-between text-lg">
         <div className="flex items-center gap-5">
-          <div className="text-xs underline decoration-blue-500/60 underline-offset-4 md:text-lg">
+          <div className="text-sm underline decoration-blue-500/60 underline-offset-4 md:text-lg">
             {route.name}
           </div>
 
