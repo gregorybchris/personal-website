@@ -934,7 +934,7 @@
   {
     "route_id": "263be3fa-db24-4dc3-b2bc-4586bfdb37e9",
     "name": "Mount Pilchuck",
-    "slug": "pilchuck",
+    "slug": "mount-pilchuck",
     "dates": ["2019-08-31"],
     "miles": 6,
     "elevation": 2300,
@@ -949,7 +949,10 @@
     },
     "stars": 3,
     "archived": false,
-    "image_links": []
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/mount-pilchuck--01.png",
+      "https://storage.googleapis.com/cgme/hiking/mount-pilchuck--02.png"
+    ]
   },
   {
     "route_id": "9c09133d-0a52-4c10-ac28-2ecd6bdf2a46",
