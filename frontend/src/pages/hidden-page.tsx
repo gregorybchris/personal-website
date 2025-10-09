@@ -13,7 +13,12 @@ export function HiddenPage() {
 
       <div className="flex w-full flex-row flex-wrap justify-center gap-16 md:w-[80%]">
         <div className="flex flex-col">
-          <SectionHeader>Media</SectionHeader>
+          <SectionHeader>Blog</SectionHeader>
+          <PageLink to="/blog">Blog</PageLink>
+        </div>
+
+        <div className="flex flex-col">
+          <SectionHeader>Current</SectionHeader>
           <PageLink to="/hidden/artists">Artists</PageLink>
           <div className="w-4 border-1 border-black/10"></div>
 
@@ -29,31 +34,20 @@ export function HiddenPage() {
 
           <PageLink to="/hidden/youtube-channels">YouTube Channels</PageLink>
           <PageLink to="/hidden/podcasts">Podcasts</PageLink>
-        </div>
+          <div className="w-4 border-1 border-black/10"></div>
 
-        <div className="flex flex-col">
-          <SectionHeader>Blog</SectionHeader>
-          <PageLink to="/blog">Blog</PageLink>
-        </div>
-
-        <div className="flex flex-col">
-          <SectionHeader>Link Feed</SectionHeader>
-          <PageLink to="/hidden/feed">Feed</PageLink>
-          <PageLink to="/hidden/feed-graph">Feed Graph</PageLink>
-        </div>
-
-        <div className="flex flex-col">
-          <SectionHeader>In Progress</SectionHeader>
-          <PageLink to="/hidden/places">Places</PageLink>
-          <PageLink to="/hidden/project-logos">Project Logos</PageLink>
           <PageLink to="/hidden/hiking">Hiking</PageLink>
         </div>
 
         <div className="flex flex-col">
           <SectionHeader>Old</SectionHeader>
           <PageLink to="/hidden/archive">Archive</PageLink>
-          <PageLink to="/hidden/surveys">Surveys</PageLink>
+          <PageLink to="/hidden/feed">Feed</PageLink>
+          <PageLink to="/hidden/feed-graph">Feed Graph</PageLink>
+          <PageLink to="/hidden/places">Places</PageLink>
+          <PageLink to="/hidden/project-logos">Project Logos</PageLink>
           <PageLink to="/hidden/recipes">Recipes</PageLink>
+          <PageLink to="/hidden/surveys">Surveys</PageLink>
         </div>
       </div>
     </div>
