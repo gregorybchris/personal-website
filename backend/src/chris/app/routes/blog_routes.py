@@ -90,7 +90,7 @@ def get_blog_post(slug: str) -> JSONResponse:
     return JSONResponse({"error": "Post not found"}, status_code=404)
 
 
-@router.get(path="/feed.rss")
+@router.get(path="/feed.xml")
 @logging_utilities.log_context("get_blog_feed", tag="api")
 def get_blog_feed() -> Response:
     title = "Chris Gregory Blog"
