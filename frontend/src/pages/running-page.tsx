@@ -1,3 +1,4 @@
+import { ListMagnifyingGlassIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { MapContainer, Polyline, TileLayer, useMap } from "react-leaflet";
 import { useNavigate, useParams } from "react-router-dom";
@@ -144,16 +145,21 @@ function RouteMapCard({
 
   return (
     <div className="flex w-full flex-col gap-1 px-4 py-1 md:w-[max(50%,950px)]">
-      <div className="font-sanchez flex flex-row items-baseline justify-between text-lg">
-        <div className="flex items-baseline gap-3">
+      <div className="font-sanchez flex flex-row items-center justify-between text-lg">
+        <div className="flex items-center gap-5">
           <div className="underline decoration-blue-500/60 underline-offset-4">
             {route.name}
           </div>
           <button
             onClick={() => setShowRoutesTable(!showRoutesTable)}
-            className="cursor-pointer rounded-full bg-black/8 px-3 py-0.5 text-sm text-black transition-all duration-200 hover:bg-black/15"
+            className="flex cursor-pointer flex-row items-center gap-2 rounded-md px-2 py-0.5 text-sm text-black transition-all duration-200 hover:bg-black/5"
           >
-            {showRoutesTable ? "hide routes" : "more routes"}
+            <ListMagnifyingGlassIcon
+              size={16}
+              weight="duotone"
+              color="#6283c0"
+            />
+            <div>{showRoutesTable ? "hide routes" : "more routes"}</div>
           </button>
         </div>
         <div title={`${(route.distance * 1.609344).toFixed(1)} km`}>
@@ -186,7 +192,7 @@ function RouteMapCard({
 
         {showRoutesTable && (
           <div
-            className="absolute inset-0 z-[1000] flex items-center justify-center bg-white/50 backdrop-blur-sm"
+            className="absolute inset-0 z-[1000] flex items-center justify-center bg-white/10 backdrop-blur-sm"
             onClick={() => setShowRoutesTable(false)}
           >
             <div
