@@ -180,7 +180,7 @@ function RouteMapCard({
           <RouteMap routeData={routeData} />
           <TileLayer
             url={`https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${mapBoxToken}`}
-            id="mapbox/streets-v11"
+            id="mapbox/outdoors-v12"
             attribution=""
             maxZoom={18}
             tileSize={512}
