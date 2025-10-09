@@ -147,25 +147,26 @@ function RouteMapCard({
     <div className="flex w-full flex-col gap-1 px-4 py-1 md:w-[max(50%,950px)]">
       <div className="font-sanchez flex flex-row items-center justify-between text-lg">
         <div className="flex items-center gap-5">
-          <div className="underline decoration-blue-500/60 underline-offset-4">
+          <div className="text-xs underline decoration-blue-500/60 underline-offset-4 md:text-lg">
             {route.name}
           </div>
-          <button
-            onClick={() => setShowRoutesTable(!showRoutesTable)}
-            className="flex cursor-pointer flex-row items-center gap-2 rounded-md px-2 py-0.5 text-sm text-black transition-all duration-200 hover:bg-black/5"
+
+          <div
+            title={`${(route.distance * 1.609344).toFixed(1)} km`}
+            className="text-xs md:text-lg"
           >
-            <ListMagnifyingGlassIcon
-              size={16}
-              weight="duotone"
-              color="#6283c0"
-            />
-            <div>{showRoutesTable ? "hide routes" : "more routes"}</div>
-          </button>
+            {formatDistance(route.distance)}{" "}
+            <span className="text-black/30">mi</span>
+          </div>
         </div>
-        <div title={`${(route.distance * 1.609344).toFixed(1)} km`}>
-          {formatDistance(route.distance)}{" "}
-          <span className="text-black/30">mi</span>
-        </div>
+
+        <button
+          onClick={() => setShowRoutesTable(!showRoutesTable)}
+          className="flex cursor-pointer flex-row items-center gap-2 rounded-md px-2 py-0.5 text-xs text-black transition-all duration-200 hover:bg-black/5 md:text-lg"
+        >
+          <ListMagnifyingGlassIcon size={16} weight="duotone" color="#6283c0" />
+          <div>{showRoutesTable ? "hide routes" : "more routes"}</div>
+        </button>
       </div>
 
       <div className="relative h-[450px] w-full overflow-clip rounded-xl border-4 border-white/60 shadow-md">
