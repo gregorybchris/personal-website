@@ -121,7 +121,7 @@ def generate_rss(
     SubElement(channel, "lastBuildDate").text = datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S +0000")
 
     for post in posts:
-        url = f"{link}/blog/posts/{post.slug}"
+        url = f"{link}/blog/{post.slug}"
         item = SubElement(channel, "item")
         SubElement(item, "title").text = post.title
         SubElement(item, "link").text = url
