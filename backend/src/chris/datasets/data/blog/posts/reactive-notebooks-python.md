@@ -75,7 +75,7 @@ This allows us to execute a cell and capture its output, errors, and any variabl
 
 Next, we need a way to ensure the notebook stays in a reproducible state. We enforce that the dependencies between cells form a directed acyclic graph (DAG) and that inputs and outputs of cells are well-defined.
 
-Our cell model is pretty simple. Each cell has a unique ID, a list of input variables, and a single output variable.
+Our cell model is pretty simple -- Each cell has a unique ID, a list of input variables, and a single output variable.
 
 ```python
 from dataclasses import dataclass
@@ -231,7 +231,7 @@ Similarly to Jupyter, the Cado server also serves the user interface. By running
 
 ## Wrapping up
 
-I hope someday the reactive notebook paradigm gains traction, if not as a default, perhaps as an opt-in setting. With the right user interface design, the benefits of reactivity could far outweigh the added complexity and by taking out page out of Observable's book we can make data science more reproducible.
+I hope someday the reactive notebook paradigm gains traction, if not as a default, perhaps as an opt-in setting. With the right user interface design, the benefits of reactivity could far outweigh the added complexity. Using the same tricks Observable used to make data visualization more interactive, we can make data science more reproducible.
 
 The full source code for this project is available on <a href="https://github.com/gregorybchris/cado" target="_blank">GitHub</a>.
 
