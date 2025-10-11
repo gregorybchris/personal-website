@@ -24,7 +24,6 @@ class Colors {
 }
 
 class SimConstants {
-  static MULT = 130;
   static VELOCITY_LIMIT = 6;
   static STILL_THRESHOLD = 0.01;
 }
@@ -144,11 +143,11 @@ export function ProjectsTimeline({
 
         const [dx, dy] = [xB - xA, yB - yA];
         const d = Math.sqrt(dx * dx + dy * dy);
-        const dMax = rA + rB + 4;
+        const dMax = rA + rB + 6; // Add some spacing between circles
         if (d < dMax) {
           const sign = yA > yB ? 1 : -1;
           const dDelta = 1 - d / dMax;
-          containerA.force.y += sign * dDelta * 5;
+          containerA.force.y += sign * dDelta * 1.5; // 1.5 is a force multiplier
         }
       });
     });
