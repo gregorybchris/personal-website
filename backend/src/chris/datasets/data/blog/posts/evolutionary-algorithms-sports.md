@@ -7,23 +7,112 @@ archived: false
 
 I don't expect most readers will be very familiar with the sport of rowing. Maybe you have a vague idea of eight people in a boat, all facing the same direction, oars in hand, paddling in sync? Perhaps also you imagine a smaller person facing the rest yelling "stroke! stroke! stroke!" Well, that's all just about right -- except for the "stroke! stroke! stroke!" part. That would just be annoying.
 
-A few years after moving to Seattle, I joined a <a href="https://lakeunioncrew.com" target="_blank">local rowing club</a>. And not long after that I saw a perfect opportunity to tarnish a pure and meditative outdoor activity with technology.
+A few years after moving to Seattle, I joined a <a href="https://lakeunioncrew.com" target="_blank">local rowing club</a>. And not long after that I saw a perfect opportunity to tarnish a pure and meditative outdoor activity with technology. There was a problem at the boathouse and I needed to see if a computer could help solve it.
 
 ## Motivation
 
-A group of 20 or so amateur rowers show up to practice each evening along with one or two coaches. Within 5-10 minutes at the beginning of practice, the coaches scramble to figure out which of the club's boats to use as well as which seats in which boats each rower in attendance should occupy.
+At this club where I'm a member, each evening, a group of 20 or so amateur rowers show up to practice along with one or two coaches. In the first 5-10 minutes of each practice, the coaches scramble to figure out who will sit in which seats of which boats.
 
-For various reasons, these lineups cannot be determined ahead of time -- for one, these rowers are adults who value the flexibility to show up when they can.
-
-Many factors and constraints go into determining lineups.
+Many factors go into determining whether a lineup is good enough to go out onto the water. And for various reasons, these lineups cannot be determined ahead of time. So we have a huge number of possible configurations to search through in a very short amount of time.
 
 <!-- TODO: finish this -->
+
+Here's an example of a lineup generated. You can imagine that with only 26 rowers there are many ways you could swap two people.
+
+```txt
+THE OLD MAN HAROLD // Yellow
+c Leon
+8 Brandon
+7 Carmen
+6 Kendra
+5 Quentin
+4 Farid
+3 Gianna
+2 Elena
+1 MeZ
+
+MISS EDNA // Red
+c Xia
+8 Winston
+7 Rosa
+6 Priya
+5 Zane
+4 Yara
+3 Satoshi
+2 Talia
+1 Hi N
+
+CAPTAIN MABEL // Blue
+4 Javier
+3 Aisha
+2 Omar
+1 Umar
+
+GENTLE GEORGE // Pink
+4 Valeria
+3 Noah
+2 Darius
+1 Imani
+```
 
 ## Generating candidate lineups
 
 ### Partitioning
 
-<!-- TODO: Explain knapsack dynamic programming quickly -->
+The first step in generating potential lineups is to figure out all the different ways we can fit rowers into boats. The canonical solution is a cousin of the <a href="https://en.wikipedia.org/wiki/Knapsack_problem" target="_blank">knapsack problem</a> called the <a href="https://en.wikipedia.org/wiki/Subset_sum_problem" target="_blank">subset sum problem</a>.
+
+The following code computes all the different ways we can partition a given number of rowers into boats of specified sizes.
+
+```python
+Partition = dict[int, int]
+
+def get_partitions(coxed_boat_sizes: list[int], n_rowers: int) -> list[Partition]:
+    # Set up dynamic programming table
+    partitions: list[list[Partition]] = [[] for _ in range(n_rowers + 1)]
+    partitions[0].append({})
+
+    for size in coxed_boat_sizes:
+        for amount in range(size, n_rowers + 1):
+            for partition in partitions[amount - size]:
+                new_partition = partition.copy()
+                if size not in new_partition:
+                    new_partition[size] = 0
+                new_partition[size] += 1
+                partitions[amount].append(new_partition)
+
+    return partitions[n_rowers]
+```
+
+Not every partition is valid, however. Perhaps the club only has 2 fours. That will rule out all partitions with more than 2 fours.
+
+```python
+def iter_partitions_by_availability(
+    partitions: Iterable[Partition],
+    coxed_size_map: dict[int, int],
+) -> Iterator[Partition]:
+    for partition in partitions:
+        for coxed_size, count in partition.items():
+            # Check that we have enough of each boat size in the partition
+            if count > coxed_size_map[coxed_size]:
+                break
+        else:
+            yield partition
+```
+
+If we assume we have 26 rowers at practice and the boathouse has 5 doubles, 4 quads, 2 fours, and 3 eights, we can filter down our partitions to only those that are feasible:
+
+- 5 doubles, 4 quads
+- 4 doubles, 2 quads, 2 fours
+- 2 doubles, 3 quads, 2 fours
+- 4 quads, 2 fours
+- 4 doubles, 1 quads, 1 fours, 1 eights
+- 2 doubles, 2 quads, 1 fours, 1 eights
+- 3 quads, 1 fours, 1 eights
+- 4 doubles, 2 eights
+- 2 doubles, 1 quads, 2 eights
+- 2 quads, 2 eights
+
+Now we have a list of possible configurations of boats. We just need to fill them with rowers.
 
 ### Filtering by equipment availability
 
@@ -48,6 +137,32 @@ We'll define mutation as swapping the seats of two rowers. This could be between
 ### Early stopping
 
 Stop if no improvement in N generations
+
+```txt
+--------------------------------------
+ 1657 |  @
+ 1578 |
+ 1500 |
+ 1422 |   @
+ 1343 |
+ 1265 |
+ 1187 |    @
+ 1108 |
+ 1030 |     @
+  952 |
+  874 |      @
+  795 |
+  717 |       @
+  639 |
+  560 |        @
+  482 |         @
+  404 |          @
+  325 |           @@@
+  247 |              @@
+  169 |                @@
+   91 |                  @@@@@@@@@@@@@
+--------------------------------------
+```
 
 ### Survival rate annealing
 
