@@ -44,7 +44,7 @@ function HeadingWithAnchor({
         aria-label={`Link to ${text}`}
         onClick={async (e) => {
           await navigator.clipboard.writeText(link);
-          toast.success("Copied to clipboard!", {
+          toast.success("Copied section link to clipboard!", {
             duration: 2000,
             position: "top-right",
           });
