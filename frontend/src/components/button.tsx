@@ -17,9 +17,9 @@ export function Button({
     <button
       onClick={onClick}
       className={cn(
-        "box-border border-2 border-[#6283c0] bg-transparent px-[15px] py-2 align-top text-sm transition-all duration-200 hover:cursor-pointer hover:bg-[#e6e6e0]",
+        "box-border border-2 border-[#6283c0] bg-transparent px-[15px] py-2 align-top text-sm transition-all duration-200 hover:cursor-pointer hover:bg-black/8",
         !enabled &&
-          "border-[#acb5c4] bg-[#e6e6e0] text-[#b9b9b9] hover:cursor-not-allowed hover:bg-[#e6e6e0] hover:text-[#b9b9b9]",
+          "border-[#acb5c4] bg-black/8 text-[#b9b9b9] hover:cursor-not-allowed hover:bg-black/8 hover:text-[#b9b9b9]",
         className,
       )}
       aria-disabled={!enabled}

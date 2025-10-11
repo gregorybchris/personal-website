@@ -32,7 +32,7 @@ export function TextBox({
   return (
     <div
       className={cn(
-        "flex cursor-text items-center border-2 border-[#6283c0] px-2.5 transition-all focus:bg-[#e6e6e0]",
+        "flex cursor-text items-center border-2 border-[#6283c0] px-2.5 transition-all focus-within:bg-black/8",
         className,
       )}
       onClick={() => inputRef.current?.focus()}
