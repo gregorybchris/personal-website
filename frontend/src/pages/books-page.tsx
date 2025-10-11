@@ -23,16 +23,31 @@ export function BooksPage() {
   const [books, setBooks] = useState<BookData[]>([]);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [allTags, setAllTags] = useState<string[]>([]);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
     const booksQuery = makeQuery("media/books");
     GET(booksQuery).then((books: BookData[]) => {
-      setBooks(books);
       const tagsSet = new Set<string>();
       books.forEach((book) => {
         book.tags.forEach((tag) => tagsSet.add(tag));
       });
       setAllTags(Array.from(tagsSet));
+
+      // Preload all images
+      const imagePromises = books.map((book) => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.onload = () => resolve(null);
+          img.onerror = () => resolve(null); // Still resolve on error to not block
+          img.src = `${book.image_links.book}?cache=2`;
+        });
+      });
+
+      Promise.all(imagePromises).then(() => {
+        setBooks(books);
+        setImagesLoaded(true);
+      });
     });
   }, []);
 
@@ -58,7 +73,7 @@ export function BooksPage() {
         </div>
       </div>
 
-      {books.length === 0 ? (
+      {!imagesLoaded ? (
         <Loader>Loading books...</Loader>
       ) : (
         <>
@@ -87,12 +102,13 @@ export function BooksPage() {
               .sort(
                 (bookA, bookB) => bookB.general_appeal - bookA.general_appeal,
               )
-              .map((book) => (
+              .map((book, index) => (
                 <Book
                   key={book.isbn}
                   book={book}
                   onTagClick={onTagClick}
                   selectedTags={selectedTags}
+                  index={index}
                 />
               ))}
           </div>
@@ -106,11 +122,25 @@ interface BookProps {
   book: BookData;
   selectedTags: string[];
   onTagClick: (tag: string) => void;
+  index: number;
 }
 
-function Book({ book, selectedTags, onTagClick }: BookProps) {
+function Book({ book, selectedTags, onTagClick, index }: BookProps) {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), index * 80);
+    return () => clearTimeout(timer);
+  }, [index]);
+
   return (
-    <div className="flex flex-col items-center gap-2">
+    <div
+      className={`flex flex-col items-center gap-2 transition-all duration-300 ${
+        isVisible
+          ? "translate-y-0 opacity-100"
+          : "translate-y-[-20px] opacity-0"
+      }`}
+    >
       <a href={book.goodreads_link} target="_blank">
         <img
           src={`${book.image_links.book}?cache=2`}
