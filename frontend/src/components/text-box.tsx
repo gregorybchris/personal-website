@@ -1,4 +1,6 @@
 import { XIcon } from "@phosphor-icons/react";
+import { MagnifyingGlassIcon } from "@phosphor-icons/react/dist/ssr";
+import { useRef } from "react";
 import { cn } from "../utilities/style-utilities";
 
 interface TextBoxProps {
@@ -9,6 +11,7 @@ interface TextBoxProps {
   maxLength?: number;
   autoFocus?: boolean;
   onClear?: () => void;
+  showIcon?: boolean;
   className?: string;
 }
 
@@ -20,14 +23,25 @@ export function TextBox({
   maxLength,
   autoFocus = false,
   onClear,
+  showIcon = true,
   className,
 }: TextBoxProps) {
   const autoCompleteValue = autoComplete ? "on" : "off";
+  const inputRef = useRef<HTMLInputElement>(null);
 
   return (
-    <div className={cn("relative", className)}>
+    <div
+      className={cn(
+        "flex cursor-text items-center border-2 border-[#6283c0] px-2.5 py-2 transition-all focus:bg-[#e6e6e0]",
+        className,
+      )}
+      onClick={() => inputRef.current?.focus()}
+    >
+      {showIcon && (
+        <MagnifyingGlassIcon size={20} color="#6283c0" weight="duotone" />
+      )}
       <input
-        className="box-border w-full border-2 border-[#6283c0] bg-transparent px-[10px] py-2 align-top text-[14px] text-[#646464] transition-all outline-none placeholder:text-[#646464] placeholder:transition placeholder:duration-500 focus:bg-[#e6e6e0] focus:caret-[#757d8b] focus:placeholder:text-[#646464]"
+        className="ml-1.5 w-full bg-transparent text-[14px] text-[#646464] outline-none placeholder:indent-0.5 placeholder:text-[#646464] placeholder:transition placeholder:duration-500 focus:caret-[#757d8b] focus:placeholder:text-[#646464]"
         onChange={(e) => onChange && onChange(e.target.value)}
         value={value}
         type="text"
@@ -35,6 +49,7 @@ export function TextBox({
         autoComplete={autoCompleteValue}
         maxLength={maxLength}
         autoFocus={autoFocus}
+        ref={inputRef}
       />
       <div
         className={cn(
