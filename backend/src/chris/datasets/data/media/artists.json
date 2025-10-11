@@ -192,6 +192,18 @@
     "image_link": "https://storage.googleapis.com/cgme/music/artists/sammy-rae-and-the-friends.jpg"
   },
   {
+    "name": "Whitney",
+    "genres": [],
+    "scores": {
+      "musicality": 6,
+      "production": 6,
+      "consistency": 9,
+      "performance": 6
+    },
+    "link": "https://open.spotify.com/artist/32aUoW94mJ7xTJI7fG0V1G?si=7ddebe1b0dbe43f4",
+    "image_link": "https://storage.googleapis.com/cgme/music/artists/whitney.jpg"
+  },
+  {
     "name": "The Brook & The Bluff",
     "genres": [],
     "scores": {
