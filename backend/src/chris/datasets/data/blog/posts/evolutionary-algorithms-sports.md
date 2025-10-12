@@ -5,22 +5,28 @@ title: Evolutionary Algorithms for Optimization in Sports
 archived: false
 ---
 
-I don't expect most readers will be very familiar with the sport of rowing. Maybe you have a vague idea of eight people in a boat, all facing the same direction, oars in hand, paddling in sync? Perhaps also you imagine a smaller person facing the rest yelling "stroke! stroke! stroke!" Well, that's all just about right -- except for the "stroke! stroke! stroke!" part. That would just be annoying.
-
-A few years after moving to Seattle, I joined a <a href="https://lakeunioncrew.com" target="_blank">local rowing club</a>. And not long after that I saw a perfect opportunity to tarnish a pure and meditative outdoor activity with technology. There was a problem at the boathouse and I needed to see if a computer could help solve it.
+I expect most readers won't be intimately familiar with the sport of rowing. But maybe you have a vague idea of eight people in a boat, facing the same direction, long oars in hand, paddling in sync, racing against other boats? If you can picture that, then you've got the prerequisite understanding to follow along with this post.
 
 ## Motivation
 
-At this club where I'm a member, each evening, a group of 20 or so amateur rowers show up to practice along with one or two coaches. In the first 5-10 minutes of each practice, the coaches scramble to figure out who will sit in which seats of which boats.
+A few years after moving to Seattle, I joined a <a href="https://lakeunioncrew.com" target="_blank">local rowing club</a>. And not long after that I saw a perfect opportunity to tarnish a pure and meditative outdoor activity with technology. There was a problem at the boathouse and I _needed_ to see if a computer could help solve it.
 
-Many factors go into determining whether a lineup is good enough to go out onto the water. And for various reasons, these lineups cannot be determined ahead of time. So we have a huge number of possible configurations to search through in a very short amount of time.
+Each evening at the rowing club, a group of 20 or so amateur rowers and one or two coaches show up to practice. In the first 5-10 minutes, the coaches scramble to figure out who will sit in which seats of which boats. It's a race against the clock as the last minute logistics eat into practice time.
 
-<!-- TODO: finish this -->
+It's not an easy job either, to figure out who should go in which boat. Many factors contribute to what makes a lineup fast, safe, and fun. Some positions in the boat require certain skills to execute safely, some rowers have preferences for the kind and size of boat they row in, and the speed of the boat can be drastically increased if you get the order of rowers just right.
 
-Here's an example of a lineup generated. You can imagine that with only 26 rowers there are many ways you could swap two people.
+To recap, we have:
+
+1. a huge number of possible configurations to search through
+2. a pile of messy and interdependent constraints
+3. a very short amount of time to come up with a solution
+
+### Example lineup
+
+To keep things concrete, here's an example of what coaches might come up with for a practice with 26 rowers. In capital letters are boat names, next to them are the names of the oars to use, and `c` represents the coxswain, who steers the boat and helps keep the rowers in sync.
 
 ```txt
-THE OLD MAN HAROLD // Yellow
+THE OLD MAN HAROLD // Yellow Oars
 c Leon
 8 Brandon
 7 Carmen
@@ -31,7 +37,7 @@ c Leon
 2 Elena
 1 MeZ
 
-MISS EDNA // Red
+MISS EDNA // Red Oars
 c Xia
 8 Winston
 7 Rosa
@@ -42,13 +48,13 @@ c Xia
 2 Talia
 1 Hi N
 
-CAPTAIN MABEL // Blue
+CAPTAIN MABEL // Blue Oars
 4 Javier
 3 Aisha
 2 Omar
 1 Umar
 
-GENTLE GEORGE // Pink
+GENTLE GEORGE // Pink Oars
 4 Valeria
 3 Noah
 2 Darius
@@ -85,6 +91,10 @@ def get_partitions(coxed_boat_sizes: list[int], n_rowers: int) -> list[Partition
 
 Not every partition is valid, however. Perhaps the club only has 2 fours. That will rule out all partitions with more than 2 fours.
 
+### Filtering by equipment availability
+
+We can filter down our partitions to only those that are feasible given the equipment available at the boathouse.
+
 ```python
 def iter_partitions_by_availability(
     partitions: Iterable[Partition],
@@ -99,24 +109,18 @@ def iter_partitions_by_availability(
             yield partition
 ```
 
-If we assume we have 26 rowers at practice and the boathouse has 5 doubles, 4 quads, 2 fours, and 3 eights, we can filter down our partitions to only those that are feasible:
+If we assume we have 26 rowers at practice and the boathouse has 5 doubles, 4 quads, 2 fours, and 3 eights, we get a list of possible partitions that we have the equipment to support:
 
 - 5 doubles, 4 quads
 - 4 doubles, 2 quads, 2 fours
 - 2 doubles, 3 quads, 2 fours
 - 4 quads, 2 fours
-- 4 doubles, 1 quads, 1 fours, 1 eights
-- 2 doubles, 2 quads, 1 fours, 1 eights
-- 3 quads, 1 fours, 1 eights
+- 4 doubles, quads, 1 four, 1 eight
+- 2 doubles, 2 quads, 1 four, 1 eight
+- 3 quads, 1 four, 1 eight
 - 4 doubles, 2 eights
-- 2 doubles, 1 quads, 2 eights
+- 2 doubles, 1 quad, 2 eights
 - 2 quads, 2 eights
-
-Now we have a list of possible configurations of boats. We just need to fill them with rowers.
-
-### Filtering by equipment availability
-
-Once we know all the different configurations of boat sizes that match the number of rowers at practice, we can filter out configurations that aren't possible given the equipment available.
 
 ## Genetic algorithm
 
