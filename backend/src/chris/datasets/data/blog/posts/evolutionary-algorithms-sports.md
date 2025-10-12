@@ -199,13 +199,31 @@ Another trick that seriously improves our convergence to an optimal solution is 
 survival_rate = (init - base) * (decay ** generation) + base
 ```
 
-This works similarly to a learning rate schedule during gradient descent in machine learning. At first, you explore by jumping around the loss landscape, but as you get closer to a minimum you take smaller and smaller steps, preferring a strategy with more exploitation.
+> This works similarly to a learning rate schedule during gradient descent in machine learning. At first, you explore by jumping around the loss landscape, but as you get closer to a minimum you take smaller and smaller steps, preferring a strategy with more exploitation.
 
 ### Fitness proportional selection
 
 As discussed in the <a href="#mutation-crossover">mutation & crossover</a> section, the naïve approach to selection is to simply take the top k% of lineups by fitness. In the literature, this is called <a href="https://en.wikipedia.org/wiki/Truncation_selection" target="_blank">truncation selection</a>.
 
 A more sophisticated approach, called <a href="https://en.wikipedia.org/wiki/Fitness_proportionate_selection" target="_blank">fitness proportionate selection</a> (aka roulette wheel selection), selects each individual with probability proportional to its fitness.
+
+```python
+import numpy as np
+
+# Get fitness scores for individuals in the population
+scores = [0.9, 0.8, 0.8, 0.5, 0.3, 0.3, 0.25, 0.1]
+
+# Normalize scores to get probabilities
+probabilities = np.array(scores)
+probabilities = probabilities - probabilities.min()
+probabilities_sum = probabilities.sum()
+p = None if probabilities_sum == 0 else probabilities * 1.0 / probabilities_sum
+
+# Sample individuals proportionally to their fitness
+top_k = 5
+indices = np.arange(len(scores))
+sampled = np.random.choice(indices, size=top_k, replace=True, p=p)
+```
 
 Using this method, even low fitness lineups have a chance at being selected, increasing diversity in the population. High fitness lineups can be selected multiple times, which helps us exploit<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup> the information we have about which lineups might be the best.
 
