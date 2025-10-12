@@ -109,7 +109,7 @@ def iter_partitions_by_availability(
             yield partition
 ```
 
-If we assume we have 26 rowers at practice and the boathouse has 5 doubles, 4 quads, and 3 eights, then we only have four viable partitions:
+If we assume we have 26 rowers at practice and the boathouse has 5 doubles, 4 quads, and 3 eights, then we only have four viable partitions (with 10 partitions before filtering).
 
 - 5 doubles, 4 quads
 - 4 doubles, 2 eights
