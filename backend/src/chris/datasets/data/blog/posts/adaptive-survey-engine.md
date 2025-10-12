@@ -17,6 +17,9 @@ As you answer questions on a Surv survey, the expected information gain is recal
 
 ### Entropy
 
+<!-- prettier-ignore -->
+$ H(X) = -\sum_{x \in \mathcal{X}} p(x) \log_2 p(x) $
+
 ### Information gain
 
 ### Selecting a question
