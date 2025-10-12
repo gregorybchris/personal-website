@@ -85,10 +85,16 @@ export function BlogPostPage() {
             </div>
             {currentPost.reading_time !== null && (
               <div
-                className="text-sm text-black/50"
+                className="text-sm"
                 title="Estimated using Brysbaert, M. (2019)"
               >
-                [{currentPost.reading_time} min read]
+                <span className="text-black/25">
+                  [
+                  <span className="text-black/50">
+                    {currentPost.reading_time} min read
+                  </span>
+                  ]
+                </span>
               </div>
             )}
           </div>
