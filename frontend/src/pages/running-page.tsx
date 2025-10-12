@@ -145,7 +145,7 @@ function RouteMapCard({
 
   return (
     <div className="flex w-full flex-col gap-1 px-4 py-1 md:w-[max(50%,950px)]">
-      <div className="font-sanchez flex flex-row items-center justify-between text-lg">
+      <div className="font-sanchez flex flex-row items-center justify-between text-lg md:px-4">
         <div className="flex items-center gap-5">
           <div className="text-sm underline decoration-blue-500/60 underline-offset-4 md:text-lg">
             {route.name}
@@ -164,7 +164,12 @@ function RouteMapCard({
           onClick={() => setShowRoutesTable(!showRoutesTable)}
           className="flex cursor-pointer flex-row items-center gap-2 rounded-md px-2 py-0.5 text-xs text-black transition-all duration-200 hover:bg-black/5 md:text-lg"
         >
-          <ListMagnifyingGlassIcon size={16} weight="duotone" color="#6283c0" />
+          <ListMagnifyingGlassIcon
+            size={16}
+            weight="duotone"
+            color="#6283c0"
+            className="mt-0.5"
+          />
           <div>{showRoutesTable ? "hide routes" : "more routes"}</div>
         </button>
       </div>
