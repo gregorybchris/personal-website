@@ -62,6 +62,15 @@
   gap: 6px;
 }
 
+#blog .footnote-number {
+  color: #505050;
+  transition: color 700ms;
+}
+
+#blog a:hover .footnote-number {
+  color: #6283c0;
+}
+
 #blog a.fn,
 #blog a.fnref {
   text-decoration: none;

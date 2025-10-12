@@ -260,12 +260,12 @@ You could also consider these factors, although I have not implemented them eith
 
 <div id="footnotes">
   <div id="fn:fn1" class="footnote">
-    <a class="fn" href="#fnref:fn1">[1]</a>
+    <a class="fn" href="#fnref:fn1">[<span class="footnote-number">1</span>]</a>
     <span>I really love this trick because it's similar to gradient ascent wrt the fitness function, but technically we're approximating a gradient with respect to the population distribution (in frequency space), not the fitness function itself. We take a natural gradient step in the steepest direction that respects our normalized probability distribution over individual fitness scores.</span>
   </div>
 
   <div id="fn:fn2" class="footnote">
-    <a class="fn" href="#fnref:fn2">[2]</a>
+    <a class="fn" href="#fnref:fn2">[<span class="footnote-number">2</span>]</a>
     <span>Unlike other tricks discussed here, this one can be parallelized easily, so restarts do not significantly slow down optimization when implemented efficiently.</span>
   </div>
 </div>
