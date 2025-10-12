@@ -20,7 +20,63 @@ As you answer questions on a Surv survey, the expected information gain is recal
 <!-- prettier-ignore -->
 $ H(X) = -\sum_{x \in \mathcal{X}} p(x) \log_2 p(x) $
 
-### Information gain
+```python
+import numpy as np
+
+def entropy(a: np.ndarray) -> float:
+    h = 0.0
+    for x in np.unique(a):
+        p_x = np.sum(a == x) / a.shape[0]
+        h -= p_x * np.log2(p_x)
+    return float(h)
+```
+
+### Information gain and mutual information
+
+The expected value of the information gain is the mutual information.
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Constraint:
+    feature_name: str
+    value: str
+```
+
+```python
+import pandas as pd
+
+def get_mask(dataset: pd.DataFrame, constraints: list[Constraint]) -> np.ndarray:
+    mask = np.ones(dataset.shape[0], dtype=bool)
+    for constraint in constraints:
+        feature = dataset[constraint.feature_name]
+        mask &= feature == constraint.value
+    return mask
+
+def information_gain(
+    dataset: pd.DataFrame,
+    feature_name: str,
+    target_feature_name: str,
+    constraints: list[Constraint],
+) -> float:
+    feature = dataset[feature_name]
+    target_feature = dataset[target_feature_name]
+
+    # Filter down dataset rows to only those that match the constraints.
+    mask = get_mask(dataset, constraints)
+    feature = feature[mask]
+    target_feature = target_feature[mask]
+
+    entropy_initial = entropy(target_feature)
+    information_gain = entropy_initial
+    for category in np.unique(feature):
+        target_filtered = target_feature[feature == category]
+        filtered_entropy = entropy(target_filtered)
+        proportion = target_filtered.shape[0] / target_feature.shape[0]
+        information_gain -= proportion * filtered_entropy
+    return information_gain
+```
 
 ### Selecting a question
 
