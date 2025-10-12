@@ -89,7 +89,7 @@ def get_partitions(coxed_boat_sizes: list[int], n_rowers: int) -> list[Partition
     return partitions[n_rowers]
 ```
 
-Not every partition is valid, however. Perhaps the club only has 2 fours. That will rule out all partitions with more than 2 fours.
+Not every partition is valid, however. Perhaps the club only has 5 doubles. That will disqualify any partition that relies on more than 5 doubles.
 
 ### Filtering by equipment availability
 
@@ -109,38 +109,59 @@ def iter_partitions_by_availability(
             yield partition
 ```
 
-If we assume we have 26 rowers at practice and the boathouse has 5 doubles, 4 quads, 2 fours, and 3 eights, we get a list of possible partitions that we have the equipment to support:
+If we assume we have 26 rowers at practice and the boathouse has 5 doubles, 4 quads, and 3 eights, then we only have four viable partitions:
 
 - 5 doubles, 4 quads
-- 4 doubles, 2 quads, 2 fours
-- 2 doubles, 3 quads, 2 fours
-- 4 quads, 2 fours
-- 4 doubles, quads, 1 four, 1 eight
-- 2 doubles, 2 quads, 1 four, 1 eight
-- 3 quads, 1 four, 1 eight
 - 4 doubles, 2 eights
 - 2 doubles, 1 quad, 2 eights
 - 2 quads, 2 eights
 
 ## Genetic algorithm
 
-The cat's out of the bag from the title. We're going to solve this with a genetic algorithm. The basic idea is to maintain a population of candidate solutions -- we'll call them <strong>agents</strong> -- evaluate their fitness, select the fittest individuals to be parents, and then produce a new generation of agents through crossover and mutation.
+We now have a method for generating candidate lineups that are theoretically rowable, but as discussed earlier, we'd really like the lineups to adhere to our constraints and be fast, safe, and fun. If you read the title of this post, you can guess what's coming next.
+
+We're going to solve this with a genetic algorithm. The basic idea is to maintain a "population" of candidate lineups. In the world of genetic algorithms, each lineup would be called an "agent" or "individual". We'll define a function that can measure the "fitness" of each lineup, select the fittest individuals to be parents in the next generation of the population, and repeat this process until the fitness of lineups stops improving.
+
+> As a brief implementation detail, we initialize our population of lineups by randomly selecting a viable partition and then randomly shuffling the rowers across the boats.
 
 ### Fitness function
 
-The fitness function is only really understandable with some background on rowing. For that reason, this section can be found at the bottom of the post. For now, the important thing to know is that we can take a candidate lineup and compute a scalar value representing its fitness.
+The fitness function should really be the first thing we define when writing a genetic algorithm. Unfortunately the fitness function for this application is really only understandable with some deeper background on rowing. For that reason, I recommend skipping over this section, which I have relocated to the <a href="#fitness-function-for-real">bottom of the post</a>. For now, the important thing to know is that we can take a candidate lineup and compute a scalar value representing how good it is.
 
 ### Mutation & crossover
 
-A standard practice in genetic algorithms is to apply mutation and crossover to the selected parents to produce a new generation of agents.
+A standard practice in genetic algorithms is to apply mutation and crossover to the selected parents to produce a new generation of individuals.
 
-In our solution, crossover is tricky because two agents could have different numbers and sizes of boats. Instead, we'll just define mutation on an agent in order to increase diversity in the population each generation.
+In our rowing scenario, crossover isn't trivial because two lineups could have different numbers and sizes of boats. It will be left as an exercise for the reader.
 
-We'll define mutation as swapping the seats of two rowers. This could be between two different boats or within the same boat. One downside of this approach is that the boat sizes are fixed after the initial population and some configurations of boats may die out.
+We'll see that mutation is sufficient to increase diversity and give selection something to act on over many generations. Let's define mutation as simply swapping the seats of two rowers.
+
+```python
+import random
+
+Boat = list[str]
+Lineup = list[Boat]
+
+def swap(boat_a: Boat, boat_b: Boat, idx_a: int, idx_b: int) -> None:
+    boat_a[idx_a], boat_b[idx_b] = boat_b[idx_b], boat_a[idx_a]
+
+def mutate(lineup: Lineup) -> Lineup:
+    boat_idx_a = random.randint(0, len(lineup) - 1)
+    boat_idx_b = random.randint(0, len(lineup) - 1)
+    rower_idx_a = random.randint(0, len(lineup[boat_idx_a]) - 1)
+    rower_idx_b = random.randint(0, len(lineup[boat_idx_b]) - 1)
+    new_lineup = [boat.copy() for boat in lineup]
+    swap(new_lineup[boat_idx_a], new_lineup[boat_idx_b], rower_idx_a, rower_idx_b)
+    return new_lineup
+```
+
+A downside of this method is that once a partition of boat sizes "dies out" we cannot get it back. We also cannot introduce a new partition that wasn't present in the initial population.
+
+This is all we need to get things working! Each generation we can select the top k% of lineups by fitness and replace the rest of the population with mutated versions of the top k%.
 
 ### Early stopping
 
-Stop if no improvement in N generations
+The first improvement we can make to our working genetic algorithm is to halt optimization if the highest fitness score of any lineup in the population hasn't improved over several generations.
 
 ```txt
 --------------------------------------
@@ -168,23 +189,37 @@ Stop if no improvement in N generations
 --------------------------------------
 ```
 
-### Survival rate annealing
+In this plot you can see the fitness score hitting ~91 and then plateauing. After ~10 generations of little improvement, we stop early and avoid wasting compute.
 
-Survival rate annealing, similar to learning rate schedule
+### Simulated annealing
+
+Another trick that seriously improves our convergence to an optimal solution is a technique called simulated annealing. Early in our optimization process we want to explore a wide variety of lineups and avoid losing diversity, so we'll throw out only a small fraction of the population. As we get more confident we have a good solution, we can be more aggressive and fill out the population with mutations of only a few of the fittest lineups.
+
+```python
+survival_rate = (init - base) * (decay ** generation) + base
+```
+
+This works similarly to a learning rate schedule during gradient descent in machine learning. At first, you explore by jumping around the loss landscape, but as you get closer to a minimum you take smaller and smaller steps, preferring a strategy with more exploitation.
+
+### Fitness proportional selection
+
+As discussed in the <a href="#mutation-crossover">mutation & crossover</a> section, the naïve approach to selection is to simply take the top k% of lineups by fitness. In the literature, this is called <a href="https://en.wikipedia.org/wiki/Truncation_selection" target="_blank">truncation selection</a>.
+
+A more sophisticated approach, called <a href="https://en.wikipedia.org/wiki/Fitness_proportionate_selection" target="_blank">fitness proportionate selection</a> (aka roulette wheel selection), selects each individual with probability proportional to its fitness.
+
+Using this method, even low fitness lineups have a chance at being selected, increasing diversity in the population. High fitness lineups can be selected multiple times, which helps us exploit<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup> the information we have about which lineups might be the best.
 
 ### Restarts
 
-Restarts to avoid local minima
+For our last trick, we're going to get simple again. Based on the randomly initialized population, we can get lucky or unlucky. Sometimes the set of lineups we start with just doesn't have the right building blocks to get to a good solution. To resolve this, we'll restart the entire genetic algorithm from scratch a few times<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup> and take the best solution we find.
 
-### Fitness gradient
+## Wrapping up
 
-Using fitness gradient - select individuals proportional to their fitness, sampled with replacement
+We've discussed how to sample valid yet suboptimal lineups to seed a genetic algorithm as well as some tricks for making the genetic algorithm converge to a good solution quickly.
 
-## Fitness function penalties
+### Fitness function for real
 
-I'll quickly list out some of the factors you can use to determine lineups, but you may choose to skip over this section.
-
-Penalities applied to lineups that decrease their fitness:
+Rather than specify what makes lineups good when defining a fitness function, it's actually easier to penalize lineups for what makes them bad.
 
 - An un-coxed boat with an inexperienced bow seat
 - A coxed boat with an experienced coxswain
@@ -198,10 +233,24 @@ Penalities applied to lineups that decrease their fitness:
 - A boat with a rower that doesn't match the weight class of the boat
 - A practice that has many boats
 
-Some factors may play a role at some rowing clubs and not others. The following won't be used in our solution either because they're trickier to implement or they're simply not relevant for my rowing club:
+You could also consider these factors, although I have not implemented them either because they're difficult to quantify or simply not relevant for my rowing club.
 
 - Matching pairs of rowers in sweep boats who have similar stroke styles or strengths
 - Balancing the weight distribution in the boat to avoid drag on the bow
 - Keeping boats either a single gender or mixed
 - Prioritizing lineups that have an upcoming race
 - Giving an athlete experience in a new position
+
+## Footnotes
+
+<div id="footnotes">
+  <div id="fn:fn1" class="footnote">
+    <a class="fn" href="#fnref:fn1">[1]</a>
+    <span>I really love this trick because it's similar to gradient ascent wrt the fitness function, but technically we're approximating a gradient with respect to the population distribution (in frequency space), not the fitness function itself. We take a natural gradient step in the steepest direction that respects our normalized probability distribution over individual fitness scores.</span>
+  </div>
+
+  <div id="fn:fn2" class="footnote">
+    <a class="fn" href="#fnref:fn2">[2]</a>
+    <span>Unlike other tricks discussed here, this one can be parallelized easily, so restarts do not significantly slow down optimization when implemented efficiently.</span>
+  </div>
+</div>
