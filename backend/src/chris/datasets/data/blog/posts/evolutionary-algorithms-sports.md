@@ -210,19 +210,15 @@ A more sophisticated approach, called <a href="https://en.wikipedia.org/wiki/Fit
 ```python
 import numpy as np
 
-# Get fitness scores for individuals in the population
-scores = [0.9, 0.8, 0.8, 0.5, 0.3, 0.3, 0.25, 0.1]
+def to_probabilities(a: np.ndarray) -> np.ndarray:
+    a = a - a.min()  # Ensure all scores positive
+    a_sum = a.sum()  # Divide by sum so scores sum to 1
+    return a * 1.0 / a_sum if a_sum > 0 else np.ones_like(a) / len(a)
 
-# Normalize scores to get probabilities
-probabilities = np.array(scores)
-probabilities = probabilities - probabilities.min()
-probabilities_sum = probabilities.sum()
-p = None if probabilities_sum == 0 else probabilities * 1.0 / probabilities_sum
-
-# Sample individuals proportionally to their fitness
-top_k = 5
-indices = np.arange(len(scores))
-sampled = np.random.choice(indices, size=top_k, replace=True, p=p)
+def fitness_proportional_selection(lineups: list[Lineup], scores: list[float], k: int) -> list[Lineup]:
+    p = to_probabilities(np.array(scores))
+    indices = np.random.choice(np.arange(len(lineups)), size=k, p=p, replace=True)
+    return [lineups[i] for i in indices]
 ```
 
 Using this method, even low fitness lineups have a chance at being selected, increasing diversity in the population. High fitness lineups can be selected multiple times, which helps us exploit<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup> the information we have about which lineups might be the best.
