@@ -1,7 +1,7 @@
 ---
 date: 2022-04-18
 slug: graph-contraction-search
-title: Using Graph Neural Networks as a Search Heuristic
+title: Graph Neural Networks for Faster Search
 archived: false
 ---
 
@@ -243,7 +243,7 @@ This post can be cited as:
 ```bibtex
 @misc{gregory_contraction_2022,
   author = {Christopher B. Gregory},
-  title = {Using Graph Neural Networks as a Search Heuristic},
+  title = {Graph Neural Networks for Faster Search},
   year = {2022},
   howpublished = {\url{https://www.chrisgregory.me/blog/graph-contraction-search}},
 }
