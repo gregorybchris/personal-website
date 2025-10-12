@@ -239,21 +239,18 @@ We've discussed how to sample valid yet suboptimal lineups to seed a genetic alg
 
 Rather than specify what makes lineups good when defining a fitness function, it's actually easier to penalize lineups for what makes them bad.
 
+- A coxed boat with an inexperienced coxswain
 - An un-coxed boat with an inexperienced bow seat
-- A coxed boat with an experienced coxswain
-- A boat with a rower in the coxswain seat
 - A rower in stroke seat with low experience stroking
-- A rower that prefers sweep to scull in a sculling boat
-- A rower that prefers scull to sweep in a sweep boat
-- A rower in a sweep boat that prefers starboard to port in a port seat
-- A rower in a sweep boat that prefers port to starboard in a starboard seat
+- A rower with a sweep or scull preference not being met
+- A rower with a port or starboard preference not being met in a sweep boat
 - A rower that tends to be in stern/middle/bow of the boat in a different section
-- A boat with a rower that doesn't match the weight class of the boat
-- A practice that has many boats
+- A rower that doesn't fit the weight class of their boat
+- A lineup that has many boats
 
 You could also consider these factors, although I have not implemented them either because they're difficult to quantify or simply not relevant for my rowing club.
 
-- Matching pairs of rowers in sweep boats who have similar stroke styles or strengths
+- Matching pairs of rowers in sweep boats who have similar stroke styles or power
 - Balancing the weight distribution in the boat to avoid drag on the bow
 - Keeping boats either a single gender or mixed
 - Prioritizing lineups that have an upcoming race
