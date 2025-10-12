@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import pixelMe from "../assets/icons/pixel-me.svg";
 import { FormSubmitButton } from "../components/form-submit-button";
 import { FormTextAreaInput } from "../components/form-text-area-input";
 import { FormTextInput } from "../components/form-text-input";
@@ -6,7 +7,7 @@ import { PageTitle } from "../components/page-title";
 
 export function ContactPage() {
   return (
-    <div className="flex flex-col items-center gap-10 px-4 py-8">
+    <div className="flex flex-col items-center gap-6 px-4 py-8">
       <div className="flex flex-col items-center gap-4 md:w-4/5">
         <PageTitle className="text-balance">
           Fill out this form to send me a message
@@ -18,6 +19,12 @@ export function ContactPage() {
       </div>
 
       <div className="w-[90%] max-w-[500px]">
+        <img
+          src={pixelMe}
+          alt="Pixel art avatar of Chris Gregory"
+          className="mx-auto size-30"
+        />
+
         <form action="https://formspree.io/f/xdopgdnk" method="POST">
           <div className="flex flex-col items-center gap-3">
             <FormTextInput
