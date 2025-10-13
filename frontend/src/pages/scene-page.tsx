@@ -15,10 +15,8 @@ export function ScenePage() {
         </div>
       </div>
 
-      <div className="h-[600px] w-full max-w-4xl rounded-lg shadow-2xl">
+      <div className="h-[600px] w-full">
         <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
-          <color attach="background" args={["#1e293b"]} />
-
           {/* Lighting */}
           <ambientLight intensity={0.5} />
           <directionalLight position={[10, 10, 5]} intensity={1} />
