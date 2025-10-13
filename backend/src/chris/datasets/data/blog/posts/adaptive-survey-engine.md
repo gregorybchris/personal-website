@@ -11,11 +11,13 @@ Let's develop a survey that adapts to your previous answers. It asks the most br
 
 ## Decision trees
 
-Program to dynamically select survey questions based on previous answers using information theory. The ID3 and C4.5 algorithms were used as inspiration for this program, which uses entropy and information gain to compute the feature most likely to help predict a target variable.
+We'll base our solution off two algorithms for building decision trees called the <a href="https://en.wikipedia.org/wiki/ID3_algorithm" target="_blank">ID3</a> and <a href="https://en.wikipedia.org/wiki/C4.5_algorithm" target="_blank">C4.5</a> algorithms.
 
-As you answer questions on a Surv survey, the expected information gain is recalculated, determining which question to present next. In most cases you don't need to fill out every question in the survey before results are known to a high degree of confidence.
+These algorithms use the concepts of <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)" target="_blank">entropy</a> and <a href="https://en.wikipedia.org/wiki/Information_gain_(decision_tree)" target="_blank">information gain</a> to determine attributes (survey questions) that are most informative for predicting a target variable (the survey result).
 
 ### Entropy
+
+The first concept we need to define is entropy, which we'll use to measure how mixed the answers are for a particular question. The intuition here is that we'd like to prompt the survey participant with questions that decrease the entropy in our target variable. If we get entropy down to zero, then we know with high confidence the result of the survey and can stop asking questions.
 
 <!-- prettier-ignore -->
 $ H(X) = -\sum_{x \in \mathcal{X}} p(x) \log_2 p(x) $
@@ -32,6 +34,8 @@ def entropy(a: np.ndarray) -> float:
 ```
 
 ### Information gain
+
+Next, we'll look at information gain, which measures how helpful it would be if the participant answered a particular question. Finding the question with the highest information gain is the key to building an adaptive survey.
 
 <!-- prettier-ignore -->
 $$ IG(D, A) = H(D) - \sum_{a \in A} p(a) \, H(S_a) $$
@@ -58,17 +62,21 @@ We loop over all attributes, compute the information gain for each, select the a
 
 ## Predicting everything
 
-- GWAS (Genome-Wide Association Studies) are studies that look for associations between genetic variants and traits in large populations. We can p-hack our way to interesting psychological results.
+The paradox of the adaptive survey is that while each participant spends less time taking the survey, you are able to include more total questions in the survey, including questions that do not apply to a large portion of the population, but are highly informative for some individuals.
+
+Imagine taking the adaptive survey to the extreme and including thousands or even millions of questions. With enough questions and participants you could create a survey that figures out the right questions to predict a huge range of target variables.
+
+> GWAS (Genome-Wide Association Studies) are studies that look for associations between genetic variants and traits in large populations.
+
+- We can p-hack our way to interesting psychological results.
 - Which Friends character are you?
 - OCEAN personality test
 - Myers-Briggs personality test
 
-Nobody likes to fill out long surveys, especially ones with obviously redundant questions. Surv is designed to keep participants engaged by minimizing the number of questions while maximizing the information gained from each question.
-
 ## Wrapping up
 
-Survey length is especially important when the participant has a choice in whether to complete the survey. When filling out a medical intake form you may have no choice but to answer 100 questions, but for use cases like market research, product usability studies, job satisfaction surveys, or political polls, the length and precision of the survey can significantly affect the probability of survey completion. And low completion rate can lead to sample bias and decreased survey validity.
+Nobody likes to fill out long surveys, especially ones with obviously redundant questions. Surv is designed to keep participants engaged by minimizing the number of questions while maximizing the information gained from each question.
 
-The paradox of the adaptive survey is that while each participant spends less time taking the survey, you are able to include more total questions in the survey, including questions that do not apply to a large portion of the population, but are highly informative for some individuals.
+Survey length is especially important when the participant has a choice in whether to complete the survey. When filling out a medical intake form you may have no choice but to answer 100 questions, but for use cases like market research, product usability studies, job satisfaction surveys, or political polls, the length and precision of the survey can significantly affect the probability of survey completion. And low completion rate can lead to sample bias and decreased survey validity.
 
 The full source code for this project is available on <a href="https://github.com/gregorybchris/surv" target="_blank">GitHub</a>.
