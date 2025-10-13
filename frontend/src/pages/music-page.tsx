@@ -13,10 +13,10 @@ export function MusicPage() {
         <PageTitle>Music</PageTitle>
 
         <div className="text-center text-balance text-black/75 md:w-[70%]">
-          Spotify is getting scary good at recommending music, but I think a
-          song from a human being always feels more personal. Even if the music
-          you're into is totally different, shoot me a link with my{" "}
-          <SimplePageLink to="/contact">Contact</SimplePageLink> page!
+          Spotify is getting scary good at recommending music, but to me a song
+          recommended by a person always feels more meaningful. Even if the
+          music you're into is totally different, shoot me a link with my{" "}
+          <SimplePageLink to="/contact">Contact</SimplePageLink> page.
         </div>
       </div>
 
