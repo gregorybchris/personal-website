@@ -56,6 +56,8 @@ def information_gain(attribute: np.ndarray, target: np.ndarray) -> float:
     return gain
 ```
 
+> Note: This code has been simplified to work for categorical attributes as in the ID3 algorithm. The C4.5 algorithm extends this to work with continuous attributes as well.
+
 ### Selecting a question
 
 We loop over all attributes, compute the information gain for each, select the attribute with the highest information gain, and present that question to the user. We repeat that process until attributes stop being informative (given some threshold) or we run out of attributes.
