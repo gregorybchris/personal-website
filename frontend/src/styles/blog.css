@@ -176,11 +176,7 @@
   text-align: center;
 }
 
-#blog .katex-html {
-  display: none;
-}
-
-#blog p .katex-mathml {
+#blog p .katex-html {
   display: block;
   margin-left: auto;
   margin-right: auto;
