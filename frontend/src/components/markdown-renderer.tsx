@@ -1,5 +1,4 @@
 import { LinkIcon } from "@phosphor-icons/react";
-import { JSX } from "react";
 import ReactMarkdown from "react-markdown";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import python from "react-syntax-highlighter/dist/esm/languages/hljs/python";
@@ -33,11 +32,10 @@ function HeadingWithAnchor({
 }) {
   const text = String(children);
   const id = createHeadingId(text);
-  const Tag = `h${level}` as keyof JSX.IntrinsicElements;
   const link = `${window.location.origin}${window.location.pathname}#${id}`;
 
-  return (
-    <Tag id={id} className="group relative" {...props}>
+  const heading = (
+    <>
       <a
         href={`#${id}`}
         className="absolute top-1/2 -left-6 -translate-y-1/2 p-1 opacity-0 transition-all duration-200 group-hover:opacity-100"
@@ -53,8 +51,21 @@ function HeadingWithAnchor({
         <LinkIcon size={16} color="#555" />
       </a>
       {children}
-    </Tag>
+    </>
   );
+
+  const commonProps = { id, className: "group relative", ...props };
+
+  switch (level) {
+    case 1:
+      return <h1 {...commonProps}>{heading}</h1>;
+    case 2:
+      return <h2 {...commonProps}>{heading}</h2>;
+    case 3:
+      return <h3 {...commonProps}>{heading}</h3>;
+    default:
+      return <h2 {...commonProps}>{heading}</h2>;
+  }
 }
 
 type MarkdownRendererProps = {
