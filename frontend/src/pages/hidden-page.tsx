@@ -19,6 +19,9 @@ export function HiddenPage() {
 
         <div className="flex flex-col">
           <SectionHeader>Current</SectionHeader>
+          <PageLink to="/hidden/scene">Scene</PageLink>
+          <div className="w-4 border-1 border-black/10"></div>
+
           <PageLink to="/hidden/artists">Artists</PageLink>
           <div className="w-4 border-1 border-black/10"></div>
 

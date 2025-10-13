@@ -26,6 +26,7 @@ import { ProjectsPage } from "./pages/projects-page";
 import { RecipePage } from "./pages/recipe-page";
 import { RecipesPage } from "./pages/recipes-page";
 import { RunningPage } from "./pages/running-page";
+import { ScenePage } from "./pages/scene-page";
 import { SurveysPage } from "./pages/surveys-page";
 import { TiktoksPage } from "./pages/tiktoks-page";
 import { TvShowsPage } from "./pages/tv-shows-page";
@@ -105,6 +106,7 @@ function Layout() {
           <Route path="/hidden/feed-graph" element={<FeedGraphPage />} />
 
           {/* Hidden in progress */}
+          <Route path="/hidden/scene" element={<ScenePage />} />
           <Route path="/hidden/places" element={<PlacesPage />} />
           <Route path="/hidden/recipes" element={<RecipesPage />} />
           <Route path="/hidden/recipes/:slug" element={<RecipePage />} />
