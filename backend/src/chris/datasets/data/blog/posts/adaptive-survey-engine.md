@@ -7,7 +7,7 @@ archived: false
 
 Have you ever filled out a survey at the doctor's office and had to answer the same question multiple times? How about a survey where the answer should have been obvious based on your previous answers? A survey that was so long you just gave up halfway through?
 
-Let's develop a survey that adapts based on your previous answers. It asks the most broad questions first and then only asks more specific questions if necessary.
+Let's develop a survey that adapts to your previous answers. It asks the most broad questions first and then only asks more specific questions if necessary.
 
 ## Decision trees
 
@@ -31,54 +31,30 @@ def entropy(a: np.ndarray) -> float:
     return float(h)
 ```
 
-### Information gain and mutual information
+### Information gain
 
-The expected value of the information gain is the mutual information.
+<!-- prettier-ignore -->
+$$ IG(D, A) = H(D) - \sum_{a \in A} p(a) \, H(S_a) $$
 
-```python
-from dataclasses import dataclass
-
-@dataclass
-class Constraint:
-    feature_name: str
-    value: str
-```
+- $D$ is the full dataset
+- $A$ is the attribute we’re splitting on
+- $a$ is a possible value of attribute $A$
+- $D_a$ is the subset of $D$ where $A = a$
+- $p(a) = \frac{|D_a|}{|D|}$ is the proportion of samples with $A = a$
 
 ```python
-import pandas as pd
-
-def get_mask(dataset: pd.DataFrame, constraints: list[Constraint]) -> np.ndarray:
-    mask = np.ones(dataset.shape[0], dtype=bool)
-    for constraint in constraints:
-        feature = dataset[constraint.feature_name]
-        mask &= feature == constraint.value
-    return mask
-
-def information_gain(
-    dataset: pd.DataFrame,
-    feature_name: str,
-    target_feature_name: str,
-    constraints: list[Constraint],
-) -> float:
-    feature = dataset[feature_name]
-    target_feature = dataset[target_feature_name]
-
-    # Filter down dataset rows to only those that match the constraints.
-    mask = get_mask(dataset, constraints)
-    feature = feature[mask]
-    target_feature = target_feature[mask]
-
-    entropy_initial = entropy(target_feature)
-    information_gain = entropy_initial
-    for category in np.unique(feature):
-        target_filtered = target_feature[feature == category]
-        filtered_entropy = entropy(target_filtered)
-        proportion = target_filtered.shape[0] / target_feature.shape[0]
-        information_gain -= proportion * filtered_entropy
-    return information_gain
+def information_gain(attribute: np.ndarray, target: np.ndarray) -> float:
+    gain = entropy(target)
+    for value in np.unique(attribute):
+        target_subset = target[attribute == value]
+        proportion = target_subset.shape[0] / target.shape[0]
+        gain -= proportion * entropy(target_subset)
+    return gain
 ```
 
 ### Selecting a question
+
+We loop over all attributes, compute the information gain for each, select the attribute with the highest information gain, and present that question to the user. We repeat that process until attributes stop being informative (given some threshold) or we run out of attributes.
 
 ## Predicting everything
 
