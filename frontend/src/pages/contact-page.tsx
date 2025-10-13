@@ -1,11 +1,36 @@
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import pixelMe from "../assets/icons/pixel-me.svg";
+import pixelMeEyesClosed from "../assets/icons/pixel-me-eyes-closed.svg";
+import pixelMeEyesOpen from "../assets/icons/pixel-me.svg";
 import { FormSubmitButton } from "../components/form-submit-button";
 import { FormTextAreaInput } from "../components/form-text-area-input";
 import { FormTextInput } from "../components/form-text-input";
 import { PageTitle } from "../components/page-title";
 
 export function ContactPage() {
+  const [eyesClosed, setEyesClosed] = useState(false);
+
+  useEffect(() => {
+    const scheduleNextBlink = () => {
+      const blinkDuration = 150;
+      const minDelay = 2000;
+      const maxDelay = 10000;
+      const randomDelay = Math.random() * (maxDelay - minDelay) + minDelay;
+
+      return setTimeout(() => {
+        setEyesClosed(true);
+
+        setTimeout(() => {
+          setEyesClosed(false);
+          scheduleNextBlink();
+        }, blinkDuration);
+      }, randomDelay);
+    };
+
+    const timeoutId = scheduleNextBlink();
+
+    return () => clearTimeout(timeoutId);
+  }, []);
   return (
     <div className="flex flex-col items-center gap-6 px-4 py-8">
       <div className="flex flex-col items-center gap-4 md:w-4/5">
@@ -20,7 +45,7 @@ export function ContactPage() {
 
       <div className="w-[90%] max-w-[500px]">
         <img
-          src={pixelMe}
+          src={eyesClosed ? pixelMeEyesClosed : pixelMeEyesOpen}
           alt="Pixel art avatar of Chris Gregory"
           className="mx-auto size-30"
         />
