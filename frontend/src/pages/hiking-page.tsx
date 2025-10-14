@@ -256,7 +256,7 @@ function LazyImage({ src, alt, className, onClick }: LazyImageProps) {
       ref={imgRef}
       src={isVisible ? src : undefined}
       alt={alt}
-      className={className}
+      className={cn("hiking-image", className)}
       onClick={onClick}
     />
   );
