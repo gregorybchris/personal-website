@@ -16,7 +16,7 @@ We'll base our solution off two algorithms for building decision trees called th
 These algorithms use the concepts of <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)" target="_blank">entropy</a> and <a href="https://en.wikipedia.org/wiki/Information_gain_(decision_tree)" target="_blank">information gain</a> to determine attributes (survey questions) that are most informative for predicting a target variable (the survey result).
 
 <figure id="figure1">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/adaptive-survey-engine/decision-tree.png?cache=1" width="360">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/adaptive-survey-engine/decision-tree.png?cache=1" width="500">
   <figcaption><strong>Figure 1: </strong>Decision tree -- There are more total questions than the longest path through the decision tree.</figcaption>
 </figure>
 
