@@ -120,7 +120,7 @@ export function FeedPage() {
         {slug && (
           <div
             className="flex cursor-pointer flex-row gap-x-2 rounded-md px-2 py-1 hover:bg-black/8"
-            onClick={() => navigate("/hidden/feed")}
+            onClick={() => navigate("/feed")}
           >
             <ArrowLeftIcon size={25} color="#6283c0" />
             <div>Back to all links</div>
@@ -152,7 +152,7 @@ export function FeedPage() {
                   key={post.post_id}
                   post={post}
                   onClickTag={onClickTag}
-                  onSelectPost={(post) => navigate(`/hidden/feed/${post.slug}`)}
+                  onSelectPost={(post) => navigate(`/feed/${post.slug}`)}
                   videoTime={getVideoTime()}
                   selectedTags={selectedTags}
                 />

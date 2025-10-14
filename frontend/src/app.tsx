@@ -78,44 +78,41 @@ function Layout() {
           <Route path="/hidden" element={<HiddenPage />} />
 
           {/* Hidden media */}
-          <Route path="/hidden/artists" element={<ArtistsPage />} />
-          <Route path="/hidden/instagrams" element={<InstagramsPage />}>
+          <Route path="/artists" element={<ArtistsPage />} />
+          <Route path="/instagrams" element={<InstagramsPage />}>
             <Route path=":id" element={<InstagramsPage />} />
           </Route>
-          <Route path="/hidden/memes" element={<MemesPage />}>
+          <Route path="/memes" element={<MemesPage />}>
             <Route path=":id" element={<MemesPage />} />
           </Route>
-          <Route path="/hidden/movies" element={<MoviesPage />} />
-          <Route path="/hidden/podcasts" element={<PodcastsPage />} />
-          <Route path="/hidden/tiktoks" element={<TiktoksPage />}>
+          <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/podcasts" element={<PodcastsPage />} />
+          <Route path="/tiktoks" element={<TiktoksPage />}>
             <Route path=":id" element={<TiktoksPage />} />
           </Route>
-          <Route path="/hidden/shows" element={<TvShowsPage />} />
-          <Route
-            path="/hidden/youtube-channels"
-            element={<YouTubeChannelsPage />}
-          />
-          <Route path="/hidden/youtube-videos" element={<YouTubeVideosPage />}>
+          <Route path="/shows" element={<TvShowsPage />} />
+          <Route path="/youtube-channels" element={<YouTubeChannelsPage />} />
+          <Route path="/youtube-videos" element={<YouTubeVideosPage />}>
             <Route path=":id" element={<YouTubeVideosPage />} />
           </Route>
 
           {/* Hidden feed */}
-          <Route path="/hidden/feed" element={<FeedPage />}>
+          <Route path="/feed" element={<FeedPage />}>
             <Route path=":slug" element={<FeedPage />} />
           </Route>
-          <Route path="/hidden/feed-graph" element={<FeedGraphPage />} />
+          <Route path="/feed-graph" element={<FeedGraphPage />} />
 
           {/* Hidden in progress */}
-          <Route path="/hidden/scene" element={<ScenePage />} />
-          <Route path="/hidden/places" element={<PlacesPage />} />
-          <Route path="/hidden/recipes" element={<RecipesPage />} />
-          <Route path="/hidden/recipes/:slug" element={<RecipePage />} />
-          <Route path="/hidden/project-logos" element={<ProjectLogosPage />} />
-          <Route path="/hidden/hiking" element={<HikingPage />} />
+          <Route path="/scene" element={<ScenePage />} />
+          <Route path="/places" element={<PlacesPage />} />
+          <Route path="/recipes" element={<RecipesPage />} />
+          <Route path="/recipes/:slug" element={<RecipePage />} />
+          <Route path="/project-logos" element={<ProjectLogosPage />} />
+          <Route path="/hiking" element={<HikingPage />} />
 
           {/* Hidden old */}
-          <Route path="/hidden/archive" element={<ArchivePage />} />
-          <Route path="/hidden/surveys" element={<SurveysPage />} />
+          <Route path="/archive" element={<ArchivePage />} />
+          <Route path="/surveys" element={<SurveysPage />} />
 
           {/* Oops */}
           <Route path="*" element={<OopsPage />} />

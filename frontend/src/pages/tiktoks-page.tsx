@@ -126,7 +126,7 @@ export function TiktokCard({
 
       <div
         className="cursor-pointer rounded-full p-1 transition-all hover:bg-black/5"
-        onClick={() => navigate(`/hidden/tiktoks/${tiktok.id}`)}
+        onClick={() => navigate(`/tiktoks/${tiktok.id}`)}
       >
         <LinkIcon size={20} color="#6283c0" />
       </div>

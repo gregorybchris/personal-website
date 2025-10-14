@@ -126,7 +126,7 @@ export function YouTubeVideoCard({
 
       <div
         className="cursor-pointer rounded-full p-1 transition-all hover:bg-black/5"
-        onClick={() => navigate(`/hidden/youtube-videos/${youtubeVideo.id}`)}
+        onClick={() => navigate(`/youtube-videos/${youtubeVideo.id}`)}
       >
         <LinkIcon size={20} color="#6283c0" />
       </div>

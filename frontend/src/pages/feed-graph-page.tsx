@@ -170,7 +170,7 @@ export function FeedGraphPage() {
     node.append("title").text((d) => d.id);
 
     node.on("click", (mouseEvent: any, node: any) => {
-      navigate(`/hidden/feed/${node.post.slug}`);
+      navigate(`/feed/${node.post.slug}`);
     });
 
     simulation.on("tick", () => {

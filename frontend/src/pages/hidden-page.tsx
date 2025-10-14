@@ -19,38 +19,38 @@ export function HiddenPage() {
 
         <div className="flex flex-col">
           <SectionHeader>Current</SectionHeader>
-          <PageLink to="/hidden/scene">Scene</PageLink>
+          <PageLink to="/scene">Scene</PageLink>
           <div className="w-4 border-1 border-black/10"></div>
 
-          <PageLink to="/hidden/artists">Artists</PageLink>
+          <PageLink to="/artists">Artists</PageLink>
           <div className="w-4 border-1 border-black/10"></div>
 
-          <PageLink to="/hidden/instagrams">Instagrams</PageLink>
-          <PageLink to="/hidden/tiktoks">TikToks</PageLink>
-          <PageLink to="/hidden/youtube-videos">YouTube Videos</PageLink>
-          <PageLink to="/hidden/memes">Memes</PageLink>
+          <PageLink to="/instagrams">Instagrams</PageLink>
+          <PageLink to="/tiktoks">TikToks</PageLink>
+          <PageLink to="/youtube-videos">YouTube Videos</PageLink>
+          <PageLink to="/memes">Memes</PageLink>
           <div className="w-4 border-1 border-black/10"></div>
 
-          <PageLink to="/hidden/movies">Movies</PageLink>
-          <PageLink to="/hidden/shows">TV Shows</PageLink>
+          <PageLink to="/movies">Movies</PageLink>
+          <PageLink to="/shows">TV Shows</PageLink>
           <div className="w-4 border-1 border-black/10"></div>
 
-          <PageLink to="/hidden/youtube-channels">YouTube Channels</PageLink>
-          <PageLink to="/hidden/podcasts">Podcasts</PageLink>
+          <PageLink to="/youtube-channels">YouTube Channels</PageLink>
+          <PageLink to="/podcasts">Podcasts</PageLink>
           <div className="w-4 border-1 border-black/10"></div>
 
-          <PageLink to="/hidden/hiking">Hiking</PageLink>
+          <PageLink to="/hiking">Hiking</PageLink>
         </div>
 
         <div className="flex flex-col">
           <SectionHeader>Old</SectionHeader>
-          <PageLink to="/hidden/archive">Archive</PageLink>
-          <PageLink to="/hidden/feed">Feed</PageLink>
-          <PageLink to="/hidden/feed-graph">Feed Graph</PageLink>
-          <PageLink to="/hidden/places">Places</PageLink>
-          <PageLink to="/hidden/project-logos">Project Logos</PageLink>
-          <PageLink to="/hidden/recipes">Recipes</PageLink>
-          <PageLink to="/hidden/surveys">Surveys</PageLink>
+          <PageLink to="/archive">Archive</PageLink>
+          <PageLink to="/feed">Feed</PageLink>
+          <PageLink to="/feed-graph">Feed Graph</PageLink>
+          <PageLink to="/places">Places</PageLink>
+          <PageLink to="/project-logos">Project Logos</PageLink>
+          <PageLink to="/recipes">Recipes</PageLink>
+          <PageLink to="/surveys">Surveys</PageLink>
         </div>
       </div>
     </div>

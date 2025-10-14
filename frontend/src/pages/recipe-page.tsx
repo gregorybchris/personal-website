@@ -47,7 +47,7 @@ export function RecipePage() {
     <div className="flex w-full flex-col items-start gap-4 px-6 py-8 pt-3 md:px-16">
       <div
         className="cursor-pointer rounded-md px-2 py-1 hover:bg-black/8"
-        onClick={() => navigate("/hidden/recipes")}
+        onClick={() => navigate("/recipes")}
       >
         <div className="flex flex-row gap-x-2">
           <ArrowLeftIcon size={25} color="#6283c0" />

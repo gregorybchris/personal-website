@@ -94,7 +94,7 @@ export function RecipesPage() {
               <div
                 key={recipe.name}
                 className="border-sky hover:border-royal relative mx-4 my-3 flex h-[130px] w-[240px] cursor-pointer flex-row items-center border-2 text-center transition-all"
-                onClick={() => navigate(`/hidden/recipes/${recipe.slug}`)}
+                onClick={() => navigate(`/recipes/${recipe.slug}`)}
               >
                 <div className="bg-sky absolute -top-3 -left-3 rounded-full p-2">
                   {icon}
