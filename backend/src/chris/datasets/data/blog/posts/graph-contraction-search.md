@@ -46,7 +46,7 @@ Given a fully-connected colored graph, we can <strong>apply vertex contractions 
 
 ## Motivation
 
-Are vertex contractions useful to us? Sure they are! We can use them to solve a particularly fun puzzle game called Kami<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup>. In Kami, we're presented with a screen of pixels grouped into colored regions. We attempt to flood-fill all pixels with the same color in an allotted number of moves.
+Are vertex contractions useful to us? Sure they are! We can use them to solve a particularly fun puzzle game called Kami<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup>. In Kami, we're presented with a screen of pixels grouped into colored regions. We attempt to flood-fill all pixels to be the same color within an allotted number of moves.
 
 <figure id="figure4">
   <video width="300" autoplay muted loop playsinline>
