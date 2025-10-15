@@ -231,6 +231,8 @@ For our last trick, we're going to get simple again. Based on the randomly initi
 
 We've discussed how to sample valid yet suboptimal lineups to seed a genetic algorithm as well as some tricks for making the genetic algorithm converge to a good solution quickly.
 
+Maybe as a follow-up it would be worth trying a SAT solver or integer programming, but this approach can generate lineups in under a minute, which is good enough to achieve our goal.
+
 ### Fitness function for real
 
 Rather than specify what makes lineups good when defining a fitness function, it's actually easier to penalize lineups for what makes them bad.
