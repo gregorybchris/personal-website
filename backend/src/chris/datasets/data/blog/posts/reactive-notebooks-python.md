@@ -5,21 +5,21 @@ title: Bringing Reactive Notebooks to Python
 archived: false
 ---
 
-<a href="https://jupyter.org" target="_blank">Jupyter notebooks</a> are pretty neat.<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup> It takes only a couple clicks/keystrokes to create a new cell, write some code, and run it. You can skip creating a new file, naming the file, writing an entrypoint/main function, and switching to a terminal window to run the code. Unlike standard scripts, notebooks also allow you to embed markdown, plots, and other media directly so you can tell a story with your code.
+<a href="https://jupyter.org" target="_blank">Jupyter notebooks</a> are pretty neat.<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup> It takes only a couple clicks/keystrokes to create a new cell, write some code, and run it. You can skip all the steps of creating a new file, naming the file, writing an entrypoint/main function, and switching to a terminal window to run the code.
 
-One of the most powerful features of the notebook paradigm is that you can swap in and out bits of functionality just be running cells in a different order. This is incredible for exploration and prototyping, but with this great flexibility comes a serious drawback: Since there's no well-defined execution order for cells, your notebook can easily get into a state where running the cells top to bottom produces errors.
+One of the most powerful features of the notebook paradigm is that you can swap in and out bits of functionality just by running cells in a different order. You can update a function and then only re-run the pieces of code that depend on that change. This is incredible for exploration and prototyping, but with this great flexibility comes a serious drawback: Since there's no well-defined execution order for cells, your notebook can easily get into a state where running the cells top to bottom produces errors.
 
-The notebook may have some very useful plots embedded in it, but if someone else can't reproduce those plots by re-running the notebook, then the notebook isn't very useful to them. Notebooks are often used by data scientists and science demands reproducibility. Wouldn't it be great if our coding environment made it easy to achieve that high bar?
+Notebooks are often used by data scientists to produce and embed plots and test theories. If someone else can't reproduce those plots by re-running the notebook, then the notebook loses a lot of its value. A core value of science is reproducibility, so wouldn't it be great if our coding environment made it easier to achieve that high bar?
 
 ## Observable
 
-Enter <a href="https://observablehq.com" target="_blank">Observable</a>, a platform for writing JavaScript notebooks, made by <a href="https://bost.ocks.org/mike" target="_blank">Mike Bostock</a>, the creator of the popular data visualization library <a href="https://d3js.org" target="_blank">D3.js</a>.
+In case you're not familiar, I want to quickly introduce <a href="https://observablehq.com" target="_blank">Observable</a>, a platform for writing JavaScript notebooks, made by <a href="https://bost.ocks.org/mike" target="_blank">Mike Bostock</a>. You may be familiar with the data visualization library <a href="https://d3js.org" target="_blank">D3.js</a>, which he also created.
 
-Observable's key innovation is bringing reactivity to notebooks -- execution of one cell can trigger execution of others. In Observable, each cell registers a variable that other cells can depend on. When a cell executes, the output of that cell automatically propagates to all cells that depend on it. Running a cell requires its parents to have run first, but because the dependency graph is explicitly defined, the notebook can run parent cells for you.
+Observable's key innovation is bringing reactivity to notebooks -- execution of one cell can trigger execution of others. In Observable, each cell registers a variable that other cells can depend on. When a cell executes, the output of that cell automatically propagates to all cells that depend on it, keeping all connected cells in sync.
 
 ## Cado
 
-After a few years of being a full time Python developer, wishing I could use Observable, wishing my notebooks were smarter, I decided to build <a href="https://github.com/gregorybchris/cado" target="_blank">Cado</a>, bringing the reactive notebook paradigm to Python.
+After a few years of being a full time Python developer, wishing I could use Observable, wishing my notebooks were smarter, I decided to build a proof of concept called <a href="https://github.com/gregorybchris/cado" target="_blank">Cado</a>, bringing the reactive notebook paradigm to Python.
 
 <figure id="figure0">
   <img src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/cado-icon.png?cache=0" width="200" className="no-shadow">
@@ -240,7 +240,7 @@ The full source code for this project is available on <a href="https://github.co
 <div id="footnotes">
   <div id="fn:fn1" class="footnote">
     <a class="fn" href="#fnref:fn1">[<span class="footnote-number">1</span>]</a>
-    <span>I hear emacs/vim power users protesting already... Sure, notebooks aren't for everyone, but if you're prototyping in Python and aren't allergic to the computer mouse they're worth a shot!</span>
+    <span>I can hear the grumbling protestations of emacs/vim power users. Notebooks aren't for everyone, but if you're prototyping in Python and aren't horribly allergic to the computer mouse then they're worth a shot!</span>
   </div>
 </div>
 
