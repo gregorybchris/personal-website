@@ -47,16 +47,6 @@ export function BlogPage() {
         </button>
       </div>
 
-      <div className="flex h-[240px] w-[280px] flex-col gap-4 bg-yellow-100/80 px-6 py-6 text-sm text-neutral-900 shadow-md">
-        <div>
-          <strong>This blog is under active development.</strong>
-        </div>
-        <div>
-          Some posts are partially written. Most are poorly written. I recommend
-          you come back later!
-        </div>
-      </div>
-
       {previews.length === 0 ? (
         <Loader>Loading posts...</Loader>
       ) : (
