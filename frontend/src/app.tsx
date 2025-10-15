@@ -65,6 +65,10 @@ function Layout() {
           <Route path="/projects" element={<ProjectsPage />}>
             <Route path=":slug" element={<ProjectsPage />} />
           </Route>
+          {/* NOTE: This is needed to support old links */}
+          <Route path="/code" element={<ProjectsPage />}>
+            <Route path=":slug" element={<ProjectsPage />} />
+          </Route>
           <Route path="/running" element={<RunningPage />}>
             <Route path=":slug" element={<RunningPage />} />
           </Route>
