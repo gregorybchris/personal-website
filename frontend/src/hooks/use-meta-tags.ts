@@ -18,27 +18,21 @@ function updateMetaTag(property: string, content: string) {
 
 export function useMetaTags(options: MetaTagsOptions) {
   useEffect(() => {
-    const { title, url } = options;
+    const { title } = options;
 
     if (title) {
       document.title = title;
-
       updateMetaTag("og:title", title);
-      updateMetaTag("twitter:title", title);
-      if (url) {
-        updateMetaTag("og:url", url);
-        updateMetaTag("twitter:url", url);
-      }
+    } else {
+      document.title = "Chris Gregory";
+      updateMetaTag("og:title", "Chris Gregory");
     }
 
     return () => {
       document.title = "Chris Gregory";
       updateMetaTag("og:title", "Chris Gregory");
-      updateMetaTag("og:url", "http://chrisgregory.me");
-      updateMetaTag("twitter:title", "Chris Gregory");
-      updateMetaTag("twitter:url", "http://chrisgregory.me");
     };
-  }, [options.title, options.url]);
+  }, [options.title]);
 }
 
 // Route-based meta tags configuration
@@ -61,10 +55,9 @@ export function useRouteMetaTags() {
     if (title) {
       document.title = title;
       updateMetaTag("og:title", title);
-      updateMetaTag("twitter:title", title);
+    } else {
+      document.title = "Chris Gregory";
+      updateMetaTag("og:title", "Chris Gregory");
     }
-
-    updateMetaTag("og:url", window.location.href);
-    updateMetaTag("twitter:url", window.location.href);
   }, [location.pathname]);
 }
