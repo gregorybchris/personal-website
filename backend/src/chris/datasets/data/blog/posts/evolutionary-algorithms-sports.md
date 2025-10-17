@@ -7,9 +7,9 @@ archived: false
 
 I expect most readers won't be intimately familiar with the sport of rowing. But maybe you have a vague idea of eight people in a boat, facing the same direction, long oars in hand, paddling in sync, racing against other boats? If you can picture that, then you've got the prerequisite understanding to follow along with this post.
 
-## Motivation
-
 A few years after moving to Seattle, I joined a <a href="https://lakeunioncrew.com" target="_blank">local rowing club</a>. And not long after that I saw a perfect opportunity to tarnish a pure and meditative outdoor activity with technology. There was a problem at the boathouse and I _needed_ to see if a computer could help solve it.
+
+## Motivation
 
 Each evening at the rowing club, a group of 20 or so amateur rowers and one or two coaches show up to practice. In the first 5-10 minutes, the coaches scramble to figure out who will sit in which seats of which boats. It's a race against the clock as the last minute logistics eat into practice time.
 
@@ -23,7 +23,7 @@ To recap, we have:
 
 ### Example lineup
 
-To keep things concrete, here's an example of what coaches might come up with for a practice with 26 rowers. In capital letters are boat names, next to them are the names of the oars to use, and `c` represents the coxswain, who steers the boat and helps keep the rowers in sync.
+Here's an example of what coaches might come up with for a practice with 26 rowers. In capital letters are boat names, next to them are the names of the oars to use, and `c` represents the coxswain, who steers the boat and helps keep the rowers in sync.
 
 ```txt
 THE OLD MAN HAROLD // Yellow Oars
@@ -35,7 +35,7 @@ c Leon
 4 Farid
 3 Gianna
 2 Elena
-1 MeZ
+1 Mei
 
 MISS EDNA // Red Oars
 c Xia
@@ -46,7 +46,7 @@ c Xia
 4 Yara
 3 Satoshi
 2 Talia
-1 Hi N
+1 Hiro
 
 CAPTAIN MABEL // Blue Oars
 4 Javier
@@ -65,9 +65,9 @@ GENTLE GEORGE // Pink Oars
 
 ### Partitioning
 
-The first step in generating potential lineups is to figure out all the different ways we can fit rowers into boats. The canonical solution is a cousin of the <a href="https://en.wikipedia.org/wiki/Knapsack_problem" target="_blank">knapsack problem</a> called the <a href="https://en.wikipedia.org/wiki/Subset_sum_problem" target="_blank">subset sum problem</a>.
+The first step in generating potential lineups is to figure out all the different ways we can fit rowers into boats. The canonical form of this problem is a cousin of the <a href="https://en.wikipedia.org/wiki/Knapsack_problem" target="_blank">knapsack problem</a> called the <a href="https://en.wikipedia.org/wiki/Subset_sum_problem" target="_blank">subset sum problem</a>.
 
-The following code computes all the different ways we can partition a given number of rowers into boats of specified sizes.
+We use dynamic programming to efficiently figure out all the ways we can pack a a given number of rowers into boats of specified sizes.
 
 ```python
 Partition = dict[int, int]
@@ -89,14 +89,12 @@ def get_partitions(coxed_boat_sizes: list[int], n_rowers: int) -> list[Partition
     return partitions[n_rowers]
 ```
 
-Not every partition is valid, however. Perhaps the club only has 5 doubles. That will disqualify any partition that relies on more than 5 doubles.
-
 ### Filtering by equipment availability
 
-We can filter down our partitions to only those that are feasible given the equipment available at the boathouse.
+Not every partition is valid, however. Perhaps the club only has 5 doubles. That disqualifies the lineup where we take out 6 doubles, for example. Next, we filter down our partitions to only those that are feasible given the equipment available at the boathouse.
 
 ```python
-def iter_partitions_by_availability(
+def filter_partitions_by_availability(
     partitions: Iterable[Partition],
     coxed_size_map: dict[int, int],
 ) -> Iterator[Partition]:
@@ -109,7 +107,7 @@ def iter_partitions_by_availability(
             yield partition
 ```
 
-If we assume we have 26 rowers at practice and the boathouse has 5 doubles, 4 quads, and 3 eights, then we only have four viable partitions (with 10 partitions before filtering).
+If we assume we have 26 rowers at practice and the boathouse has 5 doubles, 4 quads, and 3 eights, then we only have 4 viable partitions (down from 10 partitions before filtering).
 
 - 5 doubles, 4 quads
 - 4 doubles, 2 eights
@@ -120,21 +118,19 @@ If we assume we have 26 rowers at practice and the boathouse has 5 doubles, 4 qu
 
 We now have a method for generating candidate lineups that are theoretically rowable, but as discussed earlier, we'd really like the lineups to adhere to our constraints and be fast, safe, and fun. If you read the title of this post, you can guess what's coming next.
 
-We're going to solve this with a genetic algorithm. The basic idea is to maintain a "population" of candidate lineups. In the world of genetic algorithms, each lineup would be called an "agent" or "individual". We'll define a function that can measure the "fitness" of each lineup, select the fittest individuals to be parents in the next generation of the population, and repeat this process until the fitness of lineups stops improving.
+We're going to solve this with a genetic algorithm. The basic idea is to maintain a "population" of candidate lineups. In the world of genetic algorithms, each lineup would be called an "agent" or "individual". We'll construct a function that measures the "fitness" of each lineup, select only the fittest individuals to persist into the next generation of the population, and repeat this process until the fitness of lineups stops improving.
 
 > As a brief implementation detail, we initialize our population of lineups by randomly selecting a viable partition and then randomly shuffling the rowers across the boats.
 
 ### Fitness function
 
-The fitness function should really be the first thing we define when writing a genetic algorithm. Unfortunately the fitness function for this application is really only understandable with some deeper background on rowing. For that reason, I recommend skipping over this section, which I have relocated to the <a href="#fitness-function-for-real">bottom of the post</a>. For now, the important thing to know is that we can take a candidate lineup and compute a scalar value representing how good it is.
+The fitness function should really be the first thing we define when writing a genetic algorithm. Unfortunately the fitness function for this application is really only understandable with some deeper background on rowing. For that reason, I recommend skipping over this section, which I have relocated to the <a href="#fitness-function-for-real">bottom of the post</a>. For now, the important thing to know is that we can take a candidate lineup and compute a scalar value representing how preferable it is.
 
 ### Mutation & crossover
 
-A standard practice in genetic algorithms is to apply mutation and crossover to the selected parents to produce a new generation of individuals.
+How does each generation create "offspring" lineups? A standard practice in genetic algorithms is to apply mutation and crossover to the selected parents to produce a new generation of individuals.
 
-In our rowing scenario, crossover isn't trivial because two lineups could have different numbers and sizes of boats. It will be left as an exercise for the reader.
-
-We'll see that mutation is sufficient to increase diversity and give selection something to act on over many generations. Let's define mutation as simply swapping the seats of two rowers.
+In our rowing scenario, crossover isn't trivial because two lineups could have different numbers and sizes of boats. It will be left as an exercise for the reader. We'll see that mutation is sufficient to increase diversity and give selection something to act on over many generations. Let's define mutation as simply swapping the seats of two rowers.
 
 ```python
 import random
@@ -155,7 +151,7 @@ def mutate(lineup: Lineup) -> Lineup:
     return new_lineup
 ```
 
-A downside of this method is that once a partition of boat sizes "dies out" we cannot get it back. We also cannot introduce a new partition that wasn't present in the initial population.
+A downside of this method is that once a partition of boat sizes "dies out" we cannot get it back. We also cannot introduce a new partition that wasn't present in the initial population. However, other than partitions being fixed, all other sources of variation are possible through mutation alone.
 
 This is all we need to get things working! Each generation we can select the top k% of lineups by fitness and replace the rest of the population with mutated versions of the top k%.
 
