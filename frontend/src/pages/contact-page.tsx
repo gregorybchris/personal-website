@@ -10,12 +10,26 @@ import { PageTitle } from "../components/page-title";
 export function ContactPage() {
   const [eyesClosed, setEyesClosed] = useState(false);
 
+  function boxMullerGaussian(mean: number, stddev: number): number {
+    const u1 = Math.random();
+    const u2 = Math.random();
+    const z0 = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2.0 * Math.PI * u2);
+    return mean + stddev * z0;
+  }
+
   useEffect(() => {
     const scheduleNextBlink = () => {
-      const blinkDuration = 150;
-      const minDelay = 2000;
-      const maxDelay = 10000;
-      const randomDelay = Math.random() * (maxDelay - minDelay) + minDelay;
+      // Cornelis et al (2025)
+      // blinks per minute: μ = 10.3, σ = 5.9
+      // blink duration: μ = 128.8ms, σ = 56.4ms
+
+      const delayMeanSec = 60 / 10.3;
+      const delayStddevSec = (5.9 / (10.3 * 10.3)) * 60; // Approximation
+      const randomDelayMs =
+        boxMullerGaussian(delayMeanSec, delayStddevSec) * 1000;
+      const durMeanMs = 128.8;
+      const durStddevMs = 56.4;
+      const blinkDurMs = boxMullerGaussian(durMeanMs, durStddevMs);
 
       return setTimeout(() => {
         setEyesClosed(true);
@@ -23,8 +37,8 @@ export function ContactPage() {
         setTimeout(() => {
           setEyesClosed(false);
           scheduleNextBlink();
-        }, blinkDuration);
-      }, randomDelay);
+        }, blinkDurMs);
+      }, randomDelayMs);
     };
 
     const timeoutId = scheduleNextBlink();
@@ -48,6 +62,7 @@ export function ContactPage() {
           src={eyesClosed ? pixelMeEyesClosed : pixelMeEyesOpen}
           alt="Pixel art avatar of Chris Gregory"
           className="mx-auto size-30"
+          title="Blink timing based on Cornelis et al (2025)"
         />
 
         <form action="https://formspree.io/f/xdopgdnk" method="POST">
