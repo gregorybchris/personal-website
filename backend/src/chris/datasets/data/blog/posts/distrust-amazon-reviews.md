@@ -31,10 +31,10 @@ Given $N$ items and $M$ users.
 Model a rating $r_{u,i}$ (by user $u$, of item $i$) as drawn from a Gaussian around the true item quality with a variance based on the user's reliability.
 
 $$
-r_{u,i} \sim \mathcal{N}(x_i, 1/\alpha_u)
+r_{u,i} \sim \mathcal{N}(x_i, \tfrac{1}{\alpha_u})
 $$
 
-The variance of a rating is $\sigma^2_u = 1/\alpha_u$. A user with a high $\alpha_u$ has a low variance, and thus rates items more reliably (with higher precision).
+The variance of a rating is $\sigma^2_u = \tfrac{1}{\alpha_u}$. A user with a high $\alpha_u$ has a low variance, and thus rates items more reliably (with higher precision).
 
 By substituting our definition of variance in the Gaussian equation, for a single rating pair $(u,i)$ the likelihood term is:
 
