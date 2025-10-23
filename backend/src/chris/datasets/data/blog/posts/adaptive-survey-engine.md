@@ -25,7 +25,9 @@ These algorithms use the concepts of <a href="https://en.wikipedia.org/wiki/Entr
 The first concept we need to define is entropy, which we'll use to measure how mixed the answers are for a particular question. The intuition here is that we'd like to prompt the survey participant with questions that decrease the entropy in our target variable. If we get entropy down to zero, then we know with high confidence the result of the survey and can stop asking questions.
 
 <!-- prettier-ignore -->
-$ H(X) = -\sum_{x \in \mathcal{X}} p(x) \log_2 p(x) $
+$$
+H(X) = -\sum_{x \in \mathcal{X}} p(x) \log_2 p(x)
+$$
 
 ```python
 import numpy as np
@@ -43,7 +45,9 @@ def entropy(a: np.ndarray) -> float:
 Next, we'll look at information gain, which measures how helpful it would be if the participant answered a particular question. Finding the question with the highest information gain is the key to building an adaptive survey.
 
 <!-- prettier-ignore -->
-$$ IG(D, A) = H(D) - \sum_{a \in A} p(a) \, H(S_a) $$
+$$
+IG(D, A) = H(D) - \sum_{a \in A} p(a) \, H(S_a)
+$$
 
 - $D$ is the full dataset
 - $A$ is the attribute we’re splitting on
