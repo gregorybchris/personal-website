@@ -12,3 +12,46 @@ At least for me, this is a pretty common experience buying a product online. I h
 Gaussian belief propagation for marketplace optimization
 
 TrueScore considers how users rate items in an online marketplace and provides a measure of rater reliability using Gaussian belief propagation. The model jointly learns to estimate item quality and user reliability from data, putting less weight on ratings from users determined to be less reliable. As rater reliability changes, so do item quality estimates, hence the "propagation" in Gaussian belief propagation.
+
+## Copied
+
+TrueScore considers how users rate items in an online marketplace and provides a measure of rater reliability. Online marketplaces have a large incentive to ensure item ratings are trustworthy and to identify bad actors before they can influence buyers.
+
+Since both item quality and user reliability are determined from ratings, TrueScore jointly learns to estimate both from data, putting less weight on ratings from users determined to be less reliable. As rater reliability changes, so do item quality estimates, hence the "propagation" in Gaussian belief propagation.
+
+It's worth noting that TrueScore is not a recommender system and therefore does not measure how individual user preferences factor into ratings. TrueScore estimates the conditional probability that a user would rate an item highly given they already want or need that item.
+
+## Method
+
+Given $N$ items and $M$ users.
+
+- Let each item's true quality be $x_i$ for $i = 1,\dots, N$
+- Let each user's reliability be $\alpha_u$ for $u = 1,\dots, M$
+
+Model a rating $r_{u,i}$ (by user $u$, of item $i$) as drawn from a Gaussian around the true item quality with a variance based on the user's reliability.
+
+$$
+r_{u,i} \sim \mathcal{N}(x_i, 1/\alpha_u)
+$$
+
+The variance of a rating is $\sigma^2_u = 1/\alpha_u$. A user with a high $\alpha_u$ has a low variance, and thus rates items more reliably (with higher precision).
+
+By substituting our definition of variance in the Gaussian equation, for a single rating pair $(u,i)$ the likelihood term is:
+
+$$
+p(r_{u,i} \mid x_i, \alpha_u) = \mathcal{N}\Bigl(r_{u,i}; x_i, \tfrac{1}{\alpha_u}\Bigr) = \frac{1}{\sqrt{2\pi\bigl(\frac{1}{\alpha_u}\bigr)}} \exp\Bigl(-\tfrac{(r_{u,i}-x_i)^2}{2 \bigl(\tfrac{1}{\alpha_u}\bigr)}\Bigr)
+$$
+
+Then, after some arithmetic, we find the the negative log-likelihood (up to a constant) for a rating pair is:
+
+$$
+-\log p\bigl(r_{u,i}\mid x_i, \alpha_u\bigr) = \tfrac{1}{2}\log\bigl(\tfrac{1}{\alpha_u}\bigr)+\tfrac{1}{2}\alpha_u\bigl(r_{u,i}-x_i\bigr)^2
+$$
+
+Summing over all rating pairs $(u,i)$ in our training data yields the total negative log‐likelihood:
+
+$$
+\mathrm{NLL}(\mathbf{x}, \boldsymbol{\alpha}) = \sum_{(u,i)\in \text{data}}\Bigl[\tfrac{1}{2}\log\bigl(\tfrac{1}{\alpha_u}\bigr)+\tfrac{1}{2}\alpha_u(r_{u,i}-x_i)^2\Bigr]
+$$
+
+In practice we include L2 regularization terms with small coefficients for both $x$ and $\alpha$.
