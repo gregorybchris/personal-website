@@ -62,7 +62,7 @@ export function ContactPage() {
           src={eyesClosed ? pixelMeEyesClosed : pixelMeEyesOpen}
           alt="Pixel art avatar of Chris Gregory"
           className="mx-auto size-30"
-          title="Blink timing based on Cornelis et al (2025)"
+          title="Blink timing based on Cornelis et al. (2025)"
         />
 
         <form action="https://formspree.io/f/xdopgdnk" method="POST">
