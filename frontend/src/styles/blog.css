@@ -176,14 +176,16 @@
 #blog .katex-display {
   background-color: #e0e3ea;
   border-radius: 0.375rem;
-  padding-top: 1.2rem;
-  padding-bottom: 1.2rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
   font-size: small;
 }
 
 #blog .katex-display .katex-html {
   overflow-x: scroll;
   overflow-y: clip;
-  margin-left: 1.7rem;
-  margin-right: 1.7rem;
+  margin-left: 1.4rem;
+  margin-right: 1.4rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
