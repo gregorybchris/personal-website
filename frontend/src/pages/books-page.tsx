@@ -68,9 +68,9 @@ export function BooksPage() {
         <PageTitle>Books</PageTitle>
 
         <div className="text-center text-balance text-black/75 md:w-[70%]">
-          If you're into non-fiction science and philosophy books, then you
-          might enjoy something here on my virtual bookshelf. I tend to read at
-          the intersection of cognitive science and
+          If you enjoy non-fiction science and philosophy books, then you might
+          enjoy something here on my virtual bookshelf, especially if you're
+          into cognitive science or complex systems theory.
         </div>
       </div>
 
