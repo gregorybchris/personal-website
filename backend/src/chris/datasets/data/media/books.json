@@ -8,6 +8,7 @@
     "pages": 81,
     "year_read": 2019,
     "general_appeal": 10,
+    "archived": false,
     "tags": ["short", "science"],
     "goodreads_link": "https://www.goodreads.com/book/show/25734172-seven-brief-lessons-on-physics",
     "image_links": {
@@ -24,6 +25,7 @@
     "pages": 96,
     "year_read": 2013,
     "general_appeal": 5,
+    "archived": false,
     "tags": ["short", "philosophy"],
     "goodreads_link": "https://www.goodreads.com/book/show/13259270-free-will",
     "image_links": {
@@ -40,6 +42,7 @@
     "pages": 83,
     "year_read": 2014,
     "general_appeal": 6,
+    "archived": true,
     "tags": ["short", "philosophy"],
     "goodreads_link": "https://www.goodreads.com/book/show/18869177-lying",
     "image_links": {
@@ -56,6 +59,7 @@
     "pages": 113,
     "year_read": 2015,
     "general_appeal": 3,
+    "archived": false,
     "tags": ["short", "philosophy"],
     "goodreads_link": "https://www.goodreads.com/book/show/25825420-the-abolition-of-man",
     "image_links": {
@@ -72,6 +76,7 @@
     "pages": 180,
     "year_read": 2019,
     "general_appeal": 9,
+    "archived": false,
     "tags": ["short", "philosophy"],
     "goodreads_link": "https://www.goodreads.com/book/show/189989.Finite_and_Infinite_Games",
     "image_links": {
@@ -88,6 +93,7 @@
     "pages": 168,
     "year_read": 2021,
     "general_appeal": 8,
+    "archived": false,
     "tags": ["short", "science"],
     "goodreads_link": "https://www.goodreads.com/book/show/41542080-a-world-beyond-physics",
     "image_links": {
@@ -104,6 +110,7 @@
     "pages": 396,
     "year_read": 2019,
     "general_appeal": 8,
+    "archived": false,
     "tags": ["science"],
     "goodreads_link": "https://www.goodreads.com/book/show/45700960-worlds-hidden-in-plain-sight",
     "image_links": {
@@ -120,6 +127,7 @@
     "pages": 224,
     "year_read": 2019,
     "general_appeal": 8,
+    "archived": false,
     "tags": ["science"],
     "goodreads_link": "https://www.goodreads.com/book/show/36442813-the-order-of-time",
     "image_links": {
@@ -136,6 +144,7 @@
     "pages": 272,
     "year_read": 2020,
     "general_appeal": 7,
+    "archived": false,
     "tags": ["philosophy"],
     "goodreads_link": "https://www.goodreads.com/book/show/41817484-the-case-against-reality",
     "image_links": {
@@ -152,6 +161,7 @@
     "pages": 477,
     "year_read": 2018,
     "general_appeal": 7,
+    "archived": false,
     "tags": ["philosophy", "science"],
     "goodreads_link": "https://www.goodreads.com/book/show/35167699-from-bacteria-to-bach-and-back",
     "image_links": {
@@ -168,6 +178,7 @@
     "pages": 756,
     "year_read": 2020,
     "general_appeal": 6,
+    "archived": false,
     "tags": ["philosophy"],
     "goodreads_link": "https://www.goodreads.com/book/show/24113.G_del_Escher_Bach",
     "image_links": {
@@ -184,6 +195,7 @@
     "pages": 304,
     "year_read": 2014,
     "general_appeal": 9,
+    "archived": false,
     "tags": ["science"],
     "goodreads_link": "https://www.goodreads.com/book/show/154293.Linked",
     "image_links": {
@@ -200,6 +212,7 @@
     "pages": 276,
     "year_read": 2022,
     "general_appeal": 7,
+    "archived": false,
     "tags": ["philosophy"],
     "goodreads_link": "https://www.goodreads.com/book/show/34459.Metaphors_We_Live_By",
     "image_links": {
@@ -216,6 +229,7 @@
     "pages": 368,
     "year_read": 2015,
     "general_appeal": 6,
+    "archived": false,
     "tags": ["philosophy", "science"],
     "goodreads_link": "https://www.goodreads.com/book/show/2071.Freedom_Evolves",
     "image_links": {
@@ -232,6 +246,7 @@
     "pages": 384,
     "year_read": 2018,
     "general_appeal": 8,
+    "archived": false,
     "tags": ["science"],
     "goodreads_link": "https://www.goodreads.com/book/show/34272565-life-3-0",
     "image_links": {
@@ -248,6 +263,7 @@
     "pages": 225,
     "year_read": 2022,
     "general_appeal": 7,
+    "archived": false,
     "tags": ["science"],
     "goodreads_link": "https://www.goodreads.com/book/show/869836.How_Nature_Works",
     "image_links": {
@@ -264,6 +280,7 @@
     "pages": 360,
     "year_read": 2022,
     "general_appeal": 6,
+    "archived": false,
     "tags": ["science"],
     "goodreads_link": "https://www.goodreads.com/book/show/61535.The_Selfish_Gene",
     "image_links": {

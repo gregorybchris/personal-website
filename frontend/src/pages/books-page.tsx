@@ -4,13 +4,14 @@ import { PageTitle } from "../components/page-title";
 import { Tag } from "../components/tag";
 import { GET, makeQuery } from "../utilities/request-utilities";
 
-export interface BookData {
+export interface Book {
   isbn: string;
   title: string;
   subtitle?: string;
   author: string;
   year_read: number;
   general_appeal: number;
+  archived: boolean;
   tags: string[];
   goodreads_link: string;
   image_links: {
@@ -20,14 +21,14 @@ export interface BookData {
 }
 
 export function BooksPage() {
-  const [books, setBooks] = useState<BookData[]>([]);
+  const [books, setBooks] = useState<Book[]>([]);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [allTags, setAllTags] = useState<string[]>([]);
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
     const booksQuery = makeQuery("media/books");
-    GET(booksQuery).then((books: BookData[]) => {
+    GET(booksQuery).then((books: Book[]) => {
       const tagsSet = new Set<string>();
       books.forEach((book) => {
         book.tags.forEach((tag) => tagsSet.add(tag));
@@ -45,7 +46,7 @@ export function BooksPage() {
       });
 
       Promise.all(imagePromises).then(() => {
-        setBooks(books);
+        setBooks(books.filter((book) => !book.archived));
         setImagesLoaded(true);
       });
     });
@@ -67,9 +68,9 @@ export function BooksPage() {
         <PageTitle>Books</PageTitle>
 
         <div className="text-center text-balance text-black/75 md:w-[70%]">
-          If you're already a fan of one of the books on my shelf, then you
-          might consider trying another. If your literary tastes are totally
-          different, that's okay too!
+          If you're into non-fiction science and philosophy books, then you
+          might enjoy something here on my virtual bookshelf. I tend to read at
+          the intersection of cognitive science and
         </div>
       </div>
 
@@ -103,7 +104,7 @@ export function BooksPage() {
                 (bookA, bookB) => bookB.general_appeal - bookA.general_appeal,
               )
               .map((book, index) => (
-                <Book
+                <BookCard
                   key={book.isbn}
                   book={book}
                   onTagClick={onTagClick}
@@ -118,14 +119,14 @@ export function BooksPage() {
   );
 }
 
-interface BookProps {
-  book: BookData;
+interface BookCardProps {
+  book: Book;
   selectedTags: string[];
   onTagClick: (tag: string) => void;
   index: number;
 }
 
-function Book({ book, selectedTags, onTagClick, index }: BookProps) {
+function BookCard({ book, selectedTags, onTagClick, index }: BookCardProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
