@@ -1690,6 +1690,29 @@
     ]
   },
   {
+    "route_id": "8b60eef4-3a83-4153-bb6e-5dc0d4c1591f",
+    "name": "Makamakaole Stream: 13 Crossings",
+    "slug": "makamakaole-stream",
+    "dates": ["2025-05-15"],
+    "miles": 2,
+    "elevation": 500,
+    "area": "Maui",
+    "region": "Hawai'i",
+    "travel_time": null,
+    "notes": "Janet",
+    "coordinates": {
+      "latitude": 20.958388,
+      "longitude": -156.534676,
+      "formatted": "20/57/30.2/N 156/32/04.8/W"
+    },
+    "stars": 4,
+    "archived": false,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/makamakaole-stream--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/makamakaole-stream--02.jpg"
+    ]
+  },
+  {
     "route_id": "7ee65859-f880-48a7-b48b-c66860ec48ce",
     "name": "Sentinel Dome",
     "slug": "sentinel-dome",
