@@ -1,6 +1,6 @@
 ---
 date: 2023-04-22
-slug: adaptive-survey-engine
+slug: decentralized-transportation
 title: What If All Roads Were Toll Roads?
 archived: false
 ---
