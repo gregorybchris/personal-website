@@ -45,6 +45,7 @@
             "lte": 10
           }
         },
+        "archived": "boolean",
         "tags": {
           "type": "array",
           "elem": {

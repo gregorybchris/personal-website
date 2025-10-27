@@ -30,7 +30,8 @@
             "consistency": "#score"
           }
         },
-        "link": "#link"
+        "link": "#link",
+        "image_link": "#link"
       }
     },
     "#score": {
