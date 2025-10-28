@@ -75,7 +75,7 @@ Before we can crafting a lineup that is good, let's first solve the easier probl
 
 First, let's figure out all the different ways we can fit rowers into boats. The canonical form of this problem is a cousin of the <a href="https://en.wikipedia.org/wiki/Knapsack_problem" target="_blank">knapsack problem</a> called the <a href="https://en.wikipedia.org/wiki/Subset_sum_problem" target="_blank">subset sum problem</a>.
 
-We use dynamic programming to efficiently figure out all the ways we can pack a a given number of rowers into boats of specified sizes.
+We use dynamic programming to efficiently figure out all the ways we can pack a given number of rowers into boats of specified sizes.
 
 ```python
 Partition = dict[int, int]
@@ -103,7 +103,7 @@ Not every partition is valid, however. Perhaps the club only has 5 doubles. That
 
 <figure id="figure2">
   <img src="https://storage.googleapis.com/cgme/blog/posts/evolutionary-algorithms-sports/abstract-rowing-shells.svg?cache=1" width="450">
-  <figcaption><strong>Figure 2: </strong>Rowing shell sizes &mdash; These are the primary boat classes you will see most often. Less commonly you'll also encounter straight fours (4-) and coxed pairs (2+).</figcaption>
+  <figcaption><strong>Figure 2: </strong>Rowing shell sizes &mdash; These are the primary boat classes you will see most often. Less commonly you'll also encounter straight fours (4-, with no coxswain) and coxed pairs (2+, with a coxswain).</figcaption>
 </figure>
 
 Next, we filter down our partitions to only those that are feasible given the equipment available at the boathouse.
@@ -145,7 +145,7 @@ The fitness function should really be the first thing we define when writing a g
 
 How does each generation create "offspring" lineups? A standard practice in genetic algorithms is to apply mutation and crossover to the selected parents to produce a new generation of individuals.
 
-In our rowing scenario, crossover isn't trivial because two lineups could have different numbers and sizes of boats. It will be left as an exercise for the reader. We'll see that mutation is sufficient to increase diversity and give selection something to act on over many generations. Let's define mutation as simply swapping the seats of two rowers.
+In our rowing scenario, crossover isn't trivial to implement because two lineups could have different numbers and sizes of boats. Through testing I found that mutation provides sufficient diversity for selection to act on and crossover isn't actually needed. Let's define mutation as simply swapping the seats of two rowers.
 
 ```python
 import random
@@ -170,9 +170,13 @@ A downside of this method is that once a partition of boat sizes "dies out" we c
 
 This is all we need to get things working! Each generation we can select the top k% of lineups by fitness and replace the rest of the population with mutated versions of the top k%.
 
+## Further improvements
+
+With the basic genetic algorithm in place, we can now explore some improvements to speed up convergence to a good solution.
+
 ### Early stopping
 
-The first improvement we can make to our working genetic algorithm is to halt optimization if the highest fitness score of any lineup in the population hasn't improved over several generations.
+The first improvement is to halt optimization if the highest fitness score of any lineup in the population hasn't improved over several generations.
 
 ```txt
 --------------------------------------
@@ -214,9 +218,9 @@ survival_rate = (init - base) * (decay ** generation) + base
 
 ### Fitness proportional selection
 
-As discussed in the <a href="#mutation-crossover">mutation & crossover</a> section, the naïve approach to selection is to simply take the top k% of lineups by fitness. In the literature, this is called <a href="https://en.wikipedia.org/wiki/Truncation_selection" target="_blank">truncation selection</a>.
+As briefly mentioned at the end of the <a href="#mutation-crossover">mutation & crossover</a> section, the most naïve selection approach is to retain the top k% of the population. In the literature, this is called <a href="https://en.wikipedia.org/wiki/Truncation_selection" target="_blank">truncation selection</a>.
 
-A more sophisticated approach, called <a href="https://en.wikipedia.org/wiki/Fitness_proportionate_selection" target="_blank">fitness proportionate selection</a> (aka roulette wheel selection), selects each individual with probability proportional to its fitness.
+A more sophisticated approach, called <a href="https://en.wikipedia.org/wiki/Fitness_proportionate_selection" target="_blank">fitness proportionate selection</a> (aka "roulette wheel selection"), selects each individual with probability proportional to its fitness.
 
 ```python
 import numpy as np
@@ -236,17 +240,19 @@ Using this method, even low fitness lineups have a chance at being selected, inc
 
 ### Restarts
 
-For our last trick, we're going to get simple again. Based on the randomly initialized population, we can get lucky or unlucky. Sometimes the set of lineups we start with just doesn't have the right building blocks to get to a good solution. To resolve this, we'll restart the entire genetic algorithm from scratch a few times<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup> and take the best solution we find.
+For our last improvement we'll implement a simple, but powerful trick. We start by noticing that the initial population is comprised of a small number of configurations samples from a large configuration space. Sometimes we get lucky and the initial population contains good building blocks for a strong solution. Other times we're not so lucky.
+
+To mitigate this, we'll restart the entire genetic algorithm from scratch a few times<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup> and take the best solution we find. This increases our chances of finding a good solution by searching the configuration space more thoroughly.
 
 ## Wrapping up
 
 We've discussed how to sample valid yet suboptimal lineups to seed a genetic algorithm as well as some tricks for making the genetic algorithm converge to a good solution quickly.
 
-Maybe as a follow-up it would be worth trying a SAT solver or integer programming, but this approach can generate lineups in under a minute, which is good enough to achieve our goal.
+Maybe as a follow-up it would be worth trying a SAT solver or integer programming, but this approach can generate lineups in under a minute, which is good enough to call the problem solved.
 
 ### Fitness function for real
 
-Rather than specify what makes lineups good when defining a fitness function, it's actually easier to penalize lineups for what makes them bad.
+We define our fitness function in terms of penalties, heuristics for undesirable lineup characteristics. We tune our genetic algorithm by updating the weights on each penalty. This can be done manually or with historical lineup data.
 
 - A coxed boat with an inexperienced coxswain
 - An un-coxed boat with an inexperienced bow seat
@@ -257,12 +263,12 @@ Rather than specify what makes lineups good when defining a fitness function, it
 - A rower that doesn't fit the weight class of their boat
 - A lineup that has many boats
 
-You could also consider these factors, although I have not implemented them either because they're difficult to quantify or simply not relevant for my rowing club.
+There are other obvious factors that I have not implemented either because they're difficult to quantify or simply not relevant for my rowing club.
 
-- Matching pairs of rowers in sweep boats who have similar stroke styles or power
+- Prioritizing lineups that have an upcoming race
+- Matching up pairs of rowers in sweep boats who have similar stroke styles or power
 - Balancing the weight distribution in the boat to avoid drag on the bow
 - Keeping boats either a single gender or mixed
-- Prioritizing lineups that have an upcoming race
 - Giving an athlete experience in a new position
 
 ## Footnotes
@@ -270,7 +276,7 @@ You could also consider these factors, although I have not implemented them eith
 <div id="footnotes">
   <div id="fn:fn1" class="footnote">
     <a class="fn" href="#fnref:fn1">[<span class="footnote-number">1</span>]</a>
-    <span>I really love this trick because it's similar to gradient ascent wrt the fitness function, but technically we're approximating a gradient with respect to the population distribution (in frequency space), not the fitness function itself. We take a natural gradient step in the steepest direction that respects our normalized probability distribution over individual fitness scores.</span>
+    <span>I really love this trick because it's similar to gradient ascent with respect to the fitness function, but technically we're approximating a gradient with respect to the population distribution (in frequency space), not the fitness function itself. We take a natural gradient step in the steepest direction that respects our normalized probability distribution over individual fitness scores.</span>
   </div>
 
   <div id="fn:fn2" class="footnote">
