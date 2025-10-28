@@ -3,7 +3,7 @@ date: 2023-12-28
 slug: visualizing-typogenetics
 title: Visualizing Typogenetics
 archived: false
-status: draft
+status: new
 ---
 
 If you found this post, you may be familiar with Douglas Hofstadter's <strong>Typogenetics</strong> as described in his book <i>Gödel, Escher, Bach: An Eternal Golden Braid</i> (1979). If not, that's great because in this post I want to give a step-by-step specification of Typogenetics and provide visual intuitions for how the system works.

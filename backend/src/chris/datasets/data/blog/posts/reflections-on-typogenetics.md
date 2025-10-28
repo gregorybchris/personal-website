@@ -3,7 +3,7 @@ date: 2024-01-07
 slug: reflections-on-typogenetics
 title: Reflections on Typogenetics
 archived: false
-status: draft
+status: new
 ---
 
 This post is a part 2 to [Visualizing Typogenetics](/blog/visualizing-typogenetics). If you're unfamiliar with Douglas Hofstadter's Typogenetics or need a refresher, I'd recommend you start there.
