@@ -72,6 +72,16 @@ export function BlogPage() {
                 }
               >
                 <td className="py-1.5 pr-6 text-balance decoration-blue-500/60 underline-offset-4 group-hover:underline">
+                  {/* colored dot that shows the status, green = done, yellow = in progress, red = new */}
+                  <div
+                    className={`mr-2 inline-block h-2 w-2 rounded-full ${
+                      preview.status === "published"
+                        ? "bg-green-400"
+                        : preview.status === "draft"
+                          ? "bg-yellow-400"
+                          : "bg-red-400"
+                    }`}
+                  ></div>
                   {preview.title}
                 </td>
                 <td className="py-1.5 text-right whitespace-nowrap text-black/50">
