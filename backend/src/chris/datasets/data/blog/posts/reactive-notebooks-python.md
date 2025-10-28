@@ -26,7 +26,7 @@ After a few years of being a full time Python developer, wishing I could use Obs
   <figcaption>Naturally, the app has a mascot named Avo.</figcaption>
 </figure>
 
-Over the next couple sections I'll go through some of the implementation decisions I made when building Cado.
+Over the next couple sections I'll go through four key features that made Cado possible.
 
 ### Python exec and locals
 
