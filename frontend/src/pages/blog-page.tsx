@@ -31,6 +31,7 @@ export function BlogPage() {
         <div className="cursor-default select-none">Blog</div>
         <button
           className="bg-sky hover:bg-royal/80 active:bg-royal/50 absolute top-1/2 left-full ml-1.5 flex -translate-y-1/2 cursor-pointer items-center justify-center rounded-full p-1.5 opacity-0 transition-all duration-200 group-hover:opacity-100"
+          title="Copy RSS feed link to clipboard"
           onClick={async (e) => {
             e.preventDefault();
             e.stopPropagation();
