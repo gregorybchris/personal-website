@@ -29,7 +29,7 @@ To recap, we have:
 
 ### Example lineup
 
-To help you visualize our end goal, here's an example of what coaches might come up with for a practice with 26 rowers. In capital letters are boat names and next to them are the names of the oars to use. `c` represents the coxswain, who steers the boat and helps keep the rowers in sync. And finally, as is tradition, the rowers count down from stroke (the highest number) to bow (lowest).
+To help you visualize our end goal, here's a hypothetical lineup that a coach might cook up for a practice with 26 rowers. In capital letters are boat names and next to them are the names of the oars to use. The `c` represents the coxswain, who steers the boat and helps keep the rowers in sync. And finally, as is tradition, the rowers are numbered from high to low and from stern to bow.
 
 ```txt
 THE OLD MAN HAROLD // Yellow Oars
@@ -69,7 +69,7 @@ GENTLE GEORGE // Pink Oars
 
 ## Generating candidate lineups
 
-Before we can crafting a lineup that is good, let's first solve the easier problem of generating a lineup that is theoretically rowable.
+Before we can crafting a lineup that is _good_, let's first solve the easier problem of generating a lineup that is _theoretically_ rowable.
 
 ### Partitioning
 
@@ -139,7 +139,7 @@ We're going to solve this with a genetic algorithm. The basic idea is to maintai
 
 ### Fitness function
 
-The fitness function should really be the first thing we define when writing a genetic algorithm. Unfortunately the fitness function for this application is really only understandable with some deeper background on rowing. For that reason, I recommend skipping over this section, which I have relocated to the <a href="#fitness-function-for-real">bottom of the post</a>. For now, the important thing to know is that we can take a candidate lineup and compute a scalar value representing how preferable it is.
+The fitness function should really be the first thing we define when writing a genetic algorithm. Unfortunately the fitness function for this application is really only understandable with some deeper background on rowing. For that reason, I recommend skipping over this section, which I have relocated to the <a href="#postscript-fitness-function-for-real">bottom of the post</a>. For now, the important thing to know is that we can take a candidate lineup and compute a scalar value representing how preferable it is.
 
 ### Mutation & crossover
 
@@ -250,7 +250,9 @@ We've discussed how to sample valid yet suboptimal lineups to seed a genetic alg
 
 Maybe as a follow-up it would be worth trying a SAT solver or integer programming, but this approach can generate lineups in under a minute, which is good enough to call the problem solved.
 
-### Fitness function for real
+### Postscript: fitness function for real
+
+This part may be of interest to readers more familiar with rowing.
 
 We define our fitness function in terms of penalties, heuristics for undesirable lineup characteristics. We tune our genetic algorithm by updating the weights on each penalty. This can be done manually or with historical lineup data.
 
