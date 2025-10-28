@@ -78,6 +78,8 @@ The naïve, brute force approach is a simple tree traversal -- select a vertex a
 
 > You may notice that the order in which vertices are contracted matters, so the number of possible contraction sequences grows exponentially with the number of vertices.
 
+If you're itching for the deep learning, you may skip ahead at your own risk to the <a href="#deep-learning-approach">part about graph neural networks</a>.
+
 ## Ordering heuristics
 
 The brute force approach is way too slow, so let's come up with some tricks to speed up this solver a bit.
