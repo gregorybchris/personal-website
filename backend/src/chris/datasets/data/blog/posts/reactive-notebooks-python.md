@@ -73,9 +73,14 @@ This allows us to execute a cell and capture its output, errors, and any variabl
 
 ### Enforcing the DAG
 
-Next, we need a way to ensure the notebook stays in a reproducible state. We enforce that the dependencies between cells form a directed acyclic graph (DAG) and that inputs and outputs of cells are well-defined.
+Next, we need a way to check whether a given update to the notebook would put it in a non-reproducible state. If we can build a directed acyclic graph (DAG) of cell dependencies, then we know the notebook is valid -- there are no cycles that would make ordering the notebook impossible.
 
-Our cell model is pretty simple -- Each cell has a unique ID, a list of input variables, and a single output variable.
+<figure id="figure1">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/dag.png?cache=1" width="280">
+  <figcaption><strong>Figure 1: </strong>An example of a directed acyclic graph representing cell dependencies. Running the cells in order from 1 to 7 ensures dependencies are run before they are needed.</figcaption>
+</figure>
+
+Before we get to cycle detection, we need to build a graph of cell dependencies. Each cell has a unique ID, a list of input variables, and a single output variable.
 
 ```python
 from dataclasses import dataclass
@@ -86,8 +91,6 @@ class Cell:
     input_vars: list[str]
     output_var: str
 ```
-
-Next, we can build a graph representation of the cell dependencies.
 
 ```python
 Graph = dict[str, list[str]]
@@ -138,93 +141,93 @@ def detect_cycles(graph: Graph) -> None:
         visit(node)
 ```
 
-With these pieces in place, whenever a user interacts with the notebook, we can use the dependency graph to determine how other cells should react. Maintaining this DAG is pretty valuable!<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup>
+With these pieces in place, whenever a user interacts with the notebook, we can use the dependency graph to figure out which cells need to be executed first and where outputs should be propagated. Maintaining this DAG is pretty valuable!<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup>
 
 ### Caching execution results
 
-If we built Cado with just the pieces we've discussed so far, then a single cell's execution would propagate updates through the whole notebook (all connected cells). So to avoid re-executing cells unnecessarily, we can cache the results of cell executions. A cell only needs to be re-executed if one of its inputs has changed since the last time it was run.
+If we built Cado with just the pieces we've discussed so far, then a single cell's execution would propagate updates through the whole notebook (all connected cells). So to avoid re-executing cells unnecessarily, we can cache the results of cell executions. A cell only needs to be re-executed if one of its inputs has changed since the last time it was run. Much more efficient!
 
-What if a cell is not a pure function of its inputs? For example, if a cell reads from a file on disk or makes a network request via some API, it may produce different outputs even if its inputs haven't changed. In these cases, the user can manually force a re-execution of the impure cell or mark the cell as impure, which will cause it to always re-execute when any of its descendants are run. The impure cell update only cascades if the new output differs from the cached output.
+But what if a cell is not a pure function of its inputs? For example, a cell might read from a file on disk or make a network request via some API. Then it could produce different outputs even if its inputs haven't changed. In these cases, the user can mark the cell as impure and it will always re-execute when any of its descendants are run and the update only cascades if the new output differs from the cached output.
 
-The cost of equality checks on cached outputs is the main source of complexity in Cado's implementation. For objects with imprecise equality semantics, more work is needed to let users define what equality means for each output variable.
+The cost of equality checks on cached outputs is the main source of complexity in Cado's implementation. For objects with imprecise equality semantics, letting users define what equality means for each output variable is an interesting UX challenge.
 
 ### Web interface
 
 Similarly to Jupyter, the Cado server also serves the user interface. By running the `cado up` command, a single Python process serves the <a href="https://fastapi.tiangolo.com" target="_blank">FastAPI</a> WebSocket API as well as the <a href="https://react.dev" target="_blank">React</a> frontend, which connects to the socket automatically.
 
-<figure id="figure1">
+<figure id="figure2">
   <video className="delayed-loop" autoplay muted playsinline>
     <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/parent-updates-propagate-to-children.mov?cache=1" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
-    <strong>Figure 1: </strong>
-    Updates propagate from cells to cells that depend on them.
-  </figcaption>
-</figure>
-
-<figure id="figure2">
-  <video className="delayed-loop" autoplay muted playsinline>
-    <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/children-use-cached-parent-outputs.mov?cache=1" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <figcaption>
     <strong>Figure 2: </strong>
-    Cells use cached outputs from dependencies rather than re-executing their dependencies.
+    Updates propagate from cells to cells that depend on them.
   </figcaption>
 </figure>
 
 <figure id="figure3">
   <video className="delayed-loop" autoplay muted playsinline>
-    <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/running-children-runs-uncached-parents.mov?cache=1" type="video/mp4">
+    <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/children-use-cached-parent-outputs.mov?cache=1" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
     <strong>Figure 3: </strong>
-      Running a cell triggers execution of all dependencies that don't have cached outputs.
+    Cells use cached outputs from dependencies rather than re-executing their dependencies.
   </figcaption>
 </figure>
 
 <figure id="figure4">
   <video className="delayed-loop" autoplay muted playsinline>
-  <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/cycle-detected-error.mov?cache=1" type="video/mp4">
+    <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/running-children-runs-uncached-parents.mov?cache=1" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
     <strong>Figure 4: </strong>
-    Cycles are automatically detected.
+    Running a cell triggers execution of all dependencies that don't have cached outputs.
   </figcaption>
 </figure>
 
 <figure id="figure5">
   <video className="delayed-loop" autoplay muted playsinline>
-  <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/unknown-input-name-error.mov?cache=1" type="video/mp4">
+  <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/cycle-detected-error.mov?cache=1" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
     <strong>Figure 5: </strong>
-    Cells cannot rely on input variables that aren't outputs of other cells.
+    Cycles are automatically detected.
   </figcaption>
 </figure>
 
 <figure id="figure6">
   <video className="delayed-loop" autoplay muted playsinline>
-  <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/duplicate-output-names-error.mov?cache=1" type="video/mp4">
+  <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/unknown-input-name-error.mov?cache=1" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
     <strong>Figure 6: </strong>
-    Output variables must be unique across all cells.
+    Cells cannot rely on input variables that aren't outputs of other cells.
   </figcaption>
 </figure>
 
 <figure id="figure7">
   <video className="delayed-loop" autoplay muted playsinline>
-  <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/drag-cells-to-reorder.mov?cache=1" type="video/mp4">
+  <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/duplicate-output-names-error.mov?cache=1" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
     <strong>Figure 7: </strong>
+    Output variables must be unique across all cells.
+  </figcaption>
+</figure>
+
+<figure id="figure8">
+  <video className="delayed-loop" autoplay muted playsinline>
+  <source src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/drag-cells-to-reorder.mov?cache=1" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption>
+    <strong>Figure 8: </strong>
     Cells are draggable (using <a href="https://www.framer.com/motion" target="_blank">Framer Motion</a>), something I always thought Jupyter notebooks should support.
   </figcaption>
 </figure>
@@ -240,7 +243,7 @@ The full source code for this project is available on <a href="https://github.co
 <div id="footnotes">
   <div id="fn:fn1" class="footnote">
     <a class="fn" href="#fnref:fn1">[<span class="footnote-number">1</span>]</a>
-    <span>I can hear the grumbling protestations of emacs/vim power users. Notebooks aren't for everyone, but if you're prototyping in Python and aren't horribly allergic to the computer mouse then they're worth a shot!</span>
+    <span>I can hear the grumbling protestations of emacs/vim power users. I get it, notebooks aren't for everyone. But if you're prototyping in Python and aren't horribly allergic to the computer mouse then they're worth a shot!</span>
   </div>
 </div>
 
