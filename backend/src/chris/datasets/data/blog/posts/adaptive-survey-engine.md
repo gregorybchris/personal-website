@@ -40,6 +40,8 @@ def entropy(a: np.ndarray) -> float:
     return float(h)
 ```
 
+For simplicity, these examples focus on categorical data. The calculation for entropy over a continuous attribute get a bit more involved<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup>.
+
 ### Information gain
 
 Next, we'll look at information gain, which measures how helpful it would be if the participant answered a particular question. Finding the question with the highest information gain is the key to building an adaptive survey.
@@ -91,3 +93,12 @@ Nobody likes to fill out long surveys, especially ones with obviously redundant 
 Survey length is especially important when the participant has a choice in whether to complete the survey. When filling out a medical intake form you may have no choice but to answer 100 questions, but for use cases like market research, product usability studies, job satisfaction surveys, or political polls, the length and precision of the survey can significantly affect the probability of survey completion. And low completion rate can lead to sample bias and decreased survey validity.
 
 The full source code for this project is available on <a href="https://github.com/gregorybchris/surv" target="_blank">GitHub</a>.
+
+## Footnotes
+
+<div id="footnotes">
+  <div id="fn:fn1" class="footnote">
+    <a class="fn" href="#fnref:fn1">[<span class="footnote-number">1</span>]</a>
+    <span>Entropy of a continuous features is calculated by iterating over each numeric value and calculating entropy of the target for all target values where the attribute is greater than the threshold.</span>
+  </div>
+</div>
