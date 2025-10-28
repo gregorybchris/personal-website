@@ -17,7 +17,7 @@ These algorithms use the concepts of <a href="https://en.wikipedia.org/wiki/Entr
 
 <figure id="figure1">
   <img src="https://storage.googleapis.com/cgme/blog/posts/adaptive-survey-engine/decision-tree.png?cache=2" width="500">
-  <figcaption><strong>Figure 1: </strong>Decision tree -- There are more total questions than the longest path through the decision tree.</figcaption>
+  <figcaption><strong>Figure 1: </strong>Decision tree &mdash; There are more total questions than the longest path through the decision tree.</figcaption>
 </figure>
 
 ### Entropy

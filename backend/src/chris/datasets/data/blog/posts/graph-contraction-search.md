@@ -14,7 +14,7 @@ In graph theory, an <strong>edge contraction</strong> is an operation where two 
   </video>
   <figcaption>
     <strong>Figure 1: </strong>
-    Edge contraction -- The new vertex's neighbors are the union of the neighbors from the original two vertices.
+    Edge contraction &mdash; The new vertex's neighbors are the union of the neighbors from the original two vertices.
   </figcaption>
 </figure>
 
@@ -27,7 +27,7 @@ On colored graphs, another operation exists that we'll call a <strong>vertex con
   </video>
   <figcaption>
     <strong>Figure 2: </strong>
-    Vertex contraction -- The contacted vertex inherits neighbors from all adjacent vertices of the same color.
+    Vertex contraction &mdash; The contacted vertex inherits neighbors from all adjacent vertices of the same color.
   </figcaption>
 </figure>
 
@@ -40,7 +40,7 @@ Given a fully-connected colored graph, we can <strong>apply vertex contractions 
   </video>
   <figcaption>
     <strong>Figure 3: </strong>
-    Iterated vertex contraction -- Each turn we select a vertex to change color and then apply a vertex contraction to it.
+    Iterated vertex contraction &mdash; Each turn we select a vertex to change color and then apply a vertex contraction to it.
   </figcaption>
 </figure>
 
@@ -55,7 +55,7 @@ Are vertex contractions useful to us? Sure they are! We can use them to solve a 
   </video>
   <figcaption>
     <strong>Figure 4: </strong>
-    Flood fill -- Each wave of flood filling pixels corresponds to a single vertex contraction in the corresponding graph.
+    Flood fill &mdash; Each wave of flood filling pixels corresponds to a single vertex contraction in the corresponding graph.
   </figcaption>
 </figure>
 
@@ -149,7 +149,7 @@ First, it helps to notice that a contraction is a pretty local operation. If you
   </video>
   <figcaption>
     <strong>Figure 5: </strong>
-    Contraction locality -- Edges crossing the boundary between second and third degree neighbors do not move. Vertices outside the boundary are unchanged by contraction.
+    Contraction locality &mdash; Edges crossing the boundary between second and third degree neighbors do not move. Vertices outside the boundary are unchanged by contraction.
   </figcaption>
 </figure>
 
@@ -193,7 +193,7 @@ In practice, including dropout and global max pooling improve training stability
 
 <figure id="figure6">
   <img src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/architecture.png?cache=5" width="340">
-  <figcaption><strong>Figure 6: </strong>Architecture -- The model has a simple architecture of two GCN layers and a linear layer, separated by a ReLU, dropout, and global max pooling.</figcaption>
+  <figcaption><strong>Figure 6: </strong>Architecture &mdash; The model has a simple architecture of two GCN layers and a linear layer, separated by a ReLU, dropout, and global max pooling.</figcaption>
 </figure>
 
 > Experiments showed global max pooling performed better than global mean pooling. GCNConv layers outperformed GATConv and SAGEConv.
@@ -204,7 +204,7 @@ We train with MSE loss and also calculate an accuracy score by rounding the mode
 
 <figure id="figure7">
   <img src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/loss-curve.png?cache=5" width="340">
-  <figcaption><strong>Figure 7: </strong>Training curve -- The model shows above random chance performance on predicting the number of contractions needed for a given graph.</figcaption>
+  <figcaption><strong>Figure 7: </strong>Training curve &mdash; The model shows above random chance performance on predicting the number of contractions needed for a given graph.</figcaption>
 </figure>
 
 While the model trains successfully, unfortunately model inference latency is high enough to negate the benefits of the learned heuristic. To be useful, the model would have to rule out unlikely subtrees faster than the cost of evaluating those candidates. Perhaps with larger graphs the deep learning heuristic might win out.
