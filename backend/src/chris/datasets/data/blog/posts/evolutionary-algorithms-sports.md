@@ -8,23 +8,28 @@ status: draft
 
 I expect most readers won't be intimately familiar with the sport of rowing. But maybe you have a vague idea of eight people in a boat, facing the same direction, long oars in hand, paddling in sync, racing against other boats? If you can picture that, then you've got the prerequisite understanding to follow along with this post.
 
+<figure id="figure1">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/evolutionary-algorithms-sports/rowing.jpg?cache=1" width="450">
+  <figcaption><strong>Figure 1: </strong>Eight rowers in a boat. (Bonus points if you can tell which little blob is me)</figcaption>
+</figure>
+
 A few years after moving to Seattle, I joined a <a href="https://lakeunioncrew.com" target="_blank">local rowing club</a>. And not long after that I saw a perfect opportunity to tarnish a pure and meditative outdoor activity with technology. There was a problem at the boathouse and I _needed_ to see if a computer could help solve it.
 
 ## Motivation
 
-Each evening at the rowing club, a group of 20 or so amateur rowers and one or two coaches show up to practice. In the first 5-10 minutes, the coaches scramble to figure out who will sit in which seats of which boats. It's a race against the clock as the last minute logistics eat into practice time.
+Let me quickly walk you through the setup. Each evening at the rowing club, a group of 20 or so amateur rowers and one or two coaches show up to practice. In the first 5-10 minutes, the coaches scramble to figure out who will sit in which seats of which boats. It's a race against the clock as the last minute logistics eat into practice time.
 
 It's not an easy job either, to figure out who should go in which boat. Many factors contribute to what makes a lineup fast, safe, and fun. Some positions in the boat require certain skills to execute safely, some rowers have preferences for the kind and size of boat they row in, and the speed of the boat can be drastically increased if you get the order of rowers just right.
 
 To recap, we have:
 
-1. a huge number of possible configurations to search through
+1. a huge number of possible boat configurations
 2. a pile of messy and interdependent constraints
-3. a very short amount of time to come up with a solution
+3. a very short amount of time to find a solution
 
 ### Example lineup
 
-Here's an example of what coaches might come up with for a practice with 26 rowers. In capital letters are boat names, next to them are the names of the oars to use, and `c` represents the coxswain, who steers the boat and helps keep the rowers in sync.
+To help you visualize our end goal, here's an example of what coaches might come up with for a practice with 26 rowers. In capital letters are boat names and next to them are the names of the oars to use. `c` represents the coxswain, who steers the boat and helps keep the rowers in sync. And finally, as is tradition, the rowers count down from stroke (the highest number) to bow (lowest).
 
 ```txt
 THE OLD MAN HAROLD // Yellow Oars
@@ -64,9 +69,11 @@ GENTLE GEORGE // Pink Oars
 
 ## Generating candidate lineups
 
+Before we can crafting a lineup that is good, let's first solve the easier problem of generating a lineup that is theoretically rowable.
+
 ### Partitioning
 
-The first step in generating potential lineups is to figure out all the different ways we can fit rowers into boats. The canonical form of this problem is a cousin of the <a href="https://en.wikipedia.org/wiki/Knapsack_problem" target="_blank">knapsack problem</a> called the <a href="https://en.wikipedia.org/wiki/Subset_sum_problem" target="_blank">subset sum problem</a>.
+First, let's figure out all the different ways we can fit rowers into boats. The canonical form of this problem is a cousin of the <a href="https://en.wikipedia.org/wiki/Knapsack_problem" target="_blank">knapsack problem</a> called the <a href="https://en.wikipedia.org/wiki/Subset_sum_problem" target="_blank">subset sum problem</a>.
 
 We use dynamic programming to efficiently figure out all the ways we can pack a a given number of rowers into boats of specified sizes.
 
@@ -92,7 +99,14 @@ def get_partitions(coxed_boat_sizes: list[int], n_rowers: int) -> list[Partition
 
 ### Filtering by equipment availability
 
-Not every partition is valid, however. Perhaps the club only has 5 doubles. That disqualifies the lineup where we take out 6 doubles, for example. Next, we filter down our partitions to only those that are feasible given the equipment available at the boathouse.
+Not every partition is valid, however. Perhaps the club only has 5 doubles. That disqualifies the lineup where we take out 6 doubles, for example.
+
+<figure id="figure2">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/evolutionary-algorithms-sports/abstract-rowing-shells.svg?cache=1" width="450">
+  <figcaption><strong>Figure 2: </strong>Rowing shell sizes &mdash; These are the primary boat classes you will see most often. Less commonly you'll also encounter straight fours (4-) and coxed pairs (2+).</figcaption>
+</figure>
+
+Next, we filter down our partitions to only those that are feasible given the equipment available at the boathouse.
 
 ```python
 def filter_partitions_by_availability(

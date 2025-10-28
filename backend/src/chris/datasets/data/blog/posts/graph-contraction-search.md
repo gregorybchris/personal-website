@@ -193,7 +193,7 @@ First we can embed the graph using a graph convolutional network (GCNConv from [
 In practice, including dropout and global max pooling improve training stability and lead to faster convergence. We use a ReLU non-linearity between GCN layers and a final linear layer maps the graph embedding to a single scalar output. This output is interpreted as an estimate of the minimum number of contractions needed to fully contract the graph.
 
 <figure id="figure6">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/architecture.png?cache=5" width="340">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/architecture.svg?cache=1" width="340">
   <figcaption><strong>Figure 6: </strong>Architecture &mdash; The model has a simple architecture of two GCN layers and a linear layer, separated by a ReLU, dropout, and global max pooling.</figcaption>
 </figure>
 
