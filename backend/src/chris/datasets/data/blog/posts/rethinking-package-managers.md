@@ -3,6 +3,7 @@ date: 2025-04-02
 slug: rethinking-package-managers
 title: Rethinking the Package Manager
 archived: false
+status: draft
 ---
 
 This post was inspired by a podcast episode I listened to recently, titled <a href="https://podcasts.apple.com/us/podcast/the-semver-rabbit-hole-with-predrag-gruevski/id1602572955?i=1000627543462" target="_blank">The SemVer Rabbit Hole</a> with guest <a href="https://predr.ag" target="_blank">Predrag Gruevski</a>. He developed and maintains the <a href="https://github.com/obi1kenobi/cargo-semver-checks" target="_blank">cargo-semver-checks</a> crate for the Rust programming language and has a lot of nuanced takes on the good and bad of semver.

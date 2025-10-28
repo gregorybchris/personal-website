@@ -3,6 +3,7 @@ date: 2024-08-24
 slug: adaptive-survey-engine
 title: Building an Adaptive Survey to Predict Everything
 archived: false
+status: draft
 ---
 
 Have you ever filled out a survey at the doctor's office and had to answer the same question multiple times? How about a survey where the answer should have been obvious based on your previous answers? A survey that was so long you just gave up halfway through?

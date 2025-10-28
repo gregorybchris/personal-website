@@ -1,5 +1,6 @@
 import logging
 from datetime import datetime
+from enum import StrEnum
 from pathlib import Path
 from typing import Any, Iterator, Optional
 from xml.dom import minidom
@@ -17,10 +18,17 @@ logger = logging.getLogger(__name__)
 router = APIRouter()
 
 
+class Status(StrEnum):
+    New = "new"
+    Draft = "draft"
+    Published = "published"
+
+
 class BlogPostPreview(BaseModel):
     title: str
     slug: str
     date: datetime
+    status: Status
     reading_time: Optional[int] = None
 
 
@@ -30,6 +38,7 @@ class BlogPost(BaseModel):
     date: datetime
     content: str
     archived: bool = Field(exclude=True)
+    status: Status
     reading_time: Optional[int] = None
 
     def __init__(self, **data: Any):
@@ -41,6 +50,7 @@ class BlogPost(BaseModel):
             title=self.title,
             slug=self.slug,
             date=self.date,
+            status=self.status,
             reading_time=self.reading_time,
         )
 

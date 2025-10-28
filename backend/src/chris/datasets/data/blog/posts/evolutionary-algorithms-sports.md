@@ -3,6 +3,7 @@ date: 2023-09-22
 slug: evolutionary-algorithms-sports
 title: Evolutionary Algorithms for Optimization in Sports
 archived: false
+status: draft
 ---
 
 I expect most readers won't be intimately familiar with the sport of rowing. But maybe you have a vague idea of eight people in a boat, facing the same direction, long oars in hand, paddling in sync, racing against other boats? If you can picture that, then you've got the prerequisite understanding to follow along with this post.

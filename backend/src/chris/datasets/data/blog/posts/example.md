@@ -3,6 +3,7 @@ date: 2026-01-01
 slug: example
 title: Example Blog Post
 archived: true
+status: new
 ---
 
 ## Example blog post

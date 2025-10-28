@@ -7,10 +7,13 @@ import "../styles/fonts.css";
 import { formatDate } from "../utilities/datetime-utilities";
 import { GET, makeQuery } from "../utilities/request-utilities";
 
+type Status = "new" | "draft" | "published";
+
 export interface BlogPostPreview {
   title: string;
   slug: string;
   date: string;
+  status: Status;
   reading_time: number | null;
 }
 
@@ -21,6 +24,7 @@ export function BlogPage() {
   useEffect(() => {
     const postsQuery = makeQuery("blog/posts");
     GET(postsQuery).then((queryResult) => {
+      console.log("Blog posts query result:", queryResult);
       setPreviews(queryResult);
     });
   }, []);

@@ -3,6 +3,7 @@ date: 2025-08-01
 slug: fermata-programming-language
 title: The World Needs Another Programming Language
 archived: false
+status: draft
 ---
 
 Okay, okay, the world <i>really</i> doesn't need another programming language. As you read on, I hope you'll appreciate the bit of self-aware humor.

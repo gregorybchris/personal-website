@@ -3,6 +3,7 @@ date: 2025-04-14
 slug: distrust-amazon-reviews
 title: Why You Shouldn't Trust Amazon Reviews
 archived: false
+status: draft
 ---
 
 I'll get to Amazon reviews in a minute, but first, if you'll allow me, a quick gripe about shopping online.

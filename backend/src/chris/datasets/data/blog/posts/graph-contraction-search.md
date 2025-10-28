@@ -3,6 +3,7 @@ date: 2022-04-18
 slug: graph-contraction-search
 title: Graph Neural Networks for Faster Search
 archived: false
+status: published
 ---
 
 In graph theory, an <strong>edge contraction</strong> is an operation where two adjacent vertices are merged into one and their shared edge is deleted.

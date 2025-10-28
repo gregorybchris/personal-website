@@ -3,6 +3,7 @@ date: 2023-03-25
 slug: reactive-notebooks-python
 title: Bringing Reactive Notebooks to Python
 archived: false
+status: published
 ---
 
 <a href="https://jupyter.org" target="_blank">Jupyter notebooks</a> are pretty neat.<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup> It takes only a couple clicks/keystrokes to create a new cell, write some code, and run it. You can skip all the steps of creating a new file, naming the file, writing an entrypoint/main function, and switching to a terminal window to run the code.
