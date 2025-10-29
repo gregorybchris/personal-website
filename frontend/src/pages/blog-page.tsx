@@ -1,6 +1,6 @@
 import { RssIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 import { Loader } from "../components/loader";
 import "../styles/fonts.css";
@@ -19,7 +19,9 @@ export interface BlogPostPreview {
 
 export function BlogPage() {
   const [previews, setPreviews] = useState<BlogPostPreview[]>([]);
-  let navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const isAdmin = searchParams.get("admin") === "true";
 
   useEffect(() => {
     const postsQuery = makeQuery("blog/posts");
@@ -57,38 +59,41 @@ export function BlogPage() {
       ) : (
         <table className="max-w-[1000px] table-auto border-collapse">
           <tbody className="w-full">
-            {previews.map((preview) => (
-              <tr
-                key={preview.slug}
-                className="group cursor-pointer align-top"
-                onClick={(event) => {
-                  event.preventDefault();
-                  navigate(`/blog/${preview.slug}`);
-                }}
-                title={
-                  preview.reading_time
-                    ? `${preview.reading_time} min read`
-                    : undefined
-                }
-              >
-                <td className="py-1.5 pr-6 text-balance decoration-blue-500/60 underline-offset-4 group-hover:underline">
-                  {/* colored dot that shows the status, green = done, yellow = in progress, red = new */}
-                  <div
-                    className={`mr-2 inline-block h-2 w-2 rounded-full ${
-                      preview.status === "published"
-                        ? "bg-green-400"
-                        : preview.status === "draft"
-                          ? "bg-yellow-400"
-                          : "bg-red-400"
-                    }`}
-                  ></div>
-                  {preview.title}
-                </td>
-                <td className="py-1.5 text-right whitespace-nowrap text-black/50">
-                  {formatDate(new Date(preview.date).toISOString())}
-                </td>
-              </tr>
-            ))}
+            {previews
+              .filter((preview) => isAdmin || preview.status === "published")
+              .map((preview) => (
+                <tr
+                  key={preview.slug}
+                  className="group cursor-pointer align-top"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    navigate(`/blog/${preview.slug}`);
+                  }}
+                  title={
+                    preview.reading_time
+                      ? `${preview.reading_time} min read`
+                      : undefined
+                  }
+                >
+                  <td className="py-1.5 pr-6 text-balance decoration-blue-500/60 underline-offset-4 group-hover:underline">
+                    {isAdmin && (
+                      <div
+                        className={`mr-2 inline-block h-2 w-2 rounded-full ${
+                          preview.status === "published"
+                            ? "bg-green-400"
+                            : preview.status === "draft"
+                              ? "bg-yellow-400"
+                              : "bg-red-400"
+                        }`}
+                      ></div>
+                    )}
+                    {preview.title}
+                  </td>
+                  <td className="py-1.5 text-right whitespace-nowrap text-black/50">
+                    {formatDate(new Date(preview.date).toISOString())}
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       )}

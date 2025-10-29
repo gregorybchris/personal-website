@@ -14,7 +14,7 @@ export function HiddenPage() {
       <div className="flex w-full flex-row flex-wrap justify-center gap-16 md:w-[80%]">
         <div className="flex flex-col">
           <SectionHeader>Blog</SectionHeader>
-          <PageLink to="/blog">Blog</PageLink>
+          <PageLink to="/blog?admin=true">Blog</PageLink>
         </div>
 
         <div className="flex flex-col">
