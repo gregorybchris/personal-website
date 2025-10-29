@@ -103,7 +103,7 @@ export function ProjectsTimeline({
       if (previousTime !== undefined) {
         dt += (currentTime - previousTime) / 1000;
         if (dt >= GAME_LOOP_SPF) {
-          updateCanvas(dt, currentTime);
+          updateCanvas();
           dt = 0;
         }
       }
@@ -116,14 +116,14 @@ export function ProjectsTimeline({
     animationFrameId.current = window.requestAnimationFrame(update);
   }
 
-  function updateCanvas(dt: number, currentTime: number) {
+  function updateCanvas() {
     if (!simRunning.current) {
       return;
     }
 
-    let containers = projects.map((project) => {
-      let selector = getProjectSelector(project);
-      let circle = d3.select(selector);
+    const containers = projects.map((project) => {
+      const selector = getProjectSelector(project);
+      const circle = d3.select(selector);
       return {
         circle,
         project,
@@ -162,14 +162,14 @@ export function ProjectsTimeline({
     // Apply forces
     containers.forEach((container) => {
       // Clip forces for stability
-      let velLim = SimConstants.VELOCITY_LIMIT;
-      let fy = clip(container.force.y, -velLim, velLim);
+      const velLim = SimConstants.VELOCITY_LIMIT;
+      const fy = clip(container.force.y, -velLim, velLim);
 
       // Update position
       if (Math.abs(fy) <= SimConstants.STILL_THRESHOLD) {
         return;
       }
-      let circle = container.circle;
+      const circle = container.circle;
       circle.attr("cy", +circle.attr("cy") + fy);
     });
   }
@@ -244,13 +244,13 @@ export function ProjectsTimeline({
         return xScale(getProjectTimestamp(p)) || 0;
       })
       .attr("cy", () => {
-        let rand = uniform();
+        const rand = uniform();
         const spread = 10;
         const yCenter = height / 2;
         return yCenter + spread * (rand * 2 - 1);
       })
       .attr("r", (p) => {
-        let r = p.rating;
+        const r = p.rating;
         return (r * r * 6) / 30 + 9;
       })
       .attr("opacity", 1)

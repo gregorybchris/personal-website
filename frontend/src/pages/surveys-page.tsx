@@ -6,6 +6,12 @@ import { GET, POST, makeQuery } from "../utilities/request-utilities";
 import { STORE } from "../utilities/storage-utilities";
 import { cn } from "../utilities/style-utilities";
 
+interface Likert {
+  low: string;
+  high: string;
+  size: number;
+}
+
 export interface Question {
   question_id: string;
   text: string;
@@ -13,7 +19,7 @@ export interface Question {
   required: boolean;
   multiselect: boolean;
   options: string[];
-  likert: any | null;
+  likert: Likert | null;
 }
 
 export interface Survey {
@@ -36,7 +42,7 @@ export class Response {
 
   static fromSurvey(survey: Survey) {
     const choices = survey.questions.map((question) =>
-      question.options.map((_) => false),
+      question.options.map(() => false),
     );
     return new Response(survey, choices);
   }
@@ -94,7 +100,6 @@ export function SurveysPage() {
   const [currentSurvey, setCurrentSurvey] = useState<Survey | null>(null);
   const [response, setResponse] = useState<Response | null>(null);
   const [feedback, setFeedback] = useState("");
-  const [updater, setUpdater] = useState(false);
 
   useEffect(() => {
     const surveysQuery = makeQuery("surveys");
@@ -109,6 +114,7 @@ export function SurveysPage() {
 
   useEffect(() => {
     updateCurrentSurvey();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [surveys]);
 
   function updateCurrentSurvey() {
@@ -172,7 +178,6 @@ export function SurveysPage() {
           setResponse={setResponse}
           feedback={feedback}
           setFeedback={setFeedback}
-          setUpdater={setUpdater}
           updateCurrentSurvey={updateCurrentSurvey}
         />
       )}
@@ -186,7 +191,6 @@ interface SurveyCardProps {
   feedback: string;
   setResponse: (response: Response | null) => void;
   setFeedback: (text: string) => void;
-  setUpdater: (uf: (prev: boolean) => boolean) => void;
   updateCurrentSurvey: () => void;
 }
 
@@ -196,7 +200,6 @@ function SurveyCard({
   feedback,
   setResponse,
   setFeedback,
-  setUpdater,
   updateCurrentSurvey,
 }: SurveyCardProps) {
   function onOptionClicked(question: number, option: number) {
@@ -205,7 +208,6 @@ function SurveyCard({
       response.updateOptionChoice(question, option, !chosen);
     }
     setResponse(response);
-    setUpdater((prev) => !prev);
   }
 
   async function onSurveySubmit(survey: Survey, response: Response) {

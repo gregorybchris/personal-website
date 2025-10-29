@@ -90,7 +90,7 @@ interface MemeCardProps {
 }
 
 export function MemeCard({ meme, updateQuery, className }: MemeCardProps) {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const isImage = ["gif", "png", "jpg"].includes(meme.format);
 

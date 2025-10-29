@@ -93,7 +93,7 @@ export function TiktokCard({
   updateQuery,
   className,
 }: TikTokCardProps) {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const creator = tiktok.creator;
 

@@ -106,7 +106,7 @@ export function RecipePage() {
                       )}
                       <span>
                         {ingredient.units || ""}{" "}
-                        {!!ingredient.notes ? ` (${ingredient.notes})` : ""}
+                        {ingredient.notes ? ` (${ingredient.notes})` : ""}
                       </span>
                     </div>
                   </div>

@@ -25,7 +25,7 @@ interface GraphData {
 
 export function FeedGraphPage() {
   const ref = useRef<SVGSVGElement>(null);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const postsQuery = makeQuery("feed/posts");
   GET(postsQuery).then((queryResult) => {
@@ -64,7 +64,7 @@ export function FeedGraphPage() {
     const nodes = [];
     const links = [];
 
-    let groups = posts
+    const groups = posts
       .map((post) => (post.areas.length === 0 ? "" : post.areas[0]))
       .filter((v) => v !== "");
     const uniqueGroups = Array.from(new Set(groups));
@@ -78,14 +78,14 @@ export function FeedGraphPage() {
       if (posts[i].areas.length === 0) {
         continue;
       }
-      let group = posts[i].areas[0];
+      const group = posts[i].areas[0];
       nodes.push({
         id: posts[i].slug,
         group: group === null ? 0 : +scale(group),
         post: posts[i],
       });
       for (let j = i + 1; j < posts.length; j++) {
-        let numSharedAreas = posts[i].areas[0] === posts[j].areas[0] ? 1 : 0;
+        const numSharedAreas = posts[i].areas[0] === posts[j].areas[0] ? 1 : 0;
         if (numSharedAreas === 0) {
           continue;
         }
@@ -152,7 +152,7 @@ export function FeedGraphPage() {
         if (length === null) {
           return 6;
         } else {
-          const [hours, minutes, _] = length
+          const [hours, minutes] = length
             .split(":")
             .map((v) => parseInt(v, 10));
           const totalMinutes = hours * 60 + minutes;

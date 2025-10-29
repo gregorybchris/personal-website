@@ -64,9 +64,9 @@ function NavPageLink(props: NavPageLinkProps) {
 
 function withRouter(Component: any) {
   function ComponentWithRouterProp(props: any) {
-    let location = useLocation();
-    let navigate = useNavigate();
-    let params = useParams();
+    const location = useLocation();
+    const navigate = useNavigate();
+    const params = useParams();
     return <Component {...props} router={{ location, navigate, params }} />;
   }
 

@@ -93,7 +93,7 @@ export function InstagramCard({
   updateQuery,
   className,
 }: InstagramCardProps) {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const creator = instagram.creator;
 

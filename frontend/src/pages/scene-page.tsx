@@ -104,7 +104,7 @@ function Side({
   });
 
   return (
-    // @ts-ignore
+    // @ts-expect-error - MeshPortalMaterial attach prop type issue
     <MeshPortalMaterial attach={`material-${index}`}>
       {/** Everything in here is inside the portal and isolated from the canvas */}
       <ambientLight intensity={0.5} />

@@ -305,7 +305,7 @@ function RouteMap({ routeData }: RouteMapProps) {
   }, [routeData]);
 
   function updateMap() {
-    let points = routeData.points;
+    const points = routeData.points;
     map.fitBounds(points.map((p) => [p.latitude, p.longitude]));
   }
 

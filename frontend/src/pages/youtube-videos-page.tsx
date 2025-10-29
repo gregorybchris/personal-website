@@ -93,7 +93,7 @@ export function YouTubeVideoCard({
   updateQuery,
   className,
 }: YouTubeVideoCardProps) {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const creator = youtubeVideo.creator;
 
