@@ -79,6 +79,7 @@ export function ProjectsTimeline({
         .classed("deselected", false)
         .classed("selected", true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentProject, searchText, projects]);
 
   useEffect(() => {
@@ -91,6 +92,7 @@ export function ProjectsTimeline({
         cancelAnimationFrame(animationFrameId.current);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [projects]);
 
   function startSim() {
@@ -222,8 +224,8 @@ export function ProjectsTimeline({
     const getProjectTimestamp = (project: Project): number =>
       new Date(project.date).getTime();
 
-    const minTimestamp: any = d3.min(projects, getProjectTimestamp);
-    const maxTimestamp: any = d3.max(projects, getProjectTimestamp);
+    const minTimestamp = d3.min(projects, getProjectTimestamp) as number;
+    const maxTimestamp = d3.max(projects, getProjectTimestamp) as number;
     const xLeft = GraphicsConstants.PADDING_X;
     const xRight = width - GraphicsConstants.PADDING_X;
     const xScale = d3

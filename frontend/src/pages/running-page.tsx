@@ -76,6 +76,7 @@ export function RunningPage() {
     };
 
     selectInitialRoute();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug, routes]);
 
   async function onSelectRoute(route: RunningRoute, nav: boolean = true) {
@@ -302,6 +303,7 @@ function RouteMap({ routeData }: RouteMapProps) {
 
   useEffect(() => {
     updateMap();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [routeData]);
 
   function updateMap() {

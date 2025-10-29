@@ -196,6 +196,7 @@ function FeedPostCard({
 
     const fullLink = videoTime ? `${postLink}&t=${videoTime}` : postLink;
     setContentLink(fullLink);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function onThumbnailLoad(event: React.SyntheticEvent<HTMLImageElement>) {

@@ -3,7 +3,7 @@ import { Button } from "../components/button";
 import { TextArea } from "../components/text-area";
 import { range } from "../utilities/array-utilities";
 import { GET, POST, makeQuery } from "../utilities/request-utilities";
-import { STORE } from "../utilities/storage-utilities";
+import { Store } from "../utilities/storage-utilities";
 import { cn } from "../utilities/style-utilities";
 
 interface Likert {
@@ -100,16 +100,18 @@ export function SurveysPage() {
   const [currentSurvey, setCurrentSurvey] = useState<Survey | null>(null);
   const [response, setResponse] = useState<Response | null>(null);
   const [feedback, setFeedback] = useState("");
+  const store = new Store<string[]>();
 
   useEffect(() => {
     const surveysQuery = makeQuery("surveys");
     GET(surveysQuery).then((surveys: Survey[]) => {
       surveys = surveys.filter((survey) => !survey.archived);
       setSurveys(surveys);
-      if (!STORE.contains(COMPLETED_KEY)) {
-        STORE.set(COMPLETED_KEY, []);
+      if (!store.contains(COMPLETED_KEY)) {
+        store.set(COMPLETED_KEY, []);
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -119,7 +121,7 @@ export function SurveysPage() {
 
   function updateCurrentSurvey() {
     if (surveys.length > 0) {
-      const completedIds: Array<string> = STORE.get(COMPLETED_KEY);
+      const completedIds: Array<string> = store.get(COMPLETED_KEY) || [];
       let current: Survey | null = null;
       for (let i = 0; i < surveys.length; i++) {
         if (!completedIds.includes(surveys[i].survey_id)) {
@@ -140,7 +142,7 @@ export function SurveysPage() {
   }
 
   function onClearCompletedCache() {
-    STORE.set(COMPLETED_KEY, [], true);
+    store.set(COMPLETED_KEY, [], true);
     updateCurrentSurvey();
   }
 
@@ -179,6 +181,7 @@ export function SurveysPage() {
           feedback={feedback}
           setFeedback={setFeedback}
           updateCurrentSurvey={updateCurrentSurvey}
+          store={store}
         />
       )}
     </div>
@@ -192,6 +195,7 @@ interface SurveyCardProps {
   setResponse: (response: Response | null) => void;
   setFeedback: (text: string) => void;
   updateCurrentSurvey: () => void;
+  store: Store<string[]>;
 }
 
 function SurveyCard({
@@ -201,6 +205,7 @@ function SurveyCard({
   setResponse,
   setFeedback,
   updateCurrentSurvey,
+  store,
 }: SurveyCardProps) {
   function onOptionClicked(question: number, option: number) {
     if (response !== null) {
@@ -219,9 +224,9 @@ function SurveyCard({
         feedback,
       };
       await POST(postSurveyQuery, postBody);
-      const completedIds = STORE.get(COMPLETED_KEY);
+      const completedIds = store.get(COMPLETED_KEY) || [];
       completedIds.push(surveyId);
-      STORE.set(COMPLETED_KEY, completedIds, true);
+      store.set(COMPLETED_KEY, completedIds, true);
       updateCurrentSurvey();
     }
   }

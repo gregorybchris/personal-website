@@ -1,19 +1,19 @@
-class Store {
+export class Store<T> {
   static STORE_NAME = "chrisgregory";
   static STORAGE = window.sessionStorage;
 
-  store: { [key: string]: any };
+  store: { [key: string]: T };
 
   constructor() {
     this.store = {};
     this.load();
   }
 
-  get(key: string): any {
+  get(key: string): T | undefined {
     return this.store[key];
   }
 
-  set(key: string, value: any, save: boolean = false) {
+  set(key: string, value: T, save: boolean = false) {
     this.store[key] = value;
     if (save) {
       this.save();
@@ -42,7 +42,3 @@ class Store {
     Store.STORAGE.removeItem(Store.STORE_NAME);
   }
 }
-
-const STORE = new Store();
-
-export { STORE };

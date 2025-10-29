@@ -32,6 +32,7 @@ export function useMetaTags(options: MetaTagsOptions) {
       document.title = "Chris Gregory";
       updateMetaTag("og:title", "Chris Gregory");
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [options.title]);
 }
 
