@@ -18,7 +18,7 @@ These algorithms use the concepts of <a href="https://en.wikipedia.org/wiki/Entr
 
 <figure id="figure1">
   <img src="https://storage.googleapis.com/cgme/blog/posts/adaptive-survey-engine/decision-tree.svg?cache=1" width="500">
-  <figcaption><strong>Figure 1: </strong>Decision tree &mdash; There are more total questions than the longest path through the decision tree.</figcaption>
+  <figcaption><strong>Figure 1: </strong>Decision tree &mdash; Medical triage is like a tree where each question narrows down the possible diagnoses until we can predict the urgency of treatment.</figcaption>
 </figure>
 
 ### Entropy
@@ -72,26 +72,23 @@ def information_gain(attribute: np.ndarray, target: np.ndarray) -> float:
 
 ### Selecting a question
 
-We loop over all attributes, compute the information gain for each, select the attribute with the highest information gain, and present that question to the user. We repeat that process until attributes stop being informative (based on a threshold) or we run out of attributes.
+We loop over all attributes, compute the information gain for each, select the attribute with the highest information gain, and present that question to the survey taker. We repeat that process until attributes stop being informative (based on a threshold) or we run out of attributes.
+
+And that's all of it! There's a bit of math to it, but at the end of the day, not so complicated.
 
 ## Predicting everything
 
+Ok, now let's get ambitious. Let's get _extreme_. What could we do if we had a survey where survey taker effort doesn't scale with the number of questions?
+
 The paradox of the adaptive survey is that while each participant spends less time taking the survey, you are able to include more total questions in the survey, including questions that do not apply to a large portion of the population, but are highly informative for some individuals.
 
-Imagine taking the adaptive survey to the extreme and including thousands or even millions of questions. With enough questions and participants you could create a survey that figures out the right questions to predict a huge range of target variables.
+With enough questions and participants you could create a survey that figures out the right questions to predict a huge range of target variables. It's like a GWAS (<a href="https://en.wikipedia.org/wiki/Genome-wide_association_study" target="_blank">Genome-Wide Association Study</a>) for psychology, something that must already exist in some form<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup>.
 
-> GWAS (Genome-Wide Association Studies) are studies that look for associations between genetic variants and traits in large populations.
+The vast majority of our questions don't even have to be good, but now and then we may uncover an unlikely gem of a question that is surprisingly predictive of some outcome. Maybe that outcome is something fun like "Which <a href="https://en.wikipedia.org/wiki/Friends" target="_blank">Friends</a> character are you?" Or maybe it's something more scientific, "What is your <a href="https://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">OCEAN</a> personality type?" I personally really like the <a href="https://www.nytimes.com/interactive/2014/upshot/dialect-quiz-map.html" target="_blank">New York Times Dialect Quiz</a> that predicts where in the US you are from based on how you speak.
 
-- We can p-hack our way to interesting psychological results.
-- Which Friends character are you?
-- OCEAN personality test
-- Myers-Briggs personality test
+Of course, there is a huge amount of <a href="https://en.wikipedia.org/wiki/Data_dredging" target="_blank">p-hacking</a> going on here, so any interesting correlations we find would need to be validated with a separate study, but the adaptive survey could be a powerful tool for hypothesis generation.
 
 ## Wrapping up
-
-Nobody likes to fill out long surveys, especially ones with obviously redundant questions. Surv is designed to keep participants engaged by minimizing the number of questions while maximizing the information gained from each question.
-
-Survey length is especially important when the participant has a choice in whether to complete the survey. When filling out a medical intake form you may have no choice but to answer 100 questions, but for use cases like market research, product usability studies, job satisfaction surveys, or political polls, the length and precision of the survey can significantly affect the probability of survey completion. And low completion rate can lead to sample bias and decreased survey validity.
 
 The full source code for this project is available on <a href="https://github.com/gregorybchris/surv" target="_blank">GitHub</a>.
 
@@ -101,5 +98,11 @@ The full source code for this project is available on <a href="https://github.co
   <div id="fn:fn1" class="footnote">
     <a class="fn" href="#fnref:fn1">[<span class="footnote-number">1</span>]</a>
     <span>The C4.5 algorithm extends the ID3 algorithm to handle continuous features. Entropy of a continuous features is calculated by iterating over each numeric value and calculating entropy of the target for all target values where the attribute is greater than the threshold.</span>
+  </div>
+
+  <div id="fn:fn2" class="footnote">
+    <a class="fn" href="#fnref:fn2">[<span class="footnote-number">2</span>]</a>
+    <span>A brief literature review turned up <a href="https://www.icpsr.umich.edu/web/ICPSR/series/203" target="_blank">MIDUS</a>, <a href="https://www.europeansocialsurvey.org/findings/europeans-wellbeing/drivers-wellbeing" target="_blank">ESS</a>, and <a href="https://openpsychometrics.org/_rawdata/" target="_blank">OpenPsychometrics</a>.</span>
+
   </div>
 </div>
