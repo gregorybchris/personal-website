@@ -100,6 +100,8 @@ export function SurveysPage() {
   const [currentSurvey, setCurrentSurvey] = useState<Survey | null>(null);
   const [response, setResponse] = useState<Response | null>(null);
   const [feedback, setFeedback] = useState("");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [updater, setUpdater] = useState(false);
   const store = new Store<string[]>();
 
   useEffect(() => {
@@ -180,6 +182,7 @@ export function SurveysPage() {
           setResponse={setResponse}
           feedback={feedback}
           setFeedback={setFeedback}
+          setUpdater={setUpdater}
           updateCurrentSurvey={updateCurrentSurvey}
           store={store}
         />
@@ -194,6 +197,7 @@ interface SurveyCardProps {
   feedback: string;
   setResponse: (response: Response | null) => void;
   setFeedback: (text: string) => void;
+  setUpdater: (updater: (prev: boolean) => boolean) => void;
   updateCurrentSurvey: () => void;
   store: Store<string[]>;
 }
@@ -204,6 +208,7 @@ function SurveyCard({
   feedback,
   setResponse,
   setFeedback,
+  setUpdater,
   updateCurrentSurvey,
   store,
 }: SurveyCardProps) {
@@ -213,6 +218,7 @@ function SurveyCard({
       response.updateOptionChoice(question, option, !chosen);
     }
     setResponse(response);
+    setUpdater((prev) => !prev);
   }
 
   async function onSurveySubmit(survey: Survey, response: Response) {
