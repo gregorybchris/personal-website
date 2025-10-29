@@ -73,22 +73,23 @@ export class Response {
     return this.choices[questionNumber][optionNumber];
   }
 
-  withOptionChoice(
+  resetQuestion(questionNumber: number) {
+    const numOptions = this.survey.questions[questionNumber].options.length;
+    for (let optionNumber = 0; optionNumber < numOptions; optionNumber++) {
+      this.choices[questionNumber][optionNumber] = false;
+    }
+  }
+
+  updateOptionChoice(
     questionNumber: number,
     optionNumber: number,
     choice: boolean = true,
-  ): Response {
-    // Deep copy the choices array
-    const newChoices = this.choices.map((row) => [...row]);
-
+  ) {
     const multiselect = this.survey.questions[questionNumber].multiselect;
     if (!multiselect) {
-      // Reset all options in this question
-      newChoices[questionNumber] = newChoices[questionNumber].map(() => false);
+      this.resetQuestion(questionNumber);
     }
-
-    newChoices[questionNumber][optionNumber] = choice;
-    return new Response(this.survey, newChoices);
+    this.choices[questionNumber][optionNumber] = choice;
   }
 }
 
@@ -99,6 +100,8 @@ export function SurveysPage() {
   const [currentSurvey, setCurrentSurvey] = useState<Survey | null>(null);
   const [response, setResponse] = useState<Response | null>(null);
   const [feedback, setFeedback] = useState("");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [updater, setUpdater] = useState(false);
   const store = new Store<string[]>();
 
   useEffect(() => {
@@ -179,6 +182,7 @@ export function SurveysPage() {
           setResponse={setResponse}
           feedback={feedback}
           setFeedback={setFeedback}
+          setUpdater={setUpdater}
           updateCurrentSurvey={updateCurrentSurvey}
           store={store}
         />
@@ -193,6 +197,7 @@ interface SurveyCardProps {
   feedback: string;
   setResponse: (response: Response | null) => void;
   setFeedback: (text: string) => void;
+  setUpdater: (updater: (prev: boolean) => boolean) => void;
   updateCurrentSurvey: () => void;
   store: Store<string[]>;
 }
@@ -203,15 +208,17 @@ function SurveyCard({
   feedback,
   setResponse,
   setFeedback,
+  setUpdater,
   updateCurrentSurvey,
   store,
 }: SurveyCardProps) {
   function onOptionClicked(question: number, option: number) {
-    setResponse((prevResponse) => {
-      if (!prevResponse) return null;
-      const chosen = prevResponse.isOptionChosen(question, option);
-      return prevResponse.withOptionChoice(question, option, !chosen);
-    });
+    if (response !== null) {
+      const chosen = response.isOptionChosen(question, option);
+      response.updateOptionChoice(question, option, !chosen);
+    }
+    setResponse(response);
+    setUpdater((prev) => !prev);
   }
 
   async function onSurveySubmit(survey: Survey, response: Response) {
