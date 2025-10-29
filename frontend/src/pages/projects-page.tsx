@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { ErrorMessage } from "../components/error-message";
 import { Loader } from "../components/loader";
 import { PageTitle } from "../components/page-title";
 import { ProjectModal } from "../components/project-modal";
@@ -54,7 +55,7 @@ export function ProjectsPage() {
       })
       .catch((err) => {
         console.error("Failed to load projects:", err);
-        setError("Failed to load projects. Please try again later.");
+        setError("Failed to load projects");
       });
   }, [slug]);
 
@@ -97,7 +98,7 @@ export function ProjectsPage() {
       </div>
 
       {error ? (
-        <div className="mt-8 text-center text-red-600">{error}</div>
+        <ErrorMessage message={error} className="mt-8" />
       ) : projects.length === 0 ? (
         <Loader className="mt-8">Loading projects...</Loader>
       ) : (

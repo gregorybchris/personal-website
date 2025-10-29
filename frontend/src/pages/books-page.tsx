@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { ErrorMessage } from "../components/error-message";
 import { Loader } from "../components/loader";
 import { PageTitle } from "../components/page-title";
 import { Tag } from "../components/tag";
 import { GET, makeQuery } from "../utilities/request-utilities";
+import { cn } from "../utilities/style-utilities";
 
 export interface Book {
   isbn: string;
@@ -55,7 +57,7 @@ export function BooksPage() {
       })
       .catch((err) => {
         console.error("Failed to load books:", err);
-        setError("Failed to load books. Please try again later.");
+        setError("Failed to load books");
       });
   }, []);
 
@@ -79,7 +81,7 @@ export function BooksPage() {
       </div>
 
       {error ? (
-        <div className="text-center text-red-600">{error}</div>
+        <ErrorMessage message={error} />
       ) : !imagesLoaded ? (
         <Loader>Loading books...</Loader>
       ) : (
@@ -142,11 +144,12 @@ function BookCard({ book, selectedTags, onTagClick, index }: BookCardProps) {
 
   return (
     <div
-      className={`flex flex-col items-center gap-2 transition-all duration-300 ${
+      className={cn(
+        "flex flex-col items-center gap-2 transition-all duration-300",
         isVisible
           ? "translate-y-0 opacity-100"
-          : "translate-y-[-20px] opacity-0"
-      }`}
+          : "translate-y-[-20px] opacity-0",
+      )}
     >
       <a href={book.goodreads_link} target="_blank">
         <img

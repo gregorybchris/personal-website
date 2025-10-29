@@ -2,10 +2,12 @@ import { RssIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
+import { ErrorMessage } from "../components/error-message";
 import { Loader } from "../components/loader";
 import "../styles/fonts.css";
 import { formatDate } from "../utilities/datetime-utilities";
 import { GET, makeQuery } from "../utilities/request-utilities";
+import { cn } from "../utilities/style-utilities";
 
 type Status = "new" | "draft" | "published";
 
@@ -34,7 +36,7 @@ export function BlogPage() {
       })
       .catch((err) => {
         console.error("Failed to load blog posts:", err);
-        setError("Failed to load blog posts. Please try again later.");
+        setError("Failed to load blog posts");
       });
   }, []);
 
@@ -62,7 +64,7 @@ export function BlogPage() {
       </div>
 
       {error ? (
-        <div className="text-center text-red-600">{error}</div>
+        <ErrorMessage message={error} />
       ) : previews.length === 0 ? (
         <Loader>Loading posts...</Loader>
       ) : (
@@ -87,13 +89,12 @@ export function BlogPage() {
                   <td className="py-1.5 pr-6 text-balance decoration-blue-500/60 underline-offset-4 group-hover:underline">
                     {isAdmin && (
                       <div
-                        className={`mr-2 inline-block h-2 w-2 rounded-full ${
-                          preview.status === "published"
-                            ? "bg-green-400"
-                            : preview.status === "draft"
-                              ? "bg-yellow-400"
-                              : "bg-red-400"
-                        }`}
+                        className={cn(
+                          "mr-2 inline-block h-2 w-2 rounded-full",
+                          preview.status === "published" && "bg-green-400",
+                          preview.status === "draft" && "bg-yellow-400",
+                          preview.status === "new" && "bg-red-400",
+                        )}
                       ></div>
                     )}
                     {preview.title}

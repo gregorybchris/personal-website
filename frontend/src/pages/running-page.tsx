@@ -2,6 +2,7 @@ import { ListMagnifyingGlassIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { MapContainer, Polyline, TileLayer, useMap } from "react-leaflet";
 import { useNavigate, useParams } from "react-router-dom";
+import { ErrorMessage } from "../components/error-message";
 import { Loader } from "../components/loader";
 import { PageTitle } from "../components/page-title";
 import "../styles/running.css";
@@ -58,7 +59,7 @@ export function RunningPage() {
       })
       .catch((err) => {
         console.error("Failed to load running routes:", err);
-        setError("Failed to load running routes. Please try again later.");
+        setError("Failed to load running routes");
       });
   }, []);
 
@@ -118,7 +119,7 @@ export function RunningPage() {
       </div>
 
       {error ? (
-        <div className="text-center text-red-600">{error}</div>
+        <ErrorMessage message={error} />
       ) : currentRoute && currentRouteData ? (
         <div className="flex w-full flex-row flex-wrap justify-center gap-5">
           <RouteMapCard
