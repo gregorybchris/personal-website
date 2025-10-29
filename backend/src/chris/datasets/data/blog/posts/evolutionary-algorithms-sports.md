@@ -129,11 +129,11 @@ If we assume we have 26 rowers at practice and the boathouse has 5 doubles, 4 qu
 - 2 doubles, 1 quad, 2 eights
 - 2 quads, 2 eights
 
-## Genetic algorithm
+## Evolution
 
 We now have a method for generating candidate lineups that are theoretically rowable, but as discussed earlier, we'd really like the lineups to adhere to our constraints and be fast, safe, and fun. If you read the title of this post, you can guess what's coming next.
 
-We're going to solve this with a genetic algorithm. The basic idea is to maintain a "population" of candidate lineups. In the world of genetic algorithms, each lineup would be called an "agent" or "individual". We'll construct a function that measures the "fitness" of each lineup, select only the fittest individuals to persist into the next generation of the population, and repeat this process until the fitness of lineups stops improving.
+We're going to solve this with a **genetic algorithm**. The basic idea is to maintain a "population" of candidate lineups. In the world of genetic algorithms, each lineup would be called an "agent" or "individual". We'll construct a function that measures the "fitness" of each lineup, select only the fittest individuals to persist into the next generation of the population, and repeat this process until the fitness of lineups stops improving.
 
 > As a brief implementation detail, we initialize our population of lineups by randomly selecting a viable partition and then randomly shuffling the rowers across the boats.
 
@@ -143,7 +143,7 @@ The fitness function should really be the first thing we define when writing a g
 
 ### Mutation & crossover
 
-How does each generation create "offspring" lineups? A standard practice in genetic algorithms is to apply mutation and crossover to the selected parents to produce a new generation of individuals.
+How does each generation create "offspring" lineups? A standard practice in genetic algorithms is to apply **mutation** and **crossover** to the selected parents to produce a new generation of individuals.
 
 In our rowing scenario, crossover isn't trivial to implement because two lineups could have different numbers and sizes of boats. Through testing I found that mutation provides sufficient diversity for selection to act on and crossover isn't actually needed. Let's define mutation as simply swapping the seats of two rowers.
 
