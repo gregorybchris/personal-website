@@ -37,7 +37,7 @@ export function FeedPage() {
   const [posts, setPosts] = useState<FeedPost[]>([]);
   const [searchText, setSearchText] = useState<string>("");
   const { slug } = useParams();
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const selectedTags = getSelectedTags(searchText);
 
@@ -198,8 +198,8 @@ function FeedPostCard({
     setContentLink(fullLink);
   }, []);
 
-  function onThumbnailLoad(event: any) {
-    const img = event.target;
+  function onThumbnailLoad(event: React.SyntheticEvent<HTMLImageElement>) {
+    const img = event.target as HTMLImageElement;
     if (img.naturalHeight < 100) {
       const newSrc = img.src.replace("maxresdefault", "0");
       setThumbnailUrl(newSrc);
@@ -210,33 +210,19 @@ function FeedPostCard({
     const [hours, minutes, seconds] = length
       .split(":")
       .map((v) => parseInt(v, 10));
-    let formattedLength = "";
+
     if (hours === 0) {
-      if (minutes === 0) {
-        formattedLength = `${seconds}s`;
-      } else {
-        formattedLength = `${minutes}m`;
-      }
-    } else {
-      if (minutes === 0) {
-        formattedLength = `${hours}h`;
-      } else {
-        formattedLength = `${hours}h ${minutes}m`;
-      }
+      return minutes === 0 ? `${seconds}s` : `${minutes}m`;
     }
-    return formattedLength;
+    return minutes === 0 ? `${hours}h` : `${hours}h ${minutes}m`;
   }
 
-  let title = post.title;
-  if (post.speaker) {
-    title = `${post.speaker}: ${title}`;
-  }
+  const title = post.speaker ? `${post.speaker}: ${post.title}` : post.title;
 
   const seriesName = post.series;
-  let seriesDetails = seriesName;
-  if (post.episode_number) {
-    seriesDetails = `${seriesDetails} (#${post.episode_number})`;
-  }
+  const seriesDetails = post.episode_number
+    ? `${seriesName} (#${post.episode_number})`
+    : seriesName;
 
   return (
     <div

@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Toaster } from "sonner";
 import { CommandBar } from "./components/command-bar";
+import { ErrorBoundary } from "./components/error-boundary";
 import { Nav } from "./components/nav";
 import { useRouteMetaTags } from "./hooks/use-meta-tags";
 import { ArchivePage } from "./pages/archive-page";
@@ -35,11 +36,13 @@ import { YouTubeVideosPage } from "./pages/youtube-videos-page";
 
 export function App() {
   return (
-    <div className="bg-parchment font-raleway">
-      <BrowserRouter>
-        <Layout />
-      </BrowserRouter>
-    </div>
+    <ErrorBoundary>
+      <div className="bg-parchment font-raleway">
+        <BrowserRouter>
+          <Layout />
+        </BrowserRouter>
+      </div>
+    </ErrorBoundary>
   );
 }
 

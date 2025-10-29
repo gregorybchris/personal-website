@@ -22,14 +22,16 @@ function createHeadingId(text: string): string {
     .trim();
 }
 
+interface HeadingWithAnchorProps {
+  level: number;
+  children: React.ReactNode;
+}
+
 function HeadingWithAnchor({
   level,
   children,
   ...props
-}: {
-  level: number;
-  children: React.ReactNode;
-}) {
+}: HeadingWithAnchorProps) {
   const text = String(children);
   const id = createHeadingId(text);
   const link = `${window.location.origin}${window.location.pathname}#${id}`;
@@ -40,7 +42,7 @@ function HeadingWithAnchor({
         href={`#${id}`}
         className="absolute top-1/2 -left-6 -translate-y-1/2 p-1 opacity-0 transition-all duration-200 group-hover:opacity-100"
         aria-label={`Link to ${text}`}
-        onClick={async (e) => {
+        onClick={async () => {
           await navigator.clipboard.writeText(link);
           toast.success("Copied section link to clipboard!", {
             duration: 2000,
@@ -97,7 +99,16 @@ export function MarkdownRenderer({ children }: MarkdownRendererProps) {
             </HeadingWithAnchor>
           );
         },
-        code({ node, inline, className = "", children, ...props }: any) {
+        code({
+          inline,
+          className = "",
+          children,
+          ...props
+        }: {
+          inline?: boolean;
+          className?: string;
+          children?: React.ReactNode;
+        }) {
           const match = /language-(\w+)/.exec(className);
           return !inline && match ? (
             <CodeBlock language={match[1]}>{String(children)}</CodeBlock>

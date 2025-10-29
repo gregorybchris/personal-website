@@ -30,14 +30,22 @@ export function BlogPostPage() {
     fetch(query)
       .then((response) => {
         if (!response.ok) {
+          console.error("Failed to load blog post");
           navigate("/blog");
+          return null;
         }
         return response.json();
       })
       .then((responseJson) => {
-        setCurrentPost(responseJson);
+        if (responseJson) {
+          setCurrentPost(responseJson);
+        }
+      })
+      .catch((error) => {
+        console.error("Error loading blog post:", error);
+        navigate("/blog");
       });
-  }, [slug]);
+  }, [slug, navigate]);
 
   useMetaTags({
     title: currentPost?.title,

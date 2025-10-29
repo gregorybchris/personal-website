@@ -45,25 +45,36 @@ export function RunningPage() {
     null,
   );
   const [showRoutesTable, setShowRoutesTable] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const { slug } = useParams();
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const routesQuery = makeQuery("outdoor/running");
-    GET(routesQuery).then((routes: RunningRoute[]) => {
-      setRoutes(routes.sort(routeCompare).filter((r) => !r.archived));
-    });
+    GET(routesQuery)
+      .then((routes: RunningRoute[]) => {
+        setRoutes(routes.sort(routeCompare).filter((r) => !r.archived));
+        setError(null);
+      })
+      .catch((err) => {
+        console.error("Failed to load running routes:", err);
+        setError("Failed to load running routes. Please try again later.");
+      });
   }, []);
 
   useEffect(() => {
     if (routes.length === 0) return;
 
-    if (slug) {
-      const match = routes.find((route) => route.slug === slug);
-      onSelectRoute(match || routes[0]);
-    } else {
-      onSelectRoute(routes[0], false);
-    }
+    const selectInitialRoute = async () => {
+      if (slug) {
+        const match = routes.find((route) => route.slug === slug);
+        await onSelectRoute(match || routes[0]);
+      } else {
+        await onSelectRoute(routes[0], false);
+      }
+    };
+
+    selectInitialRoute();
   }, [slug, routes]);
 
   async function onSelectRoute(route: RunningRoute, nav: boolean = true) {
@@ -106,7 +117,9 @@ export function RunningPage() {
         </div>
       </div>
 
-      {currentRoute && currentRouteData ? (
+      {error ? (
+        <div className="text-center text-red-600">{error}</div>
+      ) : currentRoute && currentRouteData ? (
         <div className="flex w-full flex-row flex-wrap justify-center gap-5">
           <RouteMapCard
             routeData={currentRouteData}

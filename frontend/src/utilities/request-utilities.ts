@@ -9,25 +9,45 @@ const getBackendRoot = () => {
 };
 
 const GET = async (url: string, enable_cors: boolean = true) => {
-  const fetchOptions: RequestInit = {};
-  if (enable_cors) {
-    fetchOptions.mode = "cors";
+  try {
+    const fetchOptions: RequestInit = {};
+    if (enable_cors) {
+      fetchOptions.mode = "cors";
+    }
+    const response = await fetch(url, fetchOptions);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("GET request failed:", url, error);
+    throw error;
   }
-  const response = await fetch(url, fetchOptions);
-  const data = await response.json();
-  return data;
 };
 
 const POST = async (url: string, body: Object = {}) => {
-  const response = await fetch(url, {
-    method: "POST",
-    body: JSON.stringify(body),
-    headers: new Headers({
-      "Content-Type": "application/json",
-    }),
-  });
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("POST request failed:", url, error);
+    throw error;
+  }
 };
 
 const makeQuery = (endpoint: string, params = {}) => {

@@ -32,24 +32,31 @@ export function ProjectsPage() {
   const [currentProject, setCurrentProject] = useState<Project | null>(null);
   const [searchEnabled, setSearchEnabled] = useState(false);
   const [searchText, setSearchText] = useState("");
+  const [error, setError] = useState<string | null>(null);
   const { slug } = useParams();
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const projectsQuery = makeQuery("projects");
-    GET(projectsQuery).then((queryResult) => {
-      const projects = queryResult.reverse();
-      setProjects(projects);
+    GET(projectsQuery)
+      .then((queryResult) => {
+        const projects = queryResult.reverse();
+        setProjects(projects);
 
-      if (slug) {
-        for (let project of projects) {
-          if (project.slug === slug) {
-            setCurrentProject(project);
+        if (slug) {
+          for (const project of projects) {
+            if (project.slug === slug) {
+              setCurrentProject(project);
+            }
           }
         }
-      }
-    });
-  }, []);
+        setError(null);
+      })
+      .catch((err) => {
+        console.error("Failed to load projects:", err);
+        setError("Failed to load projects. Please try again later.");
+      });
+  }, [slug]);
 
   function onDownload(project: Project) {
     if (!project.download_link) {
@@ -89,7 +96,9 @@ export function ProjectsPage() {
         <PageTitle>Code &amp; Programming Projects</PageTitle>
       </div>
 
-      {projects.length === 0 ? (
+      {error ? (
+        <div className="mt-8 text-center text-red-600">{error}</div>
+      ) : projects.length === 0 ? (
         <Loader className="mt-8">Loading projects...</Loader>
       ) : (
         <ProjectsTimeline

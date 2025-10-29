@@ -25,40 +25,44 @@ export function BooksPage() {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [allTags, setAllTags] = useState<string[]>([]);
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const booksQuery = makeQuery("media/books");
-    GET(booksQuery).then((books: Book[]) => {
-      const tagsSet = new Set<string>();
-      books.forEach((book) => {
-        book.tags.forEach((tag) => tagsSet.add(tag));
-      });
-      setAllTags(Array.from(tagsSet));
-
-      // Preload all images
-      const imagePromises = books.map((book) => {
-        return new Promise((resolve, reject) => {
-          const img = new Image();
-          img.onload = () => resolve(null);
-          img.onerror = () => resolve(null); // Still resolve on error to not block
-          img.src = `${book.image_links.book}?cache=2`;
+    GET(booksQuery)
+      .then((books: Book[]) => {
+        const tagsSet = new Set<string>();
+        books.forEach((book) => {
+          book.tags.forEach((tag) => tagsSet.add(tag));
         });
-      });
+        setAllTags(Array.from(tagsSet));
 
-      Promise.all(imagePromises).then(() => {
-        setBooks(books.filter((book) => !book.archived));
-        setImagesLoaded(true);
+        // Preload all images
+        const imagePromises = books.map((book) => {
+          return new Promise((resolve) => {
+            const img = new Image();
+            img.onload = () => resolve(null);
+            img.onerror = () => resolve(null); // Still resolve on error to not block
+            img.src = `${book.image_links.book}?cache=2`;
+          });
+        });
+
+        Promise.all(imagePromises).then(() => {
+          setBooks(books.filter((book) => !book.archived));
+          setImagesLoaded(true);
+          setError(null);
+        });
+      })
+      .catch((err) => {
+        console.error("Failed to load books:", err);
+        setError("Failed to load books. Please try again later.");
       });
-    });
   }, []);
 
   function onTagClick(tag: string) {
-    let newTags: string[] = [];
-    if (selectedTags.includes(tag)) {
-      newTags = selectedTags.filter((selectedTag) => selectedTag !== tag);
-    } else {
-      newTags = [...selectedTags, tag];
-    }
+    const newTags: string[] = selectedTags.includes(tag)
+      ? selectedTags.filter((selectedTag) => selectedTag !== tag)
+      : [...selectedTags, tag];
     setSelectedTags(newTags);
   }
 
@@ -74,7 +78,9 @@ export function BooksPage() {
         </div>
       </div>
 
-      {!imagesLoaded ? (
+      {error ? (
+        <div className="text-center text-red-600">{error}</div>
+      ) : !imagesLoaded ? (
         <Loader>Loading books...</Loader>
       ) : (
         <>

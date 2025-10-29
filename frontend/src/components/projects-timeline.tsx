@@ -52,6 +52,7 @@ export function ProjectsTimeline({
 
   const canvasRef = useRef<HTMLDivElement>(null);
   const simRunning = useRef(false);
+  const animationFrameId = useRef<number | null>(null);
 
   function projectMatchesSearch(project: Project): boolean {
     return project.name.toLowerCase().includes(searchText.toLowerCase());
@@ -63,7 +64,7 @@ export function ProjectsTimeline({
       d3.selectAll("circle").classed("deselected", false);
 
       if (searchText !== "") {
-        projects.map((project) => {
+        projects.forEach((project) => {
           if (!projectMatchesSearch(project)) {
             d3.select(getProjectSelector(project)).classed("deselected", true);
           }
@@ -78,7 +79,7 @@ export function ProjectsTimeline({
         .classed("deselected", false)
         .classed("selected", true);
     }
-  }, [currentProject, searchText]);
+  }, [currentProject, searchText, projects]);
 
   useEffect(() => {
     if (projects.length !== 0) {
@@ -86,6 +87,9 @@ export function ProjectsTimeline({
     }
     return () => {
       simRunning.current = false;
+      if (animationFrameId.current !== null) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
     };
   }, [projects]);
 
@@ -95,7 +99,7 @@ export function ProjectsTimeline({
 
     let dt = 0;
     let previousTime: number;
-    let update = (currentTime: number) => {
+    const update = (currentTime: number) => {
       if (previousTime !== undefined) {
         dt += (currentTime - previousTime) / 1000;
         if (dt >= GAME_LOOP_SPF) {
@@ -107,9 +111,9 @@ export function ProjectsTimeline({
       if (!simRunning.current) {
         return;
       }
-      window.requestAnimationFrame(update);
+      animationFrameId.current = window.requestAnimationFrame(update);
     };
-    window.requestAnimationFrame(update);
+    animationFrameId.current = window.requestAnimationFrame(update);
   }
 
   function updateCanvas(dt: number, currentTime: number) {
@@ -209,7 +213,7 @@ export function ProjectsTimeline({
       .attr("width", width)
       .attr("height", height)
       .attr("fill", "transparent")
-      .on("click", (mouseEvent: any) => {
+      .on("click", () => {
         onSelectProject(null);
         d3.selectAll("circle").classed("selected", false);
         d3.selectAll("circle").classed("deselected", false);
@@ -255,7 +259,7 @@ export function ProjectsTimeline({
       .attr("stroke-width", 4)
       .attr("stroke", (p) => getProjectColor(p.project_type))
       .attr("id", (p) => `project_${p.project_id}`)
-      .on("click", (mouseEvent: any, p: any) => {
+      .on("click", (_mouseEvent: MouseEvent, p: Project) => {
         d3.selectAll("circle")
           .classed("deselected", true)
           .classed("selected", false);

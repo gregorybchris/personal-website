@@ -19,16 +19,23 @@ export interface BlogPostPreview {
 
 export function BlogPage() {
   const [previews, setPreviews] = useState<BlogPostPreview[]>([]);
+  const [error, setError] = useState<string | null>(null);
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const isAdmin = searchParams.get("admin") === "true";
 
   useEffect(() => {
     const postsQuery = makeQuery("blog/posts");
-    GET(postsQuery).then((queryResult) => {
-      console.log("Blog posts query result:", queryResult);
-      setPreviews(queryResult);
-    });
+    GET(postsQuery)
+      .then((queryResult) => {
+        console.log("Blog posts query result:", queryResult);
+        setPreviews(queryResult);
+        setError(null);
+      })
+      .catch((err) => {
+        console.error("Failed to load blog posts:", err);
+        setError("Failed to load blog posts. Please try again later.");
+      });
   }, []);
 
   return (
@@ -54,7 +61,9 @@ export function BlogPage() {
         </button>
       </div>
 
-      {previews.length === 0 ? (
+      {error ? (
+        <div className="text-center text-red-600">{error}</div>
+      ) : previews.length === 0 ? (
         <Loader>Loading posts...</Loader>
       ) : (
         <table className="max-w-[1000px] table-auto border-collapse">
