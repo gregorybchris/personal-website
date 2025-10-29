@@ -8,7 +8,7 @@ status: draft
 
 Have you ever filled out a survey at the doctor's office and had to answer the same question multiple times? How about a survey where the answer should have been obvious based on your previous answers? A survey that was so long you just gave up halfway through?
 
-Let's develop a survey that adapts to your previous answers. It asks the most broad questions first and then only asks more specific questions if necessary.
+Let's develop an intelligent survey that adapts to your previous answers. It asks the most broad questions first and then only asks more specific questions if necessary. Then we'll expand our survey to include improbable questions and mine for unexpected outcomes.
 
 ## Decision trees
 
@@ -23,12 +23,14 @@ These algorithms use the concepts of <a href="https://en.wikipedia.org/wiki/Entr
 
 ### Entropy
 
-The first concept we need to define is entropy, which we'll use to measure how mixed the answers are for a particular question. The intuition here is that we'd like to prompt the survey participant with questions that decrease the entropy in our target variable. If we get entropy down to zero, then we know with high confidence the result of the survey and can stop asking questions.
+The first concept we need to define is **entropy**, which we'll use to measure how mixed the answers are for a particular question. We'd like to prompt the survey participant with questions that decrease the entropy in our target variable. The faster we get entropy down to zero, the sooner we know with high confidence the result of the survey and can stop asking questions.
 
 <!-- prettier-ignore -->
 $$
 H(X) = -\sum_{x \in \mathcal{X}} p(x) \log_2 p(x)
 $$
+
+For simplicity, these code snippets focus on categorical data and don't cover entropy over continuous attributes<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup>.
 
 ```python
 import numpy as np
@@ -41,22 +43,22 @@ def entropy(a: np.ndarray) -> float:
     return float(h)
 ```
 
-For simplicity, these examples focus on categorical data. The calculation for entropy over a continuous attribute get a bit more involved<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup>.
-
 ### Information gain
 
-Next, we'll look at information gain, which measures how helpful it would be if the participant answered a particular question. Finding the question with the highest information gain is the key to building an adaptive survey.
+Next, we'll look at **information gain**, which measures how helpful it would be if the participant answered a particular question. Finding the question with the highest information gain is the key to building an adaptive survey.
 
 <!-- prettier-ignore -->
 $$
 IG(D, A) = H(D) - \sum_{a \in A} p(a) \, H(S_a)
 $$
 
-- $D$ is the full dataset
-- $A$ is the attribute we’re splitting on
-- $a$ is a possible value of attribute $A$
+- $D$ is the full dataset -- all previous survey responses
+- $A$ is the attribute we’re splitting on -- the question we’re asking
+- $a$ is a possible value of attribute $A$ -- an answer to a question
 - $D_a$ is the subset of $D$ where $A = a$
 - $p(a) = \frac{|D_a|}{|D|}$ is the proportion of samples with $A = a$
+
+We don't know which of the possible answers to attribute $A$ the participant will give, so we take a weighted average over the possible answers. The information gain is the (expected) difference in entropy before and after asking the question.
 
 ```python
 def information_gain(attribute: np.ndarray, target: np.ndarray) -> float:
@@ -68,11 +70,9 @@ def information_gain(attribute: np.ndarray, target: np.ndarray) -> float:
     return gain
 ```
 
-> Note: This code has been simplified to work for categorical attributes as in the ID3 algorithm. The C4.5 algorithm extends this to work with continuous attributes as well.
-
 ### Selecting a question
 
-We loop over all attributes, compute the information gain for each, select the attribute with the highest information gain, and present that question to the user. We repeat that process until attributes stop being informative (given some threshold) or we run out of attributes.
+We loop over all attributes, compute the information gain for each, select the attribute with the highest information gain, and present that question to the user. We repeat that process until attributes stop being informative (based on a threshold) or we run out of attributes.
 
 ## Predicting everything
 
@@ -100,6 +100,6 @@ The full source code for this project is available on <a href="https://github.co
 <div id="footnotes">
   <div id="fn:fn1" class="footnote">
     <a class="fn" href="#fnref:fn1">[<span class="footnote-number">1</span>]</a>
-    <span>Entropy of a continuous features is calculated by iterating over each numeric value and calculating entropy of the target for all target values where the attribute is greater than the threshold.</span>
+    <span>The C4.5 algorithm extends the ID3 algorithm to handle continuous features. Entropy of a continuous features is calculated by iterating over each numeric value and calculating entropy of the target for all target values where the attribute is greater than the threshold.</span>
   </div>
 </div>
