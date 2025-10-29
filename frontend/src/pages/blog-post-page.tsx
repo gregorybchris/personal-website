@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { IconButton } from "../components/icon-button";
 import { Loader } from "../components/loader";
 import { MarkdownRenderer } from "../components/markdown-renderer";
+import { BlogPostingSchema } from "../components/schema-org";
 import ShareButton from "../components/share-button";
 import { useMetaTags } from "../hooks/use-meta-tags";
 import "../styles/blog.css";
@@ -69,6 +70,13 @@ export function BlogPostPage() {
 
   return (
     <div className="font-iowa flex flex-col items-center px-7 py-6 md:px-10 md:py-10">
+      {currentPost !== null && (
+        <BlogPostingSchema
+          title={currentPost.title}
+          datePublished={currentPost.date}
+          url={window.location.href}
+        />
+      )}
       {currentPost === null ? (
         <Loader>Loading post...</Loader>
       ) : (

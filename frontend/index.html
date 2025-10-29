@@ -53,6 +53,61 @@
       async
       src="//gc.zgo.at/count.js"
     ></script>
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://chrisgregory.me/#person",
+            "name": "Chris Gregory",
+            "url": "https://chrisgregory.me",
+            "image": "https://storage.googleapis.com/cgme/bio/profiles/mountains-profile-2.jpg",
+            "sameAs": [
+              "https://github.com/gregorybchris",
+              "https://www.linkedin.com/in/gregorybchris"
+            ],
+            "jobTitle": "Machine Learning Engineer",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Hume AI",
+              "url": "https://www.hume.ai"
+            },
+            "alumniOf": {
+              "@type": "EducationalOrganization",
+              "name": "Tufts University",
+              "url": "https://www.tufts.edu"
+            },
+            "description": "Personal website featuring projects, running, books, music, and blog"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://chrisgregory.me/#website",
+            "url": "https://chrisgregory.me",
+            "name": "Chris Gregory",
+            "description": "Blog and personal website",
+            "publisher": {
+              "@id": "https://chrisgregory.me/#person"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://chrisgregory.me/#webpage",
+            "url": "https://chrisgregory.me",
+            "name": "Chris Gregory - Personal Website",
+            "isPartOf": {
+              "@id": "https://chrisgregory.me/#website"
+            },
+            "about": {
+              "@id": "https://chrisgregory.me/#person"
+            },
+            "description": "Blog and personal website"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
