@@ -6,9 +6,9 @@ archived: false
 status: draft
 ---
 
-I'll get to Amazon reviews in a minute, but first, if you'll allow me, a quick gripe about shopping online.
+I'll get to Amazon reviews in a minute, but first, if you'll allow me, a quick gripe about shopping online in general.
 
-The other day I was shopping for a new bed-side lamp. On sites of well-known brands (Ikea, Pottery Barn, etc.) it was sometimes hard to tell from the pictures if I'd be getting a quality product. Then I tried the classic "Best Lamps of 2025" listicles (I have to imagine they were full of paid placements). [NYT Wirecutter](https://www.nytimes.com/wirecutter) had some fine options too. From Google searches I stumbled across a few sites with artsy lamps in the <i>thousands</i> of dollars. Hey, no judgement if that's your thing, but I'm a simple man. I want a sturdy lamp that'll last me a few decades and not break the bank.
+The other day I was shopping for a new bed-side lamp. And even on sites of well-known, respectable brands (Ikea, Pottery Barn, etc.) it was hard to tell from the pictures if I'd be getting a quality product. Then I tried the classic "Best Lamps of 2025" listicles (I have to imagine they were full of paid placements). [NYT Wirecutter](https://www.nytimes.com/wirecutter) had some fine options too. From Google searches I stumbled across a few sites with artsy lamps in the <i>thousands</i> of dollars. Hey, no judgement if that's your thing, but I'm a simple man. I want a sturdy lamp that'll last me a few decades and not break the bank.
 
 At least for me, this is a pretty common experience buying a product online. I have a rough dollar amount in mind that I think I should have to pay (given cost of materials, manufacturing, shipping, etc). And I want to find a product that meets my expectations for quality. But then I go online and I'm flooded with options, many of which are super high quality, but cost an arm and a leg, and many of which look potentially well-constructed at first, but upon closer inspection would likely break while in transit to my front door.
 
