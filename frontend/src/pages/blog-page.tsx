@@ -1,4 +1,4 @@
-import { RssIcon } from "@phosphor-icons/react";
+import { RssIcon, SignOutIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
@@ -87,16 +87,7 @@ export function BlogPage() {
                   }
                 >
                   <td className="py-1.5 pr-6 text-balance decoration-blue-500/60 underline-offset-4 group-hover:underline">
-                    {isAdmin && (
-                      <div
-                        className={cn(
-                          "mr-2 inline-block h-2 w-2 rounded-full",
-                          preview.status === "published" && "bg-green-400",
-                          preview.status === "draft" && "bg-yellow-400",
-                          preview.status === "new" && "bg-red-400",
-                        )}
-                      ></div>
-                    )}
+                    {isAdmin && <StatusIndicator status={preview.status} />}
                     {preview.title}
                   </td>
                   <td className="py-1.5 text-right whitespace-nowrap text-black/50">
@@ -107,6 +98,35 @@ export function BlogPage() {
           </tbody>
         </table>
       )}
+
+      {isAdmin && (
+        <button
+          className="mt-4 flex cursor-pointer items-center gap-2 rounded px-3 py-1 hover:bg-black/5"
+          onClick={() => {
+            navigate("/blog");
+          }}
+        >
+          <SignOutIcon size={16} />
+          <span>Exit admin mode</span>
+        </button>
+      )}
     </div>
+  );
+}
+
+interface StatusIndicatorProps {
+  status: Status;
+}
+
+function StatusIndicator({ status }: StatusIndicatorProps) {
+  return (
+    <div
+      className={cn(
+        "mr-2 inline-block h-2 w-2 rounded-full",
+        status === "published" && "bg-green-400",
+        status === "draft" && "bg-yellow-400",
+        status === "new" && "bg-red-400",
+      )}
+    ></div>
   );
 }
