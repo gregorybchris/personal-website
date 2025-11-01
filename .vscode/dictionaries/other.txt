@@ -3,6 +3,7 @@ delenv
 fuzzywuzzy
 goodreads
 imdb
+listicles
 Mapbox
 mapometer
 metadatas
@@ -18,4 +19,5 @@ shutil
 TikTok
 TikToks
 Topo
+Wirecutter
 yapf

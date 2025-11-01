@@ -10,15 +10,31 @@ I'll get to Amazon reviews in a minute, but first, if you'll allow me, a quick g
 
 The other day I was shopping for a new bed-side lamp. And even on sites of well-known, respectable brands (Ikea, Pottery Barn, etc.) it was hard to tell from the pictures if I'd be getting a quality product. Then I tried the classic "Best Lamps of 2025" listicles (I have to imagine they were full of paid placements). [NYT Wirecutter](https://www.nytimes.com/wirecutter) had some fine options too. From Google searches I stumbled across a few sites with artsy lamps in the <i>thousands</i> of dollars. Hey, no judgement if that's your thing, but I'm a simple man. I want a sturdy lamp that'll last me a few decades and not break the bank.
 
-At least for me, this is a pretty common experience buying a product online. I have a rough dollar amount in mind that I think I should have to pay (given cost of materials, manufacturing, shipping, etc). And I want to find a product that meets my expectations for quality. But then I go online and I'm flooded with options, many of which are super high quality, but cost an arm and a leg, and many of which look potentially well-constructed at first, but upon closer inspection would likely break while in transit to my front door.
+At least for me, this is a pretty common experience buying a product online. I have a rough dollar amount in mind that I think I should have to pay (given cost of materials, manufacturing, shipping, etc). And I want to find a product that meets my expectations for quality. But then I go online and I'm flooded with options, many of which are super high quality, but cost an arm and a leg, and many of which look potentially well-constructed at first, but upon closer inspection might crumble and break while in transit to my front door.
 
-Gaussian belief propagation for marketplace optimization
+And we're not even considering style or personal taste here. Why is it that for every quality product at a reasonable price, there are ten others that are either overpriced or low quality?
 
-TrueScore considers how users rate items in an online marketplace and provides a measure of rater reliability using Gaussian belief propagation. The model jointly learns to estimate item quality and user reliability from data, putting less weight on ratings from users determined to be less reliable. As rater reliability changes, so do item quality estimates, hence the "propagation" in Gaussian belief propagation.
+## Recommender systems
+
+I think part of the reason we're in this situation is that the maintainers of the most common recommender systems for physical products (Amazon and others) benefit more from recommending a variety of things than they do from helping users find the best things.
+
+Of course, the "most-true" story is that while some companies thrive on great brand loyalty and customer trust, there's a whole ecosystem of successful retailers that succeed by selling high volume, low quality, cheap products that are marketed well enough to get clicks and buys.
+
+I'm a realist enough to know that in the free market there will always be a diversity of business models, and there will always be pressures toward low quality products. But I'm an idealist to believe there's a hypothetical system that gives consumers the power to distinguish high from low quality.
+
+What would it look like if Amazon's recommender system were more aligned with the goals of users?
+
+## Gaussian belief propagation
+
+I've had this idea for a while that you can model an item's quality with user ratings and then you should be able to estimate rater reliability by comparing to item rating distributions. If you then up/down-weight ratings based on reliability you get a dynamical system where a single rating sends ripples through a network of items and users, updating estimates of both item quality and user reliability. Further, I hoped that if I could make enough simplifying assumptions (like item qualities being normally distributed), there might be an efficient closed form solution that scales to many users and items.
+
+I wasn't able to figure out a clean closed form solution, but during my research I stumbled across <a href="https://en.wikipedia.org/wiki/Belief_propagation#Gaussian_belief_propagation_(GaBP)" target="_blank">Gaussian belief propagation</a>, which is a message-passing algorithm for performing inference on graphical models with Gaussian distributions.<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup>
 
 <!-- TODO: Add an animation of Gaussian distributions and message passing between them -->
 
-## Copied
+## Deep learning
+
+In this project I called TrueScore, the model jointly learns to estimate item quality and user reliability from data, putting less weight on ratings from users determined to be less reliable. As rater reliability changes, so do item quality estimates, hence the "propagation" in Gaussian belief propagation.
 
 TrueScore considers how users rate items in an online marketplace and provides a measure of rater reliability. Online marketplaces have a large incentive to ensure item ratings are trustworthy and to identify bad actors before they can influence buyers.
 
@@ -81,3 +97,12 @@ def forward(self, user_idxs: Tensor, item_idxs: Tensor, scores: Tensor) -> Tenso
 
     return nll
 ```
+
+## Footnotes
+
+<div id="footnotes">
+  <div id="fn:fn1" class="footnote">
+    <a class="fn" href="#fnref:fn1">[<span class="footnote-number">1</span>]</a>
+    <span>I found this <a href="https://gaussianbp.github.io" target="_blank">cool demo online.</a></span>
+  </div>
+</div>
