@@ -107,8 +107,11 @@ def get_blog_feed() -> Response:
     link = "https://chrisgregory.me"
     description = "Latest posts from Chris Gregory"
 
+    posts = [post for post in iter_posts() if post.status == Status.Published]
+    sorted_posts = sorted(posts, key=lambda post: post.date, reverse=True)
+
     rss_content = generate_rss(
-        posts=list(iter_posts()),
+        posts=sorted_posts,
         title=title,
         link=link,
         description=description,
