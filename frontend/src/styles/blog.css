@@ -140,6 +140,17 @@
   text-align: left;
 }
 
+#blog #footnotes:has(:target) .footnote {
+  opacity: 0.35;
+  transition: opacity 300ms;
+}
+
+#blog #footnotes .footnote:target {
+  opacity: 1;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 #blog table {
   font-size: small;
   border-collapse: collapse;
