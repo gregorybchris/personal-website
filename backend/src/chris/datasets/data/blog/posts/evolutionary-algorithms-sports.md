@@ -240,7 +240,7 @@ Using this method, even low fitness lineups have a chance at being selected, inc
 
 ### Restarts
 
-For our last improvement we'll implement a simple, but powerful trick. We start by noticing that the initial population is comprised of a small number of configurations samples from a large configuration space. Sometimes we get lucky and the initial population contains good building blocks for a strong solution. Other times we're not so lucky.
+For our last improvement we'll implement a simple, but powerful trick. We start by noticing that the initial population is comprised of a small number of configurations sampled from a large configuration space. Sometimes we get lucky and the initial population contains good building blocks for a strong solution. Other times we're not so lucky.
 
 To mitigate this, we'll restart the entire genetic algorithm from scratch a few times<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup> and take the best solution we find. This increases our chances of finding a good solution by searching the configuration space more thoroughly.
 
