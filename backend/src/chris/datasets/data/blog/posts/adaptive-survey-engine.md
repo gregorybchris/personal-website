@@ -15,8 +15,8 @@ Let's develop an intelligent survey that adapts to your previous answers. It ask
 Decision trees, built with the <a href="https://en.wikipedia.org/wiki/ID3_algorithm" target="_blank">ID3</a> and <a href="https://en.wikipedia.org/wiki/C4.5_algorithm" target="_blank">C4.5</a> algorithms, use the math of information theory to select attributes from a dataset that are the most informative. We can use this same approach to select questions from a survey that are the least redundant.
 
 <figure id="figure1">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/adaptive-survey-engine/decision-tree.svg?cache=2" width="500">
-  <figcaption><strong>Figure 1: </strong>Decision tree &mdash; Medical triage is like a tree where each question narrows down the possible diagnoses until we can predict the urgency of treatment.</figcaption>
+  <img src="https://storage.googleapis.com/cgme/blog/posts/adaptive-survey-engine/decision-tree.svg?cache=3" width="500">
+  <figcaption><strong>Figure 1: </strong>Decision tree &mdash; Medical triage is like a tree where each question narrows down the possible diagnoses until we can predict the urgency of treatment.<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup></figcaption>
 </figure>
 
 ### Entropy
@@ -28,7 +28,7 @@ $$
 H(X) = -\sum_{x \in \mathcal{X}} p(x) \log_2 p(x)
 $$
 
-For simplicity, these code snippets focus on categorical data and don't cover entropy over continuous attributes<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup>.
+For simplicity, these code snippets focus on categorical data and don't cover entropy over continuous attributes<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup>.
 
 ```python
 import numpy as np
@@ -80,7 +80,7 @@ Ok, now let's get ambitious. Let's get _extreme_. What could we do if survey tak
 
 The paradox of the adaptive survey is that while each participant spends less time taking the survey, you are able to include more total questions in the survey, including questions that do not apply to a large portion of the population, but are highly informative for some individuals.
 
-With enough questions and participants you could create a survey that selects the right questions to predict a huge range of target variables. It's like a <a href="https://en.wikipedia.org/wiki/Genome-wide_association_study" target="_blank">genome-wide association study</a> for psychology (something that must already exist in some form that I'm not aware of<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup>).
+With enough questions and participants you could create a survey that selects the right questions to predict a huge range of target variables. It's like a <a href="https://en.wikipedia.org/wiki/Genome-wide_association_study" target="_blank">genome-wide association study</a> for psychology (something that must already exist in some form that I'm not aware of<sup id="fnref:fn3"><a class="fnref" href="#fn:fn3">[3]</a></sup>).
 
 The vast majority of our questions don't even have to be good, but now and then we may uncover an unlikely gem of a question that is surprisingly predictive of some outcome. Maybe that outcome is something fun like "Which <a href="https://en.wikipedia.org/wiki/Friends" target="_blank">Friends</a> character are you?" Or maybe it's something more scientific, "What is your <a href="https://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">OCEAN</a> personality type?" I personally really like the <a href="https://www.nytimes.com/interactive/2014/upshot/dialect-quiz-map.html" target="_blank">New York Times Dialect Quiz</a> that predicts where in the US you are from based on how you speak.
 
@@ -99,11 +99,16 @@ The full source code for this project is available on <a href="https://github.co
 <div id="footnotes">
   <div id="fn:fn1" class="footnote">
     <a class="fn" href="#fnref:fn1">[<span class="footnote-number">1</span>]</a>
-    <span>The C4.5 algorithm extends the ID3 algorithm to handle continuous features. Entropy of a continuous features is calculated by iterating over each numeric value and calculating entropy of the target for all target values where the attribute is greater than the threshold.</span>
+    <span>I'm not a doctor and have no idea how medical triage actually works.</span>
   </div>
 
   <div id="fn:fn2" class="footnote">
     <a class="fn" href="#fnref:fn2">[<span class="footnote-number">2</span>]</a>
+    <span>The C4.5 algorithm extends the ID3 algorithm to handle continuous features. Entropy of a continuous features is calculated by iterating over each numeric value and calculating entropy of the target for all target values where the attribute is greater than the threshold.</span>
+  </div>
+
+  <div id="fn:fn3" class="footnote">
+    <a class="fn" href="#fnref:fn3">[<span class="footnote-number">3</span>]</a>
     <span>A brief literature review turned up <a href="https://www.icpsr.umich.edu/web/ICPSR/series/203" target="_blank">MIDUS</a>, <a href="https://www.europeansocialsurvey.org/findings/europeans-wellbeing/drivers-wellbeing" target="_blank">ESS</a>, and <a href="https://openpsychometrics.org/_rawdata/" target="_blank">OpenPsychometrics</a>.</span>
   </div>
 </div>
