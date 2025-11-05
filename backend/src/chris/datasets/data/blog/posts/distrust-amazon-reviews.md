@@ -18,9 +18,11 @@ And we're not even considering style or personal taste here. Why is it that for 
 
 I think part of the reason we're in this situation is that the maintainers of the most common recommender systems for physical products (Amazon and others) benefit more from recommending a variety of things than they do from helping users find the best things.
 
-Of course, the "most-true" story is that while some companies thrive on great brand loyalty and customer trust, there's a whole ecosystem of retailers that succeed by selling high volume, low quality, cheap products that are marketed just well enough to get clicks and buys.
+Of course, the _most-true_ story is that while some companies thrive on great brand loyalty and customer trust, there's a whole ecosystem of retailers that succeed by selling high volume, low quality, cheap products that are marketed just well enough to get clicks and buys.
 
 I'm a realist enough to know that in the free market there will always be a diversity of business models and there will always be pressures toward low quality products. But I'm an idealist enough to believe there's a hypothetical system that gives consumers the power to distinguish high from low quality.
+
+Clearly Amazon reviews are an attempt at such a system, but obviously reviews can be gamed. You can buy fake reviews that artificially inflate a product's rating. And in the age of AI-generated text, it's extremely easy to generate realistic and diverse reviews (even images) at scale if you're willing to pay for it.
 
 What would it look like if Amazon's recommender system were more aligned with the goals of users?
 
@@ -28,15 +30,17 @@ What would it look like if Amazon's recommender system were more aligned with th
 
 I've had an inkling of an idea for a while that you could estimate item's quality with user ratings and then measure rater reliability based on similarity to other raters. You could then promote or discount ratings based on rater reliability. What would emerge is a dynamical system where a single rating sends ripples through a network of items and users, updating estimates of both item quality and user reliability.
 
-Further, I hoped that if I could make enough simplifying assumptions (like item ratings being normally distributed), there might be an efficient closed form solution that scales to many users and items.
+Further, I hoped that if I could make enough simplifying assumptions (like item ratings being normally distributed), there might be an efficient closed form solution that scales to many users and items. Perhaps with simple Bayesian updates, I could avoid updating every item and every user for each incoming rating.
 
 I wasn't able to figure out a clean closed form solution, but during my research I stumbled across <a href="https://en.wikipedia.org/wiki/Belief_propagation#Gaussian_belief_propagation_(GaBP)" target="_blank">Gaussian belief propagation</a>, which is a message-passing algorithm for performing inference on graphical models with Gaussian distributions.<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup>
 
 <!-- TODO: Add an animation of Gaussian distributions and message passing between them -->
 
+This gave me enough confidence that a solution was possible. So I set out to model this Bayesian system and after a few iterations came up with a deep learning approach.
+
 ## Deep learning
 
-I trained a model called "TrueScore" to jointly learn item quality and user reliability from data. It's a simple model with parameters that scale linearly with the number of users and items.
+I trained a model called "TrueScore" to jointly learn item quality and user reliability from data. It's a simple model with parameters that scale linearly with the number of users and items. It also supports online learning so that new ratings can be incorporated into the model without retraining from scratch.
 
 It's worth noting that TrueScore is not a recommender system and therefore does not measure how individual user preferences factor into ratings. TrueScore estimates the conditional probability that a user would rate an item highly given they already want or need that item.
 
