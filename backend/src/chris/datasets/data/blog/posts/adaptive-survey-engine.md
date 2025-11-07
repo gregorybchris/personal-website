@@ -70,13 +70,20 @@ def information_gain(attribute: np.ndarray, target: np.ndarray) -> float:
 
 ### Selecting a question
 
-We loop over all attributes, compute the information gain for each, select the attribute with the highest information gain, and present that question to the survey taker. We repeat that process until attributes stop being informative (based on a threshold) or we run out of attributes.
+The only thing left to do is use entropy and information gain to select questions. It's a fairly simple algorithm.
 
-And that's all of it! There's a bit of math to it, but at the end of the day, not so complicated.
+1. Loop over all attributes
+2. Compute the information gain for each
+3. Select the attribute with the highest information gain
+4. Repeat steps 1-3 until either
+   1. Information gain for all attributes drops below some threshold (configurable)
+   2. All attributes in the dataset have already been selected
+
+And that's all of it! There's a bit of math to it, but at the end of the day, not so complicated. Now we have an adaptive survey engine that avoids asking questions that don't teach us anything.
 
 ## Predicting everything
 
-Ok, now let's get ambitious. Let's get _extreme_. What could we do if survey taker effort didn't scale with the number of questions?
+Ok, now that we hav the basics, let's think about ambitious applications. What could we do if survey taker effort didn't scale with the number of questions?
 
 The paradox of the adaptive survey is that while each participant spends less time taking the survey, you are able to include more total questions in the survey, including questions that do not apply to a large portion of the population, but are highly informative for some individuals.
 
