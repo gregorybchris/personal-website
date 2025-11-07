@@ -70,7 +70,7 @@ def information_gain(attribute: np.ndarray, target: np.ndarray) -> float:
     return gain
 ```
 
-### Selecting a question
+## Selecting a question
 
 The only thing left to do is use entropy and information gain to select questions. It's a fairly simple algorithm.
 
