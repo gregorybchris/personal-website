@@ -10,6 +10,8 @@ Have you ever filled out a survey at the doctor's office and had to answer the s
 
 Let's develop an intelligent survey that adapts to your previous answers. It asks the most broad questions first and then only asks more specific questions if necessary.
 
+As for what I mean by "predict everything" I'll get to that at the end!
+
 ## Decision trees
 
 Decision trees, built with the <a href="https://en.wikipedia.org/wiki/ID3_algorithm" target="_blank">ID3</a> and <a href="https://en.wikipedia.org/wiki/C4.5_algorithm" target="_blank">C4.5</a> algorithms, use the math of information theory to select attributes from a dataset that are the most informative. We can use this same approach to select questions from a survey that are the least redundant.
