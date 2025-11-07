@@ -15,7 +15,7 @@ Let's develop an intelligent survey that adapts to your previous answers. It ask
 Decision trees, built with the <a href="https://en.wikipedia.org/wiki/ID3_algorithm" target="_blank">ID3</a> and <a href="https://en.wikipedia.org/wiki/C4.5_algorithm" target="_blank">C4.5</a> algorithms, use the math of information theory to select attributes from a dataset that are the most informative. We can use this same approach to select questions from a survey that are the least redundant.
 
 <figure id="figure1">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/adaptive-survey-engine/decision-tree.svg?cache=3" width="500">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/adaptive-survey-engine/decision-tree.svg?cache=4" width="500">
   <figcaption><strong>Figure 1: </strong>Decision tree &mdash; Medical triage is like a tree where each question narrows down the possible diagnoses until we can predict the urgency of treatment.<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup></figcaption>
 </figure>
 
