@@ -30,7 +30,7 @@ $$
 H(X) = -\sum_{x \in \mathcal{X}} p(x) \log_2 p(x)
 $$
 
-For simplicity, these code snippets focus on categorical data and don't cover entropy over continuous attributes<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup>.
+For simplicity, these code snippets focus on categorical data and don't cover entropy over continuous attributes<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup>. Fortunately, this will work totally fine for multiple choice or yes/no survey questions.
 
 ```python
 import numpy as np
