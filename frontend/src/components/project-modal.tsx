@@ -95,7 +95,7 @@ export function ProjectModal({
 
                   <div className="flex flex-row flex-wrap gap-3">
                     {project.image_links.map((imageLink, i) => (
-                      <ProjectImage key={i} url={imageLink} />
+                      <ProjectImage key={i} url={imageLink} projectName={project.name} />
                     ))}
                   </div>
                 </>
@@ -110,14 +110,15 @@ export function ProjectModal({
 
 interface ProjectImageProps {
   url: string;
+  projectName: string;
 }
 
-function ProjectImage({ url }: ProjectImageProps) {
+function ProjectImage({ url, projectName }: ProjectImageProps) {
   return (
     <img
       className="max-h-[270px] max-w-[90%] rounded-lg border-4 border-black/10 shadow-md"
       src={`${url}?cache=4`}
-      alt="Project screenshot"
+      alt={`Screenshot of ${projectName} project`}
     />
   );
 }
