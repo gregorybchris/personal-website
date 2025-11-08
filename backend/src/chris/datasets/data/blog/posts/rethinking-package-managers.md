@@ -119,7 +119,7 @@ The dependency resolver was the trickiest part of this project, so I wanted to r
 ```python
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Iterator, Optional
 
 
@@ -146,14 +146,15 @@ class Package:
 
 @dataclass
 class Solution:
-    pins: dict[str, Version] = None
+    pins: dict[str, Version] = field(default_factory=dict)
 
     def get(self, name: str) -> Optional[Version]: ...
+    def add(self, package: Package) -> None: ...
+    def remove(self, name: str) -> None: ...
     def is_compatible_with(self, package: Package) -> bool: ...
-    def clone_add(self, package: Package) -> Solution: ...
 
 
-def list_versions_sorted(name: str) -> list[Package]: ...
+def iter_versions_sorted(name: str) -> Iterator[Package]: ...
 ```
 
 </details>
@@ -183,15 +184,18 @@ def solve_rec(deps: list[Dep], solution: Solution) -> Iterator[Solution]:
         return
 
     # Recurse on every package version that satisfies the current dep
-    for package in list_versions_sorted(dep.name):
+    for package in iter_versions_sorted(dep.name):
         if not dep.is_satisfied_by(package.version):
             continue
         if not solution.is_compatible_with(package):
             continue
 
-        new_solution = solution.clone_add(package)
+        solution.add(package)
         new_deps = tail + package.deps
-        yield from solve_rec(new_deps, new_solution)
+        yield from solve_rec(new_deps, solution)
+
+        # Backtrack
+        solution.remove(package.name)
 ```
 
 ## Scratch
