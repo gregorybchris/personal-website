@@ -8,12 +8,9 @@ const getBackendRoot = () => {
   return isDevEnvironment() ? DEV_BACKEND_ROOT : PROD_BACKEND_ROOT;
 };
 
-const GET = async (url: string, enable_cors: boolean = true) => {
+const GET = async (url: string) => {
   try {
     const fetchOptions: RequestInit = {};
-    if (enable_cors) {
-      fetchOptions.mode = "cors";
-    }
     const response = await fetch(url, fetchOptions);
 
     if (!response.ok) {

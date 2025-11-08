@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useDebounce } from "use-debounce";
 import { cn } from "../utilities/style-utilities";
 import { Button } from "./button";
 import { TextBox } from "./text-box";
@@ -10,6 +11,8 @@ interface SearchBarProps {
   onSubmit?: (text: string) => void;
   autoFocus?: boolean;
   className?: string;
+  debounceMs?: number;
+  autoSubmit?: boolean;
 }
 
 export function SearchBar({
@@ -19,11 +22,36 @@ export function SearchBar({
   onSubmit,
   autoFocus,
   className,
+  debounceMs = 500,
+  autoSubmit = true,
 }: SearchBarProps) {
+  const [localText, setLocalText] = useState(text);
+
+  // Only debounce when onSubmit exists and autoSubmit is enabled
+  const effectiveDebounce = onSubmit && autoSubmit ? debounceMs : 0;
+  const [debouncedText] = useDebounce(localText, effectiveDebounce);
+
+  // Sync external text changes to local state
+  useEffect(() => {
+    setLocalText(text);
+  }, [text]);
+
+  // Update parent with debounced text
+  useEffect(() => {
+    setText(debouncedText);
+  }, [debouncedText, setText]);
+
+  // Auto-trigger onSubmit when autoSubmit is enabled and debounced text changes
+  useEffect(() => {
+    if (onSubmit && autoSubmit) {
+      onSubmit(debouncedText);
+    }
+  }, [debouncedText, onSubmit, autoSubmit]);
+
   useEffect(() => {
     function handleKeyPress(event: KeyboardEvent) {
       if (event.key === "Enter" && onSubmit) {
-        onSubmit(text);
+        onSubmit(localText);
       }
     }
 
@@ -31,11 +59,12 @@ export function SearchBar({
     return () => {
       window.removeEventListener("keydown", handleKeyPress);
     };
-  }, [text, onSubmit]);
+  }, [localText, onSubmit]);
 
   const placeholderText = placeholder ?? "Search";
 
   function onClear() {
+    setLocalText("");
     setText("");
     if (onSubmit) {
       onSubmit("");
@@ -45,15 +74,17 @@ export function SearchBar({
   return (
     <div className={cn("flex flex-row gap-1", className)}>
       <TextBox
-        value={text}
-        onChange={(text) => setText(text)}
+        value={localText}
+        onChange={(text) => setLocalText(text)}
         placeholder={placeholderText}
         autoFocus={autoFocus}
         className="w-full"
         onClear={onClear}
       />
 
-      {onSubmit && <Button text="Search" onClick={() => onSubmit(text)} />}
+      {onSubmit && !autoSubmit && (
+        <Button text="Search" onClick={() => onSubmit(localText)} />
+      )}
     </div>
   );
 }
