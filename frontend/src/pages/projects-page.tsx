@@ -101,7 +101,9 @@ export function ProjectsPage() {
       </div>
 
       {error ? (
-        <ErrorMessage message={error} className="mt-8" />
+        <div className="flex flex-col items-center">
+          <ErrorMessage message={error} className="mt-8" />
+        </div>
       ) : projects.length === 0 ? (
         <Loader text="Loading projects" className="mt-8" />
       ) : (
