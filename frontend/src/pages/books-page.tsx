@@ -70,7 +70,7 @@ export function BooksPage() {
   }
 
   return (
-    <div className="flex flex-col items-center gap-10 px-4 py-8">
+    <div className="flex flex-col items-center gap-6 px-4 py-8">
       <div className="flex flex-col items-center gap-2">
         <PageTitle>Books</PageTitle>
 

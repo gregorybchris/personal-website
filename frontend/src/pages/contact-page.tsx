@@ -7,13 +7,13 @@ import { PixelMe } from "../components/pixel-me";
 
 export function ContactPage() {
   return (
-    <div className="flex flex-col items-center gap-6 px-4 py-8">
-      <div className="flex flex-col items-center gap-4 md:w-4/5">
+    <div className="flex flex-col items-center gap-5 px-4 py-8">
+      <div className="flex flex-col items-center gap-2 md:w-4/5">
         <PageTitle className="text-balance">
           Fill out this form to send me a message
         </PageTitle>
 
-        <div className="text-center text-black/75 md:w-[70%]">
+        <div className="text-center text-black/60 md:w-[70%]">
           Looking forward to hearing from you!
         </div>
       </div>
