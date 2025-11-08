@@ -85,7 +85,7 @@ export function RunningPage() {
     }
 
     const routeDataUrl = route.routeDataLink;
-    const routeData = await GET<RouteData>(routeDataUrl);
+    const routeData = await fetch(routeDataUrl).then((res) => res.json());
     setCurrentRoute(route);
     setCurrentRouteData(routeData);
     setShowRoutesTable(false);
