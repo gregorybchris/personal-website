@@ -6,11 +6,11 @@ archived: false
 status: draft
 ---
 
-Have you ever filled out a survey at the doctor's office and had to answer the same question multiple times? How about a survey where the answer should have been obvious based on your previous answers? A survey that was so long you just gave up halfway through?
+Have you ever filled out a intake form at the doctor's office and had to answer the same question multiple times? How about a survey question where the answer should have been obvious based on your previous answers? A questionnaire that was so long you just gave up halfway through?
 
-Let's develop an intelligent survey that adapts to your previous answers. It asks the most broad questions first and then only asks more specific questions if necessary.
+Let's develop an intelligent survey that adapts to your previous answers. It asks the most broad questions first and then only asks more specific questions when relevant.
 
-As for what I mean by "predict everything" I'll get to that at the end!
+As for what I mean by "predict everything" I'll get to that in just a sec!
 
 ## Decision trees
 
@@ -99,7 +99,7 @@ Of course, there is a huge amount of <a href="https://en.wikipedia.org/wiki/Data
 
 ## Wrapping up
 
-I built this survey engine because often a random question pops into my head that feels like it would split the population in an interesting way. I don't have a target variable in mind to predict; I just have a feeling that the responses might be correlated to something interesting. Of course, the vast majority of these questions will correlate with nothing very special at all. And yet, there's hope that one needle in the haystack will lead to a grand discovery.
+I built this survey engine because often a random question pops into my head that feels like it would split the population in an interesting way. I don't have a target variable in mind to predict. I just have a feeling that the responses to my question might be correlated to something interesting. Of course, the vast majority of these ideas will correlate with nothing very special at all. And yet, there's hope that one needle in the haystack will lead to a grand discovery.
 
 The full source code for this project is available on <a href="https://github.com/gregorybchris/surv" target="_blank">GitHub</a>.
 
