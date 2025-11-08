@@ -287,5 +287,22 @@
       "book": "https://storage.googleapis.com/cgme/books/book/the-selfish-gene.jpg",
       "square": "https://storage.googleapis.com/cgme/books/square/the-selfish-gene.jpg"
     }
+  },
+  {
+    "isbn": "978-0465030798",
+    "title": "I Am a Strange Loop",
+    "subtitle": null,
+    "author": "Douglas R. Hofstadter",
+    "year_published": 2007,
+    "pages": 436,
+    "year_read": 2025,
+    "general_appeal": 6,
+    "archived": false,
+    "tags": ["philosophy"],
+    "goodreads_link": "https://www.goodreads.com/book/show/123471.I_Am_a_Strange_Loop",
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/i-am-a-strange-loop.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/i-am-a-strange-loop.jpg"
+    }
   }
 ]
