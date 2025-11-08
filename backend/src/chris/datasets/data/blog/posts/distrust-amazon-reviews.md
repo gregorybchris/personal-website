@@ -36,7 +36,7 @@ I wasn't able to figure out a clean closed form solution, but during my research
 
 <!-- TODO: Add an animation of Gaussian distributions and message passing between them -->
 
-This gave me enough confidence that a solution was possible. So I set out to model this Bayesian system and after a few iterations came up with a deep learning approach.
+This gave me enough confidence that a solution was possible. So I set out to model this Bayesian system and after a few iterations came up with a deep learning approach, which doesn't use Gaussian belief propagation per se, but does capture the same intuition of jointly learning item quality and user reliability.
 
 ## Deep learning
 
