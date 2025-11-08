@@ -115,7 +115,7 @@ After training for `500` epochs, with a batch size of `16`, and a static learnin
 
 I was surprised to find (though I shouldn't have been) that it takes many ratings per item to get a high-confidence estimate of item quality. Given this constraint, it's unclear to me whether this model would be useful in practice.
 
-I enjoyed building a full CRUD API into this project for storing users, items, and ratings. If you're interested in trying TrueScore and using your own data, check out the <a href="https://github.com/gregorybchris/truescore">GitHub repository</a>.
+I enjoyed building a full CRUD API into this project for storing users, items, and ratings. If you're interested in trying TrueScore and using your own data, check out the <a href="https://github.com/gregorybchris/truescore">GitHub repository</a> and give the API a spin.
 
 ```bash
 # Infer user reliability
@@ -141,7 +141,7 @@ curl -s -X GET "http://localhost:8000/items/469df558-4e16-4e9e-87a9-f3013b1e1580
 }
 ```
 
-As a follow-up I'd like to return to this idea and build more rigor into down-ranking users with lower reliability.
+As a follow-up I'd like to return to this idea and build more rigor into down-ranking users with lower reliability, either using Gaussian belief propagation or by factoring the user reliabilities from the TrueScore model into item quality estimates.
 
 ## Footnotes
 
