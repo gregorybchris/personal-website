@@ -1,16 +1,15 @@
-const DEVELOPMENT_ENV = "development";
-const PRODUCTION_ENV = "production";
+type Environment = "development" | "production";
 
 const getEnvironment = () => {
-  return import.meta.env.MODE;
+  return import.meta.env.MODE as Environment;
 };
 
 const isDevEnvironment = () => {
-  return getEnvironment() === DEVELOPMENT_ENV;
+  return getEnvironment() === "development";
 };
 
 const isProdEnvironment = () => {
-  return getEnvironment() === PRODUCTION_ENV;
+  return getEnvironment() === "production";
 };
 
 export { getEnvironment, isDevEnvironment, isProdEnvironment };

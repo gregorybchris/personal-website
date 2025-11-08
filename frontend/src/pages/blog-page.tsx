@@ -2,10 +2,12 @@ import { RssIcon, SignOutIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
+import { match } from "ts-pattern";
 import { ErrorMessage } from "../components/error-message";
 import { Loader } from "../components/loader";
 import "../styles/fonts.css";
 import { formatDate } from "../utilities/datetime-utilities";
+import { getEnvironment } from "../utilities/environment-utilities";
 import { GET, makeQuery } from "../utilities/request-utilities";
 import { cn } from "../utilities/style-utilities";
 
@@ -50,9 +52,13 @@ export function BlogPage() {
           onClick={async (e) => {
             e.preventDefault();
             e.stopPropagation();
-            await navigator.clipboard.writeText(
-              "blog.chrisgregory.me/feed.xml",
-            );
+
+            const rssLink = match(getEnvironment())
+              .with("development", () => "http://localhost:8000/feed.xml")
+              .with("production", () => "https://api.chrisgregory.me/feed.xml")
+              .exhaustive();
+
+            await navigator.clipboard.writeText(rssLink);
             toast.success("Copied RSS link to clipboard!", {
               duration: 2000,
               position: "top-right",

@@ -1,6 +1,10 @@
 import camelcaseKeys from "camelcase-keys";
 import snakecaseKeys from "snakecase-keys";
-import { isDevEnvironment } from "./environment-utilities";
+import { match } from "ts-pattern";
+import { getEnvironment } from "./environment-utilities";
+
+const DEV_BACKEND_ROOT = "http://localhost:8000";
+const PROD_BACKEND_ROOT = "https://api.chrisgregory.me";
 
 export class ApiClient {
   apiBaseUrl: string;
@@ -18,13 +22,14 @@ export class ApiClient {
   }
 
   private getApiBaseUrl(): string {
-    const DEV_BACKEND_ROOT = "http://localhost:8000/";
-    const PROD_BACKEND_ROOT = "https://api.chrisgregory.me/";
-    return isDevEnvironment() ? DEV_BACKEND_ROOT : PROD_BACKEND_ROOT;
+    return match(getEnvironment())
+      .with("development", () => DEV_BACKEND_ROOT)
+      .with("production", () => PROD_BACKEND_ROOT)
+      .exhaustive();
   }
 
   async get<ResT>(path: string): Promise<ResT> {
-    const response = await fetch(`${this.apiBaseUrl}${path}`, {
+    const response = await fetch(`${this.apiBaseUrl}/${path}`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
@@ -37,7 +42,7 @@ export class ApiClient {
 
   async post<ReqT, ResT>(path: string, body: ReqT): Promise<ResT> {
     const snakeBody = this.convertClientToSnake ? this.toSnake(body) : body;
-    const response = await fetch(`${this.apiBaseUrl}${path}`, {
+    const response = await fetch(`${this.apiBaseUrl}/${path}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(snakeBody),
@@ -50,7 +55,7 @@ export class ApiClient {
   }
 
   async delete<ResT>(path: string): Promise<ResT> {
-    const response = await fetch(`${this.apiBaseUrl}${path}`, {
+    const response = await fetch(`${this.apiBaseUrl}/${path}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     });
@@ -63,7 +68,7 @@ export class ApiClient {
 
   async patch<ReqT, ResT>(path: string, body: ReqT): Promise<ResT> {
     const snakeBody = this.convertClientToSnake ? this.toSnake(body) : body;
-    const response = await fetch(`${this.apiBaseUrl}${path}`, {
+    const response = await fetch(`${this.apiBaseUrl}/${path}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(snakeBody),
