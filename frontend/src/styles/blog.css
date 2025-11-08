@@ -12,6 +12,13 @@
   margin-bottom: 1rem;
 }
 
+/* lists should only have margin top/bottom when not the child of another list */
+#blog ol ol,
+#blog ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 #blog code {
   color: #dc5039;
   text-decoration: none;
