@@ -13,13 +13,12 @@ const POST = async <T = unknown>(
 
 // Build endpoint path with query params (does not include base URL)
 const makeQuery = (endpoint: string, params: Record<string, string> = {}) => {
-  const fullPath = `/${endpoint}`;
   const paramKeys = Object.keys(params);
   if (paramKeys.length === 0) {
-    return fullPath;
+    return endpoint;
   }
   const searchParams = new URLSearchParams(params).toString();
-  return `${fullPath}?${searchParams}`;
+  return `${endpoint}?${searchParams}`;
 };
 
 const getSearchParams = (url: string = ""): URLSearchParams => {
