@@ -37,27 +37,30 @@ export function ProjectsPage() {
   const { slug } = useParams();
   const navigate = useNavigate();
 
+  // Fetch projects once on mount
   useEffect(() => {
     const projectsQuery = makeQuery("projects");
     GET(projectsQuery)
       .then((queryResult) => {
         const projects = queryResult.reverse();
         setProjects(projects);
-
-        if (slug) {
-          for (const project of projects) {
-            if (project.slug === slug) {
-              setCurrentProject(project);
-            }
-          }
-        }
         setError(null);
       })
       .catch((err) => {
         console.error("Failed to load projects:", err);
         setError("Failed to load projects");
       });
-  }, [slug]);
+  }, []);
+
+  // Update current project when slug changes
+  useEffect(() => {
+    if (slug && projects.length > 0) {
+      const project = projects.find((p) => p.slug === slug);
+      setCurrentProject(project || null);
+    } else if (!slug) {
+      setCurrentProject(null);
+    }
+  }, [slug, projects]);
 
   function onDownload(project: Project) {
     if (!project.download_link) {
