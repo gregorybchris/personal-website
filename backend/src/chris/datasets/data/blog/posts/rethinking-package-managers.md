@@ -138,27 +138,19 @@ class Dep:  # package ~= version
 
 
 @dataclass(frozen=True)
-class Pin:  # package == version
-    name: str
-    version: Version
-
-
-@dataclass(frozen=True)
 class Package:
     name: str
     version: Version
     deps: list[Dep]
 
-    def to_pin(self) -> Pin: ...
-
 
 @dataclass
 class Solution:
-    pins: dict[str, Pin] = None
+    pins: dict[str, Version] = None
 
-    def get(self, name: str) -> Optional[Pin]: ...
+    def get(self, name: str) -> Optional[Version]: ...
     def is_compatible_with(self, package: Package) -> bool: ...
-    def clone_add(self, pin: Pin) -> Solution: ...
+    def clone_add(self, package: Package) -> Solution: ...
 
 
 def list_versions_sorted(name: str) -> list[Package]: ...
@@ -181,12 +173,12 @@ def solve_rec(deps: list[Dep], solution: Solution) -> Iterator[Solution]:
         yield solution
         return
 
-    # Pop a dep of our queue and try to satisfy it
+    # Pop a dep of the queue and try to satisfy it
     dep, *tail = deps
 
     # If this dep is already in the solution with a compatible version, continue
-    if pin := solution.get(dep.name):
-        if dep.is_satisfied_by(pin.version):
+    if version := solution.get(dep.name):
+        if dep.is_satisfied_by(version):
             yield from solve_rec(tail, solution)
         return
 
@@ -197,7 +189,7 @@ def solve_rec(deps: list[Dep], solution: Solution) -> Iterator[Solution]:
         if not solution.is_compatible_with(package):
             continue
 
-        new_solution = solution.clone_add(package.to_pin())
+        new_solution = solution.clone_add(package)
         new_deps = tail + package.deps
         yield from solve_rec(new_deps, new_solution)
 ```
