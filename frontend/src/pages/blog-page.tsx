@@ -94,7 +94,7 @@ export function BlogPage() {
                 >
                   <td className="py-1.5 pr-6 text-balance">
                     {isAdmin && <StatusIndicator status={preview.status} />}
-                    <span className="bg-gradient-to-r from-blue-500/60 to-blue-500/60 bg-[length:0%_1.5px] bg-left-bottom bg-no-repeat transition-[background-size] duration-180 group-hover:bg-[length:100%_1.5px]">
+                    <span className="bg-gradient-to-r from-blue-500/60 to-blue-500/60 bg-[length:0%_1.5px] bg-left-bottom bg-no-repeat pb-[2.5px] transition-[background-size] duration-180 group-hover:bg-[length:100%_1.5px]">
                       {preview.title}
                     </span>
                   </td>
