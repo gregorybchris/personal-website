@@ -36,8 +36,8 @@ export function ProjectModal({
       <Dialog.Portal>
         <Dialog.Overlay className="data-[state=open]:animate-overlayShow fixed inset-0 bg-black/60" />
         <Dialog.Content className="data-[state=open]:animate-contentShow bg-parchment fixed top-[50%] left-[50%] h-[90vh] max-h-[90vh] w-[90vw] max-w-[90vw] translate-x-[-50%] translate-y-[-50%] overflow-auto rounded-lg shadow-lg md:w-[60vw]">
-          <div className="font-raleway text-md flex flex-col gap-3 py-10">
-            <div className="text-md flex flex-col gap-3 px-10">
+          <div className="font-raleway text-md flex flex-col">
+            <div className="bg-parchment sticky top-0 z-10 flex flex-col gap-3 px-10 pt-10 pb-5">
               <Dialog.Title className="flex flex-col gap-0.5">
                 <div className="font-sanchez text-2xl text-black/75">
                   {project.name}
@@ -47,6 +47,15 @@ export function ProjectModal({
                 </div>
               </Dialog.Title>
 
+              <Dialog.Close asChild>
+                <button className="absolute top-5 right-5 flex size-8 cursor-pointer items-center justify-center rounded-full transition-all outline-none hover:bg-black/5">
+                  <XIcon color="#444" />
+                </button>
+              </Dialog.Close>
+            </div>
+
+            {/* Scrollable content */}
+            <div className="flex flex-col gap-3 px-10 pb-10">
               <div className="flex flex-col gap-5">
                 <Dialog.Description className="text-black/75">
                   {project.description}
@@ -79,25 +88,19 @@ export function ProjectModal({
                   )}
                 </div>
               </div>
+
+              {project.image_links.length > 0 && (
+                <>
+                  <div className="my-3 w-full border-b border-black/8"></div>
+
+                  <div className="flex flex-row flex-wrap gap-3">
+                    {project.image_links.map((imageLink, i) => (
+                      <ProjectImage key={i} url={imageLink} />
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
-
-            {project.image_links.length > 0 && (
-              <>
-                <div className="my-3 w-full border-b border-black/8"></div>
-
-                <div className="flex flex-row flex-wrap gap-3 px-10">
-                  {project.image_links.map((imageLink, i) => (
-                    <ProjectImage key={i} url={imageLink} />
-                  ))}
-                </div>
-              </>
-            )}
-
-            <Dialog.Close asChild>
-              <button className="absolute top-5 right-5 flex size-8 cursor-pointer items-center justify-center rounded-full transition-all outline-none hover:bg-black/5">
-                <XIcon color="#444" />
-              </button>
-            </Dialog.Close>
           </div>
         </Dialog.Content>
       </Dialog.Portal>
