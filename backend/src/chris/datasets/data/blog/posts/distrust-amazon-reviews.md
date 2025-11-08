@@ -22,7 +22,7 @@ Of course, the _most-true_ story is that while some companies thrive on great br
 
 I'm a realist enough to know that in the free market there will always be a diversity of business models and there will always be pressures toward low quality products. But I'm an idealist enough to believe there's a hypothetical system that gives consumers the power to distinguish high from low quality.
 
-Clearly Amazon reviews are an attempt at such a system, but obviously reviews can be gamed. You can buy fake reviews that artificially inflate a product's rating. And in the age of AI-generated text, it's extremely easy to generate realistic and diverse reviews (even images) at scale if you're willing to pay for it.
+Clearly Amazon reviews are an attempt at such a system, but obviously reviews can be gamed. You can buy fake reviews that artificially inflate a product's rating. And in the age of AI-generated text, it's extremely easy to generate realistic and diverse reviews (even images) at scale if you're willing to spend a bit of cash.
 
 What would it look like if Amazon's recommender system were more aligned with the goals of users?
 
