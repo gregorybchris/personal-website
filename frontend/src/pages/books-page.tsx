@@ -1,3 +1,4 @@
+import { BookOpenIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { ErrorMessage } from "../components/error-message";
 import { Loader } from "../components/loader";
@@ -134,6 +135,7 @@ interface BookCardProps {
 
 function BookCard({ book, selectedTags, onTagClick, index }: BookCardProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), index * 80);
@@ -149,11 +151,27 @@ function BookCard({ book, selectedTags, onTagClick, index }: BookCardProps) {
           : "translate-y-[-20px] opacity-0",
       )}
     >
-      <a href={book.goodreadsLink} target="_blank">
-        <img
-          src={`${book.imageLinks.book}?cache=2`}
-          className="hover:border-sky/60 h-[210px] rounded-lg border-4 border-white/60 shadow-md transition-all md:h-[250px]"
-        />
+      <a
+        href={book.goodreadsLink}
+        target="_blank"
+        className="max-w-[190px] text-xs md:max-w-[230px]"
+      >
+        {imageError ? (
+          <div className="hover:border-sky/60 flex h-[210px] w-[140px] items-center justify-center rounded-lg border-4 border-white/60 bg-gray-100 shadow-md transition-all md:h-[250px] md:w-[166px]">
+            <BookOpenIcon
+              size={64}
+              weight="duotone"
+              className="text-gray-400"
+            />
+          </div>
+        ) : (
+          <img
+            src={`${book.imageLinks.book}?cache=2`}
+            className="hover:border-sky/60 h-[210px] rounded-lg border-4 border-white/60 shadow-md transition-all md:h-[250px]"
+            alt={`Cover of ${book.title} by ${book.author}`}
+            onError={() => setImageError(true)}
+          />
+        )}
       </a>
 
       <div className="flex flex-row flex-wrap items-center gap-0.5">
