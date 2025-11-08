@@ -10,6 +10,7 @@ import remarkSmartypants from "remark-smartypants";
 import remarkToc from "remark-toc";
 import { toast } from "sonner";
 import { CodeBlock } from "./code-block";
+import { CollapsibleSection } from "./collapsible-section";
 
 SyntaxHighlighter.registerLanguage("python", python);
 
@@ -116,6 +117,30 @@ export function MarkdownRenderer({ children }: MarkdownRendererProps) {
             <code className={className} {...props}>
               {children}
             </code>
+          );
+        },
+        details({ children, ...props }: { children?: React.ReactNode }) {
+          // Extract summary and content from children
+          const childArray = Array.isArray(children) ? children : [children];
+          let summary = "Show details";
+          const content: React.ReactNode[] = [];
+
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          childArray.forEach((child: any) => {
+            if (child?.type === "summary") {
+              summary = child.props.children;
+            } else if (child) {
+              content.push(child);
+            }
+          });
+
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const defaultOpen = (props as any).open !== undefined;
+
+          return (
+            <CollapsibleSection summary={summary} defaultOpen={defaultOpen}>
+              {content}
+            </CollapsibleSection>
           );
         },
       }}

@@ -113,8 +113,8 @@ mx index --package <package_name>
 
 The dependency resolver was the trickiest part of this project, so I wanted to recreate it as simply as possible here. The strategy is a recursive backtracking search that explores every combination of package versions until it finds a valid solution. I can guarantee it'll be horribly slow, but for a proof of concept it does the trick.
 
-<!-- This section should be collapsible and defaulted to collapsed -->
-<!-- It's more of an optional section in case you want to see the dataclasses and method stubs -->
+<details>
+<summary>Show types and stubs</summary>
 
 ```python
 from __future__ import annotations
@@ -163,6 +163,8 @@ class Solution:
 
 def list_versions_sorted(name: str) -> list[Package]: ...
 ```
+
+</details>
 
 ```python
 # Main function that initiates the dependency resolution

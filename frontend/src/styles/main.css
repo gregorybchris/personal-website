@@ -10,6 +10,31 @@
   --font-iowa: "Iowa Old Style BT", serif;
   --font-sanchez: "Sanchez", serif;
   --font-geist: "Geist Mono Variable", monospace;
+
+  --animate-expand: expand 200ms ease-out;
+  --animate-collapse: collapse 200ms ease-out;
+
+  @keyframes expand {
+    from {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: var(--radix-collapsible-content-height);
+      opacity: 1;
+    }
+  }
+
+  @keyframes collapse {
+    from {
+      height: var(--radix-collapsible-content-height);
+      opacity: 1;
+    }
+    to {
+      height: 0;
+      opacity: 0;
+    }
+  }
 }
 
 body {
