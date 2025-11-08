@@ -188,6 +188,18 @@ Ordering heuristics and locality constraints can speed up the search considerabl
 
 We'll train a model to <strong>estimate the number of moves needed to fully contract a graph</strong>. Then we can prioritize trajectories through the search space that are the most likely to converge quickly.
 
+This is effectively value-based reinforcement learning, where the value function estimates how close a given state is to the goal state. In our case, the state is the current graph and the goal state is a fully contracted graph.
+
+<!-- \[
+a^* = \arg\max_a V_\theta(f(s, a))
+\] -->
+
+$$
+a^* = \arg\max_a V_\theta(f(s, a))
+$$
+
+We find the action $a*$ that maximizes the value function $V_θ$ applied to the next state $f(s, a)$. Here, $s$ is the current state (graph), $a$ is a candidate action (contraction), and $f(s, a)$ is the resulting state after applying a contraction to the current graph.
+
 First we can embed the graph using a graph convolutional network (GCNConv from [PyTorch Geometric](https://pytorch-geometric.readthedocs.io)). The GCN architecture allows us to train on graphs of arbitrary shape and size.
 
 > Graph attention layers have not seemed to provide an advantage over simple graph convolutions, however more data may be needed to see a benefit. The training dataset was limited to the levels provided in the Kami app.
