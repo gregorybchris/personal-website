@@ -9,10 +9,10 @@ export function MusicPage() {
 
   return (
     <div className="flex flex-col items-center gap-10 px-4 py-8">
-      <div className="flex flex-col items-center gap-4 md:w-4/5">
+      <div className="flex flex-col items-center gap-2">
         <PageTitle>Music</PageTitle>
 
-        <div className="text-center text-balance text-black/75 md:w-[70%]">
+        <div className="max-w-2xl text-center text-sm text-balance text-black/60 md:text-base">
           Spotify is getting scary good at recommending music, but to me a song
           recommended by a person always feels more meaningful. Even if the
           music you're into is totally different, shoot me a link with my{" "}

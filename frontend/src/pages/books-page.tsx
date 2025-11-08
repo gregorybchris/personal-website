@@ -71,10 +71,10 @@ export function BooksPage() {
 
   return (
     <div className="flex flex-col items-center gap-10 px-4 py-8">
-      <div className="flex flex-col items-center gap-4 md:w-4/5">
+      <div className="flex flex-col items-center gap-2">
         <PageTitle>Books</PageTitle>
 
-        <div className="text-center text-balance text-black/75 md:w-[70%]">
+        <div className="max-w-2xl text-center text-sm text-balance text-black/60 md:text-base">
           If you enjoy non-fiction science and philosophy books, then you might
           enjoy something here on my virtual bookshelf, especially if you're
           into cognitive science or complex systems theory.
