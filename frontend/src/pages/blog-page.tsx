@@ -86,9 +86,11 @@ export function BlogPage() {
                       : undefined
                   }
                 >
-                  <td className="py-1.5 pr-6 text-balance decoration-blue-500/60 underline-offset-4 group-hover:underline">
+                  <td className="py-1.5 pr-6 text-balance">
                     {isAdmin && <StatusIndicator status={preview.status} />}
-                    {preview.title}
+                    <span className="relative inline-block after:absolute after:right-0 after:bottom-0 after:left-0 after:h-[1.5px] after:origin-left after:scale-x-0 after:bg-blue-500/60 after:transition-transform after:duration-180 group-hover:after:scale-x-100">
+                      {preview.title}
+                    </span>
                   </td>
                   <td className="py-1.5 text-right whitespace-nowrap text-black/50">
                     {formatDate(new Date(preview.date).toISOString())}
