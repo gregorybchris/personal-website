@@ -109,6 +109,97 @@ mx index
 mx index --package <package_name>
 ```
 
+### Dependency resolution
+
+The dependency resolver was the trickiest part of this project, so I wanted to recreate it as simply as possible here. The strategy is a recursive backtracking search that explores every combination of package versions until it finds a valid solution. I can guarantee it'll be horribly slow, but for a proof of concept it does the trick.
+
+<!-- This section should be collapsible and defaulted to collapsed -->
+<!-- It's more of an optional section in case you want to see the dataclasses and method stubs -->
+
+```python
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Iterator, Optional
+
+
+@dataclass(frozen=True)
+class Version:
+    major: int
+    minor: int
+
+
+@dataclass(frozen=True)
+class Dep:  # package ~= version
+    name: str
+    version: Version
+
+    def is_satisfied_by(self, version: Version) -> bool: ...
+
+
+@dataclass(frozen=True)
+class Pin:  # package == version
+    name: str
+    version: Version
+
+
+@dataclass(frozen=True)
+class Package:
+    name: str
+    version: Version
+    deps: list[Dep]
+
+    def to_pin(self) -> Pin: ...
+
+
+@dataclass
+class Solution:
+    pins: dict[str, Pin] = None
+
+    def get(self, name: str) -> Optional[Pin]: ...
+    def is_compatible_with(self, package: Package) -> bool: ...
+    def clone_add(self, pin: Pin) -> Solution: ...
+
+
+def list_versions_sorted(name: str) -> list[Package]: ...
+```
+
+```python
+# Main function that initiates the dependency resolution
+def solve(package: Package) -> Optional[Solution]:
+    init_solution = Solution()
+    solutions_iter = solve_rec(package.deps, init_solution)
+    return next(solutions_iter, None)
+
+
+# Recursive helper function that implements the backtracking search
+def solve_rec(deps: list[Dep], solution: Solution) -> Iterator[Solution]:
+    # If we have no more deps to satisfy, yield a valid solution
+    if len(deps) == 0:
+        yield solution
+        return
+
+    # Pop a dep of our queue and try to satisfy it
+    dep, *tail = deps
+
+    # If this dep is already in the solution with a compatible version, continue
+    if pin := solution.get(dep.name):
+        if dep.is_satisfied_by(pin.version):
+            yield from solve_rec(tail, solution)
+        return
+
+    # Recurse on every package version that satisfies the current dep
+    for package in list_versions_sorted(dep.name):
+        if not dep.is_satisfied_by(package.version):
+            continue
+        if not solution.is_compatible_with(package):
+            continue
+
+        new_solution = solution.clone_add(package.to_pin())
+        new_deps = tail + package.deps
+        yield from solve_rec(new_deps, new_solution)
+```
+
 ## Scratch
 
 Instead of relying on package maintainers to never make a mistake when bumping versions, the package manager can automatically verify whether a new version is compatible with the previous version. Even more useful, because we know exactly which members are being imported from a dependency, we could even automatically upgrade across major versions as long as no members with breaking changes are being used!
