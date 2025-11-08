@@ -8,15 +8,15 @@ status: draft
 
 I'll get to Amazon reviews in a minute, but first, if you'll allow me, a quick gripe about shopping online in general.
 
-The other day I was shopping for a new bed-side lamp. And even on sites of well-known, respectable brands (Ikea, Pottery Barn, etc.) it was hard to tell from the pictures if I'd be getting a quality product. Then I tried the classic "Best Lamps of 2025" listicles (I have to imagine they were full of paid placements). [NYT Wirecutter](https://www.nytimes.com/wirecutter) had some fine options too. From Google searches I stumbled across a few sites with artsy lamps in the <i>thousands</i> of dollars. Hey, no judgement if that's your thing, but I'm a simple man. I want a sturdy lamp that'll last me a few decades and not break the bank.
+The other day I was shopping for a new bed-side lamp. And even on sites of well-known, respectable brands (Ikea, Pottery Barn, etc.) it was hard to tell from the pictures if I'd be getting a quality product. Then I tried the classic "Best Lamps of 2025" listicles, but I had to imagine they were full of paid placements... [NYT Wirecutter](https://www.nytimes.com/wirecutter) had some fine options, but not quite the selection I was hoping for. From Google searches I stumbled across a few sites with artsy lamps in the <i>thousands</i> of dollars. Hey, no judgement if that's your thing, but I'm a simple man. I want a sturdy lamp that'll last me a few decades and not break the bank.
 
 At least for me, this is a pretty common experience buying a product online. I have a rough dollar amount in mind that I think I should have to pay (given cost of materials, manufacturing, shipping, etc). And I want to find a product that meets my expectations for quality. But then I go online and I'm flooded with options, many of which are super high quality, but cost an arm and a leg, and many of which look potentially well-constructed at first, but upon closer inspection might crumble and break while in transit to my front door.
 
-And we're not even considering style or personal taste here. Why is it that for every quality product at a reasonable price, there are ten others that are either overpriced or low quality?
+And we're not even considering style or personal taste here. Why is it that for every quality product at a reasonable price, there are ten others that are either overpriced or of dubious quality?
 
 ## Recommender systems
 
-I think part of the reason we're in this situation is that the maintainers of the most common recommender systems for physical products (Amazon and others) benefit more from recommending a variety of things than they do from helping users find the best things.
+I think part of the reason we're in this situation is that the maintainers of the most common recommender systems for physical products (Amazon and others) benefit more from recommending a variety of things than they do from helping users find things calibrated to their quality and cost expectations.
 
 Of course, the _most-true_ story is that while some companies thrive on great brand loyalty and customer trust, there's a whole ecosystem of retailers that succeed by selling high volume, low quality, cheap products that are marketed just well enough to get clicks and buys.
 
