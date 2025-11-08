@@ -114,7 +114,7 @@ mx index --package <package_name>
 The dependency resolver was the trickiest part of this project, so I wanted to recreate it as simply as possible here. The strategy is a recursive backtracking search that explores every combination of package versions until it finds a valid solution. I can guarantee it'll be horribly slow, but for a proof of concept it does the trick.
 
 <details>
-<summary>Show types and stubs</summary>
+<summary>Show types and stubs ||| Hide types and stubs</summary>
 
 ```python
 from __future__ import annotations

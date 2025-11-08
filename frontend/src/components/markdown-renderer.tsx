@@ -122,23 +122,35 @@ export function MarkdownRenderer({ children }: MarkdownRendererProps) {
         details({ children, ...props }: { children?: React.ReactNode }) {
           // Extract summary and content from children
           const childArray = Array.isArray(children) ? children : [children];
-          let summary = "Show details";
+          let summaryText = "Show details";
           const content: React.ReactNode[] = [];
 
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           childArray.forEach((child: any) => {
             if (child?.type === "summary") {
-              summary = child.props.children;
+              summaryText = child.props.children;
             } else if (child) {
               content.push(child);
             }
           });
 
+          // Parse summary text for collapsed|||expanded format
+          const summaryParts =
+            typeof summaryText === "string" ? summaryText.split("|||") : [];
+          const summaryCollapsed =
+            summaryParts.length > 0 ? summaryParts[0].trim() : undefined;
+          const summaryExpanded =
+            summaryParts.length > 1 ? summaryParts[1].trim() : undefined;
+
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const defaultOpen = (props as any).open !== undefined;
 
           return (
-            <CollapsibleSection summary={summary} defaultOpen={defaultOpen}>
+            <CollapsibleSection
+              summaryCollapsed={summaryCollapsed}
+              summaryExpanded={summaryExpanded}
+              defaultOpen={defaultOpen}
+            >
               {content}
             </CollapsibleSection>
           );

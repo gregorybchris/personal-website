@@ -4,17 +4,24 @@ import { ReactNode, useState } from "react";
 import { cn } from "../utilities/style-utilities";
 
 interface CollapsibleSectionProps {
-  summary: string;
+  summaryCollapsed?: string;
+  summaryExpanded?: string;
   children: ReactNode;
   defaultOpen?: boolean;
 }
 
 export function CollapsibleSection({
-  summary,
+  summaryCollapsed,
+  summaryExpanded,
   children,
   defaultOpen = false,
 }: CollapsibleSectionProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
+
+  // Use the appropriate summary based on state
+  const displaySummary = isOpen
+    ? summaryExpanded || summaryCollapsed || "Hide details"
+    : summaryCollapsed || summaryExpanded || "Show details";
 
   return (
     <Collapsible.Root open={isOpen} onOpenChange={setIsOpen}>
@@ -29,7 +36,7 @@ export function CollapsibleSection({
               !isOpen && "-rotate-90",
             )}
           />
-          <span>{summary}</span>
+          <span>{displaySummary}</span>
         </button>
       </Collapsible.Trigger>
       <Collapsible.Content className="data-[state=closed]:animate-collapse data-[state=open]:animate-expand overflow-hidden">
