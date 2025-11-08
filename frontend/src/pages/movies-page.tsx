@@ -15,7 +15,7 @@ export interface Movie {
     dialog: number;
   };
   link: string;
-  poster_url?: string;
+  posterUrl?: string;
 }
 
 export function MoviesPage() {
@@ -24,7 +24,7 @@ export function MoviesPage() {
 
   useEffect(() => {
     const moviesQuery = makeQuery("media/movies");
-    GET(moviesQuery).then((queryResult) => {
+    GET<Movie[]>(moviesQuery).then((queryResult) => {
       setMovies(queryResult);
     });
   }, []);
@@ -64,9 +64,9 @@ export function MoviesPage() {
                     rel="noopener noreferrer"
                     className="rounded-lg px-1 py-2 hover:bg-black/5"
                   >
-                    {movie.poster_url && (
+                    {movie.posterUrl && (
                       <img
-                        src={movie.poster_url}
+                        src={movie.posterUrl}
                         alt={movie.name}
                         className="w-full rounded-md"
                       />

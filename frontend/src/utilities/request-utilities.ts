@@ -1,65 +1,25 @@
-import { isDevEnvironment } from "./environment-utilities";
+import { apiClient } from "./api-client";
 
-const DEV_BACKEND_ROOT = "http://localhost:8000/";
-const PROD_BACKEND_ROOT = "https://api.chrisgregory.me/";
-const FRONTEND_ROOT = window.location.origin;
-
-const getBackendRoot = () => {
-  return isDevEnvironment() ? DEV_BACKEND_ROOT : PROD_BACKEND_ROOT;
+const GET = async <T = unknown>(path: string): Promise<T> => {
+  return apiClient.get<T>(path);
 };
 
-const GET = async (url: string) => {
-  try {
-    const fetchOptions: RequestInit = {};
-    const response = await fetch(url, fetchOptions);
+const POST = async <T = unknown>(
+  path: string,
+  body: object = {},
+): Promise<T> => {
+  return apiClient.post<object, T>(path, body);
+};
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("GET request failed:", url, error);
-    throw error;
+// Build endpoint path with query params (does not include base URL)
+const makeQuery = (endpoint: string, params: Record<string, string> = {}) => {
+  const fullPath = `/${endpoint}`;
+  const paramKeys = Object.keys(params);
+  if (paramKeys.length === 0) {
+    return fullPath;
   }
-};
-
-const POST = async (url: string, body: object = {}) => {
-  try {
-    const response = await fetch(url, {
-      method: "POST",
-      body: JSON.stringify(body),
-      headers: new Headers({
-        "Content-Type": "application/json",
-      }),
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("POST request failed:", url, error);
-    throw error;
-  }
-};
-
-const makeQuery = (endpoint: string, params = {}) => {
-  return appendParams(`${getBackendRoot()}${endpoint}`, params);
-};
-
-const makeURL = (params = {}, page = "") => {
-  const noParamURL = page ? `${FRONTEND_ROOT}/${page}` : FRONTEND_ROOT;
-  return appendParams(noParamURL, params);
-};
-
-const appendParams = (url: string, params: Record<string, string>) => {
-  const fullUrl = new URL(url);
-  fullUrl.search = new URLSearchParams(params).toString();
-  return fullUrl.href;
+  const searchParams = new URLSearchParams(params).toString();
+  return `${fullPath}?${searchParams}`;
 };
 
 const getSearchParams = (url: string = ""): URLSearchParams => {
@@ -67,4 +27,4 @@ const getSearchParams = (url: string = ""): URLSearchParams => {
   return new URLSearchParams(fullUrl.search);
 };
 
-export { GET, getSearchParams, makeQuery, makeURL, POST };
+export { GET, getSearchParams, makeQuery, POST };

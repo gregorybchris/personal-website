@@ -10,13 +10,13 @@ import { useMetaTags } from "../hooks/use-meta-tags";
 import "../styles/blog.css";
 import "../styles/fonts.css";
 import { formatDate } from "../utilities/datetime-utilities";
-import { makeQuery } from "../utilities/request-utilities";
+import { GET, makeQuery } from "../utilities/request-utilities";
 
 export interface BlogPost {
   title: string;
   slug: string;
   date: string;
-  reading_time: number | null;
+  readingTime: number | null;
   content: string;
 }
 
@@ -27,19 +27,9 @@ export function BlogPostPage() {
 
   useEffect(() => {
     const query = makeQuery(`blog/posts/${slug}`);
-    fetch(query)
-      .then((response) => {
-        if (!response.ok) {
-          console.error("Failed to load blog post");
-          navigate("/blog");
-          return null;
-        }
-        return response.json();
-      })
-      .then((responseJson) => {
-        if (responseJson) {
-          setCurrentPost(responseJson);
-        }
+    GET<BlogPost>(query)
+      .then((post) => {
+        setCurrentPost(post);
       })
       .catch((error) => {
         console.error("Error loading blog post:", error);
@@ -99,7 +89,7 @@ export function BlogPostPage() {
             <div className="text-sm text-black/50">
               {formatDate(new Date(currentPost.date).toISOString())}
             </div>
-            {currentPost.reading_time !== null && (
+            {currentPost.readingTime !== null && (
               <div
                 className="text-sm"
                 title="Estimated using Brysbaert, M. (2019)"
@@ -107,7 +97,7 @@ export function BlogPostPage() {
                 <span className="text-black/25">
                   [
                   <span className="text-black/50">
-                    {currentPost.reading_time} min read
+                    {currentPost.readingTime} min read
                   </span>
                   ]
                 </span>

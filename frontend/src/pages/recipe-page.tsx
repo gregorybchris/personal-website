@@ -17,7 +17,7 @@ export function RecipePage() {
 
   useEffect(() => {
     const recipesQuery = makeQuery("recipes");
-    GET(recipesQuery).then((queryResult) => {
+    GET<Recipe[]>(recipesQuery).then((queryResult) => {
       setRecipes(queryResult);
     });
   }, []);
@@ -59,7 +59,7 @@ export function RecipePage() {
 
       {recipe !== undefined && (
         <div className="flex w-[95%] flex-col items-start gap-6 md:w-[80%]">
-          <a href={recipe.bigoven_link} target="_blank">
+          <a href={recipe.bigovenLink} target="_blank">
             <div className="border-sky font-sanchez border-b text-3xl">
               {recipe.name}
             </div>
@@ -70,7 +70,7 @@ export function RecipePage() {
               <div>
                 <ClockCountdownIcon size={25} color="#6283c0" />
               </div>
-              <div>Ready in {formatDuration(recipe.prep_time)}</div>
+              <div>Ready in {formatDuration(recipe.prepTime)}</div>
             </div>
             <div className="flex flex-row gap-x-2">
               <div>

@@ -13,7 +13,7 @@ interface Likert {
 }
 
 export interface Question {
-  question_id: string;
+  questionId: string;
   text: string;
   type: string;
   required: boolean;
@@ -23,10 +23,10 @@ export interface Question {
 }
 
 export interface Survey {
-  survey_id: string;
+  surveyId: string;
   name: string;
   slug: string;
-  date_created: string;
+  dateCreated: string;
   questions: Question[];
   archived: boolean;
 }
@@ -106,7 +106,7 @@ export function SurveysPage() {
 
   useEffect(() => {
     const surveysQuery = makeQuery("surveys");
-    GET(surveysQuery).then((surveys: Survey[]) => {
+    GET<Survey[]>(surveysQuery).then((surveys) => {
       surveys = surveys.filter((survey) => !survey.archived);
       setSurveys(surveys);
       if (!store.contains(COMPLETED_KEY)) {
@@ -126,7 +126,7 @@ export function SurveysPage() {
       const completedIds: Array<string> = store.get(COMPLETED_KEY) || [];
       let current: Survey | null = null;
       for (let i = 0; i < surveys.length; i++) {
-        if (!completedIds.includes(surveys[i].survey_id)) {
+        if (!completedIds.includes(surveys[i].surveyId)) {
           current = surveys[i];
         }
       }
@@ -223,7 +223,7 @@ function SurveyCard({
 
   async function onSurveySubmit(survey: Survey, response: Response) {
     if (response.isSurveyComplete()) {
-      const surveyId = survey.survey_id;
+      const surveyId = survey.surveyId;
       const postSurveyQuery = makeQuery(`surveys/${surveyId}`);
       const postBody = {
         choices: response.choices,

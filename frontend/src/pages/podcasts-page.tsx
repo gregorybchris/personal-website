@@ -13,9 +13,9 @@ export interface Podcast {
     information: number;
     consistency: number;
   };
-  apple_link: string;
-  pocket_casts_link: string;
-  pocket_casts_id: string;
+  appleLink: string;
+  pocketCastsLink: string;
+  pocketCastsId: string;
 }
 
 export function PodcastsPage() {
@@ -23,7 +23,7 @@ export function PodcastsPage() {
 
   useEffect(() => {
     const podcastsQuery = makeQuery("media/podcasts");
-    GET(podcastsQuery).then((queryResult) => {
+    GET<Podcast[]>(podcastsQuery).then((queryResult) => {
       setPodcasts(queryResult);
     });
   }, []);
@@ -44,11 +44,11 @@ export function PodcastsPage() {
                 key={podcast.name}
               >
                 <SimpleLink
-                  link={podcast.apple_link}
+                  link={podcast.appleLink}
                   className="rounded-lg px-1 py-2 hover:bg-black/5"
                 >
                   <img
-                    src={`https://static.pocketcasts.com/discover/images/webp/480/${podcast.pocket_casts_id}.webp`}
+                    src={`https://static.pocketcasts.com/discover/images/webp/480/${podcast.pocketCastsId}.webp`}
                     alt={podcast.name}
                     className="w-full rounded-md"
                   />

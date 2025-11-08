@@ -14,7 +14,7 @@ export interface YouTubeChannel {
     consistency: number;
   };
   link: string;
-  image_link: string;
+  imageLink: string;
 }
 
 export function YouTubeChannelsPage() {
@@ -22,7 +22,7 @@ export function YouTubeChannelsPage() {
 
   useEffect(() => {
     const channelsQuery = makeQuery("media/youtube_channels");
-    GET(channelsQuery).then((queryResult) => {
+    GET<YouTubeChannel[]>(channelsQuery).then((queryResult) => {
       setChannels(queryResult);
     });
   }, []);
@@ -45,7 +45,7 @@ export function YouTubeChannelsPage() {
                 <div className="flex flex-row items-center gap-2">
                   <SimpleLink link={channel.link}>
                     <img
-                      src={channel.image_link}
+                      src={channel.imageLink}
                       alt={channel.name}
                       className="size-10 rounded-full"
                     />

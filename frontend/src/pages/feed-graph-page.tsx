@@ -28,8 +28,8 @@ export function FeedGraphPage() {
   const navigate = useNavigate();
 
   const postsQuery = makeQuery("feed/posts");
-  GET(postsQuery).then((queryResult) => {
-    const allPosts: FeedPost[] = queryResult["posts"];
+  GET<{ posts: FeedPost[] }>(postsQuery).then((queryResult) => {
+    const allPosts: FeedPost[] = queryResult.posts;
     const posts = allPosts.reverse().filter((post) => !post.archived);
     const data = getData(posts);
     createSimulation(data);
@@ -164,7 +164,7 @@ export function FeedGraphPage() {
       .attr("stroke-width", 3)
       .attr("fill", color)
       .attr("fill-opacity", 0)
-      .attr("id", (node: GraphNode) => node.post.post_id)
+      .attr("id", (node: GraphNode) => node.post.postId)
       .call(onDrag(simulation));
 
     node.append("title").text((d) => d.id);

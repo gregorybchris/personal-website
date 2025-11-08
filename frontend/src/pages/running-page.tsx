@@ -9,13 +9,13 @@ import "../styles/running.css";
 import { GET, makeQuery } from "../utilities/request-utilities";
 
 export interface RunningRoute {
-  route_id: string;
+  routeId: string;
   name: string;
   slug: string;
   distance: number;
   elevation: number;
-  route_data_link: string;
-  mapometer_id: number;
+  routeDataLink: string;
+  mapometerId: number;
   city: string;
   tags: string[];
   archived: boolean;
@@ -52,7 +52,7 @@ export function RunningPage() {
 
   useEffect(() => {
     const routesQuery = makeQuery("outdoor/running");
-    GET(routesQuery)
+    GET<RunningRoute[]>(routesQuery)
       .then((routes: RunningRoute[]) => {
         setRoutes(routes.sort(routeCompare).filter((r) => !r.archived));
         setError(null);
@@ -84,8 +84,8 @@ export function RunningPage() {
       navigate(`/running/${route.slug}`);
     }
 
-    const routeDataUrl = route.route_data_link;
-    const routeData = await GET(routeDataUrl);
+    const routeDataUrl = route.routeDataLink;
+    const routeData = await GET<RouteData>(routeDataUrl);
     setCurrentRoute(route);
     setCurrentRouteData(routeData);
     setShowRoutesTable(false);
@@ -191,7 +191,7 @@ function RouteMapCard({
 
       <div className="relative h-[450px] w-full overflow-clip rounded-xl border-4 border-white/60 shadow-md">
         <MapContainer
-          key={route.route_id}
+          key={route.routeId}
           className="!z-[10] h-full w-full"
           center={[51.505, -0.09]}
           zoom={13}

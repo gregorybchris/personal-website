@@ -25,7 +25,7 @@ export function InstagramsPage() {
     const instagramsQuery = makeQuery("media/instagrams");
     const currentId = id || null;
     const requestBody = { query, id: currentId };
-    POST(instagramsQuery, requestBody)
+    POST<{ results: Instagram[] }>(instagramsQuery, requestBody)
       .then((response) => {
         setInstagrams(response.results);
         setLoading(false);

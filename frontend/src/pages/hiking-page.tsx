@@ -16,7 +16,7 @@ import { GET, makeQuery } from "../utilities/request-utilities";
 import { cn } from "../utilities/style-utilities";
 
 export interface HikingRoute {
-  route_id: string;
+  routeId: string;
   name: string;
   slug: string;
   dates: string[];
@@ -24,7 +24,7 @@ export interface HikingRoute {
   elevation: number | null;
   area: string;
   region: string;
-  travel_time: string | null;
+  travelTime: string | null;
   notes: string | null;
   coordinates: {
     latitude: number;
@@ -33,7 +33,7 @@ export interface HikingRoute {
   } | null;
   stars: number | null;
   archived: boolean;
-  image_links: string[];
+  imageLinks: string[];
 }
 
 function formatDistance(n: number) {
@@ -54,7 +54,7 @@ export function HikingPage() {
 
   useEffect(() => {
     const routesQuery = makeQuery("outdoor/hiking");
-    GET(routesQuery).then((routes: HikingRoute[]) => {
+    GET<HikingRoute[]>(routesQuery).then((routes) => {
       setRoutes(routes.sort(routeCompare).filter((r) => !r.archived));
     });
   }, []);
@@ -88,26 +88,26 @@ export function HikingPage() {
         <div className="flex w-full flex-col gap-3 md:w-4/5">
           {routes
             .filter(
-              (route) => route.dates.length > 0 && route.image_links.length > 0,
+              (route) => route.dates.length > 0 && route.imageLinks.length > 0,
             )
             .map((route) => (
               <div
-                key={route.route_id}
+                key={route.routeId}
                 className="group flex flex-col overflow-clip rounded-lg border-b border-neutral-200 bg-white md:flex-row"
               >
-                {route.image_links.length > 0 && (
+                {route.imageLinks.length > 0 && (
                   <div
                     className="group/image relative h-48 w-full cursor-pointer md:h-[190px] md:w-[190px] md:flex-shrink-0"
                     onClick={() =>
                       setSelectedImage({
-                        images: route.image_links,
+                        images: route.imageLinks,
                         index: 0,
                         routeName: route.name,
                       })
                     }
                   >
                     <LazyImage
-                      src={route.image_links[0]}
+                      src={route.imageLinks[0]}
                       alt={route.name}
                       className="h-full w-full object-cover"
                       onClick={() => {}}

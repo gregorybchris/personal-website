@@ -6,7 +6,7 @@ import { GET, makeQuery } from "../utilities/request-utilities";
 export interface ArchiveItem {
   version: number;
   date: string;
-  image_links: string[];
+  imageLinks: string[];
 }
 
 export function ArchivePage() {
@@ -14,7 +14,7 @@ export function ArchivePage() {
 
   useEffect(() => {
     const query = makeQuery("archive");
-    GET(query).then((items) => {
+    GET<ArchiveItem[]>(query).then((items) => {
       setItems(items);
     });
   }, []);
@@ -57,7 +57,7 @@ function ArchiveSection({ archiveItem }: ArchiveSectionProps) {
 
       {expanded && (
         <div className="flex w-full flex-row flex-wrap justify-center gap-4">
-          {archiveItem.image_links.map((imageUrl) => (
+          {archiveItem.imageLinks.map((imageUrl) => (
             <img
               className="w-full border-2 border-neutral-300 md:w-[500px]"
               src={imageUrl}

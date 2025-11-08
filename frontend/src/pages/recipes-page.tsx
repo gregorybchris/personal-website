@@ -18,11 +18,11 @@ import { GET, makeQuery } from "../utilities/request-utilities";
 export interface Recipe {
   name: string;
   slug: string;
-  bigoven_link: string;
-  recipe_type: RecipeType;
-  food_type: FoodType;
+  bigovenLink: string;
+  recipeType: RecipeType;
+  foodType: FoodType;
   origin: string;
-  prep_time: string;
+  prepTime: string;
   serves: number;
   archived: boolean;
   ingredients: Ingredient[];
@@ -55,7 +55,7 @@ export function RecipesPage() {
 
   useEffect(() => {
     const recipesQuery = makeQuery("recipes");
-    GET(recipesQuery).then((queryResult) => {
+    GET<Recipe[]>(recipesQuery).then((queryResult) => {
       setRecipes(queryResult);
     });
   }, []);
@@ -87,7 +87,7 @@ export function RecipesPage() {
 
       <div className="flex flex-row flex-wrap justify-center md:w-[80%]">
         {recipes.map((recipe) => {
-          const icon = getIcon(recipe.food_type);
+          const icon = getIcon(recipe.foodType);
 
           return (
             !recipe.archived && (
@@ -108,7 +108,7 @@ export function RecipesPage() {
                   <div className="flex flex-col items-center gap-1 text-xs">
                     <div className="flex flex-row items-center gap-1">
                       <TimerIcon size={14} color="#6283c0" weight="duotone" />
-                      <div>Ready in {formatDuration(recipe.prep_time)}</div>
+                      <div>Ready in {formatDuration(recipe.prepTime)}</div>
                     </div>
                     <div className="flex flex-row items-center gap-1">
                       <PersonIcon size={14} color="#6283c0" weight="duotone" />

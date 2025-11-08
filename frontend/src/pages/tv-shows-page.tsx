@@ -15,7 +15,7 @@ export interface TvShow {
     dialog: number;
   };
   link: string;
-  poster_url?: string;
+  posterUrl?: string;
 }
 
 export function TvShowsPage() {
@@ -24,7 +24,7 @@ export function TvShowsPage() {
 
   useEffect(() => {
     const showsQuery = makeQuery("media/tv");
-    GET(showsQuery).then((queryResult) => {
+    GET<TvShow[]>(showsQuery).then((queryResult) => {
       setShows(queryResult);
     });
   }, []);
@@ -64,9 +64,9 @@ export function TvShowsPage() {
                     rel="noopener noreferrer"
                     className="rounded-lg px-1 py-2 hover:bg-black/5"
                   >
-                    {show.poster_url && (
+                    {show.posterUrl && (
                       <img
-                        src={show.poster_url}
+                        src={show.posterUrl}
                         alt={show.name}
                         className="w-full rounded-md"
                       />

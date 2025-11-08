@@ -11,12 +11,12 @@ export interface Book {
   title: string;
   subtitle?: string;
   author: string;
-  year_read: number;
-  general_appeal: number;
+  yearRead: number;
+  generalAppeal: number;
   archived: boolean;
   tags: string[];
-  goodreads_link: string;
-  image_links: {
+  goodreadsLink: string;
+  imageLinks: {
     book: string;
     square: string;
   };
@@ -31,8 +31,8 @@ export function BooksPage() {
 
   useEffect(() => {
     const booksQuery = makeQuery("media/books");
-    GET(booksQuery)
-      .then((books: Book[]) => {
+    GET<Book[]>(booksQuery)
+      .then((books) => {
         const tagsSet = new Set<string>();
         books.forEach((book) => {
           book.tags.forEach((tag) => tagsSet.add(tag));
@@ -45,7 +45,7 @@ export function BooksPage() {
             const img = new Image();
             img.onload = () => resolve(null);
             img.onerror = () => resolve(null); // Still resolve on error to not block
-            img.src = `${book.image_links.book}?cache=2`;
+            img.src = `${book.imageLinks.book}?cache=2`;
           });
         });
 
@@ -109,7 +109,7 @@ export function BooksPage() {
                   selectedTags.every((tag) => book.tags.includes(tag)),
               )
               .sort(
-                (bookA, bookB) => bookB.general_appeal - bookA.general_appeal,
+                (bookA, bookB) => bookB.generalAppeal - bookA.generalAppeal,
               )
               .map((book, index) => (
                 <BookCard
@@ -151,9 +151,9 @@ function BookCard({ book, selectedTags, onTagClick, index }: BookCardProps) {
           : "translate-y-[-20px] opacity-0",
       )}
     >
-      <a href={book.goodreads_link} target="_blank">
+      <a href={book.goodreadsLink} target="_blank">
         <img
-          src={`${book.image_links.book}?cache=2`}
+          src={`${book.imageLinks.book}?cache=2`}
           className="hover:border-sky/60 h-[210px] rounded-lg border-4 border-white/60 shadow-md transition-all md:h-[250px]"
         />
       </a>

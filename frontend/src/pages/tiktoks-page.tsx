@@ -25,7 +25,7 @@ export function TiktoksPage() {
     const tiktoksQuery = makeQuery("media/tiktoks");
     const currentId = id || null;
     const requestBody = { query, id: currentId };
-    POST(tiktoksQuery, requestBody)
+    POST<{ results: Tiktok[] }>(tiktoksQuery, requestBody)
       .then((response) => {
         setTiktoks(response.results);
         setLoading(false);

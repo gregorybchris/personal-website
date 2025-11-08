@@ -177,7 +177,7 @@ export function ProjectsTimeline({
   }
 
   function getProjectSelector(project: Project): string {
-    return `#project_${project.project_id}`;
+    return `#project_${project.projectId}`;
   }
 
   function getProjectColor(projectType: string): string {
@@ -256,11 +256,11 @@ export function ProjectsTimeline({
         return (r * r * 6) / 30 + 9;
       })
       .attr("opacity", 1)
-      .attr("fill", (p) => getProjectColor(p.project_type))
+      .attr("fill", (p) => getProjectColor(p.projectType))
       .attr("fill-opacity", 0)
       .attr("stroke-width", 4)
-      .attr("stroke", (p) => getProjectColor(p.project_type))
-      .attr("id", (p) => `project_${p.project_id}`)
+      .attr("stroke", (p) => getProjectColor(p.projectType))
+      .attr("id", (p) => `project_${p.projectId}`)
       .on("click", (_mouseEvent: MouseEvent, p: Project) => {
         d3.selectAll("circle")
           .classed("deselected", true)

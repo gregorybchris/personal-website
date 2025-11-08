@@ -62,39 +62,39 @@ export function ProjectModal({
                 </Dialog.Description>
 
                 <div className="flex flex-col gap-y-1">
-                  {project.download_link && (
+                  {project.downloadLink && (
                     <DownloadLink project={project} onDownload={onDownload} />
                   )}
-                  {project.web_link && (
+                  {project.webLink && (
                     <ProjectInfoLink
                       text="Try it!"
-                      link={project.web_link}
+                      link={project.webLink}
                       kind="demo"
                     />
                   )}
-                  {project.source_link && (
+                  {project.sourceLink && (
                     <ProjectInfoLink
                       text="Source code"
-                      link={project.source_link}
+                      link={project.sourceLink}
                       kind="source"
                     />
                   )}
-                  {project.original_link && (
+                  {project.originalLink && (
                     <ProjectInfoLink
                       text="Original"
-                      link={project.original_link}
+                      link={project.originalLink}
                       kind="original"
                     />
                   )}
                 </div>
               </div>
 
-              {project.image_links.length > 0 && (
+              {project.imageLinks.length > 0 && (
                 <>
                   <div className="my-3 w-full border-b border-black/8"></div>
 
                   <div className="flex flex-row flex-wrap gap-3">
-                    {project.image_links.map((imageLink, i) => (
+                    {project.imageLinks.map((imageLink, i) => (
                       <ProjectImage key={i} url={imageLink} projectName={project.name} />
                     ))}
                   </div>
@@ -154,7 +154,7 @@ interface DownloadLinkProps {
 }
 
 function DownloadLink({ project, onDownload }: DownloadLinkProps) {
-  const isJava = project.primary_language === "Java";
+  const isJava = project.primaryLanguage === "Java";
   const text = isJava ? "Download JAR" : "Download";
   return (
     <div className="flex flex-row">

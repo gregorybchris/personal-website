@@ -13,18 +13,18 @@ import {
 } from "../utilities/request-utilities";
 
 export interface FeedPost {
-  post_id: string;
+  postId: string;
   title: string;
   slug: string;
-  content_type: string;
+  contentType: string;
   source: string | null;
   areas: string[];
   series: string | null;
   speaker: string | null;
-  episode_number: number | null;
+  episodeNumber: number | null;
   length: string | null;
-  date_created: string | null;
-  date_posted: string;
+  dateCreated: string | null;
+  datePosted: string;
   link: string;
   tags: string[];
   hook: string | null;
@@ -50,8 +50,8 @@ export function FeedPage() {
 
   useEffect(() => {
     const postsQuery = makeQuery("feed/posts");
-    GET(postsQuery).then((queryResult) => {
-      setPosts(queryResult["posts"].reverse());
+    GET<{ posts: FeedPost[] }>(postsQuery).then((queryResult) => {
+      setPosts(queryResult.posts.reverse());
     });
   }, []);
 
@@ -149,7 +149,7 @@ export function FeedPage() {
               .filter(isPostVisible)
               .map((post) => (
                 <FeedPostCard
-                  key={post.post_id}
+                  key={post.postId}
                   post={post}
                   onClickTag={onClickTag}
                   onSelectPost={(post) => navigate(`/feed/${post.slug}`)}
@@ -221,14 +221,14 @@ function FeedPostCard({
   const title = post.speaker ? `${post.speaker}: ${post.title}` : post.title;
 
   const seriesName = post.series;
-  const seriesDetails = post.episode_number
-    ? `${seriesName} (#${post.episode_number})`
+  const seriesDetails = post.episodeNumber
+    ? `${seriesName} (#${post.episodeNumber})`
     : seriesName;
 
   return (
     <div
       className="border-sky flex max-w-[600px] flex-col items-start gap-3 border-l-2 px-6 py-1"
-      id={post.post_id}
+      id={post.postId}
     >
       <div className="flex flex-col gap-1 px-2">
         <a href={contentLink} target="_blank" rel="noopener noreferrer">
@@ -240,7 +240,7 @@ function FeedPostCard({
         <div className="flex flex-col gap-0.5 text-sm">
           {seriesName && <div className="text-black/60">{seriesDetails}</div>}
 
-          <div className="text-black/60">{formatDate(post.date_posted)}</div>
+          <div className="text-black/60">{formatDate(post.datePosted)}</div>
 
           {post.length && (
             <div className="text-black/60">{formatLength(post.length)}</div>

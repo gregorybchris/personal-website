@@ -9,21 +9,21 @@ import { SearchBar } from "../components/search-bar";
 import { GET, POST, makeQuery } from "../utilities/request-utilities";
 
 export interface Project {
-  project_id: string;
+  projectId: string;
   name: string;
   slug: string;
   date: string;
   rating: number;
-  project_type: string;
+  projectType: string;
   controls: string | null;
   description: string | null;
   remarks: string | null;
-  source_link: string | null;
-  download_link: string | null;
-  web_link: string | null;
-  original_link: string | null;
-  image_links: string[];
-  primary_language: string;
+  sourceLink: string | null;
+  downloadLink: string | null;
+  webLink: string | null;
+  originalLink: string | null;
+  imageLinks: string[];
+  primaryLanguage: string;
   archived: boolean;
 }
 
@@ -40,7 +40,7 @@ export function ProjectsPage() {
   // Fetch projects once on mount
   useEffect(() => {
     const projectsQuery = makeQuery("projects");
-    GET(projectsQuery)
+    GET<Project[]>(projectsQuery)
       .then((queryResult) => {
         const projects = queryResult.reverse();
         setProjects(projects);
@@ -63,7 +63,7 @@ export function ProjectsPage() {
   }, [slug, projects]);
 
   function onDownload(project: Project) {
-    if (!project.download_link) {
+    if (!project.downloadLink) {
       console.error("No download link exists for project: ", project);
       return;
     }
@@ -75,7 +75,7 @@ export function ProjectsPage() {
     }
 
     anchorCurrent.click();
-    POST(makeQuery(`projects/download/${project.project_id}`));
+    POST(makeQuery(`projects/download/${project.projectId}`));
   }
 
   function onSelectProject(project: Project | null) {
@@ -132,11 +132,11 @@ export function ProjectsPage() {
           onDownload={onDownload}
         />
       )}
-      {currentProject?.download_link && (
+      {currentProject?.downloadLink && (
         <a
           className="opacity-0"
           ref={downloadAnchor}
-          href={currentProject?.download_link}
+          href={currentProject?.downloadLink}
           target="_blank"
           rel="noopener noreferrer"
         >

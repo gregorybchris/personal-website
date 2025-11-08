@@ -16,7 +16,7 @@ export interface BlogPostPreview {
   slug: string;
   date: string;
   status: Status;
-  reading_time: number | null;
+  readingTime: number | null;
 }
 
 export function BlogPage() {
@@ -28,7 +28,7 @@ export function BlogPage() {
 
   useEffect(() => {
     const postsQuery = makeQuery("blog/posts");
-    GET(postsQuery)
+    GET<BlogPostPreview[]>(postsQuery)
       .then((queryResult) => {
         console.log("Blog posts query result:", queryResult);
         setPreviews(queryResult);
@@ -81,8 +81,8 @@ export function BlogPage() {
                     navigate(`/blog/${preview.slug}`);
                   }}
                   title={
-                    preview.reading_time
-                      ? `${preview.reading_time} min read`
+                    preview.readingTime
+                      ? `${preview.readingTime} min read`
                       : undefined
                   }
                 >

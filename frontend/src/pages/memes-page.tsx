@@ -26,7 +26,7 @@ export function MemesPage() {
     const memesQuery = makeQuery("media/memes");
     const currentId = id || null;
     const requestBody = { query, id: currentId };
-    POST(memesQuery, requestBody)
+    POST<{ results: Meme[] }>(memesQuery, requestBody)
       .then((response) => {
         setMemes(response.results);
         setLoading(false);

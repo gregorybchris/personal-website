@@ -12,7 +12,7 @@ export interface Artist {
     personality: number;
   };
   link: string;
-  image_link: string;
+  imageLink: string;
 }
 
 export function ArtistsPage() {
@@ -20,7 +20,7 @@ export function ArtistsPage() {
 
   useEffect(() => {
     const artistsQuery = makeQuery("media/artists");
-    GET(artistsQuery).then((artists: Artist[]) => {
+    GET<Artist[]>(artistsQuery).then((artists) => {
       setArtists(artists);
     });
   }, []);
@@ -46,7 +46,7 @@ export function ArtistCard({ artist }: ArtistCardProps) {
   return (
     <div className="flex flex-col items-center gap-2 px-2 py-3">
       <img
-        src={`${artist.image_link}?cache=1`}
+        src={`${artist.imageLink}?cache=1`}
         className="hover:border-sky w-[300px] cursor-pointer rounded-full border-2 border-neutral-300 transition-all md:max-w-[220px]"
         onClick={(e) => {
           window.open(artist.link, "_blank");
