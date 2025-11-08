@@ -2,14 +2,16 @@ import logo from "../assets/icons/logo-blue.svg";
 import { cn } from "../utilities/style-utilities";
 
 interface LoaderProps {
-  children?: React.ReactNode;
+  text?: string;
+  showEllipses?: boolean;
   duration?: number;
   delay?: number;
   className?: string;
 }
 
 export function Loader({
-  children,
+  text,
+  showEllipses = true,
   duration = 1200,
   delay = 0,
   className,
@@ -21,7 +23,12 @@ export function Loader({
         className,
       )}
     >
-      {children}
+      {text && (
+        <div className="flex items-center">
+          <span>{text}</span>
+          {showEllipses && <AnimatedEllipses />}
+        </div>
+      )}
       <img
         src={logo}
         alt="Loading page logo"
@@ -32,5 +39,25 @@ export function Loader({
         }}
       />
     </div>
+  );
+}
+
+function AnimatedEllipses() {
+  return (
+    <span className="inline-flex w-6">
+      <style>{`
+        @keyframes ellipsis {
+          0% { content: ''; }
+          25% { content: '.'; }
+          50% { content: '..'; }
+          75% { content: '...'; }
+        }
+        .ellipsis::after {
+          content: '';
+          animation: ellipsis 1200ms infinite;
+        }
+      `}</style>
+      <span className="ellipsis" />
+    </span>
   );
 }

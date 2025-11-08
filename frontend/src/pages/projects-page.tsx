@@ -103,7 +103,7 @@ export function ProjectsPage() {
       {error ? (
         <ErrorMessage message={error} className="mt-8" />
       ) : projects.length === 0 ? (
-        <Loader className="mt-8">Loading projects...</Loader>
+        <Loader text="Loading projects" className="mt-8" />
       ) : (
         <ProjectsTimeline
           projects={projects}

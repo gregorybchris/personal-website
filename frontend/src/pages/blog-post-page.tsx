@@ -76,7 +76,7 @@ export function BlogPostPage() {
         />
       )}
       {currentPost === null ? (
-        <Loader>Loading post...</Loader>
+        <Loader text="Loading post" />
       ) : (
         <div
           id="blog"

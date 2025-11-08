@@ -83,7 +83,7 @@ export function BooksPage() {
       {error ? (
         <ErrorMessage message={error} />
       ) : !imagesLoaded ? (
-        <Loader>Loading books...</Loader>
+        <Loader text="Loading books" />
       ) : (
         <>
           <div className="flex flex-col items-center gap-1">
@@ -108,9 +108,7 @@ export function BooksPage() {
                   selectedTags.length === 0 ||
                   selectedTags.every((tag) => book.tags.includes(tag)),
               )
-              .sort(
-                (bookA, bookB) => bookB.generalAppeal - bookA.generalAppeal,
-              )
+              .sort((bookA, bookB) => bookB.generalAppeal - bookA.generalAppeal)
               .map((book, index) => (
                 <BookCard
                   key={book.isbn}

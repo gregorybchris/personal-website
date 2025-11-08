@@ -66,7 +66,7 @@ export function BlogPage() {
       {error ? (
         <ErrorMessage message={error} />
       ) : previews.length === 0 ? (
-        <Loader>Loading posts...</Loader>
+        <Loader text="Loading posts" />
       ) : (
         <table className="max-w-[1000px] table-auto border-collapse">
           <tbody className="w-full">

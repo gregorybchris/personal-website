@@ -114,8 +114,8 @@ export function RunningPage() {
         <PageTitle>Running Routes</PageTitle>
 
         <div className="text-center text-balance text-black/75 md:w-[70%]">
-          This page is for you if you like running and happen to be in a city
-          where I've lived.
+          If you enjoy running and happen to be in one of the cities I've lived
+          in, then this page is for you.
         </div>
       </div>
 
@@ -133,7 +133,7 @@ export function RunningPage() {
           />
         </div>
       ) : (
-        <Loader>Loading routes...</Loader>
+        <Loader text="Loading routes" />
       )}
     </div>
   );

@@ -23,7 +23,7 @@ export function MusicPage() {
       <div className="relative w-full max-w-[600px]">
         {isLoading && (
           <div className="flex h-[420px] items-center justify-center rounded-2xl border-4 border-white/60 shadow-md">
-            <Loader>Loading playlist...</Loader>
+            <Loader text="Loading playlist" />
           </div>
         )}
         <div

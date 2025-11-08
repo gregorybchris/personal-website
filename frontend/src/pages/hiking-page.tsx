@@ -83,7 +83,7 @@ export function HikingPage() {
       )}
 
       {routes.length === 0 ? (
-        <Loader>Loading routes...</Loader>
+        <Loader text="Loading routes" />
       ) : (
         <div className="flex w-full flex-col gap-3 md:w-4/5">
           {routes
