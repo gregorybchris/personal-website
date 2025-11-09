@@ -109,6 +109,23 @@ mx index
 mx index --package <package_name>
 ```
 
+<!--
+Note: these code SVGs were created manually
+1. `script -q /dev/null uv run mx check | tee temp.txt`
+2. ChatGPT to convert to SVG
+3. Manual tweaking of SVG to fix any issues
+ -->
+
+<figure id="figure1">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/rethinking-package-managers/info.svg?cache=2" width="100%">
+  <figcaption><strong>mx info</strong> prints type information for all package members and shows resolved dependencies.</figcaption>
+</figure>
+
+<figure id="figure1">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/rethinking-package-managers/check.svg?cache=2" width="100%">
+  <figcaption><strong>mx check</strong> prints the list of breaking changes since the last published version of a package.</figcaption>
+</figure>
+
 ### Dependency resolution
 
 The dependency resolver was the trickiest part of this project, so I wanted to recreate it as simply as possible here. The strategy is a recursive backtracking search that explores every combination of package versions until it finds a valid solution. I can guarantee it'll be horribly slow, but for a proof of concept it does the trick.
