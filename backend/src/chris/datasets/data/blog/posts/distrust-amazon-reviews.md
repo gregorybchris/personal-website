@@ -81,7 +81,7 @@ $$
 
 ## Model training
 
-We train with a simple PyTorch optimization loop, minimizing the average negative log-likelihood over all observed ratings:
+We train with a simple PyTorch optimization loop, minimizing the average negative log-likelihood over all observed ratings. The bulk of the math is captured in the `forward` method below. To ensure user reliabilities remain positive, we optimize in log-space, learning $\log \alpha_u$ instead of $\alpha_u$ for each user.
 
 ```python
 from torch import Tensor
@@ -101,8 +101,6 @@ def forward(self, user_idxs: Tensor, item_idxs: Tensor, scores: Tensor) -> Tenso
 
     return nll
 ```
-
-To ensure user reliabilities remain positive, we optimize in log-space, learning $\log \alpha_u$ instead of $\alpha_u$ for each user.
 
 After training for `500` epochs, with a batch size of `16`, and a static learning rate of `1e-2`, the model converges quickly to a stable solution (see Figure 1).
 
