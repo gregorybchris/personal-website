@@ -77,7 +77,7 @@ This allows us to execute a cell and capture its output, errors, and any variabl
 Next, we need a way to check whether a given update to the notebook would put it in a non-reproducible state. If we can build a directed acyclic graph (DAG) of cell dependencies, then we know the notebook is valid -- there are no cycles that would make ordering the notebook impossible.
 
 <figure id="figure1">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/dag.png?cache=1" width="280">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/dag.svg?cache=1" width="280">
   <figcaption><strong>Figure 1: </strong>An example of a directed acyclic graph representing cell dependencies. Running the cells in order from 1 to 7 ensures dependencies are run before they are needed.</figcaption>
 </figure>
 
