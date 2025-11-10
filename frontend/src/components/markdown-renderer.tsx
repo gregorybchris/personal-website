@@ -1,4 +1,4 @@
-import { LinkIcon } from "@phosphor-icons/react";
+import { GithubLogoIcon, LinkIcon } from "@phosphor-icons/react";
 import ReactMarkdown from "react-markdown";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import python from "react-syntax-highlighter/dist/esm/languages/hljs/python";
@@ -69,6 +69,30 @@ function HeadingWithAnchor({
     default:
       return <h2 {...commonProps}>{heading}</h2>;
   }
+}
+
+interface GitHubButtonProps {
+  user: string;
+  repo: string;
+}
+
+function GitHubButton({ user, repo }: GitHubButtonProps) {
+  return (
+    <a
+      href={`https://github.com/${user}/${repo}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="github-button"
+    >
+      <div className="github-button-content">
+        <GithubLogoIcon size={24} />
+        <span className="github-button-label">Open Source</span>
+      </div>
+      <span className="github-button-repo">
+        {user}/<span className="github-button-repo-name">{repo}</span>
+      </span>
+    </a>
+  );
 }
 
 type MarkdownRendererProps = {
@@ -154,6 +178,10 @@ export function MarkdownRenderer({ children }: MarkdownRendererProps) {
               {content}
             </CollapsibleSection>
           );
+        },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        "github-button"({ ...props }: any) {
+          return <GitHubButton user={props.user} repo={props.repo} />;
         },
       }}
     >

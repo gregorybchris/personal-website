@@ -233,4 +233,4 @@ The end goal is that maintainers only rarely have to think about the nitty gritt
 
 There's a ton we can do if we rethink the package manager to be more aware of types.
 
-The full source code for this project is available on <a href="https://github.com/gregorybchris/myxa" target="_blank">GitHub</a>.
+<github-button user="gregorybchris" repo="myxa"></github-button>

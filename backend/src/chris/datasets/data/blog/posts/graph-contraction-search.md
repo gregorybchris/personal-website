@@ -251,7 +251,7 @@ We've explored several classical optimizations to iterated vertex contraction an
 
 Thanks for reading to the end of my first blog post! If you enjoyed it, please consider sharing it with a friend or saying hello via my <a href="/contact">contact page</a>.
 
-The full source code for this project is available on <a href="https://github.com/gregorybchris/contraction" target="_blank">GitHub</a>.
+<github-button user="gregorybchris" repo="contraction"></github-button>
 
 This post can be cited as:
 

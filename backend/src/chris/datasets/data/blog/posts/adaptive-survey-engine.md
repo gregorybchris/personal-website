@@ -101,7 +101,7 @@ Of course, there is a huge amount of <a href="https://en.wikipedia.org/wiki/Data
 
 I built this survey engine because often a random question pops into my head that feels like it would split the population in an interesting way. I don't have a target variable in mind to predict. I just have a feeling that the responses to my question might be correlated to something interesting. Of course, the vast majority of these ideas will correlate with nothing very special at all. And yet, there's hope that one needle in the haystack will lead to a grand discovery.
 
-The full source code for this project is available on <a href="https://github.com/gregorybchris/surv" target="_blank">GitHub</a>.
+<github-button user="gregorybchris" repo="surv"></github-button>
 
 ## Footnotes
 

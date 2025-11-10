@@ -130,4 +130,4 @@ Three consecutive bases/nucleotides form a "codon". Since there are 4 bases and 
 
 Finally, in real biology there is no 1:1 relationship between an amino acid and some operation. The tertiary structure of a protein decides the function of the protein. It is the full context of the protein that determines how any one amino acid will function.
 
-The full source code for this project is available on <a href="https://github.com/gregorybchris/typogenetics" target="_blank">GitHub</a>.
+<github-button user="gregorybchris" repo="typogenetics"></github-button>

@@ -237,7 +237,7 @@ Similarly to Jupyter, the Cado server also serves the user interface. By running
 
 I hope someday the reactive notebook paradigm gains traction, if not as a default, perhaps as an opt-in setting. With the right user interface design, the benefits of reactivity could far outweigh the added complexity. Using the same tricks Observable used to make data visualization more interactive, we can make data science more reproducible.
 
-The full source code for this project is available on <a href="https://github.com/gregorybchris/cado" target="_blank">GitHub</a>.
+<github-button user="gregorybchris" repo="cado"></github-button>
 
 ## Footnotes
 
