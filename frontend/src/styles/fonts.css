@@ -45,3 +45,31 @@
   font-weight: 900;
   font-style: italic;
 }
+
+@font-face {
+  font-family: "Menlo";
+  src: url("../assets/fonts/menlo/Menlo-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Menlo";
+  src: url("../assets/fonts/menlo/Menlo-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Menlo";
+  src: url("../assets/fonts/menlo/Menlo-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Menlo";
+  src: url("../assets/fonts/menlo/Menlo-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
