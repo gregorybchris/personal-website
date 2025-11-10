@@ -1,6 +1,7 @@
 import { ArrowLeftIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+// import InfoImage from "../../src/assets/images/info.svg";
 import { IconButton } from "../components/icon-button";
 import { Loader } from "../components/loader";
 import { MarkdownRenderer } from "../components/markdown-renderer";
@@ -104,6 +105,8 @@ export function BlogPostPage() {
               </div>
             )}
           </div>
+
+          {/* <img src={InfoImage} alt="Information" className="code-svg w-full" /> */}
 
           <div className="w-[100%] text-justify leading-relaxed md:w-[50%] md:min-w-[550px]">
             <MarkdownRenderer>{currentPost.content}</MarkdownRenderer>
