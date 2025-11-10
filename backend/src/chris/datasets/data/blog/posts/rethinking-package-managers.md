@@ -117,11 +117,11 @@ Note: these code SVGs were created manually
  -->
 
 <figure id="figure1">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/rethinking-package-managers/info.svg?cache=2" width="100%">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/rethinking-package-managers/info.svg?cache=3" width="100%">
   <figcaption><strong>mx info</strong> prints type information for all package members and shows resolved dependencies.</figcaption>
 </figure>
 
-<figure id="figure1">
+<figure id="figure2">
   <img src="https://storage.googleapis.com/cgme/blog/posts/rethinking-package-managers/check.svg?cache=2" width="100%">
   <figcaption><strong>mx check</strong> prints the list of breaking changes since the last published version of a package.</figcaption>
 </figure>
