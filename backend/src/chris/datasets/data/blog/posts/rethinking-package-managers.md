@@ -117,7 +117,7 @@ Note: these code SVGs were created manually
  -->
 
 <figure id="figure1">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/rethinking-package-managers/info.svg?cache=4" width="100%">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/rethinking-package-managers/info.svg?cache=5" width="100%" class="code-svg">
   <figcaption><strong>mx info</strong> prints type information for all package members and shows resolved dependencies.</figcaption>
 </figure>
 
