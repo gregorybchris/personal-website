@@ -19,6 +19,14 @@
   margin-bottom: 0;
 }
 
+#blog ul ul {
+  list-style: circle;
+}
+
+#blog ul ul ul {
+  list-style: square;
+}
+
 #blog code {
   color: #dc5039;
   text-decoration: none;
