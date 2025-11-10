@@ -55,7 +55,7 @@ export function BlogPage() {
 
             const rssLink = match(getEnvironment())
               .with("development", () => "http://localhost:8000/feed.xml")
-              .with("production", () => "https://api.chrisgregory.me/feed.xml")
+              .with("production", () => "https://rss.chrisgregory.me/feed.xml")
               .exhaustive();
 
             await navigator.clipboard.writeText(rssLink);
