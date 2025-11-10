@@ -2,7 +2,7 @@
   <rect x="0" y="0" width="780" height="880" fill="rgb(41,44,51)" />
   <style>
     pre { 
-      font-family: monospace;
+      font-family: "Degular Mono";
       font-size: 12px;
       white-space: pre; 
       margin: 0;
