@@ -26,17 +26,15 @@ Clearly Amazon reviews are an attempt at such a system, but obviously reviews ca
 
 What would it look like if Amazon's recommender system were more aligned with the goals of users?
 
-## Gaussian belief propagation
+## Rating propagation
 
-I've had an inkling of an idea for a while that you could estimate item's quality with user ratings and then measure rater reliability based on similarity to other raters. You could then promote or discount ratings based on rater reliability. What would emerge is a dynamical system where a single rating sends ripples through a network of items and users, updating estimates of both item quality and user reliability.
+I've had an inkling of an idea for a while that you could estimate item's quality with user ratings and then measure rater reliability based on similarity to other raters. You could then promote or discount ratings based on rater reliability. What would emerge is a dynamical system where a single rating sends ripples through a network of items and users, updating estimates of both item quality and user reliability. The information from a single rating sort of diffuses outward and this is happening continuously as new ratings come in.
 
 Further, I hoped that if I could make enough simplifying assumptions (like item ratings being normally distributed), there might be an efficient closed form solution that scales to many users and items. Perhaps with simple Bayesian updates, I could avoid updating every item and every user for each incoming rating.
 
-I wasn't able to figure out a clean closed form solution, but during my research I stumbled across <a href="https://en.wikipedia.org/wiki/Belief_propagation#Gaussian_belief_propagation_(GaBP)" target="_blank">Gaussian belief propagation</a>, which is a message-passing algorithm for performing inference on graphical models with Gaussian distributions.<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup>
+I wasn't able to figure out a clean closed form solution, but during my research I stumbled across <a href="https://en.wikipedia.org/wiki/Belief_propagation#Gaussian_belief_propagation_(GaBP)" target="_blank">Gaussian belief propagation</a>, which is a message-passing algorithm for performing inference on graphical models with Gaussian distributions.<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup> And while I didn't up using this approach, it gave me some intuitions that informed the deep learning approach that I did take.
 
 <!-- TODO: Add an animation of Gaussian distributions and message passing between them -->
-
-This gave me enough confidence that a solution was possible. So I set out to model this Bayesian system and after a few iterations came up with a deep learning approach, which doesn't use Gaussian belief propagation per se, but does capture the same intuition of jointly learning item quality and user reliability.
 
 ## Deep learning
 
