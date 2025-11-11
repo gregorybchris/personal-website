@@ -23,7 +23,7 @@ Observable's key innovation is bringing reactivity to notebooks -- execution of 
 After a few years of being a full time Python developer, wishing I could use Observable, wishing my notebooks were smarter, I decided to build a proof of concept called <a href="https://github.com/gregorybchris/cado" target="_blank">Cado</a>, bringing the reactive notebook paradigm to Python.
 
 <figure id="figure0">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/cado-logo.svg?cache=1 width="200" className="no-shadow">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/cado-logo-shadow.svg?cache=1 width="200" className="no-shadow">
   <figcaption>Naturally, the app has a mascot named Avo.</figcaption>
 </figure>
 
