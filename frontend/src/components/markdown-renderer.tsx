@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { GithubLogoIcon, LinkIcon } from "@phosphor-icons/react";
 import ReactMarkdown from "react-markdown";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -111,6 +112,85 @@ type MarkdownRendererProps = {
 };
 
 export function MarkdownRenderer({ children }: MarkdownRendererProps) {
+  const components: Record<string, React.ComponentType<any>> & {
+    h2: React.ComponentType<any>;
+    h3: React.ComponentType<any>;
+    code: React.ComponentType<any>;
+    details: React.ComponentType<any>;
+  } = {
+    h2({ children, ...props }) {
+      return (
+        <HeadingWithAnchor level={2} {...props}>
+          {children}
+        </HeadingWithAnchor>
+      );
+    },
+    h3({ children, ...props }) {
+      return (
+        <HeadingWithAnchor level={3} {...props}>
+          {children}
+        </HeadingWithAnchor>
+      );
+    },
+    code({
+      inline,
+      className = "",
+      children,
+      ...props
+    }: {
+      inline?: boolean;
+      className?: string;
+      children?: React.ReactNode;
+    }) {
+      const match = /language-(\w+)/.exec(className);
+      return !inline && match ? (
+        <CodeBlock language={match[1]}>{String(children)}</CodeBlock>
+      ) : (
+        <code className={className} {...props}>
+          {children}
+        </code>
+      );
+    },
+    details({ children, ...props }: { children?: React.ReactNode }) {
+      // Extract summary and content from children
+      const childArray = Array.isArray(children) ? children : [children];
+      let summaryText = "Show details";
+      const content: React.ReactNode[] = [];
+
+      childArray.forEach((child: any) => {
+        if (child?.type === "summary") {
+          summaryText = child.props.children;
+        } else if (child) {
+          content.push(child);
+        }
+      });
+
+      // Parse summary text for collapsed|||expanded format
+      const summaryParts =
+        typeof summaryText === "string" ? summaryText.split("|||") : [];
+      const summaryCollapsed =
+        summaryParts.length > 0 ? summaryParts[0].trim() : undefined;
+      const summaryExpanded =
+        summaryParts.length > 1 ? summaryParts[1].trim() : undefined;
+
+      const defaultOpen = (props as any).open !== undefined;
+
+      return (
+        <CollapsibleSection
+          summaryCollapsed={summaryCollapsed}
+          summaryExpanded={summaryExpanded}
+          defaultOpen={defaultOpen}
+        >
+          {content}
+        </CollapsibleSection>
+      );
+    },
+
+    "github-button"({ ...props }: any) {
+      return <GitHubButton user={props.user} repo={props.repo} />;
+    },
+  };
+
   return (
     <ReactMarkdown
       remarkPlugins={[
@@ -120,81 +200,7 @@ export function MarkdownRenderer({ children }: MarkdownRendererProps) {
         [remarkToc, { heading: "contents|table of contents" }],
       ]}
       rehypePlugins={[rehypeKatex, rehypeRaw]}
-      components={{
-        h2({ children, ...props }) {
-          return (
-            <HeadingWithAnchor level={2} {...props}>
-              {children}
-            </HeadingWithAnchor>
-          );
-        },
-        h3({ children, ...props }) {
-          return (
-            <HeadingWithAnchor level={3} {...props}>
-              {children}
-            </HeadingWithAnchor>
-          );
-        },
-        code({
-          inline,
-          className = "",
-          children,
-          ...props
-        }: {
-          inline?: boolean;
-          className?: string;
-          children?: React.ReactNode;
-        }) {
-          const match = /language-(\w+)/.exec(className);
-          return !inline && match ? (
-            <CodeBlock language={match[1]}>{String(children)}</CodeBlock>
-          ) : (
-            <code className={className} {...props}>
-              {children}
-            </code>
-          );
-        },
-        details({ children, ...props }: { children?: React.ReactNode }) {
-          // Extract summary and content from children
-          const childArray = Array.isArray(children) ? children : [children];
-          let summaryText = "Show details";
-          const content: React.ReactNode[] = [];
-
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          childArray.forEach((child: any) => {
-            if (child?.type === "summary") {
-              summaryText = child.props.children;
-            } else if (child) {
-              content.push(child);
-            }
-          });
-
-          // Parse summary text for collapsed|||expanded format
-          const summaryParts =
-            typeof summaryText === "string" ? summaryText.split("|||") : [];
-          const summaryCollapsed =
-            summaryParts.length > 0 ? summaryParts[0].trim() : undefined;
-          const summaryExpanded =
-            summaryParts.length > 1 ? summaryParts[1].trim() : undefined;
-
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const defaultOpen = (props as any).open !== undefined;
-
-          return (
-            <CollapsibleSection
-              summaryCollapsed={summaryCollapsed}
-              summaryExpanded={summaryExpanded}
-              defaultOpen={defaultOpen}
-            >
-              {content}
-            </CollapsibleSection>
-          );
-        },
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        "github-button"({ ...props }: any) {
-          return <GitHubButton user={props.user} repo={props.repo} />;
-        },
-      }}
+      components={components}
     >
       {children}
     </ReactMarkdown>
