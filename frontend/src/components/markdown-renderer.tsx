@@ -41,7 +41,7 @@ function HeadingWithAnchor({
     <>
       <a
         href={`#${id}`}
-        className="absolute top-1/2 -left-6 -translate-y-1/2 p-1 opacity-0 transition-all duration-200 group-hover:opacity-100"
+        className="absolute top-1/2 -left-8 -translate-y-1/2 p-2 opacity-0 transition-all duration-200 group-hover:opacity-100"
         aria-label={`Link to ${text}`}
         onClick={async () => {
           await navigator.clipboard.writeText(link);
@@ -51,7 +51,7 @@ function HeadingWithAnchor({
           });
         }}
       >
-        <LinkIcon size={16} color="#555" />
+        <LinkIcon size={20} />
       </a>
       {children}
     </>
@@ -82,10 +82,21 @@ function GitHubButton({ user, repo }: GitHubButtonProps) {
       href={`https://github.com/${user}/${repo}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="github-button"
+      className="github-button group"
     >
       <div className="github-button-content">
-        <GithubLogoIcon size={24} />
+        <div className="group relative h-8 w-8">
+          <GithubLogoIcon
+            size={18}
+            weight="regular"
+            className="absolute inset-0 h-8 w-8 text-gray-500 opacity-100 transition-opacity duration-300 group-hover:opacity-0"
+          />
+          <GithubLogoIcon
+            size={18}
+            weight="duotone"
+            className="text-sky absolute inset-0 h-8 w-8 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          />
+        </div>
         <span className="github-button-label">Open Source</span>
       </div>
       <span className="github-button-repo">
