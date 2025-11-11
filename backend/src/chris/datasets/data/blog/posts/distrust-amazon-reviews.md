@@ -32,7 +32,7 @@ I've had an inkling of an idea for a while that you could estimate item's qualit
 
 Further, I hoped that if I could make enough simplifying assumptions (like item ratings being normally distributed), there might be an efficient closed form solution that scales to many users and items. Perhaps with simple Bayesian updates, I could avoid updating every item and every user for each incoming rating.
 
-I wasn't able to figure out a clean closed form solution, but during my research I stumbled across <a href="https://en.wikipedia.org/wiki/Belief_propagation#Gaussian_belief_propagation_(GaBP)" target="_blank">Gaussian belief propagation</a>, which is a message-passing algorithm for performing inference on graphical models with Gaussian distributions.<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup> And while I didn't up using this approach, it gave me some intuitions that informed the deep learning approach that I did take.
+I wasn't able to figure out a clean closed form solution, but during my research I stumbled across <a href="https://en.wikipedia.org/wiki/Belief_propagation#Gaussian_belief_propagation_(GaBP)" target="_blank">Gaussian belief propagation</a>, which is a message-passing algorithm for performing inference on graphical models with Gaussian distributions.<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup> And while I didn't end up using this approach, it gave me some intuitions that informed the deep learning approach that I'll talk about next.
 
 <!-- TODO: Add an animation of Gaussian distributions and message passing between them -->
 
