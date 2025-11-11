@@ -79,7 +79,7 @@ $$
 
 ## Model training
 
-We train with a simple PyTorch optimization loop, minimizing the average negative log-likelihood over all observed ratings. The bulk of the math is captured in the `forward` method below. To ensure user reliabilities remain positive, we optimize in log-space, learning $\log \alpha_u$ instead of $\alpha_u$ for each user.
+We train with a simple PyTorch optimization loop, minimizing the average negative log-likelihood over batches of observed ratings. The bulk of the math is captured in the `forward()` method and the rest is either plumbing or handled by PyTorch.
 
 ```python
 from torch import Tensor
@@ -100,7 +100,7 @@ def forward(self, user_idxs: Tensor, item_idxs: Tensor, scores: Tensor) -> Tenso
     return nll
 ```
 
-After training for `500` epochs, with a batch size of `16`, and a static learning rate of `1e-2`, the model converges quickly to a stable solution (see Figure 1).
+To ensure user reliabilities remain positive, we optimize in log-space, learning $\log \alpha_u$ instead of $\alpha_u$ for each user. Item qualities $x_i$ are learned directly. After training for `500` epochs, with a batch size of `16`, and a static learning rate of `1e-2`, the model converges quickly to a stable solution (see Figure 1).
 
 <figure id="figure1">
   <img src="https://storage.googleapis.com/cgme/blog/posts/distrust-amazon-reviews/loss-curve.png?cache=1" width="450">
