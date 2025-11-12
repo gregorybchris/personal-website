@@ -3,7 +3,7 @@ date: 2025-04-14
 slug: distrust-amazon-reviews
 title: Why You Shouldn't Trust Amazon Reviews
 archived: false
-status: draft
+status: published
 ---
 
 I'll get to Amazon reviews in a minute, but first, if you'll allow me, a quick gripe about shopping online in general.
@@ -23,7 +23,7 @@ Of course, the _most-true_ story is that while some companies thrive on great br
 I'm a realist enough to know that in the free market there will always be a diversity of business models and there will always be pressures toward low quality products. But I'm an idealist enough to believe there's a hypothetical system that gives consumers the power to distinguish high from low quality.
 
 <figure id="figure1">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/distrust-amazon-reviews/pareto.svg?cache=1" width="420">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/distrust-amazon-reviews/pareto.svg?cache=2" width="420">
   <figcaption><strong>Figure 1: </strong>Pareto front &mdash; There is a diversity of preferences on the cost-quality tradeoff, but we all want to be on the Pareto front, not inside the curve.</figcaption>
 </figure>
 
@@ -118,7 +118,7 @@ I was surprised to find (though maybe I shouldn't have been) that it takes many 
 
 As a follow-up I'd like to return to this idea and build more rigor into down-ranking users with lower reliability, either using Gaussian belief propagation or by factoring the user reliabilities from the TrueScore model into item quality estimates.
 
-If you're interested in trying TrueScore and using your own data, check out the GitHub repo and start up the TrueScore API. It supports connecting to a local SQLite file for item rating storage. Once you've trained the model on your data, you can query for item quality and user reliability estimates.
+If you're interested in trying TrueScore with your own data, check out the GitHub repo and start up the TrueScore API. It supports loading item ratings from a local SQLite file or database connection. Once you've trained the model on your data, you can query for item quality and user reliability estimates.
 
 <github-button user="gregorybchris" repo="truescore"></github-button>
 
