@@ -233,7 +233,7 @@ Each step in the tree search we embed all candidate graphs, estimate how close t
 <details>
 <summary>Show data collection steps ||| Hide data collection steps</summary>
 
-As mentioned previously, the training data for this project was collected from the Kami app. As you can imagine, manually encoding levels as graphs would be a tedious process. To convert screenshots of levels into graphs automatically, we can use a simple image processing pipeline:
+As mentioned previously, the training data for this project was collected from the Kami app. As you can imagine, manually encoding levels as graphs would be a tedious process. To convert screenshots of levels into graphs automatically, I coded up a simple image processing pipeline that I applied to screenshots of all the levels in the game.
 
 1. Extract 3x3 patches from the image in a lattice pattern.
 2. Use K-means clustering for denoising to identify which patches have which colors.
