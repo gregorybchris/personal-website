@@ -6,7 +6,7 @@ archived: false
 status: published
 ---
 
-In graph theory, an <strong>edge contraction</strong> is an operation where two adjacent vertices are merged into one and their shared edge is deleted.
+In graph theory, an <strong>edge contraction</strong> is an operation where two adjacent vertices are merged into one.
 
 <figure id="figure1">
   <video width="300" autoplay muted loop playsinline>
@@ -19,7 +19,7 @@ In graph theory, an <strong>edge contraction</strong> is an operation where two 
   </figcaption>
 </figure>
 
-On colored graphs, another operation exists that we'll call a <strong>vertex contraction</strong>. Edges around a vertex are contracted if the adjacent vertices are the same color.
+On colored graphs, there's another operation we'll call a <strong>vertex contraction</strong>. Edges around a vertex are contracted if the adjacent vertices are the same color.
 
 <figure id="figure2">
   <video width="300" autoplay muted loop playsinline>
@@ -32,7 +32,7 @@ On colored graphs, another operation exists that we'll call a <strong>vertex con
   </figcaption>
 </figure>
 
-Given a fully-connected colored graph, we can <strong>apply vertex contractions iteratively</strong> until only a single vertex remains.
+Given a fully-connected colored graph, we can apply vertex contractions <i>iteratively</i>, repeatedly changing the color of a single vertex and then applying a contraction until only a single vertex remains.
 
 <figure id="figure3">
   <video width="300" autoplay muted loop playsinline>
@@ -72,19 +72,19 @@ To fill all pixels with the same color, we perform iterated vertex contractions 
 
 ## Specifying the objective
 
-Our goal is to find a sequence of contractions that fully contracts the graph within the specified number of moves. A contraction is defined by the vertex being contracted and the color it's being assigned, so a puzzle solution will be a sequence of `(vertex, color)` pairs.
+Our goal is to find a sequence of contractions that fully contracts the graph within the specified number of moves.
 
-The naïve, brute force approach is a simple tree traversal -- select a vertex at random, select a color of one of its neighbors (different from its own color), contract the vertex with that color, and repeat until only one vertex remains. Do this for all possible vertices/colors and terminate when a solution is found with the desired length.
+The naïve, brute force approach is a simple tree traversal (like a BFS or DFS). You could simply select a starting vertex arbitrarily, recolor it to match at least one of its neighbors, contract the vertex, and repeat until only one vertex remains. You terminate the search when you've found a sequence that fully contracts the graph and also respects the allotted number of moves.
 
-> You may notice that the order in which vertices are contracted matters, so the number of possible contraction sequences grows exponentially with the number of vertices.
+The order in which vertices are contracted matters, so the number of possible contraction sequences grows exponentially with the number of vertices. For graphs of only a dozen vertices, this search might take a while...
 
-If you're itching for the deep learning, you may skip ahead at your own risk to the <a href="#deep-learning-approach">part about graph neural networks</a>.
+> If you're wondering why we haven't gotten to the deep learning yet, you may skip ahead at your own risk to the <a href="#deep-learning-approach">part about graph neural networks</a>. For now, though, I want to share some of the optimizations I found when solving this problem without machine learning.
 
 ## Ordering heuristics
 
-The brute force approach is way too slow, so let's come up with some tricks to speed up this solver a bit.
+We can do better than naïve brute force search by implementing some simple heuristics to prioritize more promising contractions first.
 
-The first heuristic is pretty intuitive -- to get from many edges (in the initial graph) to no edges (in a graph with one vertex) we should pick contractions that remove many edges. Vertices with more neighbors have a good chance of resulting in large contractions. Let's try using <i>vertex degree</i> as a heuristic!
+The first heuristic to speed up the naïve solver is pretty intuitive. To get from many edges (in the initial graph) to no edges (in a graph with one vertex) we should pick contractions that remove many edges. And vertices with more neighbors have a good chance of resulting in large contractions. Let's try using <i>vertex degree</i> as a heuristic!
 
 ```python
 def iter_nodes_by_degree(G: nx.Graph, nodes: Iterable[str]) -> Iterator[str]:
@@ -108,11 +108,9 @@ def iter_neighbor_colors_by_freq(G: nx.Graph, node: str) -> Iterator[str]:
         yield color
 ```
 
-These last two heuristics were pretty greedy. They work well, but tend to fail when there are high degree vertices on the periphery of the graph. If we pick those first, we may end up with a large number of small contractions later on.
+These last two heuristics were pretty greedy. They work well in the average case, but can fail to produce speedups when there are high degree vertices on the periphery of the graph. If we pick those first, we may end up with a large number of small contractions later on.
 
-If we can pick vertices that are close to the "center" of the graph, rather than the periphery, then our contractions radiate outward and our number of steps is on the order of the radius of the graph, rather than the diameter.
-
-We can measure <i>vertex centrality</i> by summing distances from each vertex to all other vertices. The vertex with the lowest sum of distances is the most central.
+If we can pick vertices that are close to the "center" of the graph, rather than the periphery, then our contractions radiate outward and our number of steps is on the order of the radius of the graph, rather than the diameter. We can measure <i>vertex centrality</i> by summing distances from each vertex to all other vertices. The vertex with the lowest sum of distances is the most central.
 
 ```python
 def iter_nodes_by_centrality(G: nx.Graph, nodes: Iterable[str], power: int = 2) -> Iterator[str]:
@@ -137,13 +135,17 @@ def iter_nodes_by_centrality(G: nx.Graph, nodes: Iterable[str], power: int = 2) 
         yield node
 ```
 
-We can implement a [best-first search](https://en.wikipedia.org/wiki/Best-first_search) or [beam search](https://en.wikipedia.org/wiki/Beam_search) that will prioritize more promising trajectories through the search tree. (implementation not shown here)
+> Using [best-first search](https://en.wikipedia.org/wiki/Best-first_search) or [beam search](https://en.wikipedia.org/wiki/Beam_search) are nice algorithms for prioritizing promising trajectories through the search tree. (implementation not shown here)
 
 ## Locality constraints
 
-The ordering heuristics of vertex degree, color frequency, and centrality don't actually reduce the total search space. They just increase the probability that we find a solution earlier in our search. What can we do to actually reduce the search space? (and thus decrease our worst case search time)
+There's one more optimization for the classical solver that I'm excited to share. This one is a bit tricky to explain, so I'll try my best to break it down.
 
-First, it helps to notice that a contraction is a pretty local operation. If you pay attention to just the edges of the graph, you'll notice that edges outside of second degree neighbors of the contracted vertex are always unaffected by the contraction.
+Let me start by pointing out that the ordering heuristics above (vertex degree, color frequency, and centrality) don't actually reduce the total search space. They just increase the probability that we find a solution earlier in our search. What can we do to actually reduce the search space? (and thus improve our worst-case search time)
+
+First, notice that a contraction is a fairly local operation. By that I mean that contracting a vertex doesn't affect vertices far away in the graph. First and second degree neighbors of a contracted vertex can have edges added, removed, merged, etc. But vertices that are three or more hops away are completely unaffected by the contraction.
+
+If you watch the edges crossing the dotted line in this animation, you'll see that they don't move at all. Vertices outside that boundary are totally "unaware" of the contraction happening inside.
 
 <figure id="figure5">
   <video width="300" autoplay muted loop playsinline>
@@ -156,9 +158,17 @@ First, it helps to notice that a contraction is a pretty local operation. If you
   </figcaption>
 </figure>
 
-This is a big finding!<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup> If we contract two vertices that are far enough apart in the graph, then the order in which we contract them is completely arbitrary. Up to this point we've been wasting time computing <i>many</i> equivalent solutions.
+It might not be obvious yet, but this fact about contraction locality is going to prove extremely useful.
 
-Let's resolve our double-counting and <strong>only consider candidate vertices in the second degree neighborhood of the last contracted vertex</strong>. By doing this we can greatly decrease the width of the search tree.
+Let's imagine two vertices $a$ and $b$ that are far apart in the graph. If we contract $a$ first and then $b$, we get the same resulting graph as if we contracted $b$ first and then $a$. (There are enough vertices and edges acting as a buffer between the two contractions)
+
+Going back to our search tree from earlier. If two paths through the search tree arrive at the exact same graph, then we're duplicating <i>all</i> the work of searching the subtrees below that point. How do we take advantage of our locality insight and always explore only one of the two equivalent subtrees?
+
+The trick is to only consider candidate vertices in the second degree neighborhood of the last contracted vertex.<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup>
+
+Here's a quick hand-wavy explanation for why this works. Let's say our last contraction was to vertex $x$ and $a$ is local to $x$, but $b$ is non-local to $x$. Also, as before, $a$ and $b$ are non-local to each other. By adding the constraint that $a$ must be contracted before $b$ we've pruned one subtree that we know to be equivalent to another.
+
+Empirically I've found that this improves search performance <i>significantly</i>, especially on planar graphs, where the number of vertices in a second degree neighborhood tends to be small compared to the total number of vertices.<sup id="fnref:fn3"><a class="fnref" href="#fn:fn3">[3]</a></sup>
 
 > As an aside, I like to think of this boundary as a [Markov blanket](https://en.wikipedia.org/wiki/Markov_blanket). Vertices in the graph are represented as variables in a probabilistic graphical model. Vertices outside of each other's neighborhoods are conditionally independent.
 
@@ -180,51 +190,48 @@ def iter_markov_blanket(G: nx.Graph, node: str) -> Iterator[str]:
                 yield grandchild_node
 ```
 
-Empirically this improves search performance significantly, especially on planar graphs, where the number of vertices in a second degree neighborhood tends to be small compared to the total number of vertices.
+For very large graphs with many vertices and many colors, search can <i>still</i> be intractable for a computer to solve, even with locality constraints. Despite this combinatorial explosion, humans are able to solve large puzzles fairly quickly with a mix of visual intuition and very shallow backtracking. This performance gap between very fast computers and very intuitive humans informs our next approach -- maybe we can train a deep learning system to intuit which partial solutions are the most promising.
 
 ## Deep learning approach
 
-Ordering heuristics and locality constraints can speed up the search considerably, but for very large graphs with many vertices and many colors, search can <i>still</i> be intractable for a computer to solve. Despite this combinatorial explosion, humans are able to solve large puzzles fairly quickly with a mix of visual intuition and very shallow backtracking. This performance gap between very fast computers and very intuitive humans informs our next approach -- maybe we can train a deep learning system to intuit which partial solutions are the most promising.
+If you've made it this far, whether you skipped ahead or not, I'm both grateful and impressed. Let's talk deep learning.
 
-We'll train a model to <strong>estimate the number of moves needed to fully contract a graph</strong>. Then we can prioritize trajectories through the search space that are the most likely to converge quickly.
+We'll take our inspiration from how a human looks at a level of Kami and intuits the region that's most promising to flood fill next. Similarly, we'd like a model that can look at a graph and estimate the expected value of contracting a given vertex.
 
-This is effectively value-based reinforcement learning, where the value function estimates how close a given state is to the goal state. In our case, the state is the current graph and the goal state is a fully contracted graph.
+Specifically we'll use value-based reinforcement learning to estimate the number of moves needed to fully contract a given graph. The model acts as a heuristic, prioritizing trajectories through the search space that are the most likely to converge quickly.
 
-<!-- \[
-a^* = \arg\max_a V_\theta(f(s, a))
-\] -->
+In the language of reinforcement learning, we find the action $a^*$ (a contraction) that maximizes the value function $V_θ$ (our model) applied to the next state $f(s, a)$ (a graph after contraction).
 
 $$
 a^* = \arg\max_a V_\theta(f(s, a))
 $$
 
-We find the action $a*$ that maximizes the value function $V_θ$ applied to the next state $f(s, a)$. Here, $s$ is the current state (graph), $a$ is a candidate action (contraction), and $f(s, a)$ is the resulting state after applying a contraction to the current graph.
+> This $a^*$ is different from the $A*$ search algorithm, although the $*$ notation does imply "better" or "best" in both cases.
 
-First we can embed the graph using a graph convolutional network (GCNConv from [PyTorch Geometric](https://pytorch-geometric.readthedocs.io)). The GCN architecture allows us to train on graphs of arbitrary shape and size.
+How do we train this model? Well, we can't just run graphs through matmuls. We'll have to embed them into a vector representation somehow. I chose to use a graph convolutional network (GCNConv from [PyTorch Geometric](https://pytorch-geometric.readthedocs.io)). The GCN architecture allows us to train on graphs of arbitrary shape and size.
 
-> Graph attention layers have not seemed to provide an advantage over simple graph convolutions, however more data may be needed to see a benefit. The training dataset was limited to the levels provided in the Kami app.
+> Graph attention layers have not seemed to provide an advantage over simple graph convolutions, however more data may be needed to see a benefit.
 
-In practice, including dropout and global max pooling improve training stability and lead to faster convergence. We use a ReLU non-linearity between GCN layers and a final linear layer maps the graph embedding to a single scalar output. This output is interpreted as an estimate of the minimum number of contractions needed to fully contract the graph.
+After some experimentation, I found that including dropout and global max pooling improved training stability and led to faster convergence. The network uses a ReLU non-linearity between GCN layers and a final linear layer maps the graph embedding to a single scalar output.
 
 <figure id="figure6">
   <img src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/architecture.svg?cache=1" width="340">
-  <figcaption><strong>Figure 6: </strong>Architecture &mdash; The model has a simple architecture of two GCN layers and a linear layer, separated by a ReLU, dropout, and global max pooling.</figcaption>
+  <figcaption><strong>Figure 6: </strong>Architecture &mdash; The model has a simple architecture of two GCN layers and a linear layer, separated by a ReLU, dropout, and global max pooling. The full thing has a whopping 251 parameters.</figcaption>
 </figure>
 
 > Experiments showed global max pooling performed better than global mean pooling. GCNConv layers outperformed GATConv and SAGEConv.
 
-Our model's estimate can be used as a search heuristic, replacing vertex degree, color frequency, and centrality. Each step in the tree search we embed all candidate graphs, estimate how close they are to being solved, and rank the candidates by most promising to least.
-
-We train with MSE loss and also calculate an accuracy score by rounding the model prediction to the nearest integer number of contractions.
+The scalar output of the model is interpreted as an estimate of the minimum number of contractions needed to fully contract the graph. MSE loss pushes model predictions closer to the true number of contractions needed for a given graph. I also plot an accuracy score, which is a rounded version of the model prediction compared to the true number of contractions. This is not used for training or during search, but it can be useful to get an intuition for model quality.
 
 <figure id="figure7">
   <img src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/loss-curve.png?cache=5" width="340">
   <figcaption><strong>Figure 7: </strong>Training curve &mdash; The model shows above random chance performance on predicting the number of contractions needed for a given graph.</figcaption>
 </figure>
 
-While the model trains successfully, unfortunately model inference latency is high enough to negate the benefits of the learned heuristic. To be useful, the model would have to rule out unlikely subtrees faster than the cost of evaluating those candidates. Perhaps with larger graphs the deep learning heuristic might win out.
+Each step in the tree search we embed all candidate graphs, estimate how close they are to being solved, and recurse on the most promising candidates first.
 
-## Dataset
+<details>
+<summary>Show data collection steps ||| Hide data collection steps</summary>
 
 As mentioned previously, the training data for this project was collected from the Kami app. As you can imagine, manually encoding levels as graphs would be a tedious process. To convert screenshots of levels into graphs automatically, we can use a simple image processing pipeline:
 
@@ -238,16 +245,21 @@ Because each contraction yields a new graph, the training dataset is augmented b
 
 It's also worth noting that the one-hot encoded color of each vertex is used as a node feature during graph embedding. It's these vectors that are convolved in the GCN layers.
 
+</details>
+
 ## Wrapping up
 
-We've explored several classical optimizations to iterated vertex contraction and we've seen that we can successfully learn heuristics to tame the combinatorial search space. I wouldn't bet on this solution outperforming practiced humans, but it certainly blows the naïve approach out of the water and this research path is far from exhausted! Here are some ideas for future directions:
+As a recap, we've looked at how graph contractions can be a useful tool to solve real-world (video game) problems and developed some heuristic improvements to a naïve solver. We dug into a more nuanced and powerful optimization that leverages the locality of the contraction operation. And finally we found that we can replace hand-crafted heuristics by training a deep learning system to estimate the quality of partial solutions and guide high dimensional search.
+
+I wouldn't bet on this solution outperforming practiced humans any time soon, but this research path is far from exhausted! Here are some ideas for future directions:
 
 - Generate synthetic training data with random graphs
 - Apply data augmentations on known planar graphs
-- Try more modern GNN architectures
 - Experiment with different activation functions
 - Tune the learning rate schedule
-- Balance inference latency as part of the beam search
+- Increase parameter count generally
+- Benchmark solver speed and model latency with various configurations
+- Investigate other RL approaches that evaluate an action directly rather than a value function over states
 
 Thanks for reading to the end of my first blog post! If you enjoyed it, please consider sharing it with a friend or saying hello via my <a href="/contact">contact page</a>.
 
@@ -264,6 +276,10 @@ This post can be cited as:
 }
 ```
 
+## Acknowledgements
+
+Thank you to Ben Cooper for his collaboration on developing the original Kami solver and thanks to <a href="https://bernsteinbear.com" target="_blank">Max Bernstein</a> for his thoughtful feedback on this post.
+
 ## Footnotes
 
 <div id="footnotes">
@@ -274,6 +290,11 @@ This post can be cited as:
 
   <div id="fn:fn2" class="footnote">
     <a class="fn" href="#fnref:fn2">[<span class="footnote-number">2</span>]</a>
-    <span>While this optimization is fairly elementary, a cursory literature review did not turn up prior work on this topic, so as far as I know this is a novel approach.</span>
+    <span>While this optimization is fairly elementary, a cursory literature review did not turn up prior work on this topic, so as far as I know this is a novel approach. Please reach out if you know otherwise!</span>
+  </div>
+
+  <div id="fn:fn3" class="footnote">
+    <a class="fn" href="#fnref:fn3">[<span class="footnote-number">3</span>]</a>
+    <span>Edit (Oct. 2025): When computing the Markov blanket, neighbors that have different colors from the contracting vertex can be considered +1 distance. They may then fall outside of the Markov blanket, further decreasing the search space.</span>
   </div>
 </div>
