@@ -47,10 +47,10 @@ function AnimatedEllipses() {
     <span className="inline-flex w-6">
       <style>{`
         @keyframes ellipsis {
-          0% { content: ''; }
-          25% { content: '.'; }
-          50% { content: '..'; }
-          75% { content: '...'; }
+          0% { content: '...'; }
+          25% { content: '..'; }
+          50% { content: '.'; }
+          75% { content: '..'; }
         }
         .ellipsis::after {
           content: '';
