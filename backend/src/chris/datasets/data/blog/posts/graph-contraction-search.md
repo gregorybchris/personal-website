@@ -297,6 +297,6 @@ Thank you to Ben Cooper for his collaboration on developing the original Kami so
 
   <div id="fn:fn3" class="footnote">
     <a class="fn" href="#fnref:fn3">[<span class="footnote-number">3</span>]</a>
-    <span>Edit (Oct. 2025): The original Markov constraint implementation can be improved. Second degree neighbors fall outside the Markov blanket if the associated first degree neighbor has a different color than the contracting vertex. This reduces the number of vertices inside the Markov blanket and further reduces the search space.</span>
+    <span>Edit (Oct. 2025): The original Markov constraint implementation can be improved. Second degree neighbors fall outside the Markov blanket if the associated first degree neighbor has a different color than the contracting vertex. This reduces the number of vertices inside the Markov blanket and further shrinks the search space.</span>
   </div>
 </div>
