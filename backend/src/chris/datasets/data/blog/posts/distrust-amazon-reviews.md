@@ -12,7 +12,7 @@ The other day I was shopping for a new bed-side lamp. And even on sites of well-
 
 At least for me, this is a pretty common experience buying a product online. I have a rough dollar amount in mind that I think I should have to pay (given cost of materials, manufacturing, shipping, etc). And I want to find a product that meets my expectations for quality. But then I go online and I'm flooded with options, many of which are super high quality, but cost an arm and a leg, and many of which look potentially well-constructed at first, but upon closer inspection might crumble and break while in transit to my front door.
 
-And we're not even considering style or personal taste here. Why is it that for every quality product at a reasonable price, there are ten others that are either overpriced or of dubious quality?
+And we're not even considering style or personal taste. Why is it that for every quality product at a reasonable price, there are ten others that are either overpriced or of dubious quality?
 
 ## Recommender systems
 
@@ -21,6 +21,11 @@ I think part of the reason we're in this situation is that the maintainers of th
 Of course, the _most-true_ story is that while some companies thrive on great brand loyalty and customer trust, there's a whole ecosystem of retailers that succeed by selling high volume, low quality, cheap products that are marketed just well enough to get clicks and buys.
 
 I'm a realist enough to know that in the free market there will always be a diversity of business models and there will always be pressures toward low quality products. But I'm an idealist enough to believe there's a hypothetical system that gives consumers the power to distinguish high from low quality.
+
+<figure id="figure1">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/distrust-amazon-reviews/pareto.svg?cache=1" width="420">
+  <figcaption><strong>Figure 1: </strong>Pareto front &mdash; There is a diversity of preferences on the cost-quality tradeoff, but we all want to be on the Pareto front, not inside the curve.</figcaption>
+</figure>
 
 Clearly Amazon reviews are an attempt at such a system, but obviously reviews can be gamed. You can buy fake reviews that artificially inflate a product's rating. And in the age of AI-generated text, it's extremely easy to generate realistic and diverse reviews (even images) at scale if you're willing to spend a bit of cash.
 
@@ -102,16 +107,18 @@ def forward(self, user_idxs: Tensor, item_idxs: Tensor, scores: Tensor) -> Tenso
 
 To ensure user reliabilities remain positive, we optimize in log-space, learning $\log \alpha_u$ instead of $\alpha_u$ for each user. Item qualities $x_i$ are learned directly. After training for `500` epochs, with a batch size of `16`, and a static learning rate of `1e-2`, the model converges quickly to a stable solution (see Figure 1).
 
-<figure id="figure1">
+<figure id="figure2">
   <img src="https://storage.googleapis.com/cgme/blog/posts/distrust-amazon-reviews/loss-curve.png?cache=1" width="450">
-  <figcaption><strong>Figure 1: </strong>Loss curve &mdash; As expected, on synthetic data the learning curve is very smooth.</figcaption>
+  <figcaption><strong>Figure 2: </strong>Loss curve &mdash; As expected, on synthetic data the learning curve is very smooth.</figcaption>
 </figure>
 
 ## Outcomes
 
-I was surprised to find (though I shouldn't have been) that it takes many ratings per item to get a high-confidence estimate of item quality. Given this constraint, it's unclear to me whether this model would be useful in practice.
+I was surprised to find (though maybe I shouldn't have been) that it takes many ratings per item to get a high-confidence estimate of item quality. Rather than placing a Gaussian prior over the item quality distribution, computing the mean and variance per item would give a more accurate estimate of item quality.
 
-I enjoyed building a full CRUD API into this project for storing users, items, and ratings. If you're interested in trying TrueScore and using your own data, give the API a spin.
+As a follow-up I'd like to return to this idea and build more rigor into down-ranking users with lower reliability, either using Gaussian belief propagation or by factoring the user reliabilities from the TrueScore model into item quality estimates.
+
+If you're interested in trying TrueScore and using your own data, check out the GitHub repo and start up the TrueScore API. It supports connecting to a local SQLite file for item rating storage. Once you've trained the model on your data, you can query for item quality and user reliability estimates.
 
 <github-button user="gregorybchris" repo="truescore"></github-button>
 
@@ -138,8 +145,6 @@ curl -s -X GET "http://localhost:8000/items/469df558-4e16-4e9e-87a9-f3013b1e1580
   "quality": 3.872774362564087
 }
 ```
-
-As a follow-up I'd like to return to this idea and build more rigor into down-ranking users with lower reliability, either using Gaussian belief propagation or by factoring the user reliabilities from the TrueScore model into item quality estimates.
 
 ## Footnotes
 
