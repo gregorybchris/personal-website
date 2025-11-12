@@ -14,7 +14,7 @@ Notebooks are often used by data scientists to produce and embed plots and test 
 
 ## Observable
 
-In case you're not familiar, I want to quickly introduce <a href="https://observablehq.com" target="_blank">Observable</a>, a platform for writing JavaScript notebooks, made by <a href="https://bost.ocks.org/mike" target="_blank">Mike Bostock</a>. You may be familiar with the data visualization library <a href="https://d3js.org" target="_blank">D3.js</a>, which he also created.
+In case you're not familiar with it, I want to quickly introduce <a href="https://observablehq.com" target="_blank">Observable</a>, a platform for writing JavaScript notebooks, made by <a href="https://bost.ocks.org/mike" target="_blank">Mike Bostock</a>. You may be familiar with the data visualization library <a href="https://d3js.org" target="_blank">D3.js</a>, which he also created.
 
 Observable's key innovation is bringing reactivity to notebooks -- execution of one cell can trigger execution of others. In Observable, each cell registers a variable that other cells can depend on. When a cell executes, the output of that cell automatically propagates to all cells that depend on it, keeping all connected cells in sync.
 
