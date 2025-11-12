@@ -221,7 +221,9 @@ After some experimentation, I found that including dropout and global max poolin
 
 > Experiments showed global max pooling performed better than global mean pooling. GCNConv layers outperformed GATConv and SAGEConv.
 
-The scalar output of the model is interpreted as an estimate of the minimum number of contractions needed to fully contract the graph. MSE loss pushes model predictions closer to the true number of contractions needed for a given graph. I also plot an accuracy score, which is a rounded version of the model prediction compared to the true number of contractions. This is not used for training or during search, but it can be useful to get an intuition for model quality.
+The scalar output of the model is interpreted as an estimate of the minimum number of contractions needed to fully contract the graph. MSE loss pushes model predictions closer to the true number of contractions needed for a given graph.
+
+I also plot an accuracy score, which rounds the model prediction to the closest whole integer and compares that to the true minimum number of contractions. Accuracy is not used for training or during search, but it can be useful to get an intuition for model quality.
 
 <figure id="figure7">
   <img src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/loss-curve.png?cache=5" width="340">
