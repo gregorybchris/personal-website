@@ -170,7 +170,7 @@ Here's a quick hand-wavy explanation for why this works. Let's say our last cont
 
 Empirically I've found that this improves search performance <i>significantly</i>, especially on planar graphs, where the number of vertices in a second degree neighborhood tends to be small compared to the total number of vertices.<sup id="fnref:fn3"><a class="fnref" href="#fn:fn3">[3]</a></sup>
 
-> As an aside, I like to think of this boundary as a [Markov blanket](https://en.wikipedia.org/wiki/Markov_blanket). Vertices in the graph are represented as variables in a probabilistic graphical model. Vertices outside of each other's neighborhoods are conditionally independent.
+> As an aside, I like to think of this boundary as a [Markov blanket](https://en.wikipedia.org/wiki/Markov_blanket). Contractions outside of each other's neighborhoods are conditionally independent.
 
 ```python
 def iter_markov_blanket(G: nx.Graph, node: str) -> Iterator[str]:
@@ -194,7 +194,7 @@ For very large graphs with many vertices and many colors, search can <i>still</i
 
 ## Deep learning approach
 
-If you've made it this far, whether you skipped ahead or not, I'm both grateful and impressed. Let's talk deep learning.
+If you've made it this far, whether you skipped ahead or not, congratulations. Now, let's talk deep learning.
 
 We'll take our inspiration from how a human looks at a level of Kami and intuits the region that's most promising to flood fill next. Similarly, we'd like a model that can look at a graph and estimate the expected value of contracting a given vertex.
 
@@ -206,9 +206,9 @@ $$
 a^* = \arg\max_a V_\theta(f(s, a))
 $$
 
-> This $a^*$ is different from the $A*$ search algorithm, although the $*$ notation does imply "better" or "best" in both cases.
+> This $a^*$ is distinct from the $A*$ search algorithm, although the $*$ notation does imply "better" or "best" in both cases.
 
-How do we train this model? Well, we can't just run graphs through matmuls. We'll have to embed them into a vector representation somehow. I chose to use a graph convolutional network (GCNConv from [PyTorch Geometric](https://pytorch-geometric.readthedocs.io)). The GCN architecture allows us to train on graphs of arbitrary shape and size.
+How do we train this model to select the best action? Well, we can't just run graphs through matmuls. We'll have to embed them into a vector representation somehow. I chose to use a graph convolutional network (GCNConv from [PyTorch Geometric](https://pytorch-geometric.readthedocs.io)). The GCN architecture allows us to train on graphs of arbitrary shape and size.
 
 > Graph attention layers have not seemed to provide an advantage over simple graph convolutions, however more data may be needed to see a benefit.
 
@@ -228,7 +228,7 @@ The scalar output of the model is interpreted as an estimate of the minimum numb
   <figcaption><strong>Figure 7: </strong>Training curve &mdash; The model shows above random chance performance on predicting the number of contractions needed for a given graph.</figcaption>
 </figure>
 
-Each step in the tree search we embed all candidate graphs, estimate how close they are to being solved, and recurse on the most promising candidates first.
+Each step in the tree search we embed all candidate graphs, estimate how close they are to being solved (this is the value function from the RL formulation above), and recurse on the most promising candidates first.
 
 <details>
 <summary>Show data collection steps ||| Hide data collection steps</summary>
