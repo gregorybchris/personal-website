@@ -1,5 +1,5 @@
 import { LinkIcon } from "@phosphor-icons/react";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { PageTitle } from "../components/page-title";
 import { SearchBar } from "../components/search-bar";
@@ -21,25 +21,31 @@ export function YouTubeVideosPage() {
   const [loading, setLoading] = useState<boolean>(true);
   const { id } = useParams();
 
-  function runQuery(query: string) {
-    const youtubeVideosQuery = makeQuery("media/youtube_videos");
-    const currentId = id || null;
-    const requestBody = { query, id: currentId };
-    POST<{ results: YouTubeVideo[] }>(youtubeVideosQuery, requestBody)
-      .then((response) => {
-        setYouTubeVideos(response.results);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error querying YouTube videos:", error);
-        setLoading(false);
-      });
-  }
+  const runQuery = useCallback(
+    (query: string) => {
+      const youtubeVideosQuery = makeQuery("media/youtube_videos");
+      const currentId = id || null;
+      const requestBody = { query, id: currentId };
+      POST<{ results: YouTubeVideo[] }>(youtubeVideosQuery, requestBody)
+        .then((response) => {
+          setYouTubeVideos(response.results);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error querying YouTube videos:", error);
+          setLoading(false);
+        });
+    },
+    [id]
+  );
 
-  function updateQuery(query: string) {
-    setSearchText(query);
-    runQuery(query);
-  }
+  const updateQuery = useCallback(
+    (query: string) => {
+      setSearchText(query);
+      runQuery(query);
+    },
+    [runQuery]
+  );
 
   useEffect(() => {
     runQuery(searchText);
@@ -53,7 +59,7 @@ export function YouTubeVideosPage() {
           <PageTitle>YouTube Videos</PageTitle>
 
           <SearchBar
-            onSubmit={(text) => runQuery(text)}
+            onSubmit={runQuery}
             text={searchText}
             setText={setSearchText}
             className="w-[90%] max-w-[400px]"

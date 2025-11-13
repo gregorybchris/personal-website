@@ -1,5 +1,5 @@
 import { LinkIcon } from "@phosphor-icons/react";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { PageTitle } from "../components/page-title";
 import { SearchBar } from "../components/search-bar";
@@ -21,25 +21,31 @@ export function TiktoksPage() {
   const [loading, setLoading] = useState<boolean>(true);
   const { id } = useParams();
 
-  function runQuery(query: string) {
-    const tiktoksQuery = makeQuery("media/tiktoks");
-    const currentId = id || null;
-    const requestBody = { query, id: currentId };
-    POST<{ results: Tiktok[] }>(tiktoksQuery, requestBody)
-      .then((response) => {
-        setTiktoks(response.results);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error querying TikToks:", error);
-        setLoading(false);
-      });
-  }
+  const runQuery = useCallback(
+    (query: string) => {
+      const tiktoksQuery = makeQuery("media/tiktoks");
+      const currentId = id || null;
+      const requestBody = { query, id: currentId };
+      POST<{ results: Tiktok[] }>(tiktoksQuery, requestBody)
+        .then((response) => {
+          setTiktoks(response.results);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error querying TikToks:", error);
+          setLoading(false);
+        });
+    },
+    [id]
+  );
 
-  function updateQuery(query: string) {
-    setSearchText(query);
-    runQuery(query);
-  }
+  const updateQuery = useCallback(
+    (query: string) => {
+      setSearchText(query);
+      runQuery(query);
+    },
+    [runQuery]
+  );
 
   useEffect(() => {
     runQuery(searchText);
@@ -53,7 +59,7 @@ export function TiktoksPage() {
           <PageTitle>TikToks</PageTitle>
 
           <SearchBar
-            onSubmit={(text) => runQuery(text)}
+            onSubmit={runQuery}
             text={searchText}
             setText={setSearchText}
             className="w-[90%] max-w-[400px]"
