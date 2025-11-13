@@ -10,7 +10,7 @@ Have you ever filled out a intake form at the doctor's office and had to answer 
 
 Let's develop an intelligent survey that adapts to your previous answers. It asks the most broad questions first and then only asks more specific questions when relevant.
 
-As for what I mean by "predict everything" I'll get to that in just a sec!
+As for the "predicting everything" the blog post title promises, I'll get to that in just a sec!
 
 ## Decision trees
 
@@ -74,24 +74,28 @@ def information_gain(attribute: np.ndarray, target: np.ndarray) -> float:
 
 The only thing left to do is use entropy and information gain to select questions. It's a fairly simple algorithm.
 
-1. Loop over all attributes
-2. Compute the information gain for each
-3. Select the attribute with the highest information gain
-4. Repeat steps 1-3 until either
-   1. Information gain for all attributes drops below some threshold (configurable)
-   2. All attributes in the dataset have already been selected
+1. Loop over all attributes.
+2. Compute the information gain for each.
+3. Select the attribute with the highest information gain.
+4. Repeat steps 1-3 until either:
+   1. Information gain for all attributes drops below some threshold (configurable).
+   2. All attributes in the dataset have already been selected.
 
 And that's all of it! There's a bit of math to it, but at the end of the day, not so complicated. Now we have an adaptive survey engine that avoids asking questions that don't teach us anything.
 
 ## Predicting everything
 
-Ok, now that we hav the basics, let's think about ambitious applications. What could we do if survey taker effort didn't scale with the number of questions?
+Ok, now that we have the basics ironed out, let's think about ambitious applications. What could we do if survey taker effort didn't scale with the number of questions?
 
-The paradox of the adaptive survey is that while each participant spends less time taking the survey, you are able to include more total questions in the survey, including questions that do not apply to a large portion of the population, but are highly informative for some individuals.
+The paradox of the adaptive survey is that while each participant spends less time taking the survey, you are able to include more total questions in the survey, including those that do not apply to a large portion of the population, but are highly informative for some individuals.
 
-With enough questions and participants you could create a survey that selects the right questions to predict a huge range of target variables. It's like a <a href="https://en.wikipedia.org/wiki/Genome-wide_association_study" target="_blank">genome-wide association study</a> for psychology (something that must already exist in some form that I'm not aware of<sup id="fnref:fn3"><a class="fnref" href="#fn:fn3">[3]</a></sup>).
+With enough questions and participants you could create a survey that selects the right questions to predict a huge range of target variables.
 
-The vast majority of our questions don't even have to be good, but now and then we may uncover an unlikely gem of a question that is surprisingly predictive of some outcome. Maybe that outcome is something fun like "Which <a href="https://en.wikipedia.org/wiki/Friends" target="_blank">Friends</a> character are you?" Or maybe it's something more scientific, "What is your <a href="https://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">OCEAN</a> personality type?" I personally really like the <a href="https://www.nytimes.com/interactive/2014/upshot/dialect-quiz-map.html" target="_blank">New York Times Dialect Quiz</a> that predicts where in the US you are from based on how you speak.
+> It's like a <a href="https://en.wikipedia.org/wiki/Genome-wide_association_study" target="_blank">genome-wide association study</a> for psychology -- something that must already exist in some form that I'm not aware of.<sup id="fnref:fn3"><a class="fnref" href="#fn:fn3">[3]</a></sup>
+
+The vast majority of our questions don't even have to be good, but now and then we may uncover an unlikely gem of a question that is surprisingly predictive of some outcome. Maybe that outcome is something whimsical like "Which <a href="https://en.wikipedia.org/wiki/Friends" target="_blank">Friends</a> character are you?" Or maybe it's something more scientific, "What is your <a href="https://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">OCEAN</a> personality type?"
+
+A similar idea is the <a href="https://www.nytimes.com/interactive/2014/upshot/dialect-quiz-map.html" target="_blank">New York Times Dialect Quiz</a> that predicts where in the US you are from based on how you speak. I find it surprising and fascinating that a survey can pinpoint where you're from based on simple questions like whether you say "frosting" or "icing", "soda" or "pop", "water fountain" or "drinking fountain", "highway" or "freeway".
 
 You could use this as part of the matching algorithm for a serious dating app. Or help high school and college students think about potential careers based on their interests and personality traits.
 

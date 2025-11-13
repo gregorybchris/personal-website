@@ -19,6 +19,14 @@
   margin-bottom: 0;
 }
 
+#blog ol ol {
+  list-style: lower-alpha;
+}
+
+#blog ol ol ol {
+  list-style: lower-roman;
+}
+
 #blog ul ul {
   list-style: circle;
 }
