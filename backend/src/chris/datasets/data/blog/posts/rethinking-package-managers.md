@@ -8,7 +8,7 @@ status: draft
 
 This post was inspired by an episode of the <a href="https://podcasts.apple.com/us/podcast/the-semver-rabbit-hole-with-predrag-gruevski/id1602572955?i=1000627543462" target="_blank">Software Unscripted</a> podcast. The guest, <a href="https://predr.ag" target="_blank">Predrag Gruevski</a>, developed and maintains the Rust <a href="https://github.com/obi1kenobi/cargo-semver-checks" target="_blank">cargo-semver-checks</a> crate and talks about the nitty-gritty of semantic versioning (<a href="https://semver.org" target="_blank">semver</a>).
 
-One segment of the conversation really got me thinking. If your package manager had access to type information for every variable and every function in a package, then it could automatically check for compatibility breaks between versions.
+One segment of the conversation really got me thinking... If your package manager had access to type information for every variable and every function in a package, then couldn't it automatically check for compatibility breaks between versions?
 
 Sure, it wouldn't be perfect -- you can always change a function to behave differently without changing its type signature. But this could address a large class of mishaps that package maintainers have to spend time and effort avoiding.
 
