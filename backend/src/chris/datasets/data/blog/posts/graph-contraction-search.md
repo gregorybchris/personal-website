@@ -210,6 +210,8 @@ $$
 
 How do we train this model to select the best action? Well, we can't just run graphs through matmuls. We'll have to embed them into a vector representation somehow. I chose to use a graph convolutional network (GCNConv from [PyTorch Geometric](https://pytorch-geometric.readthedocs.io)). The GCN architecture allows us to train on graphs of arbitrary shape and size.
 
+This embedding layer sees the structure of the graph as well as one-hot encoded colors of the vertices as node features.
+
 > Graph attention layers have not seemed to provide an advantage over simple graph convolutions, however more data may be needed to see a benefit.
 
 After some experimentation, I found that including dropout and global max pooling improved training stability and led to faster convergence. The network uses a ReLU non-linearity between GCN layers and a final linear layer maps the graph embedding to a single scalar output.
@@ -235,17 +237,17 @@ Each step in the tree search we embed all candidate graphs, estimate how close t
 <details>
 <summary>Show data collection steps ||| Hide data collection steps</summary>
 
-As mentioned previously, the training data for this project was collected from the Kami app. As you can imagine, manually encoding levels as graphs would be a tedious process. To convert screenshots of levels into graphs automatically, I coded up a simple image processing pipeline that I applied to screenshots of all the levels in the game.
+The training data for this project was collected directly from the Kami app. As you can imagine, manually encoding 114 levels as graphs would be a painfully tedious process. So to convert screenshots of levels into graphs automatically, I coded up a simple image processing pipeline that extracts the graph structure from images.
 
-1. Extract 3x3 patches from the image in a lattice pattern.
+1. Crop 3x3 patches from the image in a lattice pattern.
 2. Use K-means clustering for denoising to identify which patches have which colors.
 3. Simplify the graph by contracting edges between vertices of the same color.
 
-For train-test splitting, even-numbered levels were used for training and odd-numbered levels were used for testing. Since the structure of graphs increases in complexity as levels get harder, this split ensures that the model has seen all different types of graphs during training.
+The allotted number of moves per level were entered manually.
+
+For train-test splitting, even-numbered levels were used for training and odd-numbered levels were used for testing. Since the structure of graphs increases in complexity as levels get harder, this split ensures that the model has seen all different types of graphs during training. I personally don't mind that the network may not generalize to harder puzzles, as long as it can solve the difficulty of puzzles from the app.
 
 Because each contraction yields a new graph, the training dataset is augmented by including all intermediate graphs along the solution path. This increases the size of the training dataset and also ensures the dataset has a fairly balanced distribution of labels.
-
-It's also worth noting that the one-hot encoded color of each vertex is used as a node feature during graph embedding. It's these vectors that are convolved in the GCN layers.
 
 </details>
 
