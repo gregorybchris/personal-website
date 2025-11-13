@@ -107,7 +107,7 @@ export function TiktokCard({
         className="rounded-lg"
         src={tiktok.url}
         controls
-        onClick={() => {
+        onPlay={() => {
           // Blur any focused element (like search bar) to prevent scroll-back on mobile
           if (document.activeElement instanceof HTMLElement) {
             document.activeElement.blur();
