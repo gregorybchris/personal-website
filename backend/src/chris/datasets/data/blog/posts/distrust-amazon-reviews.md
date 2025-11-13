@@ -23,33 +23,35 @@ Of course, the _most-true_ story is that while some companies thrive on great br
 I'm a realist enough to know that in the free market there will always be a diversity of business models and there will always be pressures toward low quality products. But I'm an idealist enough to believe there's a hypothetical system that gives consumers the power to distinguish high from low quality.
 
 <figure id="figure1">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/distrust-amazon-reviews/pareto.svg?cache=2" width="420">
-  <figcaption><strong>Figure 1: </strong>Pareto front &mdash; There is a diversity of preferences on the cost-quality tradeoff, but we all want to be on the Pareto front, not inside the curve.</figcaption>
+  <img src="https://storage.googleapis.com/cgme/blog/posts/distrust-amazon-reviews/pareto.svg?cache=3" width="420">
+  <figcaption><strong>Figure 1: </strong>Pareto front &mdash; There is a diversity of preferences on the cost-quality tradeoff, but we all want to be somewhere on the Pareto front, not inside the curve.</figcaption>
 </figure>
 
-Clearly Amazon reviews are an attempt at such a system, but obviously reviews can be gamed. You can buy fake reviews that artificially inflate a product's rating. And in the age of AI-generated text, it's extremely easy to generate realistic and diverse reviews (even images) at scale if you're willing to spend a bit of cash.
-
-What would it look like if Amazon's recommender system were more aligned with the goals of users?
+Amazon reviews are a reasonable attempt at such a system, but obviously reviews can be gamed. You can buy fake reviews that artificially boost a product's rating. What would it look like if Amazon's recommender system were more aligned with the goals of users?
 
 ## Rating propagation
 
-I've had an inkling of an idea for a while that you could estimate item's quality with user ratings and then measure rater reliability based on similarity to other raters. You could then promote or discount ratings based on rater reliability. What would emerge is a dynamical system where a single rating sends ripples through a network of items and users, updating estimates of both item quality and user reliability. The information from a single rating sort of diffuses outward and this is happening continuously as new ratings come in.
+I've had an inkling of an idea for a while that you could estimate item's quality with user ratings and then measure rater reliability based on similarity to other raters. You could then discount ratings from users with low reliability. What would emerge is a dynamical system where a single rating sends ripples through a network of items and users, updating estimates of both item quality and user reliability. The information from a single rating sort of diffuses outward and this happens continuously as new ratings stream in.
 
-Further, I hoped that if I could make enough simplifying assumptions (like item ratings being normally distributed), there might be an efficient closed form solution that scales to many users and items. Perhaps with simple Bayesian updates, I could avoid updating every item and every user for each incoming rating.
+I'm hopeful that with enough simplifying assumptions (like item ratings being normally distributed), there might be an efficient closed form solution that scales to many users and items.
 
-I wasn't able to figure out a clean closed form solution, but during my research I stumbled across <a href="https://en.wikipedia.org/wiki/Belief_propagation#Gaussian_belief_propagation_(GaBP)" target="_blank">Gaussian belief propagation</a>, which is a message-passing algorithm for performing inference on graphical models with Gaussian distributions.<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup> And while I didn't end up using this approach, it gave me some intuitions that informed the deep learning approach that I'll talk about next.
+> I like to think of this model as similar to finding a fixed point with the <a href="https://en.wikipedia.org/wiki/PageRank" target="_blank">PageRank algorithm</a> or diffusion in <a href="https://en.wikipedia.org/wiki/Spectral_clustering" target="_blank">spectral clustering</a>. Instead of Markov chain transitions between web pages, or eigenvectors of a graph Laplacian, we propagate Bayesian updates between items and users. But alas, these are just the mathematically illiterate ravings of a software engineer. Shoot me some <a href="https://www.chrisgregory.me/contact">mail</a> if you want to set me straight.
 
 <!-- TODO: Add an animation of Gaussian distributions and message passing between them -->
 
+To avoid something like a 51% attack, it's also important that we track the system's confidence in rater reliability. You could create thousands of bots to boost the rating of a new item you're trying to sell, but if all of those bots have no previous track record of trustworthy ratings, then their votes won't be worth much.
+
+I think it's important to reiterate here that while the assumption of normally distributed item ratings is idealized, we don't expect to unfairly penalize users for having different tastes. Our goal is to reward raters who consistently and accurately rate item <i>quality</i>, which should be much more unimodal than individual <i>preference</i> or taste. Put another way, we want to estimate the conditional probability that a user would rate an item highly given they already want or need that item.
+
+After noodling on this for a while, I wasn't able to come up with the beautiful closed form solution I had hoped for. But I did come up with a deep learning approach that I think is still pretty cool!
+
 ## Deep learning
 
-I trained a model called "TrueScore" to jointly learn item quality and user reliability from data. It's a simple model with parameters that scale linearly with the number of users and items. It also supports online learning so that new ratings can be incorporated into the model without retraining from scratch.
+I trained a model called TrueScore to jointly learn item quality and user reliability from data. It's a simple model with parameters that scale linearly with the number of users and items. It also supports online learning so that new ratings can be incorporated into the model without retraining from scratch.
 
-It's worth noting that TrueScore is not a recommender system and therefore does not measure how individual user preferences factor into ratings. TrueScore estimates the conditional probability that a user would rate an item highly given they already want or need that item.
+### The math
 
-## The math
-
-For those who want the gory details, here's a derivation of the loss function used to train TrueScore.
+For those who want the gory details, here's a derivation of the loss function used to train the model.
 
 Given $N$ items and $M$ users.
 
@@ -64,7 +66,7 @@ $$
 
 The variance of a rating is $\sigma^2_u = \tfrac{1}{\alpha_u}$. A user with a high $\alpha_u$ has a low variance, and thus rates items more reliably (with higher precision).
 
-By substituting our definition of variance in the Gaussian equation, for a single rating pair $(u,i)$ the likelihood term is:
+By substituting our definition of variance into the equation for a Gaussian, the likelihood term for a single rating pair $(u,i)$ is:
 
 $$
 p(r_{u,i} \mid x_i, \alpha_u) = \mathcal{N}\Bigl(r_{u,i}; x_i, \tfrac{1}{\alpha_u}\Bigr) = \frac{1}{\sqrt{2\pi\bigl(\frac{1}{\alpha_u}\bigr)}} \exp\Bigl(-\tfrac{(r_{u,i}-x_i)^2}{2 \bigl(\tfrac{1}{\alpha_u}\bigr)}\Bigr)
@@ -82,7 +84,7 @@ $$
 \mathrm{NLL}(\mathbf{x}, \boldsymbol{\alpha}) = \sum_{(u,i)\in \text{data}}\Bigl[\tfrac{1}{2}\log\bigl(\tfrac{1}{\alpha_u}\bigr)+\tfrac{1}{2}\alpha_u(r_{u,i}-x_i)^2\Bigr]
 $$
 
-## Model training
+### Model training
 
 We train with a simple PyTorch optimization loop, minimizing the average negative log-likelihood over batches of observed ratings. The bulk of the math is captured in the `forward()` method and the rest is either plumbing or handled by PyTorch.
 
@@ -114,11 +116,11 @@ To ensure user reliabilities remain positive, we optimize in log-space, learning
 
 ## Outcomes
 
-I was surprised to find (though maybe I shouldn't have been) that it takes many ratings per item to get a high-confidence estimate of item quality. Rather than placing a Gaussian prior over the item quality distribution, computing the mean and variance per item would give a more accurate estimate of item quality.
+I was surprised to find (though maybe I shouldn't have been) that it takes a fair number of ratings per item to get a high-confidence estimate of quality. Rather than placing a Gaussian prior over the item quality distribution, I might try computing the mean and variance per item directly to get a more accurate estimate of quality.
 
-As a follow-up I'd like to return to this idea and build more rigor into down-ranking users with lower reliability, either using Gaussian belief propagation or by factoring the user reliabilities from the TrueScore model into item quality estimates.
+As a follow-up I'd like to return to this idea and build more rigor into down-ranking users with lower reliability, either using Gaussian belief propagation<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup> (a technique I came across in my research) or by factoring the user reliabilities from the TrueScore model into final item quality estimates without propagation.
 
-If you're interested in trying TrueScore with your own data, check out the GitHub repo and start up the TrueScore API. It supports loading item ratings from a local SQLite file or database connection. Once you've trained the model on your data, you can query for item quality and user reliability estimates.
+If you're interested in trying TrueScore with your own data, check out the GitHub repo and spin up the TrueScore API. It supports loading item ratings from a local SQLite file or database connection. Once you've trained the model on your data, you can query for item quality and user reliability estimates.
 
 <github-button user="gregorybchris" repo="truescore"></github-button>
 
@@ -151,6 +153,6 @@ curl -s -X GET "http://localhost:8000/items/469df558-4e16-4e9e-87a9-f3013b1e1580
 <div id="footnotes">
   <div id="fn:fn1" class="footnote">
     <a class="fn" href="#fnref:fn1">[<span class="footnote-number">1</span>]</a>
-    <span>I found this <a href="https://gaussianbp.github.io" target="_blank">cool demo of Gaussian belief propagation online.</a></span>
+    <span><a href="https://en.wikipedia.org/wiki/Belief_propagation#Gaussian_belief_propagation_(GaBP)" target="_blank">Gaussian belief propagation</a>is a message-passing algorithm for performing inference on graphical models with Gaussian distributions. I found this <a href="https://gaussianbp.github.io" target="_blank">cool demo online.</a></span>
   </div>
 </div>
