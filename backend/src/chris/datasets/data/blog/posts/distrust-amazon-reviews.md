@@ -37,6 +37,17 @@ I'm hopeful that with enough simplifying assumptions (like item ratings being no
 
 > I like to think of this model as similar to finding a fixed point with the <a href="https://en.wikipedia.org/wiki/PageRank" target="_blank">PageRank algorithm</a> or diffusion in <a href="https://en.wikipedia.org/wiki/Spectral_clustering" target="_blank">spectral clustering</a>. Instead of Markov chain transitions between web pages, or eigenvectors of a graph Laplacian, we propagate Bayesian updates between items and users. But alas, these are just the mathematically illiterate ravings of a software engineer. Shoot me some <a href="https://www.chrisgregory.me/contact">mail</a> if you want to set me straight.
 
+<figure id="figure2">
+  <video width="300" autoplay muted loop playsinline>
+    <source src="https://storage.googleapis.com/cgme/blog/posts/distrust-amazon-reviews/message-passing.mp4?cache=1" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption>
+    <strong>Figure 2: </strong>
+    Message passing &mdash; Ratings influence item quality estimates, then in return, item quality influences user reliability estimates. Information propagates through the network of users and items like messages being passed around.
+  </figcaption>
+</figure>
+
 <!-- TODO: Add an animation of Gaussian distributions and message passing between them -->
 
 To avoid something like a 51% attack, it's also important that we track the system's confidence in rater reliability. You could create thousands of bots to boost the rating of a new item you're trying to sell, but if all of those bots have no previous track record of trustworthy ratings, then their votes won't be worth much.
@@ -109,9 +120,9 @@ def forward(self, user_idxs: Tensor, item_idxs: Tensor, scores: Tensor) -> Tenso
 
 To ensure user reliabilities remain positive, we optimize in log-space, learning $\log \alpha_u$ instead of $\alpha_u$ for each user. Item qualities $x_i$ are learned directly. After training for `500` epochs, with a batch size of `16`, and a static learning rate of `1e-2`, the model converges quickly to a stable solution (see Figure 1).
 
-<figure id="figure2">
+<figure id="figure3">
   <img src="https://storage.googleapis.com/cgme/blog/posts/distrust-amazon-reviews/loss-curve.png?cache=1" width="450">
-  <figcaption><strong>Figure 2: </strong>Loss curve &mdash; As expected, on synthetic data the learning curve is very smooth.</figcaption>
+  <figcaption><strong>Figure 3: </strong>Loss curve &mdash; As expected, on synthetic data the learning curve is very smooth.</figcaption>
 </figure>
 
 ## Outcomes
