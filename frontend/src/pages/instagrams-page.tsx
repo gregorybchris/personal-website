@@ -103,7 +103,17 @@ export function InstagramCard({
 
   return (
     <div className={cn("flex flex-col items-center gap-y-2", className)}>
-      <video className="rounded-lg" src={instagram.url} controls />
+      <video
+        className="rounded-lg"
+        src={instagram.url}
+        controls
+        onPlay={() => {
+          // Blur any focused element (like search bar) to prevent scroll-back on mobile
+          if (document.activeElement instanceof HTMLElement) {
+            document.activeElement.blur();
+          }
+        }}
+      />
 
       <div className="flex flex-row flex-wrap justify-center gap-x-2">
         {instagram.tags.map((tag) => (
