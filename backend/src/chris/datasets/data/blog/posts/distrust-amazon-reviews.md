@@ -50,7 +50,7 @@ I'm hopeful that with enough simplifying assumptions (like item ratings being no
 
 <!-- TODO: Add an animation of Gaussian distributions and message passing between them -->
 
-To avoid something like a 51% attack, it's also important that we track the system's confidence in rater reliability. You could create thousands of bots to boost the rating of a new item you're trying to sell, but if all of those bots have no previous track record of trustworthy ratings, then their votes won't be worth much.
+To avoid the risk of collusion or coalitional manipulation, it's also important that we track the system's confidence in rater reliability. You could create thousands of bots to boost the rating of a new item you're trying to sell, but if all of those bots have no previous track record of trustworthy ratings, then their votes won't be worth much.
 
 I think it's important to reiterate here that while the assumption of normally distributed item ratings is idealized, we don't expect to unfairly penalize users for having different tastes. Our goal is to reward raters who consistently and accurately rate item <i>quality</i>, which should be much more unimodal than individual <i>preference</i> or taste. Put another way, we want to estimate the conditional probability that a user would rate an item highly given they already want or need that item.
 
