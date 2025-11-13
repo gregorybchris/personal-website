@@ -22,7 +22,7 @@ export function SearchBar({
   onSubmit,
   autoFocus,
   className,
-  debounceMs = 500,
+  debounceMs = 300,
   autoSubmit = true,
 }: SearchBarProps) {
   const [localText, setLocalText] = useState(text);

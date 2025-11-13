@@ -37,16 +37,13 @@ export function MemesPage() {
           setLoading(false);
         });
     },
-    [id]
+    [id],
   );
 
-  const updateQuery = useCallback(
-    (query: string) => {
-      setSearchText(query);
-      runQuery(query);
-    },
-    [runQuery]
-  );
+  const updateQuery = useCallback((query: string) => {
+    setSearchText(query);
+    // SearchBar will auto-submit via onSubmit when text changes
+  }, []);
 
   useEffect(() => {
     runQuery(searchText);
