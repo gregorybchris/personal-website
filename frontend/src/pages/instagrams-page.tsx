@@ -107,7 +107,7 @@ export function InstagramCard({
         className="rounded-lg"
         src={instagram.url}
         controls
-        onPlay={() => {
+        onClick={() => {
           // Blur any focused element (like search bar) to prevent scroll-back on mobile
           if (document.activeElement instanceof HTMLElement) {
             document.activeElement.blur();

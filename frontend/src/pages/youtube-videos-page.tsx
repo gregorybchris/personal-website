@@ -107,7 +107,7 @@ export function YouTubeVideoCard({
         className="rounded-lg"
         src={youtubeVideo.url}
         controls
-        onPlay={() => {
+        onClick={() => {
           // Blur any focused element (like search bar) to prevent scroll-back on mobile
           if (document.activeElement instanceof HTMLElement) {
             document.activeElement.blur();
