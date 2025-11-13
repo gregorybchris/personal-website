@@ -10,13 +10,13 @@ status: published
 
 One of the most powerful features of the notebook paradigm is that you can swap in and out bits of functionality just by running cells in a different order. You can update a function and then only re-run the pieces of code that depend on that change. This is incredible for exploration and prototyping, but with this great flexibility comes a serious drawback: Since there's no well-defined execution order for cells, your notebook can easily get into a state where running the cells top to bottom produces errors.
 
-Notebooks are often used by data scientists to produce and embed plots and test theories. If someone else can't reproduce those plots by re-running the notebook, then the notebook loses a lot of its value. A core value of science is reproducibility, so wouldn't it be great if our coding environment made it easier to achieve that high bar?
+In my own experience, notebooks are most often used by data scientists and researchers to create plots and test theories. And while not always essential, if someone else can't reproduce those plots by re-running the notebook, then the notebook loses a lot of its value. A core value of science is reproducibility, so wouldn't it be great if our coding environment made it easier to achieve that lofty goal?
 
 ## Observable
 
-In case you're not familiar with it, I want to quickly introduce <a href="https://observablehq.com" target="_blank">Observable</a>, a platform for writing JavaScript notebooks, made by <a href="https://bost.ocks.org/mike" target="_blank">Mike Bostock</a>. You may be familiar with the data visualization library <a href="https://d3js.org" target="_blank">D3.js</a>, which he also created.
+In case you're not familiar with it, I want to quickly introduce <a href="https://observablehq.com" target="_blank">Observable</a>, an online platform for writing JavaScript notebooks. It was created by <a href="https://bost.ocks.org/mike" target="_blank">Mike Bostock</a>, who you may recognize as the author of the <a href="https://d3js.org" target="_blank">D3.js</a> data visualization library.
 
-Observable's key innovation is bringing reactivity to notebooks -- execution of one cell can trigger execution of others. In Observable, each cell registers a variable that other cells can depend on. When a cell executes, the output of that cell automatically propagates to all cells that depend on it, keeping all connected cells in sync.
+Observable's key innovation is bringing reactivity to notebooks -- execution of one cell can trigger execution of others. Each cell registers a variable that other cells can depend on. When a cell executes, the updated output automatically propagates to all cells that depend on it, keeping all cells in sync.
 
 ## Cado
 
@@ -68,20 +68,25 @@ stderr:
 locals: {'product': 'IPython', 'author': 'Fernando Perez'}
 ```
 
-This allows us to execute a cell and capture its output, errors, and any variables it defines.
+This code alone is the meat of a cell implementation. We can execute a cell and capture its output, errors, and any variables it defines. Capturing locals will be important later when we validate which variables can be registered as the output of a cell. And stdout and stderr gives us control of how we display a cell's I/O streams.
 
 > It's worth noting that `exec` has full access to your Python environment, so be careful when executing untrusted code.
 
 ### Enforcing the DAG
 
-Next, we need a way to check whether a given update to the notebook would put it in a non-reproducible state. If we can build a directed acyclic graph (DAG) of cell dependencies, then we know the notebook is valid -- there are no cycles that would make ordering the notebook impossible.
+Next, let's introduce the reactivity. We'll need to track which cells depend on which other cells so the execution of one can trigger propagation to others.
+
+The obvious data structure for dependency tracking is a <a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph" target="_blank">directed acyclic graph (DAG)</a>. Each cell is a node in the graph, and there is a directed edge from cell A to cell B if B depends on A.
 
 <figure id="figure1">
   <img src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/dag.svg?cache=1" width="280">
   <figcaption><strong>Figure 1: </strong>An example of a directed acyclic graph representing cell dependencies. Running the cells in order from 1 to 7 ensures dependencies are run before they are needed.</figcaption>
 </figure>
 
-Before we get to cycle detection, we need to build a graph of cell dependencies. Each cell has a unique ID, a list of input variables, and a single output variable.
+We can easily build up the graph from a list of cells where each cell has an ID, a list of input variables, and a single output variable. And while building the graph, we can also validate a few important invariants of our notebook:
+
+1. Each output variable is produced by exactly one cell
+2. Each input variable corresponds to an output of some cell
 
 ```python
 from dataclasses import dataclass
@@ -114,12 +119,7 @@ def build_graph(cells: list[Cell]) -> Graph:
     return graph
 ```
 
-While building this graph, we also validate a few important invariants of our notebook:
-
-1. Each output variable is produced by exactly one cell
-2. Each input variable corresponds to an output of some cell
-
-Finally, we can implement a depth-first search (DFS) to detect cycles in the graph.
+Finally, to make sure the DAG doesn't get into a bad state, we can implement a depth-first search (DFS) to detect cycles. If the notebook had a cycle, then there wouldn't be a valid execution order for the cells.
 
 ```python
 def detect_cycles(graph: Graph) -> None:
@@ -142,15 +142,19 @@ def detect_cycles(graph: Graph) -> None:
         visit(node)
 ```
 
-With these pieces in place, whenever a user interacts with the notebook, we can use the dependency graph to figure out which cells need to be executed first and where outputs should be propagated. Maintaining this DAG is pretty valuable!<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup>
+With these pieces in place, whenever a user interacts with the notebook, we can use the dependency graph to figure out which dependencies need to be executed first and where outputs should be propagated. Maintaining this DAG is pretty valuable!<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup>
 
 ### Caching execution results
 
-If we built Cado with just the pieces we've discussed so far, then a single cell's execution would propagate updates through the whole notebook (all connected cells). So to avoid re-executing cells unnecessarily, we can cache the results of cell executions. A cell only needs to be re-executed if one of its inputs has changed since the last time it was run. Much more efficient!
+Once I got this far, I found a bug. Did you catch it? If a cell runs its dependencies before running itself, and then a cell propagates its output to its dependents, then the notebook is going to get itself into an infinite loop of reactivity.
 
-But what if a cell is not a pure function of its inputs? For example, a cell might read from a file on disk or make a network request via some API. Then it could produce different outputs even if its inputs haven't changed. In these cases, the user can mark the cell as impure and it will always re-execute when any of its descendants are run and the update only cascades if the new output differs from the cached output.
+We need a way to stop updates from propagating forever. Also, if a cell executes, but produces the same output as the last time it was run, we wouldn't want to waste compute triggering its dependents to re-execute unnecessarily.
 
-The cost of equality checks on cached outputs is the main source of complexity in Cado's implementation. For objects with imprecise equality semantics, letting users define what equality means for each output variable is an interesting UX challenge.
+Both of these problems can be solved by caching the results of cell executions! A cell only needs to be re-executed if one of its inputs has changed since the last time it was run. Much more efficient!
+
+But what if a cell is not a pure function of its inputs? For example, a cell might read from a file on disk or make a network request via some API. Then it could produce different outputs even if its inputs haven't changed. In these cases, the user can mark the cell as `impure` and it will <i>always</i> re-execute when any of its descendants are run. The update of an impure cell only cascades if the new output differs from the cached output.
+
+The cost of equality checks on cached outputs is the main source of complexity in Cado's implementation. For objects with imprecise equality semantics, letting users define what equality means for each output variable is an interesting UX challenge that I don't have a great answer for yet.
 
 ### Web interface
 
@@ -235,7 +239,7 @@ Similarly to Jupyter, the Cado server also serves the user interface. By running
 
 ## Wrapping up
 
-I hope someday the reactive notebook paradigm gains traction, if not as a default, perhaps as an opt-in setting. With the right user interface design, the benefits of reactivity could far outweigh the added complexity. Using the same tricks Observable used to make data visualization more interactive, we can make data science more reproducible.
+I hope someday the reactive notebook paradigm gains traction in the Python ecosystem, if not as a default, perhaps as an opt-in setting. With the right user interface design, the benefits of reactivity could far outweigh the added complexity. Using the same tricks Observable used to make data visualization more interactive, we can make data science more reproducible.
 
 <github-button user="gregorybchris" repo="cado"></github-button>
 
