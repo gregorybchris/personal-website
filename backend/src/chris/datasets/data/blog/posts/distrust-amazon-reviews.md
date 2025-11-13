@@ -164,6 +164,6 @@ curl -s -X GET "http://localhost:8000/items/469df558-4e16-4e9e-87a9-f3013b1e1580
 <div id="footnotes">
   <div id="fn:fn1" class="footnote">
     <a class="fn" href="#fnref:fn1">[<span class="footnote-number">1</span>]</a>
-    <span><a href="https://en.wikipedia.org/wiki/Belief_propagation#Gaussian_belief_propagation_(GaBP)" target="_blank">Gaussian belief propagation</a>is a message-passing algorithm for performing inference on graphical models with Gaussian distributions. I found this <a href="https://gaussianbp.github.io" target="_blank">cool demo online.</a></span>
+    <span><a href="https://en.wikipedia.org/wiki/Belief_propagation#Gaussian_belief_propagation_(GaBP)" target="_blank">Gaussian belief propagation</a> is a message-passing algorithm for performing inference on graphical models with Gaussian distributions. I found this <a href="https://gaussianbp.github.io" target="_blank">cool demo online.</a></span>
   </div>
 </div>
