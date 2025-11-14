@@ -95,7 +95,7 @@ I've had experience doing package management in Python, TypeScript, Rust, and Ha
   - Memory
   - Correctness
 - MCP server to enable AI coding assistants to search for functions given an interface and description
-- This is one of the features that got me excited about ScrapScript (<a href="https://scrapscript.org" target="_blank">ScrapScript</a>), for which which my friend Max and I implemented an <a href="httpsL//github.com/teknolagi/scrapscript" target="_blank">interpreter and compiler</a>.
+- This is one of the features that got me excited about ScrapScript (<a href="https://scrapscript.org" target="_blank">ScrapScript</a>), for which which my friend Max and I implemented an <a href="https://github.com/teknolagi/scrapscript" target="_blank">interpreter and compiler</a>. You might enjoy <a href="https://bernsteinbear.com/blog/scrapscript/" target="_blank">his blog post</a> about the interpreter.
 
 ## Myxa
 
