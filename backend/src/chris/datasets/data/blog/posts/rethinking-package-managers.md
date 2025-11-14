@@ -16,7 +16,7 @@ Sure, it wouldn't be perfect -- you can always change a function to behave diffe
 
 This seed of an idea sent me down a rabbit hole, leading to some ideas for other potential improvements that I'd love to see in a package manager. I've never maintained a popular open source package, but I've done my fair share of package publishing, dependency management, and overcoming the pain of unexpected breaking changes.
 
-I've had experience doing package management in Python, TypeScript, Rust, and Haskell, and mostly in Python. There are so many experimental programming languages out there. I'd love to see more experimental package managers. I'm sure many exist that I'm not aware of, but here are some ideas I'd like to explore, some I've implemented and many I'd love to explore in the future.
+I've had experience doing package management in Python, TypeScript, Rust, and Haskell (mostly in Python). There are so many experimental programming languages out there. I'd love to see more experimental package managers. I'm sure many exist that I'm not aware of, but here are some ideas I think could make development much easier and more enjoyable. Some of these I've implemented and many I'd love to explore in the future.
 
 ### Version selection
 
@@ -86,6 +86,16 @@ I've had experience doing package management in Python, TypeScript, Rust, and Ha
 - There will be new tradeoffs for how we select trusted dependencies.
 - By tracking how much a package is actually used in production we can hint to AI developers that a given micro-package is worth using
 - If the package manager is also integrated with the deployment service we can ensure the user actually pays to run the package as a proof of trust
+
+### Function search
+
+- Efficient lookup of functions based on their type signatures, like Hoogle (in Haskell)
+- Testing two implementations of the same interface for
+  - Speed
+  - Memory
+  - Correctness
+- MCP server to enable AI coding assistants to search for functions given an interface and description
+- This is one of the features that got me excited about ScrapScript (<a href="https://scrapscript.org" target="_blank">ScrapScript</a>), for which which my friend Max and I implemented an <a href="httpsL//github.com/teknolagi/scrapscript" target="_blank">interpreter and compiler</a>.
 
 ## Myxa
 
