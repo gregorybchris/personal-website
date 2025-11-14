@@ -31,7 +31,7 @@ Amazon reviews are a reasonable attempt at such a system, but obviously reviews 
 
 ## Rating propagation
 
-I've had an inkling of an idea for a while that you could estimate item's quality with user ratings and then measure rater reliability based on similarity to other raters. You could then discount ratings from users with low reliability. What would emerge is a dynamical system where a single rating sends ripples through a network of items and users, updating estimates of both item quality and user reliability. The information from a single rating sort of diffuses outward and this happens continuously as new ratings stream in.
+I've had an inkling of an idea for a while that you could estimate item's quality with user ratings and then measure rater reliability based on similarity to other raters. You could then discount ratings from users with low reliability. What would emerge is a dynamical system where a single rating sends ripples through a network of items and users, updating estimates of both item quality and user reliability. The information gained from ratings diffuses outward as ratings stream in.
 
 I'm hopeful that with enough simplifying assumptions (like item ratings being normally distributed), there might be an efficient closed form solution that scales to many users and items.
 
