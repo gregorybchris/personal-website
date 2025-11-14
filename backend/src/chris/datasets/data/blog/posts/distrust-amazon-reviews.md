@@ -35,7 +35,7 @@ I've had an inkling of an idea for a while that you could estimate item's qualit
 
 I'm hopeful that with enough simplifying assumptions (like item ratings being normally distributed), there might be an efficient closed form solution that scales to many users and items.
 
-> I like to think of this model as similar to finding a fixed point with the <a href="https://en.wikipedia.org/wiki/PageRank" target="_blank">PageRank algorithm</a> or diffusion in <a href="https://en.wikipedia.org/wiki/Spectral_clustering" target="_blank">spectral clustering</a>. Instead of Markov chain transitions between web pages, or eigenvectors of a graph Laplacian, we propagate Bayesian updates between items and users. But alas, these are just the mathematically illiterate ravings of a software engineer. Shoot me some <a href="https://www.chrisgregory.me/contact">mail</a> if you want to set me straight.
+> I like to think of this model as similar to finding a fixed point with the <a href="https://en.wikipedia.org/wiki/PageRank" target="_blank">PageRank algorithm</a> or diffusion in <a href="https://en.wikipedia.org/wiki/Spectral_clustering" target="_blank">spectral clustering</a>. Instead of Markov chain transitions between web pages, or eigenvectors of a graph Laplacian, we propagate Bayesian updates between items and users. But alas, these are just the mathematically illiterate ramblings of a software engineer. Shoot me some <a href="https://www.chrisgregory.me/contact">mail</a> if you want to set me straight.
 
 <figure id="figure2">
   <video width="300" autoplay muted loop playsinline>
