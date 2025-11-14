@@ -4,6 +4,7 @@ import {
   EnvelopeIcon,
   HouseIcon,
   MusicNotesIcon,
+  NotePencilIcon,
   SneakerMoveIcon,
 } from "@phosphor-icons/react";
 import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
@@ -24,9 +25,9 @@ export function Nav() {
       <NavPageLink to="/" name="Home">
         <HouseIcon size={iconSize} weight="duotone" color="#6283c0" />
       </NavPageLink>
-      {/* <NavPageLink to="/blog" name="Blog">
-        <NotePencil size={iconSize} weight="duotone" color="#6283c0" />
-      </NavPageLink> */}
+      <NavPageLink to="/blog" name="Blog">
+        <NotePencilIcon size={iconSize} weight="duotone" color="#6283c0" />
+      </NavPageLink>
       <NavPageLink to="/projects" name="Projects">
         <CircuitryIcon size={iconSize} weight="duotone" color="#6283c0" />
       </NavPageLink>
