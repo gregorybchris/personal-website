@@ -1,4 +1,4 @@
-import { LinkIcon } from "@phosphor-icons/react";
+import { LinkIcon, UserCircleIcon } from "@phosphor-icons/react";
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { PageTitle } from "../components/page-title";
@@ -127,12 +127,16 @@ export function TiktokCard({
       </div>
 
       {creator && (
-        <div className="text-sm">
-          Creator:{" "}
-          <span
-            className="hover:text-royal cursor-pointer transition-all"
-            onClick={() => updateQuery(creator)}
-          >
+        <div
+          className="group flex cursor-pointer flex-row items-center text-sm"
+          onClick={() => updateQuery(creator)}
+        >
+          <UserCircleIcon
+            size={14}
+            className="mr-1 inline-block"
+            color="#6283c0"
+          />
+          <span className="group-hover:text-royal transition-all">
             {creator}
           </span>
         </div>
