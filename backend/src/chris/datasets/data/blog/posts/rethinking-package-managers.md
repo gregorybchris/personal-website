@@ -6,7 +6,7 @@ archived: false
 status: draft
 ---
 
-This post was inspired by an episode of the <a href="https://podcasts.apple.com/us/podcast/the-semver-rabbit-hole-with-predrag-gruevski/id1602572955?i=1000627543462" target="_blank">Software Unscripted</a> podcast. The guest, <a href="https://predr.ag" target="_blank">Predrag Gruevski</a>, developed and maintains the Rust <a href="https://github.com/obi1kenobi/cargo-semver-checks" target="_blank">cargo-semver-checks</a> crate and talks about the nitty-gritty of semantic versioning (<a href="https://semver.org" target="_blank">semver</a>).
+This post was inspired by an episode of the <a href="https://podcasts.apple.com/us/podcast/the-semver-rabbit-hole-with-predrag-gruevski/id1602572955?i=1000627543462" target="_blank">Software Unscripted</a> podcast. The guest, <a href="https://predr.ag" target="_blank">Predrag Gruevski</a>, developed and maintains the Rust <a href="https://github.com/obi1kenobi/cargo-semver-checks" target="_blank">cargo-semver-checks</a> crate, among other open source projects. The episode goes deep into the nitty-gritty of semantic versioning (<a href="https://semver.org" target="_blank">semver</a>) and implications for package managers.
 
 One segment of the conversation really got me thinking... If your package manager had access to type information for every variable and every function in a package, then couldn't it automatically check for compatibility breaks between versions?
 
@@ -14,7 +14,9 @@ Sure, it wouldn't be perfect -- you can always change a function to behave diffe
 
 ## Rethink
 
-This seed of an idea sent me down a rabbit hole of other potential improvements to the package managers I'm most familiar with.
+This seed of an idea sent me down a rabbit hole, leading to some ideas for other potential improvements that I'd love to see in a package manager. I've never maintained a popular open source package, but I've done my fair share of package publishing, dependency management, and overcoming the pain of unexpected breaking changes.
+
+I've had experience doing package management in Python, TypeScript, Rust, and Haskell, and mostly in Python. There are so many experimental programming languages out there. I'd love to see more experimental package managers. I'm sure many exist that I'm not aware of, but here are some ideas I'd like to explore, some I've implemented and many I'd love to explore in the future.
 
 ### Version selection
 
