@@ -1,7 +1,7 @@
 ---
 date: 2025-04-14
 slug: distrust-amazon-reviews
-title: Why You Shouldn't Trust Amazon Reviews
+title: Fixing Amazon's Review System
 archived: false
 status: published
 ---
