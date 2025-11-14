@@ -1,7 +1,7 @@
 ---
 date: 2025-04-14
 slug: distrust-amazon-reviews
-title: Fixing Amazon's Review System
+title: Fixing Amazon's Product Review System
 archived: false
 status: published
 ---
