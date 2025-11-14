@@ -100,25 +100,43 @@ $$
 We train with a simple PyTorch optimization loop, minimizing the average negative log-likelihood over batches of observed ratings. The bulk of the math is captured in the `forward()` method and the rest is either plumbing or handled by PyTorch.
 
 ```python
+from uuid import UUID
+
+import torch
 from torch import Tensor
+from torch.nn import Module, Parameter
 
-def forward(self, user_idxs: Tensor, item_idxs: Tensor, scores: Tensor) -> Tensor:
-    """Compute the average negative log-likelihood for a batch."""
-    log_alpha_u = self.log_alpha[user_idxs]
-    alpha_u = torch.exp(log_alpha_u)
-    x_i = self.x[item_idxs]
-    residual = scores - x_i
-    nll_obs = -0.5 * log_alpha_u + 0.5 * alpha_u * (residual**2)
-    nll = nll_obs.mean()
 
-    # Add L2 penalties on item qualities and on user reliabilities in log-space
-    nll += 0.001 * (self.x**2).mean()
-    nll += 0.001 * (self.log_alpha**2).mean()
+class BeliefPropModel(Module):
+    x: Parameter
+    log_alpha: Parameter
 
-    return nll
+    def __init__(self, *, user_ids: list[UUID], item_ids: list[UUID]) -> None:
+        super().__init__()
+
+        # Item qualities
+        self.x = Parameter(torch.randn(len(item_ids)))
+
+        # User reliabilities are learned in log-space to ensure positive values
+        self.log_alpha = Parameter(torch.zeros(len(user_ids)))
+
+    def forward(self, user_idxs: Tensor, item_idxs: Tensor, scores: Tensor) -> Tensor:
+        """Compute the average negative log-likelihood for a batch."""
+        log_alpha_u = self.log_alpha[user_idxs]
+        alpha_u = torch.exp(log_alpha_u)
+        x_i = self.x[item_idxs]
+        residual = scores - x_i
+        nll_obs = -0.5 * log_alpha_u + 0.5 * alpha_u * (residual**2)
+        nll = nll_obs.mean()
+
+        # Add L2 penalties on item qualities and on user reliabilities in log-space
+        nll += 0.001 * (self.x**2).mean()
+        nll += 0.001 * (self.log_alpha**2).mean()
+
+        return nll
 ```
 
-To ensure user reliabilities remain positive, we optimize in log-space, learning $\log \alpha_u$ instead of $\alpha_u$ for each user. Item qualities $x_i$ are learned directly. After training for `500` epochs, with a batch size of `16`, and a static learning rate of `1e-2`, the model converges quickly to a stable solution (see Figure 1).
+After training for `500` epochs, with a batch size of `16`, and a static learning rate of `1e-2`, the model converges quickly to a stable solution (see Figure 1).
 
 <figure id="figure3">
   <img src="https://storage.googleapis.com/cgme/blog/posts/distrust-amazon-reviews/loss-curve.png?cache=1" width="450">
