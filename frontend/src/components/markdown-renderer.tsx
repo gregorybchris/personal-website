@@ -39,10 +39,11 @@ function HeadingWithAnchor({
   const link = `${window.location.origin}${window.location.pathname}#${id}`;
 
   const heading = (
-    <>
+    <span className="flex flex-row items-center p-0">
+      {children}
       <a
         href={`#${id}`}
-        className="absolute top-1/2 -left-8 -translate-y-1/2 p-2 opacity-0 transition-all duration-200 group-hover:opacity-100"
+        className="px-2 opacity-0 transition-all duration-200 group-hover:opacity-100"
         aria-label={`Link to ${text}`}
         onClick={async () => {
           await navigator.clipboard.writeText(link);
@@ -54,8 +55,7 @@ function HeadingWithAnchor({
       >
         <LinkIcon size={20} />
       </a>
-      {children}
-    </>
+    </span>
   );
 
   const commonProps = { id, className: "group relative", ...props };
