@@ -8,6 +8,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/battle-road.json",
     "mapometer_id": 5228863,
     "city": "Boston",
+    "stars": 5,
     "tags": [],
     "archived": false
   },
@@ -20,6 +21,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/09-red-line.json",
     "mapometer_id": 4613919,
     "city": "Boston",
+    "stars": 4,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -32,6 +34,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/main-street.json",
     "mapometer_id": 4287237,
     "city": "Boston",
+    "stars": 1,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -44,6 +47,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/c-loop.json",
     "mapometer_id": 4390322,
     "city": "Boston",
+    "stars": 1,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -56,6 +60,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/mystic-stoplight-cooldown.json",
     "mapometer_id": 4287239,
     "city": "Boston",
+    "stars": 1,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -68,6 +73,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/lakes.json",
     "mapometer_id": 4306522,
     "city": "Boston",
+    "stars": 4,
     "tags": ["Tufts", "Ossipee"],
     "archived": false
   },
@@ -80,6 +86,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/upper-mystic-lakes.json",
     "mapometer_id": 5228782,
     "city": "Boston",
+    "stars": 4,
     "tags": ["Tufts"],
     "archived": false
   },
@@ -92,6 +99,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/fresh-pond-gantcher.json",
     "mapometer_id": 4373697,
     "city": "Boston",
+    "stars": 4,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -104,6 +112,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/fresh-pond-2-laps-gantcher.json",
     "mapometer_id": 4373705,
     "city": "Boston",
+    "stars": 3,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -116,6 +125,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/levee.json",
     "mapometer_id": 4325400,
     "city": "Indy",
+    "stars": 4,
     "tags": ["Arden"],
     "archived": false
   },
@@ -128,6 +138,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/86th-street.json",
     "mapometer_id": 4325405,
     "city": "Indy",
+    "stars": 4,
     "tags": ["Arden"],
     "archived": false
   },
@@ -140,6 +151,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/butler-canal.json",
     "mapometer_id": 4327746,
     "city": "Indy",
+    "stars": 5,
     "tags": ["Butler"],
     "archived": false
   },
@@ -152,6 +164,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/south-monon.json",
     "mapometer_id": 4330557,
     "city": "Indy",
+    "stars": 2,
     "tags": ["Arden"],
     "archived": false
   },
@@ -164,6 +177,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/short-glam-ossipee.json",
     "mapometer_id": 4335590,
     "city": "Boston",
+    "stars": null,
     "tags": ["Tufts", "Ossipee"],
     "archived": true
   },
@@ -176,6 +190,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/two-bridges.json",
     "mapometer_id": 4340406,
     "city": "Boston",
+    "stars": 5,
     "tags": ["Tufts", "Ossipee"],
     "archived": false
   },
@@ -188,6 +203,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/fresh-pond-ossipee.json",
     "mapometer_id": 4346456,
     "city": "Boston",
+    "stars": null,
     "tags": ["Tufts", "Ossipee"],
     "archived": true
   },
@@ -200,6 +216,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/long-glam-ossipee.json",
     "mapometer_id": 4357555,
     "city": "Boston",
+    "stars": null,
     "tags": ["Tufts", "Ossipee"],
     "archived": true
   },
@@ -212,6 +229,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/chips.json",
     "mapometer_id": 4373686,
     "city": "Boston",
+    "stars": 4,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -224,6 +242,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/extended-chips.json",
     "mapometer_id": 5229302,
     "city": "Boston",
+    "stars": 4,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -236,6 +255,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/chips-glam.json",
     "mapometer_id": 4373688,
     "city": "Boston",
+    "stars": 3,
     "tags": ["Tufts", "Ossipee"],
     "archived": false
   },
@@ -248,6 +268,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/cemetery-ossipee.json",
     "mapometer_id": 4380541,
     "city": "Boston",
+    "stars": null,
     "tags": ["Tufts", "Ossipee"],
     "archived": true
   },
@@ -260,6 +281,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/cemetery-gantcher.json",
     "mapometer_id": 4373699,
     "city": "Boston",
+    "stars": 3,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -272,6 +294,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/extended-cemetery-gantcher.json",
     "mapometer_id": 5228846,
     "city": "Boston",
+    "stars": 3,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -284,6 +307,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/short-glam-gantcher.json",
     "mapometer_id": 4373702,
     "city": "Boston",
+    "stars": 3,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -296,6 +320,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/full-glam.json",
     "mapometer_id": 4373700,
     "city": "Boston",
+    "stars": 4,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -308,6 +333,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/09-spy-line.json",
     "mapometer_id": 4380489,
     "city": "Boston",
+    "stars": 4,
     "tags": ["Tufts", "Ossipee"],
     "archived": false
   },
@@ -320,6 +346,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/short-res.json",
     "mapometer_id": 4530503,
     "city": "Boston",
+    "stars": 4,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -332,6 +359,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/mid-res.json",
     "mapometer_id": 4383411,
     "city": "Boston",
+    "stars": 5,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -344,6 +372,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/long-res.json",
     "mapometer_id": 5229261,
     "city": "Boston",
+    "stars": 5,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -356,6 +385,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/swimming-hole.json",
     "mapometer_id": 4383414,
     "city": "Boston",
+    "stars": 5,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -368,6 +398,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/west-med.json",
     "mapometer_id": 4386432,
     "city": "Boston",
+    "stars": 2,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -380,6 +411,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/medford-square.json",
     "mapometer_id": 4386434,
     "city": "Boston",
+    "stars": 1,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -392,6 +424,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/spy-pond.json",
     "mapometer_id": 4390321,
     "city": "Boston",
+    "stars": 4,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -404,6 +437,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/goldman-sachs.json",
     "mapometer_id": 4489061,
     "city": "Boston",
+    "stars": 5,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -416,6 +450,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/hb.json",
     "mapometer_id": 4530495,
     "city": "Boston",
+    "stars": 4,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -428,6 +463,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/oxbow-monon.json",
     "mapometer_id": 4543949,
     "city": "Indy",
+    "stars": 4,
     "tags": ["Arden"],
     "archived": false
   },
@@ -440,6 +476,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/green-aurora.json",
     "mapometer_id": 4573136,
     "city": "Seattle",
+    "stars": 4,
     "tags": ["UW"],
     "archived": false
   },
@@ -452,6 +489,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/interlaken-uw.json",
     "mapometer_id": 4573345,
     "city": "Seattle",
+    "stars": 5,
     "tags": ["UW"],
     "archived": false
   },
@@ -464,6 +502,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/near-tower.json",
     "mapometer_id": 4642039,
     "city": "Boston",
+    "stars": 5,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -476,6 +515,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/belmont.json",
     "mapometer_id": 4715557,
     "city": "Boston",
+    "stars": 5,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -488,6 +528,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/belmont-lakes.json",
     "mapometer_id": 4715558,
     "city": "Boston",
+    "stars": 4,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -500,6 +541,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/bu-fake-10.json",
     "mapometer_id": 5229648,
     "city": "Boston",
+    "stars": 5,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -512,6 +554,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/volunteer-park.json",
     "mapometer_id": 4809070,
     "city": "Seattle",
+    "stars": 5,
     "tags": ["Capitol Hill"],
     "archived": false
   },
@@ -524,6 +567,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/interlaken-cap-hill.json",
     "mapometer_id": 4851982,
     "city": "Seattle",
+    "stars": null,
     "tags": ["Capitol Hill"],
     "archived": true
   },
@@ -536,6 +580,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/portage.json",
     "mapometer_id": 4821471,
     "city": "Seattle",
+    "stars": 4,
     "tags": ["Capitol Hill"],
     "archived": false
   },
@@ -548,6 +593,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/short-portage.json",
     "mapometer_id": 4821473,
     "city": "Seattle",
+    "stars": 3,
     "tags": ["Capitol Hill"],
     "archived": false
   },
@@ -560,6 +606,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/ravenna.json",
     "mapometer_id": 5186314,
     "city": "Seattle",
+    "stars": 4,
     "tags": ["Wallingford"],
     "archived": false
   },
@@ -572,6 +619,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/interlaken-wallingford.json",
     "mapometer_id": 5187805,
     "city": "Seattle",
+    "stars": null,
     "tags": ["Wallingford"],
     "archived": true
   },
@@ -584,6 +632,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/lookout-wallingford.json",
     "mapometer_id": 5187807,
     "city": "Seattle",
+    "stars": 5,
     "tags": ["Wallingford"],
     "archived": false
   },
@@ -596,6 +645,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/green-lake-wallingford.json",
     "mapometer_id": 5187811,
     "city": "Seattle",
+    "stars": 3,
     "tags": ["Wallingford"],
     "archived": false
   },
@@ -608,6 +658,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/animals.json",
     "mapometer_id": 5187820,
     "city": "Seattle",
+    "stars": 5,
     "tags": ["Wallingford"],
     "archived": false
   },
@@ -620,6 +671,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/montlake.json",
     "mapometer_id": 5203519,
     "city": "Seattle",
+    "stars": 3,
     "tags": ["Wallingford"],
     "archived": false
   },
@@ -632,6 +684,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/wetlands.json",
     "mapometer_id": 5203516,
     "city": "Seattle",
+    "stars": 5,
     "tags": ["Wallingford"],
     "archived": false
   },
@@ -644,6 +697,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/manning.json",
     "mapometer_id": 5229274,
     "city": "Indy",
+    "stars": 2,
     "tags": ["Arden"],
     "archived": false
   },
@@ -656,6 +710,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/harvard.json",
     "mapometer_id": 5229243,
     "city": "Boston",
+    "stars": 2,
     "tags": ["Tufts", "Gantcher"],
     "archived": false
   },
@@ -668,6 +723,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/long-pennsylvania.json",
     "mapometer_id": 5229275,
     "city": "Indy",
+    "stars": 2,
     "tags": ["Arden"],
     "archived": false
   },
@@ -680,6 +736,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/art-museum.json",
     "mapometer_id": 5229290,
     "city": "Indy",
+    "stars": 5,
     "tags": ["Arden"],
     "archived": false
   },
@@ -692,6 +749,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/upper-jordan-trail.json",
     "mapometer_id": 5237907,
     "city": "Berkeley",
+    "stars": 5,
     "tags": [],
     "archived": false
   },
@@ -704,6 +762,7 @@
     "route_data_link": "https://storage.googleapis.com/cgme/routes/running/the-cut.json",
     "mapometer_id": 5203514,
     "city": "Seattle",
+    "stars": 3,
     "tags": ["Wallingford"],
     "archived": false
   }

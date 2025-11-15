@@ -1,5 +1,10 @@
-import { ListMagnifyingGlassIcon } from "@phosphor-icons/react";
-import { useEffect, useState } from "react";
+import {
+  ArrowDownIcon,
+  ArrowUpIcon,
+  CaretCircleRightIcon,
+  ListMagnifyingGlassIcon,
+} from "@phosphor-icons/react";
+import { useEffect, useMemo, useState } from "react";
 import { MapContainer, Polyline, TileLayer, useMap } from "react-leaflet";
 import { useNavigate, useParams } from "react-router-dom";
 import { ErrorMessage } from "../components/error-message";
@@ -7,6 +12,7 @@ import { Loader } from "../components/loader";
 import { PageTitle } from "../components/page-title";
 import "../styles/running.css";
 import { GET, makeQuery } from "../utilities/request-utilities";
+import { cn } from "../utilities/style-utilities";
 
 export interface RunningRoute {
   routeId: string;
@@ -17,6 +23,7 @@ export interface RunningRoute {
   routeDataLink: string;
   mapometerId: number;
   city: string;
+  stars: number | null;
   tags: string[];
   archived: boolean;
 }
@@ -39,6 +46,23 @@ function formatDistance(n: number) {
   return distStr;
 }
 
+function defaultRouteCompare(routeA: RunningRoute, routeB: RunningRoute) {
+  const [cityA, cityB] = [routeA.city, routeB.city];
+  const [distanceA, distanceB] = [routeA.distance, routeB.distance];
+  const cityOrder = ["Seattle", "Boston", "Indy", "Berkeley"];
+  const cityAIndex = cityOrder.indexOf(cityA);
+  const cityBIndex = cityOrder.indexOf(cityB);
+  const cityCompare = cityAIndex - cityBIndex;
+  const distanceCompare =
+    distanceA < distanceB ? -1 : distanceA > distanceB ? 1 : 0;
+
+  if (cityCompare !== 0) {
+    return cityCompare;
+  } else {
+    return distanceCompare * -1;
+  }
+}
+
 export function RunningPage() {
   const [routes, setRoutes] = useState<RunningRoute[]>([]);
   const [currentRoute, setCurrentRoute] = useState<RunningRoute | null>(null);
@@ -54,7 +78,7 @@ export function RunningPage() {
     const routesQuery = makeQuery("outdoor/running");
     GET<RunningRoute[]>(routesQuery)
       .then((routes: RunningRoute[]) => {
-        setRoutes(routes.sort(routeCompare).filter((r) => !r.archived));
+        setRoutes(routes.sort(defaultRouteCompare).filter((r) => !r.archived));
         setError(null);
       })
       .catch((err) => {
@@ -91,23 +115,6 @@ export function RunningPage() {
     setShowRoutesTable(false);
   }
 
-  function routeCompare(routeA: RunningRoute, routeB: RunningRoute) {
-    const [cityA, cityB] = [routeA.city, routeB.city];
-    const [distanceA, distanceB] = [routeA.distance, routeB.distance];
-    const cityOrder = ["Seattle", "Boston", "Indy", "Berkeley"];
-    const cityAIndex = cityOrder.indexOf(cityA);
-    const cityBIndex = cityOrder.indexOf(cityB);
-    const cityCompare = cityAIndex - cityBIndex;
-    const distanceCompare =
-      distanceA < distanceB ? -1 : distanceA > distanceB ? 1 : 0;
-
-    if (cityCompare !== 0) {
-      return cityCompare;
-    } else {
-      return distanceCompare * -1;
-    }
-  }
-
   return (
     <div className="flex flex-col items-center gap-5 px-4 py-8">
       <div className="flex flex-col items-center gap-2">
@@ -130,6 +137,7 @@ export function RunningPage() {
             setShowRoutesTable={setShowRoutesTable}
             routes={routes}
             onSelectRoute={onSelectRoute}
+            currentRoute={currentRoute}
           />
         </div>
       ) : (
@@ -146,6 +154,7 @@ interface RouteMapCardProps {
   setShowRoutesTable: (show: boolean) => void;
   routes: RunningRoute[];
   onSelectRoute: (route: RunningRoute) => void;
+  currentRoute: RunningRoute | null;
 }
 
 function RouteMapCard({
@@ -155,6 +164,7 @@ function RouteMapCard({
   setShowRoutesTable,
   routes,
   onSelectRoute,
+  currentRoute,
 }: RouteMapCardProps) {
   const mapBoxToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
@@ -220,7 +230,11 @@ function RouteMapCard({
               className="h-[90%] max-w-[90%] overflow-hidden rounded-xl bg-white px-4 py-4 shadow-lg"
               onClick={(e) => e.stopPropagation()}
             >
-              <RoutesTable routes={routes} onSelectRoute={onSelectRoute} />
+              <RoutesTable
+                routes={routes}
+                onSelectRoute={onSelectRoute}
+                currentRoute={currentRoute}
+              />
             </div>
           </div>
         )}
@@ -229,43 +243,181 @@ function RouteMapCard({
   );
 }
 
+type Column = "name" | "distance" | "elevation" | "city";
+type SortDirection = "asc" | "desc";
+
+interface SortIconProps {
+  column: Column;
+  sortColumn: Column | null;
+  sortDirection: SortDirection | null;
+}
+
+function SortIcon({ column, sortColumn, sortDirection }: SortIconProps) {
+  if (sortColumn === column && sortDirection === "asc") {
+    return <ArrowUpIcon size={14} weight="bold" />;
+  } else if (sortColumn === column && sortDirection === "desc") {
+    return <ArrowDownIcon size={14} weight="bold" />;
+  } else {
+    return <span className="w-3.5" />;
+  }
+}
+
+interface ColumnHeaderProps {
+  column: Column;
+  label: string;
+  sortColumn: Column | null;
+  sortDirection: SortDirection | null;
+  onClick: (column: Column) => void;
+  hiddenOnSmall?: boolean;
+}
+
+function ColumnHeader({
+  column,
+  label,
+  sortColumn,
+  sortDirection,
+  onClick,
+  hiddenOnSmall = false,
+}: ColumnHeaderProps) {
+  return (
+    <td
+      className={cn(
+        "Running-table-cell cursor-pointer underline decoration-blue-500/60 underline-offset-4 hover:text-black/60 hover:decoration-blue-500/30",
+        hiddenOnSmall && "hidden md:table-cell",
+      )}
+      onClick={() => onClick(column)}
+    >
+      <div className="flex items-center gap-1">
+        <span>{label}</span>
+        <SortIcon
+          column={column}
+          sortColumn={sortColumn}
+          sortDirection={sortDirection}
+        />
+      </div>
+    </td>
+  );
+}
+
 interface RoutesTableProps {
   routes: RunningRoute[];
   onSelectRoute: (route: RunningRoute) => void;
+  currentRoute: RunningRoute | null;
 }
 
-function RoutesTable({ routes, onSelectRoute }: RoutesTableProps) {
+function RoutesTable({
+  routes,
+  onSelectRoute,
+  currentRoute,
+}: RoutesTableProps) {
+  const [sortColumn, setSortColumn] = useState<Column | null>(null);
+  const [sortDirection, setSortDirection] = useState<SortDirection | null>(
+    null,
+  );
+
+  const handleHeaderClick = (column: Column) => {
+    if (sortColumn !== column) {
+      // Clicking a different column: start with asc
+      setSortColumn(column);
+      setSortDirection("asc");
+    } else if (sortDirection === "asc") {
+      // Same column, currently asc: switch to desc
+      setSortDirection("desc");
+    } else if (sortDirection === "desc") {
+      // Same column, currently desc: reset to default
+      setSortColumn(null);
+      setSortDirection(null);
+    }
+  };
+
+  const sortedRoutes = useMemo(() => {
+    if (!sortColumn || !sortDirection) {
+      // No sort applied, use default sort
+      return [...routes].sort(defaultRouteCompare);
+    }
+
+    return [...routes].sort((a, b) => {
+      let compareResult = 0;
+
+      switch (sortColumn) {
+        case "name":
+          compareResult = a.name.localeCompare(b.name);
+          break;
+        case "distance":
+          compareResult = a.distance - b.distance;
+          break;
+        case "elevation":
+          compareResult = a.elevation - b.elevation;
+          break;
+        case "city": {
+          // Use the same city order as default sort
+          const cityOrder = ["Seattle", "Boston", "Indy", "Berkeley"];
+          const cityAIndex = cityOrder.indexOf(a.city);
+          const cityBIndex = cityOrder.indexOf(b.city);
+          compareResult = cityAIndex - cityBIndex;
+          break;
+        }
+      }
+
+      return sortDirection === "asc" ? compareResult : -compareResult;
+    });
+  }, [routes, sortColumn, sortDirection]);
+
   return (
     <div className="h-full overflow-y-scroll">
       <table className="Running-table font-raleway border-separate border-spacing-y-1">
         <thead className="Running-table-header font-sanchez sticky top-0 bg-white text-lg">
           <tr className="Running-table-row">
-            <td className="Running-table-cell underline decoration-blue-500/60 underline-offset-4">
-              Route
-            </td>
-            <td className="Running-table-cell underline decoration-blue-500/60 underline-offset-4">
-              Distance
-            </td>
-            <td className="Running-table-cell hidden underline decoration-blue-500/60 underline-offset-4 md:table-cell">
-              Elevation
-            </td>
-            <td className="Running-table-cell underline decoration-blue-500/60 underline-offset-4">
-              City
-            </td>
+            <ColumnHeader
+              column="name"
+              label="Route"
+              sortColumn={sortColumn}
+              sortDirection={sortDirection}
+              onClick={handleHeaderClick}
+            />
+            <ColumnHeader
+              column="distance"
+              label="Distance"
+              sortColumn={sortColumn}
+              sortDirection={sortDirection}
+              onClick={handleHeaderClick}
+            />
+            <ColumnHeader
+              column="elevation"
+              label="Elevation"
+              sortColumn={sortColumn}
+              sortDirection={sortDirection}
+              onClick={handleHeaderClick}
+              hiddenOnSmall={true}
+            />
+            <ColumnHeader
+              column="city"
+              label="City"
+              sortColumn={sortColumn}
+              sortDirection={sortDirection}
+              onClick={handleHeaderClick}
+            />
           </tr>
         </thead>
         <tbody className="Running-table-body text-xs md:text-sm">
-          {routes.map((route, routeNumber) => (
+          {sortedRoutes.map((route, routeNumber) => (
             <tr
-              className="Running-table-row group cursor-pointer"
+              className="Running-table-row group cursor-pointer transition-all"
               key={routeNumber}
               onClick={(event) => {
                 event.preventDefault();
                 onSelectRoute(route);
               }}
             >
-              <td className="Running-table-cell text-sky group-hover:text-royal">
-                {route.name}
+              <td className="Running-table-cell text-sky group-hover:text-royal flex flex-row items-center gap-1">
+                {currentRoute && route.routeId === currentRoute.routeId && (
+                  <CaretCircleRightIcon
+                    size={13}
+                    weight="duotone"
+                    color="#2563eb"
+                  />
+                )}
+                <span>{route.name}</span>
               </td>
               <td
                 className="Running-table-cell"
@@ -274,14 +426,32 @@ function RoutesTable({ routes, onSelectRoute }: RoutesTableProps) {
                 <span className="group-hover:text-sky">
                   {formatDistance(route.distance)}
                 </span>{" "}
-                <span className="group-hover:text-sky text-black/30">mi</span>
+                <span
+                  className={cn(
+                    "group-hover:text-sky text-black/30",
+                    currentRoute &&
+                      route.routeId === currentRoute.routeId &&
+                      "text-inherit",
+                  )}
+                >
+                  mi
+                </span>
               </td>
               <td
                 className="Running-table-cell hidden md:table-cell"
                 title={`${(route.elevation * 0.3048).toFixed(0)} m`}
               >
                 <span className="group-hover:text-sky">{route.elevation}</span>{" "}
-                <span className="group-hover:text-sky text-black/30">ft</span>
+                <span
+                  className={cn(
+                    "group-hover:text-sky text-black/30",
+                    currentRoute &&
+                      route.routeId === currentRoute.routeId &&
+                      "text-inherit",
+                  )}
+                >
+                  ft
+                </span>
               </td>
               <td className="Running-table-cell">
                 <span className="group-hover:text-sky">{route.city}</span>
@@ -292,10 +462,6 @@ function RoutesTable({ routes, onSelectRoute }: RoutesTableProps) {
       </table>
     </div>
   );
-}
-
-interface RouteMapProps {
-  routeData: RouteData;
 }
 
 function RouteMap({ routeData }: RouteMapProps) {
