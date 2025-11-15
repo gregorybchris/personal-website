@@ -106,17 +106,11 @@ import torch
 from torch import Tensor
 from torch.nn import Module, Parameter
 
-
-class BeliefPropModel(Module):
-    x: Parameter
-    log_alpha: Parameter
-
+class Model(Module):
     def __init__(self, *, user_ids: list[UUID], item_ids: list[UUID]) -> None:
         super().__init__()
-
         # Item qualities
         self.x = Parameter(torch.randn(len(item_ids)))
-
         # User reliabilities are learned in log-space to ensure positive values
         self.log_alpha = Parameter(torch.zeros(len(user_ids)))
 
