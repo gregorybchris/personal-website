@@ -464,6 +464,10 @@ function RoutesTable({
   );
 }
 
+interface RouteMapProps {
+  routeData: RouteData;
+}
+
 function RouteMap({ routeData }: RouteMapProps) {
   const map = useMap();
 
