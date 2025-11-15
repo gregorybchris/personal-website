@@ -101,7 +101,9 @@ function GitHubButton({ user, repo }: GitHubButtonProps) {
         <span className="github-button-label">Open Source</span>
       </div>
       <span className="github-button-repo">
-        {user}/<span className="github-button-repo-name">{repo}</span>
+        <span className="github-button-repo-user">{user}</span>
+        <span className="github-button-repo-slash">/</span>
+        <span className="github-button-repo-name">{repo}</span>
       </span>
     </a>
   );

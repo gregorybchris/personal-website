@@ -287,17 +287,30 @@
 
 #blog .github-button-repo {
   font-size: 0.875rem;
-  color: #888;
   font-family: "Geist Mono Variable", monospace;
-  transition: color 300ms;
 }
 
-#blog .github-button:hover .github-button-repo {
+#blog .github-button-repo-user {
+  transition: color 300ms;
+  color: #888;
+}
+
+#blog .github-button:hover .github-button-repo-user {
   color: #333;
+}
+
+#blog .github-button-repo-slash {
+  transition: color 300ms;
+  color: #888;
+}
+
+#blog .github-button:hover .github-button-repo-slash {
+  color: #bfbfbf;
 }
 
 #blog .github-button-repo-name {
   transition: color 300ms;
+  color: #888;
 }
 
 #blog .github-button:hover .github-button-repo-name {
