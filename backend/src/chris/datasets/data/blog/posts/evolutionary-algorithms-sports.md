@@ -13,7 +13,7 @@ I expect most readers won't be intimately familiar with the sport of rowing. But
   <figcaption><strong>Figure 1: </strong>Eight rowers in a boat. (Bonus points if you can tell which little blob is me)</figcaption>
 </figure>
 
-A few years after moving to Seattle, I joined a <a href="https://lakeunioncrew.com" target="_blank">local rowing club</a>. And not long after that I saw a perfect opportunity to tarnish a pure and meditative outdoor activity with technology. There was a problem at the boathouse and I _needed_ to see if a computer could help solve it.
+A few years after moving to Seattle, I joined a [local rowing club](https://lakeunioncrew.com). And not long after that I saw a perfect opportunity to tarnish a pure and meditative outdoor activity with technology. There was a problem at the boathouse and I _needed_ to see if a computer could help solve it.
 
 ## Motivation
 
@@ -73,7 +73,7 @@ Before we can crafting a lineup that is _good_, let's first solve the easier pro
 
 ### Partitioning
 
-First, let's figure out all the different ways we can fit rowers into boats. The canonical form of this problem is a cousin of the <a href="https://en.wikipedia.org/wiki/Knapsack_problem" target="_blank">knapsack problem</a> called the <a href="https://en.wikipedia.org/wiki/Subset_sum_problem" target="_blank">subset sum problem</a>.
+First, let's figure out all the different ways we can fit rowers into boats. The canonical form of this problem is a cousin of the [knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem) called the [subset sum problem](https://en.wikipedia.org/wiki/Subset_sum_problem).
 
 We use dynamic programming to efficiently figure out all the ways we can pack a given number of rowers into boats of specified sizes.
 
@@ -218,9 +218,9 @@ survival_rate = (init - base) * (decay ** generation) + base
 
 ### Fitness proportional selection
 
-As briefly mentioned at the end of the <a href="#mutation-crossover">mutation & crossover</a> section, the most naïve selection approach is to retain the top k% of the population. In the literature, this is called <a href="https://en.wikipedia.org/wiki/Truncation_selection" target="_blank">truncation selection</a>.
+As briefly mentioned at the end of the <a href="#mutation-crossover">mutation & crossover</a> section, the most naïve selection approach is to retain the top k% of the population. In the literature, this is called [truncation selection](https://en.wikipedia.org/wiki/Truncation_selection).
 
-A more sophisticated approach, called <a href="https://en.wikipedia.org/wiki/Fitness_proportionate_selection" target="_blank">fitness proportionate selection</a> (aka "roulette wheel selection"), selects each individual with probability proportional to its fitness.
+A more sophisticated approach, called [fitness proportionate selection](https://en.wikipedia.org/wiki/Fitness_proportionate_selection) (aka "roulette wheel selection"), selects each individual with probability proportional to its fitness.
 
 ```python
 import numpy as np

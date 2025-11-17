@@ -6,7 +6,7 @@ archived: false
 status: new
 ---
 
-If you found this post, you may be familiar with Douglas Hofstadter's Typogenetics as described in his book <i>Gödel, Escher, Bach: An Eternal Golden Braid</i> (1979). If not, that's great because in this post I want to give a step-by-step specification of Typogenetics and provide visual intuitions for how the system works.
+If you found this post, you may be familiar with Douglas Hofstadter's Typogenetics as described in his book _Gödel, Escher, Bach: An Eternal Golden Braid_ (1979). If not, that's great because in this post I want to give a step-by-step specification of Typogenetics and provide visual intuitions for how the system works.
 
 ## Overview of Typogenetics
 

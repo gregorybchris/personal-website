@@ -8,7 +8,7 @@ status: published
 
 I'll get to Amazon reviews in a minute, but first, if you'll allow me, a quick gripe about shopping online in general.
 
-The other day I was shopping for a new bed-side lamp. And even on sites of well-known, respectable brands (Ikea, Pottery Barn, etc.) it was hard to tell from the pictures if I'd be getting a quality product. Then I tried the classic "Best Lamps of 2025" listicles, but I had to imagine they were full of paid placements... [NYT Wirecutter](https://www.nytimes.com/wirecutter) had some fine options, but not quite the selection I was hoping for. From Google searches I stumbled across a few sites with artsy lamps in the <i>thousands</i> of dollars. Hey, no judgement if that's your thing, but I'm a simple man. I want a sturdy lamp that'll last me a few decades and not break the bank.
+The other day I was shopping for a new bed-side lamp. And even on sites of well-known, respectable brands (Ikea, Pottery Barn, etc.) it was hard to tell from the pictures if I'd be getting a quality product. Then I tried the classic "Best Lamps of 2025" listicles, but I had to imagine they were full of paid placements... [NYT Wirecutter](https://www.nytimes.com/wirecutter) had some fine options, but not quite the selection I was hoping for. From Google searches I stumbled across a few sites with artsy lamps in the _thousands_ of dollars. Hey, no judgement if that's your thing, but I'm a simple man. I want a sturdy lamp that'll last me a few decades and not break the bank.
 
 At least for me, this is a pretty common experience buying a product online. I have a rough dollar amount in mind that I think I should have to pay (given cost of materials, manufacturing, shipping, etc). And I want to find a product that meets my expectations for quality. But then I go online and I'm flooded with options, many of which are super high quality, but cost an arm and a leg, and many of which look potentially well-constructed at first, but upon closer inspection might crumble and break while in transit to my front door.
 
@@ -35,7 +35,7 @@ I've had an inkling of an idea for a while that you could estimate item's qualit
 
 I'm hopeful that with enough simplifying assumptions (like item ratings being normally distributed), there might be an efficient closed form solution that scales to many users and items.
 
-> I like to think of this model as similar to finding a fixed point with the <a href="https://en.wikipedia.org/wiki/PageRank" target="_blank">PageRank algorithm</a> or diffusion in <a href="https://en.wikipedia.org/wiki/Spectral_clustering" target="_blank">spectral clustering</a>. Instead of Markov chain transitions between web pages, or eigenvectors of a graph Laplacian, we propagate Bayesian updates between items and users. But alas, these are just the mathematically illiterate ramblings of a software engineer. Shoot me some <a href="https://www.chrisgregory.me/contact">mail</a> if you want to set me straight.
+> I like to think of this model as similar to finding a fixed point with the [PageRank algorithm](https://en.wikipedia.org/wiki/PageRank) or diffusion in [spectral clustering](https://en.wikipedia.org/wiki/Spectral_clustering). Instead of Markov chain transitions between web pages, or eigenvectors of a graph Laplacian, we propagate Bayesian updates between items and users. But alas, these are just the mathematically illiterate ramblings of a software engineer. Shoot me some [mail](https://www.chrisgregory.me/contact) if you want to set me straight.
 
 <figure id="figure2">
   <video width="300" autoplay muted loop playsinline>
@@ -48,11 +48,9 @@ I'm hopeful that with enough simplifying assumptions (like item ratings being no
   </figcaption>
 </figure>
 
-<!-- TODO: Add an animation of Gaussian distributions and message passing between them -->
-
 To avoid the risk of collusion or coalitional manipulation, it's also important that we track the system's confidence in rater reliability. You could create thousands of bots to boost the rating of a new item you're trying to sell, but if all of those bots have no previous track record of trustworthy ratings, then their votes won't be worth much.
 
-I want to reiterate here that while the assumption of normally distributed item ratings is idealized, we don't expect to unfairly penalize users for having different tastes. Our goal is to reward raters who consistently and accurately rate item <i>quality</i>, which should be much more unimodal than individual <i>preference</i> or taste. Put another way, we want to estimate the conditional probability that a user would rate an item highly given they already want or need that item.
+I want to reiterate here that while the assumption of normally distributed item ratings is idealized, we don't expect to unfairly penalize users for having different tastes. Our goal is to reward raters who consistently and accurately rate item _quality_, which should be much more unimodal than individual _preference_ or taste. Put another way, we want to estimate the conditional probability that a user would rate an item highly given they already want or need that item.
 
 After noodling on this for a while, I wasn't able to come up with the beautiful closed form solution I had hoped for. But I did come up with a deep learning approach that I think is still pretty cool!
 
@@ -176,6 +174,6 @@ curl -s -X GET "http://localhost:8000/items/469df558-4e16-4e9e-87a9-f3013b1e1580
 <div id="footnotes">
   <div id="fn:fn1" class="footnote">
     <a class="fn" href="#fnref:fn1">[<span class="footnote-number">1</span>]</a>
-    <span><a href="https://en.wikipedia.org/wiki/Belief_propagation#Gaussian_belief_propagation_(GaBP)" target="_blank">Gaussian belief propagation</a> is a message-passing algorithm for performing inference on graphical models with Gaussian distributions. I found this <a href="https://gaussianbp.github.io" target="_blank">cool demo online.</a></span>
+    <span>[Gaussian belief propagation](https://en.wikipedia.org/wiki/Belief_propagation#Gaussian_belief_propagation_(GaBP)) is a message-passing algorithm for performing inference on graphical models with Gaussian distributions. I found this [cool demo online.](https://gaussianbp.github.io)</span>
   </div>
 </div>

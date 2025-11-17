@@ -32,7 +32,7 @@ On colored graphs, there's another operation we'll call a <strong>vertex contrac
   </figcaption>
 </figure>
 
-Given a fully-connected colored graph, we can apply vertex contractions <i>iteratively</i>, repeatedly changing the color of a single vertex and then applying a contraction until only a single vertex remains.
+Given a fully-connected colored graph, we can apply vertex contractions _iteratively_, repeatedly changing the color of a single vertex and then applying a contraction until only a single vertex remains.
 
 <figure id="figure3">
   <video width="300" autoplay muted loop playsinline>
@@ -84,7 +84,7 @@ The order in which vertices are contracted matters, so the number of possible co
 
 We can do better than naïve brute force search by implementing some simple heuristics to prioritize more promising contractions first.
 
-The first heuristic to speed up the naïve solver is pretty intuitive. To get from many edges (in the initial graph) to no edges (in a graph with one vertex) we should pick contractions that remove many edges. And vertices with more neighbors have a good chance of resulting in large contractions. Let's try using <i>vertex degree</i> as a heuristic!
+The first heuristic to speed up the naïve solver is pretty intuitive. To get from many edges (in the initial graph) to no edges (in a graph with one vertex) we should pick contractions that remove many edges. And vertices with more neighbors have a good chance of resulting in large contractions. Let's try using _vertex degree_ as a heuristic!
 
 ```python
 def iter_nodes_by_degree(G: nx.Graph, nodes: Iterable[str]) -> Iterator[str]:
@@ -93,7 +93,7 @@ def iter_nodes_by_degree(G: nx.Graph, nodes: Iterable[str]) -> Iterator[str]:
         yield node
 ```
 
-Now, how do we pick which color to contract? Similarly to our vertex degree heuristic, we want to choose a color that maximizes edges/vertices contracted. For a given vertex, we'll pick the <i>color that appears most frequently</i> among its neighbors.
+Now, how do we pick which color to contract? Similarly to our vertex degree heuristic, we want to choose a color that maximizes edges/vertices contracted. For a given vertex, we'll pick the _color that appears most frequently_ among its neighbors.
 
 ```python
 def iter_neighbor_colors_by_freq(G: nx.Graph, node: str) -> Iterator[str]:
@@ -110,7 +110,7 @@ def iter_neighbor_colors_by_freq(G: nx.Graph, node: str) -> Iterator[str]:
 
 These last two heuristics were pretty greedy. They work well in the average case, but can fail to produce speedups when there are high degree vertices on the periphery of the graph. If we pick those first, we may end up with a large number of small contractions later on.
 
-If we can pick vertices that are close to the "center" of the graph, rather than the periphery, then our contractions radiate outward and our number of steps is on the order of the radius of the graph, rather than the diameter. We can measure <i>vertex centrality</i> by summing distances from each vertex to all other vertices. The vertex with the lowest sum of distances is the most central.
+If we can pick vertices that are close to the "center" of the graph, rather than the periphery, then our contractions radiate outward and our number of steps is on the order of the radius of the graph, rather than the diameter. We can measure _vertex centrality_ by summing distances from each vertex to all other vertices. The vertex with the lowest sum of distances is the most central.
 
 ```python
 def iter_nodes_by_centrality(G: nx.Graph, nodes: Iterable[str], power: int = 2) -> Iterator[str]:
@@ -162,13 +162,13 @@ It might not be obvious yet, but this fact about contraction locality is going t
 
 Let's imagine two vertices $a$ and $b$ that are far apart in the graph. If we contract $a$ first and then $b$, we get the same resulting graph as if we contracted $b$ first and then $a$. (There are enough vertices and edges acting as a buffer between the two contractions)
 
-Going back to our search tree from earlier. If two paths through the search tree arrive at the exact same graph, then we're duplicating <i>all</i> the work of searching the subtrees below that point. How do we take advantage of our locality insight and always explore only one of the two equivalent subtrees?
+Going back to our search tree from earlier. If two paths through the search tree arrive at the exact same graph, then we're duplicating _all_ the work of searching the subtrees below that point. How do we take advantage of our locality insight and always explore only one of the two equivalent subtrees?
 
 The trick is to only consider candidate vertices in the second degree neighborhood of the last contracted vertex.<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup>
 
 Here's a quick hand-wavy explanation for why this works. Let's say our last contraction was to vertex $x$ and $a$ is local to $x$, but $b$ is non-local to $x$. Also, as before, $a$ and $b$ are non-local to each other. By adding the constraint that $a$ must be contracted before $b$ we've pruned one subtree that we know to be equivalent to another.
 
-Empirically I've found that this improves search performance <i>significantly</i>, especially on planar graphs, where the number of vertices in a second degree neighborhood tends to be small compared to the total number of vertices.<sup id="fnref:fn3"><a class="fnref" href="#fn:fn3">[3]</a></sup>
+Empirically I've found that this improves search performance _significantly_, especially on planar graphs, where the number of vertices in a second degree neighborhood tends to be small compared to the total number of vertices.<sup id="fnref:fn3"><a class="fnref" href="#fn:fn3">[3]</a></sup>
 
 > As an aside, I like to think of this boundary as a [Markov blanket](https://en.wikipedia.org/wiki/Markov_blanket). Contractions outside of each other's neighborhoods are conditionally independent.
 
@@ -190,7 +190,7 @@ def iter_markov_blanket(G: nx.Graph, node: str) -> Iterator[str]:
                 yield grandchild_node
 ```
 
-For very large graphs with many vertices and many colors, search can <i>still</i> be intractable for a computer to solve, even with locality constraints. Despite this combinatorial explosion, humans are able to solve large puzzles fairly quickly with a mix of visual intuition and very shallow backtracking. This performance gap between very fast computers and very intuitive humans informs our next approach -- maybe we can train a deep learning system to intuit which partial solutions are the most promising.
+For very large graphs with many vertices and many colors, search can _still_ be intractable for a computer to solve, even with locality constraints. Despite this combinatorial explosion, humans are able to solve large puzzles fairly quickly with a mix of visual intuition and very shallow backtracking. This performance gap between very fast computers and very intuitive humans informs our next approach -- maybe we can train a deep learning system to intuit which partial solutions are the most promising.
 
 ## Deep learning approach
 
@@ -265,7 +265,7 @@ I wouldn't bet on this solution outperforming practiced humans any time soon, bu
 - Benchmark solver speed and model latency with various configurations
 - Investigate other RL approaches that evaluate an action directly rather than a value function over states
 
-Thanks for reading to the end of my first blog post! If you enjoyed it, please consider sharing it with a friend or saying hello via my <a href="/contact">contact page</a>.
+Thanks for reading to the end of my first blog post! If you enjoyed it, please consider sharing it with a friend or saying hello via my [contact page](/contact).
 
 <github-button user="gregorybchris" repo="contraction"></github-button>
 
@@ -282,14 +282,14 @@ This post can be cited as:
 
 ## Acknowledgements
 
-Thank you to Ben Cooper for his collaboration on developing the original Kami solver and thanks to <a href="https://bernsteinbear.com" target="_blank">Max Bernstein</a> for his thoughtful feedback on this post.
+Thank you to Ben Cooper for his collaboration on developing the original Kami solver and thanks to [Max Bernstein](https://bernsteinbear.com) for his thoughtful feedback on this post.
 
 ## Footnotes
 
 <div id="footnotes">
   <div id="fn:fn1" class="footnote">
     <a class="fn" href="#fnref:fn1">[<span class="footnote-number">1</span>]</a>
-    <span>Kami is available in both <a href="https://apps.apple.com/us/app/kami/id710724007" target="_blank">iOS</a> and <a href="https://play.google.com/store/apps/details?id=com.stateofplaygames.kami2&hl=en-US" target="_blank">Android</a> app stores.</span>
+    <span>Kami is available in both [iOS](https://apps.apple.com/us/app/kami/id710724007) and [Android](https://play.google.com/store/apps/details?id=com.stateofplaygames.kami2&hl=en-US) app stores.</span>
   </div>
 
   <div id="fn:fn2" class="footnote">

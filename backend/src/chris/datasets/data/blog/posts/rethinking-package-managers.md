@@ -6,7 +6,7 @@ archived: false
 status: draft
 ---
 
-This post was inspired by an episode of the <a href="https://podcasts.apple.com/us/podcast/the-semver-rabbit-hole-with-predrag-gruevski/id1602572955?i=1000627543462" target="_blank">Software Unscripted</a> podcast. The guest, <a href="https://predr.ag" target="_blank">Predrag Gruevski</a>, developed and maintains the Rust <a href="https://github.com/obi1kenobi/cargo-semver-checks" target="_blank">cargo-semver-checks</a> crate, among other open source projects. The episode goes deep into the nitty-gritty of semantic versioning (<a href="https://semver.org" target="_blank">semver</a>) and implications for package managers.
+This post was inspired by an episode of the [Software Unscripted](https://podcasts.apple.com/us/podcast/the-semver-rabbit-hole-with-predrag-gruevski/id1602572955?i=1000627543462) podcast. The guest, [Predrag Gruevski](https://predr.ag), developed and maintains the Rust [cargo-semver-checks](https://github.com/obi1kenobi/cargo-semver-checks) crate, among other open source projects. The episode goes deep into the nitty-gritty of semantic versioning ([semver](https://semver.org)) and implications for package managers.
 
 One segment of the conversation really got me thinking... If your package manager had access to type information for every variable and every function in a package, then couldn't it automatically check for compatibility breaks between versions?
 
@@ -95,11 +95,11 @@ I've had experience doing package management in Python, TypeScript, Rust, and Ha
   - Memory
   - Correctness
 - MCP server to enable AI coding assistants to search for functions given an interface and description
-- This is one of the features that got me excited about ScrapScript (<a href="https://scrapscript.org" target="_blank">ScrapScript</a>), for which which my friend Max and I implemented an <a href="https://github.com/teknolagi/scrapscript" target="_blank">interpreter and compiler</a>. You might enjoy <a href="https://bernsteinbear.com/blog/scrapscript/" target="_blank">his blog post</a> about the interpreter.
+- This is one of the features that got me excited about ScrapScript ([ScrapScript](https://scrapscript.org)), for which which my friend Max and I implemented an [interpreter and compiler](https://github.com/teknolagi/scrapscript). You might enjoy [his blog post](https://bernsteinbear.com/blog/scrapscript/) about the interpreter.
 
 ## Myxa
 
-I built a toy package manager called <a href="https://github.com/gregorybchris/myxa" target="_blank">Myxa</a> to explore these ideas. It's written in Python as a proof of concept for some of the ideas explored above.
+I built a toy package manager called [Myxa](https://github.com/gregorybchris/myxa) to explore these ideas. It's written in Python as a proof of concept for some of the ideas explored above.
 
 I've listed a few of the supported commands below as a peek at the kind of functionality Myxa provides:
 

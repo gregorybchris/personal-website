@@ -6,19 +6,19 @@ archived: false
 status: new
 ---
 
-Okay, okay, the world <i>really</i> doesn't need another programming language. As you read on, I hope you'll appreciate the bit of self-aware humor.
+Okay, okay, the world _really_ doesn't need another programming language. As you read on, I hope you'll appreciate the bit of self-aware humor.
 
-I think a lot about what factors make some programming languages more enjoyable to use than others. Sometimes a language is preferred based on requirements of the problem at hand. Sometimes it's the quality of tooling or size of the language's ecosystem. Sometimes it's just personal preference. And personal preference is <i>quite</i> a can of worms. Do you have a soft spot for static typing? An aversion to verbosity? A need for speed?
+I think a lot about what factors make some programming languages more enjoyable to use than others. Sometimes a language is preferred based on requirements of the problem at hand. Sometimes it's the quality of tooling or size of the language's ecosystem. Sometimes it's just personal preference. And personal preference is _quite_ a can of worms. Do you have a soft spot for static typing? An aversion to verbosity? A need for speed?
 
 All of these factors co-evolve and culminate in these artifacts, these frankensteins of various opinions, tradeoffs, and historical accidents. The design space of languages is vast and thanks to the time and effort required to produce one, every language ends up far from how it was conceived.
 
-> I recently watched the talk "<a href="https://www.youtube.com/watch?v=yVuEPwNuCHw" target="_blank">Types, and why you should care</a>" by Ron Minsky and learned about a <a href="https://news-web.php.net/php.internals/70691" target="_blank">shocking historical accident</a> that when PHP was first created "In order to get a nice hash distribution of function names across the various function name lengths, names were picked specifically to make them fit into a specific length bucket."
+> I recently watched the talk "[Types, and why you should care](https://www.youtube.com/watch?v=yVuEPwNuCHw)" by Ron Minsky and learned about a [shocking historical accident](https://news-web.php.net/php.internals/70691) that when PHP was first created "In order to get a nice hash distribution of function names across the various function name lengths, names were picked specifically to make them fit into a specific length bucket."
 
 ## Why Fermata?
 
 I started working on a project to flesh out my "perfect language", knowing full well that no language could be perfect for solving every problem I have, let alone every problem. Despite the task being impossible, I was curious to see what it would be like to build a language with a splash of experimental/innovative, but a focus on being familiar, intuitive, and inoffensive.
 
-After a few years of jotting down little ideas here and there, I finally sat down and coded up the first prototype of the Fermata programming language. You can try it out in your browser at <a href="https://fermata-ide.vercel.app" target="_blank">fermata-ide.vercel.app</a>.
+After a few years of jotting down little ideas here and there, I finally sat down and coded up the first prototype of the Fermata programming language. You can try it out in your browser at [fermata-ide.vercel.app](https://fermata-ide.vercel.app).
 
 ## Key features
 

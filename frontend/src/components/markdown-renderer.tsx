@@ -118,7 +118,15 @@ export function MarkdownRenderer({ children }: MarkdownRendererProps) {
     h3: React.ComponentType<any>;
     code: React.ComponentType<any>;
     details: React.ComponentType<any>;
+    a: React.ComponentType<any>;
   } = {
+    a({ href, children, ...props }: any) {
+      return (
+        <ExternalLink href={href} {...props}>
+          {children}
+        </ExternalLink>
+      );
+    },
     h2({ children, ...props }) {
       return (
         <HeadingWithAnchor level={2} {...props}>

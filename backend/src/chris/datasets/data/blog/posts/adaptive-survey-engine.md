@@ -14,7 +14,7 @@ As for the "predicting everything" the blog post title promises, I'll get to tha
 
 ## Decision trees
 
-Decision trees, built with the <a href="https://en.wikipedia.org/wiki/ID3_algorithm" target="_blank">ID3</a> and <a href="https://en.wikipedia.org/wiki/C4.5_algorithm" target="_blank">C4.5</a> algorithms, use the math of information theory to select attributes from a dataset that are the most informative. We can use this same approach to select questions from a survey that are the least redundant.
+Decision trees, built with the [ID3](https://en.wikipedia.org/wiki/ID3_algorithm) and [C4.5](https://en.wikipedia.org/wiki/C4.5_algorithm) algorithms, use the math of information theory to select attributes from a dataset that are the most informative. We can use this same approach to select questions from a survey that are the least redundant.
 
 <figure id="figure1">
   <img src="https://storage.googleapis.com/cgme/blog/posts/adaptive-survey-engine/decision-tree.svg?cache=4" width="500">
@@ -91,15 +91,15 @@ The paradox of the adaptive survey is that while each participant spends less ti
 
 With enough questions and participants you could create a survey that selects the right questions to predict a huge range of target variables.
 
-> It's like a <a href="https://en.wikipedia.org/wiki/Genome-wide_association_study" target="_blank">genome-wide association study</a> for psychology -- something that must already exist in some form that I'm not aware of.<sup id="fnref:fn3"><a class="fnref" href="#fn:fn3">[3]</a></sup>
+> It's like a [genome-wide association study](https://en.wikipedia.org/wiki/Genome-wide_association_study) for psychology -- something that must already exist in some form that I'm not aware of.<sup id="fnref:fn3"><a class="fnref" href="#fn:fn3">[3]</a></sup>
 
-The vast majority of our questions don't even have to be good, but now and then we may uncover an unlikely gem of a question that is surprisingly predictive of some outcome. Maybe that outcome is something whimsical like "Which <a href="https://en.wikipedia.org/wiki/Friends" target="_blank">Friends</a> character are you?" Or maybe it's something more scientific, "What is your <a href="https://en.wikipedia.org/wiki/Big_Five_personality_traits" target="_blank">OCEAN</a> personality type?"
+The vast majority of our questions don't even have to be good, but now and then we may uncover an unlikely gem of a question that is surprisingly predictive of some outcome. Maybe that outcome is something whimsical like "Which [Friends](https://en.wikipedia.org/wiki/Friends) character are you?" Or maybe it's something more scientific, "What is your [OCEAN](https://en.wikipedia.org/wiki/Big_Five_personality_traits) personality type?"
 
-A similar idea is the <a href="https://www.nytimes.com/interactive/2014/upshot/dialect-quiz-map.html" target="_blank">New York Times Dialect Quiz</a> that predicts where in the US you are from based on how you speak. I find it surprising and fascinating that a survey can pinpoint where you're from based on simple questions like whether you say "frosting" or "icing", "soda" or "pop", "water fountain" or "drinking fountain", "highway" or "freeway".
+A similar idea is the [New York Times Dialect Quiz](https://www.nytimes.com/interactive/2014/upshot/dialect-quiz-map.html) that predicts where in the US you are from based on how you speak. I find it surprising and fascinating that a survey can pinpoint where you're from based on simple questions like whether you say "frosting" or "icing", "soda" or "pop", "water fountain" or "drinking fountain", "highway" or "freeway".
 
 You could use this as part of the matching algorithm for a serious dating app. Or help high school and college students think about potential careers based on their interests and personality traits.
 
-Of course, there is a huge amount of <a href="https://en.wikipedia.org/wiki/Data_dredging" target="_blank">p-hacking</a> going on here, so any interesting correlations we find would need to be validated with a separate study, but the adaptive survey could be a really powerful tool for hypothesis generation.
+Of course, there is a huge amount of [p-hacking](https://en.wikipedia.org/wiki/Data_dredging) going on here, so any interesting correlations we find would need to be validated with a separate study, but the adaptive survey could be a really powerful tool for hypothesis generation.
 
 ## Wrapping up
 
@@ -122,6 +122,6 @@ I built this survey engine because often a random question pops into my head tha
 
   <div id="fn:fn3" class="footnote">
     <a class="fn" href="#fnref:fn3">[<span class="footnote-number">3</span>]</a>
-    <span>A brief literature review turned up <a href="https://www.icpsr.umich.edu/web/ICPSR/series/203" target="_blank">MIDUS</a>, <a href="https://www.europeansocialsurvey.org/findings/europeans-wellbeing/drivers-wellbeing" target="_blank">ESS</a>, and <a href="https://openpsychometrics.org/_rawdata/" target="_blank">OpenPsychometrics</a>.</span>
+    <span>A brief literature review turned up [MIDUS](https://www.icpsr.umich.edu/web/ICPSR/series/203), [ESS](https://www.europeansocialsurvey.org/findings/europeans-wellbeing/drivers-wellbeing), and [OpenPsychometrics](https://openpsychometrics.org/_rawdata/).</span>
   </div>
 </div>
