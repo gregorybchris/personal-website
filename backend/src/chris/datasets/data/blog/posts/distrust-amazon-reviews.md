@@ -139,7 +139,7 @@ After training for `500` epochs, with a batch size of `16`, and a static learnin
 
 I was surprised to find (though maybe I shouldn't have been) that it takes a fair number of ratings per item to get a high-confidence estimate of quality. Rather than placing a Gaussian prior over the item quality distribution, I might try computing the mean and variance per item directly to get a more accurate estimate of quality.
 
-As a follow-up I'd like to return to this idea and build more rigor into down-ranking users with lower reliability, either using Gaussian belief propagation<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup> (a technique I came across in my research) or by factoring the user reliabilities from the TrueScore model into final item quality estimates without propagation.
+As a follow-up I'd like to return to this idea and build more rigor into down-ranking users with lower reliability, either using Gaussian belief propagation[^1] (a technique I came across in my research) or by factoring the user reliabilities from the TrueScore model into final item quality estimates without propagation.
 
 If you're interested in trying TrueScore with your own data, check out the GitHub repo and spin up the TrueScore API. It supports loading item ratings from a local SQLite file or database connection. Once you've trained the model on your data, you can query for item quality and user reliability estimates.
 
@@ -169,11 +169,4 @@ curl -s -X GET "http://localhost:8000/items/469df558-4e16-4e9e-87a9-f3013b1e1580
 }
 ```
 
-## Footnotes
-
-<div id="footnotes">
-  <div id="fn:fn1" class="footnote">
-    <a class="fn" href="#fnref:fn1">[<span class="footnote-number">1</span>]</a>
-    <span>[Gaussian belief propagation](https://en.wikipedia.org/wiki/Belief_propagation#Gaussian_belief_propagation_(GaBP)) is a message-passing algorithm for performing inference on graphical models with Gaussian distributions. I found this [cool demo online.](https://gaussianbp.github.io)</span>
-  </div>
-</div>
+[^1]: [Gaussian belief propagation](https://en.wikipedia.org/wiki/Belief_propagation#Gaussian_belief_propagation_(GaBP)) is a message-passing algorithm for performing inference on graphical models with Gaussian distributions. I found this [cool demo online.](https://gaussianbp.github.io)

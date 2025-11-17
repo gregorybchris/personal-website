@@ -236,13 +236,13 @@ def fitness_proportional_selection(lineups: list[Lineup], scores: list[float], k
     return [lineups[i] for i in indices]
 ```
 
-Using this method, even low fitness lineups have a chance at being selected, increasing diversity in the population. High fitness lineups can be selected multiple times, which helps us exploit<sup id="fnref:fn1"><a class="fnref" href="#fn:fn1">[1]</a></sup> the information we have about which lineups might be the best.
+Using this method, even low fitness lineups have a chance at being selected, increasing diversity in the population. High fitness lineups can be selected multiple times, which helps us exploit[^1] the information we have about which lineups might be the best.
 
 ### Restarts
 
 For our last improvement we'll implement a simple, but powerful trick. We start by noticing that the initial population is comprised of a small number of configurations sampled from a large configuration space. Sometimes we get lucky and the initial population contains good building blocks for a strong solution. Other times we're not so lucky.
 
-To mitigate this, we'll restart the entire genetic algorithm from scratch a few times<sup id="fnref:fn2"><a class="fnref" href="#fn:fn2">[2]</a></sup> and take the best solution we find. This increases our chances of finding a good solution by searching the configuration space more thoroughly.
+To mitigate this, we'll restart the entire genetic algorithm from scratch a few times[^2] and take the best solution we find. This increases our chances of finding a good solution by searching the configuration space more thoroughly.
 
 ## Wrapping up
 
@@ -273,16 +273,6 @@ There are other obvious factors that I have not implemented either because they'
 - Keeping boats either a single gender or mixed
 - Giving an athlete experience in a new position
 
-## Footnotes
+[^1]: I really love this trick because it's similar to gradient ascent with respect to the fitness function, but technically we're approximating a gradient with respect to the population distribution (in frequency space), not the fitness function itself. We take a natural gradient step in the steepest direction that respects our normalized probability distribution over individual fitness scores.
 
-<div id="footnotes">
-  <div id="fn:fn1" class="footnote">
-    <a class="fn" href="#fnref:fn1">[<span class="footnote-number">1</span>]</a>
-    <span>I really love this trick because it's similar to gradient ascent with respect to the fitness function, but technically we're approximating a gradient with respect to the population distribution (in frequency space), not the fitness function itself. We take a natural gradient step in the steepest direction that respects our normalized probability distribution over individual fitness scores.</span>
-  </div>
-
-  <div id="fn:fn2" class="footnote">
-    <a class="fn" href="#fnref:fn2">[<span class="footnote-number">2</span>]</a>
-    <span>Unlike other tricks discussed here, this one can be parallelized easily, so restarts do not significantly slow down optimization when implemented efficiently.</span>
-  </div>
-</div>
+[^2]: Unlike other tricks discussed here, this one can be parallelized easily, so restarts do not significantly slow down optimization when implemented efficiently.

@@ -105,8 +105,17 @@
 }
 
 #blog a.fn,
-#blog a.fnref {
+#blog a.fnref,
+#blog a[data-footnote-ref] {
   text-decoration: none;
+}
+
+#blog a[data-footnote-ref]::before {
+  content: "[";
+}
+
+#blog a[data-footnote-ref]::after {
+  content: "]";
 }
 
 #blog a:hover {
@@ -183,11 +192,16 @@
   margin-bottom: 0;
 }
 
-#blog #footnotes {
+#blog #footnotes,
+#blog .footnotes {
   text-align: left;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #d0d0d0;
 }
 
-#blog #footnotes:has(:target) .footnote {
+#blog #footnotes:has(:target) .footnote,
+#blog .footnotes:has(:target) li {
   opacity: 0.35;
   transition:
     opacity 300ms,
@@ -195,10 +209,29 @@
     padding-bottom 300ms;
 }
 
-#blog #footnotes .footnote:target {
+#blog #footnotes .footnote:target,
+#blog .footnotes li:target {
   opacity: 1;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+#blog .footnotes ol {
+  margin-top: 0.5rem;
+}
+
+#blog .footnotes li {
+  margin-bottom: 0.5rem;
+}
+
+#blog .footnotes li p {
+  margin: 0;
+  display: inline;
+}
+
+#blog .footnotes .data-footnote-backref {
+  margin-left: 0.25rem;
+  text-decoration: none;
 }
 
 #blog table {

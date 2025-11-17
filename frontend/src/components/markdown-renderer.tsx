@@ -119,13 +119,43 @@ export function MarkdownRenderer({ children }: MarkdownRendererProps) {
     code: React.ComponentType<any>;
     details: React.ComponentType<any>;
     a: React.ComponentType<any>;
+    sup: React.ComponentType<any>;
+    section: React.ComponentType<any>;
   } = {
     a({ href, children, ...props }: any) {
+      // Check if this is a footnote link (internal page anchor)
+      const isInternalAnchor = href?.startsWith("#");
+
+      if (isInternalAnchor) {
+        // Keep internal anchor links (including footnotes) as regular anchor tags
+        return (
+          <a href={href} {...props}>
+            {children}
+          </a>
+        );
+      }
+
       return (
         <ExternalLink href={href} {...props}>
           {children}
         </ExternalLink>
       );
+    },
+    sup({ children, className, ...props }: any) {
+      // Custom rendering for footnote references - preserve GFM data attributes
+      const classes = className ? `fnref ${className}` : "fnref";
+      return <sup className={classes} {...props}>{children}</sup>;
+    },
+    section({ children, className, ...props }: any) {
+      // Custom rendering for footnotes section
+      if (className?.includes("footnotes")) {
+        return (
+          <section id="footnotes" className="footnotes" {...props}>
+            {children}
+          </section>
+        );
+      }
+      return <section className={className} {...props}>{children}</section>;
     },
     h2({ children, ...props }) {
       return (
