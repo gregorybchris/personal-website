@@ -6,7 +6,7 @@ archived: false
 status: published
 ---
 
-[Jupyter notebooks](https://jupyter.org) are pretty neat.[^1] It takes only a couple clicks/keystrokes to create a new cell, write some code, and run it. You can skip all the steps of creating a new file, naming the file, writing an entrypoint/main function, and switching to a terminal window to run the code.
+[Jupyter notebooks](https://jupyter.org) are pretty neat.[^notebook-haters] It takes only a couple clicks/keystrokes to create a new cell, write some code, and run it. You can skip all the steps of creating a new file, naming the file, writing an entrypoint/main function, and switching to a terminal window to run the code.
 
 One of the most powerful features of the notebook paradigm is that you can swap in and out bits of functionality just by running cells in a different order. You can update a function and then only re-run the pieces of code that depend on that change. This is incredible for exploration and prototyping, but with this great flexibility comes a serious drawback: Since there's no well-defined execution order for cells, your notebook can easily get into a state where running the cells top to bottom produces errors.
 
@@ -142,7 +142,7 @@ def detect_cycles(graph: Graph) -> None:
         visit(node)
 ```
 
-With these pieces in place, whenever a user interacts with the notebook, we can use the dependency graph to figure out which dependencies need to be executed first and where outputs should be propagated. Maintaining this DAG is pretty valuable![^2]
+With these pieces in place, whenever a user interacts with the notebook, we can use the dependency graph to figure out which dependencies need to be executed first and where outputs should be propagated. Maintaining this DAG is pretty valuable![^notebook-to-script]
 
 ### Caching execution results
 
@@ -243,6 +243,5 @@ I hope someday the reactive notebook paradigm gains traction in the Python ecosy
 
 <github-button user="gregorybchris" repo="cado"></github-button>
 
-[^1]: I can hear the grumbling protestations of emacs/vim power users. I get it, notebooks aren't for everyone. But if you're prototyping in Python and aren't horribly allergic to the computer mouse then they're worth a shot!
-
-[^2]: Another cool thing you can do with this DAG is safely convert a notebook to a script. You can prefix local variables in each cell with the cell ID, topologically sort the cells with the DAG, then concatenate the cell contents. You're guaranteed a working script that you can fold into your Python codebase as a module.
+[^notebook-haters]: I can hear the grumbling protestations of emacs/vim power users. I get it, notebooks aren't for everyone. But if you're prototyping in Python and aren't horribly allergic to the computer mouse then they're worth a shot!
+[^notebook-to-script]: Another cool thing you can do with this DAG is safely convert a notebook to a script. You can prefix local variables in each cell with the cell ID, topologically sort the cells with the DAG, then concatenate the cell contents. You're guaranteed a working script that you can fold into your Python codebase as a module.

@@ -47,7 +47,7 @@ Given a fully-connected colored graph, we can apply vertex contractions _iterati
 
 ## Motivation
 
-Are vertex contractions useful to us? Sure they are! We can use them to solve a particularly fun puzzle game called Kami[^1]. In Kami, we're presented with a screen of pixels grouped into colored regions. We attempt to flood-fill all pixels to be the same color within an allotted number of moves.
+Are vertex contractions useful to us? Sure they are! We can use them to solve a particularly fun puzzle game called Kami[^kami-app]. In Kami, we're presented with a screen of pixels grouped into colored regions. We attempt to flood-fill all pixels to be the same color within an allotted number of moves.
 
 <figure id="figure4">
   <video width="300" autoplay muted loop playsinline>
@@ -164,11 +164,11 @@ Let's imagine two vertices $a$ and $b$ that are far apart in the graph. If we co
 
 Going back to our search tree from earlier. If two paths through the search tree arrive at the exact same graph, then we're duplicating _all_ the work of searching the subtrees below that point. How do we take advantage of our locality insight and always explore only one of the two equivalent subtrees?
 
-The trick is to only consider candidate vertices in the second degree neighborhood of the last contracted vertex.[^2]
+The trick is to only consider candidate vertices in the second degree neighborhood of the last contracted vertex.[^novel-finding]
 
 Here's a quick hand-wavy explanation for why this works. Let's say our last contraction was to vertex $x$ and $a$ is local to $x$, but $b$ is non-local to $x$. Also, as before, $a$ and $b$ are non-local to each other. By adding the constraint that $a$ must be contracted before $b$ we've pruned one subtree that we know to be equivalent to another.
 
-Empirically I've found that this improves search performance _significantly_, especially on planar graphs, where the number of vertices in a second degree neighborhood tends to be small compared to the total number of vertices.[^3]
+Empirically I've found that this improves search performance _significantly_, especially on planar graphs, where the number of vertices in a second degree neighborhood tends to be small compared to the total number of vertices.[^faster-markov-constraints]
 
 > As an aside, I like to think of this boundary as a [Markov blanket](https://en.wikipedia.org/wiki/Markov_blanket). Contractions outside of each other's neighborhoods are conditionally independent.
 
@@ -284,8 +284,6 @@ This post can be cited as:
 
 Thank you to Ben Cooper for his collaboration on developing the original Kami solver and thanks to [Max Bernstein](https://bernsteinbear.com) for his thoughtful feedback on this post.
 
-[^1]: Kami is available in both [iOS](https://apps.apple.com/us/app/kami/id710724007) and [Android](https://play.google.com/store/apps/details?id=com.stateofplaygames.kami2&hl=en-US) app stores.
-
-[^2]: While this optimization is fairly elementary, a cursory literature review did not turn up prior work on this topic, so as far as I know this is a novel approach. Please reach out if you know otherwise!
-
-[^3]: Edit (Oct. 2025): The original Markov constraint implementation can be improved. Second degree neighbors fall outside the Markov blanket if the associated first degree neighbor has a different color than the contracting vertex. This reduces the number of vertices inside the Markov blanket and further shrinks the search space.
+[^kami-app]: Kami is available in both [iOS](https://apps.apple.com/us/app/kami/id710724007) and [Android](https://play.google.com/store/apps/details?id=com.stateofplaygames.kami2&hl=en-US) app stores.
+[^novel-finding]: While this optimization is fairly elementary, a cursory literature review did not turn up prior work on this topic, so as far as I know this is a novel approach. Please reach out if you know otherwise!
+[^faster-markov-constraints]: Edit (Oct. 2025): The original Markov constraint implementation can be improved. Second degree neighbors fall outside the Markov blanket if the associated first degree neighbor has a different color than the contracting vertex. This reduces the number of vertices inside the Markov blanket and further shrinks the search space.

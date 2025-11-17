@@ -18,7 +18,7 @@ Decision trees, built with the [ID3](https://en.wikipedia.org/wiki/ID3_algorithm
 
 <figure id="figure1">
   <img src="https://storage.googleapis.com/cgme/blog/posts/adaptive-survey-engine/decision-tree.svg?cache=4" width="500">
-  <figcaption><strong>Figure 1: </strong>Decision tree &mdash; Medical triage is like a tree where each question narrows down the possible diagnoses until we can predict the urgency of treatment.[^1]</figcaption>
+  <figcaption><strong>Figure 1: </strong>Decision tree &mdash; Medical triage is like a tree where each question narrows down the possible diagnoses until we can predict the urgency of treatment.[^medical-disclaimer]</figcaption>
 </figure>
 
 ### Entropy
@@ -30,7 +30,7 @@ $$
 H(X) = -\sum_{x \in \mathcal{X}} p(x) \log_2 p(x)
 $$
 
-For simplicity, these code snippets focus on categorical data and don't cover entropy over continuous attributes[^2]. Fortunately, this will work totally fine for multiple choice or yes/no survey questions.
+For simplicity, these code snippets focus on categorical data and don't cover entropy over continuous attributes[^continuous-features]. Fortunately, this will work totally fine for multiple choice or yes/no survey questions.
 
 ```python
 import numpy as np
@@ -91,7 +91,7 @@ The paradox of the adaptive survey is that while each participant spends less ti
 
 With enough questions and participants you could create a survey that selects the right questions to predict a huge range of target variables.
 
-> It's like a [genome-wide association study](https://en.wikipedia.org/wiki/Genome-wide_association_study) for psychology -- something that must already exist in some form that I'm not aware of.[^3]
+> It's like a [genome-wide association study](https://en.wikipedia.org/wiki/Genome-wide_association_study) for psychology -- something that must already exist in some form that I'm not aware of.[^gwas-lit-review]
 
 The vast majority of our questions don't even have to be good, but now and then we may uncover an unlikely gem of a question that is surprisingly predictive of some outcome. Maybe that outcome is something whimsical like "Which [Friends](https://en.wikipedia.org/wiki/Friends) character are you?" Or maybe it's something more scientific, "What is your [OCEAN](https://en.wikipedia.org/wiki/Big_Five_personality_traits) personality type?"
 
@@ -107,8 +107,6 @@ I built this survey engine because often a random question pops into my head tha
 
 <github-button user="gregorybchris" repo="surv"></github-button>
 
-[^1]: I'm not a doctor and have no idea how medical triage actually works.
-
-[^2]: The C4.5 algorithm extends the ID3 algorithm to handle continuous features. Entropy of a continuous features is calculated by iterating over each numeric value and calculating entropy of the target for all target values where the attribute is greater than the threshold.
-
-[^3]: A brief literature review turned up [MIDUS](https://www.icpsr.umich.edu/web/ICPSR/series/203), [ESS](https://www.europeansocialsurvey.org/findings/europeans-wellbeing/drivers-wellbeing), and [OpenPsychometrics](https://openpsychometrics.org/_rawdata/).
+[^medical-disclaimer]: I'm not a doctor and have no idea how medical triage actually works.
+[^continuous-features]: The C4.5 algorithm extends the ID3 algorithm to handle continuous features. Entropy of a continuous features is calculated by iterating over each numeric value and calculating entropy of the target for all target values where the attribute is greater than the threshold.
+[^gwas-lit-review]: A brief literature review turned up [MIDUS](https://www.icpsr.umich.edu/web/ICPSR/series/203), [ESS](https://www.europeansocialsurvey.org/findings/europeans-wellbeing/drivers-wellbeing), and [OpenPsychometrics](https://openpsychometrics.org/_rawdata/).
