@@ -4,7 +4,7 @@ import {
   UsersIcon,
 } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Button } from "../components/button";
 import { formatDuration } from "../utilities/datetime-utilities";
 import { GET, makeQuery } from "../utilities/request-utilities";
@@ -13,7 +13,6 @@ import { Recipe } from "./recipes-page";
 export function RecipePage() {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const { slug } = useParams();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const recipesQuery = makeQuery("recipes");
@@ -45,15 +44,15 @@ export function RecipePage() {
 
   return (
     <div className="flex w-full flex-col items-start gap-4 px-6 py-8 pt-3 md:px-16">
-      <div
+      <Link
+        to="/recipes"
         className="cursor-pointer rounded-md px-2 py-1 hover:bg-black/8"
-        onClick={() => navigate("/recipes")}
       >
         <div className="flex flex-row gap-x-2">
           <ArrowLeftIcon size={25} color="#6283c0" />
           <div>Back to recipes</div>
         </div>
-      </div>
+      </Link>
 
       {recipe === undefined && <div>Recipe not found</div>}
 

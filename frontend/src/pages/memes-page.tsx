@@ -1,6 +1,6 @@
 import { LinkIcon } from "@phosphor-icons/react";
 import { useCallback, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { PageTitle } from "../components/page-title";
 import { SearchBar } from "../components/search-bar";
 import { Tag } from "../components/tag";
@@ -94,8 +94,6 @@ interface MemeCardProps {
 }
 
 export function MemeCard({ meme, updateQuery, className }: MemeCardProps) {
-  const navigate = useNavigate();
-
   const isImage = ["gif", "png", "jpg"].includes(meme.format);
 
   return (
@@ -114,12 +112,12 @@ export function MemeCard({ meme, updateQuery, className }: MemeCardProps) {
         ))}
       </div>
 
-      <div
+      <Link
+        to={`/memes/${meme.id}`}
         className="cursor-pointer rounded-full p-1 transition-all hover:bg-black/5"
-        onClick={() => navigate(`/memes/${meme.id}`)}
       >
         <LinkIcon size={20} color="#6283c0" />
-      </div>
+      </Link>
     </div>
   );
 }

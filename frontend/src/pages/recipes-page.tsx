@@ -10,7 +10,7 @@ import {
   TimerIcon,
 } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { PageTitle } from "../components/page-title";
 import { formatDuration } from "../utilities/datetime-utilities";
 import { GET, makeQuery } from "../utilities/request-utilities";
@@ -51,7 +51,6 @@ export type Unit = "cup" | "tbsp" | "tsp" | "oz" | "lb" | "g" | "kg" | "ml";
 
 export function RecipesPage() {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const recipesQuery = makeQuery("recipes");
@@ -91,10 +90,10 @@ export function RecipesPage() {
 
           return (
             !recipe.archived && (
-              <div
+              <Link
                 key={recipe.name}
+                to={`/recipes/${recipe.slug}`}
                 className="border-sky hover:border-royal relative mx-4 my-3 flex h-[130px] w-[240px] cursor-pointer flex-row items-center border-2 text-center transition-all"
-                onClick={() => navigate(`/recipes/${recipe.slug}`)}
               >
                 <div className="bg-sky absolute -top-3 -left-3 rounded-full p-2">
                   {icon}
@@ -116,7 +115,7 @@ export function RecipesPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             )
           );
         })}

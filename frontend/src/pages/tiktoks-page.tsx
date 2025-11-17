@@ -1,6 +1,6 @@
 import { LinkIcon, UserCircleIcon } from "@phosphor-icons/react";
 import { useCallback, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { PageTitle } from "../components/page-title";
 import { SearchBar } from "../components/search-bar";
 import { Tag } from "../components/tag";
@@ -97,8 +97,6 @@ export function TiktokCard({
   updateQuery,
   className,
 }: TikTokCardProps) {
-  const navigate = useNavigate();
-
   const creator = tiktok.creator;
 
   return (
@@ -142,12 +140,12 @@ export function TiktokCard({
         </div>
       )}
 
-      <div
+      <Link
+        to={`/tiktoks/${tiktok.id}`}
         className="cursor-pointer rounded-full p-1 transition-all hover:bg-black/5"
-        onClick={() => navigate(`/tiktoks/${tiktok.id}`)}
       >
         <LinkIcon size={20} color="#6283c0" />
-      </div>
+      </Link>
     </div>
   );
 }

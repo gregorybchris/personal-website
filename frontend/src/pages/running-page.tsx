@@ -6,7 +6,7 @@ import {
 } from "@phosphor-icons/react";
 import { useEffect, useMemo, useState } from "react";
 import { MapContainer, Polyline, TileLayer, useMap } from "react-leaflet";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { ErrorMessage } from "../components/error-message";
 import { Loader } from "../components/loader";
 import { PageTitle } from "../components/page-title";
@@ -90,30 +90,28 @@ export function RunningPage() {
   useEffect(() => {
     if (routes.length === 0) return;
 
-    const selectInitialRoute = async () => {
-      if (slug) {
-        const match = routes.find((route) => route.slug === slug);
-        await onSelectRoute(match || routes[0]);
-      } else {
-        await onSelectRoute(routes[0], false);
+    const loadRouteData = async () => {
+      const routeToLoad = slug
+        ? routes.find((route) => route.slug === slug) || routes[0]
+        : routes[0];
+
+      if (!slug && routeToLoad) {
+        navigate(`/running/${routeToLoad.slug}`, { replace: true });
+        return;
+      }
+
+      if (routeToLoad) {
+        const routeData = await fetch(routeToLoad.routeDataLink).then((res) =>
+          res.json(),
+        );
+        setCurrentRoute(routeToLoad);
+        setCurrentRouteData(routeData);
+        setShowRoutesTable(false);
       }
     };
 
-    selectInitialRoute();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [slug, routes]);
-
-  async function onSelectRoute(route: RunningRoute, nav: boolean = true) {
-    if (nav) {
-      navigate(`/running/${route.slug}`);
-    }
-
-    const routeDataUrl = route.routeDataLink;
-    const routeData = await fetch(routeDataUrl).then((res) => res.json());
-    setCurrentRoute(route);
-    setCurrentRouteData(routeData);
-    setShowRoutesTable(false);
-  }
+    loadRouteData();
+  }, [slug, routes, navigate]);
 
   return (
     <div className="flex flex-col items-center gap-5 px-4 py-8">
@@ -136,7 +134,6 @@ export function RunningPage() {
             showRoutesTable={showRoutesTable}
             setShowRoutesTable={setShowRoutesTable}
             routes={routes}
-            onSelectRoute={onSelectRoute}
             currentRoute={currentRoute}
           />
         </div>
@@ -153,7 +150,6 @@ interface RouteMapCardProps {
   showRoutesTable: boolean;
   setShowRoutesTable: (show: boolean) => void;
   routes: RunningRoute[];
-  onSelectRoute: (route: RunningRoute) => void;
   currentRoute: RunningRoute | null;
 }
 
@@ -163,7 +159,6 @@ function RouteMapCard({
   showRoutesTable,
   setShowRoutesTable,
   routes,
-  onSelectRoute,
   currentRoute,
 }: RouteMapCardProps) {
   const mapBoxToken = import.meta.env.VITE_MAPBOX_TOKEN;
@@ -230,11 +225,7 @@ function RouteMapCard({
               className="h-[90%] max-w-[90%] overflow-hidden rounded-xl bg-white px-4 py-4 shadow-lg"
               onClick={(e) => e.stopPropagation()}
             >
-              <RoutesTable
-                routes={routes}
-                onSelectRoute={onSelectRoute}
-                currentRoute={currentRoute}
-              />
+              <RoutesTable routes={routes} currentRoute={currentRoute} />
             </div>
           </div>
         )}
@@ -301,15 +292,10 @@ function ColumnHeader({
 
 interface RoutesTableProps {
   routes: RunningRoute[];
-  onSelectRoute: (route: RunningRoute) => void;
   currentRoute: RunningRoute | null;
 }
 
-function RoutesTable({
-  routes,
-  onSelectRoute,
-  currentRoute,
-}: RoutesTableProps) {
+function RoutesTable({ routes, currentRoute }: RoutesTableProps) {
   const [sortColumn, setSortColumn] = useState<Column | null>(null);
   const [sortDirection, setSortDirection] = useState<SortDirection | null>(
     null,
@@ -404,58 +390,62 @@ function RoutesTable({
             <tr
               className="Running-table-row group cursor-pointer transition-all"
               key={routeNumber}
-              onClick={(event) => {
-                event.preventDefault();
-                onSelectRoute(route);
-              }}
             >
-              <td className="Running-table-cell text-sky group-hover:text-royal flex flex-row items-center gap-1">
-                {currentRoute && route.routeId === currentRoute.routeId && (
-                  <CaretCircleRightIcon
-                    size={13}
-                    weight="duotone"
-                    color="#2563eb"
-                  />
-                )}
-                <span>{route.name}</span>
-              </td>
-              <td
-                className="Running-table-cell"
-                title={`${(route.distance * 1.609344).toFixed(1)} km`}
+              <Link
+                to={`/running/${route.slug}`}
+                style={{ display: "contents" }}
+                className="group"
               >
-                <span className="group-hover:text-sky">
-                  {formatDistance(route.distance)}
-                </span>{" "}
-                <span
-                  className={cn(
-                    "group-hover:text-sky text-black/30",
-                    currentRoute &&
-                      route.routeId === currentRoute.routeId &&
-                      "text-inherit",
+                <td className="Running-table-cell text-sky group-hover:text-royal flex flex-row items-center gap-1">
+                  {currentRoute && route.routeId === currentRoute.routeId && (
+                    <CaretCircleRightIcon
+                      size={13}
+                      weight="duotone"
+                      color="#2563eb"
+                    />
                   )}
+                  <span>{route.name}</span>
+                </td>
+                <td
+                  className="Running-table-cell"
+                  title={`${(route.distance * 1.609344).toFixed(1)} km`}
                 >
-                  mi
-                </span>
-              </td>
-              <td
-                className="Running-table-cell hidden md:table-cell"
-                title={`${(route.elevation * 0.3048).toFixed(0)} m`}
-              >
-                <span className="group-hover:text-sky">{route.elevation}</span>{" "}
-                <span
-                  className={cn(
-                    "group-hover:text-sky text-black/30",
-                    currentRoute &&
-                      route.routeId === currentRoute.routeId &&
-                      "text-inherit",
-                  )}
+                  <span className="group-hover:text-sky">
+                    {formatDistance(route.distance)}
+                  </span>{" "}
+                  <span
+                    className={cn(
+                      "group-hover:text-sky text-black/30",
+                      currentRoute &&
+                        route.routeId === currentRoute.routeId &&
+                        "text-inherit",
+                    )}
+                  >
+                    mi
+                  </span>
+                </td>
+                <td
+                  className="Running-table-cell hidden md:table-cell"
+                  title={`${(route.elevation * 0.3048).toFixed(0)} m`}
                 >
-                  ft
-                </span>
-              </td>
-              <td className="Running-table-cell">
-                <span className="group-hover:text-sky">{route.city}</span>
-              </td>
+                  <span className="group-hover:text-sky">
+                    {route.elevation}
+                  </span>{" "}
+                  <span
+                    className={cn(
+                      "group-hover:text-sky text-black/30",
+                      currentRoute &&
+                        route.routeId === currentRoute.routeId &&
+                        "text-inherit",
+                    )}
+                  >
+                    ft
+                  </span>
+                </td>
+                <td className="Running-table-cell">
+                  <span className="group-hover:text-sky">{route.city}</span>
+                </td>
+              </Link>
             </tr>
           ))}
         </tbody>

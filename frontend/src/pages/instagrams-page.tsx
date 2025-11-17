@@ -1,6 +1,6 @@
 import { LinkIcon, UserCircleIcon } from "@phosphor-icons/react";
 import { useCallback, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { PageTitle } from "../components/page-title";
 import { SearchBar } from "../components/search-bar";
 import { Tag } from "../components/tag";
@@ -97,8 +97,6 @@ export function InstagramCard({
   updateQuery,
   className,
 }: InstagramCardProps) {
-  const navigate = useNavigate();
-
   const creator = instagram.creator;
 
   return (
@@ -142,12 +140,12 @@ export function InstagramCard({
         </div>
       )}
 
-      <div
+      <Link
+        to={`/instagrams/${instagram.id}`}
         className="cursor-pointer rounded-full p-1 transition-all hover:bg-black/5"
-        onClick={() => navigate(`/instagrams/${instagram.id}`)}
       >
         <LinkIcon size={20} color="#6283c0" />
-      </div>
+      </Link>
     </div>
   );
 }

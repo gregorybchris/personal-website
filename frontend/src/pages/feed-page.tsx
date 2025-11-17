@@ -1,6 +1,6 @@
 import { ArrowLeftIcon, LinkIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { IconButton } from "../components/icon-button";
 import { PageTitle } from "../components/page-title";
 import { SearchBar } from "../components/search-bar";
@@ -118,13 +118,13 @@ export function FeedPage() {
 
       <div className="flex flex-col items-center gap-5">
         {slug && (
-          <div
+          <Link
+            to="/feed"
             className="flex cursor-pointer flex-row gap-x-2 rounded-md px-2 py-1 hover:bg-black/8"
-            onClick={() => navigate("/feed")}
           >
             <ArrowLeftIcon size={25} color="#6283c0" />
             <div>Back to all links</div>
-          </div>
+          </Link>
         )}
 
         {!slug && (
