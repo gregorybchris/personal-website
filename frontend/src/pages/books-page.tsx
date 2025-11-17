@@ -1,6 +1,7 @@
 import { BookOpenIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { ErrorMessage } from "../components/error-message";
+import { ExternalLink } from "../components/external-link";
 import { Loader } from "../components/loader";
 import { PageTitle } from "../components/page-title";
 import { Tag } from "../components/tag";
@@ -151,9 +152,8 @@ function BookCard({ book, selectedTags, onTagClick, index }: BookCardProps) {
           : "translate-y-[-20px] opacity-0",
       )}
     >
-      <a
+      <ExternalLink
         href={book.goodreadsLink}
-        target="_blank"
         className="max-w-[190px] text-xs md:max-w-[230px]"
       >
         {imageError ? (
@@ -172,7 +172,7 @@ function BookCard({ book, selectedTags, onTagClick, index }: BookCardProps) {
             onError={() => setImageError(true)}
           />
         )}
-      </a>
+      </ExternalLink>
 
       <div className="flex flex-row flex-wrap items-center gap-0.5">
         {book.tags.map((tag) => (

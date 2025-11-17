@@ -1,6 +1,6 @@
 import { RssIcon, SignOutIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 import { match } from "ts-pattern";
 import { ErrorMessage } from "../components/error-message";
@@ -80,6 +80,7 @@ export function BlogPage() {
               .filter((preview) => isAdmin || preview.status === "published")
               .map((preview) => (
                 <tr
+                  key={preview.slug}
                   className="group cursor-pointer align-top"
                   title={
                     preview.readingTime
@@ -87,9 +88,8 @@ export function BlogPage() {
                       : undefined
                   }
                 >
-                  <a
-                    key={preview.slug}
-                    href={`/blog/${preview.slug}`}
+                  <Link
+                    to={`/blog/${preview.slug}`}
                     className="flex w-full justify-between"
                   >
                     <td className="py-1.5 pr-6 text-balance">
@@ -101,7 +101,7 @@ export function BlogPage() {
                     <td className="py-1.5 text-right whitespace-nowrap text-black/50">
                       {formatDate(new Date(preview.date).toISOString())}
                     </td>
-                  </a>
+                  </Link>
                 </tr>
               ))}
           </tbody>

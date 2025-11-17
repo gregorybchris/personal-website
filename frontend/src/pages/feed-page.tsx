@@ -1,6 +1,7 @@
 import { ArrowLeftIcon, LinkIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { ExternalLink } from "../components/external-link";
 import { IconButton } from "../components/icon-button";
 import { PageTitle } from "../components/page-title";
 import { SearchBar } from "../components/search-bar";
@@ -231,11 +232,11 @@ function FeedPostCard({
       id={post.postId}
     >
       <div className="flex flex-col gap-1 px-2">
-        <a href={contentLink} target="_blank" rel="noopener noreferrer">
+        <ExternalLink href={contentLink}>
           <div className="font-sanchez text-xl text-balance text-black/75">
             {title}
           </div>
-        </a>
+        </ExternalLink>
 
         <div className="flex flex-col gap-0.5 text-sm">
           {seriesName && <div className="text-black/60">{seriesDetails}</div>}
@@ -250,14 +251,14 @@ function FeedPostCard({
 
       {thumbnailUrl && (
         <div className="px-2">
-          <a href={contentLink} target="_blank" rel="noopener noreferrer">
+          <ExternalLink href={contentLink}>
             <img
               className="w-[250px] rounded-md shadow-lg"
               src={thumbnailUrl}
               alt="Post thumbnail"
               onLoad={onThumbnailLoad}
             />
-          </a>
+          </ExternalLink>
         </div>
       )}
 

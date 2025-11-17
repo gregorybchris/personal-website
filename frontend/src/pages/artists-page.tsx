@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ExternalLink } from "../components/external-link";
 import { PageTitle } from "../components/page-title";
 import { GET, makeQuery } from "../utilities/request-utilities";
 
@@ -45,19 +46,19 @@ interface ArtistCardProps {
 export function ArtistCard({ artist }: ArtistCardProps) {
   return (
     <div className="flex flex-col items-center gap-2 px-2 py-3">
-      <a href={artist.link} target="_blank" rel="noopener noreferrer">
+      <ExternalLink href={artist.link}>
         <img
           src={`${artist.imageLink}?cache=1`}
           className="hover:border-sky w-[300px] cursor-pointer rounded-full border-2 border-neutral-300 transition-all md:max-w-[220px]"
           alt={artist.name}
         />
-      </a>
+      </ExternalLink>
 
-      <a href={artist.link} target="_blank" rel="noopener noreferrer">
+      <ExternalLink href={artist.link}>
         <div className="max-w-[150px] text-center text-balance">
           {artist.name}
         </div>
-      </a>
+      </ExternalLink>
     </div>
   );
 }

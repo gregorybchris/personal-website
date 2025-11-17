@@ -6,6 +6,7 @@ import {
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "../components/button";
+import { ExternalLink } from "../components/external-link";
 import { formatDuration } from "../utilities/datetime-utilities";
 import { GET, makeQuery } from "../utilities/request-utilities";
 import { Recipe } from "./recipes-page";
@@ -58,11 +59,11 @@ export function RecipePage() {
 
       {recipe !== undefined && (
         <div className="flex w-[95%] flex-col items-start gap-6 md:w-[80%]">
-          <a href={recipe.bigovenLink} target="_blank">
+          <ExternalLink href={recipe.bigovenLink}>
             <div className="border-sky font-sanchez border-b text-3xl">
               {recipe.name}
             </div>
-          </a>
+          </ExternalLink>
 
           <div className="flex flex-row gap-x-6">
             <div className="flex flex-row gap-x-2">

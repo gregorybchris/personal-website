@@ -12,6 +12,7 @@ import remarkToc from "remark-toc";
 import { toast } from "sonner";
 import { CodeBlock } from "./code-block";
 import { CollapsibleSection } from "./collapsible-section";
+import { ExternalLink } from "./external-link";
 
 SyntaxHighlighter.registerLanguage("python", python);
 
@@ -79,10 +80,8 @@ interface GitHubButtonProps {
 
 function GitHubButton({ user, repo }: GitHubButtonProps) {
   return (
-    <a
+    <ExternalLink
       href={`https://github.com/${user}/${repo}`}
-      target="_blank"
-      rel="noopener noreferrer"
       className="github-button group"
     >
       <div className="github-button-content">
@@ -105,7 +104,7 @@ function GitHubButton({ user, repo }: GitHubButtonProps) {
         <span className="github-button-repo-slash">/</span>
         <span className="github-button-repo-name">{repo}</span>
       </span>
-    </a>
+    </ExternalLink>
   );
 }
 
