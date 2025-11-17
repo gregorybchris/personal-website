@@ -80,27 +80,28 @@ export function BlogPage() {
               .filter((preview) => isAdmin || preview.status === "published")
               .map((preview) => (
                 <tr
-                  key={preview.slug}
                   className="group cursor-pointer align-top"
-                  onClick={(event) => {
-                    event.preventDefault();
-                    navigate(`/blog/${preview.slug}`);
-                  }}
                   title={
                     preview.readingTime
                       ? `${preview.readingTime} min read`
                       : undefined
                   }
                 >
-                  <td className="py-1.5 pr-6 text-balance">
-                    {isAdmin && <StatusIndicator status={preview.status} />}
-                    <span className="bg-gradient-to-r from-blue-500/60 to-blue-500/60 bg-[length:0%_1.5px] bg-left-bottom bg-no-repeat pb-[2.5px] transition-[background-size] duration-180 group-hover:bg-[length:100%_1.5px]">
-                      {preview.title}
-                    </span>
-                  </td>
-                  <td className="py-1.5 text-right whitespace-nowrap text-black/50">
-                    {formatDate(new Date(preview.date).toISOString())}
-                  </td>
+                  <a
+                    key={preview.slug}
+                    href={`/blog/${preview.slug}`}
+                    className="flex w-full justify-between"
+                  >
+                    <td className="py-1.5 pr-6 text-balance">
+                      {isAdmin && <StatusIndicator status={preview.status} />}
+                      <span className="bg-gradient-to-r from-blue-500/60 to-blue-500/60 bg-[length:0%_1.5px] bg-left-bottom bg-no-repeat pb-[2.5px] transition-[background-size] duration-180 group-hover:bg-[length:100%_1.5px]">
+                        {preview.title}
+                      </span>
+                    </td>
+                    <td className="py-1.5 text-right whitespace-nowrap text-black/50">
+                      {formatDate(new Date(preview.date).toISOString())}
+                    </td>
+                  </a>
                 </tr>
               ))}
           </tbody>
