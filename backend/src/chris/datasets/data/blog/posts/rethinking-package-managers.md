@@ -146,8 +146,6 @@ The dependency resolver was the trickiest part of this project, so I wanted to r
 <summary>Show types and stubs ||| Hide types and stubs</summary>
 
 ```python
-from __future__ import annotations
-
 from dataclasses import dataclass, field
 from typing import Iterator, Optional
 
