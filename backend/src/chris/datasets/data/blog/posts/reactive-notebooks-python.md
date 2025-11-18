@@ -8,7 +8,7 @@ status: published
 
 [Jupyter notebooks](https://jupyter.org) are pretty neat.[^notebook-haters] It takes only a couple clicks/keystrokes to create a new cell, write some code, and run it. You can skip all the steps of creating a new file, naming the file, writing an entrypoint/main function, and switching to a terminal window to run the code.
 
-One of the most powerful features of the notebook paradigm is that you can swap in and out bits of functionality just by running cells in a different order. You can update a function and then only re-run the pieces of code that depend on that change. This is incredible for exploration and prototyping, but with this great flexibility comes a serious drawback: Since there's no well-defined execution order for cells, your notebook can easily get into a state where running the cells top to bottom produces errors.
+One of the most powerful features of the notebook paradigm is that you can swap in and out bits of functionality just by running cells in a different order. You can update a function and then only re-run the pieces of code that depend on that change. This is incredible for exploration and prototyping, but with this great flexibility comes a serious drawback: Since there's no well-defined execution order for cells, your notebook can get into a state where running the cells top to bottom produces errors.
 
 In my own experience, notebooks are most often used by data scientists and researchers to create plots and test theories. And while not always essential, if someone else can't reproduce those plots by re-running the notebook, then the notebook loses a lot of its value. A core value of science is reproducibility, so wouldn't it be great if our coding environment made it easier to achieve that lofty goal?
 
@@ -76,17 +76,17 @@ This code alone is the meat of a cell implementation. We can execute a cell and 
 
 Next, let's introduce the reactivity. We'll need to track which cells depend on which other cells so the execution of one can trigger propagation to others.
 
-The obvious data structure for dependency tracking is a [directed acyclic graph (DAG)](https://en.wikipedia.org/wiki/Directed_acyclic_graph). Each cell is a node in the graph, and there is a directed edge from cell A to cell B if B depends on A.
+You may be able to guess an appropriate data structure for dependency tracking. We can use a [directed acyclic graph (DAG)](https://en.wikipedia.org/wiki/Directed_acyclic_graph). Each cell is a node in the graph, and there is a directed edge from cell A to cell B if B depends on A.
 
 <figure id="figure1">
   <img src="https://storage.googleapis.com/cgme/blog/posts/reactive-notebooks-python/dag.svg?cache=1" width="280">
-  <figcaption><strong>Figure 1: </strong>An example of a directed acyclic graph representing cell dependencies. Running the cells in order from 1 to 7 ensures dependencies are run before they are needed.</figcaption>
+  <figcaption><strong>Figure 1: </strong>Circles represent cells in the notebook and arrows represent data flow. The numbers have been assigned to the cells so that running the cells in order from 1 to 7 ensures dependencies are run before they are needed.</figcaption>
 </figure>
 
-We can easily build up the graph from a list of cells where each cell has an ID, a list of input variables, and a single output variable. And while building the graph, we can also validate a few important invariants of our notebook:
+We can build up the graph from a list of cells where each cell has an ID, a list of input variables, and a single output variable. And while building the graph, we can also enforce a few important invariants of our notebook:
 
-1. Each output variable is produced by exactly one cell
-2. Each input variable corresponds to an output of some cell
+1. Each output variable is produced by exactly one cell (no two cells output the same variable)
+2. Each input variable corresponds to an output of some cell (can't rely on undefined variables)
 
 ```python
 from dataclasses import dataclass
@@ -119,7 +119,7 @@ def build_graph(cells: list[Cell]) -> Graph:
     return graph
 ```
 
-Finally, to make sure the DAG doesn't get into a bad state, we can implement a depth-first search (DFS) to detect cycles. If the notebook had a cycle, then there wouldn't be a valid execution order for the cells.
+Finally, we want to avoid a bad state where the DAG has a cycle in it. If the notebook had a cycle, then there wouldn't be a valid execution order for the cells, so we can use a depth-first search (DFS) to detect cycles and display an informative error to the user if one is found.
 
 ```python
 def detect_cycles(graph: Graph) -> None:
@@ -142,17 +142,23 @@ def detect_cycles(graph: Graph) -> None:
         visit(node)
 ```
 
-With these pieces in place, whenever a user interacts with the notebook, we can use the dependency graph to figure out which dependencies need to be executed first and where outputs should be propagated. Maintaining this DAG is pretty valuable![^notebook-to-script]
+With these pieces in place, whenever a user interacts with the notebook, we can use the dependency graph to figure out which cell need to be executed first and where outputs should be propagated. Maintaining this DAG is pretty valuable![^notebook-to-script]
 
 ### Caching execution results
 
-Once I got this far, I found a bug. Did you catch it? If a cell runs its dependencies before running itself, and then a cell propagates its output to its dependents, then the notebook is going to get itself into an infinite loop of reactivity.
+Once I got this far, I found a bug. Did you catch it? A cell runs its dependencies before running itself and also a cell propagates its output to its dependents. So cell $A$ triggers execution of dependent cell $B$, then $B$ triggers execution of $A$, etc. The notebook gets itself into an infinite loop of reactivity.
 
 We need a way to stop updates from propagating forever. Also, if a cell executes, but produces the same output as the last time it was run, we wouldn't want to waste compute triggering its dependents to re-execute unnecessarily.
 
 Both of these problems can be solved by caching the results of cell executions! A cell only needs to be re-executed if one of its inputs has changed since the last time it was run. Much more efficient!
 
-But what if a cell is not a pure function of its inputs? For example, a cell might read from a file on disk or make a network request via some API. Then it could produce different outputs even if its inputs haven't changed. In these cases, the user can mark the cell as `impure` and it will _always_ re-execute when any of its descendants are run. The update of an impure cell only cascades if the new output differs from the cached output.
+### Impure cells
+
+But what if a cell is not a pure function of its inputs? For example, a cell might read from a file on disk or make a network request via some API. Then it could produce different outputs even if its inputs haven't changed. The caching strategy described above would fail in this case.
+
+In these cases, the user can mark the cell as `impure` and it will _always_ re-execute when any of its descendants (the whole subtree of downstream cells) are run. If this sounds like a lot of extra work, running these impure cells over and over again, you're right.
+
+There is one further optimization we can make though. The update of an impure cell only cascades if the new output differs from the cached output. The impure cell may run often, but its outputs need not cascade unnecessarily.
 
 The cost of equality checks on cached outputs is the main source of complexity in Cado's implementation. For objects with imprecise equality semantics, letting users define what equality means for each output variable is an interesting UX challenge that I don't have a great answer for yet.
 
@@ -233,7 +239,8 @@ Similarly to Jupyter, the Cado server also serves the user interface. By running
   </video>
   <figcaption>
     <strong>Figure 8: </strong>
-    Cells are draggable (using [Framer Motion](https://www.framer.com/motion)), something I always thought Jupyter notebooks should support.
+    Cells are draggable (using <a href="https://www.framer.com/motion" target="_blank" rel="noreferrer noopener">
+    Framer Motion</a>), something I always thought Jupyter notebooks should support.
   </figcaption>
 </figure>
 
