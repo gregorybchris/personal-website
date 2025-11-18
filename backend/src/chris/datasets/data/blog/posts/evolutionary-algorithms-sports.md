@@ -248,7 +248,21 @@ To mitigate this, we'll restart the entire genetic algorithm from scratch a few 
 
 We've discussed how to sample valid yet suboptimal lineups to seed a genetic algorithm as well as some tricks for making the genetic algorithm converge to a good solution quickly.
 
-Maybe as a follow-up it would be worth trying a SAT solver or integer programming, but this approach can generate lineups in under a minute, which is good enough to call the problem solved.
+Maybe as a follow-up it would be worth trying a SAT solver or integer programming, but this approach can generate lineups in under a minute, which is good enough to call the problem solved in my book.
+
+And here's a peek at the final product, a simple web app called EngineRoom (a reference to the most powerful section of an eight-person boat). Attendance is collected and optimization happens right in the browser, most of the time in just one or two seconds.
+
+The quality of lineups doesn't perfectly match what a real coach would produce, but I think it's a great jumping off point.
+
+<figure id="figure3">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/evolutionary-algorithms-sports/engineroom-input.jpg?cache=1" width="480">
+  <figcaption><strong>Figure 3: </strong>EngineRoom screen for inputting rowers who showed up to practice.</figcaption>
+</figure>
+
+<figure id="figure4">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/evolutionary-algorithms-sports/engineroom-output.jpg?cache=1" width="480">
+  <figcaption><strong>Figure 4: </strong>EngineRoom screen for viewing the generated lineup.</figcaption>
+</figure>
 
 ### Postscript: fitness function for real
 
