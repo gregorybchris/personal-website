@@ -18,8 +18,10 @@ Decision trees, built with the [ID3](https://en.wikipedia.org/wiki/ID3_algorithm
 
 <figure id="figure1">
   <img src="https://storage.googleapis.com/cgme/blog/posts/adaptive-survey-engine/decision-tree.svg?cache=4" width="500">
-  <figcaption><strong>Figure 1: </strong>Decision tree &mdash; Medical triage is like a tree where each question narrows down the possible diagnoses until we can predict the urgency of treatment.[^medical-disclaimer]</figcaption>
+  <figcaption><strong>Figure 1: </strong>Decision tree &mdash; Medical triage is like a tree where each question narrows down the possible diagnoses until we can predict the urgency of treatment.</figcaption>
 </figure>
+
+> Disclaimer: This is not medical advice. I'm not a doctor and have no real idea how medical triage works.
 
 ### Entropy
 
@@ -107,6 +109,5 @@ I built this survey engine because often a random question pops into my head tha
 
 <github-button user="gregorybchris" repo="surv"></github-button>
 
-[^medical-disclaimer]: I'm not a doctor and have no idea how medical triage actually works.
 [^continuous-features]: The C4.5 algorithm extends the ID3 algorithm to handle continuous features. Entropy of a continuous features is calculated by iterating over each numeric value and calculating entropy of the target for all target values where the attribute is greater than the threshold.
 [^gwas-lit-review]: A brief literature review turned up [MIDUS](https://www.icpsr.umich.edu/web/ICPSR/series/203), [ESS](https://www.europeansocialsurvey.org/findings/europeans-wellbeing/drivers-wellbeing), and [OpenPsychometrics](https://openpsychometrics.org/_rawdata/).
