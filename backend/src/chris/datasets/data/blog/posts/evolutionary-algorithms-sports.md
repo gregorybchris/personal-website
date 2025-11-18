@@ -236,7 +236,7 @@ def fitness_proportional_selection(lineups: list[Lineup], scores: list[float], k
     return [lineups[i] for i in indices]
 ```
 
-Using this method, even low fitness lineups have a chance at being selected, increasing diversity in the population. High fitness lineups can be selected multiple times, which helps us exploit[^gradient-ascent-approx] the information we have about which lineups might be the best.
+Using this method, even low fitness lineups have a chance at being selected, increasing diversity in the population. High fitness lineups can be selected multiple times, which helps us exploit the information we have about which lineups might be the best.[^gradient-ascent-approx]
 
 ### Restarts
 
