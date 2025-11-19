@@ -1843,6 +1843,30 @@
     "archived": false
   },
   {
+    "project_id": "e95acc0c-3708-4d13-8ca4-7e74bb0cf3ce",
+    "name": "Cadenza",
+    "slug": "cadenza",
+    "date": "2025-04-06",
+    "rating": 6,
+    "project_type": "program",
+    "controls": null,
+    "short_description": "Music theory experiments.",
+    "description": "Music theory and audio engineering experiments including a pipe organ synthesizer, chord parser, and just-intonation optimizer.",
+    "remarks": null,
+    "tags": ["music", "theory", "audio", "engineering"],
+    "tools": ["Python", "uv", "Ruff", "pytest", "Typer", "rich", "pyyaml", "torch", "torchaudio"],
+    "source_link": "https://github.com/gregorybchris/cadenza",
+    "download_link": null,
+    "web_link": null,
+    "original_link": null,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/projects/images/cadenza--spectrogram.png",
+      "https://storage.googleapis.com/cgme/projects/images/cadenza--optimize.png"
+    ],
+    "primary_language": "Python",
+    "archived": false
+  },
+  {
     "project_id": "968cd978-1d22-4e94-827d-a38098e15020",
     "name": "TrueScore",
     "slug": "truescore",

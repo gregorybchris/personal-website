@@ -30,7 +30,7 @@ class SimConstants {
 
 class GraphicsConstants {
   static WIDTH = 1000;
-  static HEIGHT = 260;
+  static HEIGHT = 270;
   static PADDING_X = 80;
   static PADDING_Y = 80;
 }
