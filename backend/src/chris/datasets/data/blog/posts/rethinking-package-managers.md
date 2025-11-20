@@ -6,19 +6,25 @@ archived: false
 status: draft
 ---
 
-This post was inspired by an episode of the [Software Unscripted](https://podcasts.apple.com/us/podcast/the-semver-rabbit-hole-with-predrag-gruevski/id1602572955?i=1000627543462) podcast. The guest, [Predrag Gruevski](https://predr.ag), developed and maintains the Rust [cargo-semver-checks](https://github.com/obi1kenobi/cargo-semver-checks) crate, among other open source projects. The episode goes deep into the nitty-gritty of semantic versioning ([semver](https://semver.org)) and implications for package managers.
+This post was inspired by an episode of the [Software Unscripted](https://podcasts.apple.com/us/podcast/the-semver-rabbit-hole-with-predrag-gruevski/id1602572955?i=1000627543462) podcast. The guest, [Predrag Gruevski](https://predr.ag), developed and maintains the Rust [cargo-semver-checks](https://github.com/obi1kenobi/cargo-semver-checks) crate, among other open source projects. I'd highly recommend the episode if you want to get into the nitty-gritty of semantic versioning ([semver](https://semver.org)) and implications for package managers.
 
-One segment of the conversation really got me thinking... If your package manager had access to type information for every variable and every function in a package, then couldn't it automatically check for compatibility breaks between versions?
+One segment of the conversation in particular really got me thinking... If your package manager had access to type information for every variable and every function in a package, then couldn't it automatically check for compatibility breaks between versions?
 
 Sure, it wouldn't be perfect -- you can always change a function to behave differently without changing its type signature. But this could address a large class of mishaps that package maintainers have to spend time and effort avoiding.
 
 ## Rethink
 
-This seed of an idea sent me down a rabbit hole, leading to some ideas for other potential improvements that I'd love to see in a package manager. I've never maintained a popular open source package, but I've done my fair share of package publishing, dependency management, and overcoming the pain of unexpected breaking changes.
+This seed of an idea got me wondering what else I'd reimagine if I could poof into existence my ideal package manager. I don't consider myself an expert in this area by any means. I've never maintained a popular open source package and I've never worked in a professional capacity on a programming language. But I've done my fair share of package publishing, dependency management, and overcoming the pain of unexpected breaking changes.
 
-I've had experience doing package management in Python, TypeScript, Rust, and Haskell (mostly in Python). There are so many experimental programming languages out there. I'd love to see more experimental package managers. I'm sure many exist that I'm not aware of, but here are some ideas I think could make development much easier and more enjoyable. Some of these I've implemented and many I'd love to explore in the future.
+As I've been writing this blog post I've realized that there are so many experimental programming languages, but as far as I know there aren't quite as many experimental package managers.[^experimental-package-managers] I hope this post (and the accompanying code) serves as a small contribution to exploring this space.
+
+Let's go through some ideas feature by feature. I'll try to properly motivate the problems so it's clear why each feature is useful in the first place. We all come from different languages and software ecosystems, so what's a pain point for me will be totally a non-issue for someone else. I'm coming from the lands of Python, TypeScript, Rust, and Haskell (in that order), so that may help explain any unexpected points of view if you're coming from Go, Ruby, C++, etc which I have less experience in. At the end I'll wrap up with some concrete code snippets implementing some of my favorite parts.
 
 ### Version selection
+
+Right off the bat, it would be good to lay out that we have two audiences in mind for the package manager. We have the developers who maintain packages, and we have the developers who use packages as dependencies in their own projects. The two audiences have different requirements and we want to support both. It's my view that if we make things easier on package maintainers, then package users will benefit as well.
+
+Going forward I'll refer to the two audiences as simply "users" and "maintainers".
 
 - Help maintainer pick the right version for the next release
 - Only need major and minor versions to represent breaking and non-breaking changes
@@ -244,3 +250,5 @@ The end goal is that maintainers only rarely have to think about the nitty gritt
 There's a ton we can do if we rethink the package manager to be more aware of types.
 
 <github-button user="gregorybchris" repo="myxa"></github-button>
+
+[^experimental-package-managers]: This is probably because while an experimental language can be fun to play around with, a package manager in isolation is pretty boring and useless. But making useless things never stopped me before!
