@@ -27,11 +27,11 @@ I'm a realist enough to know that in the free market there will always be a dive
   <figcaption><strong>Figure 1: </strong>Pareto front &mdash; There is a diversity of preferences on the cost-quality tradeoff, but we all want to be somewhere on the Pareto front, not inside the curve.</figcaption>
 </figure>
 
-Amazon reviews are a reasonable attempt at such a system, but obviously reviews can be gamed. You can buy fake reviews that artificially boost a product's rating. What would it look like if Amazon's recommender system were more aligned with the goals of users?
+Amazon reviews are a reasonable attempt at such a system, I think. Seeing the average rating out of 5 stars is a super simple and intuitive way to think about buyer satisfaction. But unfortunately reviews can be gamed. You can buy fake reviews that artificially boost a product's rating. What would it look like if Amazon's recommender system were more aligned with the goals of users?
 
 ## Rating propagation
 
-I've had an inkling of an idea for a while that you could estimate item's quality with user ratings and then measure rater reliability based on similarity to other raters. You could then discount ratings from users with low reliability. What would emerge is a dynamical system where a single rating sends ripples through a network of items and users, updating estimates of both item quality and user reliability. The information gained from ratings diffuses outward as ratings stream in.
+I've had an inkling of an idea for a while that you could estimate item's quality with user ratings and then measure rater reliability based on similarity to other raters. You could then discount ratings from users with low reliability.[^insider-scoop] What would emerge is a dynamical system where a single rating sends ripples through a network of items and users, updating estimates of both item quality and user reliability. The information gained from ratings diffuses outward as ratings stream in.
 
 I'm hopeful that with enough simplifying assumptions (like item ratings being normally distributed), there might be an efficient closed form solution that scales to many users and items.
 
@@ -81,7 +81,7 @@ $$
 p(r_{u,i} \mid x_i, \alpha_u) = \mathcal{N}\Bigl(r_{u,i}; x_i, \tfrac{1}{\alpha_u}\Bigr) = \frac{1}{\sqrt{2\pi\bigl(\frac{1}{\alpha_u}\bigr)}} \exp\Bigl(-\tfrac{(r_{u,i}-x_i)^2}{2 \bigl(\tfrac{1}{\alpha_u}\bigr)}\Bigr)
 $$
 
-Then, after some arithmetic, cancelling logs and exponents and ignoring constants, we find the the negative log-likelihood for a rating pair is:
+Then, after some arithmetic, cancelling logs and exponents and ignoring constants, we find the negative log-likelihood for a rating pair is:
 
 $$
 -\log p\bigl(r_{u,i}\mid x_i, \alpha_u\bigr) = \tfrac{1}{2}\log\bigl(\tfrac{1}{\alpha_u}\bigr)+\tfrac{1}{2}\alpha_u\bigl(r_{u,i}-x_i\bigr)^2
@@ -128,7 +128,7 @@ class Model(Module):
         return nll
 ```
 
-After training for `500` epochs, with a batch size of `16`, and a static learning rate of `1e-2`, the model converges quickly to a stable solution (see Figure 1).
+After training for `500` epochs, with a batch size of `16`, and a static learning rate of `1e-2`, the model converges quickly to a stable solution (see Figure 1). These hyperparameters were chosen fairly arbitrarily and based on the smooth shape of the loss curve, I doubt additional hyperparameter tuning would yield significant improvements.
 
 <figure id="figure3">
   <img src="https://storage.googleapis.com/cgme/blog/posts/distrust-amazon-reviews/loss-curve.png?cache=1" width="450">
@@ -169,4 +169,5 @@ curl -s -X GET "http://localhost:8000/items/469df558-4e16-4e9e-87a9-f3013b1e1580
 }
 ```
 
-[^belief-propagation]: [Gaussian belief propagation](https://en.wikipedia.org/wiki/Belief_propagation#Gaussian_belief_propagation_(GaBP)) is a message-passing algorithm for performing inference on graphical models with Gaussian distributions. I found this [cool demo online.](https://gaussianbp.github.io)
+[^belief-propagation]: [Gaussian belief propagation](<https://en.wikipedia.org/wiki/Belief_propagation#Gaussian_belief_propagation_(GaBP)>) is a message-passing algorithm for performing inference on graphical models with Gaussian distributions. I found this [cool demo online.](https://gaussianbp.github.io)
+[^insider-scoop]: Edit (Nov. 2025): An insider at Amazon has confirmed that "verified users" do affect product recommendations at Amazon, but whether verified user feedback is reflected in aggregate ratings is still unclear to me.
