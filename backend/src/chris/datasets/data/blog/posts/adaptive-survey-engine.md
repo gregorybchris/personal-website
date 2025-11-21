@@ -27,10 +27,16 @@ Decision trees, built with the [ID3](https://en.wikipedia.org/wiki/ID3_algorithm
 
 The first concept we need to define is **entropy**, which measures how uncertain we are about how a survey participant would respond to a question. We'd like to prompt the participant with questions that decrease entropy. The faster we get entropy down to zero, the sooner we can stop asking questions.
 
-<!-- prettier-ignore -->
 $$
 H(X) = -\sum_{x \in \mathcal{X}} p(x) \log_2 p(x)
 $$
+
+- $H$ is the entropy function
+- $X$ is a random variable representing survey responses
+- $\mathcal{X}$ is the set of possible values for $X$
+- $p(x)$ is the probability that $X = x$
+
+In this formula, $-\log_2 p(x)$ is called the "information content" of outcome $x$. The less likely an outcome is, the more information we gain when we observe it. When we weight by $p(x)$ and sum over all possible outcomes, we get the expected information content, which is also known as the entropy.
 
 For simplicity, these code snippets focus on categorical data and don't cover entropy over continuous attributes[^continuous-features]. Fortunately, this will work totally fine for multiple choice or yes/no survey questions.
 
@@ -49,7 +55,6 @@ def entropy(a: np.ndarray) -> float:
 
 Next, we'll look at **information gain**, which measures how much we expect to learn if the participant answers a particular question. Finding the question with the highest information gain is the key to building an adaptive survey.
 
-<!-- prettier-ignore -->
 $$
 IG(D, A) = H(D) - \sum_{a \in A} p(a) \, H(S_a)
 $$
@@ -91,9 +96,7 @@ Ok, now that we have the basics ironed out, let's think about ambitious applicat
 
 The paradox of the adaptive survey is that while each participant spends less time taking the survey, you are able to include more total questions in the survey, including those that do not apply to a large portion of the population, but are highly informative for some individuals.
 
-With enough questions and participants you could create a survey that selects the right questions to predict a huge range of target variables.
-
-> It's like a [genome-wide association study](https://en.wikipedia.org/wiki/Genome-wide_association_study) for psychology -- something that must already exist in some form that I'm not aware of.[^gwas-lit-review]
+With enough questions and participants you could create a survey that selects the right questions to predict a huge range of target variables.[^gwas]
 
 The vast majority of our questions don't even have to be good, but now and then we may uncover an unlikely gem of a question that is surprisingly predictive of some outcome. Maybe that outcome is something whimsical like "Which [Friends](https://en.wikipedia.org/wiki/Friends) character are you?" Or maybe it's something more scientific, "What is your [OCEAN](https://en.wikipedia.org/wiki/Big_Five_personality_traits) personality type?"
 
@@ -101,7 +104,7 @@ A similar idea is the [New York Times Dialect Quiz](https://www.nytimes.com/inte
 
 You could use this as part of the matching algorithm for a serious dating app. Or help high school and college students think about potential careers based on their interests and personality traits.
 
-Of course, there is a huge amount of [p-hacking](https://en.wikipedia.org/wiki/Data_dredging) going on here, so any interesting correlations we find would need to be validated with a separate study, but the adaptive survey could be a really powerful tool for hypothesis generation.
+I should caution that testing multiple hypotheses with the same dataset is always fraught. With enough data, you're sure to find [spurious correlations](https://en.wikipedia.org/wiki/Spurious_relationship). To avoid [p-hacking](https://en.wikipedia.org/wiki/Data_dredging), any interesting patterns uncovered would need to be validated with a separate study. Still, even if we don't consider our immediate findings conclusive, the adaptive survey could be a really powerful tool for hypothesis generation.
 
 ## Wrapping up
 
@@ -110,4 +113,4 @@ I built this survey engine because often a random question pops into my head tha
 <github-button user="gregorybchris" repo="surv"></github-button>
 
 [^continuous-features]: The C4.5 algorithm extends the ID3 algorithm to handle continuous features. Entropy of a continuous features is calculated by iterating over each numeric value and calculating entropy of the target for all target values where the attribute is greater than the threshold.
-[^gwas-lit-review]: A brief literature review turned up [MIDUS](https://www.icpsr.umich.edu/web/ICPSR/series/203), [ESS](https://www.europeansocialsurvey.org/findings/europeans-wellbeing/drivers-wellbeing), and [OpenPsychometrics](https://openpsychometrics.org/_rawdata/).
+[^gwas]: I like to think of this as similar to a [genome-wide association study](https://en.wikipedia.org/wiki/Genome-wide_association_study), but instead of measuring correlations in genetics for large populations, we're finding correlations in psychology.
