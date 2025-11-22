@@ -110,6 +110,10 @@ I should caution that testing multiple hypotheses with the same dataset is alway
 
 I built this survey engine because often a random question pops into my head that feels like it would split the population in an interesting way. I don't have a target variable in mind to predict. I just have a feeling that the responses to my question might be correlated to something interesting. Of course, the vast majority of these ideas will correlate with nothing very special at all. And yet, there's hope that one needle in the haystack will lead to a grand discovery.
 
+## Acknowledgments
+
+Thanks to Yuki Zaninovich for his valuable feedback on a draft of this post.
+
 <github-button user="gregorybchris" repo="surv"></github-button>
 
 [^continuous-features]: The C4.5 algorithm extends the ID3 algorithm to handle continuous features. Entropy of a continuous features is calculated by iterating over each numeric value and calculating entropy of the target for all target values where the attribute is greater than the threshold.
