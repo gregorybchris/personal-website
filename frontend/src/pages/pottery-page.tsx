@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ImageModal } from "../components/image-modal";
 import { GET, makeQuery } from "../utilities/request-utilities";
 import { cn } from "../utilities/style-utilities";
@@ -20,6 +20,28 @@ interface PotteryCardProps {
 
 function PotteryCard({ piece, onExpand }: PotteryCardProps) {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: "100px" },
+    );
+
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="group relative cursor-pointer [perspective:1000px]">
@@ -30,7 +52,8 @@ function PotteryCard({ piece, onExpand }: PotteryCardProps) {
       >
         <div className="absolute h-full w-full overflow-hidden rounded [backface-visibility:hidden]">
           <img
-            src={piece.imageLinks[0]}
+            ref={imgRef}
+            src={isVisible ? piece.imageLinks[0] : undefined}
             alt="Pottery"
             className={cn(
               "h-full w-full object-cover transition-opacity duration-700",
