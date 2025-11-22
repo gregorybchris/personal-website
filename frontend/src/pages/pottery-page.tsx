@@ -1,3 +1,4 @@
+import { ArrowsOutSimpleIcon } from "@phosphor-icons/react";
 import { useEffect, useRef, useState } from "react";
 import { ImageModal } from "../components/image-modal";
 import { GET, makeQuery } from "../utilities/request-utilities";
@@ -21,6 +22,7 @@ interface PotteryCardProps {
 function PotteryCard({ piece, onExpand }: PotteryCardProps) {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
@@ -43,13 +45,37 @@ function PotteryCard({ piece, onExpand }: PotteryCardProps) {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      // Reset flip state when resizing to desktop
+      if (window.matchMedia("(min-width: 768px)").matches && isFlipped) {
+        setIsFlipped(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isFlipped]);
+
+  const handleCardClick = () => {
+    // Only flip on mobile (touch devices)
+    if (window.matchMedia("(max-width: 768px)").matches) {
+      setIsFlipped(!isFlipped);
+    }
+  };
+
   return (
-    <div className="group relative cursor-pointer [perspective:1000px]">
+    <div className="group relative [perspective:1000px]">
       <div
         className={cn(
-          "relative w-full pb-[100%] transition-transform duration-[600ms]",
+          "relative w-full pb-[100%] transition-transform duration-[600ms] [transform-style:preserve-3d]",
+          isFlipped
+            ? "[transform:rotateY(180deg)]"
+            : "[transform:rotateY(0deg)]",
         )}
+        onClick={handleCardClick}
       >
+        {/* Front side */}
         <div className="absolute h-full w-full overflow-hidden rounded [backface-visibility:hidden]">
           <img
             ref={imgRef}
@@ -61,15 +87,13 @@ function PotteryCard({ piece, onExpand }: PotteryCardProps) {
             )}
             onLoad={() => setIsImageLoaded(true)}
           />
+
+          {/* Desktop hover overlay */}
           <div
             className={cn(
-              "absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/75 p-6 opacity-0 backdrop-blur-sm transition-opacity duration-200",
+              "absolute inset-0 hidden flex-col items-center justify-center gap-4 bg-black/75 p-6 opacity-0 backdrop-blur-sm transition-opacity duration-200 md:flex",
               isImageLoaded && "group-hover:opacity-100",
             )}
-            onClick={(e) => {
-              e.stopPropagation();
-              onExpand();
-            }}
           >
             <div className="flex flex-col gap-2 text-center text-white">
               <div className="text-lg font-bold">{piece.date}</div>
@@ -82,7 +106,40 @@ function PotteryCard({ piece, onExpand }: PotteryCardProps) {
                 <strong>Dimensions:</strong> {piece.dimensions}
               </div>
             </div>
+            <button
+              className="cursor-pointer rounded-full bg-white/20 px-2 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30"
+              onClick={(e) => {
+                e.stopPropagation();
+                onExpand();
+              }}
+            >
+              <ArrowsOutSimpleIcon size={18} color="#ffffff" />
+            </button>
           </div>
+        </div>
+
+        {/* Back side (mobile only) */}
+        <div className="absolute flex h-full w-full [transform:rotateY(180deg)] flex-col items-center justify-center gap-4 rounded border-2 border-[#333] bg-[#1a1a1a] p-6 [backface-visibility:hidden] md:hidden">
+          <div className="flex flex-col gap-2 text-center text-white">
+            <div className="text-lg font-bold">{piece.date}</div>
+            {piece.glaze && (
+              <div className="text-sm leading-relaxed">
+                <strong>Glaze:</strong> {piece.glaze}
+              </div>
+            )}
+            <div className="text-sm leading-relaxed">
+              <strong>Dimensions:</strong> {piece.dimensions}
+            </div>
+          </div>
+          <button
+            className="rounded-full bg-white/20 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30"
+            onClick={(e) => {
+              e.stopPropagation();
+              onExpand();
+            }}
+          >
+            Expand
+          </button>
         </div>
       </div>
     </div>

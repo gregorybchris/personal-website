@@ -53,7 +53,7 @@ export function ImageModal({
       )}
 
       <button
-        className="absolute top-4 right-4 cursor-pointer rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20"
+        className="absolute top-4 right-4 z-10 cursor-pointer rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20"
         onClick={(e) => {
           e.stopPropagation();
           onClose();
