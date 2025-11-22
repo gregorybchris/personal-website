@@ -1,0 +1,123 @@
+[
+  {
+    "slug": "first-light-blue-mug",
+    "date": "August 2024",
+    "description": "Little blue cup, first thing I made.",
+    "imageLinks": [
+      "https://storage.googleapis.com/cgme/art/pottery/first-light-blue-mug--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/first-light-blue-mug--back.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/first-light-blue-mug--top.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/first-light-blue-mug--bottom.jpg"
+    ],
+    "glaze": null,
+    "dimensions": "3\" tall x 3\" wide",
+    "favorite": false,
+    "archived": false
+  },
+  {
+    "slug": "yellow-peacock-bowl",
+    "date": "August 2024",
+    "description": "Little yellow vase with red and blue spots and flared rim.",
+    "imageLinks": ["https://storage.googleapis.com/cgme/art/pottery/yellow-peacock-bowl--front.jpg"],
+    "glaze": null,
+    "dimensions": "2.5\" tall x 3\" wide",
+    "favorite": false,
+    "archived": false
+  },
+  {
+    "slug": "cereal-bowl",
+    "date": "August 2024",
+    "description": "Cereal bowl with gray outside and tall foot.",
+    "imageLinks": [
+      "https://storage.googleapis.com/cgme/art/pottery/cereal-bowl--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/cereal-bowl--bottom.jpg"
+    ],
+    "glaze": "1x sagebrush celadon, 1x stormy night (?)",
+    "dimensions": "2\" tall x 6\" wide",
+    "favorite": false,
+    "archived": false
+  },
+  {
+    "slug": "blue-round-orb-vase",
+    "date": "August 2024",
+    "description": "Little round blue vase with hole on top.",
+    "imageLinks": ["https://storage.googleapis.com/cgme/art/pottery/blue-round-orb-vase--front.jpg"],
+    "glaze": "1x opal sky, 1x stormy night",
+    "dimensions": "2.5\" tall x 4\" wide",
+    "favorite": false,
+    "archived": false
+  },
+  {
+    "slug": "dark-green-mug",
+    "date": "September 2024",
+    "description": "Green mug.",
+    "imageLinks": [
+      "https://storage.googleapis.com/cgme/art/pottery/dark-green-mug--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/dark-green-mug--top.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/dark-green-mug--bottom.jpg"
+    ],
+    "glaze": null,
+    "dimensions": "4\" tall x 3.5\" wide",
+    "favorite": true,
+    "archived": false
+  },
+  {
+    "slug": "holy-metallic-vase",
+    "date": "September 2024",
+    "description": "Squat vase with greenish-red matte glaze.",
+    "imageLinks": [
+      "https://storage.googleapis.com/cgme/art/pottery/holy-metallic-vase--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/holy-metallic-vase--bottom.jpg"
+    ],
+    "glaze": "1x weathered bronze, 1x amber tea dust",
+    "dimensions": "3\" tall x 3.5\" wide",
+    "favorite": true,
+    "archived": false
+  },
+  {
+    "slug": "big-blue-bell-vase",
+    "date": "September 2024",
+    "description": "Starry night blue vase with flared rim.",
+    "imageLinks": ["https://storage.googleapis.com/cgme/art/pottery/big-blue-bell-vase--front.jpg"],
+    "glaze": null,
+    "dimensions": "5.25\" tall x 4.75\" wide",
+    "favorite": true,
+    "archived": false
+  },
+  {
+    "slug": "red-bowling-pin-vase",
+    "date": "September 2024",
+    "description": "Big red vase (bowling pin), cracks, hand-dipped",
+    "imageLinks": [
+      "https://storage.googleapis.com/cgme/art/pottery/red-bowling-pin-vase--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/red-bowling-pin-vase--top.jpg"
+    ],
+    "glaze": "1x majolica, 1x amber tea dust",
+    "dimensions": "9\" tall x 4.25\" wide",
+    "favorite": true,
+    "archived": false
+  },
+  {
+    "slug": "light-blue-brown-heavy-mug",
+    "date": "October 2025",
+    "description": "Light blue mug with brown rim and wide base.",
+    "imageLinks": ["https://storage.googleapis.com/cgme/art/pottery/light-blue-brown-heavy-mug--front.jpg"],
+    "glaze": "1x shore break, 1x caribbean",
+    "dimensions": "3.5\" tall x 4\" wide",
+    "favorite": false,
+    "archived": false
+  },
+  {
+    "slug": "white-bone-vase",
+    "date": "October 2025",
+    "description": "Little bone double color vase.",
+    "imageLinks": [
+      "https://storage.googleapis.com/cgme/art/pottery/white-bone-vase--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/white-bone-vase--top.jpg"
+    ],
+    "glaze": "Inside: 1x sea green, 1x bone; Outside: 3x clear",
+    "dimensions": "4\" tall x 3.5\" wide",
+    "favorite": true,
+    "archived": false
+  }
+]

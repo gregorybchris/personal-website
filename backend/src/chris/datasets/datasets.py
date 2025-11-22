@@ -2,6 +2,7 @@ from chris.datasets.dataset_info import DatasetInfo
 
 
 class Datasets:
+    POTTERY = DatasetInfo("Pottery", "art/pottery.json")
     PODCAST_EPISODES = DatasetInfo("Podcast Episodes", "feed/podcast-episodes.json")
     FEED_POSTS = DatasetInfo("Feed Posts", "feed/posts.json")
     RECIPES = DatasetInfo("Recipes", "cooking/recipes.json")
