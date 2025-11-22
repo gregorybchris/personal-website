@@ -1,5 +1,5 @@
 import { CaretLeftIcon, CaretRightIcon, XIcon } from "@phosphor-icons/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface ImageModalProps {
   images: string[];
@@ -16,6 +16,8 @@ export function ImageModal({
   onClose,
   onNavigate,
 }: ImageModalProps) {
+  const [isImageLoaded, setIsImageLoaded] = useState(true);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") {
@@ -30,6 +32,11 @@ export function ImageModal({
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [currentIndex, images.length, onNavigate, onClose]);
+
+  // Fade out when navigating to a new image
+  useEffect(() => {
+    setIsImageLoaded(false);
+  }, [currentIndex]);
 
   const handlePrevious = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -75,8 +82,11 @@ export function ImageModal({
         <img
           src={images[currentIndex]}
           alt="Expanded view"
-          className="max-h-[90vh] max-w-[90vw] rounded-3xl object-contain"
+          className={`max-h-[90vh] max-w-[90vw] rounded-3xl object-contain transition-opacity duration-300 ${
+            isImageLoaded ? "opacity-100" : "opacity-0"
+          }`}
           onClick={(e) => e.stopPropagation()}
+          onLoad={() => setIsImageLoaded(true)}
         />
         {images.length > 1 && (
           <div className="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-black/60 px-3 py-1 text-sm text-white">
