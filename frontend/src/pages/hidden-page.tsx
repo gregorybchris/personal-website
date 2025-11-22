@@ -40,6 +40,9 @@ export function HiddenPage() {
           <div className="w-4 border-1 border-black/10"></div>
 
           <PageLink to="/hiking">Hiking</PageLink>
+          <div className="w-4 border-1 border-black/10"></div>
+
+          <PageLink to="/pottery">Pottery</PageLink>
         </div>
 
         <div className="flex flex-col">

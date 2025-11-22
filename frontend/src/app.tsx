@@ -22,6 +22,7 @@ import { MusicPage } from "./pages/music-page";
 import { OopsPage } from "./pages/oops-page";
 import { PlacesPage } from "./pages/places-page";
 import { PodcastsPage } from "./pages/podcasts-page";
+import { PotteryPage } from "./pages/pottery-page";
 import { ProjectLogosPage } from "./pages/project-previews-page";
 import { ProjectsPage } from "./pages/projects-page";
 import { RecipePage } from "./pages/recipe-page";
@@ -60,7 +61,9 @@ function Layout() {
           }}
         />
         <CommandBar />
-        {location.pathname !== "/" && <Nav />}
+        {location.pathname !== "/" && location.pathname !== "/pottery" && (
+          <Nav />
+        )}
 
         <Routes>
           {/* Main */}
@@ -116,6 +119,7 @@ function Layout() {
           <Route path="/recipes/:slug" element={<RecipePage />} />
           <Route path="/project-logos" element={<ProjectLogosPage />} />
           <Route path="/hiking" element={<HikingPage />} />
+          <Route path="/pottery" element={<PotteryPage />} />
 
           {/* Hidden old */}
           <Route path="/archive" element={<ArchivePage />} />
