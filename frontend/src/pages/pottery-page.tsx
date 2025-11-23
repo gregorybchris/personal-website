@@ -1,4 +1,8 @@
-import { ArrowsOutSimpleIcon } from "@phosphor-icons/react";
+import {
+  ArrowsOutSimpleIcon,
+  PaintBucketIcon,
+  XIcon,
+} from "@phosphor-icons/react";
 import { useEffect, useRef, useState } from "react";
 import { ImageModal } from "../components/image-modal";
 import { GET, makeQuery } from "../utilities/request-utilities";
@@ -9,7 +13,10 @@ interface Piece {
   description: string;
   imageLinks: string[];
   glaze: string | null;
-  dimensions: string;
+  dimensions: {
+    width: number;
+    height: number;
+  };
   favorite: boolean;
   archived: boolean;
 }
@@ -103,7 +110,10 @@ function PotteryCard({ piece, onExpand }: PotteryCardProps) {
                 </div>
               )}
               <div className="text-sm leading-relaxed">
-                <strong>Dimensions:</strong> {piece.dimensions}
+                <strong>Size:</strong> <span>{piece.dimensions.width}"</span>
+                {" tall"}
+                <XIcon size={7} weight="bold" className="mx-1 inline-block" />
+                <span>{piece.dimensions.height}"</span> {"wide"}
               </div>
             </div>
             <button
@@ -123,13 +133,13 @@ function PotteryCard({ piece, onExpand }: PotteryCardProps) {
           <div className="flex flex-col gap-2 text-center text-white">
             <div className="text-lg font-bold">{piece.date}</div>
             {piece.glaze && (
-              <div className="text-sm leading-relaxed">
-                <strong>Glaze:</strong> {piece.glaze}
+              <div className="flex items-center justify-center gap-1 text-sm leading-relaxed">
+                <PaintBucketIcon size={16} color="#ffffff" weight="duotone" />{" "}
+                {piece.glaze}
               </div>
             )}
-            <div className="text-sm leading-relaxed">
-              <strong>Dimensions:</strong> {piece.dimensions}
-            </div>
+
+            {/*  */}
           </div>
           <button
             className="rounded-full bg-white/20 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30"
