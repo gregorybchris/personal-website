@@ -24,6 +24,25 @@ interface PotteryCardProps {
   onFlip: () => void;
 }
 
+function PotteryDetails({ piece }: { piece: Piece }) {
+  return (
+    <div className="flex flex-col gap-2 text-center text-white">
+      <div className="text-lg font-bold">{piece.date}</div>
+      {piece.glaze && (
+        <div className="text-sm leading-relaxed">
+          <strong>Glaze:</strong> {piece.glaze}
+        </div>
+      )}
+      <div className="text-sm leading-relaxed">
+        <strong>Size:</strong> <span>{piece.dimensions.width}"</span>
+        {" tall"}
+        <XIcon size={7} weight="bold" className="mx-1 inline-block" />
+        <span>{piece.dimensions.height}"</span> {"wide"}
+      </div>
+    </div>
+  );
+}
+
 function PotteryCard({ piece, onExpand, isFlipped, onFlip }: PotteryCardProps) {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -50,10 +69,14 @@ function PotteryCard({ piece, onExpand, isFlipped, onFlip }: PotteryCardProps) {
   }, []);
 
   const handleCardClick = () => {
-    // Only flip on mobile (touch devices)
     if (window.matchMedia("(max-width: 768px)").matches) {
       onFlip();
     }
+  };
+
+  const handleExpand = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onExpand();
   };
 
   return (
@@ -87,26 +110,10 @@ function PotteryCard({ piece, onExpand, isFlipped, onFlip }: PotteryCardProps) {
               isImageLoaded && "group-hover:opacity-100",
             )}
           >
-            <div className="flex flex-col gap-2 text-center text-white">
-              <div className="text-lg font-bold">{piece.date}</div>
-              {piece.glaze && (
-                <div className="text-sm leading-relaxed">
-                  <strong>Glaze:</strong> {piece.glaze}
-                </div>
-              )}
-              <div className="text-sm leading-relaxed">
-                <strong>Size:</strong> <span>{piece.dimensions.width}"</span>
-                {" tall"}
-                <XIcon size={7} weight="bold" className="mx-1 inline-block" />
-                <span>{piece.dimensions.height}"</span> {"wide"}
-              </div>
-            </div>
+            <PotteryDetails piece={piece} />
             <button
               className="cursor-pointer rounded-full bg-white/20 px-2 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30"
-              onClick={(e) => {
-                e.stopPropagation();
-                onExpand();
-              }}
+              onClick={handleExpand}
             >
               <ArrowsOutSimpleIcon size={18} color="#ffffff" />
             </button>
@@ -115,27 +122,10 @@ function PotteryCard({ piece, onExpand, isFlipped, onFlip }: PotteryCardProps) {
 
         {/* Back side (mobile only) */}
         <div className="absolute flex h-full w-full [transform:rotateY(180deg)] flex-col items-center justify-center gap-4 rounded border-2 border-[#333] bg-[#1a1a1a] p-6 [backface-visibility:hidden] md:hidden">
-          <div className="flex flex-col gap-2 text-center text-white">
-            <div className="text-lg font-bold">{piece.date}</div>
-
-            {piece.glaze && (
-              <div className="text-sm leading-relaxed">
-                <strong>Glaze:</strong> {piece.glaze}
-              </div>
-            )}
-            <div className="text-sm leading-relaxed">
-              <strong>Size:</strong> <span>{piece.dimensions.width}"</span>
-              {" tall"}
-              <XIcon size={7} weight="bold" className="mx-1 inline-block" />
-              <span>{piece.dimensions.height}"</span> {"wide"}
-            </div>
-          </div>
+          <PotteryDetails piece={piece} />
           <button
-            className="rounded-full bg-white/20 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30"
-            onClick={(e) => {
-              e.stopPropagation();
-              onExpand();
-            }}
+            className="cursor-pointer rounded-full bg-white/20 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30"
+            onClick={handleExpand}
           >
             Expand
           </button>
@@ -145,27 +135,27 @@ function PotteryCard({ piece, onExpand, isFlipped, onFlip }: PotteryCardProps) {
   );
 }
 
+interface ModalState {
+  images: string[];
+  currentIndex: number;
+  name: string;
+}
+
 export function PotteryPage() {
   const [pieces, setPieces] = useState<Piece[]>([]);
-  const [selectedImage, setSelectedImage] = useState<{
-    images: string[];
-    index: number;
-    name: string;
-  } | null>(null);
+  const [modalState, setModalState] = useState<ModalState | null>(null);
   const [flippedCardIndex, setFlippedCardIndex] = useState<number | null>(null);
 
   useEffect(() => {
     const potteryQuery = makeQuery("art/pottery");
     GET<Piece[]>(potteryQuery).then((pottery) => {
-      console.log(pottery);
       setPieces(pottery);
     });
   }, []);
 
   useEffect(() => {
     const handleResize = () => {
-      // Reset flip state when resizing to desktop
-      if (window.matchMedia("(min-width: 768px)").matches && flippedCardIndex !== null) {
+      if (window.matchMedia("(min-width: 768px)").matches) {
         setFlippedCardIndex(null);
       }
     };
@@ -174,15 +164,37 @@ export function PotteryPage() {
     return () => window.removeEventListener("resize", handleResize);
   }, [flippedCardIndex]);
 
+  const openModal = (piece: Piece) => {
+    setModalState({
+      images: piece.imageLinks,
+      currentIndex: 0,
+      name: piece.date,
+    });
+  };
+
+  const closeModal = () => {
+    setModalState(null);
+  };
+
+  const navigateModal = (index: number) => {
+    if (modalState) {
+      setModalState({ ...modalState, currentIndex: index });
+    }
+  };
+
+  const toggleCardFlip = (index: number) => {
+    setFlippedCardIndex(flippedCardIndex === index ? null : index);
+  };
+
   return (
     <div className="font-polymath min-h-screen bg-black p-4 md:p-8">
-      {selectedImage && (
+      {modalState && (
         <ImageModal
-          images={selectedImage.images}
-          currentIndex={selectedImage.index}
-          name={selectedImage.name}
-          onClose={() => setSelectedImage(null)}
-          onNavigate={(index) => setSelectedImage({ ...selectedImage, index })}
+          images={modalState.images}
+          currentIndex={modalState.currentIndex}
+          name={modalState.name}
+          onClose={closeModal}
+          onNavigate={navigateModal}
         />
       )}
 
@@ -192,15 +204,9 @@ export function PotteryPage() {
             <div key={index}>
               <PotteryCard
                 piece={piece}
-                onExpand={() =>
-                  setSelectedImage({
-                    images: piece.imageLinks,
-                    index: 0,
-                    name: piece.date,
-                  })
-                }
+                onExpand={() => openModal(piece)}
                 isFlipped={flippedCardIndex === index}
-                onFlip={() => setFlippedCardIndex(flippedCardIndex === index ? null : index)}
+                onFlip={() => toggleCardFlip(index)}
               />
             </div>
           ))}
