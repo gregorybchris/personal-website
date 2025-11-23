@@ -20,12 +20,13 @@ interface Piece {
 interface PotteryCardProps {
   piece: Piece;
   onExpand: () => void;
+  isFlipped: boolean;
+  onFlip: () => void;
 }
 
-function PotteryCard({ piece, onExpand }: PotteryCardProps) {
+function PotteryCard({ piece, onExpand, isFlipped, onFlip }: PotteryCardProps) {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [isFlipped, setIsFlipped] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
@@ -48,22 +49,10 @@ function PotteryCard({ piece, onExpand }: PotteryCardProps) {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      // Reset flip state when resizing to desktop
-      if (window.matchMedia("(min-width: 768px)").matches && isFlipped) {
-        setIsFlipped(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [isFlipped]);
-
   const handleCardClick = () => {
     // Only flip on mobile (touch devices)
     if (window.matchMedia("(max-width: 768px)").matches) {
-      setIsFlipped(!isFlipped);
+      onFlip();
     }
   };
 
@@ -163,6 +152,7 @@ export function PotteryPage() {
     index: number;
     name: string;
   } | null>(null);
+  const [flippedCardIndex, setFlippedCardIndex] = useState<number | null>(null);
 
   useEffect(() => {
     const potteryQuery = makeQuery("art/pottery");
@@ -171,6 +161,18 @@ export function PotteryPage() {
       setPieces(pottery);
     });
   }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Reset flip state when resizing to desktop
+      if (window.matchMedia("(min-width: 768px)").matches && flippedCardIndex !== null) {
+        setFlippedCardIndex(null);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [flippedCardIndex]);
 
   return (
     <div className="font-polymath min-h-screen bg-black p-4 md:p-8">
@@ -197,6 +199,8 @@ export function PotteryPage() {
                     name: piece.date,
                   })
                 }
+                isFlipped={flippedCardIndex === index}
+                onFlip={() => setFlippedCardIndex(flippedCardIndex === index ? null : index)}
               />
             </div>
           ))}
