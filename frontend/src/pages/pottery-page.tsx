@@ -1,8 +1,4 @@
-import {
-  ArrowsOutSimpleIcon,
-  PaintBucketIcon,
-  XIcon,
-} from "@phosphor-icons/react";
+import { ArrowsOutSimpleIcon, XIcon } from "@phosphor-icons/react";
 import { useEffect, useRef, useState } from "react";
 import { ImageModal } from "../components/image-modal";
 import { GET, makeQuery } from "../utilities/request-utilities";
@@ -132,14 +128,18 @@ function PotteryCard({ piece, onExpand }: PotteryCardProps) {
         <div className="absolute flex h-full w-full [transform:rotateY(180deg)] flex-col items-center justify-center gap-4 rounded border-2 border-[#333] bg-[#1a1a1a] p-6 [backface-visibility:hidden] md:hidden">
           <div className="flex flex-col gap-2 text-center text-white">
             <div className="text-lg font-bold">{piece.date}</div>
+
             {piece.glaze && (
-              <div className="flex items-center justify-center gap-1 text-sm leading-relaxed">
-                <PaintBucketIcon size={16} color="#ffffff" weight="duotone" />{" "}
-                {piece.glaze}
+              <div className="text-sm leading-relaxed">
+                <strong>Glaze:</strong> {piece.glaze}
               </div>
             )}
-
-            {/*  */}
+            <div className="text-sm leading-relaxed">
+              <strong>Size:</strong> <span>{piece.dimensions.width}"</span>
+              {" tall"}
+              <XIcon size={7} weight="bold" className="mx-1 inline-block" />
+              <span>{piece.dimensions.height}"</span> {"wide"}
+            </div>
           </div>
           <button
             className="rounded-full bg-white/20 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30"
