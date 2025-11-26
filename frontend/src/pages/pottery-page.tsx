@@ -24,21 +24,44 @@ interface PotteryCardProps {
   onFlip: () => void;
 }
 
-function PotteryDetails({ piece }: { piece: Piece }) {
+interface PotteryDetailsProps {
+  piece: Piece;
+  handleExpand: (e: React.MouseEvent) => void;
+  mobile?: boolean;
+}
+
+function PotteryDetails({
+  piece,
+  handleExpand,
+  mobile = false,
+}: PotteryDetailsProps) {
   return (
-    <div className="flex flex-col gap-2 text-center text-white">
-      <div className="text-lg font-bold">{piece.date}</div>
-      {piece.glaze && (
-        <div className="text-sm leading-relaxed">
-          <strong>Glaze:</strong> {piece.glaze}
+    <div className="flex flex-col items-center gap-2 text-center text-white">
+      <div className="flex flex-col gap-2 text-center text-white">
+        <div className={cn("font-bold", mobile ? "text-md" : "text-lg")}>
+          {piece.date}
         </div>
-      )}
-      <div className="text-sm leading-relaxed">
-        <strong>Size:</strong> <span>{piece.dimensions.width}"</span>
-        {" tall"}
-        <XIcon size={7} weight="bold" className="mx-1 inline-block" />
-        <span>{piece.dimensions.height}"</span> {"wide"}
+        {piece.glaze && (
+          <div
+            className={cn("leading-relaxed", mobile ? "text-sm" : "text-sm")}
+          >
+            <strong>Glaze:</strong> {piece.glaze}
+          </div>
+        )}
+        <div className={cn("leading-relaxed", mobile ? "text-sm" : "text-sm")}>
+          <strong>Size:</strong> <span>{piece.dimensions.width}"</span>
+          {mobile ? "h" : " tall"}
+          <XIcon size={7} weight="bold" className="mx-1 inline-block" />
+          <span>{piece.dimensions.height}"</span>
+          {mobile ? "w" : " wide"}
+        </div>
       </div>
+      <button
+        className="cursor-pointer rounded-full bg-white/20 px-2 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30"
+        onClick={handleExpand}
+      >
+        <ArrowsOutSimpleIcon size={18} color="#ffffff" />
+      </button>
     </div>
   );
 }
@@ -110,25 +133,13 @@ function PotteryCard({ piece, onExpand, isFlipped, onFlip }: PotteryCardProps) {
               isImageLoaded && "group-hover:opacity-100",
             )}
           >
-            <PotteryDetails piece={piece} />
-            <button
-              className="cursor-pointer rounded-full bg-white/20 px-2 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30"
-              onClick={handleExpand}
-            >
-              <ArrowsOutSimpleIcon size={18} color="#ffffff" />
-            </button>
+            <PotteryDetails piece={piece} handleExpand={handleExpand} />
           </div>
         </div>
 
         {/* Back side (mobile only) */}
-        <div className="absolute flex h-full w-full [transform:rotateY(180deg)] flex-col items-center justify-center gap-4 rounded border-2 border-[#333] bg-[#1a1a1a] p-6 [backface-visibility:hidden] md:hidden">
-          <PotteryDetails piece={piece} />
-          <button
-            className="cursor-pointer rounded-full bg-white/20 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30"
-            onClick={handleExpand}
-          >
-            Expand
-          </button>
+        <div className="absolute flex h-full w-full [transform:rotateY(180deg)] flex-col items-center justify-center gap-4 rounded border-2 border-[#333] bg-[#1a1a1a] px-3 py-6 [backface-visibility:hidden] md:hidden">
+          <PotteryDetails piece={piece} handleExpand={handleExpand} mobile />
         </div>
       </div>
     </div>
@@ -199,7 +210,7 @@ export function PotteryPage() {
       )}
 
       <div className="mx-auto max-w-7xl">
-        <div className="pottery-grid grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
+        <div className="pottery-grid grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
           {pieces.toReversed().map((piece, index) => (
             <div key={index}>
               <PotteryCard
