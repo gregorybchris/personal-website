@@ -199,7 +199,7 @@ export function PotteryPage() {
       )}
 
       <div className="mx-auto max-w-7xl">
-        <div className="pottery-grid grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
+        <div className="pottery-grid grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
           {pieces.toReversed().map((piece, index) => (
             <div key={index}>
               <PotteryCard
