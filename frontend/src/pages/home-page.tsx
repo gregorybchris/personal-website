@@ -7,6 +7,7 @@ import {
   SneakerMoveIcon,
 } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
+import vaseIcon from "../assets/icons/vase.svg";
 
 export function HomePage() {
   return (
@@ -32,6 +33,9 @@ export function HomePage() {
             </PageLink>
             <PageLink to="/music" name="Music">
               <MusicNotesIcon size={24} weight="duotone" color="#6283c0" />
+            </PageLink>
+            <PageLink to="/pottery" name="Pottery">
+              <img src={vaseIcon} className="size-6" />
             </PageLink>
             <PageLink to="/contact" name="Contact">
               <EnvelopeIcon size={24} weight="duotone" color="#6283c0" />

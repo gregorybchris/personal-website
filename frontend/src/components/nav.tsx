@@ -9,6 +9,7 @@ import {
 } from "@phosphor-icons/react";
 import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
 import { cn } from "../utilities/style-utilities";
+import vaseIcon from "../assets/icons/vase.svg";
 
 function linkClassNameGetter(params: { isActive: boolean }) {
   const { isActive } = params;
@@ -39,6 +40,9 @@ export function Nav() {
       </NavPageLink>
       <NavPageLink to="/music" name="Music">
         <MusicNotesIcon size={iconSize} weight="duotone" color="#6283c0" />
+      </NavPageLink>
+      <NavPageLink to="/pottery" name="Pottery">
+        <img src={vaseIcon} className="size-6" />
       </NavPageLink>
       <NavPageLink to="/contact" name="Contact">
         <EnvelopeIcon size={iconSize} weight="duotone" color="#6283c0" />

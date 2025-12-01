@@ -55,7 +55,8 @@ function PotteryDetails({
 
     toast.message(
       <span>
-        For acquisition inquisitions, send me a message through my{" "}
+        If you wish to inquire about purchasing a piece, send me a message
+        through my{" "}
         <Link
           to="/contact"
           className="text-sky hover:text-royal transition-colors"
@@ -93,7 +94,7 @@ function PotteryDetails({
         </div>
       </span>,
       {
-        duration: 5000,
+        duration: 8000,
         position: "top-right",
       },
     );
