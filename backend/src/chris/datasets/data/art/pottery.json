@@ -1,9 +1,10 @@
 [
   {
     "slug": "first-light-blue-mug",
+    "item_code": "e586da93",
     "date": "August 2024",
     "description": "Little blue cup, first thing I made.",
-    "imageLinks": [
+    "image_links": [
       "https://storage.googleapis.com/cgme/art/pottery/first-light-blue-mug--front.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/first-light-blue-mug--back.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/first-light-blue-mug--top.jpg",
@@ -14,56 +15,64 @@
       "width": 3,
       "height": 3
     },
+    "price": null,
     "favorite": false,
-    "archived": false
+    "archived": true
   },
   {
     "slug": "yellow-peacock-bowl",
+    "item_code": "93da5bf2",
     "date": "August 2024",
     "description": "Little yellow vase with red and blue spots and flared rim.",
-    "imageLinks": ["https://storage.googleapis.com/cgme/art/pottery/yellow-peacock-bowl--front.jpg"],
+    "image_links": ["https://storage.googleapis.com/cgme/art/pottery/yellow-peacock-bowl--front.jpg"],
     "glaze": null,
     "dimensions": {
       "width": 3,
       "height": 2.5
     },
+    "price": null,
     "favorite": false,
-    "archived": false
+    "archived": true
   },
   {
     "slug": "cereal-bowl",
+    "item_code": "60164add",
     "date": "August 2024",
     "description": "Cereal bowl with gray outside and tall foot.",
-    "imageLinks": [
+    "image_links": [
       "https://storage.googleapis.com/cgme/art/pottery/cereal-bowl--front.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/cereal-bowl--bottom.jpg"
     ],
-    "glaze": "1x sagebrush celadon, 1x stormy night (?)",
+    "glaze": null,
     "dimensions": {
       "width": 6,
       "height": 2
     },
+    "price": null,
     "favorite": false,
     "archived": false
   },
   {
     "slug": "blue-round-orb-vase",
+    "item_code": "e62a26cc",
     "date": "August 2024",
     "description": "Little round blue vase with hole on top.",
-    "imageLinks": ["https://storage.googleapis.com/cgme/art/pottery/blue-round-orb-vase--front.jpg"],
+    "image_links": ["https://storage.googleapis.com/cgme/art/pottery/blue-round-orb-vase--front.jpg"],
     "glaze": "1x opal sky, 1x stormy night",
     "dimensions": {
       "width": 4,
       "height": 2.5
     },
+    "price": 10,
     "favorite": false,
     "archived": false
   },
   {
     "slug": "dark-green-mug",
+    "item_code": "1797c77e",
     "date": "September 2024",
     "description": "Green mug.",
-    "imageLinks": [
+    "image_links": [
       "https://storage.googleapis.com/cgme/art/pottery/dark-green-mug--front.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/dark-green-mug--top.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/dark-green-mug--bottom.jpg"
@@ -73,14 +82,16 @@
       "width": 3.5,
       "height": 4
     },
+    "price": 15,
     "favorite": true,
     "archived": false
   },
   {
     "slug": "holy-metallic-vase",
+    "item_code": "2af7406d",
     "date": "September 2024",
     "description": "Squat vase with greenish-red matte glaze.",
-    "imageLinks": [
+    "image_links": [
       "https://storage.googleapis.com/cgme/art/pottery/holy-metallic-vase--front.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/holy-metallic-vase--bottom.jpg"
     ],
@@ -89,27 +100,31 @@
       "width": 3.5,
       "height": 3
     },
+    "price": 20,
     "favorite": true,
     "archived": false
   },
   {
     "slug": "big-blue-bell-vase",
+    "item_code": "759f21c2",
     "date": "September 2024",
     "description": "Starry night blue vase with flared rim.",
-    "imageLinks": ["https://storage.googleapis.com/cgme/art/pottery/big-blue-bell-vase--front.jpg"],
+    "image_links": ["https://storage.googleapis.com/cgme/art/pottery/big-blue-bell-vase--front.jpg"],
     "glaze": null,
     "dimensions": {
       "width": 4.75,
       "height": 5.25
     },
+    "price": 40,
     "favorite": true,
     "archived": false
   },
   {
     "slug": "red-bowling-pin-vase",
+    "item_code": "ae2dfa50",
     "date": "September 2024",
     "description": "Big red vase (bowling pin), cracks, hand-dipped",
-    "imageLinks": [
+    "image_links": [
       "https://storage.googleapis.com/cgme/art/pottery/red-bowling-pin-vase--front.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/red-bowling-pin-vase--top.jpg"
     ],
@@ -118,27 +133,31 @@
       "width": 4.25,
       "height": 9
     },
+    "price": null,
     "favorite": true,
     "archived": false
   },
   {
     "slug": "light-blue-brown-heavy-mug",
+    "item_code": "11ab48e3",
     "date": "October 2025",
     "description": "Light blue mug with brown rim and wide base.",
-    "imageLinks": ["https://storage.googleapis.com/cgme/art/pottery/light-blue-brown-heavy-mug--front.jpg"],
+    "image_links": ["https://storage.googleapis.com/cgme/art/pottery/light-blue-brown-heavy-mug--front.jpg"],
     "glaze": "1x shore break, 1x caribbean",
     "dimensions": {
       "width": 4,
       "height": 3.5
     },
+    "price": 15,
     "favorite": false,
     "archived": false
   },
   {
     "slug": "white-bone-vase",
+    "item_code": "9b8fa712",
     "date": "October 2025",
     "description": "Little bone double color vase.",
-    "imageLinks": [
+    "image_links": [
       "https://storage.googleapis.com/cgme/art/pottery/white-bone-vase--front.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/white-bone-vase--top.jpg"
     ],
@@ -147,6 +166,7 @@
       "width": 3.5,
       "height": 4
     },
+    "price": 20,
     "favorite": true,
     "archived": false
   }

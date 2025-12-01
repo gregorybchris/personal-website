@@ -1,10 +1,20 @@
-import { ArrowsOutSimpleIcon, XIcon } from "@phosphor-icons/react";
+import {
+  ClipboardIcon,
+  ImagesIcon,
+  ShoppingCartIcon,
+  XIcon,
+} from "@phosphor-icons/react";
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { toast } from "sonner";
+import makersMark from "../assets/icons/makers-mark.svg";
 import { ImageModal } from "../components/image-modal";
 import { GET, makeQuery } from "../utilities/request-utilities";
 import { cn } from "../utilities/style-utilities";
 
 interface Piece {
+  slug: string;
+  itemCode: string;
   date: string;
   description: string;
   imageLinks: string[];
@@ -13,6 +23,7 @@ interface Piece {
     width: number;
     height: number;
   };
+  price: number | null;
   favorite: boolean;
   archived: boolean;
 }
@@ -35,8 +46,57 @@ function PotteryDetails({
   handleExpand,
   mobile = false,
 }: PotteryDetailsProps) {
+  function handleBuyClick(e: React.MouseEvent) {
+    e.stopPropagation();
+
+    toast.message(
+      <span>
+        To inquire about pricing,{" "}
+        <Link
+          to="/contact"
+          className="text-sky hover:text-royal transition-colors"
+        >
+          send me a message
+        </Link>{" "}
+        and copy/paste this item code:
+        <div className="inline-flex w-full justify-center pt-2">
+          <button
+            onClick={async (event) => {
+              event.stopPropagation();
+              try {
+                await navigator.clipboard.writeText(piece.itemCode);
+                toast.success(
+                  <span>
+                    Item code{" "}
+                    <span className="font-mono">{piece.itemCode}</span> copied
+                    to clipboard!
+                  </span>,
+                  {
+                    duration: 2000,
+                    position: "top-right",
+                  },
+                );
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+              } catch (err) {
+                console.error("Failed to copy item code");
+              }
+            }}
+            className="text-sky hover:text-royal flex cursor-pointer flex-row items-center gap-1 rounded font-mono transition-colors"
+          >
+            <ClipboardIcon size={14} />
+            <span>{piece.itemCode}</span>
+          </button>
+        </div>
+      </span>,
+      {
+        duration: 5000,
+        position: "top-right",
+      },
+    );
+  }
+
   return (
-    <div className="flex flex-col items-center gap-2 text-center text-white">
+    <div className="flex flex-col items-center gap-3 text-center text-white">
       <div className="flex flex-col gap-2 text-center text-white">
         <div className={cn("font-bold", mobile ? "text-md" : "text-lg")}>
           {piece.date}
@@ -56,12 +116,39 @@ function PotteryDetails({
           {mobile ? "w" : " wide"}
         </div>
       </div>
-      <button
-        className="cursor-pointer rounded-full bg-white/20 px-2 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30"
-        onClick={handleExpand}
-      >
-        <ArrowsOutSimpleIcon size={18} color="#ffffff" />
-      </button>
+
+      <div className="flex flex-row gap-3">
+        <button
+          className="cursor-pointer rounded-full bg-white/20 px-2 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30"
+          onClick={handleExpand}
+          title="More photos"
+        >
+          <ImagesIcon size={18} color="#ffffff" />
+        </button>
+        {piece.price !== null && (
+          <button
+            className="cursor-pointer rounded-full bg-white/20 px-2 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30"
+            onClick={handleBuyClick}
+            title="Buy"
+          >
+            <ShoppingCartIcon size={18} color="#ffffff" />
+          </button>
+        )}
+        {/* show a disabled cart button with a sold indicator that only shows when hovering over the shopping cart */}
+        {piece.price === null && (
+          <div className="relative">
+            <button
+              className="cursor-not-allowed rounded-full bg-white/10 px-2 py-2 text-sm font-medium text-white opacity-50"
+              disabled
+            >
+              <ShoppingCartIcon size={18} color="#ffffff" />
+            </button>
+            <div className="absolute -top-2 -right-2 rounded-full bg-red-600 px-1.5 py-0.5 text-xs font-bold text-white">
+              Sold
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -209,18 +296,25 @@ export function PotteryPage() {
         />
       )}
 
+      <div className="flex flex-row items-center justify-center gap-4 pb-4 md:pb-8">
+        <img src={makersMark} alt="Maker's Mark" className="h-12 w-12" />
+      </div>
+
       <div className="mx-auto max-w-7xl">
         <div className="pottery-grid grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
-          {pieces.toReversed().map((piece, index) => (
-            <div key={index}>
-              <PotteryCard
-                piece={piece}
-                onExpand={() => openModal(piece)}
-                isFlipped={flippedCardIndex === index}
-                onFlip={() => toggleCardFlip(index)}
-              />
-            </div>
-          ))}
+          {pieces
+            .filter((piece) => !piece.archived)
+            .toReversed()
+            .map((piece, index) => (
+              <div key={index}>
+                <PotteryCard
+                  piece={piece}
+                  onExpand={() => openModal(piece)}
+                  isFlipped={flippedCardIndex === index}
+                  onFlip={() => toggleCardFlip(index)}
+                />
+              </div>
+            ))}
         </div>
       </div>
     </div>
