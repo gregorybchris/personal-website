@@ -37,28 +37,31 @@ export function useMetaTags(options: MetaTagsOptions) {
 }
 
 // Route-based meta tags configuration
-const ROUTE_META_TAGS: Record<string, string> = {
-  "/blog": "Blog - Chris Gregory",
-  "/projects": "Projects - Chris Gregory",
-  "/running": "Running - Chris Gregory",
-  "/music": "Music - Chris Gregory",
-  "/books": "Books - Chris Gregory",
-  "/contact": "Contact - Chris Gregory",
-};
+const ROUTE_REGEX_META: Array<{ pattern: RegExp; title: string }> = [
+  { pattern: /^\/blog/, title: "Blog - Chris Gregory" },
+  { pattern: /^\/projects(\/.*)?/, title: "Projects - Chris Gregory" },
+  { pattern: /^\/running(\/.*)?/, title: "Running - Chris Gregory" },
+  { pattern: /^\/music/, title: "Music - Chris Gregory" },
+  { pattern: /^\/books/, title: "Books - Chris Gregory" },
+  { pattern: /^\/contact/, title: "Contact - Chris Gregory" },
+];
 
 export function useRouteMetaTags() {
   const location = useLocation();
 
   useEffect(() => {
     const pathname = location.pathname;
-    const title = ROUTE_META_TAGS[pathname];
 
-    if (title) {
-      document.title = title;
-      updateMetaTag("og:title", title);
-    } else {
-      document.title = "Chris Gregory";
-      updateMetaTag("og:title", "Chris Gregory");
+    let title = "Chris Gregory"; // default fallback
+
+    for (const { pattern, title: routeTitle } of ROUTE_REGEX_META) {
+      if (pattern.test(pathname)) {
+        title = routeTitle;
+        break;
+      }
     }
+
+    document.title = title;
+    updateMetaTag("og:title", title);
   }, [location.pathname]);
 }
