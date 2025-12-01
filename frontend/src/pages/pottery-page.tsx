@@ -5,7 +5,7 @@ import {
   XIcon,
 } from "@phosphor-icons/react";
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 import makersMark from "../assets/icons/makers-mark.svg";
 import { ImageModal } from "../components/image-modal";
@@ -13,6 +13,7 @@ import { GET, makeQuery } from "../utilities/request-utilities";
 import { cn } from "../utilities/style-utilities";
 
 interface Piece {
+  name: string;
   slug: string;
   itemCode: string;
   date: string;
@@ -46,6 +47,9 @@ function PotteryDetails({
   handleExpand,
   mobile = false,
 }: PotteryDetailsProps) {
+  const [searchParams] = useSearchParams();
+  const isAdmin = searchParams.get("admin") === "true";
+
   function handleBuyClick(e: React.MouseEvent) {
     e.stopPropagation();
 
@@ -98,55 +102,74 @@ function PotteryDetails({
   return (
     <div className="flex flex-col items-center gap-3 text-center text-white">
       <div className="flex flex-col gap-2 text-center text-white">
-        <div className={cn("font-bold", mobile ? "text-md" : "text-lg")}>
-          {piece.date}
-        </div>
-        {piece.glaze && (
+        {!isAdmin && (
+          <div
+            className={cn(
+              "text-lg font-bold",
+              mobile ? "text-base" : "text-lg",
+            )}
+          >
+            {piece.name}
+          </div>
+        )}
+        {isAdmin && (
+          <div className={cn("italic", mobile ? "text-sm" : "text-sm")}>
+            {piece.date}
+          </div>
+        )}
+        {isAdmin && (
           <div
             className={cn("leading-relaxed", mobile ? "text-sm" : "text-sm")}
           >
-            <strong>Glaze:</strong> {piece.glaze}
+            <strong>Glaze:</strong> {piece.glaze || "unknown"}
           </div>
         )}
-        <div className={cn("leading-relaxed", mobile ? "text-sm" : "text-sm")}>
-          <strong>Size:</strong> <span>{piece.dimensions.width}</span>
-          {" H"}
-          <XIcon size={7} weight="bold" className="mx-1 inline-block" />
-          <span>{piece.dimensions.height}</span>
-          {" W"}
-        </div>
+        {!isAdmin && (
+          <div
+            className={cn("leading-relaxed", mobile ? "text-sm" : "text-sm")}
+          >
+            <strong>Size:</strong> <span>{piece.dimensions.width}</span>
+            {" H"}
+            <XIcon size={7} weight="bold" className="mx-1 inline-block" />
+            <span>{piece.dimensions.height}</span>
+            {" W"}
+          </div>
+        )}
       </div>
 
       <div className="flex flex-row gap-6">
         <button
           className="cursor-pointer rounded-full bg-white/20 px-2 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30"
           onClick={handleExpand}
-          title="More photos"
+          title="Photo gallery"
         >
           <ImagesIcon size={18} color="#ffffff" />
         </button>
-        {piece.price !== null && (
-          <button
-            className="cursor-pointer rounded-full bg-white/20 px-2 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30"
-            onClick={handleBuyClick}
-            title="Buy"
-          >
-            <ShoppingCartIcon size={18} color="#ffffff" />
-          </button>
-        )}
-        {/* show a disabled cart button with a sold indicator that only shows when hovering over the shopping cart */}
-        {piece.price === null && (
-          <div className="relative">
-            <button
-              className="cursor-not-allowed rounded-full bg-white/10 px-2 py-2 text-sm font-medium text-white opacity-50"
-              disabled
-            >
-              <ShoppingCartIcon size={18} color="#ffffff" />
-            </button>
-            <div className="absolute -top-2 -right-2 rounded-full bg-red-600 px-1.5 py-0.5 text-xs font-bold text-white">
-              Sold
-            </div>
-          </div>
+        {!isAdmin && (
+          <>
+            {piece.price !== null && (
+              <button
+                className="cursor-pointer rounded-full bg-white/20 px-2 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30"
+                onClick={handleBuyClick}
+                title="Buy"
+              >
+                <ShoppingCartIcon size={18} color="#ffffff" />
+              </button>
+            )}
+            {piece.price === null && (
+              <div className="relative">
+                <button
+                  className="cursor-not-allowed rounded-full bg-white/10 px-2 py-2 text-sm font-medium text-white opacity-50"
+                  disabled
+                >
+                  <ShoppingCartIcon size={18} color="#ffffff" />
+                </button>
+                <div className="absolute -top-2 -right-2 rounded-full bg-[#6283c0] px-1.5 py-0.5 text-xs font-bold text-white">
+                  Sold
+                </div>
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>

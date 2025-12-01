@@ -1,5 +1,6 @@
 [
   {
+    "name": "Light blue cup",
     "slug": "first-light-blue-mug",
     "item_code": "e586da93",
     "date": "August 2024",
@@ -20,6 +21,7 @@
     "archived": true
   },
   {
+    "name": "Spotted yellow flared bowl",
     "slug": "yellow-peacock-bowl",
     "item_code": "93da5bf2",
     "date": "August 2024",
@@ -35,6 +37,7 @@
     "archived": true
   },
   {
+    "name": "Matte gray bowl",
     "slug": "cereal-bowl",
     "item_code": "60164add",
     "date": "August 2024",
@@ -53,6 +56,7 @@
     "archived": false
   },
   {
+    "name": "Pastel blue orb vase",
     "slug": "blue-round-orb-vase",
     "item_code": "e62a26cc",
     "date": "August 2024",
@@ -68,6 +72,7 @@
     "archived": false
   },
   {
+    "name": "Dark green mug",
     "slug": "dark-green-mug",
     "item_code": "1797c77e",
     "date": "September 2024",
@@ -87,6 +92,7 @@
     "archived": false
   },
   {
+    "name": "Metallic banded vase",
     "slug": "holy-metallic-vase",
     "item_code": "2af7406d",
     "date": "September 2024",
@@ -105,6 +111,7 @@
     "archived": false
   },
   {
+    "name": "Blue bell vase",
     "slug": "big-blue-bell-vase",
     "item_code": "759f21c2",
     "date": "September 2024",
@@ -120,6 +127,7 @@
     "archived": false
   },
   {
+    "name": "Tell red vase",
     "slug": "red-bowling-pin-vase",
     "item_code": "ae2dfa50",
     "date": "September 2024",
@@ -138,6 +146,7 @@
     "archived": false
   },
   {
+    "name": "Dripping blue mug",
     "slug": "light-blue-brown-heavy-mug",
     "item_code": "11ab48e3",
     "date": "October 2025",
@@ -153,6 +162,7 @@
     "archived": false
   },
   {
+    "name": "Tan speckled vase",
     "slug": "white-bone-vase",
     "item_code": "9b8fa712",
     "date": "October 2025",

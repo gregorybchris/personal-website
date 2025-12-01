@@ -13,6 +13,7 @@ def validate_all() -> None:
     validator = Validator()
     validator.register_constraint(MonotoneIncreaseConstraint(), "array", "monotone_inc")
     schemas = [
+        ("art", "pottery"),
         ("feed", "posts"),
         ("media", "books"),
         ("media", "instagrams"),

@@ -1,0 +1,42 @@
+{
+  "type": "array",
+  "elem": "#piece",
+  "cons": {
+    "unique": ["@all.slug", "@all.item_code", "@all.description"]
+  },
+  "defs": {
+    "#piece": {
+      "type": "object",
+      "attr": {
+        "name": "string",
+        "slug": "string",
+        "item_code": "string",
+        "date": "string",
+        "description": "string",
+        "image_links": {
+          "type": "array",
+          "elem": "#link"
+        },
+        "glaze": ["null", "string"],
+        "dimensions": {
+          "type": "object",
+          "attr": {
+            "width": "number",
+            "height": "number"
+          }
+        },
+        "price": ["null", "number"],
+        "favorite": "boolean",
+        "archived": "boolean"
+      }
+    },
+    "#link": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^http[s]?://" },
+        "min_length": 5,
+        "max_length": 120
+      }
+    }
+  }
+}
