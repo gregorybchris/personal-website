@@ -225,7 +225,7 @@ function PotteryCard({ piece, onExpand, isFlipped, onFlip }: PotteryCardProps) {
         onClick={handleCardClick}
       >
         {/* Front side */}
-        <div className="absolute h-full w-full overflow-hidden rounded [backface-visibility:hidden]">
+        <div className="absolute h-full w-full overflow-hidden rounded-xl [backface-visibility:hidden]">
           <img
             ref={imgRef}
             src={isVisible ? piece.imageLinks[0] : undefined}
@@ -240,7 +240,7 @@ function PotteryCard({ piece, onExpand, isFlipped, onFlip }: PotteryCardProps) {
           {/* Desktop hover overlay */}
           <div
             className={cn(
-              "absolute inset-0 hidden flex-col items-center justify-center gap-4 bg-black/75 p-6 opacity-0 backdrop-blur-sm transition-opacity duration-200 md:flex",
+              "absolute inset-0 hidden flex-col items-center justify-center gap-4 bg-black/65 p-6 opacity-0 backdrop-blur-sm transition-opacity duration-200 md:flex",
               isImageLoaded && "group-hover:opacity-100",
             )}
           >
@@ -249,7 +249,7 @@ function PotteryCard({ piece, onExpand, isFlipped, onFlip }: PotteryCardProps) {
         </div>
 
         {/* Back side (mobile only) */}
-        <div className="absolute flex h-full w-full [transform:rotateY(180deg)] flex-col items-center justify-center gap-4 rounded border-2 border-[#333] bg-[#1a1a1a] px-3 py-6 [backface-visibility:hidden] md:hidden">
+        <div className="absolute flex h-full w-full [transform:rotateY(180deg)] flex-col items-center justify-center gap-4 rounded-xl border-2 border-[#333] bg-[#1a1a1a] px-3 py-6 [backface-visibility:hidden] md:hidden">
           <PotteryDetails piece={piece} handleExpand={handleExpand} mobile />
         </div>
       </div>
@@ -309,7 +309,7 @@ export function PotteryPage() {
   };
 
   return (
-    <div className="font-polymath min-h-screen bg-black p-4 md:p-8">
+    <div className="font-polymath min-h-screen bg-black/85 p-4 md:p-8">
       {modalState && (
         <ImageModal
           images={modalState.images}
@@ -325,7 +325,7 @@ export function PotteryPage() {
       </div>
 
       <div className="mx-auto max-w-7xl">
-        <div className="pottery-grid grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
+        <div className="pottery-grid grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
           {pieces
             .filter((piece) => !piece.archived)
             .toReversed()
