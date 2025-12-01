@@ -51,14 +51,14 @@ function PotteryDetails({
 
     toast.message(
       <span>
-        To inquire about pricing,{" "}
+        For acquisition inquisitions, send me a message through my{" "}
         <Link
           to="/contact"
           className="text-sky hover:text-royal transition-colors"
         >
-          send me a message
+          contact page
         </Link>{" "}
-        and copy/paste this item code:
+        and include this item code:
         <div className="inline-flex w-full justify-center pt-2">
           <button
             onClick={async (event) => {
@@ -109,15 +109,15 @@ function PotteryDetails({
           </div>
         )}
         <div className={cn("leading-relaxed", mobile ? "text-sm" : "text-sm")}>
-          <strong>Size:</strong> <span>{piece.dimensions.width}"</span>
-          {mobile ? "h" : " tall"}
+          <strong>Size:</strong> <span>{piece.dimensions.width}</span>
+          {" H"}
           <XIcon size={7} weight="bold" className="mx-1 inline-block" />
-          <span>{piece.dimensions.height}"</span>
-          {mobile ? "w" : " wide"}
+          <span>{piece.dimensions.height}</span>
+          {" W"}
         </div>
       </div>
 
-      <div className="flex flex-row gap-3">
+      <div className="flex flex-row gap-6">
         <button
           className="cursor-pointer rounded-full bg-white/20 px-2 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30"
           onClick={handleExpand}
