@@ -34,6 +34,7 @@ interface PotteryCardProps {
   onExpand: () => void;
   isFlipped: boolean;
   onFlip: () => void;
+  index: number;
 }
 
 interface PotteryDetailsProps {
@@ -177,30 +178,15 @@ function PotteryDetails({
   );
 }
 
-function PotteryCard({ piece, onExpand, isFlipped, onFlip }: PotteryCardProps) {
+function PotteryCard({ piece, onExpand, isFlipped, onFlip, index }: PotteryCardProps) {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.disconnect();
-          }
-        });
-      },
-      { rootMargin: "100px" },
-    );
-
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+    const timer = setTimeout(() => setIsVisible(true), index * 80);
+    return () => clearTimeout(timer);
+  }, [index]);
 
   const handleCardClick = () => {
     if (window.matchMedia("(max-width: 768px)").matches) {
@@ -214,16 +200,22 @@ function PotteryCard({ piece, onExpand, isFlipped, onFlip }: PotteryCardProps) {
   };
 
   return (
-    <div className="group relative [perspective:1000px]">
-      <div
-        className={cn(
-          "relative w-full pb-[100%] transition-transform duration-[600ms] [transform-style:preserve-3d]",
-          isFlipped
-            ? "[transform:rotateY(180deg)]"
-            : "[transform:rotateY(0deg)]",
-        )}
-        onClick={handleCardClick}
-      >
+    <div
+      className={cn(
+        "transition-opacity duration-300",
+        isVisible ? "opacity-100" : "opacity-0",
+      )}
+    >
+      <div className="group relative [perspective:1000px]">
+        <div
+          className={cn(
+            "relative w-full pb-[100%] transition-transform duration-[600ms] [transform-style:preserve-3d]",
+            isFlipped
+              ? "[transform:rotateY(180deg)]"
+              : "[transform:rotateY(0deg)]",
+          )}
+          onClick={handleCardClick}
+        >
         {/* Front side */}
         <div className="absolute h-full w-full overflow-hidden rounded-xl [backface-visibility:hidden]">
           <img
@@ -252,6 +244,7 @@ function PotteryCard({ piece, onExpand, isFlipped, onFlip }: PotteryCardProps) {
         <div className="absolute flex h-full w-full [transform:rotateY(180deg)] flex-col items-center justify-center gap-4 rounded-xl border-2 border-[#333] bg-[#1a1a1a] px-3 py-6 [backface-visibility:hidden] md:hidden">
           <PotteryDetails piece={piece} handleExpand={handleExpand} mobile />
         </div>
+      </div>
       </div>
     </div>
   );
@@ -336,6 +329,7 @@ export function PotteryPage() {
                   onExpand={() => openModal(piece)}
                   isFlipped={flippedCardIndex === index}
                   onFlip={() => toggleCardFlip(index)}
+                  index={index}
                 />
               </div>
             ))}
