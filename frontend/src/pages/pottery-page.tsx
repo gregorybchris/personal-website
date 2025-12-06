@@ -131,10 +131,10 @@ function PotteryDetails({
             className={cn("leading-relaxed", mobile ? "text-sm" : "text-sm")}
           >
             <strong>Size:</strong> <span>{piece.dimensions.width}</span>
-            {" H"}
+            {" W"}
             <XIcon size={7} weight="bold" className="mx-1 inline-block" />
             <span>{piece.dimensions.height}</span>
-            {" W"}
+            {" H"}
           </div>
         )}
       </div>
