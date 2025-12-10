@@ -1,5 +1,5 @@
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from enum import StrEnum
 from pathlib import Path
 from typing import Any, Iterator, Optional
@@ -131,7 +131,7 @@ def generate_rss(
     SubElement(channel, "title").text = title
     SubElement(channel, "link").text = link
     SubElement(channel, "description").text = description
-    SubElement(channel, "lastBuildDate").text = datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S +0000")
+    SubElement(channel, "lastBuildDate").text = datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")
 
     for post in posts:
         url = f"{link}/blog/{post.slug}"
