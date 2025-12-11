@@ -10,21 +10,23 @@ This post was inspired by an episode of the [Software Unscripted](https://podcas
 
 One segment of the conversation in particular really got me thinking... If your package manager had access to type information for every variable and every function in a package, then couldn't it automatically check for compatibility breaks between versions?
 
-Sure, it wouldn't be perfect -- you can always change a function to behave differently without changing its type signature. But this could address a large class of mishaps that package maintainers have to spend time and effort avoiding.
+Sure, it wouldn't be perfect -- you can always change a function to behave differently without changing its type signature.[^types-limitation] But this could address a large class of mishaps that package maintainers have to spend time and effort avoiding.
 
 ## Rethink
 
-This seed of an idea got me wondering what else I'd reimagine if I could poof into existence my ideal package manager. I don't consider myself an expert in this area by any means. I've never maintained a popular open source package and I've never worked in a professional capacity on a programming language. But I've done my fair share of package publishing, dependency management, and overcoming the pain of unexpected breaking changes.
+This simple idea of endowing the package manager with a type system got me wondering what else I'd reimagine if I could poof into existence my ideal package manager. There are countless experimental programming languages, but as far as I know, many fewer experimental package managers.[^experimental-package-managers] I hope this post (and the accompanying repo) serves as a small contribution to exploring this space.
 
-As I've been writing this blog post I've realized that there are so many experimental programming languages, but as far as I know there aren't quite as many experimental package managers.[^experimental-package-managers] I hope this post (and the accompanying code) serves as a small contribution to exploring this space.
+Let me be clear, I'm by no means an expert in this area. I have no experience maintaining a popular open source package and I've never worked in a professional capacity on a programming language or type system. But I'd reckon I've put in my fair share of hours upgrading and pinning packages due to breaking changes, waiting for dependencies to install in CI, and other myriad annoyances that stem from package management in the Python ecosystem.[^python-ecosystem]
 
-Let's go through some ideas feature by feature. I'll try to properly motivate the problems so it's clear why each feature is useful in the first place. We all come from different languages and software ecosystems, so what's a pain point for me will be totally a non-issue for someone else. I'm coming from the lands of Python, TypeScript, Rust, and Haskell (in that order), so that may help explain any unexpected points of view if you're coming from Go, Ruby, C++, etc which I have less experience in. At the end I'll wrap up with some concrete code snippets implementing some of my favorite parts.
+Over the next few sections I want to share what my imaginary package manager would do. Then I'll share the progress I've made toward that goal with an experimental package manager I built called [Myxa](https://github.com/gregorybchris/myxa).
 
-### Version selection
+### Users and maintainers
 
-Right off the bat, it would be good to lay out that we have two audiences in mind for the package manager. We have the developers who maintain packages, and we have the developers who use packages as dependencies in their own projects. The two audiences have different requirements and we want to support both. It's my view that if we make things easier on package maintainers, then package users will benefit as well.
+Right off the bat, it would be good to lay out that we have two audiences in mind. We have the developers who maintain packages, and we have the developers who use packages as dependencies in their own projects. The two audiences have different requirements and we want to support both. That said, if we make things easier on package maintainers, I believe package users will benefit as well.
 
 Going forward I'll refer to the two audiences as simply "users" and "maintainers".
+
+### Version selection
 
 - Help maintainer pick the right version for the next release
 - Only need major and minor versions to represent breaking and non-breaking changes
@@ -251,4 +253,6 @@ There's a ton we can do if we rethink the package manager to be more aware of ty
 
 <github-button user="gregorybchris" repo="myxa"></github-button>
 
+[^types-limitation]: Backwards compatibility cannot be determined solely by observing type signature changes. I can easily change the behavior of a function without changing its parameters or return type (e.g. returning a dummy value of the appropriate return type). I could even preserve the return values of a function while totally altering its runtime or memory usage (e.g. by adding a call to `sleep()` or allocating a large matrix of zeroes). Both of these are examples of type signature checks allowing for "false negatives" when detecting breaking changes. The case of false positives is slightly better -- if a type signature changes, it's pretty safe to call that a breaking change. However, let's say we can guarantee a function parameter is never used. While removing that parameter is not backwards compatible in a pure sense, you could imagine some package maintainers accepting this level of risk.
 [^experimental-package-managers]: This is probably because while an experimental language can be fun to play around with, a package manager in isolation is pretty boring and useless. But making useless things never stopped me before!
+[^python-ecosystem]: I'm all for having a handful of open source ways to solve any given problem. It's between difficult and impossible for one tool to do everything. But has Python gone too far?? For package management, environment management, and version management we have so many options -- [pip](https://pip.pypa.io), [pip‑tools](https://pypi.org/project/pip-tools), [Poetry](https://python-poetry.org), [uv](https://astral.sh/uv), [PDM](https://github.com/pdm-project/pdm), [anaconda/conda](https://www.anaconda.com)/[miniconda](https://www.anaconda.com/docs/getting-started/miniconda), [mamba/micromamba](https://mamba.readthedocs.io), [virtualenv](https://virtualenv.pypa.io), [pyenv](https://github.com/pyenv/pyenv), [Pipenv](https://pipenv.pypa.io), [pipx](https://pypa.github.io/pipx), [Pixi](https://pixi.sh)... we probably need [another](https://xkcd.com/927), right? TypeScript flirted with the same disaster, accumulating its own lot of tooling -- npm, pnpm, yarn, etc. I've seen glimpses of package management done right using Rust's cargo and Haskell's cabal.
