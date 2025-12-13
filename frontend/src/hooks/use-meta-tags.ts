@@ -41,8 +41,9 @@ const ROUTE_REGEX_META: Array<{ pattern: RegExp; title: string }> = [
   { pattern: /^\/blog/, title: "Blog - Chris Gregory" },
   { pattern: /^\/projects(\/.*)?/, title: "Projects - Chris Gregory" },
   { pattern: /^\/running(\/.*)?/, title: "Running - Chris Gregory" },
-  { pattern: /^\/music/, title: "Music - Chris Gregory" },
   { pattern: /^\/books/, title: "Books - Chris Gregory" },
+  { pattern: /^\/music/, title: "Music - Chris Gregory" },
+  { pattern: /^\/pottery/, title: "Pottery - Chris Gregory" },
   { pattern: /^\/contact/, title: "Contact - Chris Gregory" },
 ];
 
