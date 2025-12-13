@@ -9,6 +9,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 import makersMark from "../assets/icons/makers-mark.svg";
 import { ImageModal } from "../components/image-modal";
+import { useMetaTags } from "../hooks/use-meta-tags";
 import { GET, makeQuery } from "../utilities/request-utilities";
 import { cn } from "../utilities/style-utilities";
 
@@ -260,6 +261,8 @@ export function PotteryPage() {
   const [pieces, setPieces] = useState<Piece[]>([]);
   const [modalState, setModalState] = useState<ModalState | null>(null);
   const [flippedCardIndex, setFlippedCardIndex] = useState<number | null>(null);
+
+  useMetaTags({ favicon: makersMark });
 
   useEffect(() => {
     const potteryQuery = makeQuery("art/pottery");

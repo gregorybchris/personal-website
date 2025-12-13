@@ -4,7 +4,11 @@ import { useLocation } from "react-router-dom";
 interface MetaTagsOptions {
   title?: string;
   url?: string;
+  favicon?: string;
 }
+
+const DEFAULT_FAVICON =
+  "https://storage.googleapis.com/cgme/icons/logo/favicon.ico";
 
 function updateMetaTag(property: string, content: string) {
   let element = document.querySelector(`meta[property="${property}"]`);
@@ -16,17 +20,21 @@ function updateMetaTag(property: string, content: string) {
   }
 }
 
+function updateFavicon(href: string) {
+  const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
+  if (link) {
+    link.href = href;
+  }
+}
+
 export function useMetaTags(options: MetaTagsOptions) {
   useEffect(() => {
     const { title } = options;
 
-    if (title) {
-      document.title = title;
-      updateMetaTag("og:title", title);
-    } else {
-      document.title = "Chris Gregory";
-      updateMetaTag("og:title", "Chris Gregory");
-    }
+    if (!title) return;
+
+    document.title = title;
+    updateMetaTag("og:title", title);
 
     return () => {
       document.title = "Chris Gregory";
@@ -34,6 +42,19 @@ export function useMetaTags(options: MetaTagsOptions) {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [options.title]);
+
+  useEffect(() => {
+    const { favicon } = options;
+
+    if (favicon) {
+      updateFavicon(favicon);
+    }
+
+    return () => {
+      updateFavicon(DEFAULT_FAVICON);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [options.favicon]);
 }
 
 // Route-based meta tags configuration
@@ -43,7 +64,7 @@ const ROUTE_REGEX_META: Array<{ pattern: RegExp; title: string }> = [
   { pattern: /^\/running(\/.*)?/, title: "Running - Chris Gregory" },
   { pattern: /^\/books/, title: "Books - Chris Gregory" },
   { pattern: /^\/music/, title: "Music - Chris Gregory" },
-  { pattern: /^\/pottery/, title: "Pottery - Chris Gregory" },
+  { pattern: /^\/pottery/, title: "chris gregory" },
   { pattern: /^\/contact/, title: "Contact - Chris Gregory" },
 ];
 
