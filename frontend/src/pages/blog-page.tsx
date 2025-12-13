@@ -44,7 +44,7 @@ export function BlogPage() {
 
   return (
     <div className="font-iowa flex flex-col items-center gap-4 px-6 py-10 md:px-10">
-      <div className="font-sanchez group relative text-3xl">
+      <div className="group relative text-3xl font-bold">
         <div className="cursor-default select-none">Blog</div>
         <button
           className="bg-sky hover:bg-royal/80 active:bg-royal/50 absolute top-1/2 left-full ml-1.5 flex -translate-y-1/2 cursor-pointer items-center justify-center rounded-full p-1.5 opacity-0 transition-all duration-200 group-hover:opacity-100"
