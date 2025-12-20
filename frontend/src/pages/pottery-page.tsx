@@ -30,28 +30,19 @@ interface Piece {
   archived: boolean;
 }
 
-interface PotteryCardProps {
-  piece: Piece;
-  onExpand: () => void;
-  isFlipped: boolean;
-  onFlip: () => void;
-  index: number;
-}
-
 interface PotteryDetailsProps {
   piece: Piece;
+  adminMode: boolean;
   handleExpand: (e: React.MouseEvent) => void;
   mobile?: boolean;
 }
 
 function PotteryDetails({
   piece,
+  adminMode,
   handleExpand,
   mobile = false,
 }: PotteryDetailsProps) {
-  const [searchParams] = useSearchParams();
-  const isAdmin = searchParams.get("admin") === "true";
-
   function handleBuyClick(e: React.MouseEvent) {
     e.stopPropagation();
 
@@ -105,7 +96,7 @@ function PotteryDetails({
   return (
     <div className="flex flex-col items-center gap-3 text-center text-white">
       <div className="flex flex-col gap-2 text-center text-white">
-        {!isAdmin && (
+        {!adminMode && (
           <div
             className={cn(
               "text-lg font-bold",
@@ -115,19 +106,24 @@ function PotteryDetails({
             {piece.name}
           </div>
         )}
-        {isAdmin && (
-          <div className={cn("italic", mobile ? "text-sm" : "text-sm")}>
+        {adminMode && (
+          <div
+            className={cn(
+              "text-lg font-bold",
+              mobile ? "text-base" : "text-lg",
+            )}
+          >
             {piece.date}
           </div>
         )}
-        {isAdmin && (
+        {adminMode && (
           <div
             className={cn("leading-relaxed", mobile ? "text-sm" : "text-sm")}
           >
             <strong>Glaze:</strong> {piece.glaze || "unknown"}
           </div>
         )}
-        {!isAdmin && (
+        {!adminMode && (
           <div
             className={cn("leading-relaxed", mobile ? "text-sm" : "text-sm")}
           >
@@ -148,7 +144,7 @@ function PotteryDetails({
         >
           <ImagesIcon size={18} color="#ffffff" />
         </button>
-        {!isAdmin && (
+        {!adminMode && (
           <>
             {piece.price !== null && (
               <button
@@ -179,7 +175,23 @@ function PotteryDetails({
   );
 }
 
-function PotteryCard({ piece, onExpand, isFlipped, onFlip, index }: PotteryCardProps) {
+interface PotteryCardProps {
+  piece: Piece;
+  adminMode: boolean;
+  onExpand: () => void;
+  isFlipped: boolean;
+  onFlip: () => void;
+  index: number;
+}
+
+function PotteryCard({
+  piece,
+  adminMode,
+  onExpand,
+  isFlipped,
+  onFlip,
+  index,
+}: PotteryCardProps) {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -217,35 +229,44 @@ function PotteryCard({ piece, onExpand, isFlipped, onFlip, index }: PotteryCardP
           )}
           onClick={handleCardClick}
         >
-        {/* Front side */}
-        <div className="absolute h-full w-full overflow-hidden rounded-xl [backface-visibility:hidden]">
-          <img
-            ref={imgRef}
-            src={isVisible ? piece.imageLinks[0] : undefined}
-            alt="Pottery"
-            className={cn(
-              "h-full w-full object-cover transition-opacity duration-700",
-              isImageLoaded ? "opacity-100" : "opacity-0",
-            )}
-            onLoad={() => setIsImageLoaded(true)}
-          />
+          {/* Front side */}
+          <div className="absolute h-full w-full overflow-hidden rounded-xl [backface-visibility:hidden]">
+            <img
+              ref={imgRef}
+              src={isVisible ? piece.imageLinks[0] : undefined}
+              alt="Pottery"
+              className={cn(
+                "h-full w-full object-cover transition-opacity duration-700",
+                isImageLoaded ? "opacity-100" : "opacity-0",
+              )}
+              onLoad={() => setIsImageLoaded(true)}
+            />
 
-          {/* Desktop hover overlay */}
-          <div
-            className={cn(
-              "absolute inset-0 hidden flex-col items-center justify-center gap-4 bg-black/65 p-6 opacity-0 backdrop-blur-sm transition-opacity duration-200 md:flex",
-              isImageLoaded && "group-hover:opacity-100",
-            )}
-          >
-            <PotteryDetails piece={piece} handleExpand={handleExpand} />
+            {/* Desktop hover overlay */}
+            <div
+              className={cn(
+                "absolute inset-0 hidden flex-col items-center justify-center gap-4 bg-black/65 p-6 opacity-0 backdrop-blur-sm transition-opacity duration-200 md:flex",
+                isImageLoaded && "group-hover:opacity-100",
+              )}
+            >
+              <PotteryDetails
+                piece={piece}
+                handleExpand={handleExpand}
+                adminMode={adminMode}
+              />
+            </div>
+          </div>
+
+          {/* Back side (mobile only) */}
+          <div className="absolute flex h-full w-full [transform:rotateY(180deg)] flex-col items-center justify-center gap-4 rounded-xl border-2 border-[#333] bg-[#1a1a1a] px-3 py-6 [backface-visibility:hidden] md:hidden">
+            <PotteryDetails
+              piece={piece}
+              handleExpand={handleExpand}
+              mobile
+              adminMode={adminMode}
+            />
           </div>
         </div>
-
-        {/* Back side (mobile only) */}
-        <div className="absolute flex h-full w-full [transform:rotateY(180deg)] flex-col items-center justify-center gap-4 rounded-xl border-2 border-[#333] bg-[#1a1a1a] px-3 py-6 [backface-visibility:hidden] md:hidden">
-          <PotteryDetails piece={piece} handleExpand={handleExpand} mobile />
-        </div>
-      </div>
       </div>
     </div>
   );
@@ -261,6 +282,8 @@ export function PotteryPage() {
   const [pieces, setPieces] = useState<Piece[]>([]);
   const [modalState, setModalState] = useState<ModalState | null>(null);
   const [flippedCardIndex, setFlippedCardIndex] = useState<number | null>(null);
+  const [searchParams] = useSearchParams();
+  const adminMode = searchParams.get("admin") === "true";
 
   useMetaTags({ favicon: makersMark });
 
@@ -323,12 +346,13 @@ export function PotteryPage() {
       <div className="mx-auto max-w-7xl">
         <div className="pottery-grid grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
           {pieces
-            .filter((piece) => !piece.archived)
+            .filter((piece) => !piece.archived || adminMode)
             .toReversed()
             .map((piece, index) => (
               <div key={index}>
                 <PotteryCard
                   piece={piece}
+                  adminMode={adminMode}
                   onExpand={() => openModal(piece)}
                   isFlipped={flippedCardIndex === index}
                   onFlip={() => toggleCardFlip(index)}

@@ -44,6 +44,7 @@
     "description": "Cereal bowl with gray outside and tall foot.",
     "image_links": [
       "https://storage.googleapis.com/cgme/art/pottery/cereal-bowl--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/cereal-bowl--top.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/cereal-bowl--bottom.jpg"
     ],
     "glaze": null,
@@ -51,7 +52,7 @@
       "width": 6,
       "height": 2
     },
-    "price": null,
+    "price": 25,
     "favorite": false,
     "archived": false
   },
@@ -80,7 +81,8 @@
     "image_links": [
       "https://storage.googleapis.com/cgme/art/pottery/dark-green-mug--front.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/dark-green-mug--top.jpg",
-      "https://storage.googleapis.com/cgme/art/pottery/dark-green-mug--bottom.jpg"
+      "https://storage.googleapis.com/cgme/art/pottery/dark-green-mug--bottom.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/dark-green-mug--front-2.jpg"
     ],
     "glaze": null,
     "dimensions": {
@@ -99,7 +101,8 @@
     "description": "Squat vase with greenish-red matte glaze.",
     "image_links": [
       "https://storage.googleapis.com/cgme/art/pottery/holy-metallic-vase--front.jpg",
-      "https://storage.googleapis.com/cgme/art/pottery/holy-metallic-vase--bottom.jpg"
+      "https://storage.googleapis.com/cgme/art/pottery/holy-metallic-vase--bottom.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/holy-metallic-vase--top.jpg"
     ],
     "glaze": "1x weathered bronze, 1x amber tea dust",
     "dimensions": {
@@ -116,13 +119,16 @@
     "item_code": "759f21c2",
     "date": "September 2024",
     "description": "Starry night blue vase with flared rim.",
-    "image_links": ["https://storage.googleapis.com/cgme/art/pottery/big-blue-bell-vase--front.jpg"],
+    "image_links": [
+      "https://storage.googleapis.com/cgme/art/pottery/big-blue-bell-vase--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/big-blue-bell-vase--top.jpg"
+    ],
     "glaze": null,
     "dimensions": {
       "width": 4.75,
       "height": 5.25
     },
-    "price": 40,
+    "price": 50,
     "favorite": true,
     "archived": false
   },
@@ -151,7 +157,10 @@
     "item_code": "11ab48e3",
     "date": "October 2025",
     "description": "Light blue mug with brown rim and wide base.",
-    "image_links": ["https://storage.googleapis.com/cgme/art/pottery/light-blue-brown-heavy-mug--front.jpg"],
+    "image_links": [
+      "https://storage.googleapis.com/cgme/art/pottery/light-blue-brown-heavy-mug--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/light-blue-brown-heavy-mug--top.jpg"
+    ],
     "glaze": "1x shore break, 1x caribbean",
     "dimensions": {
       "width": 4,
@@ -179,5 +188,120 @@
     "price": 20,
     "favorite": true,
     "archived": false
+  },
+  {
+    "name": "Two tall mugs",
+    "slug": "twin-mugs",
+    "item_code": "ddbe39ef",
+    "date": "December 2025",
+    "description": "Two matching mugs with a bluish-brown color.",
+    "image_links": [
+      "https://storage.googleapis.com/cgme/art/pottery/twin-mugs--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/twin-mugs--top.jpg"
+    ],
+    "glaze": "Inside: 1x sea green, 1x bone; Outside: 2x shore break, 1x caribbean",
+    "dimensions": {
+      "width": 3.25,
+      "height": 4.75
+    },
+    "price": 100,
+    "favorite": true,
+    "archived": false
+  },
+  {
+    "name": "Dented bowl",
+    "slug": "dented-bowl",
+    "item_code": "b8f8720b",
+    "date": "December 2025",
+    "description": "White, dented bowl.",
+    "image_links": [
+      "https://storage.googleapis.com/cgme/art/pottery/dented-bowl--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/dented-bowl--top.jpg"
+    ],
+    "glaze": "1x bone, 1x ketchup",
+    "dimensions": {
+      "width": 3.5,
+      "height": 3.5
+    },
+    "price": null,
+    "favorite": false,
+    "archived": true
+  },
+  {
+    "name": "Light brown cachepot",
+    "slug": "salt-bowl",
+    "item_code": "dea1124f",
+    "date": "December 2025",
+    "description": "Light brown and light green bowl.",
+    "image_links": [
+      "https://storage.googleapis.com/cgme/art/pottery/salt-bowl--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/salt-bowl--top.jpg"
+    ],
+    "glaze": "Inside: 1x sea green, 1x bone; Outside: 2x clear",
+    "dimensions": {
+      "width": 4,
+      "height": 4.25
+    },
+    "price": 40,
+    "favorite": false,
+    "archived": false
+  },
+  {
+    "name": "Dark blue bowl",
+    "slug": "dark-blue-cereal-bowl",
+    "item_code": "e5cb757b",
+    "date": "December 2025",
+    "description": "Blue ",
+    "image_links": [
+      "https://storage.googleapis.com/cgme/art/pottery/dark-blue-cereal-bowl--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/dark-blue-cereal-bowl--bottom.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/dark-blue-cereal-bowl--top.jpg"
+    ],
+    "glaze": "2x buster",
+    "dimensions": {
+      "width": 5.5,
+      "height": 2.5
+    },
+    "price": 60,
+    "favorite": true,
+    "archived": false
+  },
+  {
+    "name": "Sea foam dip bowl",
+    "slug": "sea-foam-dip-bowl",
+    "item_code": "cf0413ad",
+    "date": "December 2025",
+    "description": "Sea foam dip bowl.",
+    "image_links": [
+      "https://storage.googleapis.com/cgme/art/pottery/sea-foam-dip-bowl--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/sea-foam-dip-bowl--top.jpg"
+    ],
+    "glaze": "1x bone, 1x sea green",
+    "dimensions": {
+      "width": 4.5,
+      "height": 2
+    },
+    "price": 15,
+    "favorite": false,
+    "archived": false
+  },
+  {
+    "name": "Dark green dripping vase",
+    "slug": "dark-green-dripping-vase",
+    "item_code": "0fb5f261",
+    "date": "December 2025",
+    "description": "Small dark green dripping vase.",
+    "image_links": [
+      "https://storage.googleapis.com/cgme/art/pottery/dark-green-dripping-vase--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/dark-green-dripping-vase--top.jpg"
+    ],
+    "glaze": "2x sea green",
+    "dimensions": {
+      "width": 3.5,
+      "height": 3
+    },
+    "price": null,
+    "favorite": false,
+    "archived": true
   }
 ]
