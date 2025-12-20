@@ -126,6 +126,7 @@ function PotteryDetails({
         {!adminMode && (
           <div
             className={cn("leading-relaxed", mobile ? "text-sm" : "text-sm")}
+            title="Measurements in American inches"
           >
             <strong>Size:</strong> <span>{piece.dimensions.width}</span>
             {" W"}
