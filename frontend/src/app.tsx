@@ -29,6 +29,7 @@ import { RecipePage } from "./pages/recipe-page";
 import { RecipesPage } from "./pages/recipes-page";
 import { RunningPage } from "./pages/running-page";
 import { ScenePage } from "./pages/scene-page";
+import { StaticPage } from "./pages/static-page";
 import { SurveysPage } from "./pages/surveys-page";
 import { TiktoksPage } from "./pages/tiktoks-page";
 import { TvShowsPage } from "./pages/tv-shows-page";
@@ -82,6 +83,7 @@ function Layout() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/books" element={<BooksPage />} />
+          <Route path="/pottery" element={<PotteryPage />} />
           <Route path="/contact" element={<ContactPage />} />
 
           {/* Hidden */}
@@ -119,7 +121,7 @@ function Layout() {
           <Route path="/recipes/:slug" element={<RecipePage />} />
           <Route path="/project-logos" element={<ProjectLogosPage />} />
           <Route path="/hiking" element={<HikingPage />} />
-          <Route path="/pottery" element={<PotteryPage />} />
+          <Route path="/static" element={<StaticPage />} />
 
           {/* Hidden old */}
           <Route path="/archive" element={<ArchivePage />} />

@@ -43,6 +43,8 @@ export function HiddenPage() {
           <div className="w-4 border-1 border-black/10"></div>
 
           <PageLink to="/pottery">Pottery</PageLink>
+
+          <PageLink to="/static">Static</PageLink>
         </div>
 
         <div className="flex flex-col">
