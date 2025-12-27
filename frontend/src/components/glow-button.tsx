@@ -8,48 +8,46 @@ interface GlowButtonProps {
   glowColor?: string;
 }
 
+const HIDDEN_POSITION = "-100px";
+
 export function GlowButton({
   text,
   icon,
-  className = "",
+  className,
   glowColor = "#2b7fff",
 }: GlowButtonProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const handlePointerMove = useCallback(
     (event: React.PointerEvent<HTMLButtonElement>) => {
-      const button = buttonRef.current;
-      if (!button) return;
+      const rect = buttonRef.current?.getBoundingClientRect();
+      if (!rect) return;
 
-      const rect = button.getBoundingClientRect();
       const x = event.clientX - rect.left;
       const y = event.clientY - rect.top;
 
-      button.style.setProperty("--pointer-x", `${x}px`);
-      button.style.setProperty("--pointer-y", `${y}px`);
+      buttonRef.current?.style.setProperty("--pointer-x", `${x}px`);
+      buttonRef.current?.style.setProperty("--pointer-y", `${y}px`);
     },
     [],
   );
 
   const handlePointerLeave = useCallback(() => {
-    const button = buttonRef.current;
-    if (!button) return;
-
-    button.style.setProperty("--pointer-x", `-100px`);
-    button.style.setProperty("--pointer-y", `-100px`);
+    buttonRef.current?.style.setProperty("--pointer-x", HIDDEN_POSITION);
+    buttonRef.current?.style.setProperty("--pointer-y", HIDDEN_POSITION);
   }, []);
 
   return (
     <button
       ref={buttonRef}
-      className={`glow-button ${className}`}
+      className={className ? `glow-button ${className}` : "glow-button"}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
       style={{ "--glow-color": glowColor } as React.CSSProperties}
     >
       <div className="glow-button-glow" />
-      <span className="glow-button-text">{text}</span>
-      {icon && <span className="glow-button-icon">{icon}</span>}
+      <span className="glow-button-content">{text}</span>
+      {icon && <span className="glow-button-content">{icon}</span>}
     </button>
   );
 }

@@ -43,13 +43,7 @@
   --glow-scale: 1.5;
 }
 
-.glow-button-text {
-  position: relative;
-  z-index: 1;
-  color: #eee;
-}
-
-.glow-button-icon {
+.glow-button-content {
   position: relative;
   z-index: 1;
   display: flex;

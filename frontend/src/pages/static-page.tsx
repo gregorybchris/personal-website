@@ -10,7 +10,15 @@ import {
 import { GlowButton } from "../components/glow-button";
 import NoiseBackground from "../components/noise-background";
 
-const iconProps = { size: 20, weight: "duotone" as const };
+const ICON_PROPS = { size: 20, weight: "duotone" as const };
+
+const MENU_ITEMS = [
+  { text: "Pizza", icon: PizzaIcon },
+  { text: "Burgers", icon: HamburgerIcon },
+  { text: "Sea food", icon: FishIcon },
+  { text: "Wine", icon: WineIcon },
+  { text: "Desserts", icon: IceCreamIcon },
+];
 
 export function StaticPage() {
   return (
@@ -19,24 +27,16 @@ export function StaticPage() {
         <NoiseBackground className="absolute rounded-3xl" />
 
         <div className="relative z-10 flex h-full flex-row gap-2">
-          <div className="border-1.5 flex h-full w-[350px] flex-col items-center gap-6 rounded-2xl border border-neutral-500/40 bg-black/65 px-3 py-5">
+          <div className="flex h-full w-[350px] flex-col items-center gap-6 rounded-2xl border border-neutral-500/40 bg-black/65 px-3 py-5">
             <div className="flex flex-row items-center gap-3">
               <ForkKnifeIcon size={32} color="#2b7fff" weight="duotone" />
               <span className="text-lg text-white">Food Finder</span>
             </div>
 
             <div className="flex h-full w-full flex-col justify-center gap-1.5 px-3">
-              <GlowButton text="Pizza" icon={<PizzaIcon {...iconProps} />} />
-              <GlowButton
-                text="Burgers"
-                icon={<HamburgerIcon {...iconProps} />}
-              />
-              <GlowButton text="Sea food" icon={<FishIcon {...iconProps} />} />
-              <GlowButton text="Wine" icon={<WineIcon {...iconProps} />} />
-              <GlowButton
-                text="Desserts"
-                icon={<IceCreamIcon {...iconProps} />}
-              />
+              {MENU_ITEMS.map(({ text, icon: Icon }) => (
+                <GlowButton key={text} text={text} icon={<Icon {...ICON_PROPS} />} />
+              ))}
             </div>
           </div>
 
@@ -57,7 +57,7 @@ export function StaticPage() {
               className="mt-5"
             />
 
-            <div className="mt-auto text-center text-[10px]/4 text-white/60 uppercase select-none">
+            <div className="mt-auto text-center text-[10px]/4 uppercase text-white/60 select-none">
               We care about the environment. Check out our{" "}
               <SimpleLink text="animal friendly farming" /> policies!
             </div>
