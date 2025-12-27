@@ -38,8 +38,8 @@ export function StaticPage() {
             </div>
 
             <div className="mt-auto text-center text-[10px]/4 text-white/60 uppercase">
-              I hope you enjoyed. Come back again soon. You can{" "}
-              <SimpleLink text="click here" /> also!
+              Some fish change color very quickly. You could{" "}
+              <SimpleLink text="learn more" /> about it!
             </div>
           </div>
         </div>
@@ -52,12 +52,12 @@ type IconName = "shrimp" | "cheese" | "pizza";
 
 function SolidButton({ text, iconName }: { text: string; iconName: IconName }) {
   const iconProps = {
-    className: "fill-black transition duration-200 group-hover:fill-white",
+    className: "group-hover:fill-black transition duration-200 fill-white",
     size: 20,
     weight: "duotone" as const,
   };
   return (
-    <button className="group flex w-full cursor-pointer flex-row items-center justify-center gap-3 rounded-md bg-[#93b8ef] px-4 py-2 text-black transition duration-200 hover:bg-blue-500/85 hover:text-white active:scale-98 active:bg-blue-600/90">
+    <button className="group flex w-full cursor-pointer flex-row items-center justify-center gap-3 rounded-md bg-blue-500/85 px-4 py-2 text-white transition duration-200 hover:bg-[#d4d4d4] hover:text-black active:scale-97 active:bg-white/70">
       {match(iconName)
         .with("shrimp", () => <ShrimpIcon {...iconProps} />)
         .with("cheese", () => <CheeseIcon {...iconProps} />)
@@ -70,7 +70,7 @@ function SolidButton({ text, iconName }: { text: string; iconName: IconName }) {
 
 function SimpleLink({ text }: { text: string }) {
   return (
-    <a className="cursor-pointer text-white/60 underline underline-offset-3 transition-colors duration-500 hover:text-blue-400 active:text-white">
+    <a className="cursor-pointer whitespace-nowrap text-white/60 underline underline-offset-3 transition-colors duration-500 hover:text-blue-400 active:text-white">
       {text}
     </a>
   );
@@ -78,7 +78,7 @@ function SimpleLink({ text }: { text: string }) {
 
 function TranslucentButton({ text }: { text: string }) {
   return (
-    <div className="relative">
+    <div className="relative transition duration-200 active:scale-97">
       <div
         className="pointer-events-none absolute inset-0 rounded-xl bg-[linear-gradient(15deg,transparent,rgba(130,130,130,0.5)_50%,transparent)] p-px"
         style={{
@@ -89,7 +89,7 @@ function TranslucentButton({ text }: { text: string }) {
           WebkitMaskComposite: "xor",
         }}
       />
-      <button className="relative cursor-pointer rounded-xl bg-black/15 px-4 py-2 text-white/70 transition duration-200 hover:bg-white/7 hover:text-white active:scale-98">
+      <button className="relative cursor-pointer rounded-xl bg-black/15 px-4 py-2 text-white/70 transition duration-200 hover:bg-white/7 hover:text-white active:bg-white/10">
         {text}
       </button>
     </div>
