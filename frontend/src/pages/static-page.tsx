@@ -34,7 +34,7 @@ export function StaticPage() {
           <div className="font-geist flex h-full w-[350px] flex-col items-center gap-6 rounded-2xl border border-neutral-500/40 bg-black/65 px-3 py-5">
             <div className="flex flex-row items-center gap-3">
               <ForkKnifeIcon size={32} color="#2b7fff" weight="duotone" />
-              <span className="font-geist text-lg font-bold text-white">
+              <span className="font-sanchez text-lg font-bold text-white">
                 Food Finder
               </span>
             </div>
