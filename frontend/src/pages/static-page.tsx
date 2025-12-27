@@ -37,7 +37,7 @@ export function StaticPage() {
               <TranslucentButton text="More" />
             </div>
 
-            <div className="mt-auto text-center text-[10px]/4 text-white/60 uppercase">
+            <div className="mt-auto text-center text-[10px]/4 text-white/60 uppercase select-none">
               Some fish change color very quickly. You could{" "}
               <SimpleLink text="learn more" /> about it!
             </div>
@@ -70,7 +70,7 @@ function SolidButton({ text, iconName }: { text: string; iconName: IconName }) {
 
 function SimpleLink({ text }: { text: string }) {
   return (
-    <a className="cursor-pointer whitespace-nowrap text-white/60 underline underline-offset-3 transition-colors duration-500 hover:text-blue-400 active:text-white">
+    <a className="cursor-pointer whitespace-nowrap text-white/60 underline underline-offset-3 transition-colors duration-200 hover:text-blue-400 active:text-white">
       {text}
     </a>
   );
