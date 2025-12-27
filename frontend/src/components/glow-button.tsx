@@ -12,7 +12,7 @@ export function GlowButton({
   text,
   icon,
   className = "",
-  glowColor = "#3b82f6",
+  glowColor = "#2b7fff",
 }: GlowButtonProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
 

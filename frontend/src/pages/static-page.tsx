@@ -25,7 +25,7 @@ export function StaticPage() {
               <span className="text-lg text-white">Food Finder</span>
             </div>
 
-            <div className="flex h-full w-full flex-col justify-center gap-1.5 p-1">
+            <div className="flex h-full w-full flex-col justify-center gap-1.5 px-3">
               <GlowButton text="Pizza" icon={<PizzaIcon {...iconProps} />} />
               <GlowButton
                 text="Burgers"
