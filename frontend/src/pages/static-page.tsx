@@ -1,11 +1,16 @@
 import {
-  ChatsCircleIcon,
-  CheeseIcon,
+  FishIcon,
+  ForkKnifeIcon,
+  GlobeHemisphereWestIcon,
+  HamburgerIcon,
+  IceCreamIcon,
   PizzaIcon,
-  ShrimpIcon,
+  WineIcon,
 } from "@phosphor-icons/react";
-import { match } from "ts-pattern";
+import { GlowButton } from "../components/glow-button";
 import NoiseBackground from "../components/noise-background";
+
+const iconProps = { size: 20, weight: "duotone" as const };
 
 export function StaticPage() {
   return (
@@ -16,55 +21,50 @@ export function StaticPage() {
         <div className="relative z-10 flex h-full flex-row gap-2">
           <div className="border-1.5 flex h-full w-[350px] flex-col items-center gap-6 rounded-2xl border border-neutral-500/40 bg-black/65 px-3 py-5">
             <div className="flex flex-row items-center gap-3">
-              <ChatsCircleIcon size={32} color="#2b7fff" weight="duotone" />
-              <span className="text-lg text-white">Big Title</span>
+              <ForkKnifeIcon size={32} color="#2b7fff" weight="duotone" />
+              <span className="text-lg text-white">Food Finder</span>
             </div>
 
             <div className="flex h-full w-full flex-col justify-center gap-1.5 p-1">
-              <SolidButton text="Shrimp" iconName="shrimp" />
-              <SolidButton text="Cheese" iconName="cheese" />
-              <SolidButton text="Pizza" iconName="pizza" />
+              <GlowButton text="Pizza" icon={<PizzaIcon {...iconProps} />} />
+              <GlowButton
+                text="Burgers"
+                icon={<HamburgerIcon {...iconProps} />}
+              />
+              <GlowButton text="Sea food" icon={<FishIcon {...iconProps} />} />
+              <GlowButton text="Wine" icon={<WineIcon {...iconProps} />} />
+              <GlowButton
+                text="Desserts"
+                icon={<IceCreamIcon {...iconProps} />}
+              />
             </div>
           </div>
 
           <div className="flex h-full w-full flex-col items-center gap-4 px-4 py-8">
-            <div className="text-xl font-bold text-white">
-              Welcome <span className="text-white/70">to a</span> place
+            <div className="text-xl font-bold text-white/70">
+              Are you ready to <span className="text-white">explore</span>?
             </div>
 
             <div className="flex flex-row gap-1.5">
-              <TranslucentButton text="Settings" />
-              <TranslucentButton text="More" />
+              <TranslucentButton text="Yes" />
+              <TranslucentButton text="No" />
             </div>
 
+            <GlobeHemisphereWestIcon
+              size={180}
+              color="#2b7fff"
+              weight="duotone"
+              className="mt-5"
+            />
+
             <div className="mt-auto text-center text-[10px]/4 text-white/60 uppercase select-none">
-              Some fish change color very quickly. You could{" "}
-              <SimpleLink text="learn more" /> about it!
+              We care about the environment. Check out our{" "}
+              <SimpleLink text="animal friendly farming" /> policies!
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
-}
-
-type IconName = "shrimp" | "cheese" | "pizza";
-
-function SolidButton({ text, iconName }: { text: string; iconName: IconName }) {
-  const iconProps = {
-    className: "group-hover:fill-black transition duration-200 fill-white",
-    size: 20,
-    weight: "duotone" as const,
-  };
-  return (
-    <button className="group flex w-full cursor-pointer flex-row items-center justify-center gap-3 rounded-md bg-blue-500/85 px-4 py-2 text-white transition duration-200 hover:bg-[#d4d4d4] hover:text-black active:scale-97 active:bg-white/70">
-      {match(iconName)
-        .with("shrimp", () => <ShrimpIcon {...iconProps} />)
-        .with("cheese", () => <CheeseIcon {...iconProps} />)
-        .with("pizza", () => <PizzaIcon {...iconProps} />)
-        .exhaustive()}
-      <span>{text}</span>
-    </button>
   );
 }
 

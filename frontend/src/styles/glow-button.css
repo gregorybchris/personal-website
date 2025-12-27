@@ -1,0 +1,76 @@
+.glow-button {
+  --pointer-x: -100px;
+  --pointer-y: -100px;
+  --glow-color: #3b82f6;
+
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 1rem;
+  font: inherit;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.glow-button:active {
+  transform: scale(0.97);
+}
+
+.glow-button-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%) translate(var(--pointer-x), var(--pointer-y))
+    scale(1);
+  opacity: 0.5;
+  background: var(--glow-color);
+  filter: blur(16px);
+  will-change: transform;
+  transition: transform 200ms ease-out;
+}
+
+.glow-button:active .glow-button-glow {
+  transform: translate(-50%, -50%) translate(var(--pointer-x), var(--pointer-y))
+    scale(1.5);
+}
+
+.glow-button-text {
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
+.glow-button-icon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  color: white;
+}
+
+/* Border glow effect */
+.glow-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid transparent;
+  pointer-events: none;
+  z-index: 2;
+  backdrop-filter: saturate(4) brightness(2.5) contrast(2);
+  mask:
+    linear-gradient(#fff 0 0) border-box,
+    linear-gradient(#fff 0 0) padding-box;
+  mask-composite: exclude;
+  clip-path: inset(0 round 6px);
+}
