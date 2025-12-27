@@ -16,7 +16,6 @@
   font: inherit;
   cursor: pointer;
   overflow: hidden;
-  transition: transform 0.2s;
 }
 
 .glow-button:active {
@@ -26,19 +25,18 @@
 .glow-button-glow {
   --glow-scale: 1;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: var(--pointer-y);
+  left: var(--pointer-x);
   width: 100px;
   height: 100px;
   border-radius: 50%;
   pointer-events: none;
-  transform: translate(-50%, -50%) translate(var(--pointer-x), var(--pointer-y));
-  scale: var(--glow-scale);
+  transform: translate(-50%, -50%) scale(var(--glow-scale));
   opacity: 0.5;
   background: var(--glow-color);
   filter: blur(16px);
-  will-change: scale;
-  transition: scale 200ms ease-out;
+  will-change: transform;
+  transition: transform 200ms ease-out;
 }
 
 .glow-button:active .glow-button-glow {
