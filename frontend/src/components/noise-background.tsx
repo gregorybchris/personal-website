@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { cn } from "../utilities/style-utilities";
 
 interface NoiseBackgroundProps {
@@ -25,7 +25,7 @@ const parseHex = (hex: string): [number, number, number] => {
   return [(val >> 16) & 255, (val >> 8) & 255, val & 255];
 };
 
-const NoiseBackground: React.FC<NoiseBackgroundProps> = ({
+export default function NoiseBackground({
   opacity = 0.9,
   fps = 10,
   scale = 1.2,
@@ -33,7 +33,7 @@ const NoiseBackground: React.FC<NoiseBackgroundProps> = ({
   colorDark = "#181B1E",
   colorLight = "#222429",
   className,
-}) => {
+}: NoiseBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -97,6 +97,4 @@ const NoiseBackground: React.FC<NoiseBackgroundProps> = ({
       }}
     />
   );
-};
-
-export default NoiseBackground;
+}

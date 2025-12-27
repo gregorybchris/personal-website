@@ -4,6 +4,7 @@ import {
   PizzaIcon,
   ShrimpIcon,
 } from "@phosphor-icons/react";
+import { match } from "ts-pattern";
 import NoiseBackground from "../components/noise-background";
 
 export function StaticPage() {
@@ -13,9 +14,9 @@ export function StaticPage() {
         <NoiseBackground className="absolute rounded-3xl" />
 
         <div className="relative z-10 flex h-full flex-row gap-2">
-          <div className="flex h-full w-[350px] flex-col items-center gap-6 rounded-2xl bg-black/65 px-3 py-5">
+          <div className="border-1.5 flex h-full w-[350px] flex-col items-center gap-6 rounded-2xl border border-neutral-500/40 bg-black/65 px-3 py-5">
             <div className="flex flex-row items-center gap-3">
-              <ChatsCircleIcon size={32} color="#2b7fff" weight="bold" />
+              <ChatsCircleIcon size={32} color="#2b7fff" weight="duotone" />
               <span className="text-lg text-white">Big Title</span>
             </div>
 
@@ -38,10 +39,7 @@ export function StaticPage() {
 
             <div className="mt-auto text-center text-[10px]/4 text-white/60 uppercase">
               I hope you enjoyed. Come back again soon. You can{" "}
-              <a className="cursor-pointer text-white/30 transition-colors duration-500 hover:text-white/50">
-                click here
-              </a>{" "}
-              also!
+              <SimpleLink text="click here" /> also!
             </div>
           </div>
         </div>
@@ -53,41 +51,47 @@ export function StaticPage() {
 type IconName = "shrimp" | "cheese" | "pizza";
 
 function SolidButton({ text, iconName }: { text: string; iconName: IconName }) {
+  const iconProps = {
+    className: "fill-black transition duration-200 group-hover:fill-white",
+    size: 20,
+    weight: "duotone" as const,
+  };
   return (
     <button className="group flex w-full cursor-pointer flex-row items-center justify-center gap-3 rounded-md bg-[#93b8ef] px-4 py-2 text-black transition duration-200 hover:bg-blue-500/85 hover:text-white active:scale-98 active:bg-blue-600/90">
-      {iconName === "shrimp" && (
-        <ShrimpIcon
-          size={20}
-          color="black"
-          weight="duotone"
-          className="transition duration-200 group-hover:fill-white"
-        />
-      )}
-      {iconName === "cheese" && (
-        <CheeseIcon
-          size={20}
-          color="black"
-          weight="duotone"
-          className="transition duration-200 group-hover:fill-white"
-        />
-      )}
-      {iconName === "pizza" && (
-        <PizzaIcon
-          size={20}
-          color="black"
-          weight="duotone"
-          className="transition duration-200 group-hover:fill-white"
-        />
-      )}
+      {match(iconName)
+        .with("shrimp", () => <ShrimpIcon {...iconProps} />)
+        .with("cheese", () => <CheeseIcon {...iconProps} />)
+        .with("pizza", () => <PizzaIcon {...iconProps} />)
+        .exhaustive()}
       <span>{text}</span>
     </button>
   );
 }
 
+function SimpleLink({ text }: { text: string }) {
+  return (
+    <a className="cursor-pointer text-white/60 underline underline-offset-3 transition-colors duration-500 hover:text-blue-400 active:text-white">
+      {text}
+    </a>
+  );
+}
+
 function TranslucentButton({ text }: { text: string }) {
   return (
-    <button className="flex cursor-pointer flex-col items-center self-start rounded-xl border border-white/10 bg-black/15 px-4 py-2 text-white/70 transition duration-200 hover:border-white/15 hover:bg-white/7 hover:text-white active:scale-98 active:bg-white/10">
-      {text}
-    </button>
+    <div className="relative">
+      <div
+        className="pointer-events-none absolute inset-0 rounded-xl bg-[linear-gradient(15deg,transparent,rgba(130,130,130,0.5)_50%,transparent)] p-px"
+        style={{
+          mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+          WebkitMask:
+            "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+          maskComposite: "exclude",
+          WebkitMaskComposite: "xor",
+        }}
+      />
+      <button className="relative cursor-pointer rounded-xl bg-black/15 px-4 py-2 text-white/70 transition duration-200 hover:bg-white/7 hover:text-white active:scale-98">
+        {text}
+      </button>
+    </div>
   );
 }
