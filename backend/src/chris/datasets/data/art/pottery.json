@@ -11,6 +11,7 @@
       "https://storage.googleapis.com/cgme/art/pottery/first-light-blue-mug--top.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/first-light-blue-mug--bottom.jpg"
     ],
+    "clay_body": "Yu Tang Reclaim",
     "glaze": null,
     "dimensions": {
       "width": 3,
@@ -27,6 +28,7 @@
     "date": "August 2024",
     "description": "Little yellow vase with red and blue spots and flared rim.",
     "image_links": ["https://storage.googleapis.com/cgme/art/pottery/yellow-peacock-bowl--front.jpg"],
+    "clay_body": "Yu Tang Reclaim",
     "glaze": null,
     "dimensions": {
       "width": 3,
@@ -47,6 +49,7 @@
       "https://storage.googleapis.com/cgme/art/pottery/cereal-bowl--top.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/cereal-bowl--bottom.jpg"
     ],
+    "clay_body": "Yu Tang Reclaim",
     "glaze": null,
     "dimensions": {
       "width": 6,
@@ -63,6 +66,7 @@
     "date": "August 2024",
     "description": "Little round blue vase with hole on top.",
     "image_links": ["https://storage.googleapis.com/cgme/art/pottery/blue-round-orb-vase--front.jpg"],
+    "clay_body": "Yu Tang Reclaim",
     "glaze": "1x opal sky, 1x stormy night",
     "dimensions": {
       "width": 4,
@@ -84,6 +88,7 @@
       "https://storage.googleapis.com/cgme/art/pottery/dark-green-mug--bottom.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/dark-green-mug--front-2.jpg"
     ],
+    "clay_body": "Yu Tang Reclaim",
     "glaze": null,
     "dimensions": {
       "width": 3.5,
@@ -104,6 +109,7 @@
       "https://storage.googleapis.com/cgme/art/pottery/holy-metallic-vase--bottom.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/holy-metallic-vase--top.jpg"
     ],
+    "clay_body": "Yu Tang Reclaim",
     "glaze": "1x weathered bronze, 1x amber tea dust",
     "dimensions": {
       "width": 3.5,
@@ -123,6 +129,7 @@
       "https://storage.googleapis.com/cgme/art/pottery/big-blue-bell-vase--front.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/big-blue-bell-vase--top.jpg"
     ],
+    "clay_body": "Yu Tang Reclaim",
     "glaze": null,
     "dimensions": {
       "width": 4.75,
@@ -142,6 +149,7 @@
       "https://storage.googleapis.com/cgme/art/pottery/red-bowling-pin-vase--front.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/red-bowling-pin-vase--top.jpg"
     ],
+    "clay_body": "Yu Tang Reclaim",
     "glaze": "1x majolica, 1x amber tea dust",
     "dimensions": {
       "width": 4.25,
@@ -161,6 +169,7 @@
       "https://storage.googleapis.com/cgme/art/pottery/light-blue-brown-heavy-mug--front.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/light-blue-brown-heavy-mug--top.jpg"
     ],
+    "clay_body": "Walnut",
     "glaze": "1x shore break, 1x caribbean",
     "dimensions": {
       "width": 4,
@@ -180,6 +189,7 @@
       "https://storage.googleapis.com/cgme/art/pottery/white-bone-vase--front.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/white-bone-vase--top.jpg"
     ],
+    "clay_body": "Walnut",
     "glaze": "Inside: 1x sea green, 1x bone; Outside: 3x clear",
     "dimensions": {
       "width": 3.5,
@@ -199,6 +209,7 @@
       "https://storage.googleapis.com/cgme/art/pottery/twin-mugs--front.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/twin-mugs--top.jpg"
     ],
+    "clay_body": "Walnut",
     "glaze": "Inside: 1x sea green, 1x bone; Outside: 2x shore break, 1x caribbean",
     "dimensions": {
       "width": 3.25,
@@ -218,6 +229,7 @@
       "https://storage.googleapis.com/cgme/art/pottery/dented-bowl--front.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/dented-bowl--top.jpg"
     ],
+    "clay_body": "Walnut",
     "glaze": "1x bone, 1x ketchup",
     "dimensions": {
       "width": 3.5,
@@ -237,6 +249,7 @@
       "https://storage.googleapis.com/cgme/art/pottery/salt-bowl--front.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/salt-bowl--top.jpg"
     ],
+    "clay_body": "Walnut",
     "glaze": "Inside: 1x sea green, 1x bone; Outside: 2x clear",
     "dimensions": {
       "width": 4,
@@ -257,6 +270,7 @@
       "https://storage.googleapis.com/cgme/art/pottery/dark-blue-cereal-bowl--bottom.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/dark-blue-cereal-bowl--top.jpg"
     ],
+    "clay_body": "Walnut",
     "glaze": "2x buster",
     "dimensions": {
       "width": 5.5,
@@ -276,6 +290,7 @@
       "https://storage.googleapis.com/cgme/art/pottery/sea-foam-dip-bowl--front.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/sea-foam-dip-bowl--top.jpg"
     ],
+    "clay_body": "Walnut",
     "glaze": "1x bone, 1x sea green",
     "dimensions": {
       "width": 4.5,
@@ -295,6 +310,7 @@
       "https://storage.googleapis.com/cgme/art/pottery/dark-green-dripping-vase--front.jpg",
       "https://storage.googleapis.com/cgme/art/pottery/dark-green-dripping-vase--top.jpg"
     ],
+    "clay_body": "Walnut",
     "glaze": "2x sea green",
     "dimensions": {
       "width": 3.5,

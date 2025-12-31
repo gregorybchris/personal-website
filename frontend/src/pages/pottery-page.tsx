@@ -20,6 +20,7 @@ interface Piece {
   date: string;
   description: string;
   imageLinks: string[];
+  clayBody: string | null;
   glaze: string | null;
   dimensions: {
     width: number;
@@ -117,11 +118,18 @@ function PotteryDetails({
           </div>
         )}
         {adminMode && (
-          <div
-            className={cn("leading-relaxed", mobile ? "text-sm" : "text-sm")}
-          >
-            <strong>Glaze:</strong> {piece.glaze || "unknown"}
-          </div>
+          <>
+            <div
+              className={cn("leading-relaxed", mobile ? "text-sm" : "text-sm")}
+            >
+              <strong>Glaze:</strong> {piece.glaze || "unknown"}
+            </div>
+            <div
+              className={cn("leading-relaxed", mobile ? "text-sm" : "text-sm")}
+            >
+              <strong>Clay Body:</strong> {piece.clayBody || "unknown"}
+            </div>
+          </>
         )}
         {!adminMode && (
           <div

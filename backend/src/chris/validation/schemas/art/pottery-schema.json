@@ -17,6 +17,7 @@
           "type": "array",
           "elem": "#link"
         },
+        "clay_body": ["null", "string"],
         "glaze": ["null", "string"],
         "dimensions": {
           "type": "object",
