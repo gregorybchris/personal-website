@@ -122,12 +122,12 @@ function PotteryDetails({
             <div
               className={cn("leading-relaxed", mobile ? "text-sm" : "text-sm")}
             >
-              <strong>Glaze:</strong> {piece.glaze || "unknown"}
+              <strong>Clay Body:</strong> {piece.clayBody || "unknown"}
             </div>
             <div
               className={cn("leading-relaxed", mobile ? "text-sm" : "text-sm")}
             >
-              <strong>Clay Body:</strong> {piece.clayBody || "unknown"}
+              <strong>Glaze:</strong> {piece.glaze || "unknown"}
             </div>
           </>
         )}
