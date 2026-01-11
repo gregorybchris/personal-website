@@ -109,7 +109,7 @@ export function HikingPage() {
                     <LazyImage
                       src={route.imageLinks[0]}
                       alt={route.name}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full"
                       onClick={() => {}}
                     />
                     <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-200 group-hover/image:opacity-100">
@@ -229,7 +229,8 @@ interface LazyImageProps {
 
 function LazyImage({ src, alt, className, onClick }: LazyImageProps) {
   const [isVisible, setIsVisible] = useState(false);
-  const imgRef = useRef<HTMLImageElement>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -244,20 +245,30 @@ function LazyImage({ src, alt, className, onClick }: LazyImageProps) {
       { rootMargin: "100px" },
     );
 
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
     }
 
     return () => observer.disconnect();
   }, []);
 
   return (
-    <img
-      ref={imgRef}
-      src={isVisible ? src : undefined}
-      alt={alt}
-      className={cn("hiking-image", className)}
-      onClick={onClick}
-    />
+    <div ref={containerRef} className={cn("relative", className)}>
+      {!isLoaded && (
+        <div className="absolute inset-0 animate-pulse bg-neutral-200" />
+      )}
+      {isVisible && (
+        <img
+          src={src}
+          alt={alt}
+          className={cn(
+            "hiking-image h-full w-full object-cover transition-opacity duration-200",
+            isLoaded ? "opacity-100" : "opacity-0",
+          )}
+          onClick={onClick}
+          onLoad={() => setIsLoaded(true)}
+        />
+      )}
+    </div>
   );
 }
