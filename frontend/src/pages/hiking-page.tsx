@@ -127,7 +127,7 @@ export function HikingPage() {
                       {route.name}
                     </div>
 
-                    <div className="flex flex-row gap-3">
+                    <div className="flex flex-none flex-row gap-3">
                       {route.dates.map((date) => (
                         <div className="text-sm text-black/75">
                           {new Date(date).toLocaleDateString("en-US", {
