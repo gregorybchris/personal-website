@@ -1808,5 +1808,55 @@
       "https://storage.googleapis.com/cgme/hiking/nub-peak-loop--05.jpg",
       "https://storage.googleapis.com/cgme/hiking/nub-peak-loop--06.jpg"
     ]
+  },
+  {
+    "route_id": "dc8c3b43-14fd-4f94-8478-7470611013f8",
+    "name": "Golden Canyon and Gower Gulch Loop via Zabriskie Point",
+    "slug": "golden-canyon",
+    "dates": ["2026-01-09"],
+    "miles": 6,
+    "elevation": 1200,
+    "area": "Death Valley National Park",
+    "region": "California",
+    "travel_time": null,
+    "notes": null,
+    "coordinates": {
+      "latitude": 36.420796,
+      "longitude": -116.810159,
+      "formatted": "36/25/14.9/N 116/48/36.6/W"
+    },
+    "stars": 5,
+    "archived": false,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/golden-canyon--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/golden-canyon--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/golden-canyon--03.jpg",
+      "https://storage.googleapis.com/cgme/hiking/golden-canyon--04.jpg",
+      "https://storage.googleapis.com/cgme/hiking/golden-canyon--05.jpg"
+    ]
+  },
+  {
+    "route_id": "cfa9628a-71db-431d-afce-5460fd74cabb",
+    "name": "Mount Perry via Dante's Ridge",
+    "slug": "mount-perry",
+    "dates": ["2026-01-10"],
+    "miles": 9.5,
+    "elevation": 2700,
+    "area": "Death Valley National Park",
+    "region": "California",
+    "travel_time": null,
+    "notes": null,
+    "coordinates": {
+      "latitude": 36.221773,
+      "longitude": -116.726195,
+      "formatted": "36/13/18.4/N 116/43/34.3/W"
+    },
+    "stars": 5,
+    "archived": false,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/mount-perry--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/mount-perry--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/mount-perry--03.jpg"
+    ]
   }
 ]
