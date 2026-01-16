@@ -304,5 +304,22 @@
       "book": "https://storage.googleapis.com/cgme/books/book/i-am-a-strange-loop.jpg",
       "square": "https://storage.googleapis.com/cgme/books/square/i-am-a-strange-loop.jpg"
     }
+  },
+  {
+    "isbn": "978-0465097609",
+    "title": "The Book of Why",
+    "subtitle": "The New Science of Cause and Effect",
+    "author": "Judea Pearl & Dana Mackenzie",
+    "year_published": 2018,
+    "pages": 432,
+    "year_read": 2021,
+    "general_appeal": 9,
+    "archived": false,
+    "tags": ["philosophy", "science"],
+    "goodreads_link": "https://www.goodreads.com/book/show/36204378-the-book-of-why",
+    "image_links": {
+      "book": "https://storage.googleapis.com/cgme/books/book/the-book-of-why.jpg",
+      "square": "https://storage.googleapis.com/cgme/books/square/the-book-of-why.jpg"
+    }
   }
 ]
