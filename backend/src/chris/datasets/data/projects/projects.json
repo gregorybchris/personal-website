@@ -1944,5 +1944,32 @@
     "image_links": ["https://storage.googleapis.com/cgme/projects/images/zhed--benchmark.gif"],
     "primary_language": "Python",
     "archived": false
+  },
+  {
+    "project_id": "ae9304f7-ef4d-4b71-9f0f-967f87cbbe15",
+    "name": "GlazeTown",
+    "slug": "glaze-town",
+    "date": "2026-01-17",
+    "rating": 5,
+    "project_type": "tool",
+    "controls": null,
+    "short_description": "Website for potters and ceramicists to discover glaze combinations.",
+    "description": "GlazeTown is a website that lets potters and ceramicists discover new glaze combinations and share the glazes they've used on past pieces.",
+    "remarks": null,
+    "tags": ["glaze", "pottery", "ceramics", "art", "color", "share", "discover"],
+    "tools": ["Firebase", "Vite", "React", "Tailwind CSS", "Framer Motion", "Recharts", "Embla Carousel"],
+    "source_link": null,
+    "download_link": null,
+    "web_link": null,
+    "original_link": null,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/projects/images/glaze-town--01.png",
+      "https://storage.googleapis.com/cgme/projects/images/glaze-town--02.png",
+      "https://storage.googleapis.com/cgme/projects/images/glaze-town--03.png",
+      "https://storage.googleapis.com/cgme/projects/images/glaze-town--04.png",
+      "https://storage.googleapis.com/cgme/projects/images/glaze-town--05.png"
+    ],
+    "primary_language": "TypeScript",
+    "archived": false
   }
 ]
