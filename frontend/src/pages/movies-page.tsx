@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { RatingRadar } from "../components/rating-radar";
 import { Tag } from "../components/tag";
-import "../styles/radar.css";
 import { GET, makeQuery } from "../utilities/request-utilities";
 
 export interface Movie {

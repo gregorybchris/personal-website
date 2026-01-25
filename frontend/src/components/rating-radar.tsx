@@ -1,6 +1,4 @@
-import "../styles/radar.css";
-
-import Radar from "react-d3-radar";
+import { ResponsiveRadar } from "@nivo/radar";
 
 interface RatingRadarProps {
   scores: Map<string, number>;
@@ -10,30 +8,37 @@ export function RatingRadar({ scores }: RatingRadarProps) {
   const toTitleCase = (s: string) => {
     return s.charAt(0).toUpperCase() + s.slice(1);
   };
-  const variables = Array.from(scores.keys()).map((key) => {
-    return { key: key, label: toTitleCase(key) };
-  });
-  const values = Object.fromEntries(scores);
+
+  const data = Array.from(scores.entries()).map(([key, value]) => ({
+    category: toTitleCase(key),
+    score: value,
+  }));
 
   return (
-    <div className="radar-chart">
-      <Radar
-        width={220}
-        height={170}
-        padding={18}
-        domainMax={10}
-        style={{
-          numRings: 5,
-        }}
-        data={{
-          variables: variables,
-          sets: [
-            {
-              key: "me",
-              label: "My Scores",
-              values: values,
-            },
-          ],
+    <div className="h-[200px] w-[260px]">
+      <ResponsiveRadar
+        data={data}
+        keys={["score"]}
+        indexBy="category"
+        maxValue={10}
+        margin={{ top: 20, right: 70, bottom: 20, left: 70 }}
+        gridLabelOffset={6}
+        gridLevels={5}
+        gridShape="circular"
+        dotSize={6}
+        dotColor={{ from: "color" }}
+        dotBorderWidth={1}
+        dotBorderColor={{ from: "color", modifiers: [["darker", 0.3]] }}
+        colors={["#6283c0"]}
+        fillOpacity={0.25}
+        borderWidth={2}
+        borderColor={{ from: "color" }}
+        enableDotLabel={false}
+        theme={{
+          text: {
+            fontFamily: "Raleway",
+            fontSize: 11,
+          },
         }}
       />
     </div>

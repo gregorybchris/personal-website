@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { RatingRadar } from "../components/rating-radar";
 import { SimpleLink } from "../components/simple-link";
-import "../styles/radar.css";
 import { GET, makeQuery } from "../utilities/request-utilities";
 
 export interface Podcast {
@@ -52,7 +51,9 @@ export function PodcastsPage() {
                 </SimpleLink>
 
                 <div className="py-4">
-                  <RatingRadar scores={new Map(Object.entries(podcast.scores))} />
+                  <RatingRadar
+                    scores={new Map(Object.entries(podcast.scores))}
+                  />
                 </div>
               </div>
             ))}

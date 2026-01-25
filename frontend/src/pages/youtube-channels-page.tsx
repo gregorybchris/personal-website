@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { RatingRadar } from "../components/rating-radar";
 import { SimpleLink } from "../components/simple-link";
-import "../styles/radar.css";
 import { GET, makeQuery } from "../utilities/request-utilities";
 
 export interface YouTubeChannel {
