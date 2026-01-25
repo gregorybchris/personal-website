@@ -1,4 +1,6 @@
 import {
+  CaretLeftIcon,
+  CaretRightIcon,
   CoffeeIcon,
   DownloadSimpleIcon,
   GithubLogoIcon,
@@ -17,6 +19,8 @@ interface ProjectModalProps {
   open: boolean;
   onDownload: (project: Project) => void;
   onClose: () => void;
+  onPrevious?: () => void;
+  onNext?: () => void;
 }
 
 export function ProjectModal({
@@ -24,6 +28,8 @@ export function ProjectModal({
   open,
   onClose,
   onDownload,
+  onPrevious,
+  onNext,
 }: ProjectModalProps) {
   function onModalOpenChange(open: boolean) {
     if (!open) {
@@ -35,9 +41,31 @@ export function ProjectModal({
     <Dialog.Root open={open} onOpenChange={onModalOpenChange}>
       <Dialog.Portal>
         <Dialog.Overlay className="data-[state=open]:animate-overlayShow fixed inset-0 bg-black/60" />
-        <Dialog.Content className="data-[state=open]:animate-contentShow bg-parchment fixed top-[50%] left-[50%] h-[90vh] max-h-[90vh] w-[90vw] max-w-[90vw] translate-x-[-50%] translate-y-[-50%] overflow-auto rounded-lg shadow-lg md:w-[60vw]">
-          <div className="font-raleway text-md flex flex-col">
-            <div className="bg-parchment sticky top-0 z-10 flex flex-col gap-3 px-10 pt-10 pb-5">
+
+        <Dialog.Content className="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] h-[90vh] max-h-[90vh] w-[90vw] max-w-[90vw] translate-x-[-50%] translate-y-[-50%] overflow-visible md:w-[60vw]">
+          {onPrevious && (
+            <button
+              onClick={onPrevious}
+              className="fixed left-[calc(-20vw+1rem)] top-1/2 hidden -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/90 p-3 shadow-lg transition-all hover:scale-110 hover:bg-white md:flex"
+              aria-label="Previous project"
+            >
+              <CaretLeftIcon size={28} weight="bold" color="#444" />
+            </button>
+          )}
+
+          {onNext && (
+            <button
+              onClick={onNext}
+              className="fixed right-[calc(-20vw+1rem)] top-1/2 hidden -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/90 p-3 shadow-lg transition-all hover:scale-110 hover:bg-white md:flex"
+              aria-label="Next project"
+            >
+              <CaretRightIcon size={28} weight="bold" color="#444" />
+            </button>
+          )}
+
+          <div className="bg-parchment flex h-full flex-col overflow-auto rounded-lg shadow-lg">
+            <div className="font-raleway text-md flex flex-col">
+              <div className="bg-parchment sticky top-0 z-10 flex flex-col gap-3 px-10 pt-10 pb-5">
               <Dialog.Title className="flex flex-col gap-0.5">
                 <div className="font-sanchez text-2xl text-black/75">
                   {project.name}
@@ -101,6 +129,7 @@ export function ProjectModal({
                 </>
               )}
             </div>
+          </div>
           </div>
         </Dialog.Content>
       </Dialog.Portal>

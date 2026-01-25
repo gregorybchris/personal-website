@@ -78,11 +78,13 @@ export function ProjectsPage() {
     POST(makeQuery(`projects/download/${project.projectId}`));
   }
 
-  function onSelectProject(project: Project | null) {
-    if (project === null) {
-      navigate("/projects");
-    } else {
-      navigate(`/projects/${project.slug}`);
+  function onSelectProject(project: Project | null, skipNavigation = false) {
+    if (!skipNavigation) {
+      if (project === null) {
+        navigate("/projects");
+      } else {
+        navigate(`/projects/${project.slug}`);
+      }
     }
     setCurrentProject(project);
   }
@@ -132,6 +134,22 @@ export function ProjectsPage() {
           open={!!currentProject}
           onClose={() => onSelectProject(null)}
           onDownload={onDownload}
+          onPrevious={
+            projects.indexOf(currentProject) < projects.length - 1
+              ? () =>
+                  onSelectProject(
+                    projects[projects.indexOf(currentProject) + 1]
+                  )
+              : undefined
+          }
+          onNext={
+            projects.indexOf(currentProject) > 0
+              ? () =>
+                  onSelectProject(
+                    projects[projects.indexOf(currentProject) - 1]
+                  )
+              : undefined
+          }
         />
       )}
       {currentProject?.downloadLink && (
