@@ -18,8 +18,8 @@ export function RatingRadar({ scores }: RatingRadarProps) {
   return (
     <div className="radar-chart">
       <Radar
-        width={200}
-        height={150}
+        width={220}
+        height={170}
         padding={18}
         domainMax={10}
         style={{

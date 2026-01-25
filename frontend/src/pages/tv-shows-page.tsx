@@ -55,22 +55,28 @@ export function TvShowsPage() {
               )
               .map((show) => (
                 <div
-                  className="flex w-[260px] flex-col items-center gap-1"
+                  className="flex w-[260px] flex-col items-center gap-2"
                   key={show.name}
                 >
-                  <Link
-                    to={show.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {show.posterUrl && (
-                      <img
-                        src={show.posterUrl}
-                        alt={show.name}
-                        className="w-full rounded-lg border-4 border-transparent transition-all hover:border-sky/60 hover:shadow-md"
-                      />
-                    )}
-                  </Link>
+                  <div className="flex flex-col items-center overflow-hidden rounded-xl border border-black/10 bg-white/50 shadow-sm">
+                    <Link
+                      to={show.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {show.posterUrl && (
+                        <img
+                          src={show.posterUrl}
+                          alt={show.name}
+                          className="w-full transition-all hover:opacity-90"
+                        />
+                      )}
+                    </Link>
+
+                    <div className="py-4">
+                      <RatingRadar scores={new Map(Object.entries(show.scores))} />
+                    </div>
+                  </div>
 
                   <div className="flex flex-row justify-center gap-3">
                     {show.genres.map((genre) => (
@@ -82,8 +88,6 @@ export function TvShowsPage() {
                       />
                     ))}
                   </div>
-
-                  <RatingRadar scores={new Map(Object.entries(show.scores))} />
                 </div>
               ))}
           </div>

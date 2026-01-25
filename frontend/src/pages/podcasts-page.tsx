@@ -40,18 +40,20 @@ export function PodcastsPage() {
           <div className="flex flex-row flex-wrap justify-center gap-x-6 gap-y-10">
             {podcasts.map((podcast) => (
               <div
-                className="flex w-[260px] flex-col items-center gap-3"
+                className="flex w-[260px] flex-col items-center overflow-hidden rounded-xl border border-black/10 bg-white/50 shadow-sm"
                 key={podcast.name}
               >
                 <SimpleLink link={podcast.appleLink}>
                   <img
                     src={`https://static.pocketcasts.com/discover/images/webp/480/${podcast.pocketCastsId}.webp`}
                     alt={podcast.name}
-                    className="w-full rounded-lg border-4 border-transparent transition-all hover:border-sky/60 hover:shadow-md"
+                    className="w-full transition-all hover:opacity-90"
                   />
                 </SimpleLink>
 
-                <RatingRadar scores={new Map(Object.entries(podcast.scores))} />
+                <div className="py-4">
+                  <RatingRadar scores={new Map(Object.entries(podcast.scores))} />
+                </div>
               </div>
             ))}
           </div>
