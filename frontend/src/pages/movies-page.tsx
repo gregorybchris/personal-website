@@ -62,13 +62,12 @@ export function MoviesPage() {
                     to={movie.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-lg px-1 py-2 hover:bg-black/5"
                   >
                     {movie.posterUrl && (
                       <img
                         src={movie.posterUrl}
                         alt={movie.name}
-                        className="w-full rounded-md"
+                        className="w-full rounded-lg border-4 border-transparent transition-all hover:border-sky/60 hover:shadow-md"
                       />
                     )}
                   </Link>

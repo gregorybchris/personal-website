@@ -35,8 +35,8 @@ export function HiddenPage() {
           <PageLink to="/shows">TV Shows</PageLink>
           <div className="w-4 border-1 border-black/10"></div>
 
-          <PageLink to="/youtube-channels">YouTube Channels</PageLink>
           <PageLink to="/podcasts">Podcasts</PageLink>
+          <PageLink to="/youtube-channels">YouTube Channels</PageLink>
           <div className="w-4 border-1 border-black/10"></div>
 
           <PageLink to="/hiking">Hiking</PageLink>

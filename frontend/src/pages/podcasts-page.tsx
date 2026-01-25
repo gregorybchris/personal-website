@@ -43,14 +43,11 @@ export function PodcastsPage() {
                 className="flex w-[260px] flex-col items-center gap-3"
                 key={podcast.name}
               >
-                <SimpleLink
-                  link={podcast.appleLink}
-                  className="rounded-lg px-1 py-2 hover:bg-black/5"
-                >
+                <SimpleLink link={podcast.appleLink}>
                   <img
                     src={`https://static.pocketcasts.com/discover/images/webp/480/${podcast.pocketCastsId}.webp`}
                     alt={podcast.name}
-                    className="w-full rounded-md"
+                    className="w-full rounded-lg border-4 border-transparent transition-all hover:border-sky/60 hover:shadow-md"
                   />
                 </SimpleLink>
 

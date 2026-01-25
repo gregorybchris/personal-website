@@ -62,13 +62,12 @@ export function TvShowsPage() {
                     to={show.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-lg px-1 py-2 hover:bg-black/5"
                   >
                     {show.posterUrl && (
                       <img
                         src={show.posterUrl}
                         alt={show.name}
-                        className="w-full rounded-md"
+                        className="w-full rounded-lg border-4 border-transparent transition-all hover:border-sky/60 hover:shadow-md"
                       />
                     )}
                   </Link>
