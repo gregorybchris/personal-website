@@ -25,6 +25,7 @@ export function RatingRadar({ scores }: RatingRadarProps) {
         gridLabelOffset={6}
         gridLevels={5}
         gridShape="circular"
+        curve="cardinalClosed"
         dotSize={6}
         dotColor={{ from: "color" }}
         dotBorderWidth={1}
