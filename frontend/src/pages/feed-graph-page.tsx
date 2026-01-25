@@ -1,5 +1,5 @@
 import * as d3 from "d3";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/feed.css";
 import { range } from "../utilities/array-utilities";
@@ -25,15 +25,24 @@ interface GraphData {
 
 export function FeedGraphPage() {
   const ref = useRef<SVGSVGElement>(null);
+  const simulationRef = useRef<d3.Simulation<any, any> | null>(null);
   const navigate = useNavigate();
 
-  const postsQuery = makeQuery("feed/posts");
-  GET<{ posts: FeedPost[] }>(postsQuery).then((queryResult) => {
-    const allPosts: FeedPost[] = queryResult.posts;
-    const posts = allPosts.reverse().filter((post) => !post.archived);
-    const data = getData(posts);
-    createSimulation(data);
-  });
+  useEffect(() => {
+    const postsQuery = makeQuery("feed/posts");
+    GET<{ posts: FeedPost[] }>(postsQuery).then((queryResult) => {
+      const allPosts: FeedPost[] = queryResult.posts;
+      const posts = allPosts.reverse().filter((post) => !post.archived);
+      const data = getData(posts);
+      createSimulation(data);
+    });
+
+    return () => {
+      if (simulationRef.current) {
+        simulationRef.current.stop();
+      }
+    };
+  }, []);
 
   function onDrag(simulation: any): any {
     const dragStarted = (event: any) => {
@@ -107,6 +116,9 @@ export function FeedGraphPage() {
     const currentRef = ref.current;
     if (!currentRef) return;
 
+    // Clear existing content
+    d3.select(currentRef).selectAll("*").remove();
+
     const width = 500;
     const height = 500;
 
@@ -122,6 +134,8 @@ export function FeedGraphPage() {
       .force("charge", d3.forceManyBody())
       .force("x", d3.forceX())
       .force("y", d3.forceY());
+
+    simulationRef.current = simulation;
 
     const svg = d3
       .select(currentRef)
