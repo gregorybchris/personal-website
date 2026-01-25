@@ -42,7 +42,9 @@ export function ProjectsPage() {
     const projectsQuery = makeQuery("projects");
     GET<Project[]>(projectsQuery)
       .then((queryResult) => {
-        const projects = queryResult.reverse();
+        const projects = queryResult
+          .filter((p) => !p.archived)
+          .reverse();
         setProjects(projects);
         setError(null);
       })

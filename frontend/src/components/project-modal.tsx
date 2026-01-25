@@ -9,6 +9,7 @@ import {
   XIcon,
 } from "@phosphor-icons/react";
 import * as Dialog from "@radix-ui/react-dialog";
+import { useEffect } from "react";
 import { Project } from "../pages/projects-page";
 import { formatDate } from "../utilities/datetime-utilities";
 import { ActionLink } from "./action-link";
@@ -37,6 +38,21 @@ export function ProjectModal({
     }
   }
 
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "ArrowLeft" && onPrevious) {
+        onPrevious();
+      } else if (e.key === "ArrowRight" && onNext) {
+        onNext();
+      }
+    }
+
+    if (open) {
+      window.addEventListener("keydown", handleKeyDown);
+      return () => window.removeEventListener("keydown", handleKeyDown);
+    }
+  }, [open, onPrevious, onNext]);
+
   return (
     <Dialog.Root open={open} onOpenChange={onModalOpenChange}>
       <Dialog.Portal>
@@ -46,7 +62,7 @@ export function ProjectModal({
           {onPrevious && (
             <button
               onClick={onPrevious}
-              className="fixed left-[calc(-20vw+1rem)] top-1/2 hidden -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/90 p-3 shadow-lg transition-all hover:scale-110 hover:bg-white md:flex"
+              className="fixed left-[calc(-20vw+1rem)] top-1/2 hidden -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/90 p-3 shadow-lg outline-none transition-all hover:scale-110 hover:bg-white md:flex"
               aria-label="Previous project"
             >
               <CaretLeftIcon size={28} weight="bold" color="#444" />
@@ -56,7 +72,7 @@ export function ProjectModal({
           {onNext && (
             <button
               onClick={onNext}
-              className="fixed right-[calc(-20vw+1rem)] top-1/2 hidden -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/90 p-3 shadow-lg transition-all hover:scale-110 hover:bg-white md:flex"
+              className="fixed right-[calc(-20vw+1rem)] top-1/2 hidden -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/90 p-3 shadow-lg outline-none transition-all hover:scale-110 hover:bg-white md:flex"
               aria-label="Next project"
             >
               <CaretRightIcon size={28} weight="bold" color="#444" />
