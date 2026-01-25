@@ -26,12 +26,13 @@ const MENU_ITEMS = [
 
 export function StaticPage() {
   return (
-    <div className="flex flex-col items-center py-8">
-      <div className="relative h-[500px] w-[600px] p-2 text-sm">
+    <div className="flex flex-col items-center px-4 py-8 md:px-8">
+      <div className="relative w-full max-w-[600px] p-2 text-sm md:h-[500px]">
         <NoiseBackground className="absolute rounded-3xl" />
 
-        <div className="relative z-10 flex h-full flex-row gap-2">
-          <div className="font-geist flex h-full w-[350px] flex-col items-center gap-6 rounded-2xl border border-neutral-500/40 bg-black/65 px-3 py-5">
+        <div className="relative z-10 flex h-full flex-col gap-2 md:flex-row">
+          {/* Menu Panel */}
+          <div className="font-geist flex w-full flex-col items-center gap-6 rounded-2xl border border-neutral-500/40 bg-black/65 px-3 py-5 md:h-full md:w-[350px]">
             <div className="flex flex-row items-center gap-3">
               <ForkKnifeIcon size={32} color="#2b7fff" weight="duotone" />
               <span className="font-sanchez text-lg font-bold text-white">
@@ -39,7 +40,7 @@ export function StaticPage() {
               </span>
             </div>
 
-            <div className="flex h-full w-full flex-col justify-center gap-1.5 px-3">
+            <div className="flex w-full flex-col justify-center gap-1.5 px-3 md:h-full">
               {MENU_ITEMS.map(({ text, icon: Icon }) => (
                 <GlowButton
                   key={text}
@@ -50,7 +51,8 @@ export function StaticPage() {
             </div>
           </div>
 
-          <div className="font-iowa flex h-full w-full flex-col items-center gap-4 px-4 py-8">
+          {/* Explore Panel */}
+          <div className="font-iowa flex w-full flex-col items-center gap-4 px-4 py-8 md:h-full">
             <div className="text-xl font-medium text-white/70">
               Are you ready to <span className="text-white">explore</span>?
             </div>
@@ -64,10 +66,16 @@ export function StaticPage() {
               size={180}
               color="#2b7fff"
               weight="duotone"
-              className="mt-5"
+              className="mt-5 hidden md:block"
+            />
+            <GlobeHemisphereWestIcon
+              size={120}
+              color="#2b7fff"
+              weight="duotone"
+              className="mt-3 md:hidden"
             />
 
-            <div className="font-geist mt-auto text-center text-[10px]/4 text-white/60 uppercase select-none">
+            <div className="font-geist mt-4 text-center text-[10px]/4 text-white/60 uppercase select-none md:mt-auto">
               We care about the environment. Check out our{" "}
               <SimpleLink text="animal friendly farming" /> policies!
             </div>
