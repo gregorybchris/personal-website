@@ -3,12 +3,12 @@ authors = [
   { name = "Chris Gregory", email = "christopher.b.gregory@gmail.com" },
 ]
 dependencies = [
-  "click>=8.2.1",
-  "fastapi[standard]>=0.116.1",
+  "click>=8.3.1",
+  "fastapi[standard]>=0.128.0",
   "httpx>=0.28.1",
   "jsonvl>=0.5.0",
-  "pandas>=2.3.2",
-  "pydantic>=2.11.9",
+  "pandas>=3.0.0",
+  "pydantic>=2.12.5",
   "python-frontmatter>=1.1.0",
 ]
 description = "Personal website backend"
@@ -22,10 +22,10 @@ version = "1.1.0"
 [tool.uv]
 dev-dependencies = [
   "covcheck[toml]>=0.4.3",
-  "mypy>=1.17.1",
-  "pytest-cov>=6.2.1",
-  "pytest>=8.4.1",
-  "ruff>=0.12.8",
+  "mypy>=1.19.1",
+  "pytest-cov>=7.0.0",
+  "pytest>=9.0.2",
+  "ruff>=0.14.14",
   "semver>=3.0.4",
 ]
 package = true
