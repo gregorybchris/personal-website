@@ -1,0 +1,50 @@
+{
+  "type": "array",
+  "elem": "#snippet",
+  "cons": {
+    "unique": ["@all.slug", "@all.text"]
+  },
+  "defs": {
+    "#snippet": {
+      "type": "object",
+      "attr": {
+        "slug": "#slug",
+        "date": "#date",
+        "text": "#snippet_body",
+        "tags": {
+          "type": "array",
+          "elem": "#tag",
+          "cons": {
+            "unique": "@all",
+            "max_size": 5
+          }
+        }
+      }
+    },
+    "#slug": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^[a-z0-9-]{5,32}$" }
+      }
+    },
+    "#date": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+      }
+    },
+    "#snippet_body": {
+      "type": "string",
+      "cons": {
+        "min_length": 20,
+        "max_length": 280
+      }
+    },
+    "#tag": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^[0-9a-z-\\s]{2,25}$" }
+      }
+    }
+  }
+}

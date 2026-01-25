@@ -2,11 +2,14 @@ from pathlib import Path
 
 from jsonvl import Validator
 from jsonvl.errors import JsonValidationError
+from rich.console import Console
 
 from chris.validation.constraints import MonotoneIncreaseConstraint
 
 DATA_DIRPATH = Path(__file__).parent.parent / "datasets" / "data"
 SCHEMAS_DIRPATH = Path(__file__).parent / "schemas"
+
+console = Console()
 
 
 def validate_all() -> None:
@@ -14,6 +17,7 @@ def validate_all() -> None:
     validator.register_constraint(MonotoneIncreaseConstraint(), "array", "monotone_inc")
     schemas = [
         ("art", "pottery"),
+        ("blog", "snippets"),
         ("feed", "posts"),
         ("media", "books"),
         ("media", "instagrams"),
@@ -36,7 +40,7 @@ def validate_all() -> None:
         try:
             validator.validate_file(data_filepath, schema_filepath)
         except JsonValidationError as e:
-            print(f"Validation failed: {file_name}")
-            print(f"  {e}")
+            console.print(f"[red]Validation failed: {folder_name} > {file_name}[/red]")
+            console.print(f"[red]  {e}[/red]")
         else:
-            print(f"Validation succeeded: {file_name}")
+            console.print(f"[green]Validation succeeded: {folder_name} > {file_name}[/green]")
