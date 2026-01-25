@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "russell-conjugates-in-tech",
+    "date": "2026-01-23",
+    "text": "Emotive conjugation is abundant in software design. Monolith vs microservices, defensive programming vs fail fast, polyrepo vs monorepo. These things are generally diametrically opposite and yet there's a time and place for each.",
+    "related": [],
+    "tags": []
+  },
+  {
+    "slug": "fail-fast-vs-defensive",
+    "date": "2026-01-23",
+    "text": "There's nothing inherently wrong with defensive programming, especially if you enjoy developing a codebase littered with foot guns.",
+    "related": [],
+    "tags": []
+  },
+  {
+    "slug": "defensive-style-in-big-tech",
+    "date": "2026-01-23",
+    "text": "I have a theory that engineers who think defensive programming > fail fast more often come from big tech. Maybe it's because the price of whole system failure is higher at big tech. Maybe it's because there's a chance you might escape being assigned the bug down the line.",
+    "related": [],
+    "tags": []
+  },
+  {
+    "slug": "make-your-ci-stable-and-required",
+    "date": "2026-01-23",
+    "text": "Don't run CI on your code if test failures won't block merge. It's a waste of compute. Similarly, CI tests should be stable modulo solar flares. Anything less stable should be a low severity alert.",
+    "related": [],
+    "tags": []
+  },
+  {
+    "slug": "monorepos-for-startups",
+    "date": "2026-01-23",
+    "text": "Small teams must be efficient with time. Code velocity is essential. Make choices that maximize reuse of work. Use a monorepo. Write CI/CD once. Enforce code quality strictly. Colocate code to promote collaboration, discoverability, and component reuse.",
+    "related": [],
+    "tags": []
+  },
+  {
+    "slug": "monorepo-ne-monolith",
+    "date": "2026-01-23",
+    "text": "Monorepo does not imply monolith. You can keep your code in one place while still having clear module boundaries and isolated components and services.",
+    "related": [],
+    "tags": []
+  }
+]
