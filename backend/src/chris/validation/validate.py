@@ -40,7 +40,7 @@ def validate_all() -> None:
         try:
             validator.validate_file(data_filepath, schema_filepath)
         except JsonValidationError as e:
-            console.print(f"[red]Validation failed: {folder_name} || {file_name}[/red]")
+            console.print(f"[red]Validation failed: {folder_name} > {file_name}[/red]")
             console.print(f"[red]  {e}[/red]")
         else:
-            console.print(f"[green]Validation succeeded: {folder_name} || {file_name}[/green]")
+            console.print(f"[green]Validation succeeded: {folder_name} > {file_name}[/green]")
