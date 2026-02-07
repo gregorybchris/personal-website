@@ -6,6 +6,7 @@ import {
   NotePencilIcon,
   SneakerMoveIcon,
 } from "@phosphor-icons/react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import vaseIcon from "../assets/icons/vase.svg";
 
@@ -42,11 +43,7 @@ export function HomePage() {
             </PageLink>
           </div>
 
-          <img
-            className="w-[200px] rounded-full md:w-[350px]"
-            alt="Profile"
-            src="https://storage.googleapis.com/cgme/bio/profiles/mountains-profile-2.jpg"
-          />
+          <ProfileImage />
         </div>
       </div>
     </div>
@@ -67,5 +64,52 @@ function PageLink({ to, name, children }: PageLinkProps) {
         <div className="font-sanchez text-sm md:text-lg">{name}</div>
       </div>
     </Link>
+  );
+}
+
+function ProfileImage() {
+  const [flipped, setFlipped] = useState(false);
+
+  return (
+    <div
+      className="w-[200px] md:w-[350px]"
+      style={{ perspective: "1000px" }}
+      onClick={() => setFlipped((f) => !f)}
+    >
+      <div
+        className="relative transition-transform duration-700"
+        style={{
+          transformStyle: "preserve-3d",
+          transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
+        }}
+      >
+        <img
+          className="w-full rounded-full"
+          alt="Profile"
+          src="https://storage.googleapis.com/cgme/bio/profiles/mountains-profile-2.jpg"
+          style={{ backfaceVisibility: "hidden" }}
+        />
+        <div
+          className="absolute inset-0 flex items-center justify-center rounded-full bg-stone-800"
+          style={{
+            backfaceVisibility: "hidden",
+            transform: "rotateY(180deg)",
+          }}
+        >
+          <div className="font-sanchez text-center text-sm text-white/90 md:text-lg">
+            <p>...trash bag?</p>
+            <a
+              href="https://en.wikipedia.org/wiki/Glissade_(climbing)"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+              onClick={(e) => e.stopPropagation()}
+            >
+              yes
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
