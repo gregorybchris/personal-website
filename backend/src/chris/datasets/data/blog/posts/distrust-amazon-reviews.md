@@ -16,7 +16,7 @@ And we're not even considering style or personal taste. Why is it that for every
 
 ## Recommender systems
 
-I think part of the reason we're in this situation is that the maintainers of the most common recommender systems for physical products (Amazon and others) benefit more from recommending a variety of things than they do from helping users find things calibrated to their quality and cost expectations.
+I think part of the reason we're in this situation is that the maintainers of the most common recommender systems for physical products (Amazon and others) benefit more[^amazon-ecosystem] from recommending a variety of things than they do from helping users find things calibrated to their quality and cost expectations.
 
 Of course, the _most-true_ story is that while some companies thrive on great brand loyalty and customer trust, there's a whole ecosystem of retailers that succeed by selling high volume, low quality, cheap products that are marketed just well enough to get clicks and buys.
 
@@ -171,3 +171,4 @@ curl -s -X GET "http://localhost:8000/items/469df558-4e16-4e9e-87a9-f3013b1e1580
 
 [^belief-propagation]: [Gaussian belief propagation](<https://en.wikipedia.org/wiki/Belief_propagation#Gaussian_belief_propagation_(GaBP)>) is a message-passing algorithm for performing inference on graphical models with Gaussian distributions. I found this [cool demo online.](https://gaussianbp.github.io)
 [^insider-scoop]: Edit (Nov. 2025): An insider at Amazon has confirmed that "verified users" do affect product recommendations at Amazon, but whether verified user feedback is reflected in aggregate ratings is still unclear to me.
+[^amazon-ecosystem]: Edit (Feb 2026): I recommend [this video](https://www.youtube.com/shorts/S5eAEZAJtqs) from Ezra Klein's podcast for a clear explanation of the incentive structure Amazon has set up for itself and its sellers.
