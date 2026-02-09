@@ -34,8 +34,8 @@ def get_media() -> JSONResponse:
             "movies": movies,
             "podcasts": podcasts,
             "tv": tv_shows,
-            "youtube-channels": youtube_channels,
-            "youtube-videos": youtube_videos,
+            "youtube_channels": youtube_channels,
+            "youtube_videos": youtube_videos,
         }
     )
 
