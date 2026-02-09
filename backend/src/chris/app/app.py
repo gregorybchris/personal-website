@@ -14,6 +14,7 @@ from chris.app.routes import (
     professional_routes,
     project_routes,
     recipe_routes,
+    snippet_routes,
     surveys_routes,
 )
 
@@ -37,6 +38,7 @@ app.include_router(outdoor_routes.router)
 app.include_router(professional_routes.router)
 app.include_router(project_routes.router)
 app.include_router(recipe_routes.router)
+app.include_router(snippet_routes.router)
 app.include_router(surveys_routes.router)
 
 app.add_middleware(

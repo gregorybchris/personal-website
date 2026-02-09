@@ -23,4 +23,5 @@ class Datasets:
     JOBS = DatasetInfo("Jobs", "professional/jobs.json")
     PROJECTS = DatasetInfo("Projects", "projects/projects.json")
     ARCHIVE = DatasetInfo("Archive", "archive/archive.json")
+    SNIPPETS = DatasetInfo("Snippets", "blog/snippets.json")
     SURVEYS = DatasetInfo("Surveys", "surveys/surveys.json")
