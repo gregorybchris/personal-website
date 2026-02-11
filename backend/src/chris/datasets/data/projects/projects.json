@@ -1971,5 +1971,42 @@
     ],
     "primary_language": "TypeScript",
     "archived": false
+  },
+  {
+    "project_id": "51cd03b0-d4bf-48ce-9925-47dfe6d20ee6",
+    "name": "Fermata",
+    "slug": "fermata",
+    "date": "2026-02-10",
+    "rating": 8,
+    "project_type": "tool",
+    "controls": null,
+    "short_description": "Custom programming language and web IDE.",
+    "description": "Fermata is a custom programming language and web IDE. The language is designed to be simple and easy to learn, with a focus on readability and expressiveness. The web IDE includes code examples to help users learn the language and users can create their own projects that are shared globally.",
+    "remarks": null,
+    "tags": ["programming", "language", "interpreter", "parser"],
+    "tools": [
+      "Python",
+      "uv",
+      "Ruff",
+      "pytest",
+      "Typer",
+      "FastAPI",
+      "SQLModel",
+      "rich",
+      "inflect",
+      "unique-namer",
+      "loguru",
+      "lark"
+    ],
+    "source_link": null,
+    "download_link": null,
+    "web_link": "https://fermata-ide.vercel.app",
+    "original_link": null,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/projects/images/fermata--ide.png",
+      "https://storage.googleapis.com/cgme/projects/images/fermata--about.png"
+    ],
+    "primary_language": "Python",
+    "archived": false
   }
 ]
