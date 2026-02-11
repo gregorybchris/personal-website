@@ -23,7 +23,7 @@ import { OopsPage } from "./pages/oops-page";
 import { PlacesPage } from "./pages/places-page";
 import { PodcastsPage } from "./pages/podcasts-page";
 import { PotteryPage } from "./pages/pottery-page";
-import { ProjectLogosPage } from "./pages/project-previews-page";
+import { ProjectLogosPage } from "./pages/project-logos-page";
 import { ProjectsPage } from "./pages/projects-page";
 import { RecipePage } from "./pages/recipe-page";
 import { RecipesPage } from "./pages/recipes-page";

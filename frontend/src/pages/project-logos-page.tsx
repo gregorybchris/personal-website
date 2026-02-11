@@ -53,6 +53,37 @@ const IMAGE_MAP = new Map([
   ["vidrank", vidrankImage],
 ]);
 
+const PRIMARY_PROJECTS = new Set([
+  "cado",
+  "combust",
+  "contraction",
+  "engineroom",
+  "half-plane",
+  "scrapscript",
+  "tower-of-hanoi",
+  "typogenetics",
+]);
+
+const SECONDARY_PROJECTS = new Set([
+  "ants",
+  "quad",
+  "ptcd",
+  "directed",
+  "dirstuff",
+  "idtrace",
+  "jumbo-meal",
+  "tiles",
+  "sweyp",
+  "vidrank",
+  "unhinged",
+  "tsa",
+  "decidio",
+  "bfprt",
+  "chladni",
+  "langton",
+  "big-life",
+]);
+
 export function ProjectLogosPage() {
   function slugToImage(slug: string) {
     return IMAGE_MAP.get(slug);
@@ -60,14 +91,29 @@ export function ProjectLogosPage() {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="flex w-4/5 flex-wrap items-center justify-center pt-20">
-        {Array.from(IMAGE_MAP.keys()).map((slug) => (
-          <NavLink to={`/code/${slug}`}>
-            <div className="cursor-pointer opacity-90 grayscale-[30%] transition-all hover:opacity-100 hover:grayscale-0">
-              <img src={slugToImage(slug)} className="w-32" />
-            </div>
-          </NavLink>
-        ))}
+      <h2 className="font-sanchez pt-20 text-2xl">Primary</h2>
+      <div className="grid grid-cols-4 gap-4 pt-4">
+        {Array.from(IMAGE_MAP.keys())
+          .filter((slug) => PRIMARY_PROJECTS.has(slug))
+          .map((slug) => (
+            <NavLink to={`/code/${slug}`}>
+              <div className="cursor-pointer transition-transform hover:z-10 hover:scale-110">
+                <img src={slugToImage(slug)} className="w-32" />
+              </div>
+            </NavLink>
+          ))}
+      </div>
+      <h2 className="font-sanchez pt-12 text-2xl">Secondary</h2>
+      <div className="grid grid-cols-4 gap-4 pt-4">
+        {Array.from(IMAGE_MAP.keys())
+          .filter((slug) => SECONDARY_PROJECTS.has(slug))
+          .map((slug) => (
+            <NavLink to={`/code/${slug}`}>
+              <div className="cursor-pointer transition-transform hover:z-10 hover:scale-110">
+                <img src={slugToImage(slug)} className="w-32" />
+              </div>
+            </NavLink>
+          ))}
       </div>
     </div>
   );
