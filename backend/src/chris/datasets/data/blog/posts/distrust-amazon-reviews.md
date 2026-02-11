@@ -131,7 +131,7 @@ class Model(Module):
 After training for `500` epochs, with a batch size of `16`, and a static learning rate of `1e-2`, the model converges quickly to a stable solution (see Figure 1). These hyperparameters were chosen fairly arbitrarily and based on the smooth shape of the loss curve, I doubt additional hyperparameter tuning would yield significant improvements.
 
 <figure id="figure3">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/distrust-amazon-reviews/loss-curve.png?cache=1" width="450">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/distrust-amazon-reviews/loss-curve.png?cache=2" width="450">
   <figcaption><strong>Figure 3: </strong>Loss curve &mdash; As expected, on synthetic data the learning curve is very smooth.</figcaption>
 </figure>
 

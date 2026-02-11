@@ -102,7 +102,7 @@ def get_partitions(coxed_boat_sizes: list[int], n_rowers: int) -> list[Partition
 Not every partition is valid, however. Perhaps the club only has 5 doubles. That disqualifies the lineup where we take out 6 doubles, for example.
 
 <figure id="figure2">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/evolutionary-algorithms-sports/abstract-rowing-shells.svg?cache=4" width="450">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/evolutionary-algorithms-sports/abstract-rowing-shells.svg?cache=5" width="450">
   <figcaption><strong>Figure 2: </strong>Boat classes &mdash; These are the primary rowing shell sizes you will see most often. Less commonly you'll also encounter straight fours (with no coxswain, 4-) and coxed pairs (2+).</figcaption>
 </figure>
 

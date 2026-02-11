@@ -217,7 +217,7 @@ This embedding layer sees the structure of the graph as well as one-hot encoded 
 After some experimentation, I found that including dropout and global max pooling improved training stability and led to faster convergence. The network uses a ReLU non-linearity between GCN layers and a final linear layer maps the graph embedding to a single scalar output.
 
 <figure id="figure6">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/architecture.svg?cache=1" width="340">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/architecture.svg?cache=2" width="340">
   <figcaption><strong>Figure 6: </strong>Architecture &mdash; The model has a simple architecture of two GCN layers and a linear layer, separated by a ReLU, dropout, and global max pooling. The full thing has a whopping 251 parameters.</figcaption>
 </figure>
 
@@ -228,7 +228,7 @@ The scalar output of the model is interpreted as an estimate of the minimum numb
 I also plot an accuracy score, which rounds the model prediction to the closest whole integer and compares that to the true minimum number of contractions. Accuracy is not used for training or during search, but it can be useful to get an intuition for model quality.
 
 <figure id="figure7">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/loss-curve.png?cache=5" width="340">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/graph-contraction-search/loss-curve.png?cache=6" width="340">
   <figcaption><strong>Figure 7: </strong>Training curve &mdash; The model shows above random chance performance on predicting the number of contractions needed for a given graph.</figcaption>
 </figure>
 
