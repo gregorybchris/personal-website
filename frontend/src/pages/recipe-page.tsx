@@ -59,22 +59,27 @@ export function RecipePage() {
         )}
 
         {recipe !== undefined && (
-          <div className="flex flex-col gap-8">
-            <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-10">
+            <div>
               <ExternalLink href={recipe.bigovenLink}>
-                <h1 className="font-sanchez text-2xl transition-colors hover:text-[#5979b5] md:text-3xl">
+                <h1 className="font-sanchez text-3xl tracking-tight md:text-4xl">
                   {recipe.name}
                 </h1>
               </ExternalLink>
+              <div className="bg-sky mt-2 h-0.5 w-16 rounded-full" />
 
-              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
+              <div className="mt-4 flex flex-wrap items-center gap-5 text-sm text-gray-500">
                 <div className="flex items-center gap-1.5">
-                  <ClockCountdownIcon size={18} color="#6283c0" weight="duotone" />
+                  <ClockCountdownIcon
+                    size={16}
+                    color="#6283c0"
+                    weight="duotone"
+                  />
                   <span>{formatDuration(recipe.prepTime)}</span>
                 </div>
                 {recipe.serves && (
                   <div className="flex items-center gap-1.5">
-                    <UsersIcon size={18} color="#6283c0" weight="duotone" />
+                    <UsersIcon size={16} color="#6283c0" weight="duotone" />
                     <span>{recipe.serves} servings</span>
                   </div>
                 )}
@@ -83,63 +88,62 @@ export function RecipePage() {
 
             {recipe.notes && (
               <div>
-                <h2 className="font-sanchez text-lg">Notes</h2>
-                <p className="text-sm leading-relaxed">{recipe.notes}</p>
+                <h2 className="font-sanchez text-sky mb-1 text-xs font-bold uppercase tracking-widest">
+                  Notes
+                </h2>
+                <p className="text-sm leading-relaxed text-gray-600">
+                  {recipe.notes}
+                </p>
               </div>
             )}
 
             <div>
+              <h2 className="font-sanchez text-sky mb-3 text-xs font-bold uppercase tracking-widest">
+                Ingredients
+              </h2>
               {recipe.ingredients.length === 0 ? (
-                <div className="text-sm text-gray-500">
+                <p className="text-sm text-gray-400">
                   No ingredients included in this recipe
-                </div>
+                </p>
               ) : (
-                <div className="overflow-hidden rounded-md shadow-[0_2px_4px_rgba(0,0,0,0.1)]">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr>
-                        <th className="bg-sky border-r border-r-[#5979b5] px-3 py-1 text-left font-bold text-white">
-                          Ingredient
-                        </th>
-                        <th className="bg-sky border-r border-r-[#5979b5] px-3 py-1 text-left font-bold text-white">
-                          Amount
-                        </th>
-                        <th className="bg-sky px-3 py-1 text-left font-bold text-white">
-                          Units
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {recipe.ingredients.map((ingredient) => (
-                        <tr key={ingredient.name}>
-                          <td className="border-b border-b-[#f5f5f0] bg-white px-3 py-0.5 text-left">
-                            {ingredient.name}
-                          </td>
-                          <td className="border-b border-b-[#f5f5f0] bg-white px-3 py-0.5 text-left">
-                            {ingredient.amount != null
-                              ? convertFraction(ingredient.amount)
-                              : ""}
-                          </td>
-                          <td className="border-b border-b-[#f5f5f0] bg-white px-3 py-0.5 text-left">
-                            {ingredient.units || ""}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                <div className="flex flex-col">
+                  {recipe.ingredients.map((ingredient, i) => (
+                    <div
+                      key={ingredient.name}
+                      className={`flex items-baseline justify-between gap-4 px-2 py-1.5 ${
+                        i % 2 === 0 ? "bg-white" : "bg-dark-parchment/50"
+                      }`}
+                    >
+                      <span className="text-sm">{ingredient.name}</span>
+                      <span className="border-darker-parchment min-w-0 flex-1 border-b border-dotted" />
+                      <span className="text-sky shrink-0 text-sm font-semibold tabular-nums">
+                        {ingredient.amount != null
+                          ? convertFraction(ingredient.amount)
+                          : ""}
+                        {ingredient.units ? ` ${ingredient.units}` : ""}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
 
             {recipe.instructions && (
               <div>
-                <h2 className="font-sanchez text-lg">Instructions</h2>
-                <p className="text-sm leading-relaxed">{recipe.instructions}</p>
+                <h2 className="font-sanchez text-sky mb-1 text-xs font-bold uppercase tracking-widest">
+                  Instructions
+                </h2>
+                <p className="text-sm leading-relaxed text-gray-600">
+                  {recipe.instructions}
+                </p>
               </div>
             )}
 
             <div className="flex flex-wrap gap-3">
-              <Button onClick={() => alert("Coming soon!")} text="Step by step" />
+              <Button
+                onClick={() => alert("Coming soon!")}
+                text="Step by step"
+              />
               <Button
                 onClick={() => alert("Coming soon!")}
                 text="Adjust serving size"
