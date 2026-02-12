@@ -22,23 +22,31 @@ export function RecipePage() {
     });
   }, []);
 
-  function convertFraction(n: number) {
-    if (n === 0.125) return <span>1/8</span>;
-    if (n === 0.25) return <span>&frac14;</span>;
-    if (n === 0.333) return <span>1/3</span>;
-    if (n === 0.5) return <span>&frac12;</span>;
-    if (n === 0.666) return <span>2/3</span>;
-    if (n === 0.75) return <span>&frac34;</span>;
-    if (n === 1.25) return <span>1&frac14;</span>;
-    if (n === 1.333) return <span>1 1/3</span>;
-    if (n === 1.5) return <span>1&frac12;</span>;
-    if (n === 1.666) return <span>1 2/3</span>;
-    if (n === 1.75) return <span>1&frac34;</span>;
-    if (n === 2.25) return <span>2&frac14;</span>;
-    if (n === 2.5) return <span>2&frac12;</span>;
-    if (n === 2.75) return <span>2&frac34;</span>;
-    if (n === 3.333) return <span>3.33</span>;
-    return `${n}`;
+  const FRACTION_MAP: Record<number, string> = {
+    0.125: "\u215B",  // ⅛
+    0.166: "\u2159",  // ⅙
+    0.2: "\u2155",    // ⅕
+    0.25: "\u00BC",   // ¼
+    0.333: "\u2153",  // ⅓
+    0.375: "\u215C",  // ⅜
+    0.4: "\u2156",    // ⅖
+    0.5: "\u00BD",    // ½
+    0.6: "\u2157",    // ⅗
+    0.625: "\u215D",  // ⅝
+    0.666: "\u2154",  // ⅔
+    0.75: "\u00BE",   // ¾
+    0.8: "\u2158",    // ⅘
+    0.833: "\u215A",  // ⅚
+    0.875: "\u215E",  // ⅞
+  };
+
+  function convertFraction(n: number): string {
+    const whole = Math.floor(n);
+    const decimal = Math.round((n - whole) * 1000) / 1000;
+    if (decimal === 0) return `${whole}`;
+    const frac = FRACTION_MAP[decimal];
+    if (!frac) return `${n}`;
+    return whole > 0 ? `${whole}${frac}` : frac;
   }
 
   const recipe = recipes.find((r) => r.slug === slug);
