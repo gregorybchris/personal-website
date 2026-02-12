@@ -76,5 +76,17 @@
     "date": "2026-02-06",
     "text": "If you always choose execution speed over quality, good luck maintaining that speed. Consider second and third order effects. Remember that this tradeoff is a balancing act and always situationally dependent.",
     "tags": ["engineering-process"]
+  },
+  {
+    "slug": "author-merges",
+    "date": "2026-02-11",
+    "text": "The pull request author should merge their own PRs. The author knows best whether the code is ready and safe to merge.",
+    "tags": ["engineering-process"]
+  },
+  {
+    "slug": "avoid-dep-pinning",
+    "date": "2026-02-11",
+    "text": "It seems that people underestimate the cost of pinning dependencies. It's a pretty serious form of tech debt that feels small in the moment, but can become a huge headache after adding just a few constraints.",
+    "tags": ["engineering-process"]
   }
 ]
