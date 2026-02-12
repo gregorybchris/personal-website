@@ -111,17 +111,17 @@
     "serves": 4,
     "archived": false,
     "ingredients": [
-      { "name": "large shrimp", "amount": 24, "units": "shrimp", "notes": "peeled and deveined" },
-      { "name": "butter", "amount": 0.5, "units": "cup", "notes": "melted" },
-      { "name": "garlic", "amount": 3, "units": "cloves", "notes": "crushed" },
-      { "name": "olive oil", "amount": 2, "units": "tablespoons", "notes": null },
-      { "name": "parsley", "amount": 2, "units": "tablespoons", "notes": "chopped" },
-      { "name": "dry white wine", "amount": 2, "units": "tablespoons", "notes": null },
-      { "name": "lemon juice", "amount": 0.5, "units": "tbsp", "notes": null },
-      { "name": "salt and pepper", "amount": null, "units": null, "notes": "to taste" }
+      { "name": "large shrimp", "amount": 24, "units": "shrimp" },
+      { "name": "butter", "amount": 0.5, "units": "cup" },
+      { "name": "garlic", "amount": 3, "units": "cloves" },
+      { "name": "olive oil", "amount": 2, "units": "tablespoons" },
+      { "name": "parsley", "amount": 2, "units": "tablespoons" },
+      { "name": "dry white wine", "amount": 2, "units": "tablespoons" },
+      { "name": "lemon juice", "amount": 0.5, "units": "tbsp" },
+      { "name": "salt and pepper", "amount": null, "units": null }
     ],
     "instructions": "Heat butter, garlic and olive oil in a large skillet. Add shrimp and sauté on both sides until done (about 5 minutes). Pour off pan drippings into a small sauce pan. Add the remaining ingredients. Cook over high heat 1 minute. Pour sauce over shrimp and serve with rice to absorb the juices.",
-    "notes": "My dad's shrimp recipe."
+    "notes": "My dad's shrimp recipe. Peel and devein shrimp. Melt butter before use. Crush garlic and chop parsley. Season with salt and pepper to taste."
   },
   {
     "name": "Pumpkin Bread",
@@ -134,17 +134,17 @@
     "serves": 4,
     "archived": false,
     "ingredients": [
-      { "name": "eggs", "amount": 4, "units": null, "notes": null },
-      { "name": "water", "amount": 0.666, "units": "cups", "notes": null },
-      { "name": "salad oil", "amount": 1, "units": "cup", "notes": null },
-      { "name": "pumpkin", "amount": 1, "units": "lb can", "notes": null },
-      { "name": "sugar", "amount": 3, "units": "cups", "notes": null },
-      { "name": "flour", "amount": 3.333, "units": "cups", "notes": null },
-      { "name": "baking soda", "amount": 2, "units": "tsp", "notes": null },
-      { "name": "cinnamon", "amount": 1, "units": "tsp", "notes": null },
-      { "name": "clove", "amount": 0.125, "units": "tsp", "notes": null },
-      { "name": "nutmeg", "amount": 1, "units": "tsp", "notes": null },
-      { "name": "salt", "amount": 1.5, "units": "tsp", "notes": null }
+      { "name": "eggs", "amount": 4, "units": null },
+      { "name": "water", "amount": 0.666, "units": "cups" },
+      { "name": "salad oil", "amount": 1, "units": "cup" },
+      { "name": "pumpkin", "amount": 1, "units": "lb can" },
+      { "name": "sugar", "amount": 3, "units": "cups" },
+      { "name": "flour", "amount": 3.333, "units": "cups" },
+      { "name": "baking soda", "amount": 2, "units": "tsp" },
+      { "name": "cinnamon", "amount": 1, "units": "tsp" },
+      { "name": "clove", "amount": 0.125, "units": "tsp" },
+      { "name": "nutmeg", "amount": 1, "units": "tsp" },
+      { "name": "salt", "amount": 1.5, "units": "tsp" }
     ],
     "instructions": "Bake 1 hour at 350F",
     "notes": "The Davies family recipe. Makes two loaves."
@@ -167,5 +167,149 @@
     ],
     "instructions": "Melt 12 oz package of chocolate chips and 12 oz package of butterscotch chips over low heat in a heavy saucepan. When completely melted, stir in 1 5-oz can of chow main noodles (slightly broken up) and 1/4 cup of peanuts or cashews. Spoon on to a cookie sheet or waxed paper. Cool until set up. (Refrigerate).",
     "notes": "This is a recipe my grandma used to make for my brother and me when we'd come to visit. They're crunchy and delicious!"
+  },
+  {
+    "name": "Ginger Salad Dressing",
+    "slug": "ginger-salad-dressing",
+    "bigoven_link": null,
+    "recipe_type": "technique",
+    "food_type": "bowl",
+    "origin": null,
+    "prep_time": "00:10:00",
+    "serves": null,
+    "archived": false,
+    "ingredients": [
+      { "name": "minced ginger", "amount": null, "units": null },
+      { "name": "white sugar", "amount": null, "units": null },
+      { "name": "mayo", "amount": null, "units": null },
+      { "name": "rice vinegar", "amount": null, "units": null },
+      { "name": "peanut oil", "amount": null, "units": null },
+      { "name": "soy sauce", "amount": null, "units": null },
+      { "name": "ketchup", "amount": null, "units": null },
+      { "name": "lemon juice", "amount": null, "units": null }
+    ],
+    "instructions": null,
+    "notes": "Use rice vinegar, peanut oil, soy sauce, ketchup, and lemon juice sparingly."
+  },
+  {
+    "name": "Instant Pot Rice",
+    "slug": "instant-pot-rice",
+    "bigoven_link": null,
+    "recipe_type": "side",
+    "food_type": "bowl",
+    "origin": null,
+    "prep_time": "00:15:00",
+    "serves": null,
+    "archived": false,
+    "ingredients": [
+      { "name": "rice", "amount": 1, "units": "cup" },
+      { "name": "water", "amount": 1.25, "units": "cups" }
+    ],
+    "instructions": null,
+    "notes": null
+  },
+  {
+    "name": "Moscow Mule",
+    "slug": "moscow-mule",
+    "bigoven_link": null,
+    "recipe_type": "drink",
+    "food_type": "cocktail",
+    "origin": null,
+    "prep_time": "00:05:00",
+    "serves": 1,
+    "archived": false,
+    "ingredients": [
+      { "name": "vodka", "amount": 2, "units": "oz" },
+      { "name": "lime juice", "amount": 0.5, "units": "oz" },
+      { "name": "ginger beer", "amount": 3, "units": "oz" },
+      { "name": "lime wedge", "amount": 1, "units": null }
+    ],
+    "instructions": null,
+    "notes": "Garnish with the lime wedge."
+  },
+  {
+    "name": "Rice",
+    "slug": "rice",
+    "bigoven_link": null,
+    "recipe_type": "side",
+    "food_type": "bowl",
+    "origin": null,
+    "prep_time": "00:20:00",
+    "serves": null,
+    "archived": false,
+    "ingredients": [
+      { "name": "rice", "amount": 1, "units": "cup" },
+      { "name": "water", "amount": 1.5, "units": "cups" }
+    ],
+    "instructions": null,
+    "notes": null
+  },
+  {
+    "name": "Sticky Noodles",
+    "slug": "sticky-noodles",
+    "bigoven_link": null,
+    "recipe_type": "entree",
+    "food_type": "fork-knife",
+    "origin": null,
+    "prep_time": "00:30:00",
+    "serves": 3,
+    "archived": false,
+    "ingredients": [
+      { "name": "soy sauce", "amount": 2, "units": "tbsp" },
+      { "name": "canola oil", "amount": 2, "units": "tbsp" },
+      { "name": "rice vinegar", "amount": 1, "units": "tbsp" },
+      { "name": "sesame oil", "amount": 1, "units": "tsp" },
+      { "name": "brown sugar", "amount": 2, "units": "tbsp" },
+      { "name": "thick noodles", "amount": 2, "units": "handfuls" },
+      { "name": "pork chops", "amount": 8, "units": null },
+      { "name": "hot chili oil", "amount": 1, "units": "tbsp" },
+      { "name": "green onions", "amount": 2, "units": null },
+      { "name": "serrano pepper", "amount": 0.5, "units": null }
+    ],
+    "instructions": "Chop pork large, will shrink in pan. Fry pork 1 min w/ canola oil. Pour in sauce, half in each pan, stir. Boil thick noodles thoroughly, mix in chili oil. Chop green onions and add to cooked pork/noodles.",
+    "notes": "Makes 3 servings, 2 pans, 1 pot."
+  },
+  {
+    "name": "Pizza Dough",
+    "slug": "pizza-dough",
+    "bigoven_link": null,
+    "recipe_type": "technique",
+    "food_type": "baked",
+    "origin": null,
+    "prep_time": "00:45:00",
+    "serves": null,
+    "archived": false,
+    "ingredients": [
+      { "name": "active dry yeast", "amount": null, "units": null },
+      { "name": "salt", "amount": 1, "units": "tsp" },
+      { "name": "olive oil", "amount": 2, "units": "tbsp" },
+      { "name": "honey or white sugar", "amount": null, "units": null },
+      { "name": "bread flour", "amount": 2, "units": "cups" },
+      { "name": "warm water", "amount": 1, "units": "cup" }
+    ],
+    "instructions": "Let rise at least 30 minutes.",
+    "notes": null
+  },
+  {
+    "name": "Fried Chicken",
+    "slug": "fried-chicken",
+    "bigoven_link": null,
+    "recipe_type": "entree",
+    "food_type": "fork-knife",
+    "origin": null,
+    "prep_time": "00:30:00",
+    "serves": null,
+    "archived": false,
+    "ingredients": [
+      { "name": "flour", "amount": 1, "units": "cup" },
+      { "name": "salt", "amount": null, "units": null },
+      { "name": "pepper", "amount": null, "units": null },
+      { "name": "paprika", "amount": null, "units": null },
+      { "name": "onion powder", "amount": null, "units": null },
+      { "name": "garlic powder", "amount": null, "units": null },
+      { "name": "eggs", "amount": 2, "units": null }
+    ],
+    "instructions": "Dip flour -> egg -> flour. Pam spray. 20 minutes at 400F. Flip halfway through.",
+    "notes": null
   }
 ]

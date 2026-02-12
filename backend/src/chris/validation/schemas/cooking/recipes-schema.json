@@ -1,0 +1,71 @@
+{
+  "type": "array",
+  "elem": "#recipe",
+  "cons": {
+    "unique": ["@all.name", "@all.slug"]
+  },
+  "defs": {
+    "#recipe": {
+      "type": "object",
+      "attr": {
+        "name": {
+          "type": "string",
+          "cons": {
+            "min_length": 1,
+            "max_length": 120
+          }
+        },
+        "slug": {
+          "type": "string",
+          "cons": {
+            "format": { "type": "regex", "pattern": "^[a-z0-9-]+$" }
+          }
+        },
+        "bigoven_link": ["#link", "null"],
+        "recipe_type": {
+          "type": "string",
+          "cons": {
+            "in": ["dessert", "drink", "entree", "side", "technique"]
+          }
+        },
+        "food_type": {
+          "type": "string",
+          "cons": {
+            "in": ["baked", "bowl", "cocktail", "cookie", "fish", "fork-knife", "knife", "shrimp"]
+          }
+        },
+        "origin": ["string", "null"],
+        "prep_time": {
+          "type": "string",
+          "cons": {
+            "format": { "type": "regex", "pattern": "^[0-9]{2}:[0-9]{2}:[0-9]{2}$" }
+          }
+        },
+        "serves": ["number", "null"],
+        "archived": "boolean",
+        "ingredients": {
+          "type": "array",
+          "elem": "#ingredient"
+        },
+        "instructions": ["string", "null"],
+        "notes": ["string", "null"]
+      }
+    },
+    "#ingredient": {
+      "type": "object",
+      "attr": {
+        "name": "string",
+        "amount": ["number", "null"],
+        "units": ["string", "null"]
+      }
+    },
+    "#link": {
+      "type": "string",
+      "cons": {
+        "format": { "type": "regex", "pattern": "^http[s]?://" },
+        "min_length": 5,
+        "max_length": 120
+      }
+    }
+  }
+}

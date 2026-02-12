@@ -18,6 +18,7 @@ def validate_all() -> None:
     schemas = [
         ("art", "pottery"),
         ("blog", "snippets"),
+        ("cooking", "recipes"),
         ("feed", "posts"),
         ("media", "books"),
         ("media", "instagrams"),

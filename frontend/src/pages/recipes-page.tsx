@@ -5,6 +5,7 @@ import {
   FishSimpleIcon,
   ForkKnifeIcon,
   KnifeIcon,
+  MartiniIcon,
   PersonIcon,
   ShrimpIcon,
   TimerIcon,
@@ -38,13 +39,13 @@ export type FoodType =
   | "knife"
   | "baked"
   | "bowl"
-  | "fish";
+  | "fish"
+  | "cocktail";
 
 export interface Ingredient {
   name: string;
   amount?: number;
   units?: Unit;
-  notes?: string;
 }
 
 export type Unit = "cup" | "tbsp" | "tsp" | "oz" | "lb" | "g" | "kg" | "ml";
@@ -75,6 +76,8 @@ export function RecipesPage() {
         return <BowlFoodIcon size={30} color="#f5f5f0" />;
       case "fish":
         return <FishSimpleIcon size={30} color="#f5f5f0" />;
+      case "cocktail":
+        return <MartiniIcon size={30} color="#f5f5f0" />;
       default:
         return <ForkKnifeIcon size={30} color="#f5f5f0" />;
     }
