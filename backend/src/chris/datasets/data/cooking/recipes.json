@@ -267,7 +267,7 @@
       { "name": "serrano pepper", "amount": 0.5, "units": null }
     ],
     "instructions": "Chop pork large, will shrink in pan. Fry pork 1 min w/ canola oil. Pour in sauce, half in each pan, stir. Boil thick noodles thoroughly, mix in chili oil. Chop green onions and add to cooked pork/noodles.",
-    "notes": "Makes 3 servings, 2 pans, 1 pot."
+    "notes": "Uses 2 pans and 1 pot."
   },
   {
     "name": "Pizza Dough",
@@ -309,7 +309,7 @@
       { "name": "garlic powder", "amount": null, "units": null },
       { "name": "eggs", "amount": 2, "units": null }
     ],
-    "instructions": "Dip flour -> egg -> flour. Pam spray. 20 minutes at 400F. Flip halfway through.",
+    "instructions": "Dip flour -> egg -> flour. Pam spray. 20 minutes at 400ºF. Flip halfway through.",
     "notes": null
   }
 ]
