@@ -88,5 +88,35 @@
     "date": "2026-02-11",
     "text": "It seems that people underestimate the cost of pinning dependencies. It's a pretty serious form of tech debt that feels small in the moment, but can become a huge headache after adding just a few constraints.",
     "tags": ["engineering-process"]
+  },
+  {
+    "slug": "prod-codebase-focused",
+    "date": "2026-02-19",
+    "text": "Your production codebase should only have code that is shipped to production and tests. One off benchmarks, notebooks, and scripts should live elsewhere.",
+    "tags": ["engineering-process"]
+  },
+  {
+    "slug": "prod-codebase-tested",
+    "date": "2026-02-19",
+    "text": "All code merged to the production codebase should be tested, either by a unit test or an end to end test. You don't need 100% test coverage, but this is a good heuristic to ensure everything in your production repo is stable.",
+    "tags": ["engineering-process"]
+  },
+  {
+    "slug": "prod-codebase-quality-checks",
+    "date": "2026-02-19",
+    "text": "Code quality checks should run on every single line of application code merged to the production repo. This repo is the boundary between one off scripts and the code that becomes your product. Structure it accordingly into packages with carefully configured CI.",
+    "tags": ["engineering-process"]
+  },
+  {
+    "slug": "the-patching-bell",
+    "date": "2026-02-19",
+    "text": "If you find yourself needing to write a patch in your tests, this should ring a bell in your head that your code could be structured better. Consider how to make your application code more \"pure\", more functional, perhaps using dependency injection.",
+    "tags": ["engineering-process"]
+  },
+  {
+    "slug": "functionality-or-refactor",
+    "date": "2026-02-19",
+    "text": "In all work you do, make a clear distinction between adding functionality and refactoring. It's up to you whether to refactor before or after implementing new functionality, but strive to avoid mixing the two.",
+    "tags": ["engineering-process"]
   }
 ]
