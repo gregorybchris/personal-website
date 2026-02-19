@@ -54,15 +54,7 @@
         "type": "categorical",
         "required": true,
         "multiselect": false,
-        "options": [
-          "Facebook",
-          "Twitter",
-          "YouTube",
-          "Instagram",
-          "Snapchat",
-          "TikTok",
-          "Other"
-        ],
+        "options": ["Facebook", "Twitter", "YouTube", "Instagram", "Snapchat", "TikTok", "Other"],
         "likert": null
       },
       {
@@ -71,15 +63,7 @@
         "type": "categorical",
         "required": true,
         "multiselect": false,
-        "options": [
-          "Facebook",
-          "Twitter",
-          "YouTube",
-          "Instagram",
-          "Snapchat",
-          "TikTok",
-          "Other"
-        ],
+        "options": ["Facebook", "Twitter", "YouTube", "Instagram", "Snapchat", "TikTok", "Other"],
         "likert": null
       },
       {
@@ -118,15 +102,7 @@
         "type": "ordinal",
         "required": true,
         "multiselect": false,
-        "options": [
-          "1 - Not familiar at all",
-          "2",
-          "3",
-          "4",
-          "5",
-          "6",
-          "7 - Very familiar"
-        ],
+        "options": ["1 - Not familiar at all", "2", "3", "4", "5", "6", "7 - Very familiar"],
         "likert": {
           "low": "not at all familiar",
           "high": "very familiar",
@@ -139,12 +115,7 @@
         "type": "ordinal",
         "required": true,
         "multiselect": false,
-        "options": [
-          "Never",
-          "A few episodes",
-          "More than a few episodes",
-          "Most or all episodes"
-        ],
+        "options": ["Never", "A few episodes", "More than a few episodes", "Most or all episodes"],
         "likert": null
       },
       {
