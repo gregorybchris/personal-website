@@ -319,5 +319,111 @@
     "price": null,
     "favorite": false,
     "archived": true
+  },
+  {
+    "name": "Old Parchment Mug",
+    "slug": "old-parchment-mug",
+    "item_code": "67aee3a2",
+    "date": "February 2026",
+    "description": "Small mug with a reddish brown speckled glaze.",
+    "image_links": [
+      "https://storage.googleapis.com/cgme/art/pottery/old-parchment-mug--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/old-parchment-mug--top.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/old-parchment-mug--back.jpg"
+    ],
+    "clay_body": "Speckled gray",
+    "glaze": "1x stellar rust, 1x cola green",
+    "dimensions": {
+      "width": 3,
+      "height": 4.5
+    },
+    "price": 20,
+    "favorite": false,
+    "archived": false
+  },
+  {
+    "name": "Seashore eddy mug",
+    "slug": "seashore-eddy-mug",
+    "item_code": "8612c423",
+    "date": "February 2026",
+    "description": "Small mug with a light blue glaze like the ocean on a sunny day.",
+    "image_links": [
+      "https://storage.googleapis.com/cgme/art/pottery/seashore-eddy-mug--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/seashore-eddy-mug--top.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/seashore-eddy-mug--back.jpg"
+    ],
+    "clay_body": "Speckled gray",
+    "glaze": "1x clear, 1x caribbean",
+    "dimensions": {
+      "width": 3,
+      "height": 4.5
+    },
+    "price": 30,
+    "favorite": true,
+    "archived": false
+  },
+  {
+    "name": "Small mixing bowl",
+    "slug": "small-mixing-bowl",
+    "item_code": "0689ae77",
+    "date": "February 2026",
+    "description": "Small light green mixing bowl",
+    "image_links": [
+      "https://storage.googleapis.com/cgme/art/pottery/small-mixing-bowl--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/small-mixing-bowl--top.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/small-mixing-bowl--bottom.jpg"
+    ],
+    "clay_body": "Speckled gray",
+    "glaze": "1x stellar rust, 1x caribbean",
+    "dimensions": {
+      "width": 6.25,
+      "height": 3.75
+    },
+    "price": 50,
+    "favorite": true,
+    "archived": false
+  },
+  {
+    "name": "Medium mixing bowl",
+    "slug": "medium-mixing-bowl",
+    "item_code": "261f376d",
+    "date": "February 2026",
+    "description": "Medium sized light green mixing bowl.",
+    "image_links": [
+      "https://storage.googleapis.com/cgme/art/pottery/medium-mixing-bowl--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/medium-mixing-bowl--top.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/medium-mixing-bowl--bottom.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/medium-mixing-bowl--inside.jpg"
+    ],
+    "clay_body": "Speckled gray",
+    "glaze": "1x stellar rust, 1x caribbean",
+    "dimensions": {
+      "width": 7,
+      "height": 5.25
+    },
+    "price": 70,
+    "favorite": true,
+    "archived": false
+  },
+  {
+    "name": "Mossy blue green bowl",
+    "slug": "mossy-blue-green-bowl",
+    "item_code": "1218e43f",
+    "date": "February 2026",
+    "description": "Bowl with a mossy blue-green glaze.",
+    "image_links": [
+      "https://storage.googleapis.com/cgme/art/pottery/mossy-blue-green-bowl--front.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/mossy-blue-green-bowl--top.jpg",
+      "https://storage.googleapis.com/cgme/art/pottery/mossy-blue-green-bowl--bottom.jpg"
+    ],
+    "clay_body": "Speckled gray",
+    "glaze": "1x stellar rust, 1x caribbean",
+    "dimensions": {
+      "width": 6,
+      "height": 3.5
+    },
+    "price": null,
+    "favorite": true,
+    "archived": false
   }
 ]
