@@ -39,7 +39,7 @@
     "archived": true
   },
   {
-    "name": "Matte gray bowl",
+    "name": "Slate gray shallow bowl",
     "slug": "cereal-bowl",
     "item_code": "60164add",
     "date": "August 2024",
@@ -60,7 +60,7 @@
     "archived": false
   },
   {
-    "name": "Pastel blue orb vase",
+    "name": "Powder blue orb vase",
     "slug": "blue-round-orb-vase",
     "item_code": "e62a26cc",
     "date": "August 2024",
@@ -77,7 +77,7 @@
     "archived": false
   },
   {
-    "name": "Dark turquoise mug",
+    "name": "Deep sea speckle mug",
     "slug": "dark-green-mug",
     "item_code": "1797c77e",
     "date": "September 2024",
@@ -99,7 +99,7 @@
     "archived": false
   },
   {
-    "name": "Metallic banded vase",
+    "name": "Aged alloy decorative vase",
     "slug": "holy-metallic-vase",
     "item_code": "2af7406d",
     "date": "September 2024",
@@ -120,7 +120,7 @@
     "archived": false
   },
   {
-    "name": "Blue bell vase",
+    "name": "Nocturne bell vase",
     "slug": "big-blue-bell-vase",
     "item_code": "759f21c2",
     "date": "September 2024",
@@ -140,7 +140,7 @@
     "archived": false
   },
   {
-    "name": "Tall red vase",
+    "name": "Charred brick vase",
     "slug": "red-bowling-pin-vase",
     "item_code": "ae2dfa50",
     "date": "September 2024",
@@ -160,7 +160,7 @@
     "archived": false
   },
   {
-    "name": "Dripping blue mug",
+    "name": "Sky drip mug",
     "slug": "light-blue-brown-heavy-mug",
     "item_code": "11ab48e3",
     "date": "October 2025",
@@ -180,7 +180,7 @@
     "archived": false
   },
   {
-    "name": "Tan speckled vase",
+    "name": "Sandstorm vase",
     "slug": "white-bone-vase",
     "item_code": "9b8fa712",
     "date": "October 2025",
@@ -200,7 +200,7 @@
     "archived": false
   },
   {
-    "name": "Two tall mugs",
+    "name": "Azurite twin mugs",
     "slug": "twin-mugs",
     "item_code": "ddbe39ef",
     "date": "December 2025",
@@ -240,7 +240,7 @@
     "archived": true
   },
   {
-    "name": "Light brown cachepot",
+    "name": "Clay & cove cachepot",
     "slug": "salt-bowl",
     "item_code": "dea1124f",
     "date": "December 2025",
@@ -260,7 +260,7 @@
     "archived": false
   },
   {
-    "name": "Dark blue bowl",
+    "name": "Silent lagoon bowl",
     "slug": "dark-blue-cereal-bowl",
     "item_code": "e5cb757b",
     "date": "December 2025",
@@ -321,7 +321,7 @@
     "archived": true
   },
   {
-    "name": "Old Parchment Mug",
+    "name": "Aged parchment mug",
     "slug": "old-parchment-mug",
     "item_code": "67aee3a2",
     "date": "February 2026",
@@ -363,7 +363,7 @@
     "archived": false
   },
   {
-    "name": "Small mixing bowl",
+    "name": "Bright sprig mixing bowl (small)",
     "slug": "small-mixing-bowl",
     "item_code": "0689ae77",
     "date": "February 2026",
@@ -384,7 +384,7 @@
     "archived": false
   },
   {
-    "name": "Medium mixing bowl",
+    "name": "Bright sprig mixing bowl (medium)",
     "slug": "medium-mixing-bowl",
     "item_code": "261f376d",
     "date": "February 2026",
@@ -406,7 +406,7 @@
     "archived": false
   },
   {
-    "name": "Mossy blue green bowl",
+    "name": "Skyleaf bowl",
     "slug": "mossy-blue-green-bowl",
     "item_code": "1218e43f",
     "date": "February 2026",

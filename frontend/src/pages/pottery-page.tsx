@@ -100,7 +100,7 @@ function PotteryDetails({
         {!adminMode && (
           <div
             className={cn(
-              "text-lg font-bold",
+              "text-lg font-bold text-balance",
               mobile ? "text-base" : "text-lg",
             )}
           >
