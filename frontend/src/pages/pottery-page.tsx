@@ -49,8 +49,7 @@ function PotteryDetails({
 
     toast.message(
       <span>
-        If you wish to inquire about purchasing a piece, send me a message
-        through my{" "}
+        If you wish to purchase a piece, send me a message through my{" "}
         <Link
           to="/contact"
           className="text-sky hover:text-royal transition-colors"
