@@ -259,7 +259,8 @@ function LazyImage({ src, alt, className, onClick }: LazyImageProps) {
       )}
       {isVisible && (
         <img
-          src={src}
+          // Temporary query param to break cache for renamed images - can remove after some time
+          src={`${src}?v=1`}
           alt={alt}
           className={cn(
             "hiking-image h-full w-full object-cover transition-opacity duration-200",

@@ -700,7 +700,6 @@
       "https://storage.googleapis.com/cgme/hiking/klahhane-ridge--05.jpg"
     ]
   },
-
   {
     "route_id": "44c9b858-6309-470f-aa8e-efccca1df918",
     "name": "Hoh River Trail",
@@ -1857,6 +1856,125 @@
       "https://storage.googleapis.com/cgme/hiking/mount-perry--01.jpg",
       "https://storage.googleapis.com/cgme/hiking/mount-perry--02.jpg",
       "https://storage.googleapis.com/cgme/hiking/mount-perry--03.jpg"
+    ]
+  },
+  {
+    "route_id": "fcae233a-72b2-4a5f-b18c-3865422e27ce",
+    "name": "Lake Marian",
+    "slug": "lake-marian",
+    "dates": ["2026-03-16"],
+    "miles": 4.5,
+    "elevation": 1500,
+    "area": "Fiordland Community",
+    "region": "New Zealand",
+    "travel_time": null,
+    "notes": null,
+    "coordinates": {
+      "latitude": -44.808179,
+      "longitude": 168.102949,
+      "formatted": "44/48/29.4/S 168/06/10.6/E"
+    },
+    "stars": 3,
+    "archived": false,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/lake-marian--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/lake-marian--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/lake-marian--03.jpg"
+    ]
+  },
+  {
+    "route_id": "63b1d74e-411c-40d1-84a0-e6a682c7a11b",
+    "name": "McLean Falls",
+    "slug": "mclean-falls",
+    "dates": ["2026-03-20"],
+    "miles": 1,
+    "elevation": 200,
+    "area": "Clutha District",
+    "region": "New Zealand",
+    "travel_time": null,
+    "notes": null,
+    "coordinates": {
+      "latitude": -46.573351,
+      "longitude": 169.34651,
+      "formatted": "46/34/24.1/S 169/20/47.4/E"
+    },
+    "stars": 3,
+    "archived": false,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/mclean-falls--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/mclean-falls--02.jpg"
+    ]
+  },
+  {
+    "route_id": "1b8ba315-176e-4da8-a133-dadbc7122656",
+    "name": "Nugget Point Lighthouse",
+    "slug": "nugget-point-lighthouse",
+    "dates": ["2026-03-20"],
+    "miles": 1,
+    "elevation": 300,
+    "area": "Catlins",
+    "region": "New Zealand",
+    "travel_time": null,
+    "notes": null,
+    "coordinates": {
+      "latitude": -46.445626,
+      "longitude": 169.807777,
+      "formatted": "46/26/44.3/S 169/48/28.0/E"
+    },
+    "stars": 4,
+    "archived": false,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/nugget-point-lighthouse--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/nugget-point-lighthouse--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/nugget-point-lighthouse--03.jpg"
+    ]
+  },
+  {
+    "route_id": "7264e649-cbd3-4e7a-be1f-0905391fb44c",
+    "name": "Tunnel Beach",
+    "slug": "tunnel-beach",
+    "dates": ["2026-03-20"],
+    "miles": 2,
+    "elevation": 470,
+    "area": "Dunedin City",
+    "region": "New Zealand",
+    "travel_time": null,
+    "notes": null,
+    "coordinates": {
+      "latitude": -45.918575,
+      "longitude": 170.4533,
+      "formatted": "45/55/06.9/S 170/27/11.9/E"
+    },
+    "stars": 4,
+    "archived": false,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/tunnel-beach--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/tunnel-beach--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/tunnel-beach--03.jpg"
+    ]
+  },
+  {
+    "route_id": "d037a6b8-10bd-4d65-b30b-4b9cead54d71",
+    "name": "Mueller Hut",
+    "slug": "mueller-hut",
+    "dates": ["2026-03-22"],
+    "miles": 6.5,
+    "elevation": 3500,
+    "area": "Mount Cook National Park",
+    "region": "New Zealand",
+    "travel_time": null,
+    "notes": null,
+    "coordinates": {
+      "latitude": -43.718795,
+      "longitude": 170.093083,
+      "formatted": "43/43/07.7/S 170/05/35.1/E"
+    },
+    "stars": 5,
+    "archived": false,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/hiking/mueller-hut--01.jpg",
+      "https://storage.googleapis.com/cgme/hiking/mueller-hut--02.jpg",
+      "https://storage.googleapis.com/cgme/hiking/mueller-hut--03.jpg"
     ]
   }
 ]
