@@ -1,4 +1,5 @@
 import logging
+import re
 from datetime import datetime, timezone
 from enum import StrEnum
 from pathlib import Path
@@ -55,9 +56,15 @@ class BlogPost(BaseModel):
         )
 
 
+def strip_media_html(content: str) -> str:
+    without_video = re.sub(r"<video\b[^>]*>.*?</video\s*>", "", content, flags=re.IGNORECASE | re.DOTALL)
+    return re.sub(r"<img\b[^>]*/?>", "", without_video, flags=re.IGNORECASE | re.DOTALL)
+
+
 def content_to_reading_time(content: str) -> int:
     # Brysbaert, M. (2019) - English non-fiction reading speed
     # wpm = 238 * (4.6  / avg letters per word)
+    content = strip_media_html(content)
     words = content.split()
     n_words = len(words)
     n_letters = sum(len(word) for word in words)
