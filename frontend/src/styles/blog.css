@@ -45,7 +45,8 @@
 }
 
 /* Inline code */
-#blog p code {
+#blog p code,
+#blog figcaption code {
   background-color: #e3e3de;
   padding: 0.1rem 0.2rem;
   border-radius: 0.25rem;

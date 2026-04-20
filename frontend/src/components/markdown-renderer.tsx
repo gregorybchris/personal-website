@@ -112,6 +112,16 @@ type MarkdownRendererProps = {
   children: string;
 };
 
+// Backticks inside raw-HTML figcaptions are not parsed as markdown, so rewrite
+// them to <code> tags that rehype-raw will preserve.
+function convertFigcaptionInlineCode(content: string): string {
+  return content.replace(
+    /(<figcaption\b[^>]*>)([\s\S]*?)(<\/figcaption>)/gi,
+    (_match, open, inner, close) =>
+      `${open}${inner.replace(/`([^`\n]+)`/g, "<code>$1</code>")}${close}`,
+  );
+}
+
 export function MarkdownRenderer({ children }: MarkdownRendererProps) {
   const components: Record<string, React.ComponentType<any>> & {
     h2: React.ComponentType<any>;
@@ -241,7 +251,7 @@ export function MarkdownRenderer({ children }: MarkdownRendererProps) {
       rehypePlugins={[rehypeKatex, rehypeRaw]}
       components={components}
     >
-      {children}
+      {convertFigcaptionInlineCode(children)}
     </ReactMarkdown>
   );
 }
