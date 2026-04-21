@@ -22,21 +22,23 @@ This powerful cycle at the core of all life on Earth is full of complex chemistr
 
 ## Building blocks
 
-Just like in real DNA, we'll start with four building blocks: A, C, G, and T. We'll call these "bases". And for the purposes of Typogenetics, we can forget nearly everything about the actual chemistry of these four chemicals. It's still helpful to group them into two groups -- A and G are both called "pyrimidines" and C and T are "purines".
+Just like in real DNA, we'll start with four building blocks: A, C, G, and T. We'll call these "bases". And for the purposes of Typogenetics, we don't care at all about the actual chemistry of these four chemicals.
 
 <figure id="figure1">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/visualizing-typogenetics/bases.svg?cache=1" width="350">
-  <figcaption><strong>Figure 1: </strong>Bases &mdash; This description will need to be filled in.</figcaption>
+  <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/bases.svg?cache=1" width="350">
+  <figcaption><strong>Figure 1: </strong>Bases &mdash; The four bases and their two groups: A and G are both called "pyrimidines" and C and T are "purines".</figcaption>
 </figure>
 
-If we string a few of these bases together we'll call that a "strand".
+If we string a few of these bases together we'll call that a "strand". Each position along a strand is called a "unit".
 
 <figure id="figure1">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/visualizing-typogenetics/strand.svg?cache=1" width="350">
-  <figcaption><strong>Figure 1: </strong>Strand &mdash; This description will need to be filled in.</figcaption>
+  <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/strand.svg?cache=1" width="350">
+  <figcaption><strong>Figure 1: </strong>Strand &mdash; Bases strung together in any order form a strand.</figcaption>
 </figure>
 
 ## Rewriting
+
+When we apply rules to a strand, it gets rewritten into a new strand. A sequence of rules is called an "enzyme". Let's look at an example of an enzyme made up of three rules:
 
 1. Delete the unit to which the enzyme is bound (and then bind to the next unit to the right).
 2. Move one unit to the right.
@@ -44,18 +46,20 @@ If we string a few of these bases together we'll call that a "strand".
 
 <figure id="figure1">
   <video width="450" autoplay muted loop playsinline>
-    <source src="https://storage.googleapis.com/cgme/blog/posts/visualizing-typogenetics/rewriting.mp4?cache=2" type="video/mp4">
+    <source src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/rewriting.mp4?cache=3" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
     <strong>Figure 1: </strong>
-    Rewriting &mdash; This description will need to be filled in.
+    Rewriting &mdash; In this simple example, the `del-mvr-int` enzyme rewrites `ACA` to `CAT`.
   </figcaption>
 </figure>
 
+Each of these rules is called an "amino acid". A very useful amino acid is called `cut`, which slices a strand to the right of the current unit, producing two strands.
+
 <figure id="figure1">
   <video width="450" autoplay muted loop playsinline>
-    <source src="https://storage.googleapis.com/cgme/blog/posts/visualizing-typogenetics/cut.mp4?cache=2" type="video/mp4">
+    <source src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/cut.mp4?cache=3" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
@@ -64,14 +68,16 @@ If we string a few of these bases together we'll call that a "strand".
   </figcaption>
 </figure>
 
+Another useful amino acid is `cop`, which turns on "Copy mode". When Copy mode is on, new bases bind to the current strand. Specifically, A binds to T, and C binds to G. These are called "complementary base pairs". When Copy mode is on, any time the enzyme moves left or right, a new complementary base is added to the other strand.
+
 <figure id="figure1">
   <video width="450" autoplay muted loop playsinline>
-    <source src="https://storage.googleapis.com/cgme/blog/posts/visualizing-typogenetics/copy.mp4?cache=2" type="video/mp4">
+    <source src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/copy.mp4?cache=3" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
     <strong>Figure 1: </strong>
-    Copy &mdash; This description will need to be filled in.
+    Copy &mdash; Copy mode allows enzymes to duplicate strands. In this case, `cop-mvr-mvr-mvr-mvr-mvr` turns Copy mode on and then walks down the current strand, creating a complementary strand in the process.
   </figcaption>
 </figure>
 
@@ -79,7 +85,7 @@ Next let's see what happens if we cut where the strand is being copied. You can 
 
 <figure id="figure1">
   <video width="450" autoplay muted loop playsinline>
-    <source src="https://storage.googleapis.com/cgme/blog/posts/visualizing-typogenetics/copy-and-cut.mp4?cache=2" type="video/mp4">
+    <source src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/copy-and-cut.mp4?cache=3" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
@@ -89,7 +95,7 @@ Next let's see what happens if we cut where the strand is being copied. You can 
 </figure>
 
 <figure id="figure1">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/visualizing-typogenetics/amino-acid-table.svg?cache=1" width="300">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/amino-acid-table.svg?cache=1" width="300">
   <figcaption><strong>Figure 1: </strong>Amino acids &mdash; This description will need to be filled in.</figcaption>
 </figure>
 
@@ -98,7 +104,7 @@ Next let's see what happens if we cut where the strand is being copied. You can 
 ## Binding preference
 
 <figure id="figure1">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/visualizing-typogenetics/binding-preference.svg?cache=1" width="350">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/binding-preference.svg?cache=1" width="350">
   <figcaption><strong>Figure 1: </strong>Binding preferences &mdash; This description will need to be filled in.</figcaption>
 </figure>
 
@@ -110,7 +116,7 @@ Holding the orientation of the first segment to the right, the orientation of th
 
 <figure id="figure1">
   <video width="450" autoplay muted loop playsinline>
-    <source src="https://storage.googleapis.com/cgme/blog/posts/visualizing-typogenetics/translation.mp4?cache=2" type="video/mp4">
+    <source src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/translation.mp4?cache=3" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
@@ -122,7 +128,7 @@ Holding the orientation of the first segment to the right, the orientation of th
 Each pair of bases is assigned to one amino acid.
 
 <figure id="figure1">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/visualizing-typogenetics/duplet.svg?cache=1" width="350">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/duplet.svg?cache=1" width="350">
   <figcaption><strong>Figure 1: </strong>Strand &mdash; This description will need to be filled in.</figcaption>
 </figure>
 
@@ -132,7 +138,7 @@ Each amino acid has the possibility of inducing a kink in the enzyme. "r" indica
 
 <figure id="figure1">
   <video width="450" autoplay muted loop playsinline>
-    <source src="https://storage.googleapis.com/cgme/blog/posts/visualizing-typogenetics/folding.mp4?cache=2" type="video/mp4">
+    <source src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/folding.mp4?cache=3" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
@@ -181,23 +187,22 @@ Three consecutive bases/nucleotides form a "codon". Since there are 4 bases and 
 
 Finally, in real biology there is no 1:1 relationship between an amino acid and some operation. The tertiary structure of a protein decides the function of the protein. It is the full context of the protein that determines how any one amino acid will function.
 
-## CLI
+## Try it out
+
+I've implemented a command line interface for Typogenetics. You can test translation from strands to enzymes and the application of enzymes to strands. You can also simulate many generations of rewrites in search of a particular function or with open-ended search.
 
 ```bash
 # Translate a single strand into an enzyme
 typo translate ATAGAGAGATCACATGTACGATAC
 
 # Apply an enzyme to a strand to produce a set of new strands
-typo rewrite cop-mvl-mvr-swi-cut-rpy AATACTAAACCGA
+typo rewrite cop-mvl-mvr-swi-cut-rpy AATACTAAACCGA --debug
 
-# Simulate many generations of evolution with a starting strand
+# Simulate many generations of rewrites with a starting strand
 typo simulate ATAGCGAATAGGATAATG --iter 10000 --seed 42
 
 # Search for all strands that code for enzymes with similar function
 typo search ATAAACGATAATTGACAGAGCGAATG ATCGATAGGGAACATGTCGT --edits 5 --depth 20 --seed 42
-
-#
-typo untranslate cop-mvl-mvr-swi-cut-rpy
 ```
 
 <github-button user="gregorybchris" repo="typogenetics"></github-button>
