@@ -1,6 +1,6 @@
 import { ArrowLeftIcon } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { IconButton } from "../components/icon-button";
 import { Loader } from "../components/loader";
 import { MarkdownRenderer } from "../components/markdown-renderer";
@@ -24,6 +24,7 @@ export function BlogPostPage() {
   const [currentPost, setCurrentPost] = useState<BlogPost | null>(null);
   const { slug } = useParams();
   const navigate = useNavigate();
+  const { hash } = useLocation();
 
   useEffect(() => {
     const query = makeQuery(`blog/posts/${slug}`);
@@ -65,6 +66,37 @@ export function BlogPostPage() {
       video.addEventListener("ended", handleEnded);
     });
   }, [currentPost]);
+
+  useEffect(() => {
+    if (currentPost === null || !hash) return;
+
+    const id = decodeURIComponent(hash.slice(1));
+    const scrollToTarget = () => {
+      const target = document.getElementById(id);
+      if (target) target.scrollIntoView();
+    };
+
+    const raf = requestAnimationFrame(scrollToTarget);
+
+    // Re-scroll as images above the target load and shift layout.
+    const images = Array.from(document.querySelectorAll("#blog img"));
+    const pending = images.filter(
+      (img) => !(img as HTMLImageElement).complete,
+    );
+    const onLoad = () => scrollToTarget();
+    pending.forEach((img) => {
+      img.addEventListener("load", onLoad, { once: true });
+      img.addEventListener("error", onLoad, { once: true });
+    });
+
+    return () => {
+      cancelAnimationFrame(raf);
+      pending.forEach((img) => {
+        img.removeEventListener("load", onLoad);
+        img.removeEventListener("error", onLoad);
+      });
+    };
+  }, [currentPost, hash]);
 
   return (
     <div className="font-iowa flex flex-col items-center px-7 py-6 md:px-10 md:py-10">
