@@ -118,5 +118,17 @@
     "date": "2026-02-19",
     "text": "In all work you do, make a clear distinction between adding functionality and refactoring. It's up to you whether to refactor before or after implementing new functionality, but strive to avoid mixing the two.",
     "tags": ["engineering-process"]
+  },
+  {
+    "slug": "private-property",
+    "date": "2026-04-22",
+    "text": "Code ownership is not a magic bullet, but it's unreasonably effective at setting up a good incentive structure. It has the same shortfalls as physical private property, but it's generally agreed that it leads to good outcomes.",
+    "tags": ["engineering-process"]
+  },
+  {
+    "slug": "e2es-for-startups",
+    "date": "2026-04-22",
+    "text": "End to end tests can be expensive to run, but are often very cheap to write. For startups, you can get a very high return on invested time by writing a few end to end tests that cover the happy path and invest in monitoring and alerting for a few critical paths.",
+    "tags": ["engineering-process"]
   }
 ]
