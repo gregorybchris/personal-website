@@ -3,7 +3,7 @@ date: 2024-01-07
 slug: on-typogenetics
 title: "On Typogenetics: Visualizations and Connections"
 archived: false
-status: new
+status: draft
 ---
 
 Maybe you've never heard of Typogenetics or maybe you're a long time fan of Douglas Hofstadter's award-winning book _Gödel, Escher, Bach: An Eternal Golden Braid_ (1979). Either way, this blog post is for you.
