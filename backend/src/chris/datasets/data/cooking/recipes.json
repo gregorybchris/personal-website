@@ -67,10 +67,19 @@
     "origin": "Gregory family",
     "prep_time": "00:20:00",
     "serves": 4,
-    "archived": true,
-    "ingredients": [],
-    "instructions": null,
-    "notes": null
+    "archived": false,
+    "ingredients": [
+      { "name": "pork loin (or rib meat)", "amount": 1, "units": "package" },
+      { "name": "sesame seeds", "amount": 0.333, "units": "cup" },
+      { "name": "soy sauce", "amount": 1, "units": "cup" },
+      { "name": "sugar", "amount": 0.333, "units": "cup" },
+      { "name": "garlic", "amount": 1, "units": "tablespoon" },
+      { "name": "ground ginger", "amount": 1, "units": "tablespoon" },
+      { "name": "sesame oil", "amount": 0.333, "units": "cup" },
+      { "name": "green onions", "amount": 0.666, "units": "cup" }
+    ],
+    "instructions": "Toast sesame seeds in an 8-10 inch frying pan over medium heat until golden, shaking pan frequently. Crush coarsely (using food processor). Add with other ingredients in a medium sized bowl. Marinade meat, as desired. Broil under high heat for 3-4 minutes a side, depending of size of pieces and type of meat. Serve on rice.",
+    "notes": "Cube the pork. Mince the garlic. Sesame oil can be substituted with salad oil. Thinly slice the green onions. Dad uses regular vegetable oil instead of sesame oil and pre-bough toasted sesame seeds. Marinade overnight at least."
   },
   {
     "name": "Miso Soup",
