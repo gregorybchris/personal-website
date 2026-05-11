@@ -31,9 +31,9 @@ Just like in real DNA, we'll start with four building blocks: A, C, G, and T. We
 
 If we string a few of these bases together we'll call that a "strand". Each position along a strand is called a "unit".
 
-<figure id="figure1">
+<figure id="figure2">
   <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/strand.svg?cache=1" width="350">
-  <figcaption><strong>Figure 1: </strong>Strand &mdash; Bases strung together in any order form a strand.</figcaption>
+  <figcaption><strong>Figure 2: </strong>Strands &mdash; Bases strung together in any order form a strand.</figcaption>
 </figure>
 
 ## Rewriting
@@ -44,68 +44,68 @@ When we apply rules to a strand, it gets rewritten into a new strand. A sequence
 2. Move one unit to the right.
 3. Insert a T (to the immediate right of this unit)
 
-<figure id="figure1">
+<figure id="figure3">
   <video width="450" autoplay muted loop playsinline>
     <source src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/rewriting.mp4?cache=3" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
-    <strong>Figure 1: </strong>
+    <strong>Figure 3: </strong>
     Rewriting &mdash; In this simple example, the `del-mvr-int` enzyme rewrites `ACA` to `CAT`.
   </figcaption>
 </figure>
 
 Each of these rules is called an "amino acid". A very useful amino acid is called `cut`, which slices a strand to the right of the current unit, producing two strands.
 
-<figure id="figure1">
+<figure id="figure4">
   <video width="450" autoplay muted loop playsinline>
     <source src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/cut.mp4?cache=3" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
-    <strong>Figure 1: </strong>
-    Cut &mdash; This description will need to be filled in.
+    <strong>Figure 4: </strong>
+    Cut &mdash; The `cut` amino acid slices a strand into two. In this example, `mvr-mvr-cut` moves two units to the right and then performs a cut.
   </figcaption>
 </figure>
 
 Another useful amino acid is `cop`, which turns on "Copy mode". When Copy mode is on, new bases bind to the current strand. Specifically, A binds to T, and C binds to G. These are called "complementary base pairs". When Copy mode is on, any time the enzyme moves left or right, a new complementary base is added to the other strand.
 
-<figure id="figure1">
+<figure id="figure5">
   <video width="450" autoplay muted loop playsinline>
     <source src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/copy.mp4?cache=3" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
-    <strong>Figure 1: </strong>
+    <strong>Figure 5: </strong>
     Copy &mdash; Copy mode allows enzymes to duplicate strands. In this case, `cop-mvr-mvr-mvr-mvr-mvr` turns Copy mode on and then walks down the current strand, creating a complementary strand in the process.
   </figcaption>
 </figure>
 
 Next let's see what happens if we cut where the strand is being copied. You can see that we get a couple of free-floating strand fragments. A single enzyme acting on a single strand can produce many strands as output.
 
-<figure id="figure1">
+<figure id="figure6">
   <video width="450" autoplay muted loop playsinline>
     <source src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/copy-and-cut.mp4?cache=3" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
-    <strong>Figure 1: </strong>
-    Copy and cut &mdash; This description will need to be filled in.
+    <strong>Figure 6: </strong>
+    Copy and cut &mdash; Cutting a strand while Copy mode is enabled can produce many strands.
   </figcaption>
 </figure>
 
-<figure id="figure1">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/amino-acid-table.svg?cache=1" width="300">
-  <figcaption><strong>Figure 1: </strong>Amino acids &mdash; This description will need to be filled in.</figcaption>
+<figure id="figure7">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/amino-acid-table.svg?cache1" width="300">
+  <figcaption><strong>Figure 7: </strong>Amino acids &mdash; This description will need to be filled in.</figcaption>
 </figure>
 
 > Note: The AA duplet does not code for an amino acid. It is reserved as a "punctuation mark" to mean "end of enzyme". Multiple amino acid sequences can be created from a single strand during translation.
 
 ## Binding preference
 
-<figure id="figure1">
+<figure id="figure8">
   <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/binding-preference.svg?cache=1" width="350">
-  <figcaption><strong>Figure 1: </strong>Binding preferences &mdash; This description will need to be filled in.</figcaption>
+  <figcaption><strong>Figure 8: </strong>Binding preferences &mdash; This description will need to be filled in.</figcaption>
 </figure>
 
 The relative orientation of the first and last segments of an enzyme's tertiary structure determines the binding-preference of the enzyme.
@@ -114,35 +114,35 @@ Holding the orientation of the first segment to the right, the orientation of th
 
 ## Translation
 
-<figure id="figure1">
+<figure id="figure9">
   <video width="450" autoplay muted loop playsinline>
     <source src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/translation.mp4?cache=3" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
-    <strong>Figure 1: </strong>
+    <strong>Figure 9: </strong>
     Translation &mdash; This description will need to be filled in.
   </figcaption>
 </figure>
 
 Each pair of bases is assigned to one amino acid.
 
-<figure id="figure1">
+<figure id="figure10">
   <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/duplet.svg?cache=1" width="350">
-  <figcaption><strong>Figure 1: </strong>Strand &mdash; This description will need to be filled in.</figcaption>
+  <figcaption><strong>Figure 10: </strong>Strand &mdash; This description will need to be filled in.</figcaption>
 </figure>
 
 ## Tertiary structure
 
 Each amino acid has the possibility of inducing a kink in the enzyme. "r" indicates a right turn in the enzyme, "l" indicates a left turn, and "s" indicates no turn induced and the enzyme remains straight at that amino acid.
 
-<figure id="figure1">
+<figure id="figure11">
   <video width="450" autoplay muted loop playsinline>
     <source src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/folding.mp4?cache=3" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
-    <strong>Figure 1: </strong>
+    <strong>Figure 11: </strong>
     Folding &mdash; This description will need to be filled in.
   </figcaption>
 </figure>
