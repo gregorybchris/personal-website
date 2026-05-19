@@ -1,4 +1,8 @@
-import { ArrowCounterClockwiseIcon, CaretDownIcon, CaretUpIcon } from "@phosphor-icons/react";
+import {
+  ArrowCounterClockwiseIcon,
+  CaretDownIcon,
+  CaretUpIcon,
+} from "@phosphor-icons/react";
 import { useEffect, useMemo, useState } from "react";
 import noteEighth from "../assets/icons/note-eighth.svg";
 import noteHalf from "../assets/icons/note-half.svg";
@@ -97,8 +101,7 @@ export function ChordsPage() {
         <div className="flex flex-col items-center gap-2">
           <PageTitle>Chords</PageTitle>
           <div className="max-w-xl text-center text-sm text-black/60">
-            A small songbook of chord charts. Search, browse A&ndash;Z, and
-            modulate any song up or down.
+            A small songbook of chord charts.
           </div>
         </div>
 
@@ -122,13 +125,13 @@ export function ChordsPage() {
             />
 
             <div className="flex flex-1 flex-row gap-4">
+              <SongDetail song={selectedSong} loading={loading} />
               <ModulationPanel
                 offset={offset}
                 onUp={() => setOffset((value) => value + 1)}
                 onDown={() => setOffset((value) => value - 1)}
                 onReset={() => setOffset(0)}
               />
-              <SongDetail song={selectedSong} loading={loading} />
             </div>
           </div>
         )}
@@ -309,7 +312,7 @@ function SongDetail({ song, loading }: SongDetailProps) {
       <textarea
         readOnly
         value={song.chords.trimEnd()}
-        className="font-geist h-[340px] w-full resize-none rounded-lg border border-black/10 bg-dark-parchment p-4 text-lg leading-relaxed tracking-wide text-black/80 outline-none md:text-xl"
+        className="font-geist bg-dark-parchment h-[340px] w-full resize-none rounded-lg border border-black/10 p-4 text-lg leading-relaxed tracking-wide text-black/80 outline-none md:text-xl"
       />
     </div>
   );
