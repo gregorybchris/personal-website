@@ -3,6 +3,7 @@ authors = [
   { name = "Chris Gregory", email = "christopher.b.gregory@gmail.com" },
 ]
 dependencies = [
+  "cadenza-music>=0.1.1",
   "click>=8.3.1",
   "fastapi[standard]>=0.128.0",
   "httpx>=0.28.1",
