@@ -281,7 +281,9 @@ function SongDetail({ song, loading }: SongDetailProps) {
         <h1 className="font-sanchez text-2xl text-balance text-black/85 md:text-4xl">
           {song.title}
         </h1>
-        <div className="text-lg text-black/55 md:text-xl">{song.artist}</div>
+        <div className="text-lg text-balance text-black/55 md:text-xl">
+          {song.artist}
+        </div>
       </div>
 
       {(song.tempo !== null || song.key) && (
