@@ -57,7 +57,7 @@ def fetch_songs() -> list[Song]:
     return [Song(**song) for song in data.get("songs", [])]
 
 
-def _transpose_token(token: str, offset: int, scale: Optional[DiatonicScale]) -> str:
+def _transpose_token(token: str, offset: int, scale: Optional[DiatonicScale], symbols: bool) -> str:
     """Transpose a single whitespace-delimited token if it parses as a chord.
 
     Non-chord tokens (such as "(x2)" repeat markers) are returned unchanged.
@@ -72,13 +72,13 @@ def _transpose_token(token: str, offset: int, scale: Optional[DiatonicScale]) ->
             transposed = Transposer.transpose_chord_unsafe(chord, offset)
         else:
             transposed = Transposer.transpose_chord(chord, offset, scale=scale)
-        return transposed.to_str(symbols=False)
+        return transposed.to_str(symbols=symbols)
     except Exception:  # noqa: BLE001 - never let one odd chord break the chart
         logger.warning(f"Could not transpose chord token: {token}")
         return token
 
 
-def _transpose_lines(chords: str, offset: int, scale: Optional[DiatonicScale]) -> str:
+def _transpose_lines(chords: str, offset: int, scale: Optional[DiatonicScale], symbols: bool) -> str:
     """Transpose a chord chart line by line, token by token.
 
     Used for songs without a declared key (and as a fallback). The original
@@ -90,7 +90,9 @@ def _transpose_lines(chords: str, offset: int, scale: Optional[DiatonicScale]) -
         if not line.strip() or line.startswith("~"):
             lines.append(line)
             continue
-        lines.append(" ".join(_transpose_token(token, offset, scale) for token in line.split()))
+        lines.append(
+            " ".join(_transpose_token(token, offset, scale, symbols) for token in line.split())
+        )
 
     modulated = "\n".join(lines)
     if chords.endswith("\n"):
@@ -98,7 +100,7 @@ def _transpose_lines(chords: str, offset: int, scale: Optional[DiatonicScale]) -
     return modulated
 
 
-def _render_chord_chart(original: str, transposed_lines: list[list[Chord]]) -> str:
+def _render_chord_chart(original: str, transposed_lines: list[list[Chord]], symbols: bool) -> str:
     """Render cadenza's transposed chord lines back over the original layout.
 
     cadenza parses a chart into a flat list of chord lines, dropping comment
@@ -118,7 +120,7 @@ def _render_chord_chart(original: str, transposed_lines: list[list[Chord]]) -> s
         chord_line = transposed_lines[index]
         index += repeat_count
 
-        text = " ".join(chord.to_str(symbols=False) for chord in chord_line)
+        text = " ".join(chord.to_str(symbols=symbols) for chord in chord_line)
         rendered.append(f"{text} (x{repeat_match.group(2)})" if repeat_match else text)
 
     modulated = "\n".join(rendered)
@@ -127,7 +129,9 @@ def _render_chord_chart(original: str, transposed_lines: list[list[Chord]]) -> s
     return modulated
 
 
-def _modulate_keyed_song(song: Song, offset: int, key: Key) -> tuple[str, dict[str, str]]:
+def _modulate_keyed_song(
+    song: Song, offset: int, key: Key, symbols: bool
+) -> tuple[str, dict[str, str]]:
     """Modulate a keyed song with cadenza's high-level Transposer.transpose_song.
 
     Returns the modulated chord chart and the modulated key. Transposing the
@@ -149,42 +153,53 @@ def _modulate_keyed_song(song: Song, offset: int, key: Key) -> tuple[str, dict[s
     )
     transposed = Transposer.transpose_song(cadenza_song, offset, scale=scale)
 
-    chords = _render_chord_chart(song.chords, transposed.chords)
+    chords = _render_chord_chart(song.chords, transposed.chords, symbols)
     new_key = {
-        "root": transposed.key.root.to_str(symbols=False),
+        "root": transposed.key.root.to_str(symbols=symbols),
         "mode": transposed.key.mode.to_str(),
     }
     return chords, new_key
 
 
-def modulate_song(song: Song, offset: int) -> tuple[str, Optional[dict[str, str]]]:
+def _symbolized_key(key: Key, symbols: bool) -> dict[str, str]:
+    """Render a key's root with proper sharp/flat symbols, leaving the mode as-is."""
+    try:
+        root = Note.from_str(key.root).to_str(symbols=symbols)
+    except ParseError:
+        root = key.root
+    return {"root": root, "mode": key.mode}
+
+
+def modulate_song(
+    song: Song, offset: int, symbols: bool
+) -> tuple[str, Optional[dict[str, str]]]:
     """Modulate a song's chords (and key) up or down by ``offset`` semitones.
 
     Keyed songs are transposed with cadenza's Transposer.transpose_song so the
     chords and key stay consistent. Keyless songs fall back to transposing each
-    chord on its own, without scale context for enharmonic spelling.
+    chord on its own, without scale context for enharmonic spelling. An offset
+    of zero still renders through cadenza so chords and keys pick up proper
+    sharp/flat symbols when ``symbols`` is enabled.
     """
-    original_key = song.key.model_dump() if song.key else None
-    if offset == 0:
-        return song.chords, original_key
-
     if song.key is not None:
         try:
-            return _modulate_keyed_song(song, offset, song.key)
+            return _modulate_keyed_song(song, offset, song.key, symbols)
         except Exception:  # noqa: BLE001 - degrade to the keyless path on any failure
             logger.warning(f"transpose_song failed for '{song.title}', using fallback")
 
-    return _transpose_lines(song.chords, offset, scale=None), original_key
+    chords = _transpose_lines(song.chords, offset, scale=None, symbols=symbols)
+    return chords, _symbolized_key(song.key, symbols) if song.key else None
 
 
 @router.get(path="/chords/songs")
 @logging_utilities.log_context("get_chords_songs", tag="api")
-def get_chords_songs(search: str = "", offset: int = 0) -> JSONResponse:
+def get_chords_songs(search: str = "", offset: int = 0, symbols: bool = True) -> JSONResponse:
     """Return every song that matches the given filters.
 
     Args:
         search: Case-insensitive substring matched against title and artist.
         offset: Number of semitones to modulate the chords by.
+        symbols: Whether to render chords with sharp/flat symbols (♯/♭).
     """
     songs = fetch_songs()
 
@@ -198,7 +213,7 @@ def get_chords_songs(search: str = "", offset: int = 0) -> JSONResponse:
             if not (matches_title or matches_artist):
                 continue
 
-        chords, key = modulate_song(song, offset)
+        chords, key = modulate_song(song, offset, symbols)
         results.append(
             {
                 "id": song.id,

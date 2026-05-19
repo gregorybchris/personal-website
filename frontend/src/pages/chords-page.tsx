@@ -3,7 +3,8 @@ import {
   CaretDownIcon,
   CaretUpIcon,
 } from "@phosphor-icons/react";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import noteEighth from "../assets/icons/note-eighth.svg";
 import noteHalf from "../assets/icons/note-half.svg";
 import noteQuarter from "../assets/icons/note-quarter.svg";
@@ -43,12 +44,50 @@ const NOTE_ICONS: Record<string, string> = {
 };
 
 export function ChordsPage() {
-  const [searchText, setSearchText] = useState("");
-  const [search, setSearch] = useState("");
-  const [offset, setOffset] = useState(0);
+  // The selected song and every control live in the URL query string so the
+  // page restores exactly where the user left off after a refresh or reload.
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  const search = searchParams.get("search") ?? "";
+  const offsetParam = Number.parseInt(searchParams.get("offset") ?? "", 10);
+  const offset = Number.isNaN(offsetParam) ? 0 : offsetParam;
+  const symbols = searchParams.get("symbols") !== "false";
+  const selectedIdRaw = searchParams.get("id");
+
+  // Hold the latest params in a ref so updateParams can stay a stable
+  // reference. SearchBar fires onSubmit from an effect keyed on the callback,
+  // so an unstable callback there causes an infinite navigate/render loop.
+  const searchParamsRef = useRef(searchParams);
+  searchParamsRef.current = searchParams;
+
+  const updateParams = useCallback(
+    (updates: Record<string, string | null>) => {
+      const current = searchParamsRef.current;
+      const next = new URLSearchParams(current);
+      for (const [key, value] of Object.entries(updates)) {
+        if (value === null) next.delete(key);
+        else next.set(key, value);
+      }
+      const query = next.toString();
+      if (query === current.toString()) return;
+      navigate({ search: query ? `?${query}` : "" }, { replace: true });
+    },
+    [navigate],
+  );
+
+  // 0 and "symbols on" are the defaults, so they stay out of the URL.
+  const setOffset = (value: number) =>
+    updateParams({ offset: value === 0 ? null : String(value) });
+
+  const handleSearchSubmit = useCallback(
+    (value: string) => updateParams({ search: value || null }),
+    [updateParams],
+  );
+
+  const [searchText, setSearchText] = useState(search);
 
   const [songs, setSongs] = useState<Song[]>([]);
-  const [selectedIdRaw, setSelectedId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -57,7 +96,10 @@ export function ChordsPage() {
 
     const loadSongs = async () => {
       setLoading(true);
-      const params: Record<string, string> = { offset: String(offset) };
+      const params: Record<string, string> = {
+        offset: String(offset),
+        symbols: String(symbols),
+      };
       if (search) params.search = search;
 
       try {
@@ -79,7 +121,7 @@ export function ChordsPage() {
     return () => {
       cancelled = true;
     };
-  }, [search, offset]);
+  }, [search, offset, symbols]);
 
   // Derive the active selection so it stays valid as the list changes,
   // falling back to the first song when nothing valid is selected.
@@ -108,7 +150,7 @@ export function ChordsPage() {
         <SearchBar
           text={searchText}
           setText={setSearchText}
-          onSubmit={setSearch}
+          onSubmit={handleSearchSubmit}
           placeholder="Search songs or artists"
           className="w-full max-w-md"
         />
@@ -120,17 +162,21 @@ export function ChordsPage() {
             <SongList
               songs={songs}
               selectedId={selectedId}
-              onSelect={setSelectedId}
+              onSelect={(id) => updateParams({ id })}
               loading={loading}
             />
 
             <div className="flex flex-1 flex-col gap-4 md:flex-row">
               <SongDetail song={selectedSong} loading={loading} />
-              <ModulationPanel
+              <ControlPanel
                 offset={offset}
-                onUp={() => setOffset((value) => value + 1)}
-                onDown={() => setOffset((value) => value - 1)}
+                onUp={() => setOffset(offset + 1)}
+                onDown={() => setOffset(offset - 1)}
                 onReset={() => setOffset(0)}
+                symbols={symbols}
+                onToggleSymbols={() =>
+                  updateParams({ symbols: symbols ? "false" : null })
+                }
               />
             </div>
           </div>
@@ -149,7 +195,7 @@ interface SongListProps {
 
 function SongList({ songs, selectedId, onSelect, loading }: SongListProps) {
   return (
-    <div className="flex w-full flex-col rounded-xl border border-black/10 bg-white shadow-sm lg:w-72">
+    <div className="flex w-full flex-col overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm lg:w-72 lg:self-start">
       <div className="border-b border-black/10 px-4 py-3 text-sm font-semibold text-black/70">
         {songs.length} {songs.length === 1 ? "song" : "songs"}
       </div>
@@ -189,66 +235,99 @@ function SongList({ songs, selectedId, onSelect, loading }: SongListProps) {
   );
 }
 
-interface ModulationPanelProps {
+interface ControlPanelProps {
   offset: number;
   onUp: () => void;
   onDown: () => void;
   onReset: () => void;
+  symbols: boolean;
+  onToggleSymbols: () => void;
 }
 
-function ModulationPanel({
+function ControlPanel({
   offset,
   onUp,
   onDown,
   onReset,
-}: ModulationPanelProps) {
+  symbols,
+  onToggleSymbols,
+}: ControlPanelProps) {
   const offsetLabel = offset > 0 ? `+${offset}` : String(offset);
 
   return (
-    <div className="mb-4 flex w-full flex-none flex-row items-center justify-center gap-3 rounded-xl border border-black/10 bg-white px-4 py-3 shadow-sm md:mb-0 md:w-28 md:flex-col md:px-2 md:py-5">
-      <div className="order-1 text-xs font-semibold tracking-wide text-black/50 uppercase md:order-0">
-        Modulate
+    <div className="mb-4 flex w-full flex-none flex-col items-stretch justify-center gap-4 rounded-xl border border-black/10 bg-white px-4 py-3 shadow-sm md:mb-0 md:w-28 md:self-start md:px-2 md:py-5">
+      <div className="flex flex-row flex-wrap items-center justify-center gap-3 md:flex-col">
+        <div className="order-1 text-xs font-semibold tracking-wide text-black/50 uppercase md:order-0">
+          Modulate
+        </div>
+
+        <button
+          onClick={onUp}
+          title="Modulate up a semitone"
+          className="bg-sky hover:bg-royal order-4 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-white transition-colors md:order-0"
+        >
+          <CaretUpIcon size={22} weight="bold" />
+        </button>
+
+        <div className="order-3 flex flex-col items-center md:order-0">
+          <span className="font-sanchez text-3xl text-black/80">
+            {offsetLabel}
+          </span>
+          <span className="text-[10px] tracking-wide text-black/45 uppercase">
+            semitones
+          </span>
+        </div>
+
+        <button
+          onClick={onDown}
+          title="Modulate down a semitone"
+          className="bg-sky hover:bg-royal order-2 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-white transition-colors md:order-0"
+        >
+          <CaretDownIcon size={22} weight="bold" />
+        </button>
+
+        <button
+          onClick={onReset}
+          disabled={offset === 0}
+          title="Reset modulation"
+          className={cn(
+            "order-5 flex flex-row items-center gap-1 text-xs transition-colors md:order-0",
+            offset === 0
+              ? "cursor-default text-black/25"
+              : "text-sky hover:text-royal cursor-pointer",
+          )}
+        >
+          <ArrowCounterClockwiseIcon size={13} weight="bold" />
+          Reset
+        </button>
       </div>
 
-      <button
-        onClick={onUp}
-        title="Modulate up a semitone"
-        className="bg-sky hover:bg-royal order-4 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-white transition-colors md:order-0"
-      >
-        <CaretUpIcon size={22} weight="bold" />
-      </button>
+      <div className="h-px w-full bg-black/10" />
 
-      <div className="order-3 flex flex-col items-center md:order-0">
-        <span className="font-sanchez text-3xl text-black/80">
-          {offsetLabel}
-        </span>
-        <span className="text-[10px] tracking-wide text-black/45 uppercase">
-          semitones
-        </span>
+      <div className="flex flex-col items-center justify-center gap-2">
+        <div className="text-xs font-semibold tracking-wide text-black/50 uppercase">
+          Symbols
+        </div>
+
+        <button
+          type="button"
+          role="switch"
+          aria-checked={symbols}
+          onClick={onToggleSymbols}
+          title="Toggle sharp/flat symbols"
+          className={cn(
+            "relative inline-block h-6 w-11 flex-none cursor-pointer rounded-full transition-colors",
+            symbols ? "bg-sky" : "bg-black/20",
+          )}
+        >
+          <span
+            className={cn(
+              "absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow-sm transition-transform",
+              symbols ? "translate-x-5" : "translate-x-0",
+            )}
+          />
+        </button>
       </div>
-
-      <button
-        onClick={onDown}
-        title="Modulate down a semitone"
-        className="bg-sky hover:bg-royal order-2 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-white transition-colors md:order-0"
-      >
-        <CaretDownIcon size={22} weight="bold" />
-      </button>
-
-      <button
-        onClick={onReset}
-        disabled={offset === 0}
-        title="Reset modulation"
-        className={cn(
-          "order-5 flex flex-row items-center gap-1 text-xs transition-colors md:order-0",
-          offset === 0
-            ? "cursor-default text-black/25"
-            : "text-sky hover:text-royal cursor-pointer",
-        )}
-      >
-        <ArrowCounterClockwiseIcon size={13} weight="bold" />
-        Reset
-      </button>
     </div>
   );
 }
@@ -295,7 +374,7 @@ function SongDetail({ song, loading }: SongDetailProps) {
                 alt={song.beatDuration ?? "quarter"}
                 className="h-7 w-7"
               />
-              <span className="font-sanchez text-2xl text-black/75">
+              <span className="font-sanchez text-xl text-black/75">
                 = {song.tempo}
               </span>
             </div>
