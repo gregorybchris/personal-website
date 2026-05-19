@@ -124,7 +124,7 @@ export function ChordsPage() {
               loading={loading}
             />
 
-            <div className="flex flex-1 flex-row gap-4">
+            <div className="flex flex-1 flex-col gap-4 md:flex-row">
               <SongDetail song={selectedSong} loading={loading} />
               <ModulationPanel
                 offset={offset}
@@ -205,20 +205,20 @@ function ModulationPanel({
   const offsetLabel = offset > 0 ? `+${offset}` : String(offset);
 
   return (
-    <div className="flex w-24 flex-none flex-col items-center gap-3 rounded-xl border border-black/10 bg-white px-2 py-5 shadow-sm md:w-28">
-      <div className="text-xs font-semibold tracking-wide text-black/50 uppercase">
+    <div className="mb-4 flex w-full flex-none flex-row items-center justify-center gap-3 rounded-xl border border-black/10 bg-white px-4 py-3 shadow-sm md:mb-0 md:w-28 md:flex-col md:px-2 md:py-5">
+      <div className="order-1 text-xs font-semibold tracking-wide text-black/50 uppercase md:order-0">
         Modulate
       </div>
 
       <button
         onClick={onUp}
         title="Modulate up a semitone"
-        className="bg-sky hover:bg-royal flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-white transition-colors"
+        className="bg-sky hover:bg-royal order-4 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-white transition-colors md:order-0"
       >
         <CaretUpIcon size={22} weight="bold" />
       </button>
 
-      <div className="flex flex-col items-center">
+      <div className="order-3 flex flex-col items-center md:order-0">
         <span className="font-sanchez text-3xl text-black/80">
           {offsetLabel}
         </span>
@@ -230,7 +230,7 @@ function ModulationPanel({
       <button
         onClick={onDown}
         title="Modulate down a semitone"
-        className="bg-sky hover:bg-royal flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-white transition-colors"
+        className="bg-sky hover:bg-royal order-2 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-white transition-colors md:order-0"
       >
         <CaretDownIcon size={22} weight="bold" />
       </button>
@@ -240,7 +240,7 @@ function ModulationPanel({
         disabled={offset === 0}
         title="Reset modulation"
         className={cn(
-          "flex flex-row items-center gap-1 text-xs transition-colors",
+          "order-5 flex flex-row items-center gap-1 text-xs transition-colors md:order-0",
           offset === 0
             ? "cursor-default text-black/25"
             : "text-sky hover:text-royal cursor-pointer",
@@ -277,17 +277,17 @@ function SongDetail({ song, loading }: SongDetailProps) {
 
   return (
     <div className="flex flex-1 flex-col gap-4 rounded-xl border border-black/10 bg-white p-5 shadow-sm md:p-7">
-      <div className="flex flex-col gap-1">
-        <h1 className="font-sanchez text-3xl text-black/85 md:text-4xl">
+      <div className="flex flex-col items-center gap-1 text-center md:items-start md:text-left">
+        <h1 className="font-sanchez text-2xl text-balance text-black/85 md:text-4xl">
           {song.title}
         </h1>
         <div className="text-lg text-black/55 md:text-xl">{song.artist}</div>
       </div>
 
       {(song.tempo !== null || song.key) && (
-        <div className="flex flex-row flex-wrap items-center gap-x-5 gap-y-2 border-y border-black/10 py-3">
+        <div className="flex flex-row flex-wrap items-center justify-center gap-x-5 gap-y-2 border-y border-black/10 py-3 md:justify-start">
           {song.tempo !== null && (
-            <div className="flex flex-row items-center gap-2" title="Tempo">
+            <div className="flex flex-row items-center gap-0" title="Tempo">
               <img
                 src={noteIcon}
                 alt={song.beatDuration ?? "quarter"}
@@ -312,7 +312,7 @@ function SongDetail({ song, loading }: SongDetailProps) {
       <textarea
         readOnly
         value={song.chords.trimEnd()}
-        className="font-geist bg-dark-parchment h-[340px] w-full resize-none rounded-lg border border-black/10 p-4 text-lg leading-relaxed tracking-wide text-black/80 outline-none md:text-xl"
+        className="font-geist bg-dark-parchment h-[340px] w-full resize-none rounded-lg border border-black/10 p-3 text-sm leading-[2.25] tracking-wide text-black/80 outline-none md:p-4 md:text-xl"
       />
     </div>
   );
