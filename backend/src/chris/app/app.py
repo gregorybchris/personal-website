@@ -7,6 +7,7 @@ from chris.app.routes import (
     archive_routes,
     art_routes,
     blog_routes,
+    chord_routes,
     feed_routes,
     info_routes,
     media_routes,
@@ -31,6 +32,7 @@ app = FastAPI()
 app.include_router(archive_routes.router)
 app.include_router(art_routes.router)
 app.include_router(blog_routes.router)
+app.include_router(chord_routes.router)
 app.include_router(feed_routes.router)
 app.include_router(info_routes.router)
 app.include_router(media_routes.router)

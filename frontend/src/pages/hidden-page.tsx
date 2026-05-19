@@ -44,6 +44,8 @@ export function HiddenPage() {
 
           <PageLink to="/pottery">Pottery</PageLink>
 
+          <PageLink to="/chords">Chords</PageLink>
+
           <PageLink to="/static">Static</PageLink>
         </div>
 

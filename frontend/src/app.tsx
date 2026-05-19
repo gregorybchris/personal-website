@@ -9,6 +9,7 @@ import { ArtistsPage } from "./pages/artists-page";
 import { BlogPage } from "./pages/blog-page";
 import { BlogPostPage } from "./pages/blog-post-page";
 import { BooksPage } from "./pages/books-page";
+import { ChordsPage } from "./pages/chords-page";
 import { ContactPage } from "./pages/contact-page";
 import { FeedGraphPage } from "./pages/feed-graph-page";
 import { FeedPage } from "./pages/feed-page";
@@ -121,6 +122,7 @@ function Layout() {
           <Route path="/recipes/:slug" element={<RecipePage />} />
           <Route path="/project-logos" element={<ProjectLogosPage />} />
           <Route path="/hiking" element={<HikingPage />} />
+          <Route path="/chords" element={<ChordsPage />} />
           <Route path="/static" element={<StaticPage />} />
 
           {/* Hidden old */}
