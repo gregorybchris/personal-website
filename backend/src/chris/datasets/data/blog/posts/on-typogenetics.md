@@ -6,23 +6,19 @@ archived: false
 status: draft
 ---
 
-Maybe you've never heard of Typogenetics or maybe you're a long time fan of Douglas Hofstadter's award-winning book _Gödel, Escher, Bach: An Eternal Golden Braid_ (1979). Either way, this blog post is for you.
+Maybe you've never heard of Typogenetics before or maybe you're a long time fan of Douglas Hofstadter's award-winning book _Gödel, Escher, Bach: An Eternal Golden Braid_ (1979). Either way, this blog post is for you.
 
 The book is incredible, but books don't have animations. So I've picked out the major ideas from the book and paired them with animated visuals to help make the concepts more intuitive.
 
 ## What's Typogenetics?
 
-Typogenetics (short for "typographical genetics") is a toy model of biological genetics. It boils real biology down to a small set of concepts and rules to make the core principles of genetics more intuitive.
+Typogenetics (short for "typographical genetics") is a toy model of biology. It allows us to forget about a lot of the messy details in the real world while still retaining something interesting worth exploring.
 
-In the real biology of life on Earth, our DNA is made of four molecules called nucleobases: Adenine (A), Cytosine (C), Guanine (G), and Thymine (T). All the information for how to build a person, a peanut, or a parrot is encoded in a long and winding sequence of these four molecules.
-
-In his book, Hofstadter explores what he calls a "strange loop" -- a mind-bending process where molecular machines interpret genetic code to produce more machines that are programmed with the very same code.
-
-This powerful cycle at the core of all life on Earth is full of complex chemistry, but you might wonder: how much of this complexity can we afford to toss aside and retain the strange loop? This is what Typogenetics aims to answer.
+Over the next few sections, we'll lay out the rules of Typogenetics, starting with the simplest parts and slowly adding complexity.
 
 ## Building blocks
 
-Just like in real DNA, we'll start with four building blocks: A, C, G, and T. We'll call these "bases". And for the purposes of Typogenetics, we don't care at all about the actual chemistry of these four chemicals.
+All life on Earth has DNA built from four molecules: Adenine (A), Cytosine (C), Guanine (G), and Thymine (T). These are called nucleobases, but in the spirit of simplification, we'll just call these "bases". And don't worry about the molecular names or the underlying chemistry of these molecules. For our purposes here, all we care about is the letters A, C, G, and T.
 
 <figure id="figure1">
   <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/bases.svg?cache=1" width="350">
@@ -146,6 +142,13 @@ Each amino acid has the possibility of inducing a kink in the enzyme. "r" indica
     Folding &mdash; This description will need to be filled in.
   </figcaption>
 </figure>
+
+## Closing the loop
+
+We've fully described how an enzyme can be applied to a strand to get new strands as well as how strands can be decoded into enzymes. He calls it a "Strange loop".
+
+This is what's called the central dogma of molecular biology
+<https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology>
 
 ### Instructions
 
