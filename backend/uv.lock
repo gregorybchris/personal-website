@@ -85,7 +85,7 @@ wheels = [
 
 [[package]]
 name = "cadenza-music"
-version = "0.1.1"
+version = "0.2.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pydantic" },
@@ -94,9 +94,9 @@ dependencies = [
     { name = "typer" },
     { name = "types-pyyaml" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/22/d9/f69127a34982db5f83615f3cbb6bb4bbf995a6657d0b2eb7d19a65ba8967/cadenza_music-0.1.1.tar.gz", hash = "sha256:8939aeef09de16bb780c6234c14c3a7feccd59bf4feb77b450391a8fc22d65f7", size = 107540, upload-time = "2026-05-19T06:07:02.514Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/0c/72/c94e98ae0c7e62dcdc4052098622fa7498696ffca49e9104849f29b3b445/cadenza_music-0.2.0.tar.gz", hash = "sha256:6be7b8fb0c64888ac68ec625c7a688ddf5c79aa77f2cbd8a40950a29698804d0", size = 108061, upload-time = "2026-05-21T03:43:28.265Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/09/6e/00ea88e9e55f414d83e9029ad8b4a423f6a0ff3e2357902d3e596ec93898/cadenza_music-0.1.1-py3-none-any.whl", hash = "sha256:8685252475b0a04e3354e413829487a018ae67873b74ab5f513d9f2dbc28c4ed", size = 36147, upload-time = "2026-05-19T06:07:01.29Z" },
+    { url = "https://files.pythonhosted.org/packages/53/4c/fc87b573f92529d07919953e0d1a056c09c69f163ba4de8b6622dbef66a1/cadenza_music-0.2.0-py3-none-any.whl", hash = "sha256:517f7c9d9a390da74b0ccba1403b35fbce18a7f30d800c2762f0419d0ce8797f", size = 36283, upload-time = "2026-05-21T03:43:27.067Z" },
 ]
 
 [[package]]
@@ -137,7 +137,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "cadenza-music", specifier = ">=0.1.1" },
+    { name = "cadenza-music", specifier = ">=0.2.0" },
     { name = "click", specifier = ">=8.4.0" },
     { name = "fastapi", extras = ["standard"], specifier = ">=0.136.1" },
     { name = "httpx", specifier = ">=0.28.1" },
