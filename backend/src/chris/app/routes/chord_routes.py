@@ -1,5 +1,6 @@
 import logging
 import re
+import time
 from functools import lru_cache
 from typing import Any, Optional
 
@@ -44,13 +45,20 @@ class Song(BaseModel):
     key: Optional[Key] = None
 
 
-@lru_cache(maxsize=1)
+_CACHE_TTL_SECONDS = 300
+
+
 def fetch_songs() -> list[Song]:
     """Fetch and parse the cadenza songs YAML file.
 
-    Cached in memory after the first request. Restart the server to pick up
+    Cached in memory, refreshed at most once every 5 minutes to pick up
     upstream changes to the YAML file.
     """
+    return _fetch_songs(time.monotonic() // _CACHE_TTL_SECONDS)
+
+
+@lru_cache(maxsize=1)
+def _fetch_songs(_ttl_bucket: float) -> list[Song]:
     response = httpx.get(SONGS_YAML_URL, timeout=10.0)
     response.raise_for_status()
     data = yaml.safe_load(response.text)
