@@ -209,6 +209,17 @@
     "link": "https://www.imdb.com/title/tt5726616"
   },
   {
+    "name": "Project Hail Mary",
+    "genres": ["scifi"],
+    "scores": {
+      "plot": 9,
+      "characters": 8,
+      "production": 8,
+      "dialog": 7
+    },
+    "link": "https://www.imdb.com/title/tt12042730"
+  },
+  {
     "name": "The Pursuit of Happyness",
     "genres": ["drama"],
     "scores": {
