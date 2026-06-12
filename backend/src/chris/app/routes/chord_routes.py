@@ -98,9 +98,7 @@ def _transpose_lines(chords: str, offset: int, scale: Optional[DiatonicScale], s
         if not line.strip() or line.startswith("~"):
             lines.append(line)
             continue
-        lines.append(
-            " ".join(_transpose_token(token, offset, scale, symbols) for token in line.split())
-        )
+        lines.append(" ".join(_transpose_token(token, offset, scale, symbols) for token in line.split()))
 
     modulated = "\n".join(lines)
     if chords.endswith("\n"):
@@ -137,9 +135,7 @@ def _render_chord_chart(original: str, transposed_lines: list[list[Chord]], symb
     return modulated
 
 
-def _modulate_keyed_song(
-    song: Song, offset: int, key: Key, symbols: bool
-) -> tuple[str, dict[str, str]]:
+def _modulate_keyed_song(song: Song, offset: int, key: Key, symbols: bool) -> tuple[str, dict[str, str]]:
     """Modulate a keyed song with cadenza's high-level Transposer.transpose_song.
 
     Returns the modulated chord chart and the modulated key. Transposing the
@@ -162,6 +158,7 @@ def _modulate_keyed_song(
     transposed = Transposer.transpose_song(cadenza_song, offset, scale=scale)
 
     chords = _render_chord_chart(song.chords, transposed.chords, symbols)
+    assert transposed.key is not None  # transpose_song should always set a key if one was given
     new_key = {
         "root": transposed.key.root.to_str(symbols=symbols),
         "mode": transposed.key.mode.to_str(),
@@ -178,9 +175,7 @@ def _symbolized_key(key: Key, symbols: bool) -> dict[str, str]:
     return {"root": root, "mode": key.mode}
 
 
-def modulate_song(
-    song: Song, offset: int, symbols: bool
-) -> tuple[str, Optional[dict[str, str]]]:
+def modulate_song(song: Song, offset: int, symbols: bool) -> tuple[str, Optional[dict[str, str]]]:
     """Modulate a song's chords (and key) up or down by ``offset`` semitones.
 
     Keyed songs are transposed with cadenza's Transposer.transpose_song so the
