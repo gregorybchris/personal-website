@@ -238,5 +238,17 @@
     },
     "link": "https://www.youtube.com/@nilered",
     "image_link": "https://storage.googleapis.com/cgme/youtube-channels/nile-red.jpg"
+  },
+  {
+    "name": "The Ezra Klein Show",
+    "category": "podcast",
+    "scores": {
+      "production": 10,
+      "personality": 4,
+      "information": 10,
+      "consistency": 8
+    },
+    "link": "https://www.youtube.com/@EzraKleinShow",
+    "image_link": "https://storage.googleapis.com/cgme/youtube-channels/ezra-klein-show.jpg"
   }
 ]
