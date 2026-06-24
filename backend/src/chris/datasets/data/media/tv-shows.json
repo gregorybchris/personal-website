@@ -22,17 +22,6 @@
     "link": "https://www.imdb.com/title/tt0475784"
   },
   {
-    "name": "House",
-    "genres": ["drama"],
-    "scores": {
-      "plot": 9,
-      "characters": 9,
-      "production": 7,
-      "dialog": 7
-    },
-    "link": "https://www.imdb.com/title/tt0412142"
-  },
-  {
     "name": "Halt and Catch Fire",
     "genres": ["drama"],
     "scores": {
@@ -53,6 +42,17 @@
       "dialog": 5
     },
     "link": "https://www.imdb.com/title/tt2085059"
+  },
+  {
+    "name": "House",
+    "genres": ["drama"],
+    "scores": {
+      "plot": 9,
+      "characters": 9,
+      "production": 7,
+      "dialog": 7
+    },
+    "link": "https://www.imdb.com/title/tt0412142"
   },
   {
     "name": "Sherlock",

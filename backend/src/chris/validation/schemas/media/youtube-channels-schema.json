@@ -18,7 +18,7 @@
         "category": {
           "type": "string",
           "cons": {
-            "in": ["stem", "craft", "music", "cooking"]
+            "in": ["stem", "craft", "music", "cooking", "politics"]
           }
         },
         "scores": {
