@@ -2058,7 +2058,7 @@
     "slug": "unfurl",
     "date": "2026-06-23",
     "rating": 8,
-    "project_type": "visualization",
+    "project_type": "simulation",
     "controls": "Click and drag to reposition nodes. Use the sidebar to adjust simulation speed, forces, and visual settings.",
     "short_description": "Interactive force-directed graph simulation.",
     "description": "Unfurl is an interactive force-directed graph visualization. The simulation supports configurable forces — gravity, charge repulsion, and link springs — each with tunable strength and response curves (linear, logistic, exponential). The app features real-time parameter controls and support for dragging nodes interactively to explore the graph's equilibrium.",
