@@ -1432,7 +1432,7 @@
     "tools": ["JavaScript", "Yarn", "webpack", "Tailwind CSS", "Sass", "requestAnimationFrame", "React"],
     "source_link": "https://github.com/gregorybchris/ants",
     "download_link": null,
-    "web_link": "https://static.chrisgregory.me/ants/demo",
+    "web_link": "https://static.chrisgregory.me/ants",
     "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/ants--01.jpg",
@@ -1477,7 +1477,7 @@
     "tools": ["TypeScript", "Yarn", "Tailwind CSS", "React", "Next.js"],
     "source_link": "https://github.com/gregorybchris/chladni",
     "download_link": null,
-    "web_link": "https://static.chrisgregory.me/chladni/demo",
+    "web_link": "https://static.chrisgregory.me/chladni",
     "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/chladni--01.jpg",
@@ -1501,7 +1501,7 @@
     "tools": ["TypeScript", "Yarn", "Tailwind CSS", "React", "Vite", "React Table", "Luxon", "Faker"],
     "source_link": "https://github.com/gregorybchris/decidio",
     "download_link": null,
-    "web_link": "https://static.chrisgregory.me/decidio/demo",
+    "web_link": "https://static.chrisgregory.me/decidio",
     "original_link": null,
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/decidio--01.jpg",
@@ -1546,7 +1546,7 @@
     "tools": ["TypeScript", "Yarn", "Tailwind CSS", "React", "Vite"],
     "source_link": "https://github.com/gregorybchris/quad",
     "download_link": null,
-    "web_link": "https://static.chrisgregory.me/quad/demo",
+    "web_link": "https://static.chrisgregory.me/quad",
     "original_link": "https://en.wikipedia.org/wiki/Quadtree",
     "image_links": [
       "https://storage.googleapis.com/cgme/projects/images/quad--01.jpg",
