@@ -2011,14 +2011,14 @@
   },
   {
     "project_id": "3e92a520-b786-403b-8443-5dbf8b66ace2",
-    "name": "Augeas",
-    "slug": "augeas",
+    "name": "Augean",
+    "slug": "augean",
     "date": "2026-05-30",
     "rating": 7,
     "project_type": "tool",
     "controls": null,
     "short_description": "Disk space inspector and visualizer.",
-    "description": "Augeas is a disk inspector for visualizing, sorting, and exploring your file system to quickly identify what's taking up space. The app features a treemap overview for a bird's-eye view of folder sizes by area and a Finder-style columns view for drilling through the directory hierarchy.",
+    "description": "Augean is a disk inspector for visualizing, sorting, and exploring your file system to quickly identify what's taking up space. The app features a treemap overview for a bird's-eye view of folder sizes by area and a Finder-style columns view for drilling through the directory hierarchy.",
     "remarks": null,
     "tags": ["disk", "files", "visualization", "treemap", "inspector"],
     "tools": [
@@ -2045,9 +2045,9 @@
     "web_link": null,
     "original_link": null,
     "image_links": [
-      "https://storage.googleapis.com/cgme/projects/images/augeas--columns.png",
-      "https://storage.googleapis.com/cgme/projects/images/augeas--treemap.png",
-      "https://storage.googleapis.com/cgme/projects/images/augeas--add-root.png"
+      "https://storage.googleapis.com/cgme/projects/images/augean--columns.png",
+      "https://storage.googleapis.com/cgme/projects/images/augean--treemap.png",
+      "https://storage.googleapis.com/cgme/projects/images/augean--add-root.png"
     ],
     "primary_language": "TypeScript",
     "archived": false
