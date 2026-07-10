@@ -2082,7 +2082,7 @@
     "project_type": "tool",
     "controls": null,
     "short_description": "Browsable explorer for a dataset of conceptual metaphors.",
-    "description": "Metaphorist is a browsable explorer for a curated dataset of English-language conceptual metaphors, formalizing Conceptual Metaphor Theory (Lakoff & Johnson): the idea that abstract concepts like theories, ideas, time, and life are understood systematically in terms of more concrete ones like buildings, food, and journeys. The dataset draws from sources including the MetaNet Metaphor Repository and the Master Metaphor List, and is checked by a Python validation suite for structural integrity.",
+    "description": "Metaphorist is a browsable explorer for a curated dataset of English-language conceptual metaphors, formalizing Conceptual Metaphor Theory (Lakoff & Johnson): the idea that abstract concepts like theories, ideas, time, and life are understood systematically in terms of more concrete ones like buildings, food, and journeys.",
     "remarks": null,
     "tags": ["metaphor", "linguistics", "language", "dataset", "cognitive science"],
     "tools": ["React", "Vite", "TypeScript", "Tailwind CSS", "js-yaml", "Fuse.js", "Python", "uv", "pytest", "ruff"],
