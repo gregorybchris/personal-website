@@ -2088,7 +2088,7 @@
     "tools": ["React", "Vite", "TypeScript", "Tailwind CSS", "js-yaml", "Fuse.js", "Python", "uv", "pytest", "ruff"],
     "source_link": "https://github.com/gregorybchris/metaphorist",
     "download_link": null,
-    "web_link": null,
+    "web_link": "https://metaphorist.vercel.app",
     "original_link": null,
     "image_links": ["https://storage.googleapis.com/cgme/projects/images/metaphorist--01.png"],
     "primary_language": "TypeScript",
