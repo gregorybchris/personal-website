@@ -6,26 +6,24 @@ archived: false
 status: draft
 ---
 
-Maybe you've never heard of Typogenetics before or maybe you're a long time fan of Douglas Hofstadter's award-winning book _Gödel, Escher, Bach: An Eternal Golden Braid_ (1979). Either way, this blog post is for you.
-
-The book is incredible, but books don't have animations. So I've picked out the major ideas from the book and paired them with animated visuals to help make the concepts more intuitive.
+Maybe you've never heard of Typogenetics before or maybe you're a long time fan of Douglas Hofstadter's Pulitzer prize-winning book _Gödel, Escher, Bach: An Eternal Golden Braid_ (1979). Either way, this blog post is for you.
 
 ## What's Typogenetics?
 
-Typogenetics (short for "typographical genetics") is a toy model of biology. It allows us to forget about a lot of the messy details in the real world while still retaining something interesting worth exploring.
+Typogenetics, short for "typographical genetics", is a simplification of biology. It's an artificial system that explores some of the coolest computational features of genetics while ignoring much of the messy chemistry and physics.
 
-Over the next few sections, we'll lay out the rules of Typogenetics, starting with the simplest parts and slowly adding complexity.
+Over the next few sections, we'll lay out the rules of Typogenetics, starting simple and slowly adding complexity.
 
 ## Building blocks
 
-All life on Earth has DNA built from four molecules: Adenine (A), Cytosine (C), Guanine (G), and Thymine (T). These are called nucleobases, but in the spirit of simplification, we'll just call these "bases". And don't worry about the molecular names or the underlying chemistry of these molecules. For our purposes here, all we care about is the letters A, C, G, and T.
+All life on Earth has DNA built from four molecules: Adenine (A), Cytosine (C), Guanine (G), and Thymine (T). These are called nucleobases, but in the spirit of simplification, Typogenetics calls these **bases**. And don't worry about the molecular names or the underlying chemistry of these molecules. For our purposes, all we care about is the letters A, C, G, and T.
 
 <figure id="figure1">
   <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/bases.svg?cache=1" width="350">
   <figcaption><strong>Figure 1: </strong>Bases &mdash; The four bases and their two groups: A and G are both called "pyrimidines" and C and T are "purines".</figcaption>
 </figure>
 
-If we string a few of these bases together we'll call that a "strand". Each position along a strand is called a "unit".
+If we string a few of these bases together we'll call that a **strand**. Each position along a strand is called a **unit**.
 
 <figure id="figure2">
   <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/strand.svg?cache=1" width="350">
@@ -34,11 +32,11 @@ If we string a few of these bases together we'll call that a "strand". Each posi
 
 ## Rewriting
 
-When we apply rules to a strand, it gets rewritten into a new strand. A sequence of rules is called an "enzyme". Let's look at an example of an enzyme made up of three rules:
+Typogenetics defines a small set of rules, that when applied to a strand, rewrite it into a new strand. Each rule is called an **amino acid**. A sequence of these rules is called an **enzyme**. Let's look at an example of an enzyme made up of three rules:
 
-1. Delete the unit to which the enzyme is bound (and then bind to the next unit to the right).
-2. Move one unit to the right.
-3. Insert a T (to the immediate right of this unit)
+- Rule 1 -- `del`: Delete the base to which the enzyme is bound (and then bind to the next unit to the right).
+- Rule 2 -- `mvr`: Move one unit to the right.
+- Rule 3 -- `int`: Insert a T (to the immediate right of this unit)
 
 <figure id="figure3">
   <video width="450" autoplay muted loop playsinline>
@@ -51,7 +49,7 @@ When we apply rules to a strand, it gets rewritten into a new strand. A sequence
   </figcaption>
 </figure>
 
-Each of these rules is called an "amino acid". A very useful amino acid is called `cut`, which slices a strand to the right of the current unit, producing two strands.
+A very useful amino acid is called `cut`, which slices a strand to the right of the current unit, producing two strands.
 
 <figure id="figure4">
   <video width="450" autoplay muted loop playsinline>
@@ -64,7 +62,9 @@ Each of these rules is called an "amino acid". A very useful amino acid is calle
   </figcaption>
 </figure>
 
-Another useful amino acid is `cop`, which turns on "Copy mode". When Copy mode is on, new bases bind to the current strand. Specifically, A binds to T, and C binds to G. These are called "complementary base pairs". When Copy mode is on, any time the enzyme moves left or right, a new complementary base is added to the other strand.
+Another useful amino acid is `cop`, which turns on "Copy mode". When Copy mode is on, new bases bind to the current strand. Specifically, A binds to T, and C binds to G. These are called **complementary base pairs**. When Copy mode is on, any time the enzyme moves left or right, a new complementary base is added to the other strand.
+
+> Note that the complementary strand is built mirroring our current strand, so we flip it at the end to read it left to right.
 
 <figure id="figure5">
   <video width="450" autoplay muted loop playsinline>
@@ -77,7 +77,7 @@ Another useful amino acid is `cop`, which turns on "Copy mode". When Copy mode i
   </figcaption>
 </figure>
 
-Next let's see what happens if we cut where the strand is being copied. You can see that we get a couple of free-floating strand fragments. A single enzyme acting on a single strand can produce many strands as output.
+Next let's see what happens if we cut while the strand is being copied. You can see that we get a couple of free-floating strand fragments. A single enzyme acting on a single strand can produce many strands as output.
 
 <figure id="figure6">
   <video width="450" autoplay muted loop playsinline>
@@ -90,69 +90,72 @@ Next let's see what happens if we cut where the strand is being copied. You can 
   </figcaption>
 </figure>
 
+## Closing the loop
+
+Fans of Typogenetics and biologists will have predicted this next magical step. We create a mapping between amino acids and pairs of bases. Every unique pair of bases "codes" for a single amino acid.
+
+Now, not only can enzymes operate on strands, but those same strands can themselves be treated as enzymes. All we need to do is take a strand, use this chart to convert pairs of bases into amino acids, and we have a new enzyme that can itself operate on strands.
+
 <figure id="figure7">
   <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/amino-acid-table.svg?cache1" width="300">
-  <figcaption><strong>Figure 7: </strong>Amino acids &mdash; This description will need to be filled in.</figcaption>
+  <figcaption><strong>Figure 7: </strong>Amino acids &mdash; This table shows the mapping from pairs of bases to their corresponding amino acids.</figcaption>
 </figure>
 
 > Note: The AA duplet does not code for an amino acid. It is reserved as a "punctuation mark" to mean "end of enzyme". Multiple amino acid sequences can be created from a single strand during translation.
 
-## Binding preference
-
-<figure id="figure8">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/binding-preference.svg?cache=1" width="350">
-  <figcaption><strong>Figure 8: </strong>Binding preferences &mdash; This description will need to be filled in.</figcaption>
-</figure>
-
-The relative orientation of the first and last segments of an enzyme's tertiary structure determines the binding-preference of the enzyme.
-
-Holding the orientation of the first segment to the right, the orientation of the last segment determines the binding-preference of the enzyme.
-
 ## Translation
 
-<figure id="figure9">
+The process of turning strands of bases into enzymes of amino acids is called **translation**. Each pair of bases, called a **duplet**, gets assigned an amino acid. The product of translation is a chain of amino acids.
+
+<figure id="figure8">
   <video width="450" autoplay muted loop playsinline>
     <source src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/translation.mp4?cache=3" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
-    <strong>Figure 9: </strong>
-    Translation &mdash; This description will need to be filled in.
+    <strong>Figure 8: </strong>
+    Translation &mdash; A chain of amino acids is constructed by decoding pairs of bases.
   </figcaption>
 </figure>
 
-Each pair of bases is assigned to one amino acid.
+## Folding
 
-<figure id="figure10">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/duplet.svg?cache=1" width="350">
-  <figcaption><strong>Figure 10: </strong>Strand &mdash; This description will need to be filled in.</figcaption>
-</figure>
+In Figure 8, we showed the enzyme being constructed as a straight chain of amino acids. In Typogenetics, we introduce a bit more complexity. Each amino acid has the possibility of inducing a 90º kink in the enzyme. "r" indicates a right turn in the enzyme, "l" indicates a left turn, and "s" indicates no turn induced and the enzyme remains straight at that amino acid. Figure 7 shows the full mapping from amino acids to folding directions.
 
-## Tertiary structure
-
-Each amino acid has the possibility of inducing a kink in the enzyme. "r" indicates a right turn in the enzyme, "l" indicates a left turn, and "s" indicates no turn induced and the enzyme remains straight at that amino acid.
-
-<figure id="figure11">
+<figure id="figure9">
   <video width="450" autoplay muted loop playsinline>
     <source src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/folding.mp4?cache=3" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <figcaption>
-    <strong>Figure 11: </strong>
-    Folding &mdash; This description will need to be filled in.
+    <strong>Figure 9: </strong>
+    Folding &mdash; Akin to real life protein folding, Typogenetics adds some higher level structure to enzymes by introducing 90º kinks to amino acid chains.
   </figcaption>
 </figure>
 
-## Closing the loop
+## Binding preference
 
-We've fully described how an enzyme can be applied to a strand to get new strands as well as how strands can be decoded into enzymes. He calls it a "Strange loop".
+The folding structure of enzymes in Typogenetics isn't just for fun. We use this structure to determine which base on a strand the enzyme should bind to initially. Holding the orientation of the first segment to the right, the orientation of the last segment determines the binding-preference of the enzyme.
 
-This is what's called the central dogma of molecular biology
-<https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology>
+The ultimate function of the amino acid depends on small contributions from all amino acids, similar to how the 3D structure of a protein determines its function in real biology.
 
-### Instructions
+<figure id="figure10">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/binding-preference.svg?cache=1" width="350">
+  <figcaption><strong>Figure 10: </strong>Binding preferences &mdash; The relative orientation of the first and last segments of an enzyme's secondary/tertiary structure determines the binding-preference of the enzyme.</figcaption>
+</figure>
 
-| ins                           | action                                         |
+## Filling in the details
+
+At this point, we've covered all the major design features of Typogenetics, which completes our simulation of the [central dogma of molecular biology](https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology).
+
+If you're inspired to implement Typogenetics yourself, you will need a few more details. If you want to skip the details, you can jump to the next section.
+
+<details>
+<summary>Show me the details ||| Hide the details</summary>
+
+### Table of amino acid rewrite rules
+
+| Amino Acid                    | Rule                                           |
 | ----------------------------- | ---------------------------------------------- |
 | <span class="snip">cut</span> | cut strand(s)                                  |
 | <span class="snip">del</span> | delete a base from strand                      |
@@ -170,25 +173,15 @@ This is what's called the central dogma of molecular biology
 | <span class="snip">lpy</span> | search for the nearest pyrimidine to the left  |
 | <span class="snip">lpu</span> | search for the nearest purine to the left      |
 
-There are also some clarifications offered that preemptively address ambiguities that may have otherwise arisen:
+### Clarifications
 
 - `cut` applies to both strands.
 - `del` applies to only the strand on which the enzyme is working.
 - `swi` moves the enzyme to the attached strand above the current strand. if there is no complementary base where the enzyme is currently bound, then the enzyme just detaches itself.
-- insertion instructions will insert into both strands if Copy mode is on (with the complement inserted into the other strand). if Copy mode is off then a blank space is left in the complementary strand.
-- if Copy mode is on and move or search instructions are encountered, then complementary bases should be manufactured everywhere the current strand slides.DNA chains are made up of nucleotides. Each nucleotide is made up of 1. a phosphate group, 2. a ribose sugar, and 3. a base. In Typogenetics we drop the first two components of a nucleotide and our strands are just composed of bases.
+- Insertion instructions will insert into both strands if Copy mode is on (with the complement inserted into the other strand). If Copy mode is off then a blank space is left in the complementary strand.
+- If Copy mode is on and move or search instructions are encountered, then complementary bases should be manufactured everywhere the current strand slides.
 
-Enzymes are one type of protein. All proteins in Typogenetics can actively operate on strands, so we just refer to all proteins in Typogenetics as enzymes.
-
-Transcription is the process of turning DNA into mRNA, which is then read by ribosomes to create proteins through the process of translation. In Typogenetics we skip this step and our program (the player of the Typogenetics game) does the job of a ribosome, creating enzymes without any machinery built from genetic code.
-
-Proteins are actually made up of 20 distinct amino acids, compared to the 15 in Typogenetics.
-
-Typically about 300 amino acids make up a complete protein. Strands of DNA can be made up of hundreds of thousands or millions of nucleotides. Compare to Typogenetics where strands are potentially much shorter and amino acid sequences are potentially on the order of the length of strands of bases.
-
-Three consecutive bases/nucleotides form a "codon". Since there are 4 bases and each codon has 3 bases, the number of possible codons is 4x4x4 = 64. Seeing as there are 20 amino acids, multiple codons will map to a single amino acid.
-
-Finally, in real biology there is no 1:1 relationship between an amino acid and some operation. The tertiary structure of a protein decides the function of the protein. It is the full context of the protein that determines how any one amino acid will function.
+</details>
 
 ## Try it out
 
@@ -210,29 +203,7 @@ typo search ATAAACGATAATTGACAGAGCGAATG ATCGATAGGGAACATGTCGT --edits 5 --depth 20
 
 <github-button user="gregorybchris" repo="typogenetics"></github-button>
 
-### Terminology
-
-| term                       | definition                                                                    |
-| -------------------------- | ----------------------------------------------------------------------------- |
-| bases                      | C, G, T, A                                                                    |
-| strand                     | string of bases                                                               |
-| unit                       | position within a strand                                                      |
-| purines                    | A and G                                                                       |
-| pyrimidines                | C and T                                                                       |
-| complementary base pairing | when a strand is copied pyrimidines swap with purines, A &harr; T, C &harr; G |
-| enzymes                    | operate on strands one unit at a time                                         |
-| instruction                | an operation performed by an enzyme                                           |
-| amino acid                 | three letter abbreviation for an instruction performed by an enzyme           |
-| duplet                     | an adjacent pair of bases                                                     |
-| translation                | mapping from duplets to instructions                                          |
-| primary structure          | amino acid sequence                                                           |
-| tertiary structure         | folded structure of an enzyme                                                 |
-| gene                       | a portion of a strand that codes for a single enzyme                          |
-| ribosome                   | reads strands and produces enzymes                                            |
-
-## Reflections
-
-I'll offer some potential ways to extend Hofstadter's system and explore some loose connections to other areas that are analogous or related to Typogenetics.
+In these last two sections, I want to consider implications of potential tweaks to the system and explore some loose connections to other areas that are analogous to Typogenetics.
 
 ## Extensions
 
@@ -246,45 +217,25 @@ In real biology we have pyrimidines and purines. I would be curious to add a thi
 
 ### Complex instruction set
 
-The instruction set of 15 amino acids that Hofstadter gives us is certainly not the simplest possible instruction set, though there's something very beautiful about it being as reduced as it is. One does wonder how powerful strand rewriting could be with a few more instructions. I also wonder if the conditional rules that come in the box are a bit too complex, even. We currently can scan left/right until reaching a pyrimidine/purine. These are are conditionals, but not as simple as "if purine, move left one unit". Perhaps conditionals that simple could facilitate the evolution of more stable enzymes even if the enzymes need to be longer to do anything useful.
+The instruction set of 15 amino acids that Hofstadter gives us is certainly not the simplest possible instruction set, though there's something very beautiful about it being as reduced as it is. One does wonder how powerful strand rewriting could be with a few more instructions. I also wonder if the conditional rules that come in the box are a bit too complex, even. We currently can scan left/right until reaching a pyrimidine/purine. These are are conditionals, but not as simple as "if purine, move left one unit" (think [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck)). Perhaps conditionals that simple could facilitate the evolution of more stable enzymes even if the enzymes need to be longer to do anything useful.
 
 ## Connections
 
 ### Turing completeness
 
-While I have not found anything definitive about whether Typogenetics is Turing complete, I would not be surprised if it were proven to be Turing incomplete. While there is certainly the ability to write to a tape, the lack of a set of states for the machine to be in is a bit worrying. Endowing an enzyme with a small finite state machine could be an interesting way to increase its representational power.
-
-[Turing completeness](https://en.wikipedia.org/wiki/Turing_completeness)
+While I have not found anything definitive about whether Typogenetics is [Turing complete](https://en.wikipedia.org/wiki/Turing_completeness), I would not be surprised if it were proven to be Turing incomplete. While there is certainly the ability to write to a tape, the lack of a set of states for the machine to be in is a bit worrying. Endowing an enzyme with a small finite state machine could be an interesting way to increase its representational power.
 
 ### Sequence to sequence modeling
 
-Would it be possible to train a transformer to apply an enzyme to a strand?
+Would it be possible to train a sequence to sequence model to apply an enzyme to a strand with the same rules as Typogenetics? Many instructions seem difficult to me to represent, but perhaps there's a recurrent architecture that could represent the full instruction set.
 
 ### Parallelism
 
-Without changing the specification of Typogenetics at all it would be cool to speed up its execution by parallelizing. While each rewrite step is fundamentally serial, the processing of strands is an embarrassingly parallel operation. Especially if selection of strands and enzymes to interact is completely random, there are guaranteed to be no race conditions.
+Without changing the specification of Typogenetics at all it would be cool to speed up its execution by parallelizing. While each rewrite step is fundamentally serial, the processing of strands is an embarrassingly parallel operation. Especially if selection of strands and enzymes to interact is completely random, we are guaranteed to have no race conditions.
 
 ### Adding a spatial dimension
 
-Inspired in part by Axelrod's experiments with agents playing the iterated prisoner's dilemma, you could limit strands to move around a "physical" space. Requiring interactions between enzymes and strands to be limited to spatially local interactions might promote more variation in evolved structures. More variation might come at the cost of lower complexity at first, but I can imagine some very improbable yet very destructive enzymes dominating if their radius of interaction is effectively infinite. Akin to ancient hydrothermal vents, rare pockets of fertile quiet may be necessary for fragile complexity to emerge slowly, undisturbed by its chaotic environment.
-
-[Nowak & May paper](https://www.nature.com/articles/359826a0)
-
-<!-- TODO: cite this correctly in the footnotes -->
-
-```txt
-Nowak, M., May, R. Evolutionary games and spatial chaos. Nature 359, 826–829 (1992). https://doi.org/10.1038/359826a0
-```
-
-One of the major findings is that placing players on a lattice (or spatial array) and restricting interactions to local neighbors (rather than well-mixed populations) can allow cooperators (C) and defectors (D) to coexist indefinitely, often in striking spatial patterns, rather than one strategy driving out the other.
-
-Nowak & May (1992) showed that even with memoryless (pure) cooperators and defectors, when arranged on a 2D lattice with local updating, complex spatial patterns emerge, with cooperator clusters resisting invasion by defectors and defectors persisting on cluster boundaries.
-
-More generally, Nowak, May, and others extended the model to probabilistic updating, irregular spatial lattices, and asynchronous updating, and found that the essential outcome — polymorphic coexistence of C and D over a range of payoff parameters — is robust.
-
-In particular, in "Spatial Games and the Maintenance of Cooperation", Nowak et al. argue that spatial interactions are sufficient (i.e. without memory, reciprocity, or sophisticated strategies) to maintain a mixture of cooperators and defectors across a wide parameter range.
-
-Thus, the result is not that "Tit-for-Tat beats all others" under spatial constraints per se, but that spatial structure fundamentally alters which strategies can persist and how cooperation can be sustained even without complex memory.
+Inspired by Axelrod & Hamilton (1981) and Nowak & May (1992), you could limit strands to move around a "physical" space. Requiring interactions between enzymes and strands to be limited to spatially local interactions might promote more variation in evolved structures. More variation might come at the cost of lower complexity at first, but I can imagine some very improbable yet very destructive enzymes dominating if their radius of interaction is effectively infinite. Akin to ancient hydrothermal vents, rare pockets of fertile quiet may be necessary for fragile complexity to emerge slowly, undisturbed by its chaotic environment.
 
 ### Tuning
 
@@ -302,3 +253,42 @@ Informed by Andreas Wagner's research, you could model the space of enzymes. A g
 - [Arrival of the Fittest Amazon](https://www.amazon.com/Arrival-Fittest-How-Nature-Innovates/dp/1617230219)
 - [Pipes demo](https://1j01.github.io/pipes)
 - [History of the Windows 3D Pipes screensaver](https://devblogs.microsoft.com/oldnewthing/20240611-00/?p=109881)
+
+## Wrapping up
+
+I hope you enjoyed some of the visuals in this post.
+
+## Citations
+
+```bibtex
+@article{axelrod1980effective,
+  author  = {Axelrod, Robert},
+  title   = {Effective Choice in the {Prisoner's Dilemma}},
+  journal = {Journal of Conflict Resolution},
+  volume  = {24},
+  number  = {1},
+  pages   = {3--25},
+  year    = {1980},
+  doi     = {10.1177/002200278002400101}
+}
+
+@article{nowak1992spatial,
+  author  = {Nowak, Martin A. and May, Robert M.},
+  title   = {Evolutionary Games and Spatial Chaos},
+  journal = {Nature},
+  volume  = {359},
+  number  = {6398},
+  pages   = {826--829},
+  year    = {1992},
+  doi     = {10.1038/359826a0}
+}
+
+@book{wagner2014arrival,
+  author    = {Wagner, Andreas},
+  title     = {Arrival of the Fittest: Solving Evolution's Greatest Puzzle},
+  publisher = {Current},
+  address   = {New York},
+  year      = {2014},
+  isbn      = {9781591846468}
+}
+```
