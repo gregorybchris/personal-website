@@ -6,7 +6,7 @@ archived: false
 status: draft
 ---
 
-Maybe you've never heard of Typogenetics before or maybe you're a long time fan of Douglas Hofstadter's Pulitzer prize-winning book _Gödel, Escher, Bach: An Eternal Golden Braid_ (1979). Either way, this blog post is for you.
+Maybe you've never heard of Typogenetics before or maybe you're a long time fan of Douglas Hofstadter's Pulitzer prize-winning book _Gödel, Escher, Bach: An Eternal Golden Braid_.[^geb] Either way, this blog post is for you.
 
 ## What's Typogenetics?
 
@@ -235,60 +235,27 @@ Without changing the specification of Typogenetics at all it would be cool to sp
 
 ### Adding a spatial dimension
 
-Inspired by Axelrod & Hamilton (1981) and Nowak & May (1992), you could limit strands to move around a "physical" space. Requiring interactions between enzymes and strands to be limited to spatially local interactions might promote more variation in evolved structures. More variation might come at the cost of lower complexity at first, but I can imagine some very improbable yet very destructive enzymes dominating if their radius of interaction is effectively infinite. Akin to ancient hydrothermal vents, rare pockets of fertile quiet may be necessary for fragile complexity to emerge slowly, undisturbed by its chaotic environment.
+Inspired by Axelrod and Hamilton on the evolution of cooperation[^axelrod-hamilton] and Nowak and May on spatial evolutionary games[^nowak-may], you could limit strands to move around a "physical" space. Requiring interactions between enzymes and strands to be limited to spatially local interactions might promote more variation in evolved structures. More variation might come at the cost of lower complexity at first, but I can imagine some very improbable yet very destructive enzymes dominating if their radius of interaction is effectively infinite. Akin to ancient hydrothermal vents, rare pockets of fertile quiet may be necessary for fragile complexity to emerge slowly, undisturbed by its chaotic environment.
 
 ### Tuning
 
 Many find it incredible that the John Horton Conway's Game of Life can produce and maintain so much complexity with such simple rules. I believe I remember Conway reacting to this impression in an interview once, saying something about how it's really not that incredible at all, given that the rules of the game were specifically selected in order to elicit that exact behavior of complexity and sustained complexity. I'm not sure if by that he meant that the rules were mathematically derived to produce the desired behavior or that the rules were tuned semi-blindly until the desired behavior emerged. Regardless, it has always intrigued me that if complex/interesting behavior does not initially emerge from a fairly complicated system, perhaps complex behaviors might emerge after fine-tuning parameters of that complicated system. Is there a way to parameterize the instructions of Typogenetics in such a way that they become tunable? Is there a metric we can optimize toward once we do have tunable instructions? If there's no good metric for complexity, what metric is worth optimizing?
 
-In an [interview](https://youtu.be/R9Plq-D1gEk?si=-uQe6GJrdUg9m6eh&t=290) with the Numberphile YouTube channel, Conway explains that the rules of the Game of Life were discovered through a process of trial and error.
+In an interview with the Numberphile YouTube channel[^conway-interview], Conway explains that the rules of the Game of Life were discovered through a process of trial and error.
 
 > "[The Game of Life] was different for quite a long time. We tinkered with these rules and finally came up with the ones I said. And they really seemed to have very nice properties. Namely [we] didn't seem to be able to predict what would happen. And in the end we succeeded in proving essentially anything could happen. These things could do any kind of computation you wanted to do." -- John Horton Conway
 
 ### Genotype Networks
 
-Informed by Andreas Wagner's research, you could model the space of enzymes. A genotype is close to another genotype in genotype space if their edit distance is small. But exploration of this space to find another genotype with the same phenotype (enzyme function) is relatively easy given all of the dimensions (units of a strand) along which we can search. As Wagner explains in "Arrival of the Fittest" (2014), you're looking for many needles in the same haystack. If this theory is correct, it should be very easy to cross vast distances in genotype space (large strand edit distance) while remaining stationary in phenotype space (coding for the same enzyme). You would also expect the vast majority of genotypes in close proximity to each other to inhabit extremely diverse regions of phenotype space. In this way the tendrils of these genotype networks are both extremely disconnected from other networks while also being tightly interwoven.
-
-- [Arrival of the Fittest Goodreads](https://www.goodreads.com/book/show/20821275-arrival-of-the-fittest)
-- [Arrival of the Fittest Amazon](https://www.amazon.com/Arrival-Fittest-How-Nature-Innovates/dp/1617230219)
-- [Pipes demo](https://1j01.github.io/pipes)
-- [History of the Windows 3D Pipes screensaver](https://devblogs.microsoft.com/oldnewthing/20240611-00/?p=109881)
+Informed by Andreas Wagner's research, you could model the space of enzymes. A genotype is close to another genotype in genotype space if their edit distance is small. But exploration of this space to find another genotype with the same phenotype (enzyme function) is relatively easy given all of the dimensions (units of a strand) along which we can search. As Wagner explains in _Arrival of the Fittest_[^wagner], you're looking for many needles in the same haystack. If this theory is correct, it should be very easy to cross vast distances in genotype space (large strand edit distance) while remaining stationary in phenotype space (coding for the same enzyme). You would also expect the vast majority of genotypes in close proximity to each other to inhabit extremely diverse regions of phenotype space. In this way the tendrils of these genotype networks are both extremely disconnected from other networks while also being tightly interwoven.[^pipes]
 
 ## Wrapping up
 
 I hope you enjoyed some of the visuals in this post.
 
-## Citations
-
-```bibtex
-@article{axelrod1980effective,
-  author  = {Axelrod, Robert},
-  title   = {Effective Choice in the {Prisoner's Dilemma}},
-  journal = {Journal of Conflict Resolution},
-  volume  = {24},
-  number  = {1},
-  pages   = {3--25},
-  year    = {1980},
-  doi     = {10.1177/002200278002400101}
-}
-
-@article{nowak1992spatial,
-  author  = {Nowak, Martin A. and May, Robert M.},
-  title   = {Evolutionary Games and Spatial Chaos},
-  journal = {Nature},
-  volume  = {359},
-  number  = {6398},
-  pages   = {826--829},
-  year    = {1992},
-  doi     = {10.1038/359826a0}
-}
-
-@book{wagner2014arrival,
-  author    = {Wagner, Andreas},
-  title     = {Arrival of the Fittest: Solving Evolution's Greatest Puzzle},
-  publisher = {Current},
-  address   = {New York},
-  year      = {2014},
-  isbn      = {9781591846468}
-}
-```
+[^geb]: Douglas R. Hofstadter, _Gödel, Escher, Bach: An Eternal Golden Braid_ (Basic Books, 1979). Typogenetics is introduced in Chapter XVI, "Self-Rep and Self-Rep".
+[^axelrod-hamilton]: Robert Axelrod and William D. Hamilton, ["The Evolution of Cooperation"](https://doi.org/10.1126/science.7466396), _Science_ 211(4489), 1981, 1390–1396.
+[^nowak-may]: Martin A. Nowak and Robert M. May, ["Evolutionary Games and Spatial Chaos"](https://doi.org/10.1038/359826a0), _Nature_ 359(6398), 1992, 826–829.
+[^wagner]: Andreas Wagner, [_Arrival of the Fittest: Solving Evolution's Greatest Puzzle_](https://www.goodreads.com/book/show/20821275-arrival-of-the-fittest) (Current, 2014).
+[^conway-interview]: John Horton Conway, [interviewed by Numberphile](https://youtu.be/R9Plq-D1gEk?si=-uQe6GJrdUg9m6eh&t=290). The quote begins around 4:50.
+[^pipes]: If you want the mental image, it's the Windows 3D Pipes screensaver. There's a [browser demo](https://1j01.github.io/pipes) and Raymond Chen wrote up [its history](https://devblogs.microsoft.com/oldnewthing/20240611-00/?p=109881).
