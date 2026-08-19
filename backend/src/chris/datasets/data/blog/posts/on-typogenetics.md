@@ -120,7 +120,7 @@ The process of turning strands of bases into enzymes of amino acids is called **
 
 ## Folding
 
-The animation above shows an enzyme being constructed as a straight chain of amino acids. However, Typogenetics introduces a bit more complexity. Each amino acid has the possibility of inducing a 90º kink in the enzyme. "r" indicates a right turn in the enzyme, "l" indicates a left turn, and "s" indicates no turn induced and the enzyme remains straight at that amino acid. Figure 7 shows the full mapping from amino acids to folding directions.
+The animation above shows an enzyme being constructed as a straight chain of amino acids. However, Typogenetics introduces a bit more complexity. Each amino acid has the possibility of inducing a 90º kink in the enzyme. The letters r, l, and s in <a href="#figure9">Figure 9</a> indicate whether the amino acid will cause the enzyme to fold right, left, or straight. <a href="#figure7">Figure 7</a> shows the folding behavior of each amino acid.
 
 <figure id="figure9">
   <video width="450" autoplay muted loop playsinline>
@@ -185,7 +185,7 @@ If you're inspired to implement Typogenetics yourself, you will need a few more 
 
 ## Try it out
 
-I've implemented a command line interface for Typogenetics. You can test translation from strands to enzymes and the application of enzymes to strands. You can also simulate many generations of rewrites in search of a particular function or with open-ended search.[^computational-life]
+I've implemented a command line interface for Typogenetics. You can test translation from strands to enzymes and the application of enzymes to strands. You can also simulate many generations of rewrites either with open-ended search[^computational-life] or looking for a particular enzyme function.
 
 ```bash
 # Translate a single strand into an enzyme
@@ -203,27 +203,13 @@ typo search ATAAACGATAATTGACAGAGCGAATG ATCGATAGGGAACATGTCGT --edits 5 --depth 20
 
 <github-button user="gregorybchris" repo="typogenetics"></github-button>
 
-In these last two sections, I want to consider implications of potential tweaks to the system and explore some loose connections to other areas that are analogous to Typogenetics.
-
-## Extensions
-
-### Larger codon size
-
-If a codon is comprised of two nucleotides, then a single base can be translated into two different amino acids depending on the initial binding site. A codon of three nucleotides allows for three distinct meanings that a single base takes on, effectively increasing the density of genes without increasing the length of a strand. There may be a very good reason living systems on Earth use a codon of size three. I would be interested to explore the effects of codons of size 4, 5, 6. The size of the instruction set need not increase to accommodate an increased number of possible codons. Just as in real biology, a large diversity of nucleotide combinations can be mapped to a smaller set of amino acids with redundancy built in. Would increasing the density of genetic information on a strand help us evolve complex systems faster?
-
-### More nucleobases
-
-In real biology we have pyrimidines and purines. I would be curious to add a third category of bases. If I had to guess, C, T, G, A is close to the only code that satisfies both requirements of simplicity and error correction. Simplicity is a requirement because anything more complex would have been vanishingly unlikely to evolve out of primordial metabolic networks. And error correction, of course, to ensure genetic code would be stable enough to propagate over time. However we could have had a true binary code. Which makes me wonder what the effect would be of a hexadecimal code. Does increasing the number of available nucleotides increase the expressive power?
-
-### Complex instruction set
-
-The instruction set of 15 amino acids that Hofstadter gives us is certainly not the simplest possible instruction set, though there's something very beautiful about it being as reduced as it is. One does wonder how powerful strand rewriting could be with a few more instructions. I also wonder if the conditional rules that come in the box are a bit too complex, even. We currently can scan left/right until reaching a pyrimidine/purine. These are are conditionals, but not as simple as "if purine, move left one unit" (think [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck)). Perhaps conditionals that simple could facilitate the evolution of more stable enzymes even if the enzymes need to be longer to do anything useful.
+In these last two sections, I want to explore some loose connections to other areas that are analogous to Typogenetics and consider implications of potential tweaks to the system.
 
 ## Connections
 
 ### Turing completeness
 
-While I have not found anything definitive about whether Typogenetics is [Turing complete](https://en.wikipedia.org/wiki/Turing_completeness), I would not be surprised if it were proven to be Turing incomplete. While there is certainly the ability to write to a tape, the lack of a set of states for the machine to be in is a bit worrying. Endowing an enzyme with a small finite state machine could be an interesting way to increase its representational power.
+While I have not found anything definitive about whether Typogenetics is [Turing complete](https://en.wikipedia.org/wiki/Turing_completeness), I would not be surprised if it were proven to be Turing incomplete. While there is certainly the ability to write to a tape, the lack of a set of states for the machine to be in makes me pessimistic. Endowing an enzyme with a small finite state machine could be an interesting way to increase its representational power.
 
 ### Sequence to sequence modeling
 
@@ -239,19 +225,37 @@ Inspired by Axelrod and Hamilton on the evolution of cooperation[^axelrod-hamilt
 
 ### Tuning
 
-Many find it incredible that the John Horton Conway's Game of Life can produce and maintain so much complexity with such simple rules. I believe I remember Conway reacting to this impression in an interview once, saying something about how it's really not that incredible at all, given that the rules of the game were specifically selected in order to elicit that exact behavior of complexity and sustained complexity. I'm not sure if by that he meant that the rules were mathematically derived to produce the desired behavior or that the rules were tuned semi-blindly until the desired behavior emerged. Regardless, it has always intrigued me that if complex/interesting behavior does not initially emerge from a fairly complicated system, perhaps complex behaviors might emerge after fine-tuning parameters of that complicated system. Is there a way to parameterize the instructions of Typogenetics in such a way that they become tunable? Is there a metric we can optimize toward once we do have tunable instructions? If there's no good metric for complexity, what metric is worth optimizing?
-
-In an interview with the Numberphile YouTube channel[^conway-interview], Conway explains that the rules of the Game of Life were discovered through a process of trial and error.
+Many find it incredible that the John Horton Conway's Game of Life can produce and maintain so much complexity with such simple rules. In an interview with the Numberphile YouTube channel[^conway-interview], Conway explains that the rules of the Game of Life were discovered through a process of trial and error.
 
 > "[The Game of Life] was different for quite a long time. We tinkered with these rules and finally came up with the ones I said. And they really seemed to have very nice properties. Namely [we] didn't seem to be able to predict what would happen. And in the end we succeeded in proving essentially anything could happen. These things could do any kind of computation you wanted to do." -- John Horton Conway
 
+I interpret Conway to be saying that the Game of Life's complexity is really not that surprising given that the rules of the game were specifically selected in order to elicit that behavior. It's unclear to me how much the rules were selected with blind tuning vs mathematical derivation. Regardless, it has always intrigued me that if complex/interesting behavior does not initially emerge from a fairly complicated system, perhaps complex behaviors might emerge after fine-tuning parameters of that complicated system.
+
+Is there a way to parameterize the instructions of Typogenetics in such a way that they become tunable? Is there a metric we can optimize toward once we do have tunable instructions?
+
 ### Genotype Networks
 
-Informed by Andreas Wagner's research, you could model the space of enzymes. A genotype is close to another genotype in genotype space if their edit distance is small. But exploration of this space to find another genotype with the same phenotype (enzyme function) is relatively easy given all of the dimensions (units of a strand) along which we can search. As Wagner explains in _Arrival of the Fittest_[^wagner], you're looking for many needles in the same haystack. If this theory is correct, it should be very easy to cross vast distances in genotype space (large strand edit distance) while remaining stationary in phenotype space (coding for the same enzyme). You would also expect the vast majority of genotypes in close proximity to each other to inhabit extremely diverse regions of phenotype space. In this way the tendrils of these genotype networks are both extremely disconnected from other networks while also being tightly interwoven.[^pipes]
+Informed by Andreas Wagner's research, you could model the space of enzymes. A genotype is close to another genotype in genotype space if their edit distance is small. But exploration of this space to find another genotype with the same phenotype (enzyme function) is relatively easy given all of the dimensions (units of a strand) along which we can search.
+
+As Wagner explains in _Arrival of the Fittest_[^wagner], you're looking for many needles in the same haystack. If this theory is correct, it should be very easy to cross vast distances in genotype space (large strand edit distance) while remaining stationary in phenotype space (coding for the same enzyme). You would also expect the vast majority of genotypes in close proximity to each other to inhabit extremely diverse regions of phenotype space. In this way the tendrils of these genotype networks are both extremely disconnected from other networks while also being tightly interwoven.[^pipes]
+
+## Extensions
+
+### Larger codon size
+
+If a codon is comprised of two nucleotides, then a single base can be translated into two different amino acids depending on the initial binding site. A codon of three nucleotides allows for three distinct meanings that a single base takes on, effectively increasing the density of genes without increasing the length of a strand. There may be a very good reason living systems on Earth use a codon of size three. I would be interested to explore the effects of codons of size 4, 5, 6. The size of the instruction set need not increase to accommodate an increased number of possible codons. Just as in real biology, a large diversity of nucleotide combinations can be mapped to a smaller set of amino acids with redundancy built in. Would increasing the density of genetic information on a strand help us evolve complex systems faster?
+
+### More nucleobases
+
+In real biology we have pyrimidines and purines. I would be curious to add a third category of bases. If I had to guess, C, T, G, A is close to the only code that satisfies both requirements of simplicity and error correction. Simplicity is a requirement because anything more complex would have been vanishingly unlikely to evolve out of primordial metabolic networks. And error correction, of course, to ensure genetic code would be stable enough to propagate over time. However we could have had a true binary code. Which makes me wonder what the effect would be of a hexadecimal code. Does increasing the number of available nucleotides increase the expressive power?
+
+### Complex instruction set
+
+The instruction set of 15 amino acids that Hofstadter gives us is certainly not the simplest possible instruction set, though there's something very beautiful about it being as reduced as it is. One does wonder how powerful strand rewriting could be with a few more instructions. I also wonder if the conditional rules that come in the box are a bit too complex, even. We currently can scan left/right until reaching a pyrimidine/purine. These are are conditionals, but not as simple as "if purine, move left one unit" (think [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck)). Perhaps conditionals that simple could facilitate the evolution of more stable enzymes even if the enzymes need to be longer to do anything useful.
 
 ## Wrapping up
 
-I hope you enjoyed some of the visuals in this post.
+I hope you enjoyed some of the visuals in this post and I hope you're as inspired by the joint simplicity and power of Typogenetics as I am.
 
 [^computational-life]: Edit (Aug. 2026): I came across ["Computational Life: How Well-formed, Self-replicating Programs Emerge from Simple Interaction"](https://arxiv.org/abs/2406.19108) by Blaise Agüera y Arcas and colleagues (2024), which is very relevant to open-ended search for interesting programs. They find that self-replicators arise from random interactions between programs with no explicit fitness function at all.
 
@@ -265,4 +269,4 @@ I hope you enjoyed some of the visuals in this post.
 
 [^conway-interview]: John Horton Conway, [interviewed by Numberphile](https://youtu.be/R9Plq-D1gEk?si=-uQe6GJrdUg9m6eh&t=290). The quote begins around 4:50.
 
-[^pipes]: If you want the mental image, it's the Windows 3D Pipes screensaver. There's a [browser demo](https://1j01.github.io/pipes) and Raymond Chen wrote up [its history](https://devblogs.microsoft.com/oldnewthing/20240611-00/?p=109881).
+[^pipes]: If you want the mental image, I think of Wagner's networks as the Windows 3D Pipes screensaver. There's a [browser demo](https://1j01.github.io/pipes) and Raymond Chen wrote up [its history](https://devblogs.microsoft.com/oldnewthing/20240611-00/?p=109881). Pipes of different colors (different enzyme functions) can be very close together (similar genotype).
