@@ -99,7 +99,7 @@ Fans of Typogenetics (and biologists) will have predicted this next magical step
   <figcaption><strong>Figure 7: </strong>Amino acids &mdash; This table shows the mapping from pairs of bases to their corresponding amino acids.</figcaption>
 </figure>
 
-Now, not only can enzymes operate on strands, but those same strands can themselves be treated as enzymes. All we need to do is take a strand, use this chart to convert pairs of bases into amino acids, and we have a new enzyme that can itself operate on strands. This process is called **translation**.
+Now, not only can enzymes operate on strands, but those same strands can themselves be treated as enzymes. All we need to do is take a strand, use this chart to convert duplets into amino acids, and we have a new enzyme that can itself operate on strands. This process is called **translation**.
 
 > Note: The AA duplet does not code for an amino acid. It is reserved as a "punctuation mark" to mean "end of enzyme". Multiple amino acid sequences can be created from a single strand during translation.
 
@@ -133,7 +133,7 @@ Review <a href="#figure7">Figure 7</a> to see the folding behavior of every amin
 
 ## Binding preference
 
-The folding structure of enzymes in Typogenetics isn't just for fun. We use this structure to determine which base on a strand the enzyme should bind to initially. Holding the orientation of the first segment to the right, the orientation of the last segment determines the binding-preference of the enzyme.
+The folding structure of enzymes in Typogenetics isn't just for fun. We use this structure to determine which base on a strand the enzyme should bind to initially. Holding the orientation of the first segment to the right, the orientation of the last segment determines the binding preference of the enzyme.
 
 The ultimate function of the enzyme depends on small contributions from all amino acids, similar to how the 3D structure of a protein determines its function in real biology.
 
@@ -144,9 +144,9 @@ The ultimate function of the enzyme depends on small contributions from all amin
 
 ## Filling in the details
 
-At this point, we've covered all the major design features of Typogenetics, which captures the essence of the [central dogma of molecular biology](https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology).
+At this point, we've covered all the major design features of Typogenetics, capturing the essence of the [central dogma of molecular biology](https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology).
 
-If you're inspired to implement Typogenetics yourself, let me make sure all edge cases are well-defined. If you want to skip the nitty gritty details, you can jump to the next section.
+If you're inspired to implement Typogenetics yourself, you'll need a bit more info to make sure all edge cases are well-defined. If you want to skip the nitty gritty details, you can jump to the next section.
 
 <details>
 <summary>Show me the details ||| Hide the details</summary>
@@ -176,7 +176,7 @@ If you're inspired to implement Typogenetics yourself, let me make sure all edge
 - `cut` applies to both strands.
 - `del` applies to only the strand on which the enzyme is working.
 - `swi` moves the enzyme to the attached strand above the current strand. If there is no complementary base where the enzyme is currently bound, then the enzyme just detaches itself.
-- Insertion instructions will insert into both strands if Copy mode is on (with the complement inserted into the other strand). If Copy mode is off then a blank space is left in the complementary strand.
+- Insertion instructions will insert into both strands if Copy mode is on (with the complement inserted into the other strand). If Copy mode is off, then a blank space is left in the complementary strand.
 - If Copy mode is on and move or search instructions are encountered, then complementary bases should be manufactured everywhere the current strand slides.
 
 </details>
@@ -209,13 +209,13 @@ In these next two sections, I want to explore some loose connections to other ar
 
 While I have not found anything definitive about whether Typogenetics is [Turing complete](https://en.wikipedia.org/wiki/Turing_completeness), I would not be surprised if it were proven to be Turing incomplete. While there is certainly the ability to write to a tape, the lack of a set of states for the machine to be in makes me pessimistic. Endowing an enzyme with a small finite state machine could be an interesting way to increase its representational power.
 
-### Sequence to sequence modeling
+### Sequence-to-sequence modeling
 
-Would it be possible to train a sequence to sequence model to apply an enzyme to a strand with the same rules as Typogenetics? Many instructions seem difficult to me to represent, but perhaps there's a recurrent architecture that could represent the full instruction set.
+Would it be possible to train a sequence-to-sequence model to apply an enzyme to a strand with the same rules as Typogenetics? Many instructions seem difficult to me to represent, but perhaps there's a recurrent architecture that could represent the full instruction set.
 
 ### Parallelism
 
-Without changing the specification of Typogenetics at all it would be cool to speed up its execution by parallelizing. While each rewrite step is fundamentally serial, the processing of strands is an embarrassingly parallel operation. Especially if selection of strands and enzymes to interact is completely random, we are guaranteed to have no race conditions.
+Without changing the specification of Typogenetics at all, it would be cool to speed up its execution by parallelizing. While each rewrite step is fundamentally serial, the processing of strands is an embarrassingly parallel operation. Especially if selection of strands and enzymes to interact is completely random, we are guaranteed to have no race conditions.
 
 ### Adding a spatial dimension
 
@@ -227,7 +227,7 @@ Many find it incredible that John Horton Conway's Game of Life can produce and m
 
 > "[The Game of Life] was different for quite a long time. We tinkered with these rules and finally came up with the ones I said. And they really seemed to have very nice properties. Namely [we] didn't seem to be able to predict what would happen. And in the end we succeeded in proving essentially anything could happen. These things could do any kind of computation you wanted to do." -- John Horton Conway
 
-I interpret Conway to be saying that the Game of Life's complexity is really not that surprising given that the rules of the game were specifically selected in order to elicit that behavior. It's unclear to me how much the rules were selected with blind tuning versus mathematical derivation. Regardless, it has always intrigued me that when a complex system doesn't produce interesting behavior right away, the fix may be tuning rather than redesign
+I interpret Conway to be saying that the Game of Life's complexity is really not that surprising given that the rules of the game were specifically selected in order to elicit that behavior. It's unclear to me how much the rules were selected with blind tuning versus mathematical derivation. Regardless, it has always intrigued me that when a complex system doesn't produce interesting behavior right away, the fix may be tuning rather than redesign.
 
 Is there a way to parameterize the instructions of Typogenetics in such a way that they become tunable? Is there a metric we can optimize toward once we do have tunable instructions?
 
@@ -241,7 +241,7 @@ As Wagner explains in _Arrival of the Fittest_[^wagner], you're looking for many
 
 ### Larger codon size
 
-Borrowing two terms from biology: a nucleotide is what Typogenetics calls a base, and a codon is the group of nucleotides that codes for a single amino acid, which makes the duplets from earlier codons of size two. If a codon is comprised of two nucleotides, then a single base can be translated into two different amino acids depending on the initial binding site. A codon of three nucleotides allows for three distinct meanings that a single base takes on, effectively increasing the density of genes without increasing the length of a strand. There may be a very good reason living systems on Earth use a codon of size three. I would be interested to explore the effects of codons of size 4, 5, 6. The size of the instruction set need not increase to accommodate an increased number of possible codons. Just as in real biology, a large diversity of nucleotide combinations can be mapped to a smaller set of amino acids with redundancy built in. Would increasing the density of genetic information on a strand help us evolve complex systems faster?
+Borrowing two terms from biology: a nucleotide is what Typogenetics calls a base, and a codon is the group of nucleotides that codes for a single amino acid, which makes the duplets from earlier codons of size two. If a codon is composed of two nucleotides, then a single base can be translated into two different amino acids depending on the initial binding site. A codon of three nucleotides allows for three distinct meanings that a single base takes on, effectively increasing the density of genes without increasing the length of a strand. There may be a very good reason living systems on Earth use a codon of size three. I would be interested to explore the effects of codons of size 4, 5, or 6. The size of the instruction set need not increase to accommodate an increased number of possible codons. Just as in real biology, a large diversity of nucleotide combinations can be mapped to a smaller set of amino acids with redundancy built in. Would increasing the density of genetic information on a strand help us evolve complex systems faster?
 
 ### More nucleobases
 
