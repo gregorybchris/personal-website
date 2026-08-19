@@ -19,8 +19,8 @@ Over the next few sections, we'll lay out the rules of Typogenetics, starting si
 All life on Earth has DNA built from four molecules: Adenine (A), Cytosine (C), Guanine (G), and Thymine (T). These are called nucleobases, but in the spirit of simplification, Typogenetics calls these **bases**. And don't worry about the molecular names or the underlying chemistry of these molecules. For our purposes, all we care about is the letters A, C, G, and T.
 
 <figure id="figure1">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/bases.svg?cache=1" width="350">
-  <figcaption><strong>Figure 1: </strong>Bases &mdash; The four bases and their two groups: A and G are both called "pyrimidines" and C and T are "purines".</figcaption>
+  <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/bases.svg?cache=2" width="350">
+  <figcaption><strong>Figure 1: </strong>Bases &mdash; The four bases and their two groups: A and G are both called "purines" and C and T are "pyrimidines".</figcaption>
 </figure>
 
 If we string a few of these bases together we'll call that a **strand**. Each position along a strand is called a **unit**.
@@ -92,16 +92,16 @@ Next let's see what happens if we cut while the strand is being copied. You can 
 
 ## Closing the loop
 
-Fans of Typogenetics (and biologists) will have predicted this next magical step. We create a mapping between amino acids and pairs of bases. Every unique pair of bases "codes" for a single amino acid.
+Fans of Typogenetics (and biologists) will have predicted this next magical step. We create a mapping between amino acids and pairs of bases. Unique pairs of bases "code" for single amino acids.
 
 <figure id="figure7">
-  <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/amino-acid-table.svg?cache1" width="300">
+  <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/amino-acid-table.svg?cache=1" width="300">
   <figcaption><strong>Figure 7: </strong>Amino acids &mdash; This table shows the mapping from pairs of bases to their corresponding amino acids.</figcaption>
 </figure>
 
 Now, not only can enzymes operate on strands, but those same strands can themselves be treated as enzymes. All we need to do is take a strand, use this chart to convert pairs of bases into amino acids, and we have a new enzyme that can itself operate on strands.
 
-> Note: The AA duplet does not code for an amino acid. It is reserved as a "punctuation mark" to mean "end of enzyme". Multiple amino acid sequences can be created from a single strand during translation.
+> Note: The AA pair of bases does not code for an amino acid. It is reserved as a "punctuation mark" to mean "end of enzyme". Multiple amino acid sequences can be created from a single strand during translation.
 
 ## Translation
 
@@ -120,7 +120,9 @@ The process of turning strands of bases into enzymes of amino acids is called **
 
 ## Folding
 
-The animation above shows an enzyme being constructed as a straight chain of amino acids. However, Typogenetics introduces a bit more complexity. Each amino acid has the possibility of inducing a 90º kink in the enzyme. The letters r, l, and s in <a href="#figure9">Figure 9</a> indicate whether the amino acid will cause the enzyme to fold right, left, or straight. <a href="#figure7">Figure 7</a> shows the folding behavior of each amino acid.
+The animation above shows an enzyme being constructed as a straight chain of amino acids. However, Typogenetics introduces a bit more complexity. Each amino acid has the possibility of inducing a 90º kink in the enzyme. The letters r, l, and s in <a href="#figure9">Figure 9</a> indicate whether the amino acid will cause the enzyme to fold right, left, or straight.
+
+Review <a href="#figure7">Figure 7</a> to see the folding behavior of every amino acid in Typogenetics.
 
 <figure id="figure9">
   <video width="450" autoplay muted loop playsinline>
@@ -137,7 +139,7 @@ The animation above shows an enzyme being constructed as a straight chain of ami
 
 The folding structure of enzymes in Typogenetics isn't just for fun. We use this structure to determine which base on a strand the enzyme should bind to initially. Holding the orientation of the first segment to the right, the orientation of the last segment determines the binding-preference of the enzyme.
 
-The ultimate function of the amino acid depends on small contributions from all amino acids, similar to how the 3D structure of a protein determines its function in real biology.
+The ultimate function of the enzyme depends on small contributions from all amino acids, similar to how the 3D structure of a protein determines its function in real biology.
 
 <figure id="figure10">
   <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/binding-preference.svg?cache=1" width="350">
