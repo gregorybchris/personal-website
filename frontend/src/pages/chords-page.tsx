@@ -2,14 +2,17 @@ import {
   ArrowCounterClockwiseIcon,
   CaretDownIcon,
   CaretUpIcon,
+  CopyIcon,
 } from "@phosphor-icons/react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { toast } from "sonner";
 import noteEighth from "../assets/icons/note-eighth.svg";
 import noteHalf from "../assets/icons/note-half.svg";
 import noteQuarter from "../assets/icons/note-quarter.svg";
 import noteWhole from "../assets/icons/note-whole.svg";
 import { ErrorMessage } from "../components/error-message";
+import { IconButton } from "../components/icon-button";
 import { Loader } from "../components/loader";
 import { PageTitle } from "../components/page-title";
 import { SearchBar } from "../components/search-bar";
@@ -392,6 +395,20 @@ interface SongDetailProps {
 }
 
 function SongDetail({ song, loading }: SongDetailProps) {
+  const chords = song?.chords.trimEnd() ?? "";
+
+  const onCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(chords);
+      toast.success("Copied to clipboard!", {
+        duration: 2000,
+        position: "top-right",
+      });
+    } catch (err) {
+      console.error("Failed to copy chords: ", err);
+    }
+  };
+
   if (!song) {
     return (
       <div className="flex flex-1 items-center justify-center rounded-xl border border-black/10 bg-white py-20 shadow-sm">
@@ -446,9 +463,14 @@ function SongDetail({ song, loading }: SongDetailProps) {
 
       <textarea
         readOnly
-        value={song.chords.trimEnd()}
+        value={chords}
         className="font-geist bg-dark-parchment h-[340px] w-full resize-none rounded-lg border border-black/10 p-3 text-sm leading-[2.25] tracking-wide text-black/80 outline-none md:p-4 md:text-xl"
       />
+
+      <IconButton onClick={onCopy} className="self-center md:self-end">
+        <CopyIcon size={20} weight="duotone" color="#6283c0" />
+        <span className="text-md">Copy</span>
+      </IconButton>
     </div>
   );
 }
