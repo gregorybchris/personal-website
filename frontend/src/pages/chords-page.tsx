@@ -36,6 +36,9 @@ interface SongsResponse {
   songs: Song[];
 }
 
+const NO_KEY_MODULATE_MESSAGE =
+  "This song has no key set, so it can't be modulated";
+
 const NOTE_ICONS: Record<string, string> = {
   quarter: noteQuarter,
   half: noteHalf,
@@ -169,6 +172,7 @@ export function ChordsPage() {
             <div className="flex flex-1 flex-col gap-4 md:flex-row">
               <SongDetail song={selectedSong} loading={loading} />
               <ControlPanel
+                song={selectedSong}
                 offset={offset}
                 onUp={() => setOffset(offset + 1)}
                 onDown={() => setOffset(offset - 1)}
@@ -236,6 +240,7 @@ function SongList({ songs, selectedId, onSelect, loading }: SongListProps) {
 }
 
 interface ControlPanelProps {
+  song: Song | null;
   offset: number;
   onUp: () => void;
   onDown: () => void;
@@ -245,6 +250,7 @@ interface ControlPanelProps {
 }
 
 function ControlPanel({
+  song,
   offset,
   onUp,
   onDown,
@@ -252,47 +258,89 @@ function ControlPanel({
   symbols,
   onToggleSymbols,
 }: ControlPanelProps) {
-  const offsetLabel = offset > 0 ? `+${offset}` : String(offset);
+  // A chord is spelled by the function it serves in a key, so the backend only
+  // transposes songs that declare one.
+  const canModulate = song?.key != null;
+
+  // The offset is a page-wide setting, so for a song that cannot be modulated
+  // it reads as "-" rather than a number the chords below do not reflect.
+  const offsetLabel = !canModulate
+    ? "\u2013"
+    : offset > 0
+      ? `+${offset}`
+      : String(offset);
+  const resetDisabled = !canModulate || offset === 0;
 
   return (
     <div className="mb-4 flex w-full flex-none flex-col items-stretch justify-center gap-4 rounded-xl border border-black/10 bg-white px-4 py-3 shadow-sm md:mb-0 md:w-28 md:self-start md:px-2 md:py-5">
       <div className="flex flex-row flex-wrap items-center justify-center gap-3 md:flex-col">
-        <div className="order-1 text-xs font-semibold tracking-wide text-black/50 uppercase md:order-0">
+        <div
+          className={cn(
+            "order-1 text-xs font-semibold tracking-wide uppercase md:order-0",
+            canModulate ? "text-black/50" : "text-black/25",
+          )}
+        >
           Modulate
         </div>
 
         <button
           onClick={onUp}
-          title="Modulate up a semitone"
-          className="bg-sky hover:bg-royal order-4 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-white transition-colors md:order-0"
+          disabled={!canModulate}
+          title={
+            canModulate ? "Modulate up a semitone" : NO_KEY_MODULATE_MESSAGE
+          }
+          className={cn(
+            "order-4 flex h-10 w-10 items-center justify-center rounded-full transition-colors md:order-0",
+            canModulate
+              ? "bg-sky hover:bg-royal cursor-pointer text-white"
+              : "cursor-default bg-black/10 text-black/30",
+          )}
         >
           <CaretUpIcon size={22} weight="bold" />
         </button>
 
         <div className="order-3 flex flex-col items-center md:order-0">
-          <span className="font-sanchez text-3xl text-black/80">
+          <span
+            className={cn(
+              "font-sanchez text-3xl",
+              canModulate ? "text-black/80" : "text-black/30",
+            )}
+          >
             {offsetLabel}
           </span>
-          <span className="text-[10px] tracking-wide text-black/45 uppercase">
+          <span
+            className={cn(
+              "text-[10px] tracking-wide uppercase",
+              canModulate ? "text-black/45" : "text-black/25",
+            )}
+          >
             semitones
           </span>
         </div>
 
         <button
           onClick={onDown}
-          title="Modulate down a semitone"
-          className="bg-sky hover:bg-royal order-2 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-white transition-colors md:order-0"
+          disabled={!canModulate}
+          title={
+            canModulate ? "Modulate down a semitone" : NO_KEY_MODULATE_MESSAGE
+          }
+          className={cn(
+            "order-2 flex h-10 w-10 items-center justify-center rounded-full transition-colors md:order-0",
+            canModulate
+              ? "bg-sky hover:bg-royal cursor-pointer text-white"
+              : "cursor-default bg-black/10 text-black/30",
+          )}
         >
           <CaretDownIcon size={22} weight="bold" />
         </button>
 
         <button
           onClick={onReset}
-          disabled={offset === 0}
-          title="Reset modulation"
+          disabled={resetDisabled}
+          title={canModulate ? "Reset modulation" : NO_KEY_MODULATE_MESSAGE}
           className={cn(
             "order-5 flex flex-row items-center gap-1 text-xs transition-colors md:order-0",
-            offset === 0
+            resetDisabled
               ? "cursor-default text-black/25"
               : "text-sky hover:text-royal cursor-pointer",
           )}
@@ -300,6 +348,12 @@ function ControlPanel({
           <ArrowCounterClockwiseIcon size={13} weight="bold" />
           Reset
         </button>
+
+        {song !== null && !canModulate && (
+          <div className="order-6 text-center text-[10px] leading-tight text-black/35 md:order-0">
+            No key set
+          </div>
+        )}
       </div>
 
       <div className="h-px w-full bg-black/10" />
