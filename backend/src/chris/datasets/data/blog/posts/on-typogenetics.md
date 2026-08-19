@@ -6,7 +6,7 @@ archived: false
 status: draft
 ---
 
-Maybe you've never heard of Typogenetics before or maybe you're a long time fan of Douglas Hofstadter's Pulitzer prize-winning book _Gödel, Escher, Bach: An Eternal Golden Braid_.[^geb] Either way, this blog post is for you.
+Maybe you've never heard of Typogenetics before or maybe you're a long-time fan of Douglas Hofstadter's Pulitzer Prize-winning book _Gödel, Escher, Bach: An Eternal Golden Braid_.[^geb] Either way, this blog post is for you.
 
 ## What's Typogenetics?
 
@@ -32,11 +32,11 @@ If we string a few of these bases together we'll call that a **strand**. Each po
 
 ## Rewriting
 
-Typogenetics defines a small set of rules, that when applied to a strand, rewrite it into a new strand. Each rule is called an **amino acid**. A sequence of these rules is called an **enzyme**. Let's look at an example of an enzyme made up of three amino acids:
+Typogenetics defines a small set of rules that, when applied to a strand, rewrite it into a new strand. Each rule is called an **amino acid**. A sequence of these rules is called an **enzyme**. Let's look at an example of an enzyme made up of three amino acids:
 
 - Rule 1 -- `del`: Delete the base to which the enzyme is bound (and then bind to the next unit to the right).
 - Rule 2 -- `mvr`: Move one unit to the right.
-- Rule 3 -- `int`: Insert a T (to the immediate right of this unit)
+- Rule 3 -- `int`: Insert a T (to the immediate right of this unit).
 
 <figure id="figure3">
   <video width="450" autoplay muted loop playsinline>
@@ -131,7 +131,7 @@ Review <a href="#figure7">Figure 7</a> to see the folding behavior of every amin
   </video>
   <figcaption>
     <strong>Figure 9: </strong>
-    Folding &mdash; Akin to real life protein folding, Typogenetics adds some higher level structure to enzymes by introducing 90° kinks to amino acid chains.
+    Folding &mdash; Akin to real-life protein folding, Typogenetics adds some higher-level structure to enzymes by introducing 90° kinks to amino acid chains.
   </figcaption>
 </figure>
 
@@ -179,7 +179,7 @@ If you're inspired to implement Typogenetics yourself, you will need a few more 
 
 - `cut` applies to both strands.
 - `del` applies to only the strand on which the enzyme is working.
-- `swi` moves the enzyme to the attached strand above the current strand. if there is no complementary base where the enzyme is currently bound, then the enzyme just detaches itself.
+- `swi` moves the enzyme to the attached strand above the current strand. If there is no complementary base where the enzyme is currently bound, then the enzyme just detaches itself.
 - Insertion instructions will insert into both strands if Copy mode is on (with the complement inserted into the other strand). If Copy mode is off then a blank space is left in the complementary strand.
 - If Copy mode is on and move or search instructions are encountered, then complementary bases should be manufactured everywhere the current strand slides.
 
@@ -187,7 +187,7 @@ If you're inspired to implement Typogenetics yourself, you will need a few more 
 
 ## Try it out
 
-I've implemented a command line interface for Typogenetics. You can test translation from strands to enzymes and the application of enzymes to strands. You can also simulate many generations of rewrites either with open-ended search[^computational-life] or looking for a particular enzyme function.
+I've implemented a command-line interface for Typogenetics. You can test translation from strands to enzymes and the application of enzymes to strands. You can also simulate many generations of rewrites either with open-ended search[^computational-life] or looking for a particular enzyme function.
 
 ```bash
 # Translate a single strand into an enzyme
@@ -227,11 +227,11 @@ Inspired by Axelrod and Hamilton on the evolution of cooperation[^axelrod-hamilt
 
 ### Tuning
 
-Many find it incredible that the John Horton Conway's Game of Life can produce and maintain so much complexity with such simple rules. In an interview with the Numberphile YouTube channel[^conway-interview], Conway explains that the rules of the Game of Life were discovered through a process of trial and error.
+Many find it incredible that John Horton Conway's Game of Life can produce and maintain so much complexity with such simple rules. In an interview with the Numberphile YouTube channel[^conway-interview], Conway explains that the rules of the Game of Life were discovered through a process of trial and error.
 
 > "[The Game of Life] was different for quite a long time. We tinkered with these rules and finally came up with the ones I said. And they really seemed to have very nice properties. Namely [we] didn't seem to be able to predict what would happen. And in the end we succeeded in proving essentially anything could happen. These things could do any kind of computation you wanted to do." -- John Horton Conway
 
-I interpret Conway to be saying that the Game of Life's complexity is really not that surprising given that the rules of the game were specifically selected in order to elicit that behavior. It's unclear to me how much the rules were selected with blind tuning vs mathematical derivation. Regardless, it has always intrigued me that if complex/interesting behavior does not initially emerge from a fairly complicated system, perhaps complex behaviors might emerge after fine-tuning parameters of that complicated system.
+I interpret Conway to be saying that the Game of Life's complexity is really not that surprising given that the rules of the game were specifically selected in order to elicit that behavior. It's unclear to me how much the rules were selected with blind tuning versus mathematical derivation. Regardless, it has always intrigued me that if complex/interesting behavior does not initially emerge from a fairly complicated system, perhaps complex behaviors might emerge after fine-tuning parameters of that complicated system.
 
 Is there a way to parameterize the instructions of Typogenetics in such a way that they become tunable? Is there a metric we can optimize toward once we do have tunable instructions?
 
@@ -249,11 +249,11 @@ Borrowing two terms from biology: a nucleotide is what Typogenetics calls a base
 
 ### More nucleobases
 
-In real biology we have pyrimidines and purines. I would be curious to add a third category of bases. If I had to guess, A, C, G, T is close to the only code that satisfies both requirements of simplicity and error correction. Simplicity is a requirement because anything more complex would have been vanishingly unlikely to evolve out of primordial metabolic networks. And error correction, of course, to ensure genetic code would be stable enough to propagate over time. However we could have had a true binary code. Which makes me wonder what the effect would be of a hexadecimal code. Does increasing the number of available nucleotides increase the expressive power?
+In real biology we have pyrimidines and purines. I would be curious to add a third category of bases. If I had to guess, A, C, G, T is close to the only code that satisfies both requirements of simplicity and error correction. Simplicity is a requirement because anything more complex would have been vanishingly unlikely to evolve out of primordial metabolic networks. And error correction, of course, to ensure genetic code would be stable enough to propagate over time. However, we could have had a true binary code, which makes me wonder what the effect would be of a hexadecimal code. Does increasing the number of available nucleotides increase the expressive power?
 
 ### Complex instruction set
 
-The instruction set of 15 amino acids that Hofstadter gives us is certainly not the simplest possible instruction set, though there's something very beautiful about it being as reduced as it is. One does wonder how powerful strand rewriting could be with a few more instructions. I also wonder if the conditional rules that come in the box are a bit too complex, even. We currently can scan left/right until reaching a pyrimidine/purine. These are are conditionals, but not as simple as "if purine, move left one unit" (think [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck)). Perhaps conditionals that simple could facilitate the evolution of more stable enzymes even if the enzymes need to be longer to do anything useful.
+The instruction set of 15 amino acids that Hofstadter gives us is certainly not the simplest possible instruction set, though there's something very beautiful about it being as reduced as it is. One does wonder how powerful strand rewriting could be with a few more instructions. I also wonder if the conditional rules that come in the box are a bit too complex. We currently can scan left/right until reaching a pyrimidine/purine. These are conditionals, but not as simple as "if purine, move left one unit" (think [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck)). Perhaps conditionals that simple could facilitate the evolution of more stable enzymes even if the enzymes need to be longer to do anything useful.
 
 ## Wrapping up
 
