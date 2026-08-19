@@ -185,7 +185,7 @@ If you're inspired to implement Typogenetics yourself, you will need a few more 
 
 ## Try it out
 
-I've implemented a command line interface for Typogenetics. You can test translation from strands to enzymes and the application of enzymes to strands. You can also simulate many generations of rewrites in search of a particular function or with open-ended search.
+I've implemented a command line interface for Typogenetics. You can test translation from strands to enzymes and the application of enzymes to strands. You can also simulate many generations of rewrites in search of a particular function or with open-ended search.[^computational-life]
 
 ```bash
 # Translate a single strand into an enzyme
@@ -253,6 +253,7 @@ Informed by Andreas Wagner's research, you could model the space of enzymes. A g
 
 I hope you enjoyed some of the visuals in this post.
 
+[^computational-life]: Edit (Aug. 2026): I came across ["Computational Life: How Well-formed, Self-replicating Programs Emerge from Simple Interaction"](https://arxiv.org/abs/2406.19108) by Blaise Agüera y Arcas and colleagues (2024), which is very relevant to open-ended search for interesting programs. They find that self-replicators arise from random interactions between programs with no explicit fitness function at all.
 [^geb]: Douglas R. Hofstadter, _Gödel, Escher, Bach: An Eternal Golden Braid_ (Basic Books, 1979). Typogenetics is introduced in Chapter XVI, "Self-Rep and Self-Rep".
 [^axelrod-hamilton]: Robert Axelrod and William D. Hamilton, ["The Evolution of Cooperation"](https://doi.org/10.1126/science.7466396), _Science_ 211(4489), 1981, 1390–1396.
 [^nowak-may]: Martin A. Nowak and Robert M. May, ["Evolutionary Games and Spatial Chaos"](https://doi.org/10.1038/359826a0), _Nature_ 359(6398), 1992, 826–829.
