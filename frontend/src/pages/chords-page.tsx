@@ -24,11 +24,18 @@ interface SongKey {
   mode: string;
 }
 
+type ChartLineKind = "chords" | "functions" | "comment" | "blank";
+
+interface ChartLine {
+  text: string;
+  kind: ChartLineKind;
+}
+
 interface Song {
   id: string;
   title: string;
   artist: string;
-  chords: string;
+  chart: ChartLine[];
   tempo: number | null;
   beatDuration: string | null;
   chordDuration: string | null;
@@ -453,12 +460,40 @@ interface SongDetailProps {
   loading: boolean;
 }
 
+// A function line describes the chord line right under it, so the two are
+// drawn as one block with the surrounding lines pushed away from the pair.
+interface ChartBlock {
+  functions: string | null;
+  text: string;
+  kind: ChartLineKind;
+}
+
+function toBlocks(chart: ChartLine[]): ChartBlock[] {
+  const blocks: ChartBlock[] = [];
+  let functions: string | null = null;
+  for (const line of chart) {
+    if (line.kind === "functions") {
+      functions = line.text;
+      continue;
+    }
+    blocks.push({ functions, text: line.text, kind: line.kind });
+    functions = null;
+  }
+  return blocks;
+}
+
 function SongDetail({ song, loading }: SongDetailProps) {
-  const chords = song?.chords.trimEnd() ?? "";
+  const chart = song?.chart ?? [];
+  const blocks = useMemo(() => toBlocks(song?.chart ?? []), [song]);
 
   const onCopy = async () => {
     try {
-      await navigator.clipboard.writeText(chords);
+      await navigator.clipboard.writeText(
+        chart
+          .map((line) => line.text)
+          .join("\n")
+          .trimEnd(),
+      );
       toast.success("Copied to clipboard!", {
         duration: 2000,
         position: "top-right",
@@ -520,11 +555,22 @@ function SongDetail({ song, loading }: SongDetailProps) {
         </div>
       )}
 
-      <textarea
-        readOnly
-        value={chords}
-        className="font-geist bg-dark-parchment h-[340px] w-full resize-none rounded-lg border border-black/10 p-3 text-sm leading-[2.25] tracking-wide text-black/80 outline-none md:p-4 md:text-xl"
-      />
+      <div className="font-geist bg-dark-parchment h-[340px] w-full overflow-auto rounded-lg border border-black/10 p-3 text-sm tracking-wide whitespace-pre text-black/80 md:p-4 md:text-xl">
+        {blocks.map((block, index) =>
+          block.kind === "blank" ? (
+            <div key={index} className="h-4" />
+          ) : (
+            <div key={index} className="mb-4 leading-snug last:mb-0">
+              {block.functions !== null && (
+                <div className="text-royal/50">{block.functions}</div>
+              )}
+              <div className={cn(block.kind === "comment" && "text-black/40")}>
+                {block.text}
+              </div>
+            </div>
+          ),
+        )}
+      </div>
 
       <IconButton onClick={onCopy} className="self-center md:self-end">
         <CopyIcon size={20} weight="duotone" color="#6283c0" />

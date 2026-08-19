@@ -1,6 +1,7 @@
 import logging
 import re
 import time
+from enum import StrEnum
 from functools import lru_cache
 from typing import Any, Optional
 
@@ -27,6 +28,18 @@ SONGS_YAML_URL = "https://raw.githubusercontent.com/gregorybchris/cadenza/main/s
 
 # Matches a trailing repeat marker, e.g. the "(x2)" in "C G Am F (x2)".
 _REPEAT_PATTERN = re.compile(r"^(.*)\s+\(x(\d+)\)$")
+
+
+class ChartLineKind(StrEnum):
+    Chords = "chords"
+    Functions = "functions"
+    Comment = "comment"
+    Blank = "blank"
+
+
+class ChartLine(BaseModel):
+    text: str
+    kind: ChartLineKind
 
 
 class Key(BaseModel):
@@ -89,7 +102,7 @@ def _render_chord_chart(
     chord_lines: list[list[Chord]],
     symbols: bool,
     root: Optional[Note] = None,
-) -> str:
+) -> list[ChartLine]:
     """Render cadenza's parsed chord lines back over the original layout.
 
     cadenza parses a chart into a flat list of chord lines, dropping comment
@@ -98,13 +111,15 @@ def _render_chord_chart(
     blank lines, and repeat markers are preserved.
 
     When ``root`` is given, each chord line is preceded by its functional
-    analysis, the way cadenza's own chart printer shows it.
+    analysis, the way cadenza's own chart printer shows it. Every line is
+    tagged so the frontend can set a function line apart from the chords it
+    describes rather than running the two together.
     """
     rendered = []
     index = 0
     for line in original.splitlines():
         if line.startswith("~"):
-            rendered.append(line)
+            rendered.append(ChartLine(text=line, kind=ChartLineKind.Comment))
             continue
 
         repeat_match = _REPEAT_PATTERN.match(line)
@@ -112,16 +127,33 @@ def _render_chord_chart(
         chord_line = chord_lines[index]
         index += repeat_count
 
-        # A blank line parses to no chords, so there is nothing to analyze there.
-        functions, text = _render_chord_line(chord_line, symbols, root if chord_line else None)
-        if functions is not None:
-            rendered.append(functions)
-        rendered.append(f"{text} (x{repeat_match.group(2)})" if repeat_match else text)
+        # A blank line parses to no chords, so there is nothing to render or analyze.
+        if not chord_line:
+            rendered.append(ChartLine(text="", kind=ChartLineKind.Blank))
+            continue
 
-    modulated = "\n".join(rendered)
-    if original.endswith("\n"):
-        modulated += "\n"
-    return modulated
+        functions, text = _render_chord_line(chord_line, symbols, root)
+        if functions is not None:
+            rendered.append(ChartLine(text=functions, kind=ChartLineKind.Functions))
+        if repeat_match:
+            text = f"{text} (x{repeat_match.group(2)})"
+        rendered.append(ChartLine(text=text, kind=ChartLineKind.Chords))
+
+    return rendered
+
+
+def _fallback_chart(chords: str) -> list[ChartLine]:
+    """Tag a chart's lines by shape alone, for the charts cadenza cannot parse."""
+    lines = []
+    for line in chords.splitlines():
+        if line.startswith("~"):
+            kind = ChartLineKind.Comment
+        elif line.strip():
+            kind = ChartLineKind.Chords
+        else:
+            kind = ChartLineKind.Blank
+        lines.append(ChartLine(text=line, kind=kind))
+    return lines
 
 
 def _parse_song(song: Song) -> CadenzaSong:
@@ -156,7 +188,7 @@ def modulate_song(
     offset: int,
     symbols: bool,
     functions: bool = False,
-) -> tuple[str, Optional[dict[str, str]]]:
+) -> tuple[list[ChartLine], Optional[dict[str, str]]]:
     """Modulate a song's chords and key up or down by ``offset`` semitones.
 
     Only a keyed song can be modulated. A chord is spelled by the function it
@@ -175,13 +207,13 @@ def modulate_song(
         if song.key is not None:
             cadenza_song = Transposer.transpose_song(cadenza_song, offset)
         root = cadenza_song.key.root if functions and cadenza_song.key is not None else None
-        chords = _render_chord_chart(song.chords, cadenza_song.chords, symbols, root)
+        chart = _render_chord_chart(song.chords, cadenza_song.chords, symbols, root)
     except Exception:  # noqa: BLE001 - one bad chart must not take down the songbook
         logger.warning(f"Could not render chords for '{song.title}', returning them as written")
-        return song.chords, _symbolized_key(song.key, symbols) if song.key else None
+        return _fallback_chart(song.chords), _symbolized_key(song.key, symbols) if song.key else None
 
     key = _render_key(cadenza_song.key, symbols) if cadenza_song.key is not None else None
-    return chords, key
+    return chart, key
 
 
 @router.get(path="/chords/songs")
@@ -212,13 +244,13 @@ def get_chords_songs(
             if not (matches_title or matches_artist):
                 continue
 
-        chords, key = modulate_song(song, offset, symbols, functions)
+        chart, key = modulate_song(song, offset, symbols, functions)
         results.append(
             {
                 "id": song.id,
                 "title": song.title,
                 "artist": song.artist,
-                "chords": chords,
+                "chart": [line.model_dump(mode="json") for line in chart],
                 "tempo": song.tempo,
                 "beat_duration": song.beat_duration,
                 "chord_duration": song.chord_duration,
