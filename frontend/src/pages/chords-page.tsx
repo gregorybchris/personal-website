@@ -42,6 +42,9 @@ interface SongsResponse {
 const NO_KEY_MODULATE_MESSAGE =
   "This song has no key set, so it can't be modulated";
 
+const NO_KEY_FUNCTIONS_MESSAGE =
+  "This song has no key set, so its chords have no function to name";
+
 const NOTE_ICONS: Record<string, string> = {
   quarter: noteQuarter,
   half: noteHalf,
@@ -58,7 +61,8 @@ export function ChordsPage() {
   const search = searchParams.get("search") ?? "";
   const offsetParam = Number.parseInt(searchParams.get("offset") ?? "", 10);
   const offset = Number.isNaN(offsetParam) ? 0 : offsetParam;
-  const symbols = searchParams.get("symbols") !== "false";
+  const symbols = searchParams.get("symbols") === "true";
+  const functions = searchParams.get("functions") === "true";
   const selectedIdRaw = searchParams.get("id");
 
   // Hold the latest params in a ref so updateParams can stay a stable
@@ -82,7 +86,7 @@ export function ChordsPage() {
     [navigate],
   );
 
-  // 0 and "symbols on" are the defaults, so they stay out of the URL.
+  // 0 and both toggles off are the defaults, so they stay out of the URL.
   const setOffset = (value: number) =>
     updateParams({ offset: value === 0 ? null : String(value) });
 
@@ -105,6 +109,7 @@ export function ChordsPage() {
       const params: Record<string, string> = {
         offset: String(offset),
         symbols: String(symbols),
+        functions: String(functions),
       };
       if (search) params.search = search;
 
@@ -127,7 +132,7 @@ export function ChordsPage() {
     return () => {
       cancelled = true;
     };
-  }, [search, offset, symbols]);
+  }, [search, offset, symbols, functions]);
 
   // Derive the active selection so it stays valid as the list changes,
   // falling back to the first song when nothing valid is selected.
@@ -182,7 +187,11 @@ export function ChordsPage() {
                 onReset={() => setOffset(0)}
                 symbols={symbols}
                 onToggleSymbols={() =>
-                  updateParams({ symbols: symbols ? "false" : null })
+                  updateParams({ symbols: symbols ? null : "true" })
+                }
+                functions={functions}
+                onToggleFunctions={() =>
+                  updateParams({ functions: functions ? null : "true" })
                 }
               />
             </div>
@@ -250,6 +259,8 @@ interface ControlPanelProps {
   onReset: () => void;
   symbols: boolean;
   onToggleSymbols: () => void;
+  functions: boolean;
+  onToggleFunctions: () => void;
 }
 
 function ControlPanel({
@@ -260,6 +271,8 @@ function ControlPanel({
   onReset,
   symbols,
   onToggleSymbols,
+  functions,
+  onToggleFunctions,
 }: ControlPanelProps) {
   // A chord is spelled by the function it serves in a key, so the backend only
   // transposes songs that declare one.
@@ -361,30 +374,76 @@ function ControlPanel({
 
       <div className="h-px w-full bg-black/10" />
 
-      <div className="flex flex-col items-center justify-center gap-2">
-        <div className="text-xs font-semibold tracking-wide text-black/50 uppercase">
-          Symbols
-        </div>
-
-        <button
-          type="button"
-          role="switch"
-          aria-checked={symbols}
-          onClick={onToggleSymbols}
+      <div className="flex flex-row flex-wrap items-start justify-center gap-4 md:flex-col md:items-stretch">
+        <Toggle
+          label="Symbols"
+          on={symbols}
+          onToggle={onToggleSymbols}
           title="Toggle sharp/flat symbols"
-          className={cn(
-            "relative inline-block h-6 w-11 flex-none cursor-pointer rounded-full transition-colors",
-            symbols ? "bg-sky" : "bg-black/20",
-          )}
-        >
-          <span
-            className={cn(
-              "absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow-sm transition-transform",
-              symbols ? "translate-x-5" : "translate-x-0",
-            )}
-          />
-        </button>
+        />
+
+        <Toggle
+          label="Functions"
+          on={functions}
+          onToggle={onToggleFunctions}
+          disabled={!canModulate}
+          title={
+            canModulate
+              ? "Label each line with its functional analysis"
+              : NO_KEY_FUNCTIONS_MESSAGE
+          }
+        />
       </div>
+    </div>
+  );
+}
+
+interface ToggleProps {
+  label: string;
+  on: boolean;
+  onToggle: () => void;
+  title: string;
+  disabled?: boolean;
+}
+
+function Toggle({ label, on, onToggle, title, disabled }: ToggleProps) {
+  // A disabled toggle reads as off whatever the page-wide setting happens to
+  // be, so it matches the chords shown beside it.
+  const checked = on && !disabled;
+
+  return (
+    <div className="flex flex-col items-center justify-center gap-2">
+      <div
+        className={cn(
+          "text-xs font-semibold tracking-wide uppercase",
+          disabled ? "text-black/25" : "text-black/50",
+        )}
+      >
+        {label}
+      </div>
+
+      <button
+        type="button"
+        role="switch"
+        aria-checked={checked}
+        disabled={disabled}
+        onClick={onToggle}
+        title={title}
+        className={cn(
+          "relative inline-block h-6 w-11 flex-none rounded-full transition-colors",
+          disabled
+            ? "cursor-default bg-black/10"
+            : cn("cursor-pointer", checked ? "bg-sky" : "bg-black/20"),
+        )}
+      >
+        <span
+          className={cn(
+            "absolute top-0.5 left-0.5 h-5 w-5 rounded-full shadow-sm transition-transform",
+            disabled ? "bg-white/60" : "bg-white",
+            checked ? "translate-x-5" : "translate-x-0",
+          )}
+        />
+      </button>
     </div>
   );
 }

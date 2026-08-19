@@ -59,3 +59,32 @@ class TestModulateSong:
         chords, key = modulate_song(song, 3, symbols=True)
         assert chords == "C G ??? F"
         assert key == {"root": "C", "mode": "major"}
+
+
+class TestFunctionalAnalysis:
+    def test_functions_label_each_chord_line(self, keyed_song: Song) -> None:
+        chords, _ = modulate_song(keyed_song, 0, symbols=True, functions=True)
+        assert chords.splitlines()[:2] == ["I V vi IV", "C G Am F (x2)"]
+
+    def test_functions_align_with_their_chords(self, keyed_song: Song) -> None:
+        # Each chord and its function share a column so the two lines read as a grid.
+        chords, _ = modulate_song(keyed_song, 0, symbols=True, functions=True)
+        function_line, chord_line = chords.splitlines()[4:6]
+        assert [function_line, chord_line] == ["IV I V7/VII III7/VI", "F  C G7/B   E7/G♯"]
+        assert function_line.index("V7/VII") == chord_line.index("G7/B")
+
+    def test_functions_survive_modulation(self, keyed_song: Song) -> None:
+        # A chord's function is a property of the key, so modulating cannot change it.
+        unmodulated, _ = modulate_song(keyed_song, 0, symbols=True, functions=True)
+        modulated, _ = modulate_song(keyed_song, 5, symbols=True, functions=True)
+        assert modulated.splitlines()[0] == unmodulated.splitlines()[0]
+
+    def test_functions_are_off_by_default(self, keyed_song: Song) -> None:
+        chords, _ = modulate_song(keyed_song, 0, symbols=True)
+        assert chords.splitlines()[0] == "C G Am F (x2)"
+
+    def test_keyless_song_gets_no_functions(self, keyless_song: Song) -> None:
+        # Without a key there is no tonic to measure a chord's function against.
+        with_functions, _ = modulate_song(keyless_song, 0, symbols=True, functions=True)
+        without_functions, _ = modulate_song(keyless_song, 0, symbols=True)
+        assert with_functions == without_functions
