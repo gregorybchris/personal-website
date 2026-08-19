@@ -90,22 +90,18 @@ Next let's see what happens if we cut while the strand is being copied. You can 
   </figcaption>
 </figure>
 
-## Closing the loop
+## Closing the loop with translation
 
-Fans of Typogenetics (and biologists) will have predicted this next magical step. We create a mapping between amino acids and pairs of bases. Unique pairs of bases "code" for single amino acids.
+Fans of Typogenetics (and biologists) will have predicted this next magical step. We create a mapping between amino acids and pairs of bases, called **duplets**.
 
 <figure id="figure7">
   <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/amino-acid-table.svg?cache=1" width="300">
   <figcaption><strong>Figure 7: </strong>Amino acids &mdash; This table shows the mapping from pairs of bases to their corresponding amino acids.</figcaption>
 </figure>
 
-Now, not only can enzymes operate on strands, but those same strands can themselves be treated as enzymes. All we need to do is take a strand, use this chart to convert pairs of bases into amino acids, and we have a new enzyme that can itself operate on strands.
+Now, not only can enzymes operate on strands, but those same strands can themselves be treated as enzymes. All we need to do is take a strand, use this chart to convert pairs of bases into amino acids, and we have a new enzyme that can itself operate on strands. This process is called **translation**.
 
-> Note: The AA pair of bases does not code for an amino acid. It is reserved as a "punctuation mark" to mean "end of enzyme". Multiple amino acid sequences can be created from a single strand during translation.
-
-## Translation
-
-The process of turning strands of bases into enzymes of amino acids is called **translation**. Each pair of bases, called a **duplet**, gets assigned an amino acid. The product of translation is a chain of amino acids.
+> Note: The AA duplet does not code for an amino acid. It is reserved as a "punctuation mark" to mean "end of enzyme". Multiple amino acid sequences can be created from a single strand during translation.
 
 <figure id="figure8">
   <video width="450" autoplay muted loop playsinline>
@@ -148,9 +144,9 @@ The ultimate function of the enzyme depends on small contributions from all amin
 
 ## Filling in the details
 
-At this point, we've covered all the major design features of Typogenetics, which completes our simulation of the [central dogma of molecular biology](https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology).
+At this point, we've covered all the major design features of Typogenetics, which captures the essence of the [central dogma of molecular biology](https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology).
 
-If you're inspired to implement Typogenetics yourself, you will need a few more details. If you want to skip the details, you can jump to the next section.
+If you're inspired to implement Typogenetics yourself, let me make sure all edge cases are well-defined. If you want to skip the nitty gritty details, you can jump to the next section.
 
 <details>
 <summary>Show me the details ||| Hide the details</summary>
@@ -205,7 +201,7 @@ typo search ATAAACGATAATTGACAGAGCGAATG ATCGATAGGGAACATGTCGT --edits 5 --depth 20
 
 <github-button user="gregorybchris" repo="typogenetics"></github-button>
 
-In these last two sections, I want to explore some loose connections to other areas that are analogous to Typogenetics and consider implications of potential tweaks to the system.
+In these next two sections, I want to explore some loose connections to other areas that are analogous to Typogenetics and consider implications of potential tweaks to the system.
 
 ## Connections
 
@@ -231,7 +227,7 @@ Many find it incredible that John Horton Conway's Game of Life can produce and m
 
 > "[The Game of Life] was different for quite a long time. We tinkered with these rules and finally came up with the ones I said. And they really seemed to have very nice properties. Namely [we] didn't seem to be able to predict what would happen. And in the end we succeeded in proving essentially anything could happen. These things could do any kind of computation you wanted to do." -- John Horton Conway
 
-I interpret Conway to be saying that the Game of Life's complexity is really not that surprising given that the rules of the game were specifically selected in order to elicit that behavior. It's unclear to me how much the rules were selected with blind tuning versus mathematical derivation. Regardless, it has always intrigued me that if complex/interesting behavior does not initially emerge from a fairly complicated system, perhaps complex behaviors might emerge after fine-tuning parameters of that complicated system.
+I interpret Conway to be saying that the Game of Life's complexity is really not that surprising given that the rules of the game were specifically selected in order to elicit that behavior. It's unclear to me how much the rules were selected with blind tuning versus mathematical derivation. Regardless, it has always intrigued me that when a complex system doesn't produce interesting behavior right away, the fix may be tuning rather than redesign
 
 Is there a way to parameterize the instructions of Typogenetics in such a way that they become tunable? Is there a metric we can optimize toward once we do have tunable instructions?
 
@@ -239,7 +235,7 @@ Is there a way to parameterize the instructions of Typogenetics in such a way th
 
 Informed by Andreas Wagner's research, you could model the space of enzymes. A genotype is close to another genotype in genotype space if their edit distance is small. But exploration of this space to find another genotype with the same phenotype (enzyme function) is relatively easy given all of the dimensions (units of a strand) along which we can search.
 
-As Wagner explains in _Arrival of the Fittest_[^wagner], you're looking for many needles in the same haystack. If this theory is correct, it should be very easy to cross vast distances in genotype space (large strand edit distance) while remaining stationary in phenotype space (coding for the same enzyme). You would also expect the vast majority of genotypes in close proximity to each other to inhabit extremely diverse regions of phenotype space. In this way the tendrils of these genotype networks are both extremely disconnected from other networks while also being tightly interwoven.[^pipes]
+As Wagner explains in _Arrival of the Fittest_[^wagner], you're looking for many needles in the same haystack. If this theory is correct, it should be very easy to cross vast distances in genotype space (large strand edit distance) while remaining stationary in phenotype space (coding for the same enzyme). You would also expect the vast majority of genotypes in close proximity to each other to inhabit extremely diverse regions of phenotype space. In this way, the tendrils of these genotype networks are both extremely disconnected from each other while also being tightly interwoven.[^pipes]
 
 ## Extensions
 
