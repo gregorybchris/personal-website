@@ -120,7 +120,7 @@ The process of turning strands of bases into enzymes of amino acids is called **
 
 ## Folding
 
-The animation above shows an enzyme being constructed as a straight chain of amino acids. However, Typogenetics introduces a bit more complexity. Each amino acid has the possibility of inducing a 90º kink in the enzyme. The letters r, l, and s in <a href="#figure9">Figure 9</a> indicate whether the amino acid will cause the enzyme to fold right, left, or straight.
+The animation above shows an enzyme being constructed as a straight chain of amino acids. However, Typogenetics introduces a bit more complexity. Each amino acid has the possibility of inducing a 90° kink in the enzyme. The letters r, l, and s in <a href="#figure9">Figure 9</a> indicate whether the amino acid will cause the enzyme to fold right, left, or straight.
 
 Review <a href="#figure7">Figure 7</a> to see the folding behavior of every amino acid in Typogenetics.
 
@@ -131,7 +131,7 @@ Review <a href="#figure7">Figure 7</a> to see the folding behavior of every amin
   </video>
   <figcaption>
     <strong>Figure 9: </strong>
-    Folding &mdash; Akin to real life protein folding, Typogenetics adds some higher level structure to enzymes by introducing 90º kinks to amino acid chains.
+    Folding &mdash; Akin to real life protein folding, Typogenetics adds some higher level structure to enzymes by introducing 90° kinks to amino acid chains.
   </figcaption>
 </figure>
 
@@ -235,7 +235,7 @@ I interpret Conway to be saying that the Game of Life's complexity is really not
 
 Is there a way to parameterize the instructions of Typogenetics in such a way that they become tunable? Is there a metric we can optimize toward once we do have tunable instructions?
 
-### Genotype Networks
+### Genotype networks
 
 Informed by Andreas Wagner's research, you could model the space of enzymes. A genotype is close to another genotype in genotype space if their edit distance is small. But exploration of this space to find another genotype with the same phenotype (enzyme function) is relatively easy given all of the dimensions (units of a strand) along which we can search.
 
@@ -245,11 +245,11 @@ As Wagner explains in _Arrival of the Fittest_[^wagner], you're looking for many
 
 ### Larger codon size
 
-If a codon is comprised of two nucleotides, then a single base can be translated into two different amino acids depending on the initial binding site. A codon of three nucleotides allows for three distinct meanings that a single base takes on, effectively increasing the density of genes without increasing the length of a strand. There may be a very good reason living systems on Earth use a codon of size three. I would be interested to explore the effects of codons of size 4, 5, 6. The size of the instruction set need not increase to accommodate an increased number of possible codons. Just as in real biology, a large diversity of nucleotide combinations can be mapped to a smaller set of amino acids with redundancy built in. Would increasing the density of genetic information on a strand help us evolve complex systems faster?
+Borrowing two terms from biology: a nucleotide is what Typogenetics calls a base, and a codon is the group of nucleotides that codes for a single amino acid, which makes the duplets from earlier codons of size two. If a codon is comprised of two nucleotides, then a single base can be translated into two different amino acids depending on the initial binding site. A codon of three nucleotides allows for three distinct meanings that a single base takes on, effectively increasing the density of genes without increasing the length of a strand. There may be a very good reason living systems on Earth use a codon of size three. I would be interested to explore the effects of codons of size 4, 5, 6. The size of the instruction set need not increase to accommodate an increased number of possible codons. Just as in real biology, a large diversity of nucleotide combinations can be mapped to a smaller set of amino acids with redundancy built in. Would increasing the density of genetic information on a strand help us evolve complex systems faster?
 
 ### More nucleobases
 
-In real biology we have pyrimidines and purines. I would be curious to add a third category of bases. If I had to guess, C, T, G, A is close to the only code that satisfies both requirements of simplicity and error correction. Simplicity is a requirement because anything more complex would have been vanishingly unlikely to evolve out of primordial metabolic networks. And error correction, of course, to ensure genetic code would be stable enough to propagate over time. However we could have had a true binary code. Which makes me wonder what the effect would be of a hexadecimal code. Does increasing the number of available nucleotides increase the expressive power?
+In real biology we have pyrimidines and purines. I would be curious to add a third category of bases. If I had to guess, A, C, G, T is close to the only code that satisfies both requirements of simplicity and error correction. Simplicity is a requirement because anything more complex would have been vanishingly unlikely to evolve out of primordial metabolic networks. And error correction, of course, to ensure genetic code would be stable enough to propagate over time. However we could have had a true binary code. Which makes me wonder what the effect would be of a hexadecimal code. Does increasing the number of available nucleotides increase the expressive power?
 
 ### Complex instruction set
 
@@ -259,16 +259,16 @@ The instruction set of 15 amino acids that Hofstadter gives us is certainly not 
 
 I hope you enjoyed some of the visuals in this post and I hope you're as inspired by the joint simplicity and power of Typogenetics as I am.
 
-[^computational-life]: Edit (Aug. 2026): I came across ["Computational Life: How Well-formed, Self-replicating Programs Emerge from Simple Interaction"](https://arxiv.org/abs/2406.19108) by Blaise Agüera y Arcas and colleagues (2024), which is very relevant to open-ended search for interesting programs. They find that self-replicators arise from random interactions between programs with no explicit fitness function at all.
-
 [^geb]: Douglas R. Hofstadter, _Gödel, Escher, Bach: An Eternal Golden Braid_ (Basic Books, 1979). Typogenetics is introduced in Chapter XVI, "Self-Rep and Self-Rep".
+
+[^computational-life]: Edit (Aug. 2026): I came across ["Computational Life: How Well-formed, Self-replicating Programs Emerge from Simple Interaction"](https://arxiv.org/abs/2406.19108) by Blaise Agüera y Arcas and colleagues (2024), which is very relevant to open-ended search for interesting programs. They find that self-replicators arise from random interactions between programs with no explicit fitness function at all.
 
 [^axelrod-hamilton]: Robert Axelrod and William D. Hamilton, ["The Evolution of Cooperation"](https://doi.org/10.1126/science.7466396), _Science_ 211(4489), 1981, 1390–1396.
 
 [^nowak-may]: Martin A. Nowak and Robert M. May, ["Evolutionary Games and Spatial Chaos"](https://doi.org/10.1038/359826a0), _Nature_ 359(6398), 1992, 826–829.
 
-[^wagner]: Andreas Wagner, [_Arrival of the Fittest: Solving Evolution's Greatest Puzzle_](https://www.goodreads.com/book/show/20821275-arrival-of-the-fittest) (Current, 2014).
-
 [^conway-interview]: John Horton Conway, [interviewed by Numberphile](https://youtu.be/R9Plq-D1gEk?si=-uQe6GJrdUg9m6eh&t=290). The quote begins around 4:50.
+
+[^wagner]: Andreas Wagner, [_Arrival of the Fittest: Solving Evolution's Greatest Puzzle_](https://www.goodreads.com/book/show/20821275-arrival-of-the-fittest) (Current, 2014).
 
 [^pipes]: If you want the mental image, I think of Wagner's networks as the Windows 3D Pipes screensaver. There's a [browser demo](https://1j01.github.io/pipes) and Raymond Chen wrote up [its history](https://devblogs.microsoft.com/oldnewthing/20240611-00/?p=109881). Pipes of different colors (different enzyme functions) can be very close together (similar genotype).
