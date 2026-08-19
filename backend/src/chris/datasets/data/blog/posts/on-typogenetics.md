@@ -12,7 +12,7 @@ Maybe you've never heard of Typogenetics before or maybe you're a long time fan 
 
 Typogenetics, short for "typographical genetics", is a simplification of biology. It's an artificial system that explores some of the coolest computational features of genetics while ignoring much of the messy chemistry and physics.
 
-Over the next few sections, we'll lay out the rules of Typogenetics, starting simple and slowly adding complexity.
+Over the next few sections, we'll lay out the rules of Typogenetics, starting simple and slowly adding complexity. Throughout, I'll provide visualizations where I think they may help.
 
 ## Building blocks
 
@@ -32,7 +32,7 @@ If we string a few of these bases together we'll call that a **strand**. Each po
 
 ## Rewriting
 
-Typogenetics defines a small set of rules, that when applied to a strand, rewrite it into a new strand. Each rule is called an **amino acid**. A sequence of these rules is called an **enzyme**. Let's look at an example of an enzyme made up of three rules:
+Typogenetics defines a small set of rules, that when applied to a strand, rewrite it into a new strand. Each rule is called an **amino acid**. A sequence of these rules is called an **enzyme**. Let's look at an example of an enzyme made up of three amino acids:
 
 - Rule 1 -- `del`: Delete the base to which the enzyme is bound (and then bind to the next unit to the right).
 - Rule 2 -- `mvr`: Move one unit to the right.
@@ -92,14 +92,14 @@ Next let's see what happens if we cut while the strand is being copied. You can 
 
 ## Closing the loop
 
-Fans of Typogenetics and biologists will have predicted this next magical step. We create a mapping between amino acids and pairs of bases. Every unique pair of bases "codes" for a single amino acid.
-
-Now, not only can enzymes operate on strands, but those same strands can themselves be treated as enzymes. All we need to do is take a strand, use this chart to convert pairs of bases into amino acids, and we have a new enzyme that can itself operate on strands.
+Fans of Typogenetics (and biologists) will have predicted this next magical step. We create a mapping between amino acids and pairs of bases. Every unique pair of bases "codes" for a single amino acid.
 
 <figure id="figure7">
   <img src="https://storage.googleapis.com/cgme/blog/posts/on-typogenetics/amino-acid-table.svg?cache1" width="300">
   <figcaption><strong>Figure 7: </strong>Amino acids &mdash; This table shows the mapping from pairs of bases to their corresponding amino acids.</figcaption>
 </figure>
+
+Now, not only can enzymes operate on strands, but those same strands can themselves be treated as enzymes. All we need to do is take a strand, use this chart to convert pairs of bases into amino acids, and we have a new enzyme that can itself operate on strands.
 
 > Note: The AA duplet does not code for an amino acid. It is reserved as a "punctuation mark" to mean "end of enzyme". Multiple amino acid sequences can be created from a single strand during translation.
 
@@ -120,7 +120,7 @@ The process of turning strands of bases into enzymes of amino acids is called **
 
 ## Folding
 
-In Figure 8, we showed the enzyme being constructed as a straight chain of amino acids. In Typogenetics, we introduce a bit more complexity. Each amino acid has the possibility of inducing a 90º kink in the enzyme. "r" indicates a right turn in the enzyme, "l" indicates a left turn, and "s" indicates no turn induced and the enzyme remains straight at that amino acid. Figure 7 shows the full mapping from amino acids to folding directions.
+The animation above shows an enzyme being constructed as a straight chain of amino acids. However, Typogenetics introduces a bit more complexity. Each amino acid has the possibility of inducing a 90º kink in the enzyme. "r" indicates a right turn in the enzyme, "l" indicates a left turn, and "s" indicates no turn induced and the enzyme remains straight at that amino acid. Figure 7 shows the full mapping from amino acids to folding directions.
 
 <figure id="figure9">
   <video width="450" autoplay muted loop playsinline>
@@ -254,9 +254,15 @@ Informed by Andreas Wagner's research, you could model the space of enzymes. A g
 I hope you enjoyed some of the visuals in this post.
 
 [^computational-life]: Edit (Aug. 2026): I came across ["Computational Life: How Well-formed, Self-replicating Programs Emerge from Simple Interaction"](https://arxiv.org/abs/2406.19108) by Blaise Agüera y Arcas and colleagues (2024), which is very relevant to open-ended search for interesting programs. They find that self-replicators arise from random interactions between programs with no explicit fitness function at all.
+
 [^geb]: Douglas R. Hofstadter, _Gödel, Escher, Bach: An Eternal Golden Braid_ (Basic Books, 1979). Typogenetics is introduced in Chapter XVI, "Self-Rep and Self-Rep".
+
 [^axelrod-hamilton]: Robert Axelrod and William D. Hamilton, ["The Evolution of Cooperation"](https://doi.org/10.1126/science.7466396), _Science_ 211(4489), 1981, 1390–1396.
+
 [^nowak-may]: Martin A. Nowak and Robert M. May, ["Evolutionary Games and Spatial Chaos"](https://doi.org/10.1038/359826a0), _Nature_ 359(6398), 1992, 826–829.
+
 [^wagner]: Andreas Wagner, [_Arrival of the Fittest: Solving Evolution's Greatest Puzzle_](https://www.goodreads.com/book/show/20821275-arrival-of-the-fittest) (Current, 2014).
+
 [^conway-interview]: John Horton Conway, [interviewed by Numberphile](https://youtu.be/R9Plq-D1gEk?si=-uQe6GJrdUg9m6eh&t=290). The quote begins around 4:50.
+
 [^pipes]: If you want the mental image, it's the Windows 3D Pipes screensaver. There's a [browser demo](https://1j01.github.io/pipes) and Raymond Chen wrote up [its history](https://devblogs.microsoft.com/oldnewthing/20240611-00/?p=109881).
