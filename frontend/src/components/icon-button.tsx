@@ -5,6 +5,8 @@ interface IconButtonProps {
   onClick?: () => void;
   enabled?: boolean;
   className?: string;
+  // Names an icon-only button, which has no text of its own to read.
+  label?: string;
 }
 
 export function IconButton({
@@ -12,6 +14,7 @@ export function IconButton({
   onClick,
   enabled = true,
   className,
+  label,
 }: IconButtonProps) {
   return (
     <button
@@ -21,6 +24,8 @@ export function IconButton({
         !enabled && "opacity-50 hover:cursor-not-allowed hover:bg-transparent",
         className,
       )}
+      title={label}
+      aria-label={label}
       aria-disabled={!enabled}
       disabled={!enabled}
     >

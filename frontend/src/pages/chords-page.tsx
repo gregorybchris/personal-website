@@ -1,5 +1,7 @@
 import {
   ArrowCounterClockwiseIcon,
+  ArrowsInIcon,
+  ArrowsOutIcon,
   CaretDownIcon,
   CaretUpIcon,
   CopyIcon,
@@ -70,6 +72,7 @@ export function ChordsPage() {
   const offset = Number.isNaN(offsetParam) ? 0 : offsetParam;
   const symbols = searchParams.get("symbols") === "true";
   const functions = searchParams.get("functions") === "true";
+  const fullscreen = searchParams.get("fullscreen") === "true";
   const selectedIdRaw = searchParams.get("id");
 
   // Hold the latest params in a ref so updateParams can stay a stable
@@ -93,7 +96,8 @@ export function ChordsPage() {
     [navigate],
   );
 
-  // 0 and both toggles off are the defaults, so they stay out of the URL.
+  // 0, both toggles off, and windowed are the defaults, so they stay out of
+  // the URL.
   const setOffset = (value: number) =>
     updateParams({ offset: value === 0 ? null : String(value) });
 
@@ -155,6 +159,41 @@ export function ChordsPage() {
     [songs, selectedId],
   );
 
+  const exitFullscreen = useCallback(
+    () => updateParams({ fullscreen: null }),
+    [updateParams],
+  );
+
+  // Escape is how every other fullscreen view on the web closes, and in this
+  // one the exit button is the only other way out.
+  useEffect(() => {
+    if (!fullscreen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") exitFullscreen();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [fullscreen, exitFullscreen]);
+
+  // Fullscreen covers the site nav as well as the page, so it is laid over
+  // everything rather than nested in the normal page flow.
+  if (fullscreen) {
+    return (
+      <div className="bg-parchment fixed inset-0 z-50 flex flex-col p-4 md:p-8">
+        {error ? (
+          <ErrorMessage message={error} className="mt-8" />
+        ) : (
+          <SongDetail
+            song={selectedSong}
+            loading={loading}
+            fullscreen
+            onToggleFullscreen={exitFullscreen}
+          />
+        )}
+      </div>
+    );
+  }
+
   return (
     <div className="bg-parchment min-h-screen px-4 py-8 md:px-8">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6">
@@ -185,7 +224,12 @@ export function ChordsPage() {
             />
 
             <div className="flex flex-1 flex-col gap-4 md:flex-row">
-              <SongDetail song={selectedSong} loading={loading} />
+              <SongDetail
+                song={selectedSong}
+                loading={loading}
+                fullscreen={false}
+                onToggleFullscreen={() => updateParams({ fullscreen: "true" })}
+              />
               <ControlPanel
                 song={selectedSong}
                 offset={offset}
@@ -458,6 +502,8 @@ function Toggle({ label, on, onToggle, title, disabled }: ToggleProps) {
 interface SongDetailProps {
   song: Song | null;
   loading: boolean;
+  fullscreen: boolean;
+  onToggleFullscreen: () => void;
 }
 
 // A function line describes the chord line right under it, so the two are
@@ -482,7 +528,12 @@ function toBlocks(chart: ChartLine[]): ChartBlock[] {
   return blocks;
 }
 
-function SongDetail({ song, loading }: SongDetailProps) {
+function SongDetail({
+  song,
+  loading,
+  fullscreen,
+  onToggleFullscreen,
+}: SongDetailProps) {
   const chart = song?.chart ?? [];
   const blocks = useMemo(() => toBlocks(song?.chart ?? []), [song]);
 
@@ -520,8 +571,25 @@ function SongDetail({ song, loading }: SongDetailProps) {
   const noteIcon = NOTE_ICONS[song.beatDuration ?? "quarter"] ?? noteQuarter;
 
   return (
-    <div className="flex flex-1 flex-col gap-4 rounded-xl border border-black/10 bg-white p-5 shadow-sm md:p-7">
-      <div className="flex flex-col items-center gap-1 text-center md:items-start md:text-left">
+    <div
+      className={cn(
+        "relative flex flex-1 flex-col gap-4 rounded-xl border border-black/10 bg-white p-5 shadow-sm md:p-7",
+        fullscreen && "min-h-0",
+      )}
+    >
+      <IconButton
+        onClick={onToggleFullscreen}
+        label={fullscreen ? "Exit full screen" : "Full screen"}
+        className="absolute top-3 right-3 z-10 px-2"
+      >
+        {fullscreen ? (
+          <ArrowsInIcon size={20} weight="duotone" color="#6283c0" />
+        ) : (
+          <ArrowsOutIcon size={20} weight="duotone" color="#6283c0" />
+        )}
+      </IconButton>
+
+      <div className="flex flex-col items-center gap-1 px-8 text-center md:items-start md:px-0 md:text-left">
         <h1 className="font-sanchez text-2xl text-balance text-black/85 md:text-4xl">
           {song.title}
         </h1>
@@ -530,7 +598,7 @@ function SongDetail({ song, loading }: SongDetailProps) {
         </div>
       </div>
 
-      {(song.tempo !== null || song.key) && (
+      {!fullscreen && (song.tempo !== null || song.key) && (
         <div className="flex flex-row flex-wrap items-center justify-center gap-x-5 gap-y-2 border-y border-black/10 py-3 md:justify-start">
           {song.tempo !== null && (
             <div className="flex flex-row items-center gap-0" title="Tempo">
@@ -555,7 +623,12 @@ function SongDetail({ song, loading }: SongDetailProps) {
         </div>
       )}
 
-      <div className="font-geist bg-dark-parchment h-[340px] w-full overflow-auto rounded-lg border border-black/10 p-3 text-sm tracking-wide whitespace-pre text-black/80 md:p-4 md:text-xl">
+      <div
+        className={cn(
+          "font-geist bg-dark-parchment w-full overflow-auto rounded-lg border border-black/10 p-3 text-sm tracking-wide whitespace-pre text-black/80 md:p-4 md:text-xl",
+          fullscreen ? "min-h-0 flex-1" : "h-[340px]",
+        )}
+      >
         {blocks.map((block, index) =>
           block.kind === "blank" ? (
             <div key={index} className="h-4" />
@@ -572,10 +645,12 @@ function SongDetail({ song, loading }: SongDetailProps) {
         )}
       </div>
 
-      <IconButton onClick={onCopy} className="self-center md:self-end">
-        <CopyIcon size={20} weight="duotone" color="#6283c0" />
-        <span className="text-md">Copy</span>
-      </IconButton>
+      {!fullscreen && (
+        <IconButton onClick={onCopy} className="self-center md:self-end">
+          <CopyIcon size={20} weight="duotone" color="#6283c0" />
+          <span className="text-md">Copy</span>
+        </IconButton>
+      )}
     </div>
   );
 }
