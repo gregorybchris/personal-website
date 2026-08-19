@@ -3,7 +3,7 @@ date: 2025-11-12
 slug: decentralized-transportation
 title: What If All Roads Were Toll Roads?
 archived: false
-status: draft
+status: new
 ---
 
 I want to talk about decentralized autonomous transportation. Never heard of it? I made it up. Was I the first to invent it? Probably not. But admittedly I haven't gone down the deep deep rabbit hole that is transit nerd internet, so for now, I'll just imagine it's my own creation.
