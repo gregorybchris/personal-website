@@ -253,6 +253,17 @@
     "link": "https://www.imdb.com/title/tt0436992"
   },
   {
+    "name": "Hal & Harper",
+    "genres": ["drama", "comedy"],
+    "scores": {
+      "plot": 6,
+      "characters": 8,
+      "production": 7,
+      "dialog": 9
+    },
+    "link": "https://www.imdb.com/title/tt30895499"
+  },
+  {
     "name": "Peaky Blinders",
     "genres": ["drama"],
     "scores": {
