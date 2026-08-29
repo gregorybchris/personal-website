@@ -2093,5 +2093,41 @@
     "image_links": ["https://storage.googleapis.com/cgme/projects/images/metaphorist--01.png"],
     "primary_language": "TypeScript",
     "archived": false
+  },
+  {
+    "project_id": "072d1eaa-a9a2-4a68-875d-3db6a04733a6",
+    "name": "Seaddle",
+    "slug": "seaddle",
+    "date": "2026-08-28",
+    "rating": 9,
+    "project_type": "visualization",
+    "controls": "Click segments to build a route. Cmd+Z and Cmd+Shift+Z to undo and redo.",
+    "short_description": "Route-building map for new cyclists in the Seattle area.",
+    "description": "Seaddle is a route-building map for new cyclists around Seattle. Every segment carries hand-reviewed attributes, so the map can be colored by steepness, protection, surroundings, or surface. Your route can be exported as GPX.",
+    "remarks": null,
+    "tags": ["cycling", "bike", "seattle", "routes", "map", "graph", "gpx"],
+    "tools": [
+      "TypeScript",
+      "pnpm",
+      "Vite",
+      "React",
+      "Tailwind CSS",
+      "Mapbox GL",
+      "react-map-gl",
+      "Radix",
+      "Phosphor Icons",
+      "Vitest",
+      "tsx",
+      "fast-xml-parser",
+      "Vercel",
+      "GoatCounter"
+    ],
+    "source_link": null,
+    "download_link": null,
+    "web_link": "https://seaddle.com",
+    "original_link": null,
+    "image_links": ["https://storage.googleapis.com/cgme/projects/images/seaddle--01.png"],
+    "primary_language": "TypeScript",
+    "archived": false
   }
 ]
