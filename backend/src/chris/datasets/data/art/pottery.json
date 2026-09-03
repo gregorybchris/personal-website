@@ -135,7 +135,7 @@
       "width": 4.75,
       "height": 5.25
     },
-    "price": 50,
+    "price": null,
     "favorite": true,
     "archived": false
   },
@@ -358,7 +358,7 @@
       "width": 3,
       "height": 4.5
     },
-    "price": 30,
+    "price": null,
     "favorite": true,
     "archived": false
   },
