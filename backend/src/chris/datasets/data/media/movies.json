@@ -264,6 +264,17 @@
     "link": "https://www.imdb.com/title/tt1895587"
   },
   {
+    "name": "Arrival",
+    "genres": ["scifi", "drama"],
+    "scores": {
+      "plot": 9,
+      "characters": 4,
+      "production": 7,
+      "dialog": 6
+    },
+    "link": "https://www.imdb.com/title/tt2543164"
+  },
+  {
     "name": "Without Limits",
     "genres": ["historical fiction"],
     "scores": {
