@@ -172,7 +172,11 @@ export function ProjectsTimeline({
         return;
       }
       const circle = container.circle;
-      circle.attr("cy", +circle.attr("cy") + fy);
+      // Force circles inside the canvas
+      const margin = +circle.attr("r") + +circle.attr("stroke-width") / 2;
+      const height = GraphicsConstants.HEIGHT;
+      const cy = clip(+circle.attr("cy") + fy, margin, height - margin);
+      circle.attr("cy", cy);
     });
   }
 
