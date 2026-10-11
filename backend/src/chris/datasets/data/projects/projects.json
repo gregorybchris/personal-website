@@ -2129,5 +2129,50 @@
     "image_links": ["https://storage.googleapis.com/cgme/projects/images/seaddle--01.png"],
     "primary_language": "TypeScript",
     "archived": false
+  },
+  {
+    "project_id": "edcf864a-1d11-4a92-9ef1-5b393e8cd317",
+    "name": "Tempest",
+    "slug": "tempest",
+    "date": "2026-10-10",
+    "rating": 8,
+    "project_type": "tool",
+    "controls": null,
+    "short_description": "Peer-to-peer file sharing protocol and client.",
+    "description": "Tempest is a peer-to-peer file sharing protocol and client. It's intended for learning purposes and comes with a simulator to test hypothetical network conditions.",
+    "remarks": null,
+    "tags": ["p2p", "file sharing", "networking", "protocol"],
+    "tools": [
+      "Rust",
+      "tokio",
+      "QUIC",
+      "quinn",
+      "rustls",
+      "axum",
+      "reqwest",
+      "clap",
+      "SQLite",
+      "DuckDB",
+      "Tantivy",
+      "Ratatui",
+      "Leptos",
+      "WebAssembly",
+      "Trunk",
+      "proptest",
+      "GitHub Actions"
+    ],
+    "source_link": "https://github.com/gregorybchris/tempest",
+    "download_link": "https://github.com/gregorybchris/tempest/releases/latest",
+    "web_link": null,
+    "original_link": null,
+    "image_links": [
+      "https://storage.googleapis.com/cgme/projects/images/tempest--client-transfers.png",
+      "https://storage.googleapis.com/cgme/projects/images/tempest--client-settings.png",
+      "https://storage.googleapis.com/cgme/projects/images/tempest--tracker-browse.png",
+      "https://storage.googleapis.com/cgme/projects/images/tempest--tracker-listing.png",
+      "https://storage.googleapis.com/cgme/projects/images/tempest--tracker-user.png"
+    ],
+    "primary_language": "Rust",
+    "archived": false
   }
 ]
