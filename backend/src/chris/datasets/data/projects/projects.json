@@ -2103,7 +2103,7 @@
     "project_type": "visualization",
     "controls": "Click segments to build a route. Cmd+Z and Cmd+Shift+Z to undo and redo.",
     "short_description": "Route-building map for new cyclists in the Seattle area.",
-    "description": "Seaddle is a route-building map for new cyclists around Seattle. Every segment carries hand-reviewed attributes, so the map can be colored by steepness, protection, surroundings, or surface. Your route can be exported as GPX.",
+    "description": "Seaddle is a route-building map for new cyclists around Seattle. Segment can be colored by steepness, bike-lane/path protection, or surroundings to help you choose the best route.",
     "remarks": null,
     "tags": ["cycling", "bike", "seattle", "routes", "map", "graph", "gpx"],
     "tools": [
