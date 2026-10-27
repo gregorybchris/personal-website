@@ -3,7 +3,6 @@ import {
   CircuitryIcon,
   EnvelopeIcon,
   HouseIcon,
-  MusicNotesIcon,
   NotePencilIcon,
   SneakerMoveIcon,
 } from "@phosphor-icons/react";
@@ -37,9 +36,6 @@ export function Nav() {
       </NavPageLink>
       <NavPageLink to="/books" name="Books">
         <BooksIcon size={iconSize} weight="duotone" color="#6283c0" />
-      </NavPageLink>
-      <NavPageLink to="/music" name="Music">
-        <MusicNotesIcon size={iconSize} weight="duotone" color="#6283c0" />
       </NavPageLink>
       <NavPageLink to="/pottery" name="Pottery">
         <img src={vaseIcon} className="size-6" />

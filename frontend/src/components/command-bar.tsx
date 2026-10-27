@@ -46,10 +46,6 @@ export function CommandBar() {
       route: "/contact",
     },
     {
-      name: "Music",
-      route: "/music",
-    },
-    {
       name: "Projects",
       route: "/projects",
     },

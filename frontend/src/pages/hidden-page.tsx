@@ -22,6 +22,7 @@ export function HiddenPage() {
           <PageLink to="/scene">Scene</PageLink>
           <div className="w-4 border-1 border-black/10"></div>
 
+          <PageLink to="/music">Music</PageLink>
           <PageLink to="/artists">Artists</PageLink>
           <div className="w-4 border-1 border-black/10"></div>
 

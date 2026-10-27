@@ -2,7 +2,6 @@ import {
   BooksIcon,
   CircuitryIcon,
   EnvelopeIcon,
-  MusicNotesIcon,
   NotePencilIcon,
   SneakerMoveIcon,
 } from "@phosphor-icons/react";
@@ -31,9 +30,6 @@ export function HomePage() {
             </PageLink>
             <PageLink to="/books" name="Books">
               <BooksIcon size={24} weight="duotone" color="#6283c0" />
-            </PageLink>
-            <PageLink to="/music" name="Music">
-              <MusicNotesIcon size={24} weight="duotone" color="#6283c0" />
             </PageLink>
             <PageLink to="/pottery" name="Pottery">
               <img src={vaseIcon} className="size-6" />

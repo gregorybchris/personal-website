@@ -80,7 +80,6 @@ function Layout() {
           <Route path="/running" element={<RunningPage />}>
             <Route path=":slug" element={<RunningPage />} />
           </Route>
-          <Route path="/music" element={<MusicPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/books" element={<BooksPage />} />
@@ -91,6 +90,7 @@ function Layout() {
           <Route path="/hidden" element={<HiddenPage />} />
 
           {/* Hidden media */}
+          <Route path="/music" element={<MusicPage />} />
           <Route path="/artists" element={<ArtistsPage />} />
           <Route path="/instagrams" element={<InstagramsPage />}>
             <Route path=":id" element={<InstagramsPage />} />

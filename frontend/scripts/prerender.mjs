@@ -266,7 +266,6 @@ function generateSitemap(posts) {
     "/blog",
     "/projects",
     "/running",
-    "/music",
     "/books",
     "/pottery",
     "/contact",
