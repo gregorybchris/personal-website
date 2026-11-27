@@ -167,7 +167,8 @@ def media_search(
             if token in tags:
                 score += 1
 
-        if item.get("creator") is not None and item["creator"].lower() == query.lower():
+        creators = item.get("creators") or [item.get("creator")]
+        if any(creator is not None and creator.lower() == query.lower() for creator in creators):
             score += 10
         scores.append((item, score))
     sorted_scores = sorted(scores, key=lambda x: x[1], reverse=True)

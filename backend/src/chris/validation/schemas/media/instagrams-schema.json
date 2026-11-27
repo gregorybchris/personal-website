@@ -22,15 +22,18 @@
             "unique": ["@all"]
           }
         },
-        "creator": [
-          "null",
-          {
+        "creators": {
+          "type": "array",
+          "elem": {
             "type": "string",
             "cons": {
               "format": { "type": "regex", "pattern": "^.{2,120}$" }
             }
+          },
+          "cons": {
+            "unique": ["@all"]
           }
-        ],
+        },
         "upload_date": ["#date", "null"],
         "favorite": "boolean"
       }
