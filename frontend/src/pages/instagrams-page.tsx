@@ -11,7 +11,7 @@ export interface Instagram {
   id: string;
   url: string;
   tags: string[];
-  creator?: string;
+  creators: string[];
   favorite: boolean;
 }
 
@@ -97,7 +97,7 @@ export function InstagramCard({
   updateQuery,
   className,
 }: InstagramCardProps) {
-  const creator = instagram.creator;
+  const creator = instagram.creators[0];
 
   return (
     <div className={cn("flex flex-col items-center gap-y-2", className)}>
